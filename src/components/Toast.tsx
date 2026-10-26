@@ -1,3 +1,4 @@
+import { useI18n } from "../i18n";
 import { Check, X } from "./Icons";
 
 interface ToastProps {
@@ -6,6 +7,8 @@ interface ToastProps {
 }
 
 export function Toast({ message, onClose }: ToastProps) {
+  const { t } = useI18n();
+
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[100] flex justify-center px-4">
       <div
@@ -20,7 +23,7 @@ export function Toast({ message, onClose }: ToastProps) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Bildirimi kapat"
+          aria-label={t("toast.dismiss")}
           className="ml-1 grid h-6 w-6 shrink-0 place-items-center rounded-md text-white/25 transition-colors hover:bg-white/[0.06] hover:text-white/70"
         >
           <X className="h-3 w-3" />

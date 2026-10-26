@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { copyText } from "../lib/clipboard";
+import { useI18n } from "../i18n";
 
 export function useCopy(onNotify?: (message: string) => void) {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -12,20 +14,20 @@ export function useCopy(onNotify?: (message: string) => void) {
   }, []);
 
   const copy = useCallback(
-    async (text: string, message = "Kod panoya kopyalandı") => {
+    async (text: string, message?: string) => {
       const ok = await copyText(text);
       if (!ok) {
-        onNotify?.("Kopyalanamadı · tarayıcı iznini kontrol et");
+        onNotify?.(t("toast.copyFailed"));
         return false;
       }
 
       setCopied(true);
-      onNotify?.(message);
+      onNotify?.(message ?? t("toast.copied"));
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => setCopied(false), 2200);
       return true;
     },
-    [onNotify],
+    [onNotify, t],
   );
 
   return { copied, copy };

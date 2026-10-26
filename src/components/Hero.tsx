@@ -1,5 +1,6 @@
 import { useEffect, useRef, type FormEvent } from "react";
 import type { LibraryState } from "../hooks/useScriptLibrary";
+import { useI18n } from "../i18n";
 import { formatCompact, timeAgo } from "../lib/format";
 import { ArrowRight, Search, Sparkles, X } from "./Icons";
 
@@ -28,6 +29,7 @@ export function Hero({
   libraryState,
   popularSearches,
 }: HeroProps) {
+  const { t, locale } = useI18n();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -49,16 +51,21 @@ export function Hero({
 
   const trimmedQuery = query.trim();
 
+  const syncValue =
+    libraryState === "live"
+      ? timeAgo(lastSync, locale).replace(locale === "tr" ? " önce" : " ago", "")
+      : t("hero.statLocal");
+
   const stats = [
-    { value: formatCompact(scriptCount), label: "Canlı script" },
-    { value: formatCompact(gameCount), label: "Desteklenen oyun" },
+    { value: formatCompact(scriptCount, locale), label: t("hero.statScripts") },
+    { value: formatCompact(gameCount, locale), label: t("hero.statGames") },
     {
-      value: `${workingRate.toLocaleString("tr-TR", { maximumFractionDigits: 1 })}%`,
-      label: "Çalışma oranı",
+      value: `${workingRate.toLocaleString(locale === "tr" ? "tr-TR" : "en-US", { maximumFractionDigits: 1 })}%`,
+      label: t("hero.statWorking"),
     },
     {
-      value: libraryState === "live" ? timeAgo(lastSync).replace(" önce", "") : "Yerel",
-      label: libraryState === "live" ? "Son senkron" : "Veri kaynağı",
+      value: syncValue,
+      label: libraryState === "live" ? t("hero.statSync") : t("hero.statSource"),
     },
   ];
 
@@ -80,14 +87,15 @@ export function Hero({
           </span>
           <span className="font-mono text-[9.5px] font-medium uppercase tracking-[0.2em] text-white/55">
             {libraryState === "live"
-              ? "Kütüphane canlı"
+              ? t("hero.badgeLive")
               : libraryState === "loading"
-                ? "Kütüphane yükleniyor"
-                : "Küratör seçkisi"}
+                ? t("hero.badgeLoading")
+                : t("hero.badgeCurated")}
           </span>
           <span aria-hidden="true" className="h-3 w-px bg-white/15" />
           <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-neon/80">
-            {formatCompact(scriptCount)} script
+            {formatCompact(scriptCount, locale)}{" "}
+            {scriptCount === 1 ? t("explorer.scriptOne") : t("explorer.scriptMany")}
           </span>
         </div>
 
@@ -105,9 +113,8 @@ export function Hero({
           className="animate-rise mx-auto mt-5 max-w-xl text-[13.5px] leading-relaxed text-white/55 sm:text-[15px]"
           style={{ animationDelay: "200ms" }}
         >
-          ScriptBlox kataloğundan otomatik çekilen, kategori kategori keşfedebileceğin
-          canlı script akışı.
-          <span className="text-white/70"> İncele, kopyala, kullan.</span>
+          {t("hero.subtitle")}
+          <span className="text-white/70">{t("hero.subtitleEmphasis")}</span>
         </p>
 
         <form
@@ -133,15 +140,15 @@ export function Hero({
                 autoComplete="off"
                 spellCheck={false}
                 enterKeyHint="search"
-                aria-label="Script ara"
-                placeholder="Oyun, script veya özellik ara…"
+                aria-label={t("hero.searchAria")}
+                placeholder={t("hero.searchPlaceholder")}
                 className="h-11 min-w-0 flex-1 appearance-none bg-transparent text-[13.5px] font-normal text-white placeholder:text-white/30 focus:outline-none sm:text-[14px] [&::-webkit-search-cancel-button]:hidden"
               />
               {trimmedQuery && (
                 <button
                   type="button"
                   onClick={() => onQueryChange("")}
-                  aria-label="Aramayı temizle"
+                  aria-label={t("hero.clearSearch")}
                   className="grid h-7 w-7 shrink-0 place-items-center rounded-lg text-white/35 transition-colors hover:bg-white/[0.06] hover:text-white"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -154,7 +161,7 @@ export function Hero({
                 type="submit"
                 className="group/btn inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-neon to-electric px-3.5 text-[12.5px] font-semibold text-[#02070a] shadow-[0_8px_24px_-10px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_10px_30px_-8px_rgba(0,240,255,0.95)] sm:px-4"
               >
-                <span>Ara</span>
+                <span>{t("hero.search")}</span>
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" strokeWidth={2.2} />
               </button>
             </div>
@@ -165,7 +172,9 @@ export function Hero({
               <>
                 <Sparkles className="h-3 w-3 text-neon/60" />
                 <span>
-                  <span className="font-medium text-neon">{resultCount}</span> script bulundu
+                  {resultCount === 1
+                    ? t("hero.foundOne")
+                    : t("hero.foundMany", { count: resultCount })}
                 </span>
                 <span aria-hidden="true" className="text-white/15">·</span>
                 <button
@@ -173,13 +182,11 @@ export function Hero({
                   onClick={() => onQueryChange("")}
                   className="text-white/45 underline decoration-white/20 underline-offset-2 transition-colors hover:text-white"
                 >
-                  temizle
+                  {t("hero.clear")}
                 </button>
               </>
             ) : (
-              <span className="hidden sm:inline">
-                Enter ile ara · ⌘K ile arama çubuğuna atla
-              </span>
+              <span className="hidden sm:inline">{t("hero.keyboardHint")}</span>
             )}
           </div>
         </form>
@@ -189,7 +196,7 @@ export function Hero({
           style={{ animationDelay: "340ms" }}
         >
           <span className="mr-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
-            Popüler
+            {t("hero.popular")}
           </span>
           {popularSearches.map((term) => (
             <button

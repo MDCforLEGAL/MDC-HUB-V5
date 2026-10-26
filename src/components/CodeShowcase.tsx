@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCopy } from "../hooks/useCopy";
+import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { CodeBlock } from "./CodeBlock";
 import { Reveal } from "./Reveal";
@@ -15,7 +16,7 @@ import {
 } from "./Icons";
 
 const loaderCode = `-- MDC HUB · Universal Loader v5
--- discord.gg/mdchub · keyless & güncel
+-- discord.gg/mdchub · keyless & up to date
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -33,7 +34,7 @@ local function fetchModule(id)
         return game:HttpGet("https://api.mdchub.dev/v5/" .. id)
     end)
     if not ok then
-        warn("[MDC] Bağlantı hatası · yeniden deneniyor")
+        warn("[MDC] Connection error · retrying")
         task.wait(1)
         return fetchModule(id)
     end
@@ -43,12 +44,12 @@ end
 local function loadScript(id)
     local source = fetchModule(id)
     local chunk = loadstring(source)
-    if not chunk then return warn("[MDC] Modül doğrulanamadı") end
+    if not chunk then return warn("[MDC] Module could not be verified") end
     return chunk()
 end
 
 loadScript("blox-fruits/autofarm")
-print(("[MDC] Hazır · v%s"):format(MDC.version))`;
+print(("[MDC] Ready · v%s"):format(MDC.version))`;
 
 const configCode = `-- MDC HUB · config / v5
 local CONFIG = {
@@ -69,7 +70,7 @@ local function save(preset)
     writefile("mdc/config.lua", string.format(
         "return %s", preset or CONFIG
     ))
-    print("[MDC] Ayarlar kaydedildi")
+    print("[MDC] Settings saved")
 end
 
 save(CONFIG)`;
@@ -82,31 +83,32 @@ const samples = [
 const features = [
   {
     icon: ShieldCheck,
-    title: "Doğrulanmış kaynak",
-    description: "Her satır yayın öncesi imzalanır.",
+    titleKey: "code.featureSourceTitle",
+    descriptionKey: "code.featureSourceDesc",
   },
   {
     icon: Zap,
-    title: "Anında kopyala",
-    description: "Tek tıkla panoda, kurulum yok.",
+    titleKey: "code.featureCopyTitle",
+    descriptionKey: "code.featureCopyDesc",
   },
   {
     icon: RefreshCw,
-    title: "Otomatik güncelleme",
-    description: "Yeni sürümler canlı senkronize.",
+    titleKey: "code.featureUpdateTitle",
+    descriptionKey: "code.featureUpdateDesc",
   },
   {
     icon: Lock,
-    title: "Keyless erişim",
-    description: "Gizli anahtar, gereksiz adım yok.",
+    titleKey: "code.featureKeylessTitle",
+    descriptionKey: "code.featureKeylessDesc",
   },
-];
+] as const;
 
 interface CodeShowcaseProps {
   onNotify: (message: string) => void;
 }
 
 export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
+  const { t } = useI18n();
   const [activeId, setActiveId] = useState("loader");
   const active = samples.find((sample) => sample.id === activeId) ?? samples[0];
   const { copied, copy } = useCopy(onNotify);
@@ -125,31 +127,32 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
           <Reveal>
             <div className="flex items-center gap-2.5">
               <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-              <span className="section-kicker text-neon/70">Geliştirici Deneyimi</span>
+              <span className="section-kicker text-neon/70">{t("code.kicker")}</span>
             </div>
 
             <h2 className="mt-4 max-w-md font-display text-[30px] font-medium leading-[1.06] tracking-[-0.035em] text-white sm:text-[42px]">
-              Tek satır.{" "}
+              {t("code.titleLead")}
               <span className="bg-gradient-to-r from-[#CFFBFF] via-neon to-[#4E86FF] bg-clip-text text-transparent">
-                Tüm güç.
+                {t("code.titleHighlight")}
               </span>
             </h2>
 
             <p className="mt-4 max-w-md text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-              MDC Engine, doğrulanmış modülleri tek bir `loadstring` çağrısıyla yükler.
-              Sürümler arka planda güncellenir; sen sadece oyununa odaklanırsın.
+              {t("code.description")}
             </p>
 
             <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
               {features.map((feature) => (
-                <div key={feature.title} className="flex items-start gap-3">
+                <div key={feature.titleKey} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-neon/70">
                     <feature.icon className="h-3.5 w-3.5" />
                   </span>
                   <div>
-                    <p className="text-[11.5px] font-medium text-white/75">{feature.title}</p>
+                    <p className="text-[11.5px] font-medium text-white/75">
+                      {t(feature.titleKey)}
+                    </p>
                     <p className="mt-0.5 text-[10px] leading-relaxed text-white/40">
-                      {feature.description}
+                      {t(feature.descriptionKey)}
                     </p>
                   </div>
                 </div>
@@ -161,11 +164,11 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                 href="#kesfet"
                 className="group inline-flex items-center gap-2 rounded-xl border border-neon/25 bg-neon/[0.07] px-4 py-2.5 text-[11.5px] font-semibold text-neon transition-all duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:shadow-[0_0_30px_-12px_rgba(0,240,255,0.7)]"
               >
-                Tüm scriptleri keşfet
+                {t("code.cta")}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
               <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/22">
-                Ortalama kurulum · 4.2 sn
+                {t("code.installTime")}
               </span>
             </div>
           </Reveal>
@@ -196,12 +199,12 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                   <div className="flex items-center gap-2">
                     <span className="hidden items-center gap-1.5 rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/30 sm:flex">
                       <Code2 className="h-2.5 w-2.5 text-neon/50" />
-                      Lua 5.1
+                      {t("code.lua")}
                     </span>
                     <button
                       type="button"
-                      onClick={() => void copy(active.code, `${active.name} panoya kopyalandı`)}
-                      aria-label="Kodu kopyala"
+                      onClick={() => void copy(active.code)}
+                      aria-label={t("code.copyAria")}
                       className={cn(
                         "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[10px] font-medium transition-all duration-300",
                         copied
@@ -210,7 +213,7 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                       )}
                     >
                       {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                      {copied ? "Kopyalandı" : "Kopyala"}
+                      {copied ? t("code.copied") : t("code.copy")}
                     </button>
                   </div>
                 </div>
@@ -234,7 +237,7 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                   ))}
                   <span className="ml-auto hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-neon/40 sm:flex">
                     <span className="h-1 w-1 rounded-full bg-neon/60" />
-                    MDC Engine
+                    {t("code.engine")}
                   </span>
                 </div>
 
@@ -243,10 +246,10 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                 <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/[0.06] bg-white/[0.015] px-4 py-2.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">
                   <span>UTF-8 · Lua 5.1 · MDC v5.0.4</span>
                   <div className="flex items-center gap-3">
-                    <span>{lineCount} satır</span>
+                    <span>{t("code.lines", { count: lineCount })}</span>
                     <span className="flex items-center gap-1.5 text-neon/55">
                       <ShieldCheck className="h-2.5 w-2.5" />
-                      Secure
+                      {t("code.secure")}
                     </span>
                   </div>
                 </div>

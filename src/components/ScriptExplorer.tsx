@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { LibraryCategory, LibrarySource, ScriptEntry } from "../data/scripts";
 import type { LibraryState } from "../hooks/useScriptLibrary";
+import { useI18n, type MessageKey } from "../i18n";
 import { cn } from "../lib/cn";
 import { timeAgo } from "../lib/format";
 import { ScriptCard } from "./ScriptCard";
@@ -30,11 +31,24 @@ interface ScriptExplorerProps {
   onNotify: (message: string) => void;
 }
 
-const statusTabs: Array<{ id: StatusFilter; label: string }> = [
-  { id: "all", label: "Tümü" },
-  { id: "working", label: "Çalışıyor" },
-  { id: "patched", label: "Patched" },
+const ALL_GAMES = "__all_games__";
+
+const statusTabs: Array<{ id: StatusFilter; labelKey: MessageKey }> = [
+  { id: "all", labelKey: "explorer.statusAll" },
+  { id: "working", labelKey: "explorer.statusWorking" },
+  { id: "patched", labelKey: "explorer.statusPatched" },
 ];
+
+const CATEGORY_IDS = new Set([
+  "trending",
+  "new",
+  "popular",
+  "keyless",
+  "universal",
+  "verified",
+  "patched",
+  "curated",
+]);
 
 export function ScriptExplorer({
   scripts,
@@ -47,12 +61,24 @@ export function ScriptExplorer({
   onOpenScript,
   onNotify,
 }: ScriptExplorerProps) {
+  const { t, locale } = useI18n();
   const [status, setStatus] = useState<StatusFilter>("all");
-  const [game, setGame] = useState("Tümü");
+  const [game, setGame] = useState(ALL_GAMES);
   const [category, setCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
 
-  const primarySource = sources[0]?.label ?? "MDC";
+  const primarySource =
+    sources[0]?.id === "mdc" ? t("sources.mdc") : (sources[0]?.label ?? "MDC");
+
+  const categoryLabel = (item: LibraryCategory) =>
+    CATEGORY_IDS.has(item.id)
+      ? t(`categories.${item.id}` as MessageKey)
+      : item.label;
+
+  const categoryDescription = (item: LibraryCategory) =>
+    CATEGORY_IDS.has(item.id)
+      ? t(`categories.${item.id}Desc` as MessageKey)
+      : item.description;
 
   const counts = useMemo(
     () => ({
@@ -70,7 +96,7 @@ export function ScriptExplorer({
     }
 
     return [
-      "Tümü",
+      ALL_GAMES,
       ...Array.from(frequency.entries())
         .sort((a, b) => b[1] - a[1])
         .slice(0, 8)
@@ -83,7 +109,7 @@ export function ScriptExplorer({
 
     return scripts.filter((script) => {
       if (status !== "all" && script.status !== status) return false;
-      if (game !== "Tümü" && script.game !== game) return false;
+      if (game !== ALL_GAMES && script.game !== game) return false;
       if (category !== "all" && !(script.categoryIds ?? []).includes(category)) {
         return false;
       }
@@ -106,8 +132,9 @@ export function ScriptExplorer({
 
   const visibleScripts = filtered.slice(0, visibleCount);
   const activeCategory = categories.find((item) => item.id === category);
+  const activeCategoryLabel = activeCategory ? categoryLabel(activeCategory) : "";
   const activeFilters =
-    status !== "all" || game !== "Tümü" || category !== "all" || query.trim().length > 0;
+    status !== "all" || game !== ALL_GAMES || category !== "all" || query.trim().length > 0;
 
   useEffect(() => {
     setVisibleCount(6);
@@ -120,14 +147,14 @@ export function ScriptExplorer({
   }, [categories, category]);
 
   useEffect(() => {
-    if (game !== "Tümü" && !gameOptions.includes(game)) {
-      setGame("Tümü");
+    if (game !== ALL_GAMES && !gameOptions.includes(game)) {
+      setGame(ALL_GAMES);
     }
   }, [game, gameOptions]);
 
   const resetFilters = () => {
     setStatus("all");
-    setGame("Tümü");
+    setGame(ALL_GAMES);
     setCategory("all");
     onQueryChange("");
   };
@@ -139,17 +166,16 @@ export function ScriptExplorer({
           <Reveal>
             <div className="flex items-center gap-2.5">
               <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-              <span className="section-kicker text-neon/70">Script Keşfi</span>
+              <span className="section-kicker text-neon/70">{t("explorer.kicker")}</span>
             </div>
             <h2 className="mt-4 max-w-xl font-display text-[30px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[40px]">
-              Kategorilere ayrılmış{" "}
+              {t("explorer.titleLead")}
               <span className="bg-gradient-to-r from-white via-[#B9F8FF] to-[#5F91FF] bg-clip-text text-transparent">
-                canlı script akışı
+                {t("explorer.titleHighlight")}
               </span>
             </h2>
             <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-              ScriptBlox kataloğundan otomatik senkronize edilir. Durum, kaynak ve
-              erişim bilgisini gör; üçüncü taraf kodları çalıştırmadan önce incele.
+              {t("explorer.description")}
             </p>
           </Reveal>
 
@@ -161,14 +187,14 @@ export function ScriptExplorer({
               </span>
               <div>
                 <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/25">
-                  Veri kaynağı
+                  {t("hero.statSource")}
                 </p>
                 <p className="mt-0.5 text-[11px] font-medium text-white/60">
                   {libraryState === "live"
-                    ? `${primarySource} · canlı senkron`
+                    ? t("explorer.sourceLive", { source: primarySource })
                     : libraryState === "loading"
-                      ? "Kütüphane senkronize ediliyor"
-                      : "MDC küratör seçkisi"}
+                      ? t("explorer.sourceLoading")
+                      : t("explorer.sourceCurated")}
                 </p>
               </div>
               <span aria-hidden="true" className="ml-1 h-6 w-px bg-white/[0.08]" />
@@ -182,7 +208,7 @@ export function ScriptExplorer({
             <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
               <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
                 <Layers className="h-3 w-3" />
-                Kategori
+                {t("explorer.category")}
               </span>
               <div className="flex shrink-0 gap-1.5">
                 <button
@@ -196,7 +222,7 @@ export function ScriptExplorer({
                       : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
                   )}
                 >
-                  Tümü
+                  {t("explorer.all")}
                   <span className="font-mono text-[8.5px] opacity-50">{scripts.length}</span>
                 </button>
                 {categories.map((item) => {
@@ -207,7 +233,7 @@ export function ScriptExplorer({
                       type="button"
                       onClick={() => setCategory(item.id)}
                       aria-pressed={active}
-                      title={item.description}
+                      title={categoryDescription(item)}
                       className={cn(
                         "flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
                         active
@@ -215,7 +241,7 @@ export function ScriptExplorer({
                           : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
                       )}
                     >
-                      {item.label}
+                      {categoryLabel(item)}
                       <span className="font-mono text-[8.5px] opacity-50">{item.count}</span>
                     </button>
                   );
@@ -223,7 +249,7 @@ export function ScriptExplorer({
               </div>
               <span className="ml-auto hidden shrink-0 items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/20 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 sm:flex">
                 <Globe className="h-2.5 w-2.5 text-neon/50" />
-                {libraryState === "live" ? primarySource : "Yerel"}
+                {libraryState === "live" ? primarySource : t("explorer.local")}
               </span>
             </div>
 
@@ -231,7 +257,7 @@ export function ScriptExplorer({
               <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
                 <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
                   <Sliders className="h-3 w-3" />
-                  Durum
+                  {t("explorer.status")}
                 </span>
                 <div className="flex shrink-0 rounded-xl border border-white/[0.07] bg-black/25 p-1">
                   {statusTabs.map((tab) => {
@@ -263,7 +289,7 @@ export function ScriptExplorer({
                             )}
                           />
                         )}
-                        {tab.label}
+                        {t(tab.labelKey)}
                         <span
                           className={cn(
                             "font-mono text-[8.5px]",
@@ -292,7 +318,7 @@ export function ScriptExplorer({
                         : "border-transparent bg-white/[0.02] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.04] hover:text-white/80",
                     )}
                   >
-                    {item}
+                    {item === ALL_GAMES ? t("explorer.gameAll") : item}
                   </button>
                 ))}
               </div>
@@ -304,18 +330,16 @@ export function ScriptExplorer({
           <div className="flex items-center gap-2 text-[10.5px] text-white/40">
             <Sparkles className="h-3 w-3 text-neon/50" />
             <span>
-              <span className="font-medium text-white/60">{filtered.length}</span> script
-              {activeCategory ? ` · ${activeCategory.label}` : ""}
-              {query.trim() ? (
-                <>
-                  {" "}
-                  · <span className="text-white/45">&ldquo;{query.trim()}&rdquo;</span> araması
-                </>
-              ) : libraryState === "live" ? (
-                ` · ${primarySource}`
-              ) : (
-                " · küratör seçkisi"
-              )}
+              <span className="font-medium text-white/60">{filtered.length}</span>{" "}
+              {filtered.length === 1
+                ? t("explorer.scriptOne")
+                : t("explorer.scriptMany")}
+              {activeCategory ? ` · ${activeCategoryLabel}` : ""}
+              {query.trim()
+                ? t("explorer.searchSuffix", { query: query.trim() })
+                : libraryState === "live"
+                  ? t("explorer.liveSuffix", { source: primarySource })
+                  : t("explorer.curatedSuffix")}
             </span>
             {activeFilters && (
               <button
@@ -324,17 +348,17 @@ export function ScriptExplorer({
                 className="ml-1 inline-flex items-center gap-1 rounded-md border border-white/[0.07] bg-white/[0.025] px-1.5 py-0.5 text-[9.5px] text-white/40 transition-colors hover:border-neon/25 hover:text-neon"
               >
                 <X className="h-2.5 w-2.5" />
-                Temizle
+                {t("explorer.clear")}
               </button>
             )}
           </div>
           <div className="hidden items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex">
             <span className="h-1 w-1 rounded-full bg-neon/60" />
             {libraryState === "live"
-              ? `Son senkron · ${timeAgo(lastSync)}`
+              ? t("explorer.syncLive", { time: timeAgo(lastSync, locale) })
               : libraryState === "loading"
-                ? "Canlı veri yükleniyor"
-                : "Yerel seçki · çevrimdışı"}
+                ? t("explorer.syncLoading")
+                : t("explorer.syncLocal")}
           </div>
         </div>
 
@@ -344,18 +368,17 @@ export function ScriptExplorer({
               <Search className="h-5 w-5" />
             </span>
             <h3 className="mt-4 font-display text-[18px] font-medium text-white/85">
-              Sonuç bulunamadı
+              {t("explorer.emptyTitle")}
             </h3>
             <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-white/45">
-              Farklı bir kategori, oyun, script adı veya özellik dene. Kütüphane
-              otomatik olarak güncelleniyor.
+              {t("explorer.emptyDescription")}
             </p>
             <button
               type="button"
               onClick={resetFilters}
               className="mt-5 rounded-xl border border-neon/25 bg-neon/[0.07] px-4 py-2.5 text-[11.5px] font-medium text-neon transition-colors duration-300 hover:bg-neon/[0.12]"
             >
-              Filtreleri sıfırla
+              {t("explorer.reset")}
             </button>
           </div>
         ) : (
@@ -376,7 +399,7 @@ export function ScriptExplorer({
                 onClick={() => setVisibleCount((count) => count + 6)}
                 className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.09] bg-white/[0.03] px-5 py-3 text-[11.5px] font-medium text-white/60 backdrop-blur-xl transition-all duration-300 hover:border-neon/30 hover:bg-neon/[0.05] hover:text-white"
               >
-                Daha fazla script yükle
+                {t("explorer.loadMore")}
                 <span className="rounded-md border border-white/[0.08] bg-black/20 px-1.5 py-0.5 font-mono text-[9px] text-white/35">
                   +{filtered.length - visibleCount}
                 </span>
@@ -385,7 +408,7 @@ export function ScriptExplorer({
             )}
             {filtered.length <= visibleCount && filtered.length > 6 && (
               <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
-                Tüm sonuçlar gösteriliyor
+                {t("explorer.allShown")}
               </p>
             )}
           </div>

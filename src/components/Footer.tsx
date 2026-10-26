@@ -1,38 +1,40 @@
+import { useI18n } from "../i18n";
 import { Logo } from "./Logo";
 import { ArrowRight, ArrowUpRight, Github, MessageCircle, ShieldCheck, Sparkles } from "./Icons";
 
 const footerColumns = [
   {
-    title: "Platform",
+    titleKey: "footer.platform",
     links: [
-      { label: "Script Keşfi", href: "#kesfet" },
-      { label: "Kod Önizleme", href: "#kod" },
-      { label: "Canlı Kütüphane", href: "#kesfet" },
+      { labelKey: "footer.platformDiscover", href: "#kesfet" },
+      { labelKey: "footer.platformCode", href: "#kod" },
+      { labelKey: "footer.platformLive", href: "#kesfet" },
     ],
   },
   {
-    title: "Topluluk",
+    titleKey: "footer.community",
     links: [
-      { label: "Discord Sunucusu", href: "#topluluk" },
-      { label: "Geliştirici Rehberi", href: "#kod" },
-      { label: "Katkıda Bulun", href: "#topluluk" },
+      { labelKey: "footer.communityDiscord", href: "#topluluk" },
+      { labelKey: "footer.communityGuide", href: "#kod" },
+      { labelKey: "footer.communityContribute", href: "#topluluk" },
     ],
   },
   {
-    title: "Kurumsal",
+    titleKey: "footer.legal",
     links: [
-      { label: "Gizlilik", href: "#topluluk" },
-      { label: "Kullanım Koşulları", href: "#topluluk" },
-      { label: "Sorumluluk Reddi", href: "#topluluk" },
+      { labelKey: "footer.privacy", href: "#topluluk" },
+      { labelKey: "footer.terms", href: "#topluluk" },
+      { labelKey: "footer.disclaimer", href: "#topluluk" },
     ],
   },
-];
+] as const;
 
 interface FooterProps {
   onOpenAuth: () => void;
 }
 
 export function Footer({ onOpenAuth }: FooterProps) {
+  const { t } = useI18n();
   const year = new Date().getFullYear();
 
   return (
@@ -56,17 +58,16 @@ export function Footer({ onOpenAuth }: FooterProps) {
             <div className="max-w-xl">
               <div className="flex items-center gap-2.5">
                 <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-                <span className="section-kicker text-neon/70">Topluluk</span>
+                <span className="section-kicker text-neon/70">{t("footer.kicker")}</span>
               </div>
               <h2 className="mt-4 font-display text-[28px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[38px]">
-                Kendi scriptini{" "}
+                {t("footer.titleLead")}
                 <span className="bg-gradient-to-r from-[#DFFBFF] via-neon to-[#4E86FF] bg-clip-text text-transparent">
-                  yayınla.
+                  {t("footer.titleHighlight")}
                 </span>
               </h2>
               <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/40 sm:text-[13.5px]">
-                Scriptini toplulukla paylaş, kategorilerde keşfedil. Yayın akışı için
-                ücretsiz hesap oluştur.
+                {t("footer.description")}
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex -space-x-2" aria-hidden="true">
@@ -81,8 +82,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
                   ))}
                 </div>
                 <p className="text-[10.5px] text-white/35">
-                  <span className="font-medium text-white/60">ScriptBlox + MDC</span>{" "}
-                  kaynakları bir arada
+                  {t("footer.sources", { sources: "ScriptBlox + MDC" })}
                 </p>
               </div>
             </div>
@@ -94,14 +94,14 @@ export function Footer({ onOpenAuth }: FooterProps) {
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon to-electric px-5 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_12px_34px_-12px_rgba(0,240,255,0.85)] transition-all duration-300 hover:shadow-[0_16px_42px_-10px_rgba(0,240,255,0.95)]"
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                Ücretsiz hesap oluştur
+                {t("footer.account")}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
               <a
                 href="#kod"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/60 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
               >
-                Kodu incele
+                {t("footer.inspectCode")}
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -112,8 +112,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-[11.5px] leading-relaxed text-white/40">
-              Roblox geliştiricileri için kategorilere ayrılmış, canlı script keşfi.
-              Üçüncü taraf kodları incele, kaynağını gör, tek tıkla kopyala.
+              {t("footer.brandDescription")}
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-neon/20 bg-neon/[0.05] px-2.5 py-1">
               <span className="relative flex h-1.5 w-1.5">
@@ -121,24 +120,24 @@ export function Footer({ onOpenAuth }: FooterProps) {
                 <span className="relative h-1.5 w-1.5 rounded-full bg-neon" />
               </span>
               <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-neon/70">
-                GitHub Pages üzerinde yayında
+                {t("footer.status")}
               </span>
             </div>
           </div>
 
           {footerColumns.map((column) => (
-            <nav key={column.title} aria-label={column.title}>
+            <nav key={column.titleKey} aria-label={t(column.titleKey)}>
               <h3 className="font-mono text-[8.5px] uppercase tracking-[0.22em] text-white/35">
-                {column.title}
+                {t(column.titleKey)}
               </h3>
               <ul className="mt-3.5 space-y-2.5">
                 {column.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.labelKey}>
                     <a
                       href={link.href}
                       className="text-[11.5px] text-white/50 transition-colors duration-300 hover:text-neon/90"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </a>
                   </li>
                 ))}
@@ -149,33 +148,43 @@ export function Footer({ onOpenAuth }: FooterProps) {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/[0.06] py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[9.5px] text-white/25">
-            <span>© {year} MDC HUB. Tüm hakları saklıdır.</span>
+            <span>{t("footer.copyright", { year })}</span>
             <span aria-hidden="true" className="hidden h-2.5 w-px bg-white/10 sm:block" />
-            <span>Roblox Corporation ile bağlantılı değildir.</span>
+            <span>{t("footer.roblox")}</span>
+            <span aria-hidden="true" className="hidden h-2.5 w-px bg-white/10 sm:block" />
+            <span>{t("footer.thirdParty")}</span>
+            <a
+              href="https://github.com/MDCforLEGAL/MDC-HUB-V5/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/15 underline-offset-2 transition-colors hover:text-neon/70"
+            >
+              {t("footer.license")}
+            </a>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="mr-1 hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/20 sm:flex">
               <ShieldCheck className="h-3 w-3 text-neon/40" />
-              Kaynak etiketli
+              {t("footer.sourceTagged")}
             </span>
             <a
               href="#topluluk"
-              aria-label="Discord topluluğu"
+              aria-label={t("footer.discordAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-neon/30 hover:text-neon"
             >
               <MessageCircle className="h-3.5 w-3.5" />
             </a>
             <a
               href="#topluluk"
-              aria-label="GitHub deposu"
+              aria-label={t("footer.githubAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-white/20 hover:text-white"
             >
               <Github className="h-3.5 w-3.5" />
             </a>
             <a
               href="#top"
-              aria-label="Sayfa başına dön"
+              aria-label={t("footer.topAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-neon/30 hover:text-neon"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-3.5 w-3.5">

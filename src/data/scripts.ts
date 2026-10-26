@@ -16,6 +16,7 @@ export interface ScriptEntry {
   rating: number;
   downloads: string;
   updated: string;
+  updatedAt?: string;
   glyph: GameGlyphName;
   colors: [string, string];
   summary: string;

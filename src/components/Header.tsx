@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { Logo } from "./Logo";
-import { ArrowUpRight, Menu, Plus, X } from "./Icons";
+import { ArrowUpRight, Globe, Menu, Plus, X } from "./Icons";
 
 const navItems = [
-  { label: "Keşfet", href: "#kesfet" },
-  { label: "Kod Önizleme", href: "#kod" },
-  { label: "Topluluk", href: "#topluluk" },
-];
+  { labelKey: "nav.discover", href: "#kesfet" },
+  { labelKey: "nav.code", href: "#kod" },
+  { labelKey: "nav.community", href: "#topluluk" },
+] as const;
 
 interface HeaderProps {
   onAuth: (mode: "login" | "signup") => void;
 }
 
 export function Header({ onAuth }: HeaderProps) {
+  const { t, locale, setLocale } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const toggleLocale = () => setLocale(locale === "tr" ? "en" : "tr");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -51,7 +55,7 @@ export function Header({ onAuth }: HeaderProps) {
         <Logo />
 
         <nav
-          aria-label="Ana menü"
+          aria-label={t("nav.mainMenu")}
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 lg:flex"
         >
           {navItems.map((item) => (
@@ -60,7 +64,7 @@ export function Header({ onAuth }: HeaderProps) {
               href={item.href}
               className="group relative rounded-lg px-3 py-2 text-[12.5px] font-medium text-white/55 transition-colors duration-300 hover:text-white"
             >
-              {item.label}
+              {t(item.labelKey)}
               <span
                 aria-hidden="true"
                 className="absolute inset-x-3 -bottom-px h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-neon/80 to-transparent transition-transform duration-300 group-hover:scale-x-100"
@@ -72,17 +76,29 @@ export function Header({ onAuth }: HeaderProps) {
         <div className="flex items-center gap-1.5 sm:gap-2">
           <button
             type="button"
+            onClick={toggleLocale}
+            aria-label={locale === "tr" ? t("nav.switchToEnglish") : t("nav.switchToTurkish")}
+            title={t("nav.switchLanguage")}
+            className="hidden h-9 items-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.025] px-2.5 text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon sm:inline-flex"
+          >
+            <Globe className="h-3.5 w-3.5" />
+            <span className="font-mono text-[9px] font-medium tracking-[0.08em]">
+              {locale === "tr" ? "EN" : "TR"}
+            </span>
+          </button>
+          <button
+            type="button"
             onClick={() => openAuth("login")}
             className="hidden rounded-xl px-3 py-2 text-[12.5px] font-medium text-white/60 transition-colors duration-300 hover:bg-white/[0.05] hover:text-white md:block"
           >
-            Giriş Yap
+            {t("nav.login")}
           </button>
           <button
             type="button"
             onClick={() => openAuth("signup")}
             className="hidden items-center gap-1 rounded-xl border border-white/[0.09] bg-white/[0.035] px-3 py-2 text-[12.5px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white md:inline-flex"
           >
-            Üye Ol
+            {t("nav.signup")}
             <ArrowUpRight className="h-3 w-3 opacity-50" />
           </button>
           <button
@@ -93,7 +109,8 @@ export function Header({ onAuth }: HeaderProps) {
             <span aria-hidden="true" className="sheen absolute inset-0" />
             <Plus className="relative h-3.5 w-3.5" strokeWidth={2.4} />
             <span className="relative whitespace-nowrap">
-              <span className="hidden min-[380px]:inline">Script&nbsp;</span>Paylaş
+              <span className="hidden min-[380px]:inline">{t("nav.share")}</span>
+              <span className="min-[380px]:hidden">{t("nav.shareShort")}</span>
             </span>
           </button>
           <button
@@ -101,7 +118,7 @@ export function Header({ onAuth }: HeaderProps) {
             onClick={() => setMobileOpen((value) => !value)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-label={mobileOpen ? t("nav.menuClose") : t("nav.menuOpen")}
             className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/70 transition-colors duration-300 hover:border-neon/30 hover:text-white lg:hidden"
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -114,7 +131,7 @@ export function Header({ onAuth }: HeaderProps) {
           id="mobile-menu"
           className="fade-in mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.09] bg-[#060a11]/95 p-2.5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl lg:hidden"
         >
-          <nav aria-label="Mobil menü" className="flex flex-col">
+          <nav aria-label={t("nav.mobileMenu")} className="flex flex-col">
             {navItems.map((item, index) => (
               <a
                 key={item.href}
@@ -122,7 +139,7 @@ export function Header({ onAuth }: HeaderProps) {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-between rounded-xl px-3 py-3 text-[13px] text-white/65 transition-colors hover:bg-white/[0.04] hover:text-white"
               >
-                <span>{item.label}</span>
+                <span>{t(item.labelKey)}</span>
                 <span className="font-mono text-[9px] tracking-[0.2em] text-white/20">
                   0{index + 1}
                 </span>
@@ -135,16 +152,30 @@ export function Header({ onAuth }: HeaderProps) {
               onClick={() => openAuth("login")}
               className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-3 py-2.5 text-[12.5px] font-medium text-white/75 transition-colors hover:border-neon/30 hover:text-white"
             >
-              Giriş Yap
+              {t("nav.login")}
             </button>
             <button
               type="button"
               onClick={() => openAuth("signup")}
               className="rounded-xl border border-neon/25 bg-neon/[0.08] px-3 py-2.5 text-[12.5px] font-semibold text-neon transition-colors hover:bg-neon/[0.14]"
             >
-              Ücretsiz Üye Ol
+              {t("nav.freeSignup")}
             </button>
           </div>
+          <button
+            type="button"
+            onClick={toggleLocale}
+            aria-label={locale === "tr" ? t("nav.switchToEnglish") : t("nav.switchToTurkish")}
+            className="mt-2 flex w-full items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
+          >
+            <span className="flex items-center gap-2">
+              <Globe className="h-3.5 w-3.5" />
+              {t("nav.language")}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
+              {locale === "tr" ? t("nav.languageEnglish") : t("nav.languageTurkish")}
+            </span>
+          </button>
         </div>
       )}
     </header>

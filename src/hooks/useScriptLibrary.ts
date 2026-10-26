@@ -80,7 +80,7 @@ function toEntry(live: LiveScript): ScriptEntry {
   const views = Number.isFinite(live.views) ? live.views : 0;
   const source =
     live.source === "scriptblox" || live.source === "rscripts" ? live.source : "mdc";
-  const sourceLabel = live.sourceLabel || (source === "mdc" ? "MDC" : "Topluluk");
+  const sourceLabel = live.sourceLabel || (source === "mdc" ? "MDC" : "Community");
   const colors =
     Array.isArray(live.colors) &&
     live.colors.length === 2 &&
@@ -103,14 +103,12 @@ function toEntry(live: LiveScript): ScriptEntry {
       ? live.tags.filter((tag): tag is string => typeof tag === "string").slice(0, 3)
       : [],
     rating: typeof live.rating === "number" ? live.rating : 0,
-    downloads: formatCompact(views),
-    updated: timeAgo(live.updatedAt),
+    downloads: formatCompact(views, "en"),
+    updated: timeAgo(live.updatedAt, "en"),
+    updatedAt: live.updatedAt,
     glyph: GLYPHS.includes(live.glyph) ? live.glyph : "dice",
     colors,
-    summary:
-      typeof live.summary === "string" && live.summary.trim()
-        ? live.summary
-        : `${live.game} için topluluk tarafından paylaşılan script.`,
+    summary: typeof live.summary === "string" ? live.summary : "",
     code: live.code,
     source,
     sourceLabel,

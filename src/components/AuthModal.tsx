@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { Logo } from "./Logo";
 import { ArrowRight, Check, Eye, EyeOff, Lock, Mail, ShieldCheck, User, X } from "./Icons";
@@ -12,6 +13,7 @@ interface AuthModalProps {
 }
 
 export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
+  const { t } = useI18n();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,18 +47,16 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
     event.preventDefault();
 
     if (mode === "signup" && username.trim().length < 3) {
-      setError("Kullanıcı adı en az 3 karakter olmalı.");
+      setError(t("auth.usernameError"));
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setError("Geçerli bir e-posta adresi gir.");
+      setError(t("auth.emailError"));
       return;
     }
     if (password.length < (mode === "signup" ? 8 : 6)) {
       setError(
-        mode === "signup"
-          ? "Şifre en az 8 karakter olmalı."
-          : "Şifre en az 6 karakter olmalı.",
+        mode === "signup" ? t("auth.passwordMinSignup") : t("auth.passwordMinLogin"),
       );
       return;
     }
@@ -90,7 +90,7 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Giriş penceresini kapat"
+          aria-label={t("auth.closeAria")}
           className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/40 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
         >
           <X className="h-3.5 w-3.5" />
@@ -104,11 +104,10 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
               <Check className="h-6 w-6" />
             </span>
             <h2 id="auth-title" className="mt-5 font-display text-[23px] font-medium tracking-[-0.02em] text-white">
-              Form doğrulandı
+              {t("auth.validatedTitle")}
             </h2>
             <p className="mx-auto mt-2.5 max-w-xs text-[12px] leading-relaxed text-white/40">
-              Bu, MDC HUB&apos;ın ön izleme arayüzüdür. Kimlik doğrulama servisi
-              bağlandığında bu akış canlıya alınacak.
+              {t("auth.previewText")}
             </p>
             <div className="mt-6 flex gap-2">
               <button
@@ -116,14 +115,14 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                 onClick={onClose}
                 className="flex-1 rounded-xl bg-gradient-to-r from-neon to-electric px-4 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.9)]"
               >
-                Anladım
+                {t("auth.gotIt")}
               </button>
               <button
                 type="button"
                 onClick={() => setSubmitted(false)}
                 className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/55 transition-all duration-300 hover:border-white/20 hover:text-white"
               >
-                Düzenle
+                {t("auth.edit")}
               </button>
             </div>
           </div>
@@ -133,12 +132,10 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
               id="auth-title"
               className="mt-6 font-display text-[25px] font-medium leading-tight tracking-[-0.025em] text-white"
             >
-              {isSignup ? "Ekosisteme katıl." : "Tekrar hoş geldin."}
+              {isSignup ? t("auth.signupTitle") : t("auth.loginTitle")}
             </h2>
             <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
-              {isSignup
-                ? "Ücretsiz hesap oluştur, favori scriptlerini senkronize et."
-                : "Kütüphanene, favorilerine ve kayıtlı ayarlarına eriş."}
+              {isSignup ? t("auth.signupSubtitle") : t("auth.loginSubtitle")}
             </p>
 
             <div className="mt-5 grid grid-cols-2 gap-1 rounded-xl border border-white/[0.07] bg-black/25 p-1">
@@ -155,7 +152,7 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                       : "text-white/35 hover:text-white/65",
                   )}
                 >
-                  {item === "login" ? "Giriş Yap" : "Üye Ol"}
+                  {item === "login" ? t("auth.loginTab") : t("auth.signupTab")}
                 </button>
               ))}
             </div>
@@ -167,7 +164,7 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                     htmlFor="auth-username"
                     className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
                   >
-                    Kullanıcı adı
+                    {t("auth.username")}
                   </label>
                   <div className="relative">
                     <User className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
@@ -189,7 +186,7 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                   htmlFor="auth-email"
                   className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
                 >
-                  E-posta
+                  {t("auth.email")}
                 </label>
                 <div className="relative">
                   <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
@@ -212,15 +209,15 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                     htmlFor="auth-password"
                     className="font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
                   >
-                    Şifre
+                    {t("auth.password")}
                   </label>
                   {!isSignup && (
                     <button
                       type="button"
-                      onClick={() => setError("Şifre sıfırlama bu ön izlemede devre dışı.")}
+                      onClick={() => setError(t("auth.forgotPreview"))}
                       className="text-[9.5px] text-neon/60 transition-colors hover:text-neon"
                     >
-                      Şifremi unuttum
+                      {t("auth.forgot")}
                     </button>
                   )}
                 </div>
@@ -232,13 +229,17 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     autoComplete={isSignup ? "new-password" : "current-password"}
-                    placeholder={isSignup ? "En az 8 karakter" : "••••••••"}
+                    placeholder={
+                      isSignup
+                        ? t("auth.passwordPlaceholderSignup")
+                        : t("auth.passwordPlaceholderLogin")
+                    }
                     className="h-11 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] pl-10 pr-11 text-[12.5px] text-white placeholder:text-white/20 transition-all duration-300 focus:border-neon/45 focus:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-neon/10"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword((value) => !value)}
-                    aria-label={showPassword ? "Şifreyi gizle" : "Şifreyi göster"}
+                    aria-label={showPassword ? t("auth.hide") : t("auth.show")}
                     className="absolute right-2.5 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-lg text-white/30 transition-colors hover:bg-white/[0.05] hover:text-white/70"
                   >
                     {showPassword ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
@@ -256,19 +257,19 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
                 type="submit"
                 className="group mt-1 flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon to-electric text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.95)]"
               >
-                {isSignup ? "Ücretsiz Hesap Oluştur" : "Giriş Yap"}
+                {isSignup ? t("auth.signupSubmit") : t("auth.loginSubmit")}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
             </form>
 
             <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-[9px] leading-relaxed text-white/22">
               <ShieldCheck className="h-3 w-3 text-neon/40" />
-              Devam ederek Kullanım Koşulları&apos;nı kabul etmiş olursun.
+              {t("auth.terms")}
             </p>
 
             <div className="mt-5 border-t border-white/[0.06] pt-4 text-center">
               <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/20">
-                MDC HUB · Cyber-Luxury Script Ecosystem
+                {t("auth.footer")}
               </p>
             </div>
           </>

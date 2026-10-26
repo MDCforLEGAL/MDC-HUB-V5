@@ -1,7 +1,8 @@
 import type { ScriptEntry } from "../data/scripts";
 import { cn } from "../lib/cn";
-import { formatCompact } from "../lib/format";
+import { formatCompact, timeAgo } from "../lib/format";
 import { useCopy } from "../hooks/useCopy";
+import { useI18n } from "../i18n";
 import { GameGlyph } from "./GameGlyph";
 import {
   ArrowUpRight,
@@ -20,6 +21,7 @@ interface ScriptCardProps {
 }
 
 export function StatusBadge({ status }: { status: ScriptEntry["status"] }) {
+  const { t } = useI18n();
   const working = status === "working";
 
   return (
@@ -40,14 +42,22 @@ export function StatusBadge({ status }: { status: ScriptEntry["status"] }) {
             : "bg-[#ff5a5a] shadow-[0_0_8px_2px_rgba(255,80,80,0.4)]",
         )}
       />
-      {working ? "Çalışıyor" : "Patched"}
+      {working ? t("card.working") : t("card.patched")}
     </span>
   );
 }
 
 export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
   const { copied, copy } = useCopy(onNotify);
+  const { t, locale } = useI18n();
   const working = script.status === "working";
+  const updatedLabel = script.updatedAt ? timeAgo(script.updatedAt, locale) : script.updated;
+  const categoryLabel =
+    script.source && script.source !== "mdc"
+      ? script.universal
+        ? t("card.universal")
+        : t("card.gameScript")
+      : script.category;
 
   return (
     <article
@@ -104,7 +114,7 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
           <div className="min-w-0">
             <p className="truncate text-[12px] font-medium text-white/85">{script.game}</p>
             <p className="mt-0.5 truncate font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/35">
-              {script.category}
+              {categoryLabel}
               {script.source && script.source !== "mdc" ? ` · ${script.sourceLabel}` : ""}
             </p>
           </div>
@@ -126,19 +136,19 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
             className="h-3.5 w-3.5 text-neon/80"
             aria-label={
               script.source === "mdc"
-                ? "Doğrulanmış geliştirici"
-                : `${script.sourceLabel} tarafından doğrulanmış`
+                ? t("card.verifiedDeveloper")
+                : t("card.verifiedSource", { source: script.sourceLabel ?? "" })
             }
           />
         )}
         <span aria-hidden="true" className="text-white/12">/</span>
-        <span className="text-white/35">{script.updated}</span>
+        <span className="text-white/35">{updatedLabel}</span>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-1.5">
         {script.premium && (
           <span className="rounded-md border border-blood/45 bg-blood-deep/70 px-1.5 py-0.5 text-[8.5px] font-semibold uppercase tracking-[0.14em] text-[#ffa8a8] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-            Premium
+            {t("card.premium")}
           </span>
         )}
         {script.tags.map((tag) => (
@@ -157,14 +167,14 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
             <Star className="h-3 w-3 text-neon/60" />
             <span className="font-medium text-white/65">
               {typeof script.likes === "number"
-                ? formatCompact(script.likes)
+                ? formatCompact(script.likes, locale)
                 : script.rating.toFixed(1)}
             </span>
           </span>
           <span className="flex items-center gap-1">
             <Eye className="h-3 w-3" />
             {typeof script.views === "number"
-              ? formatCompact(script.views)
+              ? formatCompact(script.views, locale)
               : script.downloads}
           </span>
           <span className="flex items-center gap-1">
@@ -179,10 +189,8 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
         <div className="mt-3 flex gap-2">
           <button
             type="button"
-            onClick={() =>
-              void copy(script.code, `${script.title} panoya kopyalandı`)
-            }
-            aria-label={`${script.title} kodunu tek tıkla kopyala`}
+            onClick={() => void copy(script.code)}
+            aria-label={t("card.copyAria", { title: script.title })}
             className={cn(
               "flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2.5 text-[11.5px] font-medium transition-all duration-300",
               copied
@@ -191,15 +199,15 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
             )}
           >
             {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-            {copied ? "Kopyalandı" : "Kopyala"}
+            {copied ? t("card.copied") : t("card.copy")}
           </button>
           <button
             type="button"
             onClick={() => onOpen(script)}
-            aria-label={`${script.title} detaylarını gör`}
+            aria-label={t("card.detailsAria", { title: script.title })}
             className="group/details flex items-center justify-center gap-1.5 rounded-xl border border-white/[0.09] bg-white/[0.02] px-3 py-2.5 text-[11.5px] font-medium text-white/55 transition-all duration-300 hover:border-electric/45 hover:bg-electric/[0.08] hover:text-white"
           >
-            Detaylar
+            {t("card.details")}
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/details:-translate-y-0.5 group-hover/details:translate-x-0.5" />
           </button>
         </div>
