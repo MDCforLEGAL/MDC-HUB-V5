@@ -2,11 +2,13 @@ import { useEffect, useRef } from "react";
 import type { ScriptEntry } from "../data/scripts";
 import { useCopy } from "../hooks/useCopy";
 import { cn } from "../lib/cn";
+import { formatCompact, isHttpUrl } from "../lib/format";
 import { CodeBlock } from "./CodeBlock";
 import { GameGlyph } from "./GameGlyph";
 import { StatusBadge } from "./ScriptCard";
 import {
   AlertTriangle,
+  ArrowUpRight,
   BadgeCheck,
   Check,
   Clock,
@@ -27,6 +29,8 @@ interface ScriptModalProps {
 export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const { copied, copy } = useCopy(onNotify);
+  const codeName = `${(script.slug ?? script.id).replace(/[^a-z0-9-_]/gi, "-")}.lua`;
+  const isExternal = Boolean(script.source && script.source !== "mdc");
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -116,7 +120,16 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                 {script.author.charAt(0)}
               </span>
               <span className="text-white/45">@{script.author}</span>
-              {script.verified && <BadgeCheck className="h-3.5 w-3.5 text-neon/80" />}
+              {script.verified && (
+                <BadgeCheck
+                  className="h-3.5 w-3.5 text-neon/80"
+                  aria-label={
+                    script.source === "mdc"
+                      ? "Doğrulanmış geliştirici"
+                      : `${script.sourceLabel} tarafından doğrulanmış`
+                  }
+                />
+              )}
               <span aria-hidden="true" className="mx-0.5 text-white/12">/</span>
               <span className="flex items-center gap-1 text-white/30">
                 <Clock className="h-3 w-3" />
@@ -130,10 +143,32 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
 
             <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {[
-                { icon: Star, label: "Puan", value: script.rating.toFixed(1) },
-                { icon: Eye, label: "Görüntülenme", value: script.downloads },
-                { icon: Download, label: "Lisans", value: "Ücretsiz" },
-                { icon: KeyRound, label: "Erişim", value: script.tags.includes("Keyless") ? "Keyless" : "Key" },
+                {
+                  icon: Star,
+                  label: typeof script.likes === "number" ? "Beğeni" : "Puan",
+                  value:
+                    typeof script.likes === "number"
+                      ? formatCompact(script.likes)
+                      : script.rating.toFixed(1),
+                },
+                {
+                  icon: Eye,
+                  label: "Görüntülenme",
+                  value:
+                    typeof script.views === "number"
+                      ? formatCompact(script.views)
+                      : script.downloads,
+                },
+                {
+                  icon: Download,
+                  label: "Lisans",
+                  value: script.premium ? "Premium" : "Ücretsiz",
+                },
+                {
+                  icon: KeyRound,
+                  label: "Erişim",
+                  value: script.keyless || script.tags.includes("Keyless") ? "Keyless" : "Key",
+                },
               ].map((meta) => (
                 <div
                   key={meta.label}
@@ -148,7 +183,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
               ))}
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-1.5">
+            <div className="mt-4 flex flex-wrap items-center gap-1.5">
               {script.tags.map((tag) => (
                 <span
                   key={tag}
@@ -157,6 +192,17 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                   {tag}
                 </span>
               ))}
+              {isHttpUrl(script.sourceUrl) && (
+                <a
+                  href={script.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/source ml-auto inline-flex items-center gap-1.5 rounded-md border border-neon/20 bg-neon/[0.05] px-2 py-1 text-[10px] font-medium text-neon/80 transition-colors duration-300 hover:border-neon/40 hover:bg-neon/[0.1] hover:text-neon"
+                >
+                  {script.sourceLabel ?? "Kaynak"} sayfasında aç
+                  <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/source:-translate-y-0.5 group-hover/source:translate-x-0.5" />
+                </a>
+              )}
             </div>
 
             {script.status === "patched" && (
@@ -164,8 +210,20 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                 <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#ff8f8f]" />
                 <p className="text-[11px] leading-relaxed text-[#ffc4c4]/75">
                   <span className="font-medium text-[#ffb0b0]">Bu script şu anda patched.</span>{" "}
-                  Oyun güncellemesi sonrası devre dışı kaldı; geliştirici düzeltme üzerinde
-                  çalışıyor.
+                  {isExternal
+                    ? `${script.sourceLabel} bu scripti patched olarak işaretlemiş. Kodu çalıştırmadan önce kaynağı kontrol et.`
+                    : "Oyun güncellemesi sonrası devre dışı kaldı; geliştirici düzeltme üzerinde çalışıyor."}
+                </p>
+              </div>
+            )}
+
+            {isExternal && (
+              <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-[#f3ad6b]/25 bg-[#f3ad6b]/[0.06] px-3.5 py-3">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#f3ad6b]" />
+                <p className="text-[11px] leading-relaxed text-[#f8d6a8]/75">
+                  <span className="font-medium text-[#f8d6a8]">Üçüncü taraf kaynak.</span>{" "}
+                  Bu kod {script.sourceLabel} tarafından yayınlanmıştır; MDC HUB tarafından
+                  denetlenmez veya çalıştırılmaz. Kodu kullanmadan önce incele.
                 </p>
               </div>
             )}
@@ -178,7 +236,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                     <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]/60" />
                     <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]/60" />
                   </span>
-                  {script.id}.lua
+                  {codeName}
                 </span>
                 <span>{script.code.trim().split("\n").length} satır</span>
               </div>
@@ -212,7 +270,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
           </button>
           <span className="ml-auto hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/20 sm:flex">
             <span className="h-1 w-1 rounded-full bg-neon/60" />
-            MDC Verified
+            {isExternal ? `${script.sourceLabel} kaynağı` : "MDC Verified"}
           </span>
         </div>
       </div>

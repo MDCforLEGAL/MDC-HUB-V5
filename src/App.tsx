@@ -8,7 +8,8 @@ import { Hero } from "./components/Hero";
 import { ScriptExplorer } from "./components/ScriptExplorer";
 import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
-import { scripts, type ScriptEntry } from "./data/scripts";
+import type { ScriptEntry } from "./data/scripts";
+import { useScriptLibrary } from "./hooks/useScriptLibrary";
 
 interface ToastState {
   id: number;
@@ -32,6 +33,7 @@ function Atmosphere() {
 }
 
 export default function App() {
+  const library = useScriptLibrary();
   const [query, setQuery] = useState("");
   const [activeScript, setActiveScript] = useState<ScriptEntry | null>(null);
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
@@ -50,21 +52,33 @@ export default function App() {
 
   const heroResultCount = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    if (!needle) return scripts.length;
+    if (!needle) return library.scripts.length;
 
-    return scripts.filter((script) => {
+    return library.scripts.filter((script) => {
       const haystack = [
         script.game,
         script.title,
         script.author,
         script.category,
+        script.sourceLabel ?? "",
         ...script.tags,
       ]
         .join(" ")
         .toLowerCase();
       return haystack.includes(needle);
     }).length;
-  }, [query]);
+  }, [library.scripts, query]);
+
+  const workingRate = useMemo(() => {
+    if (library.scripts.length === 0) return 0;
+    const working = library.scripts.filter((script) => script.status === "working").length;
+    return Math.round((working / library.scripts.length) * 1000) / 10;
+  }, [library.scripts]);
+
+  const popularSearches = useMemo(() => {
+    const gameTerms = library.games.slice(0, 3);
+    return Array.from(new Set([...gameTerms, "Auto Farm", "ESP"])).slice(0, 5);
+  }, [library.games]);
 
   const overlayOpen = Boolean(activeScript || authMode);
 
@@ -95,11 +109,22 @@ export default function App() {
           onQueryChange={setQuery}
           onSubmitSearch={scrollToResults}
           resultCount={heroResultCount}
+          scriptCount={library.scripts.length}
+          gameCount={library.games.length}
+          workingRate={workingRate}
+          lastSync={library.generatedAt}
+          libraryState={library.state}
+          popularSearches={popularSearches}
         />
 
-        <GameMarquee />
+        <GameMarquee games={library.games} />
 
         <ScriptExplorer
+          scripts={library.scripts}
+          categories={library.categories}
+          sources={library.sources}
+          libraryState={library.state}
+          lastSync={library.generatedAt}
           query={query}
           onQueryChange={setQuery}
           onOpenScript={setActiveScript}

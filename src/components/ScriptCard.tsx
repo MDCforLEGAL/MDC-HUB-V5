@@ -1,5 +1,6 @@
 import type { ScriptEntry } from "../data/scripts";
 import { cn } from "../lib/cn";
+import { formatCompact } from "../lib/format";
 import { useCopy } from "../hooks/useCopy";
 import { GameGlyph } from "./GameGlyph";
 import {
@@ -76,7 +77,7 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
       <div className="relative flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
           <span
-            className="relative grid h-11 w-11 shrink-0 place-items-center rounded-xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+            className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
             style={{
               borderColor: `${script.colors[0]}38`,
               backgroundImage: `linear-gradient(145deg, ${script.colors[0]}26, ${script.colors[1]}0f 58%, transparent)`,
@@ -87,11 +88,24 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
               className="h-6 w-6"
               style={{ color: script.colors[0] }}
             />
+            {script.gameImage && (
+              <img
+                src={script.gameImage}
+                alt=""
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 h-full w-full object-cover"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            )}
           </span>
           <div className="min-w-0">
             <p className="truncate text-[12px] font-medium text-white/85">{script.game}</p>
-            <p className="mt-0.5 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/35">
+            <p className="mt-0.5 truncate font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/35">
               {script.category}
+              {script.source && script.source !== "mdc" ? ` · ${script.sourceLabel}` : ""}
             </p>
           </div>
         </div>
@@ -108,7 +122,14 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
         </span>
         <span className="text-white/45">@{script.author}</span>
         {script.verified && (
-          <BadgeCheck className="h-3.5 w-3.5 text-neon/80" aria-label="Doğrulanmış geliştirici" />
+          <BadgeCheck
+            className="h-3.5 w-3.5 text-neon/80"
+            aria-label={
+              script.source === "mdc"
+                ? "Doğrulanmış geliştirici"
+                : `${script.sourceLabel} tarafından doğrulanmış`
+            }
+          />
         )}
         <span aria-hidden="true" className="text-white/12">/</span>
         <span className="text-white/35">{script.updated}</span>
@@ -134,18 +155,24 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
         <div className="mt-5 flex items-center gap-3 border-t border-white/[0.06] pt-3 text-[10px] text-white/45">
           <span className="flex items-center gap-1">
             <Star className="h-3 w-3 text-neon/60" />
-            <span className="font-medium text-white/65">{script.rating.toFixed(1)}</span>
+            <span className="font-medium text-white/65">
+              {typeof script.likes === "number"
+                ? formatCompact(script.likes)
+                : script.rating.toFixed(1)}
+            </span>
           </span>
           <span className="flex items-center gap-1">
             <Eye className="h-3 w-3" />
-            {script.downloads}
+            {typeof script.views === "number"
+              ? formatCompact(script.views)
+              : script.downloads}
           </span>
           <span className="flex items-center gap-1">
             <Code2 className="h-3 w-3" />
             Lua
           </span>
-          <span className="ml-auto font-mono text-[8px] uppercase tracking-[0.16em] text-white/18">
-            MDC
+          <span className="ml-auto max-w-[42%] truncate font-mono text-[8px] uppercase tracking-[0.16em] text-white/18">
+            {script.sourceLabel ?? "MDC"}
           </span>
         </div>
 

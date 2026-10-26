@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && node scripts/finalize-build.mjs",
+    "build:pages": "tsc --noEmit && node scripts/build-pages.mjs",
+    "publish:pages": "node scripts/publish-root.mjs",
+    "sync:scripts": "node scripts/sync-scripts.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

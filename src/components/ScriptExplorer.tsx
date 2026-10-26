@@ -1,13 +1,29 @@
 import { useEffect, useMemo, useState } from "react";
-import { games, scripts, type ScriptEntry } from "../data/scripts";
+import type { LibraryCategory, LibrarySource, ScriptEntry } from "../data/scripts";
+import type { LibraryState } from "../hooks/useScriptLibrary";
 import { cn } from "../lib/cn";
+import { timeAgo } from "../lib/format";
 import { ScriptCard } from "./ScriptCard";
 import { Reveal } from "./Reveal";
-import { ArrowRight, Search, Sliders, Sparkles, TrendingUp, X } from "./Icons";
+import {
+  ArrowRight,
+  Globe,
+  Layers,
+  Search,
+  Sliders,
+  Sparkles,
+  TrendingUp,
+  X,
+} from "./Icons";
 
 type StatusFilter = "all" | "working" | "patched";
 
 interface ScriptExplorerProps {
+  scripts: ScriptEntry[];
+  categories: LibraryCategory[];
+  sources: LibrarySource[];
+  libraryState: LibraryState;
+  lastSync: string | null;
   query: string;
   onQueryChange: (value: string) => void;
   onOpenScript: (script: ScriptEntry) => void;
@@ -21,6 +37,11 @@ const statusTabs: Array<{ id: StatusFilter; label: string }> = [
 ];
 
 export function ScriptExplorer({
+  scripts,
+  categories,
+  sources,
+  libraryState,
+  lastSync,
   query,
   onQueryChange,
   onOpenScript,
@@ -28,7 +49,10 @@ export function ScriptExplorer({
 }: ScriptExplorerProps) {
   const [status, setStatus] = useState<StatusFilter>("all");
   const [game, setGame] = useState("Tümü");
+  const [category, setCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
+
+  const primarySource = sources[0]?.label ?? "MDC";
 
   const counts = useMemo(
     () => ({
@@ -36,8 +60,23 @@ export function ScriptExplorer({
       working: scripts.filter((script) => script.status === "working").length,
       patched: scripts.filter((script) => script.status === "patched").length,
     }),
-    [],
+    [scripts],
   );
+
+  const gameOptions = useMemo(() => {
+    const frequency = new Map<string, number>();
+    for (const script of scripts) {
+      frequency.set(script.game, (frequency.get(script.game) ?? 0) + 1);
+    }
+
+    return [
+      "Tümü",
+      ...Array.from(frequency.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8)
+        .map(([name]) => name),
+    ];
+  }, [scripts]);
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -45,6 +84,9 @@ export function ScriptExplorer({
     return scripts.filter((script) => {
       if (status !== "all" && script.status !== status) return false;
       if (game !== "Tümü" && script.game !== game) return false;
+      if (category !== "all" && !(script.categoryIds ?? []).includes(category)) {
+        return false;
+      }
       if (!needle) return true;
 
       const haystack = [
@@ -52,6 +94,7 @@ export function ScriptExplorer({
         script.title,
         script.author,
         script.category,
+        script.sourceLabel ?? "",
         ...script.tags,
       ]
         .join(" ")
@@ -59,18 +102,33 @@ export function ScriptExplorer({
 
       return haystack.includes(needle);
     });
-  }, [query, status, game]);
+  }, [category, game, query, scripts, status]);
 
   const visibleScripts = filtered.slice(0, visibleCount);
-  const activeFilters = status !== "all" || game !== "Tümü" || query.trim().length > 0;
+  const activeCategory = categories.find((item) => item.id === category);
+  const activeFilters =
+    status !== "all" || game !== "Tümü" || category !== "all" || query.trim().length > 0;
 
   useEffect(() => {
     setVisibleCount(6);
-  }, [query, status, game]);
+  }, [category, game, query, scripts.length, status]);
+
+  useEffect(() => {
+    if (category !== "all" && !categories.some((item) => item.id === category)) {
+      setCategory("all");
+    }
+  }, [categories, category]);
+
+  useEffect(() => {
+    if (game !== "Tümü" && !gameOptions.includes(game)) {
+      setGame("Tümü");
+    }
+  }, [game, gameOptions]);
 
   const resetFilters = () => {
     setStatus("all");
     setGame("Tümü");
+    setCategory("all");
     onQueryChange("");
   };
 
@@ -84,14 +142,14 @@ export function ScriptExplorer({
               <span className="section-kicker text-neon/70">Script Keşfi</span>
             </div>
             <h2 className="mt-4 max-w-xl font-display text-[30px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[40px]">
-              Küratörlü{" "}
+              Kategorilere ayrılmış{" "}
               <span className="bg-gradient-to-r from-white via-[#B9F8FF] to-[#5F91FF] bg-clip-text text-transparent">
-                script kütüphanesi
+                canlı script akışı
               </span>
             </h2>
             <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-              Her script, çalışma durumu doğrulanmadan yayına alınmaz. Filtrele, incele ve
-              tek tıkla kopyala.
+              ScriptBlox kataloğundan otomatik senkronize edilir. Durum, kaynak ve
+              erişim bilgisini gör; üçüncü taraf kodları çalıştırmadan önce incele.
             </p>
           </Reveal>
 
@@ -103,10 +161,14 @@ export function ScriptExplorer({
               </span>
               <div>
                 <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/25">
-                  Ağ durumu
+                  Veri kaynağı
                 </p>
                 <p className="mt-0.5 text-[11px] font-medium text-white/60">
-                  Tüm scriptler senkron
+                  {libraryState === "live"
+                    ? `${primarySource} · canlı senkron`
+                    : libraryState === "loading"
+                      ? "Kütüphane senkronize ediliyor"
+                      : "MDC küratör seçkisi"}
                 </p>
               </div>
               <span aria-hidden="true" className="ml-1 h-6 w-px bg-white/[0.08]" />
@@ -117,7 +179,55 @@ export function ScriptExplorer({
 
         <Reveal delay={140}>
           <div className="mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.025] p-2.5 backdrop-blur-2xl sm:p-3">
-            <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+            <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
+              <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
+                <Layers className="h-3 w-3" />
+                Kategori
+              </span>
+              <div className="flex shrink-0 gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setCategory("all")}
+                  aria-pressed={category === "all"}
+                  className={cn(
+                    "flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
+                    category === "all"
+                      ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_22px_-10px_rgba(0,240,255,0.9)]"
+                      : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
+                  )}
+                >
+                  Tümü
+                  <span className="font-mono text-[8.5px] opacity-50">{scripts.length}</span>
+                </button>
+                {categories.map((item) => {
+                  const active = category === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setCategory(item.id)}
+                      aria-pressed={active}
+                      title={item.description}
+                      className={cn(
+                        "flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
+                        active
+                          ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_22px_-10px_rgba(0,240,255,0.9)]"
+                          : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
+                      )}
+                    >
+                      {item.label}
+                      <span className="font-mono text-[8.5px] opacity-50">{item.count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              <span className="ml-auto hidden shrink-0 items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/20 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 sm:flex">
+                <Globe className="h-2.5 w-2.5 text-neon/50" />
+                {libraryState === "live" ? primarySource : "Yerel"}
+              </span>
+            </div>
+
+            <div className="mt-2 flex flex-col gap-2 border-t border-white/[0.06] pt-2.5 xl:flex-row xl:items-center xl:justify-between">
               <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
                 <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
                   <Sliders className="h-3 w-3" />
@@ -169,7 +279,7 @@ export function ScriptExplorer({
               </div>
 
               <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar xl:justify-end">
-                {games.map((item) => (
+                {gameOptions.map((item) => (
                   <button
                     key={item}
                     type="button"
@@ -195,11 +305,14 @@ export function ScriptExplorer({
             <Sparkles className="h-3 w-3 text-neon/50" />
             <span>
               <span className="font-medium text-white/60">{filtered.length}</span> script
+              {activeCategory ? ` · ${activeCategory.label}` : ""}
               {query.trim() ? (
                 <>
                   {" "}
                   · <span className="text-white/45">&ldquo;{query.trim()}&rdquo;</span> araması
                 </>
+              ) : libraryState === "live" ? (
+                ` · ${primarySource}`
               ) : (
                 " · küratör seçkisi"
               )}
@@ -217,7 +330,11 @@ export function ScriptExplorer({
           </div>
           <div className="hidden items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex">
             <span className="h-1 w-1 rounded-full bg-neon/60" />
-            Son senkron · az önce
+            {libraryState === "live"
+              ? `Son senkron · ${timeAgo(lastSync)}`
+              : libraryState === "loading"
+                ? "Canlı veri yükleniyor"
+                : "Yerel seçki · çevrimdışı güvenli"}
           </div>
         </div>
 
@@ -228,8 +345,10 @@ export function ScriptExplorer({
             </span>
             <h3 className="mt-4 font-display text-[18px] font-medium text-white/85">
               Sonuç bulunamadı
-            </h3>              <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-white/45">
-              Farklı bir oyun, script adı veya özellik dene. Kütüphane her gün büyüyor.
+            </h3>
+            <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-white/45">
+              Farklı bir kategori, oyun, script adı veya özellik dene. Kütüphane
+              otomatik olarak güncelleniyor.
             </p>
             <button
               type="button"
@@ -254,7 +373,7 @@ export function ScriptExplorer({
             {filtered.length > visibleCount && (
               <button
                 type="button"
-                onClick={() => setVisibleCount((count) => count + 3)}
+                onClick={() => setVisibleCount((count) => count + 6)}
                 className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.09] bg-white/[0.03] px-5 py-3 text-[11.5px] font-medium text-white/60 backdrop-blur-xl transition-all duration-300 hover:border-neon/30 hover:bg-neon/[0.05] hover:text-white"
               >
                 Daha fazla script yükle
@@ -264,7 +383,7 @@ export function ScriptExplorer({
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
             )}
-            {filtered.length <= visibleCount && filtered.length > 3 && (
+            {filtered.length <= visibleCount && filtered.length > 6 && (
               <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
                 Tüm sonuçlar gösteriliyor
               </p>

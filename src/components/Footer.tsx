@@ -65,12 +65,12 @@ export function Footer({ onOpenAuth }: FooterProps) {
                 </span>
               </h2>
               <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/40 sm:text-[13.5px]">
-                Küratör ekibi incelemesinden geç, binlerce geliştiriciye ulaş. Yayınlamak
-                ücretsiz, erişim her zaman keyless.
+                Scriptini toplulukla paylaş, kategorilerde keşfedil. Yayın akışı için
+                ücretsiz hesap oluştur.
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex -space-x-2" aria-hidden="true">
-                  {["K", "N", "V", "O"].map((initial, index) => (
+                  {["S", "M", "D", "C"].map((initial, index) => (
                     <span
                       key={initial}
                       className="grid h-6 w-6 place-items-center rounded-full border border-[#0a1017] bg-gradient-to-br from-white/20 to-white/[0.04] text-[8px] font-semibold text-white/60"
@@ -81,8 +81,8 @@ export function Footer({ onOpenAuth }: FooterProps) {
                   ))}
                 </div>
                 <p className="text-[10.5px] text-white/35">
-                  <span className="font-medium text-white/60">12.400+</span> geliştirici
-                  aramızda
+                  <span className="font-medium text-white/60">ScriptBlox + MDC</span>{" "}
+                  kaynakları bir arada
                 </p>
               </div>
             </div>
@@ -112,8 +112,8 @@ export function Footer({ onOpenAuth }: FooterProps) {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-[11.5px] leading-relaxed text-white/40">
-              Roblox geliştiricileri için küratörlü, güncel ve güvenli script ekosistemi.
-              Cyber-luxury bir deneyim, sıfır gereksiz adım.
+              Roblox geliştiricileri için kategorilere ayrılmış, canlı script keşfi.
+              Üçüncü taraf kodları incele, kaynağını gör, tek tıkla kopyala.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-neon/20 bg-neon/[0.05] px-2.5 py-1">
               <span className="relative flex h-1.5 w-1.5">
@@ -121,7 +121,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
                 <span className="relative h-1.5 w-1.5 rounded-full bg-neon" />
               </span>
               <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-neon/70">
-                Tüm sistemler çalışıyor
+                GitHub Pages üzerinde yayında
               </span>
             </div>
           </div>
@@ -157,7 +157,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
           <div className="flex items-center gap-2">
             <span className="mr-1 hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/20 sm:flex">
               <ShieldCheck className="h-3 w-3 text-neon/40" />
-              MDC Verified
+              Kaynak etiketli
             </span>
             <a
               href="#topluluk"

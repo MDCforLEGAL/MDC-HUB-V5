@@ -1,5 +1,6 @@
 import { useEffect, useRef, type FormEvent } from "react";
-import { trendingSearches } from "../data/scripts";
+import type { LibraryState } from "../hooks/useScriptLibrary";
+import { formatCompact, timeAgo } from "../lib/format";
 import { ArrowRight, Search, Sparkles, X } from "./Icons";
 
 interface HeroProps {
@@ -7,16 +8,26 @@ interface HeroProps {
   onQueryChange: (value: string) => void;
   onSubmitSearch: () => void;
   resultCount: number;
+  scriptCount: number;
+  gameCount: number;
+  workingRate: number;
+  lastSync: string | null;
+  libraryState: LibraryState;
+  popularSearches: string[];
 }
 
-const stats = [
-  { value: "4.218", label: "Küratörlü script" },
-  { value: "132", label: "Desteklenen oyun" },
-  { value: "98.4%", label: "Çalışma oranı" },
-  { value: "24/7", label: "Canlı güncelleme" },
-];
-
-export function Hero({ query, onQueryChange, onSubmitSearch, resultCount }: HeroProps) {
+export function Hero({
+  query,
+  onQueryChange,
+  onSubmitSearch,
+  resultCount,
+  scriptCount,
+  gameCount,
+  workingRate,
+  lastSync,
+  libraryState,
+  popularSearches,
+}: HeroProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -38,6 +49,19 @@ export function Hero({ query, onQueryChange, onSubmitSearch, resultCount }: Hero
 
   const trimmedQuery = query.trim();
 
+  const stats = [
+    { value: formatCompact(scriptCount), label: "Canlı script" },
+    { value: formatCompact(gameCount), label: "Desteklenen oyun" },
+    {
+      value: `${workingRate.toLocaleString("tr-TR", { maximumFractionDigits: 1 })}%`,
+      label: "Çalışma oranı",
+    },
+    {
+      value: libraryState === "live" ? timeAgo(lastSync).replace(" önce", "") : "Yerel",
+      label: libraryState === "live" ? "Son senkron" : "Veri kaynağı",
+    },
+  ];
+
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pt-40 md:pb-20">
       <div
@@ -55,11 +79,15 @@ export function Hero({ query, onQueryChange, onSubmitSearch, resultCount }: Hero
             <span className="h-1.5 w-1.5 rounded-full bg-neon shadow-[0_0_10px_2px_rgba(0,240,255,0.7)]" />
           </span>
           <span className="font-mono text-[9.5px] font-medium uppercase tracking-[0.2em] text-white/55">
-            Kütüphane canlı
+            {libraryState === "live"
+              ? "Kütüphane canlı"
+              : libraryState === "loading"
+                ? "Kütüphane yükleniyor"
+                : "Küratör seçkisi"}
           </span>
           <span aria-hidden="true" className="h-3 w-px bg-white/15" />
           <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-neon/80">
-            4.218 script
+            {formatCompact(scriptCount)} script
           </span>
         </div>
 
@@ -77,8 +105,9 @@ export function Hero({ query, onQueryChange, onSubmitSearch, resultCount }: Hero
           className="animate-rise mx-auto mt-5 max-w-xl text-[13.5px] leading-relaxed text-white/55 sm:text-[15px]"
           style={{ animationDelay: "200ms" }}
         >
-          Topluluk tarafından doğrulanan, her gün güncellenen lüks bir script kütüphanesi.
-          <span className="text-white/70"> Ara, kopyala, çalıştır.</span>
+          ScriptBlox kataloğundan otomatik çekilen, kategori kategori keşfedebileceğin
+          canlı script akışı.
+          <span className="text-white/70"> İncele, kopyala, kullan.</span>
         </p>
 
         <form
@@ -162,7 +191,7 @@ export function Hero({ query, onQueryChange, onSubmitSearch, resultCount }: Hero
           <span className="mr-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
             Popüler
           </span>
-          {trendingSearches.map((term) => (
+          {popularSearches.map((term) => (
             <button
               key={term}
               type="button"

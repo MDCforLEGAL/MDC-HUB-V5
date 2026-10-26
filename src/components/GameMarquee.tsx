@@ -1,4 +1,4 @@
-const supportedGames = [
+const fallbackGames = [
   "Blox Fruits",
   "Pet Simulator 99",
   "Arsenal",
@@ -10,7 +10,13 @@ const supportedGames = [
   "Blue Lock Rivals",
 ];
 
-export function GameMarquee() {
+interface GameMarqueeProps {
+  games?: string[];
+}
+
+export function GameMarquee({ games }: GameMarqueeProps) {
+  const supportedGames = (games && games.length > 0 ? games : fallbackGames).slice(0, 14);
+
   return (
     <div className="relative border-y border-white/[0.06] bg-white/[0.012] py-4">
       <div className="marquee-mask overflow-hidden">

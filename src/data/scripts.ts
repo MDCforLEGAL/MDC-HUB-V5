@@ -1,6 +1,7 @@
 import type { GameGlyphName } from "../components/GameGlyph";
 
 export type ScriptStatus = "working" | "patched";
+export type ScriptSource = "mdc" | "scriptblox" | "rscripts";
 
 export interface ScriptEntry {
   id: string;
@@ -19,6 +20,66 @@ export interface ScriptEntry {
   colors: [string, string];
   summary: string;
   code: string;
+  source?: ScriptSource;
+  sourceLabel?: string;
+  sourceUrl?: string;
+  gameImage?: string;
+  likes?: number;
+  views?: number;
+  keyless?: boolean;
+  universal?: boolean;
+  categoryIds?: string[];
+  slug?: string;
+}
+
+export interface LibraryCategory {
+  id: string;
+  label: string;
+  description?: string;
+  count: number;
+}
+
+export interface LibrarySource {
+  id: string;
+  label: string;
+  url: string;
+  count?: number;
+}
+
+export interface LiveScript {
+  id: string;
+  slug: string;
+  source: ScriptSource;
+  sourceLabel: string;
+  sourceUrl: string;
+  title: string;
+  game: string;
+  gameImage?: string;
+  author: string;
+  authorVerified?: boolean;
+  verified: boolean;
+  status: ScriptStatus;
+  premium: boolean;
+  keyless: boolean;
+  universal: boolean;
+  tags: string[];
+  views: number;
+  likes: number;
+  rating?: number;
+  summary: string;
+  code: string;
+  createdAt?: string;
+  updatedAt: string;
+  categoryIds: string[];
+  glyph: GameGlyphName;
+  colors: [string, string];
+}
+
+export interface LibraryData {
+  generatedAt: string | null;
+  sources: LibrarySource[];
+  categories: LibraryCategory[];
+  scripts: LiveScript[];
 }
 
 export const scripts: ScriptEntry[] = [
@@ -455,4 +516,13 @@ export const trendingSearches = [
   "Auto Farm",
   "Aimbot",
   "Doors ESP",
+];
+
+export const fallbackCategories: LibraryCategory[] = [
+  {
+    id: "curated",
+    label: "Küratör Seçkisi",
+    description: "MDC tarafından hazırlanan örnek seçki",
+    count: scripts.length,
+  },
 ];
