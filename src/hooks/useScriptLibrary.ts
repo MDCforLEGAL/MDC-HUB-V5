@@ -159,8 +159,11 @@ export function useScriptLibrary(): ScriptLibrary {
 
     const load = async () => {
       try {
+        const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+          ? import.meta.env.BASE_URL
+          : `${import.meta.env.BASE_URL}/`;
         const response = await fetch(
-          `${import.meta.env.BASE_URL}data/scripts.json`,
+          `${baseUrl}data/scripts.json`,
           {
             signal: controller.signal,
             cache: "no-store",

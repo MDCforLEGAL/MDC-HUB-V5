@@ -334,7 +334,7 @@ export function ScriptExplorer({
               ? `Son senkron · ${timeAgo(lastSync)}`
               : libraryState === "loading"
                 ? "Canlı veri yükleniyor"
-                : "Yerel seçki · çevrimdışı güvenli"}
+                : "Yerel seçki · çevrimdışı"}
           </div>
         </div>
 
