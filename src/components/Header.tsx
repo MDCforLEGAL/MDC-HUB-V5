@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { Logo } from "./Logo";
-import { ArrowUpRight, Globe, Menu, Plus, X } from "./Icons";
+import { UserAvatar } from "./UserAvatar";
+import { ArrowUpRight, ChevronDown, Globe, LogOut, Menu, Plus, X } from "./Icons";
 
 const navItems = [
   { labelKey: "nav.discover", href: "#kesfet" },
@@ -14,8 +16,101 @@ interface HeaderProps {
   onAuth: (mode: "login" | "signup") => void;
 }
 
+function AccountMenu() {
+  const { t } = useI18n();
+  const { user, signOut, busy } = useAuth();
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  if (!user) return null;
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={t("nav.account")}
+        className="flex items-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.035] py-1.5 pl-1.5 pr-2.5 text-[12px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white"
+      >
+        <UserAvatar user={user} className="h-6 w-6" />
+        <span className="hidden max-w-[104px] truncate sm:block">{user.displayName}</span>
+        <ChevronDown
+          className={cn("h-3 w-3 opacity-50 transition-transform duration-300", open && "rotate-180")}
+        />
+      </button>
+
+      {open && (
+        <div
+          role="menu"
+          aria-label={t("nav.account")}
+          className="modal-in absolute right-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#060b13]/97 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_0_60px_-40px_rgba(0,240,255,0.6)] backdrop-blur-2xl"
+        >
+          <div className="flex items-center gap-3 border-b border-white/[0.06] p-3.5">
+            <UserAvatar user={user} className="h-9 w-9" />
+            <div className="min-w-0">
+              <p className="truncate text-[12.5px] font-semibold text-white">{user.displayName}</p>
+              <p className="truncate font-mono text-[9.5px] text-white/35">@{user.username}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between px-3.5 py-2.5">
+            <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+              {t("auth.accountBadge")}
+            </span>
+            <span
+              className={cn(
+                "rounded-md border px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em]",
+                user.role === "admin"
+                  ? "border-[#8B0000]/50 bg-[#4A0000]/45 text-[#ffb3b3]"
+                  : "border-white/[0.1] bg-white/[0.04] text-white/45",
+              )}
+            >
+              {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setOpen(false);
+              void signOut();
+            }}
+            disabled={busy}
+            className="flex w-full items-center gap-2 border-t border-white/[0.06] px-3.5 py-3 text-left text-[12px] font-medium text-white/55 transition-colors hover:bg-[#4A0000]/25 hover:text-[#ffb3b3] disabled:opacity-50"
+          >
+            <LogOut className="h-3.5 w-3.5" />
+            {t("auth.signOut")}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function Header({ onAuth }: HeaderProps) {
   const { t, locale, setLocale } = useI18n();
+  const { user, signedIn, signOut, busy } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -86,21 +181,29 @@ export function Header({ onAuth }: HeaderProps) {
               {locale === "tr" ? "EN" : "TR"}
             </span>
           </button>
-          <button
-            type="button"
-            onClick={() => openAuth("login")}
-            className="hidden rounded-xl px-3 py-2 text-[12.5px] font-medium text-white/60 transition-colors duration-300 hover:bg-white/[0.05] hover:text-white md:block"
-          >
-            {t("nav.login")}
-          </button>
-          <button
-            type="button"
-            onClick={() => openAuth("signup")}
-            className="hidden items-center gap-1 rounded-xl border border-white/[0.09] bg-white/[0.035] px-3 py-2 text-[12.5px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white md:inline-flex"
-          >
-            {t("nav.signup")}
-            <ArrowUpRight className="h-3 w-3 opacity-50" />
-          </button>
+
+          {signedIn ? (
+            <AccountMenu />
+          ) : (
+            <>
+              <button
+                type="button"
+                onClick={() => openAuth("login")}
+                className="hidden rounded-xl px-3 py-2 text-[12.5px] font-medium text-white/60 transition-colors duration-300 hover:bg-white/[0.05] hover:text-white md:block"
+              >
+                {t("nav.login")}
+              </button>
+              <button
+                type="button"
+                onClick={() => openAuth("signup")}
+                className="hidden items-center gap-1 rounded-xl border border-white/[0.09] bg-white/[0.035] px-3 py-2 text-[12.5px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white md:inline-flex"
+              >
+                {t("nav.signup")}
+                <ArrowUpRight className="h-3 w-3 opacity-50" />
+              </button>
+            </>
+          )}
+
           <button
             type="button"
             onClick={() => openAuth("signup")}
@@ -113,6 +216,7 @@ export function Header({ onAuth }: HeaderProps) {
               <span className="min-[380px]:hidden">{t("nav.shareShort")}</span>
             </span>
           </button>
+
           <button
             type="button"
             onClick={() => setMobileOpen((value) => !value)}
@@ -146,22 +250,46 @@ export function Header({ onAuth }: HeaderProps) {
               </a>
             ))}
           </nav>
-          <div className="mt-2 grid grid-cols-2 gap-2 border-t border-white/[0.06] pt-2.5">
-            <button
-              type="button"
-              onClick={() => openAuth("login")}
-              className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-3 py-2.5 text-[12.5px] font-medium text-white/75 transition-colors hover:border-neon/30 hover:text-white"
-            >
-              {t("nav.login")}
-            </button>
-            <button
-              type="button"
-              onClick={() => openAuth("signup")}
-              className="rounded-xl border border-neon/25 bg-neon/[0.08] px-3 py-2.5 text-[12.5px] font-semibold text-neon transition-colors hover:bg-neon/[0.14]"
-            >
-              {t("nav.freeSignup")}
-            </button>
-          </div>
+
+          {signedIn && user ? (
+            <div className="mt-2 flex items-center gap-2.5 rounded-xl border border-white/[0.07] bg-white/[0.03] p-2.5">
+              <UserAvatar user={user} className="h-8 w-8" />
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[12px] font-medium text-white/85">{user.displayName}</p>
+                <p className="truncate font-mono text-[9px] text-white/35">@{user.username}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  void signOut();
+                }}
+                disabled={busy}
+                aria-label={t("auth.signOut")}
+                className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] text-white/45 transition-colors hover:border-[#8B0000]/45 hover:text-[#ffb3b3] disabled:opacity-50"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ) : (
+            <div className="mt-2 grid grid-cols-2 gap-2 border-t border-white/[0.06] pt-2.5">
+              <button
+                type="button"
+                onClick={() => openAuth("login")}
+                className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-3 py-2.5 text-[12.5px] font-medium text-white/75 transition-colors hover:border-neon/30 hover:text-white"
+              >
+                {t("nav.login")}
+              </button>
+              <button
+                type="button"
+                onClick={() => openAuth("signup")}
+                className="rounded-xl border border-neon/25 bg-neon/[0.08] px-3 py-2.5 text-[12.5px] font-semibold text-neon transition-colors hover:bg-neon/[0.14]"
+              >
+                {t("nav.freeSignup")}
+              </button>
+            </div>
+          )}
+
           <button
             type="button"
             onClick={toggleLocale}

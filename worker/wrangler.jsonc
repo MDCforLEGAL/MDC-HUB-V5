@@ -1,0 +1,30 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "mdc-hub-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+
+  // Create the database with: npx wrangler d1 create mdc-hub
+  // then replace the placeholder below with the returned database_id.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mdc-hub",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "vars": {
+    // Origins allowed to call the API from the browser (comma separated, no path).
+    "SITE_ORIGINS": "https://mdcforlegal.github.io,http://localhost:3000,http://127.0.0.1:3000",
+    // Where the API sends the browser after Discord login (the GitHub Pages site).
+    "SITE_REDIRECT_URL": "https://mdcforlegal.github.io/MDC-HUB-V5/",
+    // Public Discord application id. The matching secret is stored with:
+    // npx wrangler secret put DISCORD_CLIENT_SECRET
+    "DISCORD_CLIENT_ID": "",
+    // Comma separated Discord user ids that receive the admin role.
+    "ADMIN_DISCORD_IDS": ""
+  }
+}

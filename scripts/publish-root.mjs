@@ -15,7 +15,7 @@ await rm("assets", { recursive: true, force: true });
 await cp("dist/assets", "assets", { recursive: true });
 await copyFile("dist/index.html", "index.html");
 
-for (const file of ["favicon.svg", ".nojekyll"]) {
+for (const file of ["favicon.svg", ".nojekyll", "config.json"]) {
   if (existsSync(`dist/${file}`)) {
     await copyFile(`dist/${file}`, file);
   }

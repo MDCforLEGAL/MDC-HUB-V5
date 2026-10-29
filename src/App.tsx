@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useAuth } from "./auth/AuthProvider";
 import { AuthModal, type AuthMode } from "./components/AuthModal";
 import { CodeShowcase } from "./components/CodeShowcase";
 import { Footer } from "./components/Footer";
@@ -10,6 +11,7 @@ import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
+import { useI18n } from "./i18n";
 
 interface ToastState {
   id: number;
@@ -34,6 +36,8 @@ function Atmosphere() {
 
 export default function App() {
   const library = useScriptLibrary();
+  const { user, status, error: authError } = useAuth();
+  const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [activeScript, setActiveScript] = useState<ScriptEntry | null>(null);
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
@@ -45,6 +49,28 @@ export default function App() {
 
   const closeScript = useCallback(() => setActiveScript(null), []);
   const closeAuth = useCallback(() => setAuthMode(null), []);
+
+  const seenUser = useRef<{ ready: boolean; id: string | null }>({ ready: false, id: null });
+
+  useEffect(() => {
+    if (status === "loading") return;
+
+    const id = user?.id ?? null;
+    if (!seenUser.current.ready) {
+      seenUser.current = { ready: true, id };
+      return;
+    }
+    if (seenUser.current.id === id) return;
+
+    if (id && user) notify(t("toast.welcome", { name: user.displayName }));
+    else if (!id) notify(t("toast.signedOut"));
+
+    seenUser.current.id = id;
+  }, [status, user, notify, t]);
+
+  useEffect(() => {
+    if (authError === "callback") setAuthMode("login");
+  }, [authError]);
 
   const scrollToResults = useCallback(() => {
     document.getElementById("kesfet")?.scrollIntoView({ behavior: "smooth", block: "start" });

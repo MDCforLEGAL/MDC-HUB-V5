@@ -232,6 +232,25 @@ export const Github = (p: IconProps) => (
   </svg>
 );
 
+export const Discord = (p: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
+    <path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.4.8a14.7 14.7 0 0 0-6 0L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.8 8.6-.1 12.7.3 16.8a20 20 0 0 0 6 3l.8-1.3c-.4-.2-.8-.4-1.2-.7l.3-.2a14.3 14.3 0 0 0 11.6 0l.3.2-1.2.7.8 1.3a20 20 0 0 0 6-3c.5-4.8-.7-8.8-3.4-12.4ZM8.3 14.5c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Zm7.4 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z" />
+  </svg>
+);
+
+export const LogOut = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M9.5 21H5.5A1.5 1.5 0 0 1 4 19.5v-15A1.5 1.5 0 0 1 5.5 3h4" />
+    <path d="m16 16.5 4.5-4.5L16 7.5M20.5 12H9" />
+  </svg>
+);
+
+export const Loader = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M12 3a9 9 0 1 0 9 9" />
+  </svg>
+);
+
 export const Globe = (p: IconProps) => (
   <svg {...base} {...p}>
     <circle cx="12" cy="12" r="9" />

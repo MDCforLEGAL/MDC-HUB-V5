@@ -62,6 +62,87 @@ not re-trigger the workflow.
 The current build is configured for the project path `/MDC-HUB-V5/`. A custom
 domain at the site root requires rebuilding with a `/` base path.
 
+## Accounts (Cloudflare + Discord)
+
+Accounts run on a Cloudflare Worker with a D1 database and Discord OAuth. The
+static site only renders the interface; it never holds the Discord client secret.
+
+- **Sign-in:** Discord OAuth 2.0 with the `identify` scope only. Browse your
+  profile with no email, password or SMTP provider.
+- **Session:** an opaque 256-bit bearer token stored in `localStorage`; D1 keeps
+  only its SHA-256 hash. Sessions use a 30-day sliding expiry and are revoked on
+  sign-out.
+- **Why bearer instead of cookies:** `github.io` and `*.workers.dev` are different
+  sites, so third-party cookies are blocked by several browsers. An
+  `Authorization` header works on every browser without weakening cookie policy.
+- **CORS:** the Worker answers only the origins listed in `SITE_ORIGINS`.
+- **Roles:** every new account is a `member`; Discord ids listed in
+  `ADMIN_DISCORD_IDS` are upgraded to `admin` on sign-in.
+
+### 1. Create the Discord application
+
+1. Open <https://discord.com/developers/applications> and create an application.
+2. Under **OAuth2**, copy the **Client ID** and **Client Secret**.
+3. Add the redirect URI `https://<worker-name>.<subdomain>.workers.dev/auth/discord/callback`
+   (plus `http://127.0.0.1:8787/auth/discord/callback` for local development).
+4. Keep the scope at `identify`; no email scope is requested.
+
+### 2. Create the D1 database
+
+```bash
+npx wrangler login
+npx wrangler d1 create mdc-hub
+```
+
+Copy the returned `database_id` into `worker/wrangler.jsonc`, replacing the
+all-zero placeholder. Set `DISCORD_CLIENT_ID` in the same file.
+
+### 3. Store the secret, migrate and deploy
+
+```bash
+npx wrangler secret put DISCORD_CLIENT_SECRET --config worker/wrangler.jsonc
+npm run db:migrate:remote
+npm run worker:deploy
+```
+
+`worker:deploy` prints the public `*.workers.dev` URL.
+
+### 4. Point the site at the API
+
+Edit `public/config.json` (served at runtime, no rebuild of the app code needed):
+
+```json
+{ "apiBaseUrl": "https://mdc-hub-api.<your-subdomain>.workers.dev" }
+```
+
+Commit and push so the Pages workflow republishes it. Until this value is set,
+the login dialog shows a setup notice instead of failing silently.
+
+### Local development
+
+```bash
+npm run db:migrate:local   # create the local D1 tables
+npm run worker:dev         # API on http://127.0.0.1:8787
+npm run dev                # site on http://localhost:3000, targets :8787 in dev
+```
+
+Put local Discord credentials in `worker/.dev.vars` (see
+`worker/.dev.vars.example`). The site only uses the local fallback in development
+builds; Pages builds always read `config.json`.
+
+### API surface
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/health` | API, D1 and Discord configuration status |
+| `GET` | `/auth/discord` | Starts Discord OAuth (sets the state cookie) |
+| `GET` | `/auth/discord/callback` | Validates state, reads the profile, issues a one-time code |
+| `POST` | `/auth/exchange` | Exchanges the one-time code for a bearer token |
+| `GET` | `/api/me` | Returns the signed-in profile |
+| `POST` | `/auth/logout` | Revokes the current session |
+
+See [worker/README.md](worker/README.md) for troubleshooting.
+
 ## Open source & licensing
 
 The **source code in this repository is licensed under the MIT License**. See
@@ -89,3 +170,12 @@ executed** in the browser.
   or credentials are shipped to visitors.
 - If the catalog cannot be refreshed, the last published JSON is retained; the
   build does not invent or promote unreviewed scripts.
+- Account data lives in D1 behind the Worker. The browser never receives the D1
+  binding or the Discord client secret, and every account query is scoped to the
+  session owner.
+- OAuth uses a single-use `state` value bound to an HttpOnly cookie, and login
+  codes are single-use, hashed at rest and expire after 60 seconds.
+- Session tokens are bearer credentials: any XSS would expose them. The app only
+  renders third-party script code as escaped text and never executes it, but a
+  strict Content Security Policy still needs to be added at the CDN/host layer
+  because GitHub Pages cannot set response headers.

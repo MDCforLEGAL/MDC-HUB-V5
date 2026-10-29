@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
-import { cn } from "../lib/cn";
 import { Logo } from "./Logo";
-import { ArrowRight, Check, Eye, EyeOff, Lock, Mail, ShieldCheck, User, X } from "./Icons";
+import { UserAvatar } from "./UserAvatar";
+import { AlertTriangle, ArrowRight, Check, Discord, Loader, LogOut, ShieldCheck, X } from "./Icons";
 
 export type AuthMode = "login" | "signup";
 
@@ -12,16 +13,36 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
-export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
+interface NoticeProps {
+  icon: ReactNode;
+  title: string;
+  body: string;
+  children?: ReactNode;
+}
+
+function Notice({ icon, title, body, children }: NoticeProps) {
+  return (
+    <div className="py-5">
+      <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-[#8B0000]/40 bg-[#4A0000]/35 text-[#ff9d9d] shadow-[0_0_40px_-18px_rgba(139,0,0,0.9)]">
+        {icon}
+      </span>
+      <h2
+        id="auth-title"
+        className="mt-4 text-center font-display text-[20px] font-medium leading-tight tracking-[-0.02em] text-white"
+      >
+        {title}
+      </h2>
+      <p className="mt-2 text-center text-[11.5px] leading-relaxed text-white/45">{body}</p>
+      {children}
+    </div>
+  );
+}
+
+export function AuthModal({ mode, onClose }: AuthModalProps) {
   const { t } = useI18n();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const { status, user, health, error, errorDetail, busy, signIn, signOut } = useAuth();
   const panelRef = useRef<HTMLDivElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
+  const isSignup = mode === "signup";
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -29,43 +50,19 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
     };
     window.addEventListener("keydown", onKeyDown);
     panelRef.current?.focus();
-    const focusTimer = setTimeout(() => emailRef.current?.focus(), 120);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      clearTimeout(focusTimer);
-    };
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  const switchMode = (nextMode: AuthMode) => {
-    if (nextMode === mode) return;
-    setError("");
-    setSubmitted(false);
-    onModeChange(nextMode);
-  };
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-
-    if (mode === "signup" && username.trim().length < 3) {
-      setError(t("auth.usernameError"));
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setError(t("auth.emailError"));
-      return;
-    }
-    if (password.length < (mode === "signup" ? 8 : 6)) {
-      setError(
-        mode === "signup" ? t("auth.passwordMinSignup") : t("auth.passwordMinLogin"),
-      );
-      return;
-    }
-
-    setError("");
-    setSubmitted(true);
-  };
-
-  const isSignup = mode === "signup";
+  const callbackMessage =
+    errorDetail === "cancelled"
+      ? t("auth.errorCancelled")
+      : errorDetail === "state"
+        ? t("auth.errorState")
+        : errorDetail === "server" || errorDetail === "config"
+          ? t("auth.errorServer")
+          : errorDetail === "invalid_code"
+            ? t("auth.errorExpired")
+            : t("auth.callbackFailed");
 
   return (
     <div
@@ -80,7 +77,7 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
         aria-modal="true"
         aria-labelledby="auth-title"
         tabIndex={-1}
-        className="modal-in relative max-h-[94svh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 p-6 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95),0_0_90px_-50px_rgba(0,240,255,0.55)] backdrop-blur-2xl outline-none sm:rounded-3xl sm:p-7 code-scroll"
+        className="modal-in code-scroll relative max-h-[94svh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 p-6 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95),0_0_90px_-50px_rgba(0,240,255,0.55)] backdrop-blur-2xl outline-none sm:rounded-3xl sm:p-7"
       >
         <span
           aria-hidden="true"
@@ -98,39 +95,109 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
 
         <Logo compact className="w-fit" />
 
-        {submitted ? (
-          <div className="py-6 text-center">
-            <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-neon/30 bg-neon/[0.09] text-neon shadow-[0_0_40px_-14px_rgba(0,240,255,0.8)]">
-              <Check className="h-6 w-6" />
-            </span>
-            <h2 id="auth-title" className="mt-5 font-display text-[23px] font-medium tracking-[-0.02em] text-white">
-              {t("auth.validatedTitle")}
-            </h2>
-            <p className="mx-auto mt-2.5 max-w-xs text-[12px] leading-relaxed text-white/40">
-              {t("auth.previewText")}
+        {status === "loading" && (
+          <div className="py-12 text-center" aria-live="polite">
+            <Loader className="mx-auto h-6 w-6 animate-spin text-neon/70" />
+            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+              {t("auth.loading")}
             </p>
+          </div>
+        )}
+
+        {status !== "loading" && user && (
+          <div className="pt-6">
+            <p className="font-mono text-[8.5px] uppercase tracking-[0.22em] text-neon/60">
+              {t("auth.signedInTitle")}
+            </p>
+            <div className="mt-3.5 flex items-center gap-3.5">
+              <UserAvatar user={user} className="h-14 w-14 text-[18px]" />
+              <div className="min-w-0">
+                <h2
+                  id="auth-title"
+                  className="truncate font-display text-[21px] font-medium leading-tight tracking-[-0.02em] text-white"
+                >
+                  {user.displayName}
+                </h2>
+                <p className="truncate font-mono text-[10.5px] text-white/35">@{user.username}</p>
+              </div>
+            </div>
+
+            <p className="mt-4 text-[12px] leading-relaxed text-white/45">{t("auth.signedInBody")}</p>
+
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-neon/20 bg-neon/[0.06] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-neon/75">
+                <Discord className="h-2.5 w-2.5" />
+                {t("auth.accountBadge")}
+              </span>
+              <span
+                className={
+                  user.role === "admin"
+                    ? "rounded-full border border-[#8B0000]/50 bg-[#4A0000]/45 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-[#ffb3b3]"
+                    : "rounded-full border border-white/[0.1] bg-white/[0.04] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/45"
+                }
+              >
+                {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
+              </span>
+            </div>
+
             <div className="mt-6 flex gap-2">
               <button
                 type="button"
-                onClick={onClose}
-                className="flex-1 rounded-xl bg-gradient-to-r from-neon to-electric px-4 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.9)]"
+                onClick={() => void signOut()}
+                disabled={busy}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/70 transition-all duration-300 hover:border-[#8B0000]/45 hover:bg-[#4A0000]/25 hover:text-[#ffb3b3] disabled:opacity-50"
               >
-                {t("auth.gotIt")}
+                {busy ? <Loader className="h-3.5 w-3.5 animate-spin" /> : <LogOut className="h-3.5 w-3.5" />}
+                {t("auth.signOut")}
               </button>
               <button
                 type="button"
-                onClick={() => setSubmitted(false)}
-                className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/55 transition-all duration-300 hover:border-white/20 hover:text-white"
+                onClick={onClose}
+                className="rounded-xl bg-gradient-to-r from-neon to-electric px-5 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.95)]"
               >
-                {t("auth.edit")}
+                {t("auth.close")}
               </button>
             </div>
           </div>
-        ) : (
-          <>
+        )}
+
+        {status === "unconfigured" && (
+          <Notice icon={<AlertTriangle className="h-5 w-5" />} title={t("auth.notConfiguredTitle")} body={t("auth.notConfiguredBody")}>
+            <code className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+              public/config.json → {'{ "apiBaseUrl": "https://…workers.dev" }'}
+            </code>
+          </Notice>
+        )}
+
+        {status === "unavailable" && (
+          <Notice icon={<AlertTriangle className="h-5 w-5" />} title={t("auth.offlineTitle")} body={t("auth.offlineBody")}>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="mx-auto mt-5 block rounded-xl border border-white/[0.09] bg-white/[0.04] px-4 py-2.5 text-[11.5px] font-medium text-white/70 transition-all duration-300 hover:border-neon/30 hover:text-white"
+            >
+              {t("auth.retry")}
+            </button>
+          </Notice>
+        )}
+
+        {status === "signed-out" && !health?.discord && (
+          <Notice
+            icon={<Discord className="h-5 w-5" />}
+            title={t("auth.discordMissingTitle")}
+            body={t("auth.discordMissingBody")}
+          >
+            <code className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+              DISCORD_CLIENT_ID · DISCORD_CLIENT_SECRET
+            </code>
+          </Notice>
+        )}
+
+        {status === "signed-out" && health?.discord && (
+          <div className="pt-5">
             <h2
               id="auth-title"
-              className="mt-6 font-display text-[25px] font-medium leading-tight tracking-[-0.025em] text-white"
+              className="mt-1 font-display text-[25px] font-medium leading-tight tracking-[-0.025em] text-white"
             >
               {isSignup ? t("auth.signupTitle") : t("auth.loginTitle")}
             </h2>
@@ -138,141 +205,62 @@ export function AuthModal({ mode, onModeChange, onClose }: AuthModalProps) {
               {isSignup ? t("auth.signupSubtitle") : t("auth.loginSubtitle")}
             </p>
 
-            <div className="mt-5 grid grid-cols-2 gap-1 rounded-xl border border-white/[0.07] bg-black/25 p-1">
-              {(["login", "signup"] as const).map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => switchMode(item)}
-                  aria-pressed={mode === item}
-                  className={cn(
-                    "rounded-lg py-2 text-[11.5px] font-medium transition-all duration-300",
-                    mode === item
-                      ? "bg-white/[0.08] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]"
-                      : "text-white/35 hover:text-white/65",
-                  )}
-                >
-                  {item === "login" ? t("auth.loginTab") : t("auth.signupTab")}
-                </button>
-              ))}
-            </div>
-
-            <form onSubmit={handleSubmit} className="mt-5 space-y-3.5" noValidate>
-              {isSignup && (
-                <div>
-                  <label
-                    htmlFor="auth-username"
-                    className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
-                  >
-                    {t("auth.username")}
-                  </label>
-                  <div className="relative">
-                    <User className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
-                    <input
-                      id="auth-username"
-                      type="text"
-                      value={username}
-                      onChange={(event) => setUsername(event.target.value)}
-                      autoComplete="username"
-                      placeholder="kaizen"
-                      className="h-11 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] pl-10 pr-3 text-[12.5px] text-white placeholder:text-white/20 transition-all duration-300 focus:border-neon/45 focus:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-neon/10"
-                    />
-                  </div>
-                </div>
-              )}
-
-              <div>
-                <label
-                  htmlFor="auth-email"
-                  className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
-                >
-                  {t("auth.email")}
-                </label>
-                <div className="relative">
-                  <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
-                  <input
-                    ref={emailRef}
-                    id="auth-email"
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    autoComplete="email"
-                    placeholder="developer@mdchub.dev"
-                    className="h-11 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] pl-10 pr-3 text-[12.5px] text-white placeholder:text-white/20 transition-all duration-300 focus:border-neon/45 focus:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-neon/10"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="mb-1.5 flex items-center justify-between">
-                  <label
-                    htmlFor="auth-password"
-                    className="font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/30"
-                  >
-                    {t("auth.password")}
-                  </label>
-                  {!isSignup && (
-                    <button
-                      type="button"
-                      onClick={() => setError(t("auth.forgotPreview"))}
-                      className="text-[9.5px] text-neon/60 transition-colors hover:text-neon"
-                    >
-                      {t("auth.forgot")}
-                    </button>
-                  )}
-                </div>
-                <div className="relative">
-                  <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
-                  <input
-                    id="auth-password"
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    autoComplete={isSignup ? "new-password" : "current-password"}
-                    placeholder={
-                      isSignup
-                        ? t("auth.passwordPlaceholderSignup")
-                        : t("auth.passwordPlaceholderLogin")
-                    }
-                    className="h-11 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] pl-10 pr-11 text-[12.5px] text-white placeholder:text-white/20 transition-all duration-300 focus:border-neon/45 focus:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-neon/10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((value) => !value)}
-                    aria-label={showPassword ? t("auth.hide") : t("auth.show")}
-                    className="absolute right-2.5 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-lg text-white/30 transition-colors hover:bg-white/[0.05] hover:text-white/70"
-                  >
-                    {showPassword ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
-                  </button>
-                </div>
-              </div>
-
-              {error && (
-                <p className="rounded-lg border border-blood/35 bg-blood-deep/30 px-3 py-2 text-[10.5px] leading-relaxed text-[#ffb3b3]">
-                  {error}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                className="group mt-1 flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon to-electric text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.95)]"
+            {error === "callback" && (
+              <p
+                role="alert"
+                className="mt-4 rounded-lg border border-blood/35 bg-blood-deep/30 px-3 py-2 text-[10.5px] leading-relaxed text-[#ffb3b3]"
               >
-                {isSignup ? t("auth.signupSubmit") : t("auth.loginSubmit")}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
-            </form>
+                {callbackMessage}
+              </p>
+            )}
 
-            <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-[9px] leading-relaxed text-white/22">
-              <ShieldCheck className="h-3 w-3 text-neon/40" />
-              {t("auth.terms")}
+            <button
+              type="button"
+              onClick={signIn}
+              disabled={busy}
+              className="group mt-5 flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-4 text-[12.5px] font-semibold text-[#02070a] shadow-[0_12px_34px_-12px_rgba(0,240,255,0.85)] transition-all duration-300 hover:shadow-[0_16px_42px_-10px_rgba(0,240,255,0.95)] disabled:opacity-70"
+            >
+              {busy ? (
+                <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
+              ) : (
+                <Discord className="h-4 w-4" />
+              )}
+              {busy
+                ? t("auth.redirecting")
+                : isSignup
+                  ? t("auth.discordCtaSignup")
+                  : t("auth.discordCta")}
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </button>
+
+            <p className="mt-2.5 text-center text-[10px] leading-relaxed text-white/30">
+              {t("auth.discordHint")}
             </p>
 
-            <div className="mt-5 border-t border-white/[0.06] pt-4 text-center">
+            <ul className="mt-5 space-y-2.5">
+              {[t("auth.perkNoEmail"), t("auth.perkInstant"), t("auth.perkProfile")].map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-white/50">
+                  <span className="mt-px grid h-4 w-4 shrink-0 place-items-center rounded-full border border-neon/25 bg-neon/[0.08] text-neon">
+                    <Check className="h-2.5 w-2.5" strokeWidth={2.8} />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-white/[0.06] bg-black/25 p-3">
+              <ShieldCheck className="mt-px h-3.5 w-3.5 shrink-0 text-neon/45" />
+              <p className="text-[10px] leading-relaxed text-white/35">{t("auth.privacy")}</p>
+            </div>
+
+            <p className="mt-4 text-center text-[9px] leading-relaxed text-white/25">{t("auth.terms")}</p>
+
+            <div className="mt-4 border-t border-white/[0.06] pt-3.5 text-center">
               <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/20">
-                {t("auth.footer")}
+                {t("auth.secureNote")}
               </p>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

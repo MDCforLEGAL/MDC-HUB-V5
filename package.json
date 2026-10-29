@@ -6,12 +6,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/finalize-build.mjs",
-    "build:pages": "tsc --noEmit && node scripts/build-pages.mjs",
+    "build": "tsc --noEmit && tsc -p worker/tsconfig.json && vite build && node scripts/finalize-build.mjs",
+    "build:pages": "tsc --noEmit && tsc -p worker/tsconfig.json && node scripts/build-pages.mjs",
     "publish:pages": "node scripts/publish-root.mjs",
     "sync:scripts": "node scripts/sync-scripts.mjs",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && tsc -p worker/tsconfig.json",
+    "worker:dev": "wrangler dev --config worker/wrangler.jsonc --port 8787",
+    "worker:deploy": "wrangler deploy --config worker/wrangler.jsonc",
+    "db:migrate:local": "wrangler d1 migrations apply mdc-hub --local --config worker/wrangler.jsonc",
+    "db:migrate:remote": "wrangler d1 migrations apply mdc-hub --remote --config worker/wrangler.jsonc"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
@@ -21,6 +25,7 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261029.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
@@ -28,6 +33,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "tailwindcss": "^4.3.3",
     "typescript": "~5.9.3",
-    "vite": "^8.3.5"
+    "vite": "^8.3.5",
+    "wrangler": "^4.155.0"
   }
 }
