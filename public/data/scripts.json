@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T07:08:37.323Z",
+  "generatedAt": "2026-10-29T07:14:28.061Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -74,7 +74,7 @@
         "Break and Steal an Egg script",
         "Break and Steal an Egg scripts"
       ],
-      "views": 5560,
+      "views": 5562,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -130,6 +130,44 @@
       ]
     },
     {
+      "id": "scriptblox-6ad2a209dc6510ce580e794d",
+      "slug": "BLOOD-MOON-Pet-Simulator-99-Snowy-Hub-or-Kaitun-Auto-Farm-Auto-Hatch-Auto-Buy-and-More-232028",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/BLOOD-MOON-Pet-Simulator-99-Snowy-Hub-or-Kaitun-Auto-Farm-Auto-Hatch-Auto-Buy-and-More-232028",
+      "title": "Snowy Hub | Kaitun, Auto Farm, Auto Hatch, Auto Buy & More",
+      "game": "🔥 [BLOOD MOON] Pet Simulator 99! 👻",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-80e5149322f811c1ad79b9b080fdd406-87c422f8c56d.png",
+      "author": "snowy",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Pet Simulator",
+        "Pet sim",
+        "Free Pet Simulator  Script Delta"
+      ],
+      "views": 2487,
+      "likes": 5,
+      "dislikes": 3,
+      "rating": 3.1,
+      "summary": "Snowy Hub: Pet Simulator 99 - Master Auto Kaitun - Auto Rebirth - Auto Buy Next Zones - Auto Farm Breakables - Auto Hatch Eggs - Auto Buy Egg Slots - Auto Buy Pet Equip Slots - Auto Claim - Auto Farm Event - Auto Eat Fruits - Auto Open -…",
+      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/e8fae9fc0b7a87a96c4791fad63f4660.lua\"))()",
+      "createdAt": "2026-10-16T22:15:37.853Z",
+      "updatedAt": "2026-10-16T22:15:37.853Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "paw",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "scriptblox-6ad37033a0473774442cf475",
       "slug": "Break-and-Steal-an-Egg-Lumin-Hub-or-Keyless-232011",
       "source": "scriptblox",
@@ -148,7 +186,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 27132,
+      "views": 27138,
       "likes": 7,
       "dislikes": 4,
       "rating": 3.2,
@@ -186,7 +224,7 @@
         "jujutsu",
         "shenanigans"
       ],
-      "views": 9823,
+      "views": 9825,
       "likes": 8,
       "dislikes": 3,
       "rating": 3.6,
@@ -224,7 +262,7 @@
         "gravedigger",
         "blood debt"
       ],
-      "views": 1659,
+      "views": 1660,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -262,7 +300,7 @@
         "hitbox expander range expander hitbox increase",
         "open source open src opensource opensrc opensrc"
       ],
-      "views": 2127,
+      "views": 2128,
       "likes": 19,
       "dislikes": 2,
       "rating": 4.5,
@@ -270,44 +308,6 @@
       "code": "local Players = game:GetService(\"Players\")\nlocal RS = game:GetService(\"RunService\")\n\nlocal RF = game:GetService(\"ReplicatedFirst\")\nlocal base = require(RF:WaitForChild(\"Classes\"):WaitForChild(\"RacketHandler\"):WaitForChild(\"Moves\"):WaitForChild(\"RacketMoveBase\"))\n\nlocal size = 28\n\nif getgenv().Hitbox_Expander then getgenv().Hitbox_Expander() end\n\nlocal old = getgenv().DidHit or base.DidHit\ngetgenv().DidHit = old\n\nlocal ball = Instance.new(\"Part\")\nball.Name = \"hitbox\"\nball.Shape = Enum.PartType.Ball\nball.Size = Vector3.new(1, 1, 1) * (size * 2)\nball.Transparency = 0.8\nball.Material = Enum.Material.ForceField\nball.Color = Color3.fromRGB(0, 255, 0)\nball.Anchored = true\nball.CanCollide = false\nball.CanQuery = false\nball.CanTouch = false\nball.CastShadow = false\nball.Parent = workspace\n\nlocal con\ncon = RS.RenderStepped:Connect(function()\n\tlocal char = Players.LocalPlayer.Character\n\tif char then\n\t\tlocal hrp = char:FindFirstChild(\"HumanoidRootPart\")\n\t\tif hrp then\n\t\t\tball.CFrame = hrp.CFrame\n\t\t\treturn\n\t\tend\n\tend\n\tball.CFrame = CFrame.new(0, -10000, 0)\nend)\n\nbase.DidHit = function(self, pos, radius)\n\treturn old(self, pos, size)\nend\n\ngetgenv().Hitbox_Expander = function()\n\tif con then\n\t\tcon:Disconnect()\n\t\tcon = nil\n\tend\n\tif ball then\n\t\tball:Destroy()\n\tend\n\tbase.DidHit = old\n\tgetgenv().Hitbox_Expander = nil\nend",
       "createdAt": "2026-10-17T23:53:55.226Z",
       "updatedAt": "2026-10-17T23:53:55.226Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ad546e14f5fd0d39d137634",
-      "slug": "Ride-a-Dino-Snowy-Hub-or-Auto-Catch-Auto-Tame-Auto-Buy-God-Mode-and-More-232458",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Ride-a-Dino-Snowy-Hub-or-Auto-Catch-Auto-Tame-Auto-Buy-God-Mode-and-More-232458",
-      "title": "Snowy Hub | Auto Catch, Auto Tame, Auto Buy, God Mode & More",
-      "game": "[🎃] Ride a Dino",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-f8fecae0178a0050091a98a328c31ef4-08353ec976c5.png",
-      "author": "snowy",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Ride a Dino",
-        "Ride a Dino Script",
-        "Free Ride a Dino Script"
-      ],
-      "views": 5412,
-      "likes": 5,
-      "dislikes": 2,
-      "rating": 3.6,
-      "summary": "Snowy Hub: Ride a Dino - Auto Catch - Auto Launch - God Mode - Auto Deposit - Auto Sell - Auto Mount - Auto Ride - Auto Farm Grips - Auto Collect - Auto Farm - TP & Tons More Features Thank you so much for using Snowy Hub! We love you al…",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/a87f00d9adf63658655fcd02ab86a4ef.lua\"))()",
-      "createdAt": "2026-10-18T22:23:29.805Z",
-      "updatedAt": "2026-10-18T22:23:29.805Z",
       "categoryIds": [
         "trending"
       ],
@@ -374,7 +374,7 @@
         "aimbot silent aimlock esp wall triggerbot fov free",
         "keyless roblox  flick flicker fps shooter"
       ],
-      "views": 5619,
+      "views": 5621,
       "likes": 15,
       "dislikes": 3,
       "rating": 4.2,
@@ -446,7 +446,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 291,
+      "views": 296,
       "likes": 2,
       "dislikes": 0,
       "summary": "+ Auto Farm Level + Auto Farm Nearest + Auto Factory Raid + Auto Pirate Raid + Auto Farm Ectoplasm + Auto Farm Chest + Auto Chest Bypass + Stop Items + Auto Farm Berry + Auto Farm Berry + Hop + Auto Kill Mob + Auto Farm All Island + Auto…",
@@ -483,7 +483,7 @@
         "Grand Piece",
         "Free Grand Piece Online Script"
       ],
-      "views": 108,
+      "views": 110,
       "likes": 1,
       "dislikes": 0,
       "summary": "Snowy Hub: Grand Piece Online - Auto Farm Mobs - Auto Accept Quests - Auto Farm Bosses - Auto Sea Beast Farm - Auto Kraken Farm - Fast Attack - Auto M1 Attack - Auto Grab Mobs - Kill Aura - Auto Skill - Auto Fruit Sniper - Auto Store Fru…",
@@ -520,7 +520,7 @@
         "Bike For eggs",
         "Bike for egg keyless"
       ],
-      "views": 215,
+      "views": 218,
       "likes": 1,
       "dislikes": 0,
       "summary": "------------ MYSTRIX HUB ------------ Join our Discord Server for more amazing scripts like this! ✦ Features Included : ➤ Plot : • Select Hatch Eggs Dropdown • Auto Hatch • Hatch • Select Place Eggs Dropdown • Auto Place • Place • Auto P…",
@@ -557,7 +557,7 @@
         "infinite yield",
         "delta"
       ],
-      "views": 1002,
+      "views": 1010,
       "likes": 2,
       "dislikes": 3,
       "rating": 2,
@@ -632,7 +632,7 @@
         "Mosquito",
         "Egg"
       ],
-      "views": 147,
+      "views": 148,
       "likes": 1,
       "dislikes": 0,
       "summary": "**Main** - Master Automation - Auto Farm Bosses - Auto Attack - Boss Area - Auto Collect Eggs - Egg Priority - Collect All Eggs - Collect Other Drops - Prioritize Limited Eggs - Auto Place & Hatch **Automation** - Auto Place Best - Place…",
@@ -702,7 +702,7 @@
       "tags": [
         "Script"
       ],
-      "views": 239,
+      "views": 242,
       "likes": 0,
       "dislikes": 0,
       "summary": "+1 Anime Eyes Script Auto Wins Fast Train Buy Best Egg Auto Rebirth",
@@ -737,7 +737,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 198,
+      "views": 200,
       "likes": 0,
       "dislikes": 0,
       "summary": "heads up this was vibecoded and made with isaeva, if ur executor is unsupported please say so in the comments🙏 Part of my future script hub🥳 Keyless , free , and open source Some features weren't tested if they dont work right please l…",
@@ -809,7 +809,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5416749,
+      "views": 5416766,
       "likes": 107,
       "dislikes": 53,
       "rating": 3.3,
@@ -849,7 +849,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4470329,
+      "views": 4470333,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -890,7 +890,7 @@
         "gag",
         "script"
       ],
-      "views": 3916691,
+      "views": 3916693,
       "likes": 67,
       "dislikes": 48,
       "rating": 2.9,
@@ -1012,7 +1012,7 @@
         "flow",
         "script"
       ],
-      "views": 3195590,
+      "views": 3195675,
       "likes": 30,
       "dislikes": 10,
       "rating": 3.8,
@@ -1052,7 +1052,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3185334,
+      "views": 3185414,
       "likes": 18,
       "dislikes": 7,
       "rating": 3.6,
@@ -1128,7 +1128,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3116635,
+      "views": 3116641,
       "likes": 197,
       "dislikes": 29,
       "rating": 4.4,
@@ -1207,7 +1207,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2693713,
+      "views": 2693716,
       "likes": 44,
       "dislikes": 28,
       "rating": 3.1,
@@ -1245,7 +1245,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2486336,
+      "views": 2486343,
       "likes": 131,
       "dislikes": 8,
       "rating": 4.7,
@@ -1357,7 +1357,7 @@
         "murder mystery",
         "bloxfruit"
       ],
-      "views": 2839057,
+      "views": 2839144,
       "likes": 62,
       "dislikes": 11,
       "rating": 4.2,
@@ -1396,7 +1396,7 @@
         "universal",
         "hub"
       ],
-      "views": 25870,
+      "views": 25875,
       "likes": 15,
       "dislikes": 4,
       "rating": 3.9,
@@ -1655,7 +1655,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 5755,
+      "views": 5756,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
