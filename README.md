@@ -107,6 +107,21 @@ npm run worker:deploy
 
 `worker:deploy` prints the public `*.workers.dev` URL.
 
+### Deploying from GitHub Actions (no local terminal)
+
+`.github/workflows/deploy-api.yml` can deploy the Worker and apply D1 migrations
+on GitHub's runners. Add these repository secrets under **Settings → Secrets and
+variables → Actions**:
+
+- `CLOUDFLARE_API_TOKEN` — API token with *Workers Scripts:Edit*, *D1:Edit* and
+  *Account Settings:Read*.
+- `CLOUDFLARE_ACCOUNT_ID` — the account id shown on the Workers & Pages overview.
+
+Run **Deploy API (Cloudflare Worker)** from the Actions tab. The run summary
+prints the Worker URL and the exact Discord redirect URI. The job skips itself
+until `worker/wrangler.jsonc` has a real D1 id and Discord client id. The Discord
+client secret is added once in the Cloudflare dashboard, not in GitHub.
+
 ### 4. Point the site at the API
 
 Edit `public/config.json` (served at runtime, no rebuild of the app code needed):
