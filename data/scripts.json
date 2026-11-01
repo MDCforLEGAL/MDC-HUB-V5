@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T21:44:53.198Z",
+  "generatedAt": "2026-11-01T06:27:10.639Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -54,44 +54,6 @@
   ],
   "scripts": [
     {
-      "id": "scriptblox-6ad40a93f67c18f0ef30da7f",
-      "slug": "EVENT-Racket-Rivals-Hitbox-Expander-232133",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/EVENT-Racket-Rivals-Hitbox-Expander-232133",
-      "title": "Hitbox Expander",
-      "game": "[EVENT🎃] Racket Rivals",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-0614c9b9c19837923262618e825d92cc-b7b79cc64ee5.png",
-      "author": "Arquive",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "racket rivals racketrivals racket",
-        "hitbox expander range expander hitbox increase",
-        "open source open src opensource opensrc opensrc"
-      ],
-      "views": 2558,
-      "likes": 19,
-      "dislikes": 2,
-      "rating": 4.5,
-      "summary": "🎾 Racket Rivals Script 🎾 ATENTION! This script is open source. I will not update it.",
-      "code": "local Players = game:GetService(\"Players\")\nlocal RS = game:GetService(\"RunService\")\n\nlocal RF = game:GetService(\"ReplicatedFirst\")\nlocal base = require(RF:WaitForChild(\"Classes\"):WaitForChild(\"RacketHandler\"):WaitForChild(\"Moves\"):WaitForChild(\"RacketMoveBase\"))\n\nlocal size = 28\n\nif getgenv().Hitbox_Expander then getgenv().Hitbox_Expander() end\n\nlocal old = getgenv().DidHit or base.DidHit\ngetgenv().DidHit = old\n\nlocal ball = Instance.new(\"Part\")\nball.Name = \"hitbox\"\nball.Shape = Enum.PartType.Ball\nball.Size = Vector3.new(1, 1, 1) * (size * 2)\nball.Transparency = 0.8\nball.Material = Enum.Material.ForceField\nball.Color = Color3.fromRGB(0, 255, 0)\nball.Anchored = true\nball.CanCollide = false\nball.CanQuery = false\nball.CanTouch = false\nball.CastShadow = false\nball.Parent = workspace\n\nlocal con\ncon = RS.RenderStepped:Connect(function()\n\tlocal char = Players.LocalPlayer.Character\n\tif char then\n\t\tlocal hrp = char:FindFirstChild(\"HumanoidRootPart\")\n\t\tif hrp then\n\t\t\tball.CFrame = hrp.CFrame\n\t\t\treturn\n\t\tend\n\tend\n\tball.CFrame = CFrame.new(0, -10000, 0)\nend)\n\nbase.DidHit = function(self, pos, radius)\n\treturn old(self, pos, size)\nend\n\ngetgenv().Hitbox_Expander = function()\n\tif con then\n\t\tcon:Disconnect()\n\t\tcon = nil\n\tend\n\tif ball then\n\t\tball:Destroy()\n\tend\n\tbase.DidHit = old\n\tgetgenv().Hitbox_Expander = nil\nend",
-      "createdAt": "2026-10-17T23:53:55.226Z",
-      "updatedAt": "2026-10-17T23:53:55.226Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-6ad4c9ce0c69001c179f409f",
       "slug": "Murder-Mystery-2-Insta-Win-Autofarm-Kill-All-Auto-Get-Gun-40-features-232328",
       "source": "scriptblox",
@@ -112,7 +74,7 @@
         "murrder mystery",
         "mm script"
       ],
-      "views": 6507,
+      "views": 6614,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -148,7 +110,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 5196,
+      "views": 5378,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -184,7 +146,7 @@
       "tags": [
         "Script"
       ],
-      "views": 2162,
+      "views": 2235,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -222,7 +184,7 @@
         "aimbot silent aimlock esp wall triggerbot fov free",
         "keyless roblox  flick flicker fps shooter"
       ],
-      "views": 6479,
+      "views": 6593,
       "likes": 15,
       "dislikes": 3,
       "rating": 4.2,
@@ -258,7 +220,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3965,
+      "views": 4023,
       "likes": 7,
       "dislikes": 2,
       "rating": 3.9,
@@ -270,6 +232,42 @@
         "trending"
       ],
       "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6ad608eb4799d85f1cd7921e",
+      "slug": "Steal-An-Egg-Rift-or-Working-Instant-Auto-Steal-OP-232548",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Steal-An-Egg-Rift-or-Working-Instant-Auto-Steal-OP-232548",
+      "title": "Rift | Working Instant Auto Steal *OP*",
+      "game": "Steal An Egg",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-875b2a6dc156ce6dd64eb637e73238ce-3c1769917012.png",
+      "author": "synhere",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Script"
+      ],
+      "views": 8923,
+      "likes": 6,
+      "dislikes": 1,
+      "rating": 4.3,
+      "summary": "NOTE TO MODS: The script was set for a wrong game called \"Steal a Egg\" so it had to be corrected by reuploading. By purchasing, accessing, downloading, executing, or using any product, key, software, script, service, loader, website, API…",
+      "code": "loadstring(game:HttpGet(\"https://rifton.top/loader.lua\"))()",
+      "createdAt": "2026-10-19T12:11:23.038Z",
+      "updatedAt": "2026-10-19T12:11:23.038Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "paw",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -296,7 +294,7 @@
         "rx chat",
         "ares"
       ],
-      "views": 1398,
+      "views": 1448,
       "likes": 6,
       "dislikes": 3,
       "rating": 3.3,
@@ -334,7 +332,7 @@
         "slayers",
         "auto parry"
       ],
-      "views": 9295,
+      "views": 9388,
       "likes": 14,
       "dislikes": 1,
       "rating": 4.7,
@@ -370,7 +368,7 @@
       "tags": [
         "Script"
       ],
-      "views": 2649,
+      "views": 2674,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -408,7 +406,7 @@
         "fps shooter game shooting",
         "aimbot silent aim silentaim silent fov esp wall"
       ],
-      "views": 4624,
+      "views": 4735,
       "likes": 7,
       "dislikes": 1,
       "rating": 4.4,
@@ -420,6 +418,44 @@
         "trending"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6ae67097b4c30abe995fcee6",
+      "slug": "ALPHA-Practical-Basketball-Snowy-Hub-or-Auto-Green-Auto-Snatch-Inf-Stamina-Fly-and-More-234525",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/ALPHA-Practical-Basketball-Snowy-Hub-or-Auto-Green-Auto-Snatch-Inf-Stamina-Fly-and-More-234525",
+      "title": "Snowy Hub | Auto Green, Auto Snatch, Inf Stamina, Fly & More",
+      "game": "[ALPHA] Practical Basketball",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-f824bc01968ef597a0a0995497e31d78-bfe0dcbbe6a0.png",
+      "author": "snowy",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Practical Basketball",
+        "Practical Basketball Script",
+        "Practical Basketball Scripts"
+      ],
+      "views": 883,
+      "likes": 3,
+      "dislikes": 1,
+      "rating": 3.8,
+      "summary": "Snowy Hub: Practical Basketball - Auto Shoot & Score - Auto Green - 1 Click Perfect Green - Direct Remote Shot Release - Adjustable Green Timing - Auto Face Hoop - Hoop Aimbot - Ball Velocity changer - Perfect Jumpshot - Poster Dunk - Eu…",
+      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/a87f00d9adf63658655fcd02ab86a4ef.lua\"))()",
+      "createdAt": "2026-10-31T22:49:59.727Z",
+      "updatedAt": "2026-10-31T22:49:59.722Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "ball",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -446,13 +482,85 @@
         "reaopg",
         "one piece"
       ],
-      "views": 40,
+      "views": 575,
       "likes": 0,
       "dislikes": 0,
       "summary": "Features: - Auto Multi Farm - Auto Quest - Auto Skills - Auto Raid/Maze/Dungeon/Lab - Webhook Support - And more",
       "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/SlamminPig/6FootScripts/refs/heads/main/Scripts/AOnePieceGame.lua'))();",
       "createdAt": "2026-10-31T21:07:29.454Z",
       "updatedAt": "2026-10-31T21:07:29.446Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6ae646037428b4f1d85db4ea",
+      "slug": "Steal-Or-Die-LIMINAL-LUCIDITY-no-name-script-234506",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Steal-Or-Die-LIMINAL-LUCIDITY-no-name-script-234506",
+      "title": "S.O.D. Optimized ESP",
+      "game": "🎃 Steal Or Die [LIMINAL LUCIDITY!👁️]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-b98533c45bcbb37fe62f1bfe2f72ccfa-9a5c9587f1c6.png",
+      "author": "Med_4382",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 320,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Esp, number of entities, how close is the entity according to the rada, how close is the entity according to the radar, idk it’s all",
+      "code": "loadstring(game:HttpGet(\"https://pastefy.app/UV6FEohd/raw\"))()",
+      "createdAt": "2026-10-31T19:48:19.765Z",
+      "updatedAt": "2026-10-31T23:27:39.118Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6ae61dba82b02beffde89125",
+      "slug": "1-Venom-Evolution-Auto-Train-Stages-Auto-Wins-and-Evolution-or-School-Hub-234475",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/1-Venom-Evolution-Auto-Train-Stages-Auto-Wins-and-Evolution-or-School-Hub-234475",
+      "title": "Auto Train, Stages, Auto Wins & Evolution | School Hub",
+      "game": "[🎃] +1 Venom Evolution",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-d275cb477fc17ca18b4d067526d65840-aab2df819db1.png",
+      "author": "SchoolHub",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "auto train",
+        "auto stages",
+        "auto wins"
+      ],
+      "views": 353,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "School Hub for +1 Venom Evolution combines training, stage progression and evolution in one interface. • Auto Training with a selected chamber or the best chamber you own. • Auto Stages with sequential progression, a stage limit and repe…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/suzukir987/School-Hub/main/loader.lua\"))()",
+      "createdAt": "2026-10-31T16:56:26.841Z",
+      "updatedAt": "2026-10-31T23:25:22.164Z",
       "categoryIds": [
         "new"
       ],
@@ -481,7 +589,7 @@
       "tags": [
         "Script"
       ],
-      "views": 429,
+      "views": 676,
       "likes": 1,
       "dislikes": 0,
       "summary": "Axon Hub for +1 Anime Eyes features Auto Farm, Auto Chakra, Auto Eyes, Auto Hatch, Auto Rebirth and Kyubi boss automation. Manage training, stage progression, pets and rewards from one interface, with settings you can customize for your…",
@@ -518,9 +626,10 @@
         "free gamepass",
         "kill farm"
       ],
-      "views": 315,
-      "likes": 1,
+      "views": 441,
+      "likes": 3,
       "dislikes": 0,
+      "rating": 5,
       "summary": "Unlock everything: every paid tool, power and VIP skin, free Kill farm: spawns ragdolls and kills them over and over for the leaderboard Fake kills: adds kills to the leaderboard without killing anything Auto claim daily: claims your dai…",
       "code": "loadstring(game:HttpGet(\"https://api.aegisloader.com/loader/BqjOaFyqTY\"))()",
       "createdAt": "2026-10-31T14:17:51.299Z",
@@ -555,7 +664,7 @@
         "Jump Boost",
         "Noclip"
       ],
-      "views": 321,
+      "views": 449,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Attack Bosses Auto Feed Auto Loot Eggs WalkSpeed Jump Boost",
@@ -590,7 +699,7 @@
       "tags": [
         "Script"
       ],
-      "views": 290,
+      "views": 413,
       "likes": 1,
       "dislikes": 0,
       "summary": "+1 Spider Arm Script Auto Wins Fast Train Bonus Train Auto Rebirth",
@@ -627,7 +736,7 @@
         "Fake an Egg Script",
         "Boss Scripts"
       ],
-      "views": 304,
+      "views": 427,
       "likes": 0,
       "dislikes": 0,
       "summary": "Enhance your Fake an Egg gameplay with powerful features focused on egg farming, pet collection, stealing, and progression. Automatically purchase eggs, hatch pets, steal valuable pets from other players, and equip your best pets to impr…",
@@ -664,7 +773,7 @@
         "auto green",
         "auto guard"
       ],
-      "views": 820,
+      "views": 1085,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -676,113 +785,6 @@
         "new"
       ],
       "glyph": "ball",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ae5c063e0773bb97ae33963",
-      "slug": "UPD-1-Anime-Eyes-Exlumiaa-Hub-or-Auto-Train-Auto-Attack-Auto-Hatch-and-more-234388",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-1-Anime-Eyes-Exlumiaa-Hub-or-Auto-Train-Auto-Attack-Auto-Hatch-and-more-234388",
-      "title": "Exlumiaa Hub | Auto Train, Auto Attack, Auto Hatch and more",
-      "game": "[🌍UPD] +1 Anime Eyes",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-208272b087f4342775b93bb84a7259c7-9c999db484a2.png",
-      "author": "exlumiaa1",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Exlumiaa Hub"
-      ],
-      "views": 419,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Farm Auto Train Auto Clicker Auto Claim Bubbles Auto Attack Auto Boss Auto Rebirth Auto Unlock + Equip Eyes Auto Win Stages Loadout Auto Equip Best Aura Auto Hatch Eggs Auto Equip Best Pets Auto Fuse Pets Claims Auto Claim Quests Auto Cl…",
-      "code": "loadstring(game:HttpGet(\"https://vss.pandauth.com/kv/36c90c5c356867c9\"))()",
-      "createdAt": "2026-10-31T10:18:11.030Z",
-      "updatedAt": "2026-10-31T10:23:55.303Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "paw",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ae5b0c051f5071d062d5677",
-      "slug": "Bike-For-Egg-KEYLESS-AUTO-STEAL-AUTO-HATCH-AUTO-TRAIN-AUTO-CLAIM-INDEX-234376",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Bike-For-Egg-KEYLESS-AUTO-STEAL-AUTO-HATCH-AUTO-TRAIN-AUTO-CLAIM-INDEX-234376",
-      "title": "[KEYLESS] AUTO STEAL AUTO HATCH AUTO TRAIN AUTO CLAIM INDEX",
-      "game": "[🎃] Bike For Egg!",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-b9d05b7cdbd5e6938c373093455cb5ff-7087cbc8ecf0.png",
-      "author": "wexstt",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "KEYLESS",
-        "AUTO STEAL",
-        "AUTO HATCH"
-      ],
-      "views": 306,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "[KEYLESS] -AUTO STEAL -AUTO HATCH -AUTO CLAIM INDEX -TELEPORT",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/wexstt/Bike-For-Egg/refs/heads/main/bike%20for%20egg\"))()",
-      "createdAt": "2026-10-31T09:11:28.401Z",
-      "updatedAt": "2026-10-31T09:57:10.367Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ae59fe66894d103a7ef3339",
-      "slug": "Survive-the-Killer-Open-Void-X-234367",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Survive-the-Killer-Open-Void-X-234367",
-      "title": "Open Void X",
-      "game": "🔪Survive the Killer!",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-f3baf9337ff4403e21fe9e4f9293c8f2-963aa76e7cba.png",
-      "author": "fwmatu",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 223,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Killer Section ESP Visuals Auto Farm Coins Speed & Infinite Jump Noclip Medic System",
-      "code": "loadstring(game:HttpGet(\"https://pastebin.com/raw/sihrYCRu\"))()",
-      "createdAt": "2026-10-31T07:59:34.737Z",
-      "updatedAt": "2026-10-31T08:59:42.865Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "door",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -809,7 +811,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5432180,
+      "views": 5434525,
       "likes": 107,
       "dislikes": 53,
       "rating": 3.3,
@@ -849,7 +851,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4471948,
+      "views": 4472176,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -890,10 +892,10 @@
         "gag",
         "script"
       ],
-      "views": 3924488,
+      "views": 3925361,
       "likes": 70,
-      "dislikes": 48,
-      "rating": 3,
+      "dislikes": 49,
+      "rating": 2.9,
       "summary": "### Supported Games: * Dead Rails * The Strongest Battlegrounds (TSB) * Murder Mystery 2 (MM2) * Evade * Bite by Night (BBN) * Grow a Garden * Grow a Garden 2 * Steal a Brainrot (SAB) * Forsaken * 99 Nights in the Forest * Ink Game * Pla…",
       "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
       "createdAt": "2025-07-21T10:28:26.974Z",
@@ -931,7 +933,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3495387,
+      "views": 3495698,
       "likes": 89,
       "dislikes": 50,
       "rating": 3.2,
@@ -971,7 +973,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3386850,
+      "views": 3386884,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -1012,7 +1014,7 @@
         "flow",
         "script"
       ],
-      "views": 3301085,
+      "views": 3313064,
       "likes": 30,
       "dislikes": 10,
       "rating": 3.8,
@@ -1052,7 +1054,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3288871,
+      "views": 3300554,
       "likes": 18,
       "dislikes": 7,
       "rating": 3.6,
@@ -1089,7 +1091,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3149723,
+      "views": 3149743,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -1115,7 +1117,7 @@
       "sourceUrl": "https://scriptblox.com/script/GRAVITY-Blox-Fruits-BEST-SCRIPT-SOLARA-AND-XENO-AUTO-V4-AUTO-LEVEL-AUTO-RAID-37566",
       "title": "BEST SCRIPT FULL XENO DELTA 180+ STACKING FEATURES FREE OP",
       "game": "Blox Fruits",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-09e621f1df2e404a391adf389d2bea47-ca1c7a877be2.png",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-77b3430ced16006f6da18d6a77b95ea0-7e2d38d61c23.png",
       "author": "solixhub",
       "authorVerified": true,
       "verified": true,
@@ -1128,7 +1130,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3119273,
+      "views": 3119718,
       "likes": 198,
       "dislikes": 30,
       "rating": 4.3,
@@ -1167,7 +1169,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3021485,
+      "views": 3021517,
       "likes": 47,
       "dislikes": 10,
       "rating": 4.1,
@@ -1206,7 +1208,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2490508,
+      "views": 2491199,
       "likes": 131,
       "dislikes": 8,
       "rating": 4.7,
@@ -1244,7 +1246,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2472551,
+      "views": 2472668,
       "likes": 166,
       "dislikes": 31,
       "rating": 4.2,
@@ -1280,7 +1282,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 2352073,
+      "views": 2352090,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1318,7 +1320,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 2326402,
+      "views": 2326454,
       "likes": 38,
       "dislikes": 9,
       "rating": 4,
@@ -1356,7 +1358,7 @@
         "murder mystery",
         "bloxfruit"
       ],
-      "views": 2945650,
+      "views": 2957818,
       "likes": 63,
       "dislikes": 11,
       "rating": 4.3,
@@ -1395,7 +1397,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2697698,
+      "views": 2698279,
       "likes": 44,
       "dislikes": 28,
       "rating": 3.1,
@@ -1433,7 +1435,7 @@
         "REALISTIC HOME DEFENSE",
         "Keyless"
       ],
-      "views": 454,
+      "views": 500,
       "likes": 2,
       "dislikes": 0,
       "summary": "hold your gun and it should instantly kill everyone",
@@ -1469,7 +1471,7 @@
         "Xtn",
         "Keyless"
       ],
-      "views": 627,
+      "views": 690,
       "likes": 1,
       "dislikes": 0,
       "summary": "Tem muitas abas E muitas funções Espero que gostem",
@@ -1506,7 +1508,7 @@
         "REALISTIC HOME DEFENSE",
         "Keyless"
       ],
-      "views": 762,
+      "views": 781,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1544,7 +1546,7 @@
         "universal",
         "hub"
       ],
-      "views": 26965,
+      "views": 27034,
       "likes": 15,
       "dislikes": 4,
       "rating": 3.9,
@@ -1582,7 +1584,7 @@
         "Aimbot",
         "Aimlock"
       ],
-      "views": 3334,
+      "views": 3351,
       "likes": 2,
       "dislikes": 0,
       "summary": "Looks like haven't updated in a while 📉 sadly this update isn't that big just some visuals and compatibility ones 🥀 full showcase: Overview: Upon execution a new type of GUI appears that is a launcher for the old version or the newest…",
@@ -1619,7 +1621,7 @@
         "Coolkidd",
         "Forsaken"
       ],
-      "views": 857,
+      "views": 878,
       "likes": 1,
       "dislikes": 0,
       "summary": "Update plans More sound bigger:10/23/26 Halloween scary update:10/30/26 Christmas gift:12/23/26",
@@ -1656,7 +1658,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1147,
+      "views": 1149,
       "likes": 1,
       "dislikes": 0,
       "summary": "Avatar revealer fast scanner instant",
@@ -1693,7 +1695,7 @@
         "ESP",
         "No clip"
       ],
-      "views": 1033,
+      "views": 1042,
       "likes": 2,
       "dislikes": 0,
       "summary": "ESP - Killers / Survivors / Ghost & Others - Highlight Chams - Per-target boxes: name, distance, HP, stamina bar - Custom colors per category Stamina - Infinite Stamina - Drain Multiplier - Regen Multiplier - Sprint Saver (stop at 1–15 S…",
@@ -1730,7 +1732,7 @@
         "keyless",
         "op"
       ],
-      "views": 1330,
+      "views": 1334,
       "likes": 0,
       "dislikes": 1,
       "summary": "alot of features, i cant wrtie them all",
@@ -1767,7 +1769,7 @@
         "fly",
         "superrun"
       ],
-      "views": 8959,
+      "views": 8972,
       "likes": 4,
       "dislikes": 2,
       "rating": 3.3,
