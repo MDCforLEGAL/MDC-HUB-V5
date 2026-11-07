@@ -43,6 +43,7 @@ const en = {
   "nav.scriptblox": "ScriptBlox",
   "nav.mdc": "MDC Scripts",
   "nav.rscripts": "Rscripts",
+  "nav.catalogs": "Catalogs",
 
   "pages.scriptblox.kicker": "Source · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
@@ -359,6 +360,7 @@ const tr: Record<MessageKey, string> = {
   "nav.scriptblox": "ScriptBlox",
   "nav.mdc": "MDC Scriptleri",
   "nav.rscripts": "Rscripts",
+  "nav.catalogs": "Kataloglar",
 
   "pages.scriptblox.kicker": "Kaynak · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",

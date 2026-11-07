@@ -3,6 +3,7 @@ import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { SOURCE_PAGE_HREFS, useSourcePage } from "../hooks/useSourcePage";
+import { SourceTabs } from "./SourceTabs";
 import { useInstallPrompt } from "../hooks/useInstallPrompt";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
@@ -314,21 +315,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
           id="mobile-menu"
           className="fade-in mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.09] bg-[#060a11]/95 p-2.5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl lg:hidden"
         >
-          <nav aria-label={t("nav.mobileMenu")} className="flex flex-col">
-            {navItems.map((item, index) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between rounded-xl px-3 py-3 text-[13px] text-white/65 transition-colors hover:bg-white/[0.04] hover:text-white"
-              >
-                <span>{t(item.labelKey)}</span>
-                <span className="font-mono text-[9px] tracking-[0.2em] text-white/20">
-                  0{index + 1}
-                </span>
-              </a>
-            ))}
-          </nav>
+          <SourceTabs className="justify-start px-0.5" />
 
           {!installed && (
             <>

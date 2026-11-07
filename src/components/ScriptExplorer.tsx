@@ -6,6 +6,7 @@ import { useI18n, type MessageKey } from "../i18n";
 import { cn } from "../lib/cn";
 import { timeAgo } from "../lib/format";
 import { ScriptCard } from "./ScriptCard";
+import { SourceTabs } from "./SourceTabs";
 import { Reveal } from "./Reveal";
 import {
   ArrowRight,
@@ -197,8 +198,9 @@ export function ScriptExplorer({
             <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
               {page === "all" ? t("explorer.description") : t(pageKey("description"))}
             </p>
+            {page !== "all" && <SourceTabs className="mt-4 justify-start" />}
             {page !== "all" && (
-              <div className="mt-4 flex max-w-md items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2 backdrop-blur-xl transition-colors focus-within:border-neon/35">
+              <div className="mt-3 flex max-w-md items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2 backdrop-blur-xl transition-colors focus-within:border-neon/35">
                 <Search className="h-3.5 w-3.5 shrink-0 text-white/35" />
                 <input
                   value={query}

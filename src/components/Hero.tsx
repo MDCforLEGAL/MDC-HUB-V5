@@ -3,6 +3,7 @@ import type { LibraryState } from "../hooks/useScriptLibrary";
 import { useI18n } from "../i18n";
 import { formatCompact, timeAgo } from "../lib/format";
 import { ArrowRight, Search, Sparkles, X } from "./Icons";
+import { SourceTabs } from "./SourceTabs";
 
 interface HeroProps {
   query: string;
@@ -190,6 +191,10 @@ export function Hero({
             )}
           </div>
         </form>
+
+        <div className="animate-rise mt-5" style={{ animationDelay: "320ms" }}>
+          <SourceTabs />
+        </div>
 
         <div
           className="animate-rise mt-4 flex flex-wrap items-center justify-center gap-1.5"
