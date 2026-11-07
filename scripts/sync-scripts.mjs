@@ -319,6 +319,8 @@ function normalizeScriptblox(item, detail, categoryId) {
   };
 }
 
+const RELAXABLE_RSCRIPTS_CATEGORIES = new Set(["keyless", "verified"]);
+
 function rscriptsCategoryParams(id) {
   const params = new URLSearchParams({
     page: "1",
@@ -350,6 +352,45 @@ function rscriptsCategoryParams(id) {
   }
 
   return params;
+}
+
+// noKeySystem/verifiedOnly are documented, but Rscripts' filtered list queries
+// intermittently answer 500 INTERNAL_ERROR. Keep the plain trending feed as a
+// fallback and filter it here so these categories still fill up.
+function rscriptsFallbackParams() {
+  return new URLSearchParams({
+    page: "1",
+    limit: String(Math.min(PER_CATEGORY, 16)),
+    includeScript: "true",
+    sort: "trending",
+  });
+}
+
+function matchesRscriptsCategory(item, id) {
+  if (item?.isPaid === true) return false;
+  if (id === "keyless") return item?.isKeySystem !== true;
+  if (id === "verified") return Boolean(item?.creator?.isVerified);
+  return true;
+}
+
+async function fetchRscriptsList(params, headers) {
+  const payload = await requestJson(`${RSCRIPTS}/v1/scripts?${params.toString()}`, { headers });
+  return Array.isArray(payload?.data) ? payload.data : [];
+}
+
+async function rscriptsCategoryItems(id, params, headers) {
+  try {
+    return await fetchRscriptsList(params, headers);
+  } catch (error) {
+    if (!RELAXABLE_RSCRIPTS_CATEGORIES.has(id)) throw error;
+    const items = (await fetchRscriptsList(rscriptsFallbackParams(), headers)).filter((item) =>
+      matchesRscriptsCategory(item, id),
+    );
+    console.log(
+      `Rscripts ${id}: filtered query failed, used locally filtered fallback (${items.length} script(s))`,
+    );
+    return items;
+  }
 }
 
 function normalizeRscripts(item, categoryId) {
@@ -423,11 +464,7 @@ async function collectRscripts(key, addScript) {
     if (!params) continue;
 
     try {
-      const payload = await requestJson(
-        `${RSCRIPTS}/v1/scripts?${params.toString()}`,
-        { headers },
-      );
-      const items = Array.isArray(payload?.data) ? payload.data : [];
+      const items = await rscriptsCategoryItems(category.id, params, headers);
 
       for (const item of items) {
         let script = normalizeRscripts(item, category.id);
