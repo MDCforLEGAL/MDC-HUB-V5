@@ -7,6 +7,7 @@ import { formatCompact, isHttpUrl, timeAgo } from "../lib/format";
 import { CodeBlock } from "./CodeBlock";
 import { GameGlyph } from "./GameGlyph";
 import { StatusBadge } from "./ScriptCard";
+import { ScriptSocial } from "./ScriptSocial";
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -269,6 +270,12 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
               </div>
               <CodeBlock code={script.code} className="max-h-[300px]" />
             </div>
+
+            <ScriptSocial
+              scriptId={script.id}
+              fallbackLikes={script.likes}
+              onNotify={onNotify}
+            />
           </div>
         </div>
 

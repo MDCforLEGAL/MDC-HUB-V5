@@ -181,3 +181,369 @@ export async function pruneExpired(db: D1Database, now: string): Promise<void> {
     db.prepare("DELETE FROM oauth_states WHERE expires_at <= ?").bind(now),
   ]);
 }
+
+/* ------------------------------------------------------------------ */
+/* Community scripts, reactions and comments                           */
+/* ------------------------------------------------------------------ */
+
+export interface PublicAuthor {
+  id: string;
+  username: string;
+  displayName: string;
+  avatarUrl: string | null;
+  role: "admin" | "member";
+}
+
+export interface CommunityScriptRow {
+  id: string;
+  user_id: string;
+  title: string;
+  game: string;
+  description: string;
+  code: string;
+  tags: string;
+  created_at: string;
+  updated_at: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  role: string;
+  likes: number;
+  dislikes: number;
+  comments: number;
+}
+
+export interface PublicCommunityScript {
+  id: string;
+  title: string;
+  game: string;
+  description: string;
+  code: string;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  author: PublicAuthor;
+  likes: number;
+  dislikes: number;
+  comments: number;
+}
+
+function parseTags(value: string): string[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((tag): tag is string => typeof tag === "string").slice(0, 5);
+  } catch {
+    return [];
+  }
+}
+
+export function toPublicAuthor(row: {
+  id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  role: string;
+}): PublicAuthor {
+  return {
+    id: row.id,
+    username: row.username,
+    displayName: row.display_name || row.username,
+    avatarUrl: row.avatar_url,
+    role: row.role === "admin" ? "admin" : "member",
+  };
+}
+
+export function toPublicCommunityScript(row: CommunityScriptRow): PublicCommunityScript {
+  return {
+    id: row.id,
+    title: row.title,
+    game: row.game,
+    description: row.description,
+    code: row.code,
+    tags: parseTags(row.tags),
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    author: toPublicAuthor({
+      id: row.user_id,
+      username: row.username,
+      display_name: row.display_name,
+      avatar_url: row.avatar_url,
+      role: row.role,
+    }),
+    likes: Number(row.likes ?? 0),
+    dislikes: Number(row.dislikes ?? 0),
+    comments: Number(row.comments ?? 0),
+  };
+}
+
+const COMMUNITY_SELECT = `
+  SELECT s.id, s.user_id, s.title, s.game, s.description, s.code, s.tags,
+         s.created_at, s.updated_at,
+         u.username, u.display_name, u.avatar_url, u.role,
+         (SELECT COUNT(*) FROM script_reactions r
+           WHERE r.script_id = s.id AND r.value = 1) AS likes,
+         (SELECT COUNT(*) FROM script_reactions r
+           WHERE r.script_id = s.id AND r.value = -1) AS dislikes,
+         (SELECT COUNT(*) FROM script_comments c
+           WHERE c.script_id = s.id AND c.hidden = 0) AS comments
+    FROM community_scripts s
+    JOIN users u ON u.id = s.user_id
+   WHERE s.hidden = 0`;
+
+export interface NewCommunityScript {
+  id: string;
+  userId: string;
+  title: string;
+  game: string;
+  description: string;
+  code: string;
+  tags: string[];
+  now: string;
+}
+
+export async function createCommunityScript(
+  db: D1Database,
+  script: NewCommunityScript,
+): Promise<void> {
+  await db
+    .prepare(
+      `INSERT INTO community_scripts
+         (id, user_id, title, game, description, code, tags, hidden, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?)`,
+    )
+    .bind(
+      script.id,
+      script.userId,
+      script.title,
+      script.game,
+      script.description,
+      script.code,
+      JSON.stringify(script.tags),
+      script.now,
+      script.now,
+    )
+    .run();
+}
+
+export async function listCommunityScripts(
+  db: D1Database,
+  limit = 200,
+): Promise<CommunityScriptRow[]> {
+  const result = await db
+    .prepare(`${COMMUNITY_SELECT} ORDER BY s.created_at DESC LIMIT ?`)
+    .bind(limit)
+    .all<CommunityScriptRow>();
+
+  return result.results ?? [];
+}
+
+export async function findCommunityScript(
+  db: D1Database,
+  id: string,
+): Promise<CommunityScriptRow | null> {
+  return (
+    (await db
+      .prepare(`${COMMUNITY_SELECT} AND s.id = ?`)
+      .bind(id)
+      .first<CommunityScriptRow>()) ?? null
+  );
+}
+
+export async function deleteCommunityScript(db: D1Database, id: string): Promise<void> {
+  await db.batch([
+    db.prepare("DELETE FROM script_comments WHERE script_id = ?").bind(id),
+    db.prepare("DELETE FROM script_reactions WHERE script_id = ?").bind(id),
+    db.prepare("DELETE FROM community_scripts WHERE id = ?").bind(id),
+  ]);
+}
+
+export interface SocialCounts {
+  scriptId: string;
+  likes: number;
+  dislikes: number;
+  comments: number;
+}
+
+export async function socialCounts(
+  db: D1Database,
+  ids: string[],
+): Promise<SocialCounts[]> {
+  if (ids.length === 0) return [];
+  const placeholders = ids.map(() => "?").join(",");
+
+  const [reactionRows, commentRows] = await Promise.all([
+    db
+      .prepare(
+        `SELECT script_id, SUM(CASE WHEN value = 1 THEN 1 ELSE 0 END) AS likes,
+                SUM(CASE WHEN value = -1 THEN 1 ELSE 0 END) AS dislikes
+           FROM script_reactions
+          WHERE script_id IN (${placeholders})
+          GROUP BY script_id`,
+      )
+      .bind(...ids)
+      .all<{ script_id: string; likes: number; dislikes: number }>(),
+    db
+      .prepare(
+        `SELECT script_id, COUNT(*) AS total
+           FROM script_comments
+          WHERE hidden = 0 AND script_id IN (${placeholders})
+          GROUP BY script_id`,
+      )
+      .bind(...ids)
+      .all<{ script_id: string; total: number }>(),
+  ]);
+
+  const comments = new Map<string, number>();
+  for (const row of commentRows.results ?? []) {
+    comments.set(row.script_id, Number(row.total ?? 0));
+  }
+
+  const merged = new Map<string, SocialCounts>();
+  for (const id of ids) {
+    merged.set(id, { scriptId: id, likes: 0, dislikes: 0, comments: comments.get(id) ?? 0 });
+  }
+  for (const row of reactionRows.results ?? []) {
+    merged.set(row.script_id, {
+      scriptId: row.script_id,
+      likes: Number(row.likes ?? 0),
+      dislikes: Number(row.dislikes ?? 0),
+      comments: comments.get(row.script_id) ?? 0,
+    });
+  }
+
+  return ids.map((id) => merged.get(id)!).filter(Boolean);
+}
+
+/** Reactions of a single user, keyed by script id. */
+export async function myReactions(
+  db: D1Database,
+  userId: string,
+  ids: string[],
+): Promise<Map<string, number>> {
+  const reactions = new Map<string, number>();
+  if (ids.length === 0) return reactions;
+
+  const placeholders = ids.map(() => "?").join(",");
+  const result = await db
+    .prepare(
+      `SELECT script_id, value FROM script_reactions
+        WHERE user_id = ? AND script_id IN (${placeholders})`,
+    )
+    .bind(userId, ...ids)
+    .all<{ script_id: string; value: number }>();
+
+  for (const row of result.results ?? []) {
+    reactions.set(row.script_id, Number(row.value));
+  }
+  return reactions;
+}
+
+/** value is 1 (like), -1 (dislike) or 0 (remove the reaction). */
+export async function setReaction(
+  db: D1Database,
+  scriptId: string,
+  userId: string,
+  value: number,
+  now: string,
+): Promise<void> {
+  if (value === 0) {
+    await db
+      .prepare("DELETE FROM script_reactions WHERE script_id = ? AND user_id = ?")
+      .bind(scriptId, userId)
+      .run();
+    return;
+  }
+
+  await db
+    .prepare(
+      `INSERT INTO script_reactions (script_id, user_id, value, created_at)
+       VALUES (?, ?, ?, ?)
+       ON CONFLICT(script_id, user_id) DO UPDATE SET
+         value = excluded.value,
+         created_at = excluded.created_at`,
+    )
+    .bind(scriptId, userId, value, now)
+    .run();
+}
+
+export interface CommentRow {
+  id: string;
+  script_id: string;
+  user_id: string;
+  body: string;
+  created_at: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  role: string;
+}
+
+export async function listComments(
+  db: D1Database,
+  scriptId: string,
+  limit = 100,
+): Promise<CommentRow[]> {
+  const result = await db
+    .prepare(
+      `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
+              u.username, u.display_name, u.avatar_url, u.role
+         FROM script_comments c
+         JOIN users u ON u.id = c.user_id
+        WHERE c.script_id = ? AND c.hidden = 0
+        ORDER BY c.created_at DESC
+        LIMIT ?`,
+    )
+    .bind(scriptId, limit)
+    .all<CommentRow>();
+
+  return result.results ?? [];
+}
+
+export async function findComment(
+  db: D1Database,
+  id: string,
+): Promise<CommentRow | null> {
+  return (
+    (await db
+      .prepare(
+        `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
+                u.username, u.display_name, u.avatar_url, u.role
+           FROM script_comments c
+           JOIN users u ON u.id = c.user_id
+          WHERE c.id = ?`,
+      )
+      .bind(id)
+      .first<CommentRow>()) ?? null
+  );
+}
+
+export async function createComment(
+  db: D1Database,
+  comment: { id: string; scriptId: string; userId: string; body: string; now: string },
+): Promise<void> {
+  await db
+    .prepare(
+      "INSERT INTO script_comments (id, script_id, user_id, body, hidden, created_at) VALUES (?, ?, ?, ?, 0, ?)",
+    )
+    .bind(comment.id, comment.scriptId, comment.userId, comment.body, comment.now)
+    .run();
+}
+
+export async function deleteComment(
+  db: D1Database,
+  id: string,
+  userId: string,
+  isAdmin: boolean,
+): Promise<"ok" | "forbidden" | "not_found"> {
+  const row = await db
+    .prepare("SELECT user_id FROM script_comments WHERE id = ?")
+    .bind(id)
+    .first<{ user_id: string }>();
+
+  if (!row) return "not_found";
+  if (!isAdmin && row.user_id !== userId) return "forbidden";
+
+  await db.prepare("DELETE FROM script_comments WHERE id = ?").bind(id).run();
+  return "ok";
+}

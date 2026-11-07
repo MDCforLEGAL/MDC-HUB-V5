@@ -1,7 +1,7 @@
 import type { GameGlyphName } from "../components/GameGlyph";
 
 export type ScriptStatus = "working" | "patched";
-export type ScriptSource = "mdc" | "scriptblox" | "rscripts";
+export type ScriptSource = "mdc" | "scriptblox" | "rscripts" | "community";
 
 export interface ScriptEntry {
   id: string;

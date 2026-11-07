@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   fallbackCategories,
   scripts as curatedScripts,
@@ -7,6 +7,7 @@ import {
   type LiveScript,
   type ScriptEntry,
 } from "../data/scripts";
+import { fetchCommunityScripts, type CommunityScript } from "../lib/api";
 import { formatCompact, isHttpUrl, timeAgo } from "../lib/format";
 
 export type LibraryState = "loading" | "live" | "fallback";
@@ -18,7 +19,13 @@ export interface ScriptLibrary {
   scripts: ScriptEntry[];
   games: string[];
   state: LibraryState;
+  reload: () => void;
 }
+
+type Snapshot = Omit<ScriptLibrary, "reload">;
+
+const REFRESH_MS = 5 * 60 * 1000;
+const COMMUNITY_ID = "community";
 
 const GLYPHS: ScriptEntry["glyph"][] = [
   "fruit",
@@ -125,8 +132,87 @@ function toEntry(live: LiveScript): ScriptEntry {
   };
 }
 
-function buildFallback(state: LibraryState): ScriptLibrary {
-  const scripts: ScriptEntry[] = curatedScripts.map((script) => ({
+/** Scripts published from the site get their own category. */
+function communityToEntry(script: CommunityScript): ScriptEntry {
+  const author =
+    script.author?.displayName || script.author?.username || "MDC";
+  const summary =
+    typeof script.description === "string" && script.description.length > 0
+      ? script.description
+      : `${script.game} için ${author} tarafından MDC HUB'da paylaşılan script.`;
+  const tags = Array.isArray(script.tags) ? script.tags.slice(0, 3) : [];
+
+  return {
+    id: script.id,
+    game: script.game || "Roblox",
+    category: "Topluluk",
+    title: script.title || "İsimsiz script",
+    author,
+    verified: script.author?.role === "admin",
+    status: "working",
+    premium: false,
+    tags,
+    rating: 0,
+    downloads: formatCompact(0, "en"),
+    updated: timeAgo(script.createdAt, "en"),
+    updatedAt: script.createdAt,
+    glyph: "dice",
+    colors: ["#00F0FF", "#0066FF"],
+    summary,
+    code: script.code,
+    source: "community",
+    sourceLabel: "MDC Community",
+    likes: Number.isFinite(script.likes) ? script.likes : 0,
+    views: 0,
+    keyless: true,
+    universal: false,
+    categoryIds: [COMMUNITY_ID],
+    slug: script.id,
+  };
+}
+
+function categoriesFrom(
+  raw: unknown,
+  scripts: ScriptEntry[],
+  hasCommunity: boolean,
+): LibraryCategory[] {
+  const counts = new Map<string, number>();
+  for (const script of scripts) {
+    for (const id of script.categoryIds ?? []) {
+      counts.set(id, (counts.get(id) ?? 0) + 1);
+    }
+  }
+
+  const base = (Array.isArray(raw) ? raw : [])
+    .map(normalizeCategory)
+    .filter((category): category is LibraryCategory => category !== null);
+
+  if (hasCommunity && !base.some((category) => category.id === COMMUNITY_ID)) {
+    base.unshift({
+      id: COMMUNITY_ID,
+      label: "Community",
+      description: "Scripts published from MDC HUB",
+      count: 0,
+    });
+  }
+
+  return base
+    .map((category) => ({ ...category, count: counts.get(category.id) ?? 0 }))
+    .filter((category) => category.count > 0);
+}
+
+function gamesFrom(scripts: ScriptEntry[]): string[] {
+  const counts = new Map<string, number>();
+  for (const script of scripts) {
+    counts.set(script.game, (counts.get(script.game) ?? 0) + 1);
+  }
+  return Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([game]) => game);
+}
+
+function buildFallback(state: LibraryState, community: ScriptEntry[]): Snapshot {
+  const curated: ScriptEntry[] = curatedScripts.map((script) => ({
     ...script,
     source: "mdc",
     sourceLabel: "MDC",
@@ -135,24 +221,32 @@ function buildFallback(state: LibraryState): ScriptLibrary {
     universal: script.tags.includes("Universal"),
   }));
 
+  const scripts = [...community, ...curated];
+
   return {
     generatedAt: null,
-    sources: [
-      { id: "mdc", label: "MDC seçkisi", url: "#", count: scripts.length },
-    ],
-    categories: fallbackCategories,
+    sources: [{ id: "mdc", label: "MDC seçkisi", url: "#", count: scripts.length }],
+    categories: categoriesFrom(fallbackCategories, scripts, community.length > 0),
     scripts,
-    games: Array.from(new Set(scripts.map((script) => script.game))),
+    games: gamesFrom(scripts),
     state,
   };
 }
 
 export function useScriptLibrary(): ScriptLibrary {
-  const [library, setLibrary] = useState<ScriptLibrary>(() => buildFallback("loading"));
+  const [library, setLibrary] = useState<Snapshot>(() => buildFallback("loading", []));
+  const [nonce, setNonce] = useState(0);
+
+  const reload = useCallback(() => setNonce((value) => value + 1), []);
+
+  useEffect(() => {
+    const timer = window.setInterval(reload, REFRESH_MS);
+    return () => window.clearInterval(timer);
+  }, [reload]);
 
   useEffect(() => {
     const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 12_000);
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
     let mounted = true;
 
     const load = async () => {
@@ -160,73 +254,61 @@ export function useScriptLibrary(): ScriptLibrary {
         const baseUrl = import.meta.env.BASE_URL.endsWith("/")
           ? import.meta.env.BASE_URL
           : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(
-          `${baseUrl}data/scripts.json`,
-          {
+
+        const [libraryResult, communityResult] = await Promise.allSettled([
+          fetch(`${baseUrl}data/scripts.json`, {
             signal: controller.signal,
             cache: "no-store",
             headers: { Accept: "application/json" },
-          },
-        );
+          }),
+          fetchCommunityScripts(controller.signal),
+        ]);
 
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        if (!response.headers.get("content-type")?.includes("application/json")) {
-          throw new Error("Library endpoint did not return JSON");
-        }
+        if (!mounted) return;
 
-        const payload: unknown = await response.json();
-        if (!isRecord(payload) || !Array.isArray(payload.scripts)) {
-          throw new Error("Invalid library payload");
-        }
+        const community =
+          communityResult.status === "fulfilled"
+            ? communityResult.value.map(communityToEntry)
+            : [];
+        const response = libraryResult.status === "fulfilled" ? libraryResult.value : null;
 
-        const liveScripts = payload.scripts.filter(isLiveScript);
-        if (liveScripts.length === 0) throw new Error("Empty library payload");
+        if (response && response.ok && response.headers.get("content-type")?.includes("application/json")) {
+          const payload: unknown = await response.json();
 
-        const scripts = liveScripts.map(toEntry);
-        const categoryCounts = new Map<string, number>();
-        for (const script of scripts) {
-          for (const id of script.categoryIds ?? []) {
-            categoryCounts.set(id, (categoryCounts.get(id) ?? 0) + 1);
+          if (isRecord(payload) && Array.isArray(payload.scripts)) {
+            const liveScripts = payload.scripts.filter(isLiveScript);
+
+            if (liveScripts.length > 0) {
+              const scripts = [...community, ...liveScripts.map(toEntry)];
+              const categories = categoriesFrom(payload.categories, scripts, community.length > 0);
+
+              if (categories.length > 0) {
+                const sources = (Array.isArray(payload.sources) ? payload.sources : [])
+                  .map(normalizeSource)
+                  .filter((source): source is LibrarySource => source !== null);
+
+                if (!mounted) return;
+                setLibrary({
+                  generatedAt:
+                    typeof payload.generatedAt === "string" ? payload.generatedAt : null,
+                  sources,
+                  categories,
+                  scripts,
+                  games: gamesFrom(scripts),
+                  state: "live",
+                });
+                return;
+              }
+            }
           }
         }
 
-        const categories = (Array.isArray(payload.categories) ? payload.categories : [])
-          .map(normalizeCategory)
-          .filter((category): category is LibraryCategory => category !== null)
-          .map((category) => ({
-            ...category,
-            count: categoryCounts.get(category.id) ?? 0,
-          }))
-          .filter((category) => category.count > 0);
-
-        if (categories.length === 0) throw new Error("No categories in library payload");
-
-        const sources = (Array.isArray(payload.sources) ? payload.sources : [])
-          .map(normalizeSource)
-          .filter((source): source is LibrarySource => source !== null);
-
-        const gameCounts = new Map<string, number>();
-        for (const script of scripts) {
-          gameCounts.set(script.game, (gameCounts.get(script.game) ?? 0) + 1);
-        }
-        const games = Array.from(gameCounts.entries())
-          .sort((a, b) => b[1] - a[1])
-          .map(([game]) => game);
-
         if (!mounted) return;
-        setLibrary({
-          generatedAt:
-            typeof payload.generatedAt === "string" ? payload.generatedAt : null,
-          sources,
-          categories,
-          scripts,
-          games,
-          state: "live",
-        });
+        setLibrary(buildFallback("fallback", community));
       } catch (error) {
         if (!mounted) return;
         console.warn("[MDC] Canlı kütüphane yüklenemedi; yerel seçki kullanılıyor.", error);
-        setLibrary(buildFallback("fallback"));
+        setLibrary(buildFallback("fallback", []));
       } finally {
         window.clearTimeout(timeout);
       }
@@ -239,12 +321,15 @@ export function useScriptLibrary(): ScriptLibrary {
       window.clearTimeout(timeout);
       controller.abort();
     };
-  }, []);
+  }, [nonce]);
 
   const games = useMemo(
-    () => (library.games.length > 0 ? library.games : Array.from(new Set(library.scripts.map((script) => script.game)))),
+    () =>
+      library.games.length > 0
+        ? library.games
+        : Array.from(new Set(library.scripts.map((script) => script.game))),
     [library],
   );
 
-  return { ...library, games };
+  return { ...library, games, reload };
 }

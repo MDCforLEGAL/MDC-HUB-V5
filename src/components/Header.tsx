@@ -14,6 +14,7 @@ const navItems = [
 
 interface HeaderProps {
   onAuth: (mode: "login" | "signup") => void;
+  onPublish: () => void;
 }
 
 function AccountMenu() {
@@ -108,7 +109,7 @@ function AccountMenu() {
   );
 }
 
-export function Header({ onAuth }: HeaderProps) {
+export function Header({ onAuth, onPublish }: HeaderProps) {
   const { t, locale, setLocale } = useI18n();
   const { user, signedIn, signOut, busy } = useAuth();
   const [scrolled, setScrolled] = useState(false);
@@ -206,7 +207,11 @@ export function Header({ onAuth }: HeaderProps) {
 
           <button
             type="button"
-            onClick={() => openAuth("signup")}
+            onClick={() => {
+              setMobileOpen(false);
+              if (signedIn) onPublish();
+              else openAuth("signup");
+            }}
             className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-3 py-2.5 text-[12px] font-semibold text-[#02070c] shadow-[0_8px_28px_-12px_rgba(0,240,255,0.75)] transition-all duration-300 hover:shadow-[0_12px_36px_-10px_rgba(0,240,255,0.9)] sm:px-4 sm:text-[12.5px]"
           >
             <span aria-hidden="true" className="sheen absolute inset-0" />

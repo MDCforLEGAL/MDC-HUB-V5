@@ -7,6 +7,7 @@ import { GameMarquee } from "./components/GameMarquee";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { ScriptExplorer } from "./components/ScriptExplorer";
+import { PublishScriptModal } from "./components/PublishScriptModal";
 import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
@@ -41,6 +42,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [activeScript, setActiveScript] = useState<ScriptEntry | null>(null);
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
+  const [publishOpen, setPublishOpen] = useState(false);
   const [toast, setToast] = useState<ToastState | null>(null);
 
   const notify = useCallback((message: string) => {
@@ -49,6 +51,7 @@ export default function App() {
 
   const closeScript = useCallback(() => setActiveScript(null), []);
   const closeAuth = useCallback(() => setAuthMode(null), []);
+  const closePublish = useCallback(() => setPublishOpen(false), []);
 
   const seenUser = useRef<{ ready: boolean; id: string | null }>({ ready: false, id: null });
 
@@ -106,7 +109,7 @@ export default function App() {
     return Array.from(new Set([...gameTerms, "Auto Farm", "ESP"])).slice(0, 5);
   }, [library.games]);
 
-  const overlayOpen = Boolean(activeScript || authMode);
+  const overlayOpen = Boolean(activeScript || authMode || publishOpen);
 
   useEffect(() => {
     if (!overlayOpen) return;
@@ -127,7 +130,7 @@ export default function App() {
     <div className="relative min-h-screen">
       <Atmosphere />
 
-      <Header onAuth={setAuthMode} />
+      <Header onAuth={setAuthMode} onPublish={() => setPublishOpen(true)} />
 
       <main>
         <Hero
@@ -155,6 +158,7 @@ export default function App() {
           onQueryChange={setQuery}
           onOpenScript={setActiveScript}
           onNotify={notify}
+          onPublish={() => setPublishOpen(true)}
         />
 
         <CodeShowcase onNotify={notify} />
@@ -168,6 +172,18 @@ export default function App() {
 
       {authMode && (
         <AuthModal mode={authMode} onModeChange={setAuthMode} onClose={closeAuth} />
+      )}
+
+      {publishOpen && (
+        <PublishScriptModal
+          onClose={closePublish}
+          onNotify={notify}
+          onPublished={() => {
+            setPublishOpen(false);
+            library.reload();
+            notify(t("publish.success"));
+          }}
+        />
       )}
 
       {toast && <Toast key={toast.id} message={toast.message} onClose={() => setToast(null)} />}

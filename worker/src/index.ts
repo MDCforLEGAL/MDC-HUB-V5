@@ -3,16 +3,29 @@ import { randomToken, sha256Hex, timingSafeEqual } from "./crypto";
 import {
   consumeLoginCode,
   consumeOAuthState,
+  createComment,
+  createCommunityScript,
   createLoginCode,
   createOAuthState,
   createSession,
+  deleteComment,
+  deleteCommunityScript,
   deleteSession,
+  findCommunityScript,
   findSessionUser,
+  listComments,
+  listCommunityScripts,
+  myReactions,
   pruneExpired,
+  setReaction,
+  socialCounts,
+  toPublicAuthor,
+  toPublicCommunityScript,
   toPublicUser,
   touchSession,
   upsertDiscordUser,
 } from "./db";
+import type { SessionRow } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import {
   apiError,
@@ -275,6 +288,316 @@ async function handleLogout(request: Request, env: Env): Promise<Response> {
   return json({ ok: true }, 200, request, env);
 }
 
+const SCRIPT_ID_PATTERN = /^[a-z0-9][a-z0-9_-]{0,79}$/i;
+const COMMENT_MAX_LENGTH = 600;
+const MAX_JSON_BYTES = 120_000;
+
+function isScriptId(value: string | null): value is string {
+  return Boolean(value && SCRIPT_ID_PATTERN.test(value));
+}
+
+async function readJsonBody(request: Request): Promise<unknown | null> {
+  const declared = Number(request.headers.get("Content-Length") ?? "0");
+  if (declared > MAX_JSON_BYTES) return null;
+
+  const body = await request.text();
+  if (body.length > MAX_JSON_BYTES) return null;
+
+  try {
+    return JSON.parse(body) as unknown;
+  } catch {
+    return null;
+  }
+}
+
+function field(payload: unknown, key: string, max: number): string {
+  if (!payload || typeof payload !== "object") return "";
+  const value = (payload as Record<string, unknown>)[key];
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+function scriptTags(payload: unknown): string[] {
+  if (!payload || typeof payload !== "object") return [];
+  const value = (payload as Record<string, unknown>).tags;
+  if (!Array.isArray(value)) return [];
+
+  return Array.from(
+    new Set(
+      value
+        .filter((tag): tag is string => typeof tag === "string")
+        .map((tag) => tag.trim().slice(0, 24))
+        .filter(Boolean),
+    ),
+  ).slice(0, 5);
+}
+
+async function sessionUser(request: Request, env: Env): Promise<SessionRow | null> {
+  const token = bearerToken(request);
+  if (!token) return null;
+  return findSessionUser(env.DB, await sha256Hex(token), iso(Date.now()));
+}
+
+async function handleCommunityList(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const rows = await listCommunityScripts(env.DB);
+  return json({ scripts: rows.map(toPublicCommunityScript) }, 200, request, env);
+}
+
+async function handleCommunityCreate(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to publish a script.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const title = field(payload, "title", 140);
+  const game = field(payload, "game", 80);
+  const description = field(payload, "description", 600);
+  const code = field(payload, "code", 80_000);
+
+  if (title.length < 3 || game.length < 2 || code.length < 10) {
+    return apiError(
+      "invalid_fields",
+      400,
+      request,
+      env,
+      "Game, script name and script code are required.",
+    );
+  }
+
+  const now = iso(Date.now());
+  const id = `community-${randomToken(8)}`;
+  await createCommunityScript(env.DB, {
+    id,
+    userId: user.id,
+    title,
+    game,
+    description,
+    code,
+    tags: scriptTags(payload),
+    now,
+  });
+
+  const row = await findCommunityScript(env.DB, id);
+  return json({ script: row ? toPublicCommunityScript(row) : null }, 201, request, env);
+}
+
+async function handleCommunityDelete(
+  request: Request,
+  env: Env,
+  rawId: string,
+): Promise<Response> {
+  if (request.method !== "DELETE") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to delete a script.");
+  }
+  if (!isScriptId(rawId)) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  const row = await findCommunityScript(env.DB, rawId);
+  if (!row) {
+    return apiError("not_found", 404, request, env);
+  }
+  if (row.user_id !== user.id && user.role !== "admin") {
+    return apiError("forbidden", 403, request, env, "Only the author can delete this script.");
+  }
+
+  await deleteCommunityScript(env.DB, rawId);
+  return json({ ok: true }, 200, request, env);
+}
+
+async function handleSocialGet(
+  request: Request,
+  env: Env,
+  url: URL,
+): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const ids = Array.from(
+    new Set(
+      (url.searchParams.get("ids") ?? "")
+        .split(",")
+        .map((value) => value.trim())
+        .filter(isScriptId),
+    ),
+  ).slice(0, 60);
+
+  if (ids.length === 0) {
+    return json({ social: {} }, 200, request, env);
+  }
+
+  const counts = await socialCounts(env.DB, ids);
+  const user = await sessionUser(request, env);
+  const mine = user ? await myReactions(env.DB, user.id, ids) : new Map<string, number>();
+
+  const social: Record<
+    string,
+    { likes: number; dislikes: number; comments: number; mine: number }
+  > = {};
+  for (const row of counts) {
+    social[row.scriptId] = {
+      likes: row.likes,
+      dislikes: row.dislikes,
+      comments: row.comments,
+      mine: mine.get(row.scriptId) ?? 0,
+    };
+  }
+
+  return json({ social }, 200, request, env);
+}
+
+async function handleSocialReact(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to react to a script.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const scriptId = field(payload, "scriptId", 80);
+  const rawValue = (payload as { value?: unknown }).value;
+  const value = typeof rawValue === "number" ? rawValue : Number.NaN;
+
+  if (!isScriptId(scriptId) || !Number.isInteger(value) || value < -1 || value > 1) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  await setReaction(env.DB, scriptId, user.id, value, iso(Date.now()));
+
+  const [row] = await socialCounts(env.DB, [scriptId]);
+  return json(
+    {
+      social: {
+        likes: row?.likes ?? 0,
+        dislikes: row?.dislikes ?? 0,
+        comments: row?.comments ?? 0,
+        mine: value,
+      },
+    },
+    200,
+    request,
+    env,
+  );
+}
+
+async function handleCommentsList(
+  request: Request,
+  env: Env,
+  url: URL,
+): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const scriptId = url.searchParams.get("scriptId");
+  if (!isScriptId(scriptId)) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const rows = await listComments(env.DB, scriptId);
+  const user = await sessionUser(request, env);
+
+  const comments = rows.map((row) => ({
+    id: row.id,
+    body: row.body,
+    createdAt: row.created_at,
+    author: toPublicAuthor({
+      id: row.user_id,
+      username: row.username,
+      display_name: row.display_name,
+      avatar_url: row.avatar_url,
+      role: row.role,
+    }),
+    mine: Boolean(user && (row.user_id === user.id || user.role === "admin")),
+  }));
+
+  return json({ comments }, 200, request, env);
+}
+
+async function handleCommentsCreate(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to comment.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const scriptId = field(payload, "scriptId", 80);
+  const body = field(payload, "body", COMMENT_MAX_LENGTH);
+
+  if (!isScriptId(scriptId) || body.length === 0) {
+    return apiError("invalid_body", 400, request, env, "Write a comment first.");
+  }
+
+  const now = iso(Date.now());
+  const id = `c-${randomToken(8)}`;
+  await createComment(env.DB, { id, scriptId, userId: user.id, body, now });
+
+  return json(
+    { comment: { id, body, createdAt: now, author: toPublicAuthor(user), mine: true } },
+    201,
+    request,
+    env,
+  );
+}
+
+async function handleCommentDelete(
+  request: Request,
+  env: Env,
+  rawId: string,
+): Promise<Response> {
+  if (request.method !== "DELETE") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env);
+  }
+
+  const result = await deleteComment(env.DB, rawId, user.id, user.role === "admin");
+  if (result === "not_found") {
+    return apiError("not_found", 404, request, env);
+  }
+  if (result === "forbidden") {
+    return apiError("forbidden", 403, request, env);
+  }
+
+  return json({ ok: true }, 200, request, env);
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -297,6 +620,32 @@ export default {
         response = await handleLogout(request, env);
       } else if (url.pathname === "/api/me") {
         response = await handleMe(request, env);
+      } else if (url.pathname === "/api/community") {
+        response =
+          request.method === "GET"
+            ? await handleCommunityList(request, env)
+            : await handleCommunityCreate(request, env);
+      } else if (url.pathname.startsWith("/api/community/")) {
+        response = await handleCommunityDelete(
+          request,
+          env,
+          url.pathname.slice("/api/community/".length),
+        );
+      } else if (url.pathname === "/api/social") {
+        response = await handleSocialGet(request, env, url);
+      } else if (url.pathname === "/api/social/react") {
+        response = await handleSocialReact(request, env);
+      } else if (url.pathname === "/api/social/comments") {
+        response =
+          request.method === "GET"
+            ? await handleCommentsList(request, env, url)
+            : await handleCommentsCreate(request, env);
+      } else if (url.pathname.startsWith("/api/social/comments/")) {
+        response = await handleCommentDelete(
+          request,
+          env,
+          url.pathname.slice("/api/social/comments/".length),
+        );
       } else {
         response = apiError("not_found", 404, request, env);
       }

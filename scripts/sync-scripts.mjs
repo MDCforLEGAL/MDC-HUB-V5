@@ -1,9 +1,12 @@
 import { mkdir, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 const SCRIPTBLOX = "https://scriptblox.com";
 const RSCRIPTS = "https://api.rscripts.net";
 const OUTPUT = "public/data/scripts.json";
-const PER_CATEGORY = 10;
+const PER_CATEGORY = 20;
+const PAGES_PER_CATEGORY = 3;
+const MAX_TOTAL = 240;
 const MAX_CODE_LENGTH = 80_000;
 const REQUEST_GAP_MS = 160;
 
@@ -95,6 +98,15 @@ async function request(url, options = {}, attempt = 0) {
 
 async function requestJson(url, options = {}) {
   const response = await request(url, options);
+  const type = response.headers.get("content-type") ?? "";
+  if (!type.includes("json")) {
+    // Sources sometimes answer with an HTML holding page instead of their API
+    // (ScriptBlox serves "Coming Soon" while it is down). Fail loudly instead
+    // of writing an empty or broken library file.
+    const text = await response.text();
+    const snippet = text.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 90);
+    throw new Error(`non-JSON response from ${new URL(url).host} (source offline?): ${snippet}`);
+  }
   return response.json();
 }
 
@@ -162,18 +174,22 @@ function normalizeTags(rawTags, { keyless, universal, premium, fallback }) {
   return Array.from(new Set(tags)).slice(0, 3);
 }
 
-function scriptbloxCategory(id) {
-  if (id === "trending") {
+function scriptbloxCategory(id, page = 1) {
+  if (id === "trending" && page === 1) {
     return requestJson(`${SCRIPTBLOX}/api/script/trending`);
   }
 
   const params = new URLSearchParams({
-    page: "1",
+    page: String(page),
     max: String(PER_CATEGORY),
     mode: "free",
   });
 
   switch (id) {
+    case "trending":
+      params.set("sortBy", "updatedAt");
+      params.set("order", "desc");
+      break;
     case "new":
       params.set("sortBy", "createdAt");
       params.set("order", "desc");
@@ -468,28 +484,41 @@ async function main() {
   };
 
   for (const category of CATEGORIES) {
-    try {
-      const payload = await scriptbloxCategory(category.id);
-      const items = Array.isArray(payload?.result?.scripts)
-        ? payload.result.scripts
-        : [];
+    let added = 0;
 
-      for (const item of items.slice(0, PER_CATEGORY)) {
-        const slug = stringValue(item?.slug);
-        if (!slug) continue;
-        const detail = await scriptbloxDetail(slug);
-        const script = normalizeScriptblox(item, detail, category.id);
-        if (script) addScript(script);
+    for (let page = 1; page <= PAGES_PER_CATEGORY; page += 1) {
+      if (scripts.size >= MAX_TOTAL) break;
+
+      try {
+        const payload = await scriptbloxCategory(category.id, page);
+        const items = Array.isArray(payload?.result?.scripts)
+          ? payload.result.scripts
+          : [];
+
+        if (items.length === 0) break;
+
+        for (const item of items.slice(0, PER_CATEGORY)) {
+          if (scripts.size >= MAX_TOTAL) break;
+          const slug = stringValue(item?.slug);
+          if (!slug) continue;
+          const detail = await scriptbloxDetail(slug);
+          const script = normalizeScriptblox(item, detail, category.id);
+          if (script) {
+            addScript(script);
+            added += 1;
+          }
+        }
+
+        if (items.length < PER_CATEGORY) break;
+      } catch (error) {
+        errors.push(
+          `ScriptBlox ${category.id} p${page}: ${error instanceof Error ? error.message : error}`,
+        );
+        break;
       }
-
-      console.log(
-        `ScriptBlox ${category.id}: ${Math.min(items.length, PER_CATEGORY)} listed`,
-      );
-    } catch (error) {
-      errors.push(
-        `ScriptBlox ${category.id}: ${error instanceof Error ? error.message : error}`,
-      );
     }
+
+    console.log(`ScriptBlox ${category.id}: ${added} new script(s)`);
   }
 
   const rscriptsKey = (process.env.RSCRIPTS_API_KEY ?? "").trim();
@@ -502,6 +531,12 @@ async function main() {
   if (scripts.size === 0) {
     if (errors.length > 0) {
       console.error(`Source errors:\n- ${errors.join("\n- ")}`);
+    }
+    if (existsSync(OUTPUT)) {
+      // Never overwrite a working library with an empty one when every source
+      // is temporarily unreachable.
+      console.warn(`No scripts collected; keeping the existing ${OUTPUT}.`);
+      return;
     }
     throw new Error("No scripts were collected from any source");
   }

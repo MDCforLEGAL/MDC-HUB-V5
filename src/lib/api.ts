@@ -213,6 +213,144 @@ export async function beginDiscordLogin(): Promise<boolean> {
 }
 
 /* ------------------------------------------------------------------ */
+/* Community scripts                                                   */
+/* ------------------------------------------------------------------ */
+
+export interface PublicAuthor {
+  id: string;
+  username: string;
+  displayName: string;
+  avatarUrl: string | null;
+  role: AuthRole;
+}
+
+export interface CommunityScript {
+  id: string;
+  title: string;
+  game: string;
+  description: string;
+  code: string;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  author: PublicAuthor;
+  likes: number;
+  dislikes: number;
+  comments: number;
+}
+
+export async function fetchCommunityScripts(
+  signal?: AbortSignal,
+): Promise<CommunityScript[]> {
+  const payload = await request<{ scripts: CommunityScript[] }>("/api/community", { signal });
+  return Array.isArray(payload.scripts) ? payload.scripts : [];
+}
+
+export interface PublishScriptInput {
+  title: string;
+  game: string;
+  description: string;
+  code: string;
+  tags: string[];
+}
+
+export async function publishCommunityScript(
+  token: string,
+  input: PublishScriptInput,
+): Promise<CommunityScript | null> {
+  const payload = await request<{ script: CommunityScript | null }>("/api/community", {
+    method: "POST",
+    token,
+    body: input,
+  });
+  return payload.script ?? null;
+}
+
+export async function deleteCommunityScript(token: string, id: string): Promise<void> {
+  await request<{ ok: boolean }>(`/api/community/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    token,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* Reactions and comments                                              */
+/* ------------------------------------------------------------------ */
+
+export interface ScriptSocialState {
+  likes: number;
+  dislikes: number;
+  comments: number;
+  mine: -1 | 0 | 1;
+}
+
+export async function fetchSocial(
+  ids: string[],
+  token: string | null,
+  signal?: AbortSignal,
+): Promise<Record<string, ScriptSocialState>> {
+  if (ids.length === 0) return {};
+
+  const payload = await request<{ social: Record<string, ScriptSocialState> }>(
+    `/api/social?ids=${encodeURIComponent(ids.join(","))}`,
+    { token, signal },
+  );
+  return payload.social ?? {};
+}
+
+export async function reactToScript(
+  token: string,
+  scriptId: string,
+  value: 1 | -1 | 0,
+): Promise<ScriptSocialState> {
+  const payload = await request<{ social: ScriptSocialState }>("/api/social/react", {
+    method: "POST",
+    token,
+    body: { scriptId, value },
+  });
+  return payload.social;
+}
+
+export interface ScriptComment {
+  id: string;
+  body: string;
+  createdAt: string;
+  author: PublicAuthor;
+  mine: boolean;
+}
+
+export async function fetchComments(
+  scriptId: string,
+  signal?: AbortSignal,
+): Promise<ScriptComment[]> {
+  const payload = await request<{ comments: ScriptComment[] }>(
+    `/api/social/comments?scriptId=${encodeURIComponent(scriptId)}`,
+    { signal },
+  );
+  return Array.isArray(payload.comments) ? payload.comments : [];
+}
+
+export async function postComment(
+  token: string,
+  scriptId: string,
+  body: string,
+): Promise<ScriptComment> {
+  const payload = await request<{ comment: ScriptComment }>("/api/social/comments", {
+    method: "POST",
+    token,
+    body: { scriptId, body },
+  });
+  return payload.comment;
+}
+
+export async function deleteComment(token: string, id: string): Promise<void> {
+  await request<{ ok: boolean }>(`/api/social/comments/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    token,
+  });
+}
+
+/* ------------------------------------------------------------------ */
 /* Bootstrap                                                           */
 /* ------------------------------------------------------------------ */
 

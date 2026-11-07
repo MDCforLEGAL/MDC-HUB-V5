@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Globe,
   Layers,
+  Plus,
   Search,
   Sliders,
   Sparkles,
@@ -29,6 +30,7 @@ interface ScriptExplorerProps {
   onQueryChange: (value: string) => void;
   onOpenScript: (script: ScriptEntry) => void;
   onNotify: (message: string) => void;
+  onPublish: () => void;
 }
 
 const ALL_GAMES = "__all_games__";
@@ -48,6 +50,7 @@ const CATEGORY_IDS = new Set([
   "verified",
   "patched",
   "curated",
+  "community",
 ]);
 
 export function ScriptExplorer({
@@ -60,6 +63,7 @@ export function ScriptExplorer({
   onQueryChange,
   onOpenScript,
   onNotify,
+  onPublish,
 }: ScriptExplorerProps) {
   const { t, locale } = useI18n();
   const [status, setStatus] = useState<StatusFilter>("all");
@@ -352,6 +356,14 @@ export function ScriptExplorer({
               </button>
             )}
           </div>
+          <button
+            type="button"
+            onClick={onPublish}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:text-neon"
+          >
+            <Plus className="h-3 w-3" />
+            {t("explorer.publish")}
+          </button>
           <div className="hidden items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex">
             <span className="h-1 w-1 rounded-full bg-neon/60" />
             {libraryState === "live"
