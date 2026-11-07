@@ -189,6 +189,9 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           <p className="mt-2 font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/20">
             {t("publish.hint")}
           </p>
+          <p className="mt-1 font-mono text-[8.5px] uppercase tracking-[0.14em] text-neon/45">
+            {t("publish.verifiedHint", { count: 5 })}
+          </p>
 
           {error && (
             <p className="mt-3 rounded-lg border border-blood/35 bg-blood-deep/30 px-3 py-2 text-[11px] text-[#ffb3b3]">

@@ -4,7 +4,7 @@ import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
-import { ArrowUpRight, ChevronDown, Globe, LogOut, Menu, Plus, X } from "./Icons";
+import { ArrowUpRight, BadgeCheck, ChevronDown, Globe, LogOut, Menu, Plus, X } from "./Icons";
 
 const navItems = [
   { labelKey: "nav.discover", href: "#kesfet" },
@@ -55,6 +55,9 @@ function AccountMenu() {
       >
         <UserAvatar user={user} className="h-6 w-6" />
         <span className="hidden max-w-[104px] truncate sm:block">{user.displayName}</span>
+        {user.verified && (
+          <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-neon/80" aria-label={t("card.verifiedCommunity")} />
+        )}
         <ChevronDown
           className={cn("h-3 w-3 opacity-50 transition-transform duration-300", open && "rotate-180")}
         />

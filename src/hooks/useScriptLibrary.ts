@@ -148,7 +148,7 @@ function communityToEntry(script: CommunityScript): ScriptEntry {
     category: "Topluluk",
     title: script.title || "İsimsiz script",
     author,
-    verified: script.author?.role === "admin",
+    verified: Boolean(script.author?.verified),
     status: "working",
     premium: false,
     tags,

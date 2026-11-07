@@ -17,9 +17,20 @@ export interface PublicUser {
   avatarUrl: string | null;
   role: "admin" | "member";
   createdAt: string;
+  verified: boolean;
+  scripts: number;
 }
 
-export function toPublicUser(row: UserRow): PublicUser {
+/** Published scripts needed before a member earns the community blue check. */
+export const VERIFIED_SCRIPTS_THRESHOLD = 5;
+
+export function isVerifiedAuthor(role: string, scriptCount: number): boolean {
+  return role === "admin" || scriptCount >= VERIFIED_SCRIPTS_THRESHOLD;
+}
+
+export function toPublicUser(row: UserRow & { script_count?: number }): PublicUser {
+  const scripts = Number(row.script_count ?? 0);
+
   return {
     id: row.id,
     username: row.username,
@@ -27,6 +38,8 @@ export function toPublicUser(row: UserRow): PublicUser {
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
     createdAt: row.created_at,
+    verified: isVerifiedAuthor(row.role, scripts),
+    scripts,
   };
 }
 
@@ -142,6 +155,7 @@ export async function createSession(
 
 export interface SessionRow extends UserRow {
   session_expires_at: string;
+  script_count?: number;
 }
 
 export async function findSessionUser(
@@ -151,7 +165,9 @@ export async function findSessionUser(
 ): Promise<SessionRow | null> {
   const row = await db
     .prepare(
-      `SELECT u.*, s.expires_at AS session_expires_at
+      `SELECT u.*, s.expires_at AS session_expires_at,
+              (SELECT COUNT(*) FROM community_scripts c
+                WHERE c.user_id = u.id AND c.hidden = 0) AS script_count
          FROM sessions s
          JOIN users u ON u.id = s.user_id
         WHERE s.token_hash = ? AND s.expires_at > ?`,
@@ -192,6 +208,8 @@ export interface PublicAuthor {
   displayName: string;
   avatarUrl: string | null;
   role: "admin" | "member";
+  verified: boolean;
+  scripts: number;
 }
 
 export interface CommunityScriptRow {
@@ -211,6 +229,7 @@ export interface CommunityScriptRow {
   likes: number;
   dislikes: number;
   comments: number;
+  author_scripts: number;
 }
 
 export interface PublicCommunityScript {
@@ -238,19 +257,26 @@ function parseTags(value: string): string[] {
   }
 }
 
-export function toPublicAuthor(row: {
-  id: string;
-  username: string;
-  display_name: string | null;
-  avatar_url: string | null;
-  role: string;
-}): PublicAuthor {
+export function toPublicAuthor(
+  row: {
+    id: string;
+    username: string;
+    display_name: string | null;
+    avatar_url: string | null;
+    role: string;
+  },
+  scriptCount = 0,
+): PublicAuthor {
+  const scripts = Number(scriptCount ?? 0);
+
   return {
     id: row.id,
     username: row.username,
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
+    verified: isVerifiedAuthor(row.role, scripts),
+    scripts,
   };
 }
 
@@ -264,13 +290,16 @@ export function toPublicCommunityScript(row: CommunityScriptRow): PublicCommunit
     tags: parseTags(row.tags),
     createdAt: row.created_at,
     updatedAt: row.updated_at,
-    author: toPublicAuthor({
-      id: row.user_id,
-      username: row.username,
-      display_name: row.display_name,
-      avatar_url: row.avatar_url,
-      role: row.role,
-    }),
+    author: toPublicAuthor(
+      {
+        id: row.user_id,
+        username: row.username,
+        display_name: row.display_name,
+        avatar_url: row.avatar_url,
+        role: row.role,
+      },
+      Number(row.author_scripts ?? 0),
+    ),
     likes: Number(row.likes ?? 0),
     dislikes: Number(row.dislikes ?? 0),
     comments: Number(row.comments ?? 0),
@@ -286,7 +315,9 @@ const COMMUNITY_SELECT = `
          (SELECT COUNT(*) FROM script_reactions r
            WHERE r.script_id = s.id AND r.value = -1) AS dislikes,
          (SELECT COUNT(*) FROM script_comments c
-           WHERE c.script_id = s.id AND c.hidden = 0) AS comments
+           WHERE c.script_id = s.id AND c.hidden = 0) AS comments,
+         (SELECT COUNT(*) FROM community_scripts mine
+           WHERE mine.user_id = s.user_id AND mine.hidden = 0) AS author_scripts
     FROM community_scripts s
     JOIN users u ON u.id = s.user_id
    WHERE s.hidden = 0`;
@@ -477,6 +508,7 @@ export interface CommentRow {
   display_name: string | null;
   avatar_url: string | null;
   role: string;
+  author_scripts: number;
 }
 
 export async function listComments(
@@ -487,7 +519,9 @@ export async function listComments(
   const result = await db
     .prepare(
       `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
-              u.username, u.display_name, u.avatar_url, u.role
+              u.username, u.display_name, u.avatar_url, u.role,
+              (SELECT COUNT(*) FROM community_scripts mine
+                WHERE mine.user_id = c.user_id AND mine.hidden = 0) AS author_scripts
          FROM script_comments c
          JOIN users u ON u.id = c.user_id
         WHERE c.script_id = ? AND c.hidden = 0

@@ -526,13 +526,16 @@ async function handleCommentsList(
     id: row.id,
     body: row.body,
     createdAt: row.created_at,
-    author: toPublicAuthor({
-      id: row.user_id,
-      username: row.username,
-      display_name: row.display_name,
-      avatar_url: row.avatar_url,
-      role: row.role,
-    }),
+    author: toPublicAuthor(
+      {
+        id: row.user_id,
+        username: row.username,
+        display_name: row.display_name,
+        avatar_url: row.avatar_url,
+        role: row.role,
+      },
+      Number(row.author_scripts ?? 0),
+    ),
     mine: Boolean(user && (row.user_id === user.id || user.role === "admin")),
   }));
 
@@ -566,7 +569,15 @@ async function handleCommentsCreate(request: Request, env: Env): Promise<Respons
   await createComment(env.DB, { id, scriptId, userId: user.id, body, now });
 
   return json(
-    { comment: { id, body, createdAt: now, author: toPublicAuthor(user), mine: true } },
+    {
+      comment: {
+        id,
+        body,
+        createdAt: now,
+        author: toPublicAuthor(user, Number(user.script_count ?? 0)),
+        mine: true,
+      },
+    },
     201,
     request,
     env,

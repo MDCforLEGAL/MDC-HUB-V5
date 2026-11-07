@@ -143,7 +143,9 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                   aria-label={
                     script.source === "mdc"
                       ? t("card.verifiedDeveloper")
-                      : t("modal.verifiedSource", { source: script.sourceLabel ?? "" })
+                      : script.source === "community"
+                        ? t("card.verifiedCommunity")
+                        : t("modal.verifiedSource", { source: script.sourceLabel ?? "" })
                   }
                 />
               )}

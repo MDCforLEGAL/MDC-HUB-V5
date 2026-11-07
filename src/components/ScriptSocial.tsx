@@ -14,7 +14,7 @@ import {
   type ScriptComment,
   type ScriptSocialState,
 } from "../lib/api";
-import { Loader, MessageCircle, Send } from "./Icons";
+import { BadgeCheck, Loader, MessageCircle, Send } from "./Icons";
 
 function ThumbsUp({ className }: { className?: string }) {
   return (
@@ -266,6 +266,12 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px]">
                     <span className="font-medium text-white/70">{comment.author.displayName}</span>
+                    {comment.author.verified && (
+                      <BadgeCheck
+                        className="h-3 w-3 text-neon/80"
+                        aria-label={t("card.verifiedCommunity")}
+                      />
+                    )}
                     <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
                       {timeAgo(comment.createdAt, locale)}
                     </span>

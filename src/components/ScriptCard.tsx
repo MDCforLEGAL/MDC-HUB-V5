@@ -137,7 +137,9 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
             aria-label={
               script.source === "mdc"
                 ? t("card.verifiedDeveloper")
-                : t("card.verifiedSource", { source: script.sourceLabel ?? "" })
+                : script.source === "community"
+                  ? t("card.verifiedCommunity")
+                  : t("card.verifiedSource", { source: script.sourceLabel ?? "" })
             }
           />
         )}

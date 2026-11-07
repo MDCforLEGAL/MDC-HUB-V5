@@ -7,6 +7,10 @@ export interface AuthUser {
   avatarUrl: string | null;
   role: AuthRole;
   createdAt: string;
+  /** Community blue check, computed from the published script count. */
+  verified?: boolean;
+  /** Number of scripts this author published from the site. */
+  scripts?: number;
 }
 
 export interface HealthInfo {
@@ -222,6 +226,8 @@ export interface PublicAuthor {
   displayName: string;
   avatarUrl: string | null;
   role: AuthRole;
+  verified?: boolean;
+  scripts?: number;
 }
 
 export interface CommunityScript {
