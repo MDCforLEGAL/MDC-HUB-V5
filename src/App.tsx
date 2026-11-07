@@ -12,6 +12,7 @@ import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
+import { useSourcePage } from "./hooks/useSourcePage";
 import { useI18n } from "./i18n";
 
 interface ToastState {
@@ -37,6 +38,7 @@ function Atmosphere() {
 
 export default function App() {
   const library = useScriptLibrary();
+  const sourcePage = useSourcePage();
   const { user, status, error: authError } = useAuth();
   const { t } = useI18n();
   const [query, setQuery] = useState("");
@@ -109,6 +111,39 @@ export default function App() {
     return Array.from(new Set([...gameTerms, "Auto Farm", "ESP"])).slice(0, 5);
   }, [library.games]);
 
+  // Each source gets its own page. MDC also owns the community uploads, so
+  // both live together there instead of being buried in the mixed feed.
+  const pageScripts = useMemo(() => {
+    if (sourcePage === "all") return library.scripts;
+    if (sourcePage === "mdc") {
+      return library.scripts.filter(
+        (script) => script.source === "mdc" || script.source === "community",
+      );
+    }
+    return library.scripts.filter((script) => script.source === sourcePage);
+  }, [library.scripts, sourcePage]);
+
+  const pageCategories = useMemo(() => {
+    if (sourcePage === "all") return library.categories;
+    return library.categories
+      .map((category) => ({
+        ...category,
+        count: pageScripts.filter((script) =>
+          (script.categoryIds ?? []).includes(category.id),
+        ).length,
+      }))
+      .filter((category) => category.count > 0);
+  }, [library.categories, pageScripts, sourcePage]);
+
+  const firstPage = useRef(true);
+  useEffect(() => {
+    if (firstPage.current) {
+      firstPage.current = false;
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [sourcePage]);
+
   const overlayOpen = Boolean(activeScript || authMode || publishOpen);
 
   useEffect(() => {
@@ -133,24 +168,29 @@ export default function App() {
       <Header onAuth={setAuthMode} onPublish={() => setPublishOpen(true)} />
 
       <main>
-        <Hero
-          query={query}
-          onQueryChange={setQuery}
-          onSubmitSearch={scrollToResults}
-          resultCount={heroResultCount}
-          scriptCount={library.scripts.length}
-          gameCount={library.games.length}
-          workingRate={workingRate}
-          lastSync={library.generatedAt}
-          libraryState={library.state}
-          popularSearches={popularSearches}
-        />
+        {sourcePage === "all" && (
+          <>
+            <Hero
+              query={query}
+              onQueryChange={setQuery}
+              onSubmitSearch={scrollToResults}
+              resultCount={heroResultCount}
+              scriptCount={library.scripts.length}
+              gameCount={library.games.length}
+              workingRate={workingRate}
+              lastSync={library.generatedAt}
+              libraryState={library.state}
+              popularSearches={popularSearches}
+            />
 
-        <GameMarquee games={library.games} />
+            <GameMarquee games={library.games} />
+          </>
+        )}
 
         <ScriptExplorer
-          scripts={library.scripts}
-          categories={library.categories}
+          page={sourcePage}
+          scripts={pageScripts}
+          categories={pageCategories}
           sources={library.sources}
           libraryState={library.state}
           lastSync={library.generatedAt}
@@ -161,7 +201,7 @@ export default function App() {
           onPublish={() => setPublishOpen(true)}
         />
 
-        <CodeShowcase onNotify={notify} />
+        {sourcePage === "all" && <CodeShowcase onNotify={notify} />}
 
         <Footer onOpenAuth={() => setAuthMode("signup")} />
       </main>

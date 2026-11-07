@@ -34,6 +34,40 @@ const en = {
   "nav.languageTurkish": "Türkçe",
   "nav.language": "Language",
   "nav.account": "Account",
+  "nav.installApp": "Install app",
+  "nav.installShort": "Install",
+  "nav.installReady": "Add to device",
+  "nav.installHintShort": "Browser menu",
+  "nav.installSteps":
+    "Open your browser menu (⋮) and choose “Install app” or “Add to Home screen”.",
+  "nav.scriptblox": "ScriptBlox",
+  "nav.mdc": "MDC Scripts",
+  "nav.rscripts": "Rscripts",
+
+  "pages.scriptblox.kicker": "Source · ScriptBlox",
+  "pages.scriptblox.label": "ScriptBlox",
+  "pages.scriptblox.title": "ScriptBlox ",
+  "pages.scriptblox.titleHighlight": "catalog",
+  "pages.scriptblox.description":
+    "Everything synced from the ScriptBlox catalog, with status, access and source details on every card.",
+  "pages.mdc.kicker": "Source · MDC",
+  "pages.mdc.label": "MDC",
+  "pages.mdc.title": "MDC ",
+  "pages.mdc.titleHighlight": "scripts",
+  "pages.mdc.description":
+    "Scripts published here by MDC and the community, including the blue-check verified authors.",
+  "pages.rscripts.kicker": "Source · Rscripts",
+  "pages.rscripts.label": "Rscripts",
+  "pages.rscripts.title": "Rscripts ",
+  "pages.rscripts.titleHighlight": "library",
+  "pages.rscripts.description":
+    "Scripts pulled from the Rscripts API with its keyless, verified and trending filters.",
+  "pages.community.kicker": "Source · Community",
+  "pages.community.label": "Community",
+  "pages.community.title": "Community ",
+  "pages.community.titleHighlight": "uploads",
+  "pages.community.description":
+    "Every script shared from MDC HUB itself. Like, comment and publish your own from here.",
 
   "hero.badgeLive": "Library live",
   "hero.badgeLoading": "Library loading",
@@ -316,6 +350,40 @@ const tr: Record<MessageKey, string> = {
   "nav.languageTurkish": "Türkçe",
   "nav.language": "Dil",
   "nav.account": "Hesap",
+  "nav.installApp": "Uygulamayı yükle",
+  "nav.installShort": "Yükle",
+  "nav.installReady": "Cihaza ekle",
+  "nav.installHintShort": "Tarayıcı menüsü",
+  "nav.installSteps":
+    "Tarayıcı menüsünü (⋮) aç ve “Uygulamayı yükle” ya da “Ana ekrana ekle” seçeneğini kullan.",
+  "nav.scriptblox": "ScriptBlox",
+  "nav.mdc": "MDC Scriptleri",
+  "nav.rscripts": "Rscripts",
+
+  "pages.scriptblox.kicker": "Kaynak · ScriptBlox",
+  "pages.scriptblox.label": "ScriptBlox",
+  "pages.scriptblox.title": "ScriptBlox ",
+  "pages.scriptblox.titleHighlight": "kataloğu",
+  "pages.scriptblox.description":
+    "ScriptBlox kataloğundan senkronlanan tüm scriptler; her kartta durum, erişim ve kaynak bilgisi var.",
+  "pages.mdc.kicker": "Kaynak · MDC",
+  "pages.mdc.label": "MDC",
+  "pages.mdc.title": "MDC ",
+  "pages.mdc.titleHighlight": "scriptleri",
+  "pages.mdc.description":
+    "MDC ve topluluğun burada paylaştığı scriptler; mavi tikli doğrulanmış yazarlar dahil.",
+  "pages.rscripts.kicker": "Kaynak · Rscripts",
+  "pages.rscripts.label": "Rscripts",
+  "pages.rscripts.title": "Rscripts ",
+  "pages.rscripts.titleHighlight": "kütüphanesi",
+  "pages.rscripts.description":
+    "Rscripts API'sinden gelen scriptler; keyless, doğrulanmış ve trending filtreleriyle.",
+  "pages.community.kicker": "Kaynak · Topluluk",
+  "pages.community.label": "Topluluk",
+  "pages.community.title": "Topluluk ",
+  "pages.community.titleHighlight": "paylaşımları",
+  "pages.community.description":
+    "MDC HUB üzerinden paylaşılan tüm scriptler. Buradan beğen, yorum yap veya kendi scriptini paylaş.",
 
   "hero.badgeLive": "Kütüphane canlı",
   "hero.badgeLoading": "Kütüphane yükleniyor",

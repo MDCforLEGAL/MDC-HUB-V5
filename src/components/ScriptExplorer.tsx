@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { LibraryCategory, LibrarySource, ScriptEntry } from "../data/scripts";
 import type { LibraryState } from "../hooks/useScriptLibrary";
+import type { SourcePageId } from "../hooks/useSourcePage";
 import { useI18n, type MessageKey } from "../i18n";
 import { cn } from "../lib/cn";
 import { timeAgo } from "../lib/format";
@@ -21,6 +22,7 @@ import {
 type StatusFilter = "all" | "working" | "patched";
 
 interface ScriptExplorerProps {
+  page: SourcePageId;
   scripts: ScriptEntry[];
   categories: LibraryCategory[];
   sources: LibrarySource[];
@@ -54,6 +56,7 @@ const CATEGORY_IDS = new Set([
 ]);
 
 export function ScriptExplorer({
+  page,
   scripts,
   categories,
   sources,
@@ -73,6 +76,11 @@ export function ScriptExplorer({
 
   const primarySource =
     sources[0]?.id === "mdc" ? t("sources.mdc") : (sources[0]?.label ?? "MDC");
+
+  const pageKey = (part: "kicker" | "title" | "titleHighlight" | "description" | "label") =>
+    `pages.${page}.${part}` as MessageKey;
+
+  const pageSourceLabel = page === "all" ? primarySource : t(pageKey("label"));
 
   const categoryLabel = (item: LibraryCategory) =>
     CATEGORY_IDS.has(item.id)
@@ -164,23 +172,53 @@ export function ScriptExplorer({
   };
 
   return (
-    <section id="kesfet" className="relative scroll-mt-28 py-20 sm:py-24">
+    <section
+      id="kesfet"
+      className={cn(
+        "relative scroll-mt-28 py-20 sm:py-24",
+        page !== "all" && "pt-28 sm:pt-32",
+      )}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <div className="flex items-center gap-2.5">
               <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-              <span className="section-kicker text-neon/70">{t("explorer.kicker")}</span>
+              <span className="section-kicker text-neon/70">
+                {page === "all" ? t("explorer.kicker") : t(pageKey("kicker"))}
+              </span>
             </div>
             <h2 className="mt-4 max-w-xl font-display text-[30px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[40px]">
-              {t("explorer.titleLead")}
+              {page === "all" ? t("explorer.titleLead") : t(pageKey("title"))}
               <span className="bg-gradient-to-r from-white via-[#B9F8FF] to-[#5F91FF] bg-clip-text text-transparent">
-                {t("explorer.titleHighlight")}
+                {page === "all" ? t("explorer.titleHighlight") : t(pageKey("titleHighlight"))}
               </span>
             </h2>
             <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-              {t("explorer.description")}
+              {page === "all" ? t("explorer.description") : t(pageKey("description"))}
             </p>
+            {page !== "all" && (
+              <div className="mt-4 flex max-w-md items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2 backdrop-blur-xl transition-colors focus-within:border-neon/35">
+                <Search className="h-3.5 w-3.5 shrink-0 text-white/35" />
+                <input
+                  value={query}
+                  onChange={(event) => onQueryChange(event.target.value)}
+                  placeholder={t("hero.searchPlaceholder")}
+                  aria-label={t("hero.searchAria")}
+                  className="w-full bg-transparent text-[12.5px] text-white/85 placeholder:text-white/25 focus:outline-none"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => onQueryChange("")}
+                    aria-label={t("hero.clearSearch")}
+                    className="text-white/35 transition-colors hover:text-neon"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                )}
+              </div>
+            )}
           </Reveal>
 
           <Reveal delay={100} className="shrink-0">
@@ -195,7 +233,7 @@ export function ScriptExplorer({
                 </p>
                 <p className="mt-0.5 text-[11px] font-medium text-white/60">
                   {libraryState === "live"
-                    ? t("explorer.sourceLive", { source: primarySource })
+                    ? t("explorer.sourceLive", { source: pageSourceLabel })
                     : libraryState === "loading"
                       ? t("explorer.sourceLoading")
                       : t("explorer.sourceCurated")}
@@ -253,7 +291,7 @@ export function ScriptExplorer({
               </div>
               <span className="ml-auto hidden shrink-0 items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/20 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 sm:flex">
                 <Globe className="h-2.5 w-2.5 text-neon/50" />
-                {libraryState === "live" ? primarySource : t("explorer.local")}
+                {libraryState === "live" ? pageSourceLabel : t("explorer.local")}
               </span>
             </div>
 
@@ -342,7 +380,7 @@ export function ScriptExplorer({
               {query.trim()
                 ? t("explorer.searchSuffix", { query: query.trim() })
                 : libraryState === "live"
-                  ? t("explorer.liveSuffix", { source: primarySource })
+                  ? t("explorer.liveSuffix", { source: pageSourceLabel })
                   : t("explorer.curatedSuffix")}
             </span>
             {activeFilters && (

@@ -2,14 +2,28 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
+import { SOURCE_PAGE_HREFS, useSourcePage } from "../hooks/useSourcePage";
+import { useInstallPrompt } from "../hooks/useInstallPrompt";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
-import { ArrowUpRight, BadgeCheck, ChevronDown, Globe, LogOut, Menu, Plus, X } from "./Icons";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  ChevronDown,
+  Download,
+  Globe,
+  LogOut,
+  Menu,
+  Plus,
+  X,
+} from "./Icons";
 
 const navItems = [
-  { labelKey: "nav.discover", href: "#kesfet" },
-  { labelKey: "nav.code", href: "#kod" },
-  { labelKey: "nav.community", href: "#topluluk" },
+  { labelKey: "nav.discover", href: SOURCE_PAGE_HREFS.all, page: "all" },
+  { labelKey: "nav.scriptblox", href: SOURCE_PAGE_HREFS.scriptblox, page: "scriptblox" },
+  { labelKey: "nav.mdc", href: SOURCE_PAGE_HREFS.mdc, page: "mdc" },
+  { labelKey: "nav.rscripts", href: SOURCE_PAGE_HREFS.rscripts, page: "rscripts" },
+  { labelKey: "nav.community", href: SOURCE_PAGE_HREFS.community, page: "community" },
 ] as const;
 
 interface HeaderProps {
@@ -115,10 +129,30 @@ function AccountMenu() {
 export function Header({ onAuth, onPublish }: HeaderProps) {
   const { t, locale, setLocale } = useI18n();
   const { user, signedIn, signOut, busy } = useAuth();
+  const page = useSourcePage();
+  const { canPrompt, installed, install } = useInstallPrompt();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [installHint, setInstallHint] = useState(false);
+  const [installBusy, setInstallBusy] = useState(false);
 
   const toggleLocale = () => setLocale(locale === "tr" ? "en" : "tr");
+
+  const requestInstall = async () => {
+    if (installBusy) return;
+    setInstallBusy(true);
+    try {
+      const outcome = await install();
+      if (outcome === "unavailable") {
+        setInstallHint(true);
+      } else if (outcome === "accepted" || outcome === "installed") {
+        setInstallHint(false);
+        setMobileOpen(false);
+      }
+    } finally {
+      setInstallBusy(false);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -157,22 +191,59 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
           aria-label={t("nav.mainMenu")}
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 lg:flex"
         >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="group relative rounded-lg px-3 py-2 text-[12.5px] font-medium text-white/55 transition-colors duration-300 hover:text-white"
-            >
-              {t(item.labelKey)}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-3 -bottom-px h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-neon/80 to-transparent transition-transform duration-300 group-hover:scale-x-100"
-              />
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const active = page === item.page;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "group relative rounded-lg px-3 py-2 text-[12.5px] font-medium transition-colors duration-300 hover:text-white",
+                  active ? "text-white" : "text-white/55",
+                )}
+              >
+                {t(item.labelKey)}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "absolute inset-x-3 -bottom-px h-px origin-center bg-gradient-to-r from-transparent via-neon/80 to-transparent transition-transform duration-300 group-hover:scale-x-100",
+                    active ? "scale-x-100" : "scale-x-0",
+                  )}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-1.5 sm:gap-2">
+          {!installed && (
+            <div className="relative hidden sm:block">
+              <button
+                type="button"
+                onClick={() => void requestInstall()}
+                disabled={installBusy}
+                aria-expanded={installHint}
+                aria-label={t("nav.installApp")}
+                title={t("nav.installApp")}
+                className="flex h-9 items-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.025] px-2.5 text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon disabled:opacity-50"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span className="hidden font-mono text-[9px] font-medium uppercase tracking-[0.08em] xl:inline">
+                  {t("nav.installShort")}
+                </span>
+              </button>
+              {installHint && (
+                <p
+                  role="status"
+                  className="absolute right-0 top-full z-30 mt-2 w-64 rounded-xl border border-white/[0.1] bg-[#060b13]/97 p-3 text-[11px] leading-relaxed text-white/60 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] backdrop-blur-2xl"
+                >
+                  {t("nav.installSteps")}
+                </p>
+              )}
+            </div>
+          )}
+
           <button
             type="button"
             onClick={toggleLocale}
@@ -258,6 +329,30 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
               </a>
             ))}
           </nav>
+
+          {!installed && (
+            <>
+              <button
+                type="button"
+                onClick={() => void requestInstall()}
+                disabled={installBusy}
+                className="mt-2 flex w-full items-center justify-between rounded-xl border border-neon/20 bg-neon/[0.05] px-3 py-3 text-[13px] text-neon/90 transition-colors hover:bg-neon/[0.1] disabled:opacity-50"
+              >
+                <span className="flex items-center gap-2">
+                  <Download className="h-3.5 w-3.5" />
+                  {t("nav.installApp")}
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-neon/50">
+                  {canPrompt ? t("nav.installReady") : t("nav.installHintShort")}
+                </span>
+              </button>
+              {installHint && (
+                <p className="mt-1.5 rounded-xl border border-white/[0.08] bg-white/[0.02] px-3 py-2 text-[11px] leading-relaxed text-white/55">
+                  {t("nav.installSteps")}
+                </p>
+              )}
+            </>
+          )}
 
           {signedIn && user ? (
             <div className="mt-2 flex items-center gap-2.5 rounded-xl border border-white/[0.07] bg-white/[0.03] p-2.5">
