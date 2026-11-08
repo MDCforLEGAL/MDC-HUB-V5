@@ -12,7 +12,8 @@ import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
-import { useSourcePage } from "./hooks/useSourcePage";
+import { useAccountPage, useSourcePage } from "./hooks/useSourcePage";
+import { AccountPage } from "./components/AccountPage";
 import { useI18n } from "./i18n";
 
 interface ToastState {
@@ -39,6 +40,7 @@ function Atmosphere() {
 export default function App() {
   const library = useScriptLibrary();
   const sourcePage = useSourcePage();
+  const accountPage = useAccountPage();
   const { user, status, error: authError } = useAuth();
   const { t } = useI18n();
   const [query, setQuery] = useState("");
@@ -156,6 +158,10 @@ export default function App() {
   }, [overlayOpen]);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [accountPage]);
+
+  useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(null), 2800);
     return () => clearTimeout(timer);
@@ -168,6 +174,10 @@ export default function App() {
       <Header onAuth={setAuthMode} onPublish={() => setPublishOpen(true)} />
 
       <main>
+        {accountPage ? (
+          <AccountPage onAuth={() => setAuthMode("login")} onNotify={notify} />
+        ) : (
+          <>
         {sourcePage === "all" && (
           <>
             <Hero
@@ -202,6 +212,8 @@ export default function App() {
         />
 
         {sourcePage === "all" && <CodeShowcase onNotify={notify} />}
+          </>
+        )}
 
         <Footer onOpenAuth={() => setAuthMode("signup")} />
       </main>

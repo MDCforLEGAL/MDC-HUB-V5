@@ -13,6 +13,8 @@ export interface Env {
   SITE_REDIRECT_URL?: string;
   /** Comma separated Discord user ids that get the admin role. */
   ADMIN_DISCORD_IDS?: string;
+  /** Comma separated Discord usernames (with or without @) that get the admin role. */
+  ADMIN_USERNAMES?: string;
 
   /** Override for local tests; defaults to https://discord.com/api. */
   DISCORD_API_BASE?: string;

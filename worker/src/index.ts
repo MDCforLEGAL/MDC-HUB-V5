@@ -1,6 +1,7 @@
 import type { Env } from "./env";
 import { randomToken, sha256Hex, timingSafeEqual } from "./crypto";
 import {
+  buildProfile,
   consumeLoginCode,
   consumeOAuthState,
   createComment,
@@ -15,15 +16,18 @@ import {
   findSessionUser,
   listComments,
   listCommunityScripts,
+  listUsersForAdmin,
   myReactions,
   pruneExpired,
   setReaction,
+  setUserRole,
   socialCounts,
   toPublicAuthor,
   toPublicCommunityScript,
   toPublicUser,
   touchSession,
   upsertDiscordUser,
+  userStats,
 } from "./db";
 import type { SessionRow } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
@@ -83,6 +87,21 @@ function adminIds(env: Env): string[] {
     .split(",")
     .map((id) => id.trim())
     .filter(Boolean);
+}
+
+function adminUsernames(env: Env): string[] {
+  return (env.ADMIN_USERNAMES ?? "")
+    .split(",")
+    .map((name) => name.trim().replace(/^@/, "").toLowerCase())
+    .filter(Boolean);
+}
+
+/** Admins come from the env allowlist (ids or usernames) or a granted role in D1. */
+function isAdminIdentity(env: Env, discordId: string, username: string): boolean {
+  return (
+    adminIds(env).includes(discordId) ||
+    adminUsernames(env).includes(username.trim().replace(/^@/, "").toLowerCase())
+  );
 }
 
 function bearerToken(request: Request): string | null {
@@ -174,7 +193,7 @@ async function handleDiscordCallback(request: Request, env: Env): Promise<Respon
   try {
     const accessToken = await exchangeDiscordCode(env, code, callbackUrl(request));
     const profile = await fetchDiscordProfile(env, accessToken);
-    const role = adminIds(env).includes(profile.id) ? "admin" : "member";
+    const role = isAdminIdentity(env, profile.id, profile.username) ? "admin" : "member";
     const user = await upsertDiscordUser(env.DB, profile, role, iso(now));
 
     const loginCode = randomToken(32);
@@ -355,6 +374,15 @@ async function handleCommunityCreate(request: Request, env: Env): Promise<Respon
   if (!user) {
     return apiError("unauthorized", 401, request, env, "Sign in to publish a script.");
   }
+  if (user.role !== "admin") {
+    return apiError(
+      "publish_admin_only",
+      403,
+      request,
+      env,
+      "Script publishing is limited to MDC admin accounts.",
+    );
+  }
 
   const payload = await readJsonBody(request);
   if (!payload) {
@@ -534,7 +562,11 @@ async function handleCommentsList(
         avatar_url: row.avatar_url,
         role: row.role,
       },
-      Number(row.author_scripts ?? 0),
+      {
+        scripts: Number(row.author_scripts ?? 0),
+        comments: Number(row.author_comments ?? 0),
+        likesGiven: Number(row.author_likes_given ?? 0),
+      },
     ),
     mine: Boolean(user && (row.user_id === user.id || user.role === "admin")),
   }));
@@ -574,7 +606,11 @@ async function handleCommentsCreate(request: Request, env: Env): Promise<Respons
         id,
         body,
         createdAt: now,
-        author: toPublicAuthor(user, Number(user.script_count ?? 0)),
+        author: toPublicAuthor(user, {
+          scripts: Number(user.script_count ?? 0),
+          comments: Number(user.comment_count ?? 0),
+          likesGiven: Number(user.likes_given_count ?? 0),
+        }),
         mine: true,
       },
     },
@@ -607,6 +643,90 @@ async function handleCommentDelete(
   }
 
   return json({ ok: true }, 200, request, env);
+}
+
+async function handleProfile(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to see your profile.");
+  }
+
+  const stats = await userStats(env.DB, user.id);
+
+  return json(
+    { user: toPublicUser(user), ...buildProfile(stats, user.role) },
+    200,
+    request,
+    env,
+  );
+}
+
+async function handleAdminUsers(
+  request: Request,
+  env: Env,
+  url: URL,
+): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env);
+  }
+  if (user.role !== "admin") {
+    return apiError("forbidden", 403, request, env, "Admin access required.");
+  }
+
+  const query = (url.searchParams.get("q") ?? "").trim().slice(0, 60);
+  const users = await listUsersForAdmin(env.DB, query);
+
+  return json({ users }, 200, request, env);
+}
+
+async function handleAdminRoles(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env);
+  }
+  if (user.role !== "admin") {
+    return apiError("forbidden", 403, request, env, "Admin access required.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const userId = field(payload, "userId", 80);
+  const role = field(payload, "role", 16);
+
+  if (!userId || (role !== "admin" && role !== "member")) {
+    return apiError("invalid_body", 400, request, env, "A user and a valid role are required.");
+  }
+  if (userId === user.id) {
+    return apiError("self_role", 400, request, env, "You cannot change your own role.");
+  }
+
+  const updated = await setUserRole(env.DB, userId, role);
+  if (!updated) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  return json(
+    { ok: true, user: { id: updated.id, role: updated.role === "admin" ? "admin" : "member" } },
+    200,
+    request,
+    env,
+  );
 }
 
 export default {
@@ -651,6 +771,12 @@ export default {
           request.method === "GET"
             ? await handleCommentsList(request, env, url)
             : await handleCommentsCreate(request, env);
+      } else if (url.pathname === "/api/profile") {
+        response = await handleProfile(request, env);
+      } else if (url.pathname === "/api/admin/users") {
+        response = await handleAdminUsers(request, env, url);
+      } else if (url.pathname === "/api/admin/roles") {
+        response = await handleAdminRoles(request, env);
       } else if (url.pathname.startsWith("/api/social/comments/")) {
         response = await handleCommentDelete(
           request,

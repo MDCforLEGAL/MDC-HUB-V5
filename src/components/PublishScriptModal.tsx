@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { ApiError, getStoredToken, publishCommunityScript } from "../lib/api";
-import { Loader, X } from "./Icons";
+import { Loader, Lock, X } from "./Icons";
 
 interface PublishScriptModalProps {
   onClose: () => void;
@@ -15,7 +15,7 @@ const inputClass =
 
 export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishScriptModalProps) {
   const { t } = useI18n();
-  const { signedIn, signIn } = useAuth();
+  const { signedIn, signIn, user } = useAuth();
   const [title, setTitle] = useState("");
   const [game, setGame] = useState("");
   const [description, setDescription] = useState("");
@@ -78,6 +78,54 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
       setBusy(false);
     }
   };
+
+  if (user?.role !== "admin") {
+    return (
+      <div
+        className="fade-in fixed inset-0 z-[75] flex items-end justify-center bg-[#02040a]/80 p-0 backdrop-blur-md sm:items-center sm:p-6"
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) onClose();
+        }}
+      >
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="publish-admin-title"
+          className="modal-in relative w-full max-w-md rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 p-6 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:rounded-3xl sm:p-7"
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={t("publish.cancel")}
+            className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/40 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+
+          <span className="grid h-11 w-11 place-items-center rounded-2xl border border-[#8B0000]/40 bg-[#4A0000]/35 text-[#ff9d9d]">
+            <Lock className="h-5 w-5" />
+          </span>
+          <h2
+            id="publish-admin-title"
+            className="mt-4 font-display text-[21px] font-medium leading-tight tracking-[-0.02em] text-white"
+          >
+            {t("publish.adminOnlyTitle")}
+          </h2>
+          <p className="mt-2 text-[11.5px] leading-relaxed text-white/45">
+            {t("publish.adminOnlyBody")}
+          </p>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="mt-5 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/70 transition-all duration-300 hover:border-white/20 hover:text-white"
+          >
+            {t("publish.cancel")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

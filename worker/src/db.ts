@@ -10,6 +10,24 @@ export interface UserRow {
   last_login_at: string;
 }
 
+export interface VerificationStats {
+  scripts: number;
+  comments: number;
+  likesGiven: number;
+}
+
+export interface UserStats extends VerificationStats {
+  dislikesGiven: number;
+  likesReceived: number;
+}
+
+/** Blue check: 20 published scripts, 5 comments and 5 likes given. */
+export const VERIFICATION_REQUIREMENTS = {
+  scripts: 20,
+  comments: 5,
+  likesGiven: 5,
+} as const;
+
 export interface PublicUser {
   id: string;
   username: string;
@@ -19,17 +37,32 @@ export interface PublicUser {
   createdAt: string;
   verified: boolean;
   scripts: number;
+  comments: number;
+  likesGiven: number;
 }
 
-/** Published scripts needed before a member earns the community blue check. */
-export const VERIFIED_SCRIPTS_THRESHOLD = 5;
+export function isVerifiedAuthor(role: string, stats: VerificationStats): boolean {
+  if (role === "admin") return true;
 
-export function isVerifiedAuthor(role: string, scriptCount: number): boolean {
-  return role === "admin" || scriptCount >= VERIFIED_SCRIPTS_THRESHOLD;
+  return (
+    stats.scripts >= VERIFICATION_REQUIREMENTS.scripts &&
+    stats.comments >= VERIFICATION_REQUIREMENTS.comments &&
+    stats.likesGiven >= VERIFICATION_REQUIREMENTS.likesGiven
+  );
 }
 
-export function toPublicUser(row: UserRow & { script_count?: number }): PublicUser {
-  const scripts = Number(row.script_count ?? 0);
+export function toPublicUser(
+  row: UserRow & {
+    script_count?: number;
+    comment_count?: number;
+    likes_given_count?: number;
+  },
+): PublicUser {
+  const stats: VerificationStats = {
+    scripts: Number(row.script_count ?? 0),
+    comments: Number(row.comment_count ?? 0),
+    likesGiven: Number(row.likes_given_count ?? 0),
+  };
 
   return {
     id: row.id,
@@ -38,8 +71,8 @@ export function toPublicUser(row: UserRow & { script_count?: number }): PublicUs
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
     createdAt: row.created_at,
-    verified: isVerifiedAuthor(row.role, scripts),
-    scripts,
+    verified: isVerifiedAuthor(row.role, stats),
+    ...stats,
   };
 }
 
@@ -156,6 +189,8 @@ export async function createSession(
 export interface SessionRow extends UserRow {
   session_expires_at: string;
   script_count?: number;
+  comment_count?: number;
+  likes_given_count?: number;
 }
 
 export async function findSessionUser(
@@ -167,7 +202,11 @@ export async function findSessionUser(
     .prepare(
       `SELECT u.*, s.expires_at AS session_expires_at,
               (SELECT COUNT(*) FROM community_scripts c
-                WHERE c.user_id = u.id AND c.hidden = 0) AS script_count
+                WHERE c.user_id = u.id AND c.hidden = 0) AS script_count,
+              (SELECT COUNT(*) FROM script_comments cm
+                WHERE cm.user_id = u.id AND cm.hidden = 0) AS comment_count,
+              (SELECT COUNT(*) FROM script_reactions rl
+                WHERE rl.user_id = u.id AND rl.value = 1) AS likes_given_count
          FROM sessions s
          JOIN users u ON u.id = s.user_id
         WHERE s.token_hash = ? AND s.expires_at > ?`,
@@ -210,6 +249,8 @@ export interface PublicAuthor {
   role: "admin" | "member";
   verified: boolean;
   scripts: number;
+  comments: number;
+  likesGiven: number;
 }
 
 export interface CommunityScriptRow {
@@ -230,6 +271,8 @@ export interface CommunityScriptRow {
   dislikes: number;
   comments: number;
   author_scripts: number;
+  author_comments: number;
+  author_likes_given: number;
 }
 
 export interface PublicCommunityScript {
@@ -265,9 +308,13 @@ export function toPublicAuthor(
     avatar_url: string | null;
     role: string;
   },
-  scriptCount = 0,
+  stats: VerificationStats = { scripts: 0, comments: 0, likesGiven: 0 },
 ): PublicAuthor {
-  const scripts = Number(scriptCount ?? 0);
+  const counts: VerificationStats = {
+    scripts: Number(stats.scripts ?? 0),
+    comments: Number(stats.comments ?? 0),
+    likesGiven: Number(stats.likesGiven ?? 0),
+  };
 
   return {
     id: row.id,
@@ -275,8 +322,8 @@ export function toPublicAuthor(
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
-    verified: isVerifiedAuthor(row.role, scripts),
-    scripts,
+    verified: isVerifiedAuthor(row.role, counts),
+    ...counts,
   };
 }
 
@@ -298,7 +345,11 @@ export function toPublicCommunityScript(row: CommunityScriptRow): PublicCommunit
         avatar_url: row.avatar_url,
         role: row.role,
       },
-      Number(row.author_scripts ?? 0),
+      {
+        scripts: Number(row.author_scripts ?? 0),
+        comments: Number(row.author_comments ?? 0),
+        likesGiven: Number(row.author_likes_given ?? 0),
+      },
     ),
     likes: Number(row.likes ?? 0),
     dislikes: Number(row.dislikes ?? 0),
@@ -317,7 +368,11 @@ const COMMUNITY_SELECT = `
          (SELECT COUNT(*) FROM script_comments c
            WHERE c.script_id = s.id AND c.hidden = 0) AS comments,
          (SELECT COUNT(*) FROM community_scripts mine
-           WHERE mine.user_id = s.user_id AND mine.hidden = 0) AS author_scripts
+           WHERE mine.user_id = s.user_id AND mine.hidden = 0) AS author_scripts,
+         (SELECT COUNT(*) FROM script_comments author_comment
+           WHERE author_comment.user_id = s.user_id AND author_comment.hidden = 0) AS author_comments,
+         (SELECT COUNT(*) FROM script_reactions author_like
+           WHERE author_like.user_id = s.user_id AND author_like.value = 1) AS author_likes_given
     FROM community_scripts s
     JOIN users u ON u.id = s.user_id
    WHERE s.hidden = 0`;
@@ -509,6 +564,8 @@ export interface CommentRow {
   avatar_url: string | null;
   role: string;
   author_scripts: number;
+  author_comments: number;
+  author_likes_given: number;
 }
 
 export async function listComments(
@@ -521,7 +578,11 @@ export async function listComments(
       `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
               u.username, u.display_name, u.avatar_url, u.role,
               (SELECT COUNT(*) FROM community_scripts mine
-                WHERE mine.user_id = c.user_id AND mine.hidden = 0) AS author_scripts
+                WHERE mine.user_id = c.user_id AND mine.hidden = 0) AS author_scripts,
+              (SELECT COUNT(*) FROM script_comments mine_comment
+                WHERE mine_comment.user_id = c.user_id AND mine_comment.hidden = 0) AS author_comments,
+              (SELECT COUNT(*) FROM script_reactions mine_like
+                WHERE mine_like.user_id = c.user_id AND mine_like.value = 1) AS author_likes_given
          FROM script_comments c
          JOIN users u ON u.id = c.user_id
         WHERE c.script_id = ? AND c.hidden = 0
@@ -580,4 +641,239 @@ export async function deleteComment(
 
   await db.prepare("DELETE FROM script_comments WHERE id = ?").bind(id).run();
   return "ok";
+}
+
+/* ------------------------------------------------------------------ */
+/* Reputation: levels, achievements and blue check progress            */
+/* ------------------------------------------------------------------ */
+
+/** XP needed for levels 1 to 10. */
+export const LEVEL_THRESHOLDS = [0, 80, 200, 400, 750, 1300, 2200, 3500, 5500, 8500] as const;
+
+export type AchievementId =
+  | "first_script"
+  | "scripts_20"
+  | "comments_5"
+  | "comments_25"
+  | "likes_10"
+  | "likes_100"
+  | "critic_10"
+  | "popular_25"
+  | "level_5"
+  | "verified";
+
+export interface AchievementState {
+  id: AchievementId;
+  progress: number;
+  target: number;
+  unlocked: boolean;
+}
+
+export interface RequirementProgress {
+  current: number;
+  required: number;
+}
+
+export interface ReputationProfile {
+  stats: UserStats;
+  xp: number;
+  level: number;
+  nextLevelXp: number | null;
+  levelProgress: number;
+  achievements: AchievementState[];
+  verification: {
+    met: boolean;
+    requirements: {
+      scripts: RequirementProgress;
+      comments: RequirementProgress;
+      likesGiven: RequirementProgress;
+    };
+  };
+}
+
+const USER_STATS_COLUMNS = `
+  (SELECT COUNT(*) FROM community_scripts cs
+    WHERE cs.user_id = u.id AND cs.hidden = 0) AS stat_scripts,
+  (SELECT COUNT(*) FROM script_comments sc
+    WHERE sc.user_id = u.id AND sc.hidden = 0) AS stat_comments,
+  (SELECT COUNT(*) FROM script_reactions sl
+    WHERE sl.user_id = u.id AND sl.value = 1) AS stat_likes_given,
+  (SELECT COUNT(*) FROM script_reactions sd
+    WHERE sd.user_id = u.id AND sd.value = -1) AS stat_dislikes_given,
+  (SELECT COUNT(*) FROM script_reactions sr
+    JOIN community_scripts rs ON rs.id = sr.script_id
+    WHERE rs.user_id = u.id AND rs.hidden = 0 AND sr.value = 1) AS stat_likes_received`;
+
+interface UserStatsRow {
+  stat_scripts: number;
+  stat_comments: number;
+  stat_likes_given: number;
+  stat_dislikes_given: number;
+  stat_likes_received: number;
+}
+
+function toUserStats(row?: UserStatsRow | null): UserStats {
+  return {
+    scripts: Number(row?.stat_scripts ?? 0),
+    comments: Number(row?.stat_comments ?? 0),
+    likesGiven: Number(row?.stat_likes_given ?? 0),
+    dislikesGiven: Number(row?.stat_dislikes_given ?? 0),
+    likesReceived: Number(row?.stat_likes_received ?? 0),
+  };
+}
+
+/** Comments, likes, dislikes and uploads all feed the same XP pool. */
+export function xpFromStats(stats: UserStats): number {
+  return (
+    stats.scripts * 60 +
+    stats.comments * 15 +
+    stats.likesGiven * 5 +
+    stats.dislikesGiven +
+    stats.likesReceived * 3
+  );
+}
+
+export function levelFromXp(xp: number): {
+  level: number;
+  nextLevelXp: number | null;
+  levelProgress: number;
+} {
+  let index = 0;
+  for (let cursor = 0; cursor < LEVEL_THRESHOLDS.length; cursor += 1) {
+    if (xp >= LEVEL_THRESHOLDS[cursor]) index = cursor;
+  }
+
+  const base = LEVEL_THRESHOLDS[index];
+  const nextLevelXp =
+    index + 1 < LEVEL_THRESHOLDS.length ? LEVEL_THRESHOLDS[index + 1] : null;
+  const levelProgress =
+    nextLevelXp === null
+      ? 1
+      : Math.min(1, Math.max(0, (xp - base) / (nextLevelXp - base)));
+
+  return { level: index + 1, nextLevelXp, levelProgress };
+}
+
+export function achievementsFor(
+  stats: UserStats,
+  level: number,
+  verified: boolean,
+): AchievementState[] {
+  const rows: Array<{ id: AchievementId; progress: number; target: number }> = [
+    { id: "first_script", progress: stats.scripts, target: 1 },
+    { id: "scripts_20", progress: stats.scripts, target: 20 },
+    { id: "comments_5", progress: stats.comments, target: 5 },
+    { id: "comments_25", progress: stats.comments, target: 25 },
+    { id: "likes_10", progress: stats.likesGiven, target: 10 },
+    { id: "likes_100", progress: stats.likesGiven, target: 100 },
+    { id: "critic_10", progress: stats.dislikesGiven, target: 10 },
+    { id: "popular_25", progress: stats.likesReceived, target: 25 },
+    { id: "level_5", progress: level, target: 5 },
+    { id: "verified", progress: verified ? 1 : 0, target: 1 },
+  ];
+
+  return rows.map((row) => ({ ...row, unlocked: row.progress >= row.target }));
+}
+
+export function buildProfile(stats: UserStats, role: string): ReputationProfile {
+  const xp = xpFromStats(stats);
+  const { level, nextLevelXp, levelProgress } = levelFromXp(xp);
+  const verified = isVerifiedAuthor(role, stats);
+
+  return {
+    stats,
+    xp,
+    level,
+    nextLevelXp,
+    levelProgress,
+    achievements: achievementsFor(stats, level, verified),
+    verification: {
+      met: verified,
+      requirements: {
+        scripts: { current: stats.scripts, required: VERIFICATION_REQUIREMENTS.scripts },
+        comments: { current: stats.comments, required: VERIFICATION_REQUIREMENTS.comments },
+        likesGiven: {
+          current: stats.likesGiven,
+          required: VERIFICATION_REQUIREMENTS.likesGiven,
+        },
+      },
+    },
+  };
+}
+
+export async function userStats(db: D1Database, userId: string): Promise<UserStats> {
+  const row = await db
+    .prepare(`SELECT ${USER_STATS_COLUMNS} FROM users u WHERE u.id = ?`)
+    .bind(userId)
+    .first<UserStatsRow>();
+
+  return toUserStats(row);
+}
+
+export interface AdminUserSummary {
+  id: string;
+  username: string;
+  displayName: string;
+  avatarUrl: string | null;
+  role: "admin" | "member";
+  createdAt: string;
+  verified: boolean;
+  level: number;
+  xp: number;
+  stats: UserStats;
+}
+
+export async function listUsersForAdmin(
+  db: D1Database,
+  query: string,
+): Promise<AdminUserSummary[]> {
+  const statement = query
+    ? db
+        .prepare(
+          `SELECT u.*, ${USER_STATS_COLUMNS}
+             FROM users u
+            WHERE lower(u.username) LIKE ? OR lower(coalesce(u.display_name, '')) LIKE ?
+            ORDER BY u.created_at DESC
+            LIMIT 50`,
+        )
+        .bind(`%${query.toLowerCase()}%`, `%${query.toLowerCase()}%`)
+    : db.prepare(
+        `SELECT u.*, ${USER_STATS_COLUMNS}
+           FROM users u
+          ORDER BY u.created_at DESC
+          LIMIT 50`,
+      );
+
+  const result = await statement.all<UserRow & UserStatsRow>();
+
+  return (result.results ?? []).map((row) => {
+    const stats = toUserStats(row);
+    const xp = xpFromStats(stats);
+
+    return {
+      id: row.id,
+      username: row.username,
+      displayName: row.display_name || row.username,
+      avatarUrl: row.avatar_url,
+      role: row.role === "admin" ? "admin" : "member",
+      createdAt: row.created_at,
+      verified: isVerifiedAuthor(row.role, stats),
+      level: levelFromXp(xp).level,
+      xp,
+      stats,
+    };
+  });
+}
+
+export async function setUserRole(
+  db: D1Database,
+  userId: string,
+  role: "admin" | "member",
+): Promise<UserRow | null> {
+  return (
+    (await db
+      .prepare("UPDATE users SET role = ? WHERE id = ? RETURNING *")
+      .bind(role, userId)
+      .first<UserRow>()) ?? null
+  );
 }

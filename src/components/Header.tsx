@@ -16,6 +16,7 @@ import {
   LogOut,
   Menu,
   Plus,
+  User,
   X,
 } from "./Icons";
 
@@ -107,6 +108,16 @@ function AccountMenu() {
               {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
             </span>
           </div>
+
+          <a
+            role="menuitem"
+            href="#/account"
+            onClick={() => setOpen(false)}
+            className="flex w-full items-center gap-2 border-t border-white/[0.06] px-3.5 py-3 text-[12px] font-medium text-white/60 transition-colors hover:bg-white/[0.04] hover:text-white"
+          >
+            <User className="h-3.5 w-3.5" />
+            {t("nav.accountPage")}
+          </a>
 
           <button
             type="button"
@@ -280,22 +291,23 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
             </>
           )}
 
-          <button
-            type="button"
-            onClick={() => {
-              setMobileOpen(false);
-              if (signedIn) onPublish();
-              else openAuth("signup");
-            }}
-            className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-3 py-2.5 text-[12px] font-semibold text-[#02070c] shadow-[0_8px_28px_-12px_rgba(0,240,255,0.75)] transition-all duration-300 hover:shadow-[0_12px_36px_-10px_rgba(0,240,255,0.9)] sm:px-4 sm:text-[12.5px]"
-          >
-            <span aria-hidden="true" className="sheen absolute inset-0" />
-            <Plus className="relative h-3.5 w-3.5" strokeWidth={2.4} />
-            <span className="relative whitespace-nowrap">
-              <span className="hidden min-[380px]:inline">{t("nav.share")}</span>
-              <span className="min-[380px]:hidden">{t("nav.shareShort")}</span>
-            </span>
-          </button>
+          {user?.role === "admin" && (
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                onPublish();
+              }}
+              className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-3 py-2.5 text-[12px] font-semibold text-[#02070c] shadow-[0_8px_28px_-12px_rgba(0,240,255,0.75)] transition-all duration-300 hover:shadow-[0_12px_36px_-10px_rgba(0,240,255,0.9)] sm:px-4 sm:text-[12.5px]"
+            >
+              <span aria-hidden="true" className="sheen absolute inset-0" />
+              <Plus className="relative h-3.5 w-3.5" strokeWidth={2.4} />
+              <span className="relative whitespace-nowrap">
+                <span className="hidden min-[380px]:inline">{t("nav.share")}</span>
+                <span className="min-[380px]:hidden">{t("nav.shareShort")}</span>
+              </span>
+            </button>
+          )}
 
           <button
             type="button"
@@ -316,6 +328,22 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
           className="fade-in mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.09] bg-[#060a11]/95 p-2.5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl lg:hidden"
         >
           <SourceTabs className="justify-start px-0.5" />
+
+          {signedIn && (
+            <a
+              href="#/account"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.025] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
+            >
+              <span className="flex items-center gap-2">
+                <User className="h-3.5 w-3.5" />
+                {t("nav.accountPage")}
+              </span>
+              <span aria-hidden="true" className="font-mono text-[9px] text-white/25">
+                →
+              </span>
+            </a>
+          )}
 
           {!installed && (
             <>
@@ -343,11 +371,17 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
 
           {signedIn && user ? (
             <div className="mt-2 flex items-center gap-2.5 rounded-xl border border-white/[0.07] bg-white/[0.03] p-2.5">
-              <UserAvatar user={user} className="h-8 w-8" />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[12px] font-medium text-white/85">{user.displayName}</p>
-                <p className="truncate font-mono text-[9px] text-white/35">@{user.username}</p>
-              </div>
+              <a
+                href="#/account"
+                onClick={() => setMobileOpen(false)}
+                className="flex min-w-0 flex-1 items-center gap-2.5"
+              >
+                <UserAvatar user={user} className="h-8 w-8" />
+                <div className="min-w-0">
+                  <p className="truncate text-[12px] font-medium text-white/85">{user.displayName}</p>
+                  <p className="truncate font-mono text-[9px] text-white/35">@{user.username}</p>
+                </div>
+              </a>
               <button
                 type="button"
                 onClick={() => {

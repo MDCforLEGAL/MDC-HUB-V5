@@ -228,6 +228,8 @@ export interface PublicAuthor {
   role: AuthRole;
   verified?: boolean;
   scripts?: number;
+  comments?: number;
+  likesGiven?: number;
 }
 
 export interface CommunityScript {
@@ -353,6 +355,101 @@ export async function deleteComment(token: string, id: string): Promise<void> {
   await request<{ ok: boolean }>(`/api/social/comments/${encodeURIComponent(id)}`, {
     method: "DELETE",
     token,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* Reputation, levels, achievements and admin roles                    */
+/* ------------------------------------------------------------------ */
+
+export interface UserStats {
+  scripts: number;
+  comments: number;
+  likesGiven: number;
+  dislikesGiven: number;
+  likesReceived: number;
+}
+
+export type AchievementId =
+  | "first_script"
+  | "scripts_20"
+  | "comments_5"
+  | "comments_25"
+  | "likes_10"
+  | "likes_100"
+  | "critic_10"
+  | "popular_25"
+  | "level_5"
+  | "verified";
+
+export interface AchievementState {
+  id: AchievementId;
+  progress: number;
+  target: number;
+  unlocked: boolean;
+}
+
+export interface RequirementProgress {
+  current: number;
+  required: number;
+}
+
+export interface Profile {
+  user: AuthUser;
+  stats: UserStats;
+  xp: number;
+  level: number;
+  nextLevelXp: number | null;
+  levelProgress: number;
+  achievements: AchievementState[];
+  verification: {
+    met: boolean;
+    requirements: {
+      scripts: RequirementProgress;
+      comments: RequirementProgress;
+      likesGiven: RequirementProgress;
+    };
+  };
+}
+
+export async function fetchProfile(token: string, signal?: AbortSignal): Promise<Profile> {
+  return request<Profile>("/api/profile", { token, signal });
+}
+
+export interface AdminUserSummary {
+  id: string;
+  username: string;
+  displayName: string;
+  avatarUrl: string | null;
+  role: AuthRole;
+  createdAt: string;
+  verified: boolean;
+  level: number;
+  xp: number;
+  stats: UserStats;
+}
+
+export async function fetchAdminUsers(
+  token: string,
+  query: string,
+  signal?: AbortSignal,
+): Promise<AdminUserSummary[]> {
+  const payload = await request<{ users: AdminUserSummary[] }>(
+    `/api/admin/users?q=${encodeURIComponent(query)}`,
+    { token, signal },
+  );
+  return Array.isArray(payload.users) ? payload.users : [];
+}
+
+export async function updateUserRole(
+  token: string,
+  userId: string,
+  role: AuthRole,
+): Promise<void> {
+  await request<{ ok: boolean }>("/api/admin/roles", {
+    method: "POST",
+    token,
+    body: { userId, role },
   });
 }
 

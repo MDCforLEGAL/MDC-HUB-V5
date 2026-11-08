@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useAuth } from "../auth/AuthProvider";
 import type { LibraryCategory, LibrarySource, ScriptEntry } from "../data/scripts";
 import type { LibraryState } from "../hooks/useScriptLibrary";
 import type { SourcePageId } from "../hooks/useSourcePage";
@@ -70,6 +71,7 @@ export function ScriptExplorer({
   onPublish,
 }: ScriptExplorerProps) {
   const { t, locale } = useI18n();
+  const { user } = useAuth();
   const [status, setStatus] = useState<StatusFilter>("all");
   const [game, setGame] = useState(ALL_GAMES);
   const [category, setCategory] = useState("all");
@@ -396,14 +398,16 @@ export function ScriptExplorer({
               </button>
             )}
           </div>
-          <button
-            type="button"
-            onClick={onPublish}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:text-neon"
-          >
-            <Plus className="h-3 w-3" />
-            {t("explorer.publish")}
-          </button>
+          {user?.role === "admin" && (
+            <button
+              type="button"
+              onClick={onPublish}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:text-neon"
+            >
+              <Plus className="h-3 w-3" />
+              {t("explorer.publish")}
+            </button>
+          )}
           <div className="hidden items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex">
             <span className="h-1 w-1 rounded-full bg-neon/60" />
             {libraryState === "live"

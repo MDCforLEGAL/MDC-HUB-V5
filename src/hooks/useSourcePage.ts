@@ -37,3 +37,22 @@ export function useSourcePage(): SourcePageId {
 
   return page;
 }
+
+function readAccountPage(): boolean {
+  if (typeof window === "undefined") return false;
+  const slug = window.location.hash.replace(/^#\/?/, "").trim().toLowerCase();
+  return slug === "account" || slug === "hesap";
+}
+
+/** `#/account` opens the account center with level, badges and blue check progress. */
+export function useAccountPage(): boolean {
+  const [active, setActive] = useState(() => readAccountPage());
+
+  useEffect(() => {
+    const onHashChange = () => setActive(readAccountPage());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  return active;
+}
