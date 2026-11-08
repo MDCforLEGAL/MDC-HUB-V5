@@ -664,7 +664,7 @@ async function handleProfile(request: Request, env: Env): Promise<Response> {
   const stats = await userStats(env.DB, user.id);
 
   return json(
-    { user: toPublicUser(user), ...buildProfile(stats, user.role) },
+    { user: toPublicUser(user), ...buildProfile(stats) },
     200,
     request,
     env,

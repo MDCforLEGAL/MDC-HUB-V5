@@ -41,9 +41,7 @@ export interface PublicUser {
   likesGiven: number;
 }
 
-export function isVerifiedAuthor(role: string, stats: VerificationStats): boolean {
-  if (role === "admin") return true;
-
+export function isVerifiedAuthor(stats: VerificationStats): boolean {
   return (
     stats.scripts >= VERIFICATION_REQUIREMENTS.scripts &&
     stats.comments >= VERIFICATION_REQUIREMENTS.comments &&
@@ -71,7 +69,7 @@ export function toPublicUser(
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
     createdAt: row.created_at,
-    verified: isVerifiedAuthor(row.role, stats),
+    verified: isVerifiedAuthor(stats),
     ...stats,
   };
 }
@@ -322,7 +320,7 @@ export function toPublicAuthor(
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
     role: row.role === "admin" ? "admin" : "member",
-    verified: isVerifiedAuthor(row.role, counts),
+    verified: isVerifiedAuthor(counts),
     ...counts,
   };
 }
@@ -775,10 +773,10 @@ export function achievementsFor(
   return rows.map((row) => ({ ...row, unlocked: row.progress >= row.target }));
 }
 
-export function buildProfile(stats: UserStats, role: string): ReputationProfile {
+export function buildProfile(stats: UserStats): ReputationProfile {
   const xp = xpFromStats(stats);
   const { level, nextLevelXp, levelProgress } = levelFromXp(xp);
-  const verified = isVerifiedAuthor(role, stats);
+  const verified = isVerifiedAuthor(stats);
 
   return {
     stats,
@@ -857,7 +855,7 @@ export async function listUsersForAdmin(
       avatarUrl: row.avatar_url,
       role: row.role === "admin" ? "admin" : "member",
       createdAt: row.created_at,
-      verified: isVerifiedAuthor(row.role, stats),
+      verified: isVerifiedAuthor(stats),
       level: levelFromXp(xp).level,
       xp,
       stats,
