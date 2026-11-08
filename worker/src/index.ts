@@ -285,6 +285,12 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
     return apiError("unauthorized", 401, request, env, "This session is invalid or expired.");
   }
 
+  // The env allowlist wins even for sessions created before the username was added.
+  if (row.role !== "admin" && isAdminIdentity(env, row.provider_id, row.username)) {
+    const promoted = await setUserRole(env.DB, row.id, "admin");
+    if (promoted) row.role = "admin";
+  }
+
   // Sliding session: keep active users signed in without unbounded lifetimes.
   const expiresAt = Date.parse(row.session_expires_at);
   if (Number.isFinite(expiresAt) && expiresAt - now < SESSION_REFRESH_MS) {
