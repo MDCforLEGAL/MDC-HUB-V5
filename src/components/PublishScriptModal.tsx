@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
-import { ApiError, getStoredToken, publishCommunityScript } from "../lib/api";
-import { Loader, Lock, X } from "./Icons";
+import {
+  ApiError,
+  getStoredToken,
+  publishCommunityScript,
+  type ScriptSection,
+} from "../lib/api";
+import { cn } from "../lib/cn";
+import { Loader, X } from "./Icons";
 
 interface PublishScriptModalProps {
   onClose: () => void;
@@ -16,6 +22,8 @@ const inputClass =
 export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishScriptModalProps) {
   const { t } = useI18n();
   const { signedIn, signIn, user } = useAuth();
+  const isAdmin = user?.role === "admin";
+  const [section, setSection] = useState<ScriptSection>(isAdmin ? "mdc" : "community");
   const [title, setTitle] = useState("");
   const [game, setGame] = useState("");
   const [description, setDescription] = useState("");
@@ -58,6 +66,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
 
     try {
       await publishCommunityScript(token, {
+        section,
         title: title.trim(),
         game: game.trim(),
         description: description.trim(),
@@ -78,54 +87,6 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
       setBusy(false);
     }
   };
-
-  if (user?.role !== "admin") {
-    return (
-      <div
-        className="fade-in fixed inset-0 z-[75] flex items-end justify-center bg-[#02040a]/80 p-0 backdrop-blur-md sm:items-center sm:p-6"
-        onMouseDown={(event) => {
-          if (event.target === event.currentTarget) onClose();
-        }}
-      >
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="publish-admin-title"
-          className="modal-in relative w-full max-w-md rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 p-6 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:rounded-3xl sm:p-7"
-        >
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label={t("publish.cancel")}
-            className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/40 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-
-          <span className="grid h-11 w-11 place-items-center rounded-2xl border border-[#8B0000]/40 bg-[#4A0000]/35 text-[#ff9d9d]">
-            <Lock className="h-5 w-5" />
-          </span>
-          <h2
-            id="publish-admin-title"
-            className="mt-4 font-display text-[21px] font-medium leading-tight tracking-[-0.02em] text-white"
-          >
-            {t("publish.adminOnlyTitle")}
-          </h2>
-          <p className="mt-2 text-[11.5px] leading-relaxed text-white/45">
-            {t("publish.adminOnlyBody")}
-          </p>
-
-          <button
-            type="button"
-            onClick={onClose}
-            className="mt-5 w-full rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/70 transition-all duration-300 hover:border-white/20 hover:text-white"
-          >
-            {t("publish.cancel")}
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
@@ -168,6 +129,74 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
             {t("publish.title")}
           </h2>
           <p className="mt-2 text-[11.5px] leading-relaxed text-white/45">{t("publish.subtitle")}</p>
+
+          {isAdmin ? (
+            <div className="mt-4">
+              <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+                {t("publish.sectionLabel")}
+              </span>
+              <div className="grid gap-2 sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => setSection("mdc")}
+                  aria-pressed={section === "mdc"}
+                  className={cn(
+                    "rounded-xl border px-3 py-2.5 text-left transition-all duration-300",
+                    section === "mdc"
+                      ? "border-neon/40 bg-neon/[0.1] shadow-[0_0_24px_-14px_rgba(0,240,255,0.8)]"
+                      : "border-white/[0.08] bg-white/[0.02] hover:border-white/20",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "block text-[11.5px] font-medium",
+                      section === "mdc" ? "text-neon" : "text-white/65",
+                    )}
+                  >
+                    {t("publish.sectionMdc")}
+                  </span>
+                  <span className="mt-0.5 block text-[10px] leading-relaxed text-white/35">
+                    {t("publish.sectionMdcDesc")}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSection("community")}
+                  aria-pressed={section === "community"}
+                  className={cn(
+                    "rounded-xl border px-3 py-2.5 text-left transition-all duration-300",
+                    section === "community"
+                      ? "border-neon/40 bg-neon/[0.1] shadow-[0_0_24px_-14px_rgba(0,240,255,0.8)]"
+                      : "border-white/[0.08] bg-white/[0.02] hover:border-white/20",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "block text-[11.5px] font-medium",
+                      section === "community" ? "text-neon" : "text-white/65",
+                    )}
+                  >
+                    {t("publish.sectionCommunity")}
+                  </span>
+                  <span className="mt-0.5 block text-[10px] leading-relaxed text-white/35">
+                    {t("publish.sectionCommunityDesc")}
+                  </span>
+                </button>
+              </div>
+              <p className="mt-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
+                {t("publish.sectionHint")}
+              </p>
+            </div>
+          ) : (
+            <div className="mt-4 rounded-xl border border-neon/20 bg-neon/[0.05] px-3 py-2.5">
+              <p className="text-[11.5px] font-medium text-neon/85">
+                {t("publish.sectionCommunity")}
+              </p>
+              <p className="mt-0.5 text-[10px] leading-relaxed text-white/40">
+                {t("publish.memberNote")}
+              </p>
+            </div>
+          )}
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             <label className="block">

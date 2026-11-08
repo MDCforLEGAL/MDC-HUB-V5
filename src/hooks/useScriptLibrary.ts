@@ -134,8 +134,9 @@ function toEntry(live: LiveScript): ScriptEntry {
 
 /** Scripts published from the site get their own category. */
 function communityToEntry(script: CommunityScript): ScriptEntry {
+  const official = script.section === "mdc";
   const author =
-    script.author?.displayName || script.author?.username || "MDC";
+    script.author?.displayName || script.author?.username || (official ? "MDC" : "Community");
   const summary =
     typeof script.description === "string" && script.description.length > 0
       ? script.description
@@ -145,7 +146,7 @@ function communityToEntry(script: CommunityScript): ScriptEntry {
   return {
     id: script.id,
     game: script.game || "Roblox",
-    category: "Topluluk",
+    category: official ? "MDC" : "Topluluk",
     title: script.title || "İsimsiz script",
     author,
     verified: Boolean(script.author?.verified),
@@ -160,22 +161,18 @@ function communityToEntry(script: CommunityScript): ScriptEntry {
     colors: ["#00F0FF", "#0066FF"],
     summary,
     code: script.code,
-    source: "community",
-    sourceLabel: "MDC Community",
+    source: official ? "mdc" : "community",
+    sourceLabel: official ? "MDC" : "Community",
     likes: Number.isFinite(script.likes) ? script.likes : 0,
     views: 0,
     keyless: true,
     universal: false,
-    categoryIds: [COMMUNITY_ID],
+    categoryIds: [official ? "mdc" : COMMUNITY_ID],
     slug: script.id,
   };
 }
 
-function categoriesFrom(
-  raw: unknown,
-  scripts: ScriptEntry[],
-  hasCommunity: boolean,
-): LibraryCategory[] {
+function categoriesFrom(raw: unknown, scripts: ScriptEntry[]): LibraryCategory[] {
   const counts = new Map<string, number>();
   for (const script of scripts) {
     for (const id of script.categoryIds ?? []) {
@@ -187,11 +184,25 @@ function categoriesFrom(
     .map(normalizeCategory)
     .filter((category): category is LibraryCategory => category !== null);
 
+  const hasMdc = scripts.some((script) => script.categoryIds?.includes("mdc"));
+  const hasCommunity = scripts.some((script) =>
+    script.categoryIds?.includes(COMMUNITY_ID),
+  );
+
+  if (hasMdc && !base.some((category) => category.id === "mdc")) {
+    base.unshift({
+      id: "mdc",
+      label: "MDC",
+      description: "Official MDC scripts",
+      count: 0,
+    });
+  }
+
   if (hasCommunity && !base.some((category) => category.id === COMMUNITY_ID)) {
     base.unshift({
       id: COMMUNITY_ID,
       label: "Community",
-      description: "Scripts published from MDC HUB",
+      description: "Scripts shared by community members",
       count: 0,
     });
   }
@@ -226,7 +237,7 @@ function buildFallback(state: LibraryState, community: ScriptEntry[]): Snapshot 
   return {
     generatedAt: null,
     sources: [{ id: "mdc", label: "MDC seçkisi", url: "#", count: scripts.length }],
-    categories: categoriesFrom(fallbackCategories, scripts, community.length > 0),
+    categories: categoriesFrom(fallbackCategories, scripts),
     scripts,
     games: gamesFrom(scripts),
     state,
@@ -280,7 +291,7 @@ export function useScriptLibrary(): ScriptLibrary {
 
             if (liveScripts.length > 0) {
               const scripts = [...community, ...liveScripts.map(toEntry)];
-              const categories = categoriesFrom(payload.categories, scripts, community.length > 0);
+              const categories = categoriesFrom(payload.categories, scripts);
 
               if (categories.length > 0) {
                 const sources = (Array.isArray(payload.sources) ? payload.sources : [])

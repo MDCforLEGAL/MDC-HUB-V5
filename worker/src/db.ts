@@ -253,6 +253,7 @@ export interface PublicAuthor {
 
 export interface CommunityScriptRow {
   id: string;
+  section: string;
   user_id: string;
   title: string;
   game: string;
@@ -273,8 +274,11 @@ export interface CommunityScriptRow {
   author_likes_given: number;
 }
 
+export type ScriptSection = "mdc" | "community";
+
 export interface PublicCommunityScript {
   id: string;
+  section: ScriptSection;
   title: string;
   game: string;
   description: string;
@@ -325,9 +329,14 @@ export function toPublicAuthor(
   };
 }
 
+function parseSection(value: string): ScriptSection {
+  return value === "mdc" ? "mdc" : "community";
+}
+
 export function toPublicCommunityScript(row: CommunityScriptRow): PublicCommunityScript {
   return {
     id: row.id,
+    section: parseSection(row.section),
     title: row.title,
     game: row.game,
     description: row.description,
@@ -356,7 +365,7 @@ export function toPublicCommunityScript(row: CommunityScriptRow): PublicCommunit
 }
 
 const COMMUNITY_SELECT = `
-  SELECT s.id, s.user_id, s.title, s.game, s.description, s.code, s.tags,
+  SELECT s.id, s.user_id, s.section, s.title, s.game, s.description, s.code, s.tags,
          s.created_at, s.updated_at,
          u.username, u.display_name, u.avatar_url, u.role,
          (SELECT COUNT(*) FROM script_reactions r
@@ -378,6 +387,7 @@ const COMMUNITY_SELECT = `
 export interface NewCommunityScript {
   id: string;
   userId: string;
+  section: ScriptSection;
   title: string;
   game: string;
   description: string;
@@ -393,12 +403,13 @@ export async function createCommunityScript(
   await db
     .prepare(
       `INSERT INTO community_scripts
-         (id, user_id, title, game, description, code, tags, hidden, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?)`,
+         (id, user_id, section, title, game, description, code, tags, hidden, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)`,
     )
     .bind(
       script.id,
       script.userId,
+      script.section,
       script.title,
       script.game,
       script.description,

@@ -291,7 +291,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
             </>
           )}
 
-          {user?.role === "admin" && (
+          {signedIn && (
             <button
               type="button"
               onClick={() => {

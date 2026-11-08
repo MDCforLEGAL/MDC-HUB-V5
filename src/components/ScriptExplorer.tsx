@@ -54,6 +54,7 @@ const CATEGORY_IDS = new Set([
   "verified",
   "patched",
   "curated",
+  "mdc",
   "community",
 ]);
 
@@ -398,7 +399,7 @@ export function ScriptExplorer({
               </button>
             )}
           </div>
-          {user?.role === "admin" && (
+          {user && (
             <button
               type="button"
               onClick={onPublish}

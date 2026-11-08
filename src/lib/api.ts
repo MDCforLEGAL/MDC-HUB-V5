@@ -1,4 +1,5 @@
 export type AuthRole = "admin" | "member";
+export type ScriptSection = "mdc" | "community";
 
 export interface AuthUser {
   id: string;
@@ -234,6 +235,7 @@ export interface PublicAuthor {
 
 export interface CommunityScript {
   id: string;
+  section: ScriptSection;
   title: string;
   game: string;
   description: string;
@@ -255,6 +257,7 @@ export async function fetchCommunityScripts(
 }
 
 export interface PublishScriptInput {
+  section: ScriptSection;
   title: string;
   game: string;
   description: string;

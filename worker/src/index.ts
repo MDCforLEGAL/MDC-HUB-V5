@@ -29,7 +29,7 @@ import {
   upsertDiscordUser,
   userStats,
 } from "./db";
-import type { SessionRow } from "./db";
+import type { ScriptSection, SessionRow } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import {
   apiError,
@@ -380,16 +380,6 @@ async function handleCommunityCreate(request: Request, env: Env): Promise<Respon
   if (!user) {
     return apiError("unauthorized", 401, request, env, "Sign in to publish a script.");
   }
-  if (user.role !== "admin") {
-    return apiError(
-      "publish_admin_only",
-      403,
-      request,
-      env,
-      "Script publishing is limited to MDC admin accounts.",
-    );
-  }
-
   const payload = await readJsonBody(request);
   if (!payload) {
     return apiError("invalid_body", 400, request, env);
@@ -410,11 +400,34 @@ async function handleCommunityCreate(request: Request, env: Env): Promise<Respon
     );
   }
 
+  const requestedSection =
+    field(payload, "section", 16) || (user.role === "admin" ? "mdc" : "community");
+  if (requestedSection !== "mdc" && requestedSection !== "community") {
+    return apiError(
+      "invalid_section",
+      400,
+      request,
+      env,
+      "Choose the MDC or Community section.",
+    );
+  }
+  if (requestedSection === "mdc" && user.role !== "admin") {
+    return apiError(
+      "publish_admin_only",
+      403,
+      request,
+      env,
+      "MDC scripts can only be published by admin accounts.",
+    );
+  }
+  const section: ScriptSection = requestedSection;
+
   const now = iso(Date.now());
   const id = `community-${randomToken(8)}`;
   await createCommunityScript(env.DB, {
     id,
     userId: user.id,
+    section,
     title,
     game,
     description,

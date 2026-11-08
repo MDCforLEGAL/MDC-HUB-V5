@@ -121,15 +121,10 @@ export default function App() {
     return Array.from(new Set([...gameTerms, "Auto Farm", "ESP"])).slice(0, 5);
   }, [library.games]);
 
-  // Each source gets its own page. MDC also owns the community uploads, so
-  // both live together there instead of being buried in the mixed feed.
+  // Each section keeps its own feed: official MDC scripts never mix with
+  // community uploads.
   const pageScripts = useMemo(() => {
     if (sourcePage === "all") return library.scripts;
-    if (sourcePage === "mdc") {
-      return library.scripts.filter(
-        (script) => script.source === "mdc" || script.source === "community",
-      );
-    }
     return library.scripts.filter((script) => script.source === sourcePage);
   }, [library.scripts, sourcePage]);
 
