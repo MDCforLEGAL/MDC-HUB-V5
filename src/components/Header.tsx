@@ -83,7 +83,7 @@ function AccountMenu() {
         <div
           role="menu"
           aria-label={t("nav.account")}
-          className="modal-in absolute right-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#060b13]/97 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_0_60px_-40px_rgba(0,240,255,0.6)] backdrop-blur-2xl"
+          className="modal-in fixed inset-x-3 top-[4.75rem] z-30 max-h-[calc(100dvh_-_5.75rem)] overflow-y-auto rounded-2xl border border-white/[0.1] bg-[#060b13]/97 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_0_60px_-40px_rgba(0,240,255,0.6)] backdrop-blur-2xl sm:absolute sm:inset-x-auto sm:right-0 sm:top-full sm:mt-2 sm:max-h-none sm:w-64 sm:overflow-hidden"
         >
           <div className="flex items-center gap-3 border-b border-white/[0.06] p-3.5">
             <UserAvatar user={user} className="h-9 w-9" />
@@ -298,14 +298,13 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
                 setMobileOpen(false);
                 onPublish();
               }}
+              aria-label={t("nav.share")}
+              title={t("nav.share")}
               className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-3 py-2.5 text-[12px] font-semibold text-[#02070c] shadow-[0_8px_28px_-12px_rgba(0,240,255,0.75)] transition-all duration-300 hover:shadow-[0_12px_36px_-10px_rgba(0,240,255,0.9)] sm:px-4 sm:text-[12.5px]"
             >
               <span aria-hidden="true" className="sheen absolute inset-0" />
               <Plus className="relative h-3.5 w-3.5" strokeWidth={2.4} />
-              <span className="relative whitespace-nowrap">
-                <span className="hidden min-[380px]:inline">{t("nav.share")}</span>
-                <span className="min-[380px]:hidden">{t("nav.shareShort")}</span>
-              </span>
+              <span className="relative hidden whitespace-nowrap sm:inline">{t("nav.share")}</span>
             </button>
           )}
 

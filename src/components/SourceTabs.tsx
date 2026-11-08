@@ -28,7 +28,7 @@ export function SourceTabs({ className }: { className?: string }) {
             href={tab.href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "whitespace-nowrap rounded-xl border px-3 py-1.5 text-[11px] font-medium transition-all duration-300",
+              "whitespace-nowrap rounded-xl border px-2 py-1.5 text-center text-[11px] font-medium transition-all duration-300 max-sm:w-[calc(33.333%_-_0.25rem)] sm:px-3",
               active
                 ? "border-neon/40 bg-neon/[0.12] text-neon shadow-[0_0_24px_-10px_rgba(0,240,255,0.9)]"
                 : "border-white/[0.08] bg-white/[0.025] text-white/50 hover:border-neon/25 hover:bg-white/[0.05] hover:text-white",

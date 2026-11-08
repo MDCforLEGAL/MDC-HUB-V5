@@ -272,6 +272,20 @@ export const AlertTriangle = (p: IconProps) => (
   </svg>
 );
 
+export const Smartphone = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="6.5" y="2.5" width="11" height="19" rx="2.6" />
+    <path d="M10.5 18.5h3" />
+  </svg>
+);
+
+export const Monitor = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="2.5" y="4" width="19" height="13" rx="2" />
+    <path d="M8 21h8M12 17v4" />
+  </svg>
+);
+
 export const BadgeCheck = (p: IconProps) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
     <path d="M12 1.8 14.6 4l3.4-.2 1 3.2 2.8 1.9-1.3 3.1 1.3 3.1-2.8 1.9-1 3.2-3.4-.2L12 22.2 9.4 20l-3.4.2-1-3.2L2.2 15 3.5 12 2.2 8.9 5 7l1-3.2 3.4.2L12 1.8Z" />

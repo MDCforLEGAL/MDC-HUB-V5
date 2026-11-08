@@ -14,7 +14,9 @@ import type { ScriptEntry } from "./data/scripts";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
 import { useAccountPage, useSourcePage } from "./hooks/useSourcePage";
 import { AccountPage } from "./components/AccountPage";
+import { LayoutPrompt } from "./components/LayoutPrompt";
 import { useI18n } from "./i18n";
+import { applyLayoutMode, type LayoutMode } from "./lib/layout";
 
 interface ToastState {
   id: number;
@@ -48,9 +50,15 @@ export default function App() {
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
   const [publishOpen, setPublishOpen] = useState(false);
   const [toast, setToast] = useState<ToastState | null>(null);
+  const [layoutMode, setLayoutMode] = useState<LayoutMode | null>(null);
 
   const notify = useCallback((message: string) => {
     setToast({ id: Date.now(), message });
+  }, []);
+
+  const chooseLayout = useCallback((mode: LayoutMode) => {
+    applyLayoutMode(mode);
+    setLayoutMode(mode);
   }, []);
 
   const closeScript = useCallback(() => setActiveScript(null), []);
@@ -239,6 +247,8 @@ export default function App() {
       )}
 
       {toast && <Toast key={toast.id} message={toast.message} onClose={() => setToast(null)} />}
+
+      {layoutMode === null && <LayoutPrompt onChoose={chooseLayout} />}
     </div>
   );
 }

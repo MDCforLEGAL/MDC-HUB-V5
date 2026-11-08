@@ -46,6 +46,18 @@ const en = {
   "nav.rscripts": "Rscripts",
   "nav.catalogs": "Catalogs",
 
+  "layout.kicker": "Welcome to MDC HUB",
+  "layout.title": "Which layout should open?",
+  "layout.body":
+    "Pick how the site should look for this visit. We will ask again the next time you enter.",
+  "layout.mobileTitle": "Mobile layout",
+  "layout.mobileBody": "Fits the screen, bigger tap targets and a compact header.",
+  "layout.mobileHint": "Recommended on phones",
+  "layout.desktopTitle": "Desktop layout",
+  "layout.desktopBody": "Full wide layout with the top navigation, like a computer browser.",
+  "layout.desktopHint": "Same as a computer",
+  "layout.note": "This choice lasts for the current visit only.",
+
   "pages.scriptblox.kicker": "Source · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
   "pages.scriptblox.title": "ScriptBlox ",
@@ -443,6 +455,18 @@ const tr: Record<MessageKey, string> = {
   "nav.mdc": "MDC Scriptleri",
   "nav.rscripts": "Rscripts",
   "nav.catalogs": "Kataloglar",
+
+  "layout.kicker": "MDC HUB'a hoş geldin",
+  "layout.title": "Site hangi düzende açılsın?",
+  "layout.body":
+    "Bu ziyaret için görünümü seç. Bir sonraki girişte tekrar soracağız.",
+  "layout.mobileTitle": "Mobil düzen",
+  "layout.mobileBody": "Ekrana sığar, dokunma alanları büyür ve başlık kompakt görünür.",
+  "layout.mobileHint": "Telefonlar için önerilir",
+  "layout.desktopTitle": "Masaüstü düzen",
+  "layout.desktopBody": "Üst menüsüyle tam geniş görünüm; bilgisayar tarayıcısı gibi.",
+  "layout.desktopHint": "Bilgisayardaki görünüm",
+  "layout.note": "Bu seçim yalnızca bu ziyaret için geçerli.",
 
   "pages.scriptblox.kicker": "Kaynak · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
