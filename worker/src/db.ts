@@ -567,6 +567,7 @@ export interface CommentRow {
   script_id: string;
   user_id: string;
   body: string;
+  hidden: number;
   created_at: string;
   username: string;
   display_name: string | null;
@@ -580,11 +581,13 @@ export interface CommentRow {
 export async function listComments(
   db: D1Database,
   scriptId: string,
-  limit = 100,
+  options: { includeHidden?: boolean; limit?: number } = {},
 ): Promise<CommentRow[]> {
+  const limit = options.limit ?? 100;
+  const visibility = options.includeHidden ? "" : "AND c.hidden = 0";
   const result = await db
     .prepare(
-      `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
+      `SELECT c.id, c.script_id, c.user_id, c.body, c.hidden, c.created_at,
               u.username, u.display_name, u.avatar_url, u.role,
               (SELECT COUNT(*) FROM community_scripts mine
                 WHERE mine.user_id = c.user_id AND mine.hidden = 0) AS author_scripts,
@@ -594,7 +597,7 @@ export async function listComments(
                 WHERE mine_like.user_id = c.user_id AND mine_like.value = 1) AS author_likes_given
          FROM script_comments c
          JOIN users u ON u.id = c.user_id
-        WHERE c.script_id = ? AND c.hidden = 0
+        WHERE c.script_id = ? ${visibility}
         ORDER BY c.created_at DESC
         LIMIT ?`,
     )
@@ -611,7 +614,7 @@ export async function findComment(
   return (
     (await db
       .prepare(
-        `SELECT c.id, c.script_id, c.user_id, c.body, c.created_at,
+        `SELECT c.id, c.script_id, c.user_id, c.body, c.hidden, c.created_at,
                 u.username, u.display_name, u.avatar_url, u.role
            FROM script_comments c
            JOIN users u ON u.id = c.user_id
@@ -650,6 +653,26 @@ export async function deleteComment(
 
   await db.prepare("DELETE FROM script_comments WHERE id = ?").bind(id).run();
   return "ok";
+}
+
+export async function setCommentHidden(
+  db: D1Database,
+  id: string,
+  adminId: string,
+  hidden: boolean,
+  now: string,
+): Promise<boolean> {
+  const row = await db
+    .prepare(
+      `UPDATE script_comments
+          SET hidden = ?, moderated_by = ?, moderated_at = ?
+        WHERE id = ?
+        RETURNING id`,
+    )
+    .bind(hidden ? 1 : 0, adminId, now, id)
+    .first<{ id: string }>();
+
+  return Boolean(row);
 }
 
 /* ------------------------------------------------------------------ */

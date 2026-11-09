@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#04060a" />
+    <script>
+      try {
+        if (localStorage.getItem("mdc-hub.theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+        }
+      } catch (error) {
+        // Keep the default night theme when storage is unavailable.
+      }
+    </script>
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icon-180.png" />
     <meta name="mobile-web-app-capable" content="yes" />

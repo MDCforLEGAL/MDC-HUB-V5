@@ -45,6 +45,11 @@ const en = {
   "nav.mdc": "MDC Scripts",
   "nav.rscripts": "Rscripts",
   "nav.catalogs": "Catalogs",
+  "nav.theme": "Theme",
+  "nav.themeNight": "Night",
+  "nav.themeLight": "Light",
+  "nav.switchToLight": "Switch to light theme",
+  "nav.switchToDark": "Switch to night theme",
 
   "layout.kicker": "Welcome to MDC HUB",
   "layout.title": "Which layout should open?",
@@ -57,6 +62,8 @@ const en = {
   "layout.desktopBody": "Full wide layout with the top navigation, like a computer browser.",
   "layout.desktopHint": "Same as a computer",
   "layout.note": "This choice lasts for the current visit only.",
+
+  "intro.tagline": "Script Ecosystem",
 
   "pages.scriptblox.kicker": "Source · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
@@ -250,6 +257,7 @@ const en = {
   "footer.copyright": "© {year} MDC HUB. Site code under the MIT License.",
   "footer.roblox": "Not affiliated with Roblox Corporation.",
   "footer.license": "MIT License",
+  "footer.brandLicense": "Brand License",
   "footer.thirdParty": "Third-party scripts remain under their own licenses.",
   "footer.sourceTagged": "Source-tagged",
   "footer.discordAria": "Discord community",
@@ -423,6 +431,14 @@ const en = {
   "social.error": "Could not update the reaction.",
   "social.commentError": "Could not send the comment.",
   "social.commentTooLong": "Comments can be at most 600 characters.",
+  "social.joinDiscord": "Join my DC server",
+  "social.discordClose": "Dismiss Discord invite",
+  "social.hidden": "Hidden",
+  "social.hide": "Hide",
+  "social.unhide": "Unhide",
+  "social.commentHidden": "Comment hidden",
+  "social.commentVisible": "Comment visible again",
+  "social.moderationError": "Could not moderate that comment.",
 } as const;
 
 export type MessageKey = keyof typeof en;
@@ -462,6 +478,11 @@ const tr: Record<MessageKey, string> = {
   "nav.mdc": "MDC Scriptleri",
   "nav.rscripts": "Rscripts",
   "nav.catalogs": "Kataloglar",
+  "nav.theme": "Tema",
+  "nav.themeNight": "Gece",
+  "nav.themeLight": "Açık",
+  "nav.switchToLight": "Açık temaya geç",
+  "nav.switchToDark": "Gece temasına geç",
 
   "layout.kicker": "MDC HUB'a hoş geldin",
   "layout.title": "Site hangi düzende açılsın?",
@@ -474,6 +495,8 @@ const tr: Record<MessageKey, string> = {
   "layout.desktopBody": "Üst menüsüyle tam geniş görünüm; bilgisayar tarayıcısı gibi.",
   "layout.desktopHint": "Bilgisayardaki görünüm",
   "layout.note": "Bu seçim yalnızca bu ziyaret için geçerli.",
+
+  "intro.tagline": "Script Ekosistemi",
 
   "pages.scriptblox.kicker": "Kaynak · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
@@ -667,6 +690,7 @@ const tr: Record<MessageKey, string> = {
   "footer.copyright": "© {year} MDC HUB. Site kodu MIT lisanslıdır.",
   "footer.roblox": "Roblox Corporation ile bağlantılı değildir.",
   "footer.license": "MIT Lisansı",
+  "footer.brandLicense": "Marka Lisansı",
   "footer.thirdParty": "Üçüncü taraf scriptler kendi lisanslarına tabidir.",
   "footer.sourceTagged": "Kaynak etiketli",
   "footer.discordAria": "Discord topluluğu",
@@ -840,6 +864,14 @@ const tr: Record<MessageKey, string> = {
   "social.error": "Tepki güncellenemedi.",
   "social.commentError": "Yorum gönderilemedi.",
   "social.commentTooLong": "Yorum en fazla 600 karakter olabilir.",
+  "social.joinDiscord": "DC sunucuma katıl",
+  "social.discordClose": "Discord davetini kapat",
+  "social.hidden": "Gizlendi",
+  "social.hide": "Gizle",
+  "social.unhide": "Göster",
+  "social.commentHidden": "Yorum gizlendi",
+  "social.commentVisible": "Yorum yeniden görünür",
+  "social.moderationError": "Yorum moderasyonu uygulanamadı.",
 };
 
 const messages: Record<Locale, Record<MessageKey, string>> = { en, tr };

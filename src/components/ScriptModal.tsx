@@ -256,7 +256,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
               </div>
             )}
 
-            <div className="mt-6 overflow-hidden rounded-xl border border-white/[0.08] bg-[#04080e]/70">
+            <div data-keep-dark className="mt-6 overflow-hidden rounded-xl border border-white/[0.08] bg-[#04080e]/70">
               <div className="flex items-center justify-between border-b border-white/[0.06] px-3.5 py-2 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/25">
                 <span className="flex items-center gap-2">
                   <span className="flex gap-1" aria-hidden="true">

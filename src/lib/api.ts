@@ -328,15 +328,18 @@ export interface ScriptComment {
   createdAt: string;
   author: PublicAuthor;
   mine: boolean;
+  /** Only returned to admins; public comment lists omit hidden comments. */
+  hidden?: boolean;
 }
 
 export async function fetchComments(
   scriptId: string,
+  token?: string | null,
   signal?: AbortSignal,
 ): Promise<ScriptComment[]> {
   const payload = await request<{ comments: ScriptComment[] }>(
     `/api/social/comments?scriptId=${encodeURIComponent(scriptId)}`,
-    { signal },
+    { token, signal },
   );
   return Array.isArray(payload.comments) ? payload.comments : [];
 }
@@ -358,6 +361,18 @@ export async function deleteComment(token: string, id: string): Promise<void> {
   await request<{ ok: boolean }>(`/api/social/comments/${encodeURIComponent(id)}`, {
     method: "DELETE",
     token,
+  });
+}
+
+export async function moderateComment(
+  token: string,
+  id: string,
+  hidden: boolean,
+): Promise<void> {
+  await request<{ ok: boolean }>(`/api/social/comments/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    token,
+    body: { hidden },
   });
 }
 

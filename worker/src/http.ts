@@ -22,7 +22,7 @@ function resolveOrigin(request: Request, env: Env): string | null {
 export function preflight(request: Request, env: Env): Response {
   const origin = resolveOrigin(request, env);
   const headers = new Headers({
-    "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Authorization, Content-Type",
     "Access-Control-Max-Age": "86400",
     Vary: "Origin",

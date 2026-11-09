@@ -163,7 +163,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
         {status === "unconfigured" && (
           <Notice icon={<AlertTriangle className="h-5 w-5" />} title={t("auth.notConfiguredTitle")} body={t("auth.notConfiguredBody")}>
-            <code className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+            <code data-keep-dark className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
               public/config.json → {'{ "apiBaseUrl": "https://…workers.dev" }'}
             </code>
           </Notice>
@@ -187,7 +187,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
             title={t("auth.discordMissingTitle")}
             body={t("auth.discordMissingBody")}
           >
-            <code className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+            <code data-keep-dark className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
               DISCORD_CLIENT_ID · DISCORD_CLIENT_SECRET
             </code>
           </Notice>

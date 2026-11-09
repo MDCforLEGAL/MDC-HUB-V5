@@ -101,7 +101,7 @@ export const scripts: ScriptEntry[] = [
     summary:
       "Mobları anında hedefleyen, quest döngüsünü otomatik yöneten ve düşük gecikmeyle çalışan seviye atlama modülü.",
     code: `-- MDC HUB // blox-fruits / auto-farm v4.2
--- secure loader · discord.gg/mdchub
+-- secure loader · discord.gg/6ETYaxeSTU
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")

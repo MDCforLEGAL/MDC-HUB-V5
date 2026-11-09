@@ -1,8 +1,30 @@
-import { useI18n } from "../i18n";
+import type { MouseEvent } from "react";
+import { useI18n, type MessageKey } from "../i18n";
+import {
+  DISCORD_INVITE_URL,
+  GITHUB_BRAND_LICENSE_URL,
+  GITHUB_ISSUES_URL,
+  GITHUB_LEGAL_URL,
+  GITHUB_LICENSE_URL,
+  GITHUB_REPO_URL,
+} from "../lib/links";
 import { Logo } from "./Logo";
-import { ArrowRight, ArrowUpRight, Github, MessageCircle, ShieldCheck, Sparkles } from "./Icons";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Discord,
+  Github,
+  ShieldCheck,
+  Sparkles,
+} from "./Icons";
 
-const footerColumns = [
+interface FooterLink {
+  labelKey: MessageKey;
+  href: string;
+  external?: boolean;
+}
+
+const footerColumns: Array<{ titleKey: MessageKey; links: FooterLink[] }> = [
   {
     titleKey: "footer.platform",
     links: [
@@ -14,28 +36,53 @@ const footerColumns = [
   {
     titleKey: "footer.community",
     links: [
-      { labelKey: "footer.communityDiscord", href: "#topluluk" },
-      { labelKey: "footer.communityGuide", href: "#kod" },
-      { labelKey: "footer.communityContribute", href: "#topluluk" },
+      { labelKey: "footer.communityDiscord", href: DISCORD_INVITE_URL, external: true },
+      { labelKey: "footer.communityGuide", href: `${GITHUB_REPO_URL}#readme`, external: true },
+      { labelKey: "footer.communityContribute", href: GITHUB_ISSUES_URL, external: true },
     ],
   },
   {
     titleKey: "footer.legal",
     links: [
-      { labelKey: "footer.privacy", href: "#topluluk" },
-      { labelKey: "footer.terms", href: "#topluluk" },
-      { labelKey: "footer.disclaimer", href: "#topluluk" },
+      { labelKey: "footer.privacy", href: `${GITHUB_LEGAL_URL}#privacy`, external: true },
+      { labelKey: "footer.terms", href: `${GITHUB_LEGAL_URL}#terms-of-use`, external: true },
+      { labelKey: "footer.disclaimer", href: `${GITHUB_LEGAL_URL}#disclaimer`, external: true },
     ],
   },
-] as const;
+];
 
 interface FooterProps {
   onOpenAuth: () => void;
 }
 
+function scrollToSection(section: string): void {
+  if (section === "top") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const target = document.getElementById(section);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  // Code Preview only exists on the main page; return there and continue.
+  window.location.hash = "#/";
+  window.setTimeout(() => {
+    document.getElementById(section)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 120);
+}
+
 export function Footer({ onOpenAuth }: FooterProps) {
   const { t } = useI18n();
   const year = new Date().getFullYear();
+
+  const onAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  };
 
   return (
     <footer id="topluluk" className="relative scroll-mt-24 pt-8">
@@ -99,6 +146,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
               </button>
               <a
                 href="#kod"
+                onClick={(event) => onAnchorClick(event, "#kod")}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/60 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
               >
                 {t("footer.inspectCode")}
@@ -135,6 +183,10 @@ export function Footer({ onOpenAuth }: FooterProps) {
                   <li key={link.labelKey}>
                     <a
                       href={link.href}
+                      onClick={link.external ? undefined : (event) => onAnchorClick(event, link.href)}
+                      {...(link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="text-[11.5px] text-white/50 transition-colors duration-300 hover:text-neon/90"
                     >
                       {t(link.labelKey)}
@@ -154,12 +206,20 @@ export function Footer({ onOpenAuth }: FooterProps) {
             <span aria-hidden="true" className="hidden h-2.5 w-px bg-white/10 sm:block" />
             <span>{t("footer.thirdParty")}</span>
             <a
-              href="https://github.com/MDCforLEGAL/MDC-HUB-V5/blob/main/LICENSE"
+              href={GITHUB_LICENSE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-white/15 underline-offset-2 transition-colors hover:text-neon/70"
             >
               {t("footer.license")}
+            </a>
+            <a
+              href={GITHUB_BRAND_LICENSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/15 underline-offset-2 transition-colors hover:text-neon/70"
+            >
+              {t("footer.brandLicense")}
             </a>
           </div>
 
@@ -169,14 +229,18 @@ export function Footer({ onOpenAuth }: FooterProps) {
               {t("footer.sourceTagged")}
             </span>
             <a
-              href="#topluluk"
+              href={DISCORD_INVITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={t("footer.discordAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-neon/30 hover:text-neon"
             >
-              <MessageCircle className="h-3.5 w-3.5" />
+              <Discord className="h-3.5 w-3.5" />
             </a>
             <a
-              href="#topluluk"
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={t("footer.githubAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-white/20 hover:text-white"
             >
@@ -184,6 +248,7 @@ export function Footer({ onOpenAuth }: FooterProps) {
             </a>
             <a
               href="#top"
+              onClick={(event) => onAnchorClick(event, "#top")}
               aria-label={t("footer.topAria")}
               className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.07] bg-white/[0.025] text-white/30 transition-all duration-300 hover:border-neon/30 hover:text-neon"
             >

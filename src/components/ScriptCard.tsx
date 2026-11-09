@@ -64,8 +64,8 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-2xl border p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1",
         working
-          ? "border-neon/20 bg-[linear-gradient(158deg,rgba(0,240,255,0.06),rgba(255,255,255,0.022)_46%,rgba(0,102,255,0.035))] shadow-[inset_0_0_40px_-28px_rgba(0,240,255,0.8)] hover:border-neon/45 hover:shadow-[0_26px_70px_-32px_rgba(0,240,255,0.55),inset_0_0_40px_-24px_rgba(0,240,255,0.55)]"
-          : "border-blood/35 bg-[linear-gradient(158deg,rgba(74,0,0,0.34),rgba(9,6,9,0.55)_55%,rgba(255,255,255,0.018))] hover:border-blood/65 hover:shadow-[0_26px_70px_-32px_rgba(139,0,0,0.65),inset_0_0_40px_-26px_rgba(139,0,0,0.8)]",
+          ? "script-card--working border-neon/20 bg-[linear-gradient(158deg,rgba(0,240,255,0.06),rgba(255,255,255,0.022)_46%,rgba(0,102,255,0.035))] shadow-[inset_0_0_40px_-28px_rgba(0,240,255,0.8)] hover:border-neon/45 hover:shadow-[0_26px_70px_-32px_rgba(0,240,255,0.55),inset_0_0_40px_-24px_rgba(0,240,255,0.55)]"
+          : "script-card--patched border-blood/35 bg-[linear-gradient(158deg,rgba(74,0,0,0.34),rgba(9,6,9,0.55)_55%,rgba(255,255,255,0.018))] hover:border-blood/65 hover:shadow-[0_26px_70px_-32px_rgba(139,0,0,0.65),inset_0_0_40px_-26px_rgba(139,0,0,0.8)]",
       )}
     >
       <span

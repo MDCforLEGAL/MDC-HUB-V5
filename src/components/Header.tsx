@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { cn } from "../lib/cn";
-import { SOURCE_PAGE_HREFS, useSourcePage } from "../hooks/useSourcePage";
+import { SOURCE_PAGE_HREFS, useSourcePage, type SourcePageId } from "../hooks/useSourcePage";
+import { useTheme } from "../hooks/useTheme";
 import { SourceTabs } from "./SourceTabs";
 import { useInstallPrompt } from "../hooks/useInstallPrompt";
 import { Logo } from "./Logo";
@@ -15,7 +16,9 @@ import {
   Globe,
   LogOut,
   Menu,
+  Moon,
   Plus,
+  Sun,
   User,
   X,
 } from "./Icons";
@@ -27,6 +30,8 @@ const navItems = [
   { labelKey: "nav.rscripts", href: SOURCE_PAGE_HREFS.rscripts, page: "rscripts" },
   { labelKey: "nav.community", href: SOURCE_PAGE_HREFS.community, page: "community" },
 ] as const;
+
+const mobileCatalogIds: readonly SourcePageId[] = ["all", "mdc", "community"];
 
 interface HeaderProps {
   onAuth: (mode: "login" | "signup") => void;
@@ -143,6 +148,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
   const { user, signedIn, signOut, busy } = useAuth();
   const page = useSourcePage();
   const { canPrompt, installed, install } = useInstallPrompt();
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [installHint, setInstallHint] = useState(false);
@@ -258,6 +264,16 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
 
           <button
             type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? t("nav.switchToLight") : t("nav.switchToDark")}
+            title={theme === "dark" ? t("nav.switchToLight") : t("nav.switchToDark")}
+            className="hidden h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.025] text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon sm:inline-flex"
+          >
+            {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+          </button>
+
+          <button
+            type="button"
             onClick={toggleLocale}
             aria-label={locale === "tr" ? t("nav.switchToEnglish") : t("nav.switchToTurkish")}
             title={t("nav.switchLanguage")}
@@ -326,7 +342,21 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
           id="mobile-menu"
           className="fade-in mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.09] bg-[#060a11]/95 p-2.5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl lg:hidden"
         >
-          <SourceTabs className="justify-start px-0.5" />
+          <SourceTabs ids={mobileCatalogIds} className="justify-start px-0.5" />
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="mt-2 flex w-full items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
+          >
+            <span className="flex items-center gap-2">
+              {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+              {t("nav.theme")}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
+              {theme === "dark" ? t("nav.themeNight") : t("nav.themeLight")}
+            </span>
+          </button>
 
           {signedIn && (
             <a

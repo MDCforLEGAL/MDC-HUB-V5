@@ -11,16 +11,23 @@ const TABS: Array<{ id: SourcePageId; href: string; labelKey: MessageKey }> = [
 ];
 
 /** Catalog switcher shown right under the search bar and on every source page. */
-export function SourceTabs({ className }: { className?: string }) {
+export function SourceTabs({
+  className,
+  ids,
+}: {
+  className?: string;
+  ids?: readonly SourcePageId[];
+}) {
   const { t } = useI18n();
   const page = useSourcePage();
+  const tabs = ids ? TABS.filter((tab) => ids.includes(tab.id)) : TABS;
 
   return (
     <nav
       aria-label={t("nav.catalogs")}
       className={cn("flex flex-wrap items-center justify-center gap-1.5", className)}
     >
-      {TABS.map((tab) => {
+      {tabs.map((tab) => {
         const active = page === tab.id;
         return (
           <a

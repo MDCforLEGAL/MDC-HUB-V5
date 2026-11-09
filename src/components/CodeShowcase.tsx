@@ -16,7 +16,7 @@ import {
 } from "./Icons";
 
 const loaderCode = `-- MDC HUB · Universal Loader v5
--- discord.gg/mdchub · keyless & up to date
+-- discord.gg/6ETYaxeSTU · keyless & up to date
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -180,7 +180,7 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
                 className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(ellipse_at_60%_40%,rgba(0,240,255,0.13),transparent_68%)] blur-2xl"
               />
 
-              <div className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#04080e]/85 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
+              <div data-keep-dark className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#04080e]/85 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
                 <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-3">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1.5" aria-hidden="true">

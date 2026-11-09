@@ -9,12 +9,13 @@ import {
   fetchComments,
   fetchSocial,
   getStoredToken,
+  moderateComment,
   postComment,
   reactToScript,
   type ScriptComment,
   type ScriptSocialState,
 } from "../lib/api";
-import { BadgeCheck, Loader, MessageCircle, Send } from "./Icons";
+import { BadgeCheck, Eye, EyeOff, Loader, MessageCircle, Send } from "./Icons";
 
 function ThumbsUp({ className }: { className?: string }) {
   return (
@@ -62,7 +63,8 @@ const COMMENT_MAX = 600;
 
 export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocialProps) {
   const { t, locale } = useI18n();
-  const { signedIn, signIn } = useAuth();
+  const { signedIn, signIn, user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const [social, setSocial] = useState<ScriptSocialState>({
     likes: fallbackLikes ?? 0,
     dislikes: 0,
@@ -73,6 +75,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
   const [draft, setDraft] = useState("");
   const [pending, setPending] = useState(false);
   const [sending, setSending] = useState(false);
+  const [moderating, setModerating] = useState<string | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -82,7 +85,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
       try {
         const [snapshot, list] = await Promise.all([
           fetchSocial([scriptId], getStoredToken(), controller.signal),
-          fetchComments(scriptId, controller.signal),
+          fetchComments(scriptId, getStoredToken(), controller.signal),
         ]);
         if (!active) return;
         const entry = snapshot[scriptId];
@@ -97,7 +100,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
       active = false;
       controller.abort();
     };
-  }, [scriptId]);
+  }, [scriptId, user?.id]);
 
   const react = useCallback(
     async (value: 1 | -1) => {
@@ -163,15 +166,48 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
       const token = getStoredToken();
       if (!token) return;
 
+      const target = comments.find((comment) => comment.id === id);
+
       try {
         await deleteComment(token, id);
         setComments((previous) => previous.filter((comment) => comment.id !== id));
-        setSocial((previous) => ({ ...previous, comments: Math.max(0, previous.comments - 1) }));
+        setSocial((previous) => ({
+          ...previous,
+          comments: Math.max(0, previous.comments - (target?.hidden ? 0 : 1)),
+        }));
       } catch {
         onNotify(t("social.commentError"));
       }
     },
-    [onNotify, t],
+    [comments, onNotify, t],
+  );
+
+  const toggleVisibility = useCallback(
+    async (comment: ScriptComment) => {
+      const token = getStoredToken();
+      if (!token || moderating) return;
+
+      const nextHidden = !comment.hidden;
+      setModerating(comment.id);
+      try {
+        await moderateComment(token, comment.id, nextHidden);
+        setComments((previous) =>
+          previous.map((item) =>
+            item.id === comment.id ? { ...item, hidden: nextHidden } : item,
+          ),
+        );
+        setSocial((previous) => ({
+          ...previous,
+          comments: Math.max(0, previous.comments + (nextHidden ? -1 : 1)),
+        }));
+        onNotify(t(nextHidden ? "social.commentHidden" : "social.commentVisible"));
+      } catch {
+        onNotify(t("social.moderationError"));
+      } finally {
+        setModerating(null);
+      }
+    },
+    [moderating, onNotify, t],
   );
 
   return (
@@ -258,7 +294,10 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
             comments.map((comment) => (
               <div
                 key={comment.id}
-                className="flex items-start gap-2 rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-2"
+                className={cn(
+                  "flex items-start gap-2 rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-2",
+                  comment.hidden && "border-blood/25 bg-blood-deep/10 opacity-75",
+                )}
               >
                 <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-white/10 bg-gradient-to-br from-white/20 to-white/[0.04] text-[9px] font-semibold uppercase text-white/65">
                   {comment.author.displayName.charAt(0)}
@@ -275,20 +314,38 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
                     <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
                       {timeAgo(comment.createdAt, locale)}
                     </span>
+                    {comment.hidden && (
+                      <span className="rounded border border-blood/30 bg-blood-deep/25 px-1.5 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.14em] text-[#ffb3b3]">
+                        {t("social.hidden")}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-1 whitespace-pre-wrap break-words text-[11.5px] leading-relaxed text-white/60">
                     {comment.body}
                   </p>
                 </div>
-                {comment.mine && (
-                  <button
-                    type="button"
-                    onClick={() => void remove(comment.id)}
-                    className="shrink-0 rounded-md px-1.5 py-1 text-[9.5px] text-white/30 transition-colors hover:text-[#ff9d9d]"
-                  >
-                    {t("social.delete")}
-                  </button>
-                )}
+                <div className="ml-auto flex shrink-0 items-center gap-0.5">
+                  {isAdmin && (
+                    <button
+                      type="button"
+                      onClick={() => void toggleVisibility(comment)}
+                      disabled={moderating === comment.id}
+                      className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-[9.5px] text-white/35 transition-colors hover:text-neon disabled:opacity-40"
+                    >
+                      {comment.hidden ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
+                      {comment.hidden ? t("social.unhide") : t("social.hide")}
+                    </button>
+                  )}
+                  {comment.mine && (
+                    <button
+                      type="button"
+                      onClick={() => void remove(comment.id)}
+                      className="rounded-md px-1.5 py-1 text-[9.5px] text-white/30 transition-colors hover:text-[#ff9d9d]"
+                    >
+                      {t("social.delete")}
+                    </button>
+                  )}
+                </div>
               </div>
             ))
           )}

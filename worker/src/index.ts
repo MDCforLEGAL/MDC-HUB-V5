@@ -19,6 +19,7 @@ import {
   listUsersForAdmin,
   myReactions,
   pruneExpired,
+  setCommentHidden,
   setReaction,
   setUserRole,
   socialCounts,
@@ -566,13 +567,16 @@ async function handleCommentsList(
     return apiError("invalid_body", 400, request, env);
   }
 
-  const rows = await listComments(env.DB, scriptId);
   const user = await sessionUser(request, env);
+  const rows = await listComments(env.DB, scriptId, {
+    includeHidden: user?.role === "admin",
+  });
 
   const comments = rows.map((row) => ({
     id: row.id,
     body: row.body,
     createdAt: row.created_at,
+    hidden: row.hidden === 1,
     author: toPublicAuthor(
       {
         id: row.user_id,
@@ -662,6 +666,41 @@ async function handleCommentDelete(
   }
 
   return json({ ok: true }, 200, request, env);
+}
+
+async function handleCommentModerate(
+  request: Request,
+  env: Env,
+  rawId: string,
+): Promise<Response> {
+  if (request.method !== "PATCH") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env);
+  }
+  if (user.role !== "admin") {
+    return apiError("forbidden", 403, request, env, "Admin access required.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload || typeof payload !== "object") {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const hidden = (payload as { hidden?: unknown }).hidden;
+  if (typeof hidden !== "boolean") {
+    return apiError("invalid_body", 400, request, env, "A hidden value is required.");
+  }
+
+  const updated = await setCommentHidden(env.DB, rawId, user.id, hidden, iso(Date.now()));
+  if (!updated) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  return json({ ok: true, hidden }, 200, request, env);
 }
 
 async function handleProfile(request: Request, env: Env): Promise<Response> {
@@ -797,11 +836,11 @@ export default {
       } else if (url.pathname === "/api/admin/roles") {
         response = await handleAdminRoles(request, env);
       } else if (url.pathname.startsWith("/api/social/comments/")) {
-        response = await handleCommentDelete(
-          request,
-          env,
-          url.pathname.slice("/api/social/comments/".length),
-        );
+        const commentId = url.pathname.slice("/api/social/comments/".length);
+        response =
+          request.method === "PATCH"
+            ? await handleCommentModerate(request, env, commentId)
+            : await handleCommentDelete(request, env, commentId);
       } else {
         response = apiError("not_found", 404, request, env);
       }
