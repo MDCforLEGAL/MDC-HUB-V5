@@ -13,14 +13,20 @@ comments, reactions, achievements, and a blue-check system into one interface.
 - **Discover** — a searchable, filterable feed with game, category, status, and
   source filters.
 - **ScriptBlox and Rscripts catalogs** — external catalogs shown alongside the
-  MDC library, with source links and their original metadata.
+  MDC library, with source links and their original metadata. The scheduled
+  library refresh runs every 10 minutes, around the clock.
 - **MDC Scripts** — official releases published by authorized MDC accounts.
 - **Community** — scripts shared by signed-in members, with likes, dislikes, and
   comments.
 - **Accounts** — Discord sign-in, profiles, levels, XP, achievements, and blue
-  check progress.
+  check progress. Members can add a bio and up to three links, then share a
+  public profile page.
 - **Comment moderation** — administrators can hide or restore comments; hidden
-  comments are removed from public lists and counts.
+  comments are removed from public lists and counts. Admins carry a red check
+  next to their name.
+- **Loading and performance** — an Auto control beside Load more keeps fetching
+  the next page when it scrolls into view. On slower phones the site can offer a
+  low-graphics mode after measuring real frame delivery.
 - **Interface options** — Turkish/English language switching, a light or night
   theme, and a mobile or desktop layout choice on entry.
 

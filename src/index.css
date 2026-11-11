@@ -752,3 +752,111 @@ html[data-theme="light"] .intro-progress {
     animation: none !important;
   }
 }
+
+/* ---------- Achievement unlock ---------- */
+
+@keyframes achievement-pop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.92);
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.35);
+  }
+  58% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.025);
+    box-shadow: 0 0 0 6px rgba(0, 240, 255, 0.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+  }
+}
+
+@keyframes achievement-toast-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, -12px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+}
+
+@keyframes achievement-shine {
+  from {
+    transform: translateX(-140%);
+  }
+  to {
+    transform: translateX(240%);
+  }
+}
+
+.achievement-card--unlocked {
+  animation: achievement-pop 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.achievement-toast {
+  animation: achievement-toast-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.achievement-toast__icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-toast__icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  animation: achievement-shine 1.2s ease-out 0.2s both;
+}
+
+.achievement-toast__bar {
+  transform-origin: left;
+  animation: achievement-shine 1.6s ease-out 0.1s both;
+}
+
+/* ---------- Low graphics mode ---------- */
+
+html[data-graphics="low"] .atmosphere-glow,
+html[data-graphics="low"] .bg-grid,
+html[data-graphics="low"] .intro-screen__grid,
+html[data-graphics="low"] .intro-screen__glow {
+  display: none !important;
+}
+
+html[data-graphics="low"] [class*="backdrop-blur"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html[data-graphics="low"] [class*="blur-"] {
+  filter: none !important;
+}
+
+html[data-graphics="low"] .marquee-track,
+html[data-graphics="low"] .animate-float-slow,
+html[data-graphics="low"] .animate-ping {
+  animation: none !important;
+}
+
+html[data-graphics="low"] .script-card--working:hover,
+html[data-graphics="low"] .script-card--patched:hover {
+  transform: none !important;
+}
+
+html[data-graphics="low"] *,
+html[data-graphics="low"] *::before,
+html[data-graphics="low"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-graphics="low"] .intro-screen {
+  display: none !important;
+}

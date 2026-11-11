@@ -5,12 +5,12 @@ import { cn } from "../lib/cn";
 import { SOURCE_PAGE_HREFS, useSourcePage, type SourcePageId } from "../hooks/useSourcePage";
 import { useTheme } from "../hooks/useTheme";
 import { SourceTabs } from "./SourceTabs";
+import { VerifiedMark } from "./VerifiedMark";
 import { useInstallPrompt } from "../hooks/useInstallPrompt";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
 import {
   ArrowUpRight,
-  BadgeCheck,
   ChevronDown,
   Download,
   Globe,
@@ -76,9 +76,11 @@ function AccountMenu() {
       >
         <UserAvatar user={user} className="h-6 w-6" />
         <span className="hidden max-w-[104px] truncate sm:block">{user.displayName}</span>
-        {user.verified && (
-          <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-neon/80" aria-label={t("card.verifiedCommunity")} />
-        )}
+        <VerifiedMark
+          role={user.role}
+          verified={user.verified}
+          className="h-3.5 w-3.5"
+        />
         <ChevronDown
           className={cn("h-3 w-3 opacity-50 transition-transform duration-300", open && "rotate-180")}
         />

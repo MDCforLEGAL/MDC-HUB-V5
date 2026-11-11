@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import type { LibraryCategory, LibrarySource, ScriptEntry } from "../data/scripts";
 import type { LibraryState } from "../hooks/useScriptLibrary";
@@ -19,6 +19,7 @@ import {
   Sparkles,
   TrendingUp,
   X,
+  Zap,
 } from "./Icons";
 
 type StatusFilter = "all" | "working" | "patched";
@@ -77,6 +78,9 @@ export function ScriptExplorer({
   const [game, setGame] = useState(ALL_GAMES);
   const [category, setCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [autoLoad, setAutoLoad] = useState(false);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+  const autoTriggeredRef = useRef(false);
 
   const primarySource =
     sources[0]?.id === "mdc" ? t("sources.mdc") : (sources[0]?.label ?? "MDC");
@@ -147,6 +151,10 @@ export function ScriptExplorer({
   }, [category, game, query, scripts, status]);
 
   const visibleScripts = filtered.slice(0, visibleCount);
+  const hasMore = filtered.length > visibleCount;
+  const loadMore = useCallback(() => {
+    setVisibleCount((count) => Math.min(count + 6, filtered.length));
+  }, [filtered.length]);
   const activeCategory = categories.find((item) => item.id === category);
   const activeCategoryLabel = activeCategory ? categoryLabel(activeCategory) : "";
   const activeFilters =
@@ -154,7 +162,30 @@ export function ScriptExplorer({
 
   useEffect(() => {
     setVisibleCount(6);
+    autoTriggeredRef.current = false;
   }, [category, game, query, scripts.length, status]);
+
+  useEffect(() => {
+    if (!autoLoad || !hasMore) return;
+    const target = loadMoreRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) {
+          autoTriggeredRef.current = false;
+          return;
+        }
+        if (autoTriggeredRef.current) return;
+        autoTriggeredRef.current = true;
+        loadMore();
+      },
+      { rootMargin: "240px 0px" },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [autoLoad, hasMore, loadMore]);
 
   useEffect(() => {
     if (category !== "all" && !categories.some((item) => item.id === category)) {
@@ -450,19 +481,45 @@ export function ScriptExplorer({
 
         {filtered.length > 0 && (
           <div className="mt-8 flex flex-col items-center gap-3">
-            {filtered.length > visibleCount && (
-              <button
-                type="button"
-                onClick={() => setVisibleCount((count) => count + 6)}
-                className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.09] bg-white/[0.03] px-5 py-3 text-[11.5px] font-medium text-white/60 backdrop-blur-xl transition-all duration-300 hover:border-neon/30 hover:bg-neon/[0.05] hover:text-white"
-              >
-                {t("explorer.loadMore")}
-                <span className="rounded-md border border-white/[0.08] bg-black/20 px-1.5 py-0.5 font-mono text-[9px] text-white/35">
-                  +{filtered.length - visibleCount}
-                </span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
-            )}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {hasMore && (
+                <button
+                  type="button"
+                  onClick={loadMore}
+                  className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.09] bg-white/[0.03] px-5 py-3 text-[11.5px] font-medium text-white/60 backdrop-blur-xl transition-all duration-300 hover:border-neon/30 hover:bg-neon/[0.05] hover:text-white"
+                >
+                  {t("explorer.loadMore")}
+                  <span className="rounded-md border border-white/[0.08] bg-black/20 px-1.5 py-0.5 font-mono text-[9px] text-white/35">
+                    +{filtered.length - visibleCount}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </button>
+              )}
+              {filtered.length > 6 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    autoTriggeredRef.current = false;
+                    setAutoLoad((value) => !value);
+                  }}
+                  aria-pressed={autoLoad}
+                  aria-label={t("explorer.autoLoad")}
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-xl border px-3.5 py-3 text-[10.5px] font-medium transition-all duration-300",
+                    autoLoad
+                      ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_24px_-12px_rgba(0,240,255,0.9)]"
+                      : "border-white/[0.09] bg-white/[0.03] text-white/45 hover:border-neon/25 hover:text-white",
+                  )}
+                >
+                  <Zap className="h-3 w-3" />
+                  Auto
+                  <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] opacity-60">
+                    {autoLoad ? t("explorer.autoOn") : t("explorer.autoOff")}
+                  </span>
+                </button>
+              )}
+            </div>
+            <div ref={loadMoreRef} aria-hidden="true" className="h-px w-full" />
             {filtered.length <= visibleCount && filtered.length > 6 && (
               <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
                 {t("explorer.allShown")}

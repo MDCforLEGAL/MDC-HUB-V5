@@ -7,26 +7,35 @@ import {
   fetchAdminUsers,
   fetchProfile,
   getStoredToken,
+  updateProfile,
   updateUserRole,
   type AchievementId,
+  type AchievementState,
   type AdminUserSummary,
   type AuthRole,
   type Profile,
+  type ProfileLink,
 } from "../lib/api";
 import {
   BadgeCheck,
   Check,
+  Link2,
   Loader,
   Lock,
   MessageCircle,
+  Pencil,
+  Plus,
   Search,
+  Share2,
   ShieldCheck,
   Sparkles,
   Star,
   Users,
+  X,
   Zap,
 } from "./Icons";
 import { UserAvatar } from "./UserAvatar";
+import { VerifiedMark } from "./VerifiedMark";
 
 const LEVEL_TITLES: MessageKey[] = [
   "level.1",
@@ -41,7 +50,7 @@ const LEVEL_TITLES: MessageKey[] = [
   "level.10",
 ];
 
-const ACHIEVEMENT_ICONS: Record<AchievementId, typeof Star> = {
+export const ACHIEVEMENT_ICONS: Record<AchievementId, typeof Star> = {
   first_script: Star,
   scripts_20: Sparkles,
   comments_5: MessageCircle,
@@ -54,7 +63,7 @@ const ACHIEVEMENT_ICONS: Record<AchievementId, typeof Star> = {
   verified: BadgeCheck,
 };
 
-function levelTitle(level: number): MessageKey {
+export function levelTitle(level: number): MessageKey {
   const index = Math.min(Math.max(level, 1), LEVEL_TITLES.length) - 1;
   return LEVEL_TITLES[index];
 }
@@ -81,6 +90,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [draftBio, setDraftBio] = useState("");
+  const [draftLinks, setDraftLinks] = useState<ProfileLink[]>([]);
+  const [saving, setSaving] = useState(false);
+  const [unlockQueue, setUnlockQueue] = useState<AchievementState[]>([]);
 
   const load = useCallback(async () => {
     const token = getStoredToken();
@@ -100,10 +114,62 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   useEffect(() => {
     if (!signedIn) {
       setProfile(null);
+      setEditing(false);
       return;
     }
     void load();
   }, [signedIn, load]);
+
+  useEffect(() => {
+    if (!profile) return;
+
+    const storageKey = `mdc-hub.achievements.${profile.user.id}`;
+    const unlocked = profile.achievements.filter((item) => item.unlocked).map((item) => item.id);
+    let seen: string[] | null = null;
+
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed: unknown = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          seen = parsed.filter((id): id is string => typeof id === "string");
+        }
+      }
+    } catch {
+      // Storage can be unavailable; only the in-page badge animation remains.
+    }
+
+    if (seen === null) {
+      try {
+        window.localStorage.setItem(storageKey, JSON.stringify(unlocked));
+      } catch {
+        // Nothing else to do.
+      }
+      return;
+    }
+
+    const fresh = new Set(unlocked.filter((id) => !seen?.includes(id)));
+    if (fresh.size > 0) {
+      setUnlockQueue((previous) => [
+        ...previous,
+        ...profile.achievements.filter(
+          (item) => fresh.has(item.id) && !previous.some((queued) => queued.id === item.id),
+        ),
+      ]);
+    }
+
+    try {
+      window.localStorage.setItem(storageKey, JSON.stringify(unlocked));
+    } catch {
+      // Nothing else to do.
+    }
+  }, [profile]);
+
+  useEffect(() => {
+    if (unlockQueue.length === 0) return;
+    const timer = window.setTimeout(() => setUnlockQueue((queue) => queue.slice(1)), 5200);
+    return () => window.clearTimeout(timer);
+  }, [unlockQueue]);
 
   const admin = user?.role === "admin";
   const [adminUsers, setAdminUsers] = useState<AdminUserSummary[]>([]);
@@ -155,7 +221,88 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
     [onNotify, roleBusy, t],
   );
 
+  const startEditing = useCallback(() => {
+    if (!profile) return;
+    setDraftBio(profile.user.bio ?? "");
+    setDraftLinks(
+      profile.user.links?.length
+        ? profile.user.links.map((link) => ({ ...link }))
+        : [{ label: "", url: "" }],
+    );
+    setEditing(true);
+  }, [profile]);
+
+  const shareProfile = useCallback(async () => {
+    if (!profile) return;
+
+    const url = new URL(window.location.href);
+    url.hash = `#/u/${encodeURIComponent(profile.user.username)}`;
+    const text = t("profile.shareText", { name: profile.user.displayName });
+
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: profile.user.displayName, text, url: url.toString() });
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url.toString());
+      onNotify(t("profile.linkCopied"));
+    } catch {
+      onNotify(t("profile.shareFailed"));
+    }
+  }, [onNotify, profile, t]);
+
+  const updateDraftLink = (index: number, key: "label" | "url", value: string) => {
+    setDraftLinks((previous) =>
+      previous.map((link, linkIndex) =>
+        linkIndex === index ? { ...link, [key]: value } : link,
+      ),
+    );
+  };
+
+  const saveProfile = useCallback(async () => {
+    if (!profile || saving) return;
+    const token = getStoredToken();
+    if (!token) return;
+
+    const links = draftLinks
+      .map((link) => ({ label: link.label.trim(), url: link.url.trim() }))
+      .filter((link) => link.url.length > 0);
+
+    for (const link of links) {
+      try {
+        const url = new URL(link.url);
+        if (url.protocol !== "http:" && url.protocol !== "https:") {
+          onNotify(t("profile.invalidLink"));
+          return;
+        }
+      } catch {
+        onNotify(t("profile.invalidLink"));
+        return;
+      }
+    }
+
+    setSaving(true);
+    try {
+      const next = await updateProfile(token, { bio: draftBio.trim(), links });
+      setProfile(next);
+      setEditing(false);
+      onNotify(t("profile.saved"));
+    } catch {
+      onNotify(t("profile.saveFailed"));
+    } finally {
+      setSaving(false);
+    }
+  }, [draftBio, draftLinks, onNotify, profile, saving, t]);
+
   const stats = profile?.stats;
+  const profileLinks = profile?.user.links ?? [];
+  const unlockToast = unlockQueue[0] ?? null;
+  const UnlockIcon = unlockToast ? ACHIEVEMENT_ICONS[unlockToast.id] : Star;
   const verificationRows = useMemo(() => {
     if (!profile) return [];
     const requirements = profile.verification.requirements;
@@ -256,12 +403,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                     <h2 className="truncate font-display text-[22px] font-medium tracking-[-0.02em] text-white sm:text-[26px]">
                       {profile.user.displayName}
                     </h2>
-                    {profile.verification.met && (
-                      <BadgeCheck
-                        className="h-5 w-5 text-neon/85"
-                        aria-label={t("card.verifiedCommunity")}
-                      />
-                    )}
+                    <VerifiedMark
+                      role={profile.user.role}
+                      verified={profile.verification.met}
+                      className="h-5 w-5"
+                    />
                   </div>
                   <p className="mt-0.5 truncate font-mono text-[10.5px] text-white/35">
                     @{profile.user.username} · {t("account.joined", {
@@ -286,6 +432,26 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       {t("account.xp", { xp: profile.xp })}
                     </span>
                   </div>
+                  {!editing && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => void shareProfile()}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors hover:border-neon/45 hover:text-neon"
+                      >
+                        <Share2 className="h-3 w-3" />
+                        {t("profile.share")}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={startEditing}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.1] bg-white/[0.03] px-2.5 py-1.5 text-[10.5px] font-medium text-white/55 transition-colors hover:border-neon/30 hover:text-white"
+                      >
+                        <Pencil className="h-3 w-3" />
+                        {t("profile.edit")}
+                      </button>
+                    </div>
+                  )}
                 </div>
                 <div className="w-full sm:w-56">
                   <div className="flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/35">
@@ -306,6 +472,132 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         })}
                   </p>
                 </div>
+              </div>
+
+              <div className="border-t border-white/[0.07] px-5 py-4 sm:px-7">
+                {editing ? (
+                  <div className="space-y-3">
+                    <div>
+                      <label className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                        {t("profile.bioLabel")}
+                      </label>
+                      <textarea
+                        value={draftBio}
+                        onChange={(event) => setDraftBio(event.target.value.slice(0, 180))}
+                        rows={3}
+                        maxLength={180}
+                        placeholder={t("profile.bioPlaceholder")}
+                        className="mt-1.5 w-full resize-y rounded-xl border border-white/[0.08] bg-black/25 px-3 py-2.5 text-[12px] leading-relaxed text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                      />
+                      <p className="mt-1 text-right font-mono text-[8px] text-white/20">
+                        {draftBio.length}/180
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                          {t("profile.linksTitle")}
+                        </p>
+                        {draftLinks.length < 3 && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setDraftLinks((previous) => [...previous, { label: "", url: "" }])
+                            }
+                            className="inline-flex items-center gap-1 text-[10px] text-neon/70 transition-colors hover:text-neon"
+                          >
+                            <Plus className="h-3 w-3" />
+                            {t("profile.addLink")}
+                          </button>
+                        )}
+                      </div>
+                      <div className="mt-2 space-y-2">
+                        {draftLinks.map((link, index) => (
+                          <div
+                            key={index}
+                            className="grid gap-2 sm:grid-cols-[0.8fr_1.4fr_auto]"
+                          >
+                            <input
+                              value={link.label}
+                              onChange={(event) =>
+                                updateDraftLink(index, "label", event.target.value.slice(0, 28))
+                              }
+                              placeholder={t("profile.linkLabel")}
+                              aria-label={t("profile.linkLabel")}
+                              className="rounded-lg border border-white/[0.08] bg-black/25 px-2.5 py-2 text-[11px] text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                            />
+                            <input
+                              value={link.url}
+                              onChange={(event) =>
+                                updateDraftLink(index, "url", event.target.value.slice(0, 240))
+                              }
+                              placeholder="https://"
+                              aria-label={t("profile.linkUrl")}
+                              inputMode="url"
+                              className="rounded-lg border border-white/[0.08] bg-black/25 px-2.5 py-2 text-[11px] text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                            />
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setDraftLinks((previous) =>
+                                  previous.filter((_, linkIndex) => linkIndex !== index),
+                                )
+                              }
+                              aria-label={t("profile.removeLink")}
+                              className="grid h-9 w-9 place-items-center rounded-lg border border-white/[0.08] text-white/30 transition-colors hover:border-blood/40 hover:text-[#ff9d9d]"
+                            >
+                              <X className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => void saveProfile()}
+                        disabled={saving}
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-neon to-electric px-3 py-2 text-[10.5px] font-semibold text-[#02070a] transition-opacity disabled:opacity-50"
+                      >
+                        {saving ? <Loader className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+                        {saving ? t("profile.saving") : t("profile.save")}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setEditing(false)}
+                        disabled={saving}
+                        className="rounded-lg border border-white/[0.1] bg-white/[0.03] px-3 py-2 text-[10.5px] font-medium text-white/55 transition-colors hover:border-white/25 hover:text-white disabled:opacity-50"
+                      >
+                        {t("profile.cancel")}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                      {t("profile.about")}
+                    </p>
+                    <p className="mt-2 whitespace-pre-wrap text-[12px] leading-relaxed text-white/55">
+                      {profile.user.bio?.trim() || t("profile.bioEmpty")}
+                    </p>
+                    {profileLinks.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {profileLinks.map((link) => (
+                          <a
+                            key={`${link.label}-${link.url}`}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[10.5px] text-white/55 transition-colors hover:border-neon/30 hover:text-neon"
+                          >
+                            <Link2 className="h-3 w-3" />
+                            {link.label || link.url}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
 
               <div className="grid grid-cols-2 gap-px border-t border-white/[0.07] bg-white/[0.06] sm:grid-cols-5">
@@ -401,7 +693,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                 </p>
 
                 <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {profile.achievements.map((achievement) => {
+                  {profile.achievements.map((achievement, index) => {
                     const Icon = ACHIEVEMENT_ICONS[achievement.id] ?? Star;
                     return (
                       <div
@@ -409,9 +701,14 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         className={cn(
                           "rounded-xl border p-3 transition-colors",
                           achievement.unlocked
-                            ? "border-neon/20 bg-neon/[0.05]"
+                            ? "achievement-card--unlocked border-neon/20 bg-neon/[0.05]"
                             : "border-white/[0.06] bg-black/20",
                         )}
+                        style={
+                          achievement.unlocked
+                            ? { animationDelay: `${Math.min(index * 45, 360)}ms` }
+                            : undefined
+                        }
                       >
                         <div className="flex items-start gap-2">
                           <span
@@ -496,7 +793,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                           <div className="min-w-0 flex-1">
                             <p className="flex items-center gap-1.5 truncate text-[11.5px] font-medium text-white/80">
                               {row.displayName}
-                              {row.verified && <BadgeCheck className="h-3 w-3 shrink-0 text-neon/70" />}
+                              <VerifiedMark
+                                role={row.role}
+                                verified={row.verified}
+                                className="h-3 w-3"
+                              />
                             </p>
                             <p className="truncate font-mono text-[8.5px] text-white/30">
                               @{row.username} · {t("account.level", { level: row.level })}
@@ -541,6 +842,40 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
           </>
         )}
       </div>
+
+      {unlockToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="achievement-toast fixed left-1/2 top-24 z-[95] w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 rounded-2xl border border-neon/30 bg-[#060b13]/97 p-3.5 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.95),0_0_60px_-28px_rgba(0,240,255,0.8)] backdrop-blur-2xl"
+        >
+          <div className="flex items-start gap-3">
+            <span className="achievement-toast__icon grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-neon/35 bg-neon/[0.12] text-neon">
+              <UnlockIcon className="h-5 w-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-neon/65">
+                {t("account.achievementUnlocked")}
+              </p>
+              <p className="mt-1 truncate text-[12.5px] font-medium text-white/90">
+                {t(`achievement.${unlockToast.id}.title` as MessageKey)}
+              </p>
+              <p className="mt-0.5 line-clamp-2 text-[10px] leading-snug text-white/40">
+                {t(`achievement.${unlockToast.id}.desc` as MessageKey)}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setUnlockQueue((queue) => queue.slice(1))}
+              aria-label={t("toast.dismiss")}
+              className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-white/25 transition-colors hover:bg-white/[0.06] hover:text-white/75"
+            >
+              <X className="h-3 w-3" />
+            </button>
+          </div>
+          <span aria-hidden="true" className="achievement-toast__bar mt-3 block h-px w-full bg-gradient-to-r from-transparent via-neon/70 to-transparent" />
+        </div>
+      )}
     </section>
   );
 }

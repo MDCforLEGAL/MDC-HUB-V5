@@ -8,10 +8,10 @@ import { CodeBlock } from "./CodeBlock";
 import { GameGlyph } from "./GameGlyph";
 import { StatusBadge } from "./ScriptCard";
 import { ScriptSocial } from "./ScriptSocial";
+import { VerifiedMark } from "./VerifiedMark";
 import {
   AlertTriangle,
   ArrowUpRight,
-  BadgeCheck,
   Check,
   Clock,
   Copy,
@@ -137,18 +137,11 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                 {script.author.charAt(0)}
               </span>
               <span className="text-white/45">@{script.author}</span>
-              {script.verified && (
-                <BadgeCheck
-                  className="h-3.5 w-3.5 text-neon/80"
-                  aria-label={
-                    script.source === "mdc"
-                      ? t("card.verifiedDeveloper")
-                      : script.source === "community"
-                        ? t("card.verifiedCommunity")
-                        : t("modal.verifiedSource", { source: script.sourceLabel ?? "" })
-                  }
-                />
-              )}
+              <VerifiedMark
+                role={script.authorRole}
+                verified={script.verified}
+                className="h-3.5 w-3.5"
+              />
               <span aria-hidden="true" className="mx-0.5 text-white/12">/</span>
               <span className="flex items-center gap-1 text-white/30">
                 <Clock className="h-3 w-3" />

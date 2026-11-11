@@ -1,6 +1,11 @@
 export type AuthRole = "admin" | "member";
 export type ScriptSection = "mdc" | "community";
 
+export interface ProfileLink {
+  label: string;
+  url: string;
+}
+
 export interface AuthUser {
   id: string;
   username: string;
@@ -12,6 +17,8 @@ export interface AuthUser {
   verified?: boolean;
   /** Number of scripts this author published from the site. */
   scripts?: number;
+  bio?: string;
+  links?: ProfileLink[];
 }
 
 export interface HealthInfo {
@@ -432,6 +439,29 @@ export interface Profile {
 
 export async function fetchProfile(token: string, signal?: AbortSignal): Promise<Profile> {
   return request<Profile>("/api/profile", { token, signal });
+}
+
+export interface ProfileInput {
+  bio: string;
+  links: ProfileLink[];
+}
+
+export async function updateProfile(
+  token: string,
+  input: ProfileInput,
+): Promise<Profile> {
+  return request<Profile>("/api/profile", {
+    method: "PATCH",
+    token,
+    body: input,
+  });
+}
+
+export async function fetchPublicProfile(
+  username: string,
+  signal?: AbortSignal,
+): Promise<Profile> {
+  return request<Profile>(`/api/users/${encodeURIComponent(username)}`, { signal });
 }
 
 export interface AdminUserSummary {

@@ -4,6 +4,8 @@ export const SOURCE_PAGES = ["all", "scriptblox", "mdc", "rscripts", "community"
 
 export type SourcePageId = (typeof SOURCE_PAGES)[number];
 
+export type ProfileRoute = { username: string | null };
+
 export const SOURCE_PAGE_HREFS: Record<SourcePageId, string> = {
   all: "#/",
   scriptblox: "#/scriptblox",
@@ -55,4 +57,30 @@ export function useAccountPage(): boolean {
   }, []);
 
   return active;
+}
+
+/** `#/u/<username>` opens a public, shareable profile. */
+export function readProfileUsername(): string | null {
+  if (typeof window === "undefined") return null;
+  const slug = window.location.hash.replace(/^#\/?/, "").trim();
+  const match = /^(?:u|profile)\/(.+)$/i.exec(slug);
+  if (!match) return null;
+
+  try {
+    return decodeURIComponent(match[1]).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+export function useProfileUsername(): string | null {
+  const [username, setUsername] = useState<string | null>(() => readProfileUsername());
+
+  useEffect(() => {
+    const onHashChange = () => setUsername(readProfileUsername());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  return username;
 }

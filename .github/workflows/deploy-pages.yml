@@ -4,8 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    # Refresh the script library around the clock, every 30 minutes.
-    - cron: "*/30 * * * *"
+    # Keep the live script library fresh around the clock. GitHub schedules
+    # in five-minute steps; ten minutes stays under Pages' hourly build limit.
+    - cron: "*/10 * * * *"
   workflow_dispatch:
 
 permissions:

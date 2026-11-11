@@ -37,6 +37,37 @@ export const ArrowLeft = (p: IconProps) => (
   </svg>
 );
 
+export const Share2 = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <circle cx="18" cy="5" r="2.5" />
+    <circle cx="6" cy="12" r="2.5" />
+    <circle cx="18" cy="19" r="2.5" />
+    <path d="m8.3 10.9 7.4-4.3M8.3 13.1l7.4 4.3" />
+  </svg>
+);
+
+export const Link2 = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M10 13.8a4.5 4.5 0 0 0 6.4.1l2.2-2.2a4.5 4.5 0 0 0-6.4-6.4L11 6.5" />
+    <path d="M14 10.2a4.5 4.5 0 0 0-6.4-.1l-2.2 2.2a4.5 4.5 0 0 0 6.4 6.4L13 17.5" />
+  </svg>
+);
+
+export const Pencil = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="m4 20 4.2-1 10.6-10.6a2.2 2.2 0 0 0-3.1-3.1L5.1 15.9 4 20Z" />
+    <path d="m13.8 6.2 4 4" />
+  </svg>
+);
+
+export const Gauge = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M4.2 17.5a9 9 0 1 1 15.6 0" />
+    <path d="M12 12 8.5 8.5" />
+    <circle cx="12" cy="12" r="1.5" />
+  </svg>
+);
+
 export const Copy = (p: IconProps) => (
   <svg {...base} {...p}>
     <rect x="9" y="9" width="11" height="11" rx="2.5" />

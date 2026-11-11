@@ -12,11 +12,13 @@ import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
-import { useAccountPage, useSourcePage } from "./hooks/useSourcePage";
+import { useAccountPage, useProfileUsername, useSourcePage } from "./hooks/useSourcePage";
 import { AccountPage } from "./components/AccountPage";
+import { PublicProfilePage } from "./components/PublicProfilePage";
 import { LayoutPrompt } from "./components/LayoutPrompt";
 import { IntroSplash } from "./components/IntroSplash";
 import { DiscordFloat } from "./components/DiscordFloat";
+import { PerformanceGuard } from "./components/PerformanceGuard";
 import { useI18n } from "./i18n";
 import { applyLayoutMode, type LayoutMode } from "./lib/layout";
 
@@ -45,6 +47,7 @@ export default function App() {
   const library = useScriptLibrary();
   const sourcePage = useSourcePage();
   const accountPage = useAccountPage();
+  const profileUsername = useProfileUsername();
   const { user, status, error: authError } = useAuth();
   const { t } = useI18n();
   const [query, setQuery] = useState("");
@@ -166,7 +169,7 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [accountPage]);
+  }, [accountPage, profileUsername]);
 
   useEffect(() => {
     if (!toast) return;
@@ -183,6 +186,8 @@ export default function App() {
       <main>
         {accountPage ? (
           <AccountPage onAuth={() => setAuthMode("login")} onNotify={notify} />
+        ) : profileUsername ? (
+          <PublicProfilePage username={profileUsername} onNotify={notify} />
         ) : (
           <>
         {sourcePage === "all" && (
@@ -248,6 +253,7 @@ export default function App() {
       {toast && <Toast key={toast.id} message={toast.message} onClose={() => setToast(null)} />}
 
       <DiscordFloat />
+      <PerformanceGuard onNotify={notify} />
 
       {layoutMode === null && <LayoutPrompt onChoose={chooseLayout} />}
 

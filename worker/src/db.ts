@@ -6,6 +6,8 @@ export interface UserRow {
   display_name: string | null;
   avatar_url: string | null;
   role: string;
+  bio?: string | null;
+  links?: string | null;
   created_at: string;
   last_login_at: string;
 }
@@ -28,6 +30,11 @@ export const VERIFICATION_REQUIREMENTS = {
   likesGiven: 5,
 } as const;
 
+export interface ProfileLink {
+  label: string;
+  url: string;
+}
+
 export interface PublicUser {
   id: string;
   username: string;
@@ -36,9 +43,35 @@ export interface PublicUser {
   role: "admin" | "member";
   createdAt: string;
   verified: boolean;
+  bio: string;
+  links: ProfileLink[];
   scripts: number;
   comments: number;
   likesGiven: number;
+}
+
+/** Parses the JSON link list stored on a user row. Invalid entries are ignored. */
+export function parseProfileLinks(value: string | null | undefined): ProfileLink[] {
+  if (!value) return [];
+
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed
+      .filter(
+        (item): item is { label?: unknown; url?: unknown } =>
+          typeof item === "object" && item !== null,
+      )
+      .map((item) => ({
+        label: typeof item.label === "string" ? item.label.trim().slice(0, 28) : "",
+        url: typeof item.url === "string" ? item.url.trim().slice(0, 240) : "",
+      }))
+      .filter((item) => item.url.length > 0)
+      .slice(0, 3);
+  } catch {
+    return [];
+  }
 }
 
 export function isVerifiedAuthor(stats: VerificationStats): boolean {
@@ -70,6 +103,8 @@ export function toPublicUser(
     role: row.role === "admin" ? "admin" : "member",
     createdAt: row.created_at,
     verified: isVerifiedAuthor(stats),
+    bio: typeof row.bio === "string" ? row.bio.slice(0, 180) : "",
+    links: parseProfileLinks(row.links),
     ...stats,
   };
 }
@@ -114,6 +149,20 @@ export async function upsertDiscordUser(
 
   if (!row) throw new Error("user_upsert_failed");
   return row;
+}
+
+export async function updateUserProfile(
+  db: D1Database,
+  userId: string,
+  bio: string,
+  links: ProfileLink[],
+): Promise<UserRow | null> {
+  return (
+    (await db
+      .prepare("UPDATE users SET bio = ?, links = ? WHERE id = ? RETURNING *")
+      .bind(bio, JSON.stringify(links), userId)
+      .first<UserRow>()) ?? null
+  );
 }
 
 export async function createOAuthState(
@@ -840,6 +889,39 @@ export async function userStats(db: D1Database, userId: string): Promise<UserSta
     .first<UserStatsRow>();
 
   return toUserStats(row);
+}
+
+export interface PublicProfileData extends ReputationProfile {
+  user: PublicUser;
+}
+
+/** Looks up a profile by Discord username for the public share page. */
+export async function findPublicProfile(
+  db: D1Database,
+  username: string,
+): Promise<PublicProfileData | null> {
+  const row = await db
+    .prepare(
+      `SELECT u.*, ${USER_STATS_COLUMNS}
+         FROM users u
+        WHERE lower(u.username) = lower(?)
+        LIMIT 1`,
+    )
+    .bind(username)
+    .first<UserRow & UserStatsRow>();
+
+  if (!row) return null;
+
+  const stats = toUserStats(row);
+  return {
+    user: toPublicUser({
+      ...row,
+      script_count: stats.scripts,
+      comment_count: stats.comments,
+      likes_given_count: stats.likesGiven,
+    }),
+    ...buildProfile(stats),
+  };
 }
 
 export interface AdminUserSummary {

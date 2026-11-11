@@ -13,11 +13,13 @@ import {
   deleteCommunityScript,
   deleteSession,
   findCommunityScript,
+  findPublicProfile,
   findSessionUser,
   listComments,
   listCommunityScripts,
   listUsersForAdmin,
   myReactions,
+  parseProfileLinks,
   pruneExpired,
   setCommentHidden,
   setReaction,
@@ -27,10 +29,11 @@ import {
   toPublicCommunityScript,
   toPublicUser,
   touchSession,
+  updateUserProfile,
   upsertDiscordUser,
   userStats,
 } from "./db";
-import type { ScriptSection, SessionRow } from "./db";
+import type { ProfileLink, ScriptSection, SessionRow } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import {
   apiError,
@@ -316,6 +319,10 @@ async function handleLogout(request: Request, env: Env): Promise<Response> {
 
 const SCRIPT_ID_PATTERN = /^[a-z0-9][a-z0-9_-]{0,79}$/i;
 const COMMENT_MAX_LENGTH = 600;
+const PROFILE_BIO_MAX = 180;
+const PROFILE_LINKS_MAX = 3;
+const PROFILE_LINK_LABEL_MAX = 28;
+const PROFILE_LINK_URL_MAX = 240;
 const MAX_JSON_BYTES = 120_000;
 
 function isScriptId(value: string | null): value is string {
@@ -355,6 +362,37 @@ function scriptTags(payload: unknown): string[] {
         .filter(Boolean),
     ),
   ).slice(0, 5);
+}
+
+function isHttpUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return (url.protocol === "http:" || url.protocol === "https:") && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function profileLinks(payload: unknown): ProfileLink[] | null {
+  if (!payload || typeof payload !== "object") return null;
+  const raw = (payload as { links?: unknown }).links;
+  if (raw === undefined) return [];
+  if (!Array.isArray(raw) || raw.length > PROFILE_LINKS_MAX) return null;
+
+  const links: ProfileLink[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") return null;
+
+    const label = field(item, "label", PROFILE_LINK_LABEL_MAX);
+    const url = field(item, "url", PROFILE_LINK_URL_MAX);
+    if (!url) continue;
+    if (!isHttpUrl(url)) return null;
+
+    const hostname = new URL(url).hostname.replace(/^www\./i, "");
+    links.push({ label: label || hostname, url });
+  }
+
+  return links.slice(0, PROFILE_LINKS_MAX);
 }
 
 async function sessionUser(request: Request, env: Env): Promise<SessionRow | null> {
@@ -723,6 +761,77 @@ async function handleProfile(request: Request, env: Env): Promise<Response> {
   );
 }
 
+async function handleProfileUpdate(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "PATCH") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env, "Sign in to edit your profile.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload || typeof payload !== "object") {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const bio = field(payload, "bio", PROFILE_BIO_MAX);
+  const rawLinks = (payload as { links?: unknown }).links;
+  const links =
+    rawLinks === undefined ? parseProfileLinks(user.links) : profileLinks(payload);
+  if (!links) {
+    return apiError(
+      "invalid_links",
+      400,
+      request,
+      env,
+      "Links must use http or https and fit in up to three entries.",
+    );
+  }
+
+  const updated = await updateUserProfile(env.DB, user.id, bio, links);
+  if (!updated) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  const stats = await userStats(env.DB, user.id);
+  return json(
+    { user: toPublicUser(updated), ...buildProfile(stats) },
+    200,
+    request,
+    env,
+  );
+}
+
+async function handlePublicProfile(
+  request: Request,
+  env: Env,
+  rawUsername: string,
+): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  let username = "";
+  try {
+    username = decodeURIComponent(rawUsername).trim();
+  } catch {
+    return apiError("invalid_username", 400, request, env);
+  }
+
+  if (!username || username.length > 64) {
+    return apiError("invalid_username", 400, request, env);
+  }
+
+  const profile = await findPublicProfile(env.DB, username);
+  if (!profile) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  return json(profile, 200, request, env);
+}
+
 async function handleAdminUsers(
   request: Request,
   env: Env,
@@ -830,7 +939,16 @@ export default {
             ? await handleCommentsList(request, env, url)
             : await handleCommentsCreate(request, env);
       } else if (url.pathname === "/api/profile") {
-        response = await handleProfile(request, env);
+        response =
+          request.method === "PATCH"
+            ? await handleProfileUpdate(request, env)
+            : await handleProfile(request, env);
+      } else if (url.pathname.startsWith("/api/users/")) {
+        response = await handlePublicProfile(
+          request,
+          env,
+          url.pathname.slice("/api/users/".length),
+        );
       } else if (url.pathname === "/api/admin/users") {
         response = await handleAdminUsers(request, env, url);
       } else if (url.pathname === "/api/admin/roles") {

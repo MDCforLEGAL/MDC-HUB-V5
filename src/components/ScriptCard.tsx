@@ -6,13 +6,13 @@ import { useI18n } from "../i18n";
 import { GameGlyph } from "./GameGlyph";
 import {
   ArrowUpRight,
-  BadgeCheck,
   Check,
   Code2,
   Copy,
   Eye,
   Star,
 } from "./Icons";
+import { VerifiedMark } from "./VerifiedMark";
 
 interface ScriptCardProps {
   script: ScriptEntry;
@@ -131,18 +131,11 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
           {script.author.charAt(0)}
         </span>
         <span className="text-white/45">@{script.author}</span>
-        {script.verified && (
-          <BadgeCheck
-            className="h-3.5 w-3.5 text-neon/80"
-            aria-label={
-              script.source === "mdc"
-                ? t("card.verifiedDeveloper")
-                : script.source === "community"
-                  ? t("card.verifiedCommunity")
-                  : t("card.verifiedSource", { source: script.sourceLabel ?? "" })
-            }
-          />
-        )}
+        <VerifiedMark
+          role={script.authorRole}
+          verified={script.verified}
+          className="h-3.5 w-3.5"
+        />
         <span aria-hidden="true" className="text-white/12">/</span>
         <span className="text-white/35">{updatedLabel}</span>
       </div>
