@@ -17,6 +17,7 @@ import {
   type ProfileLink,
 } from "../lib/api";
 import {
+  ArrowRight,
   BadgeCheck,
   Check,
   Link2,
@@ -70,9 +71,9 @@ export function levelTitle(level: number): MessageKey {
 
 function Bar({ value }: { value: number }) {
   return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
+    <div className="h-1.5 w-full overflow-hidden bg-[var(--line)]">
       <div
-        className="h-full rounded-full bg-gradient-to-r from-neon to-electric shadow-[0_0_12px_rgba(0,240,255,0.55)] transition-[width] duration-500"
+        className="h-full bg-[var(--info)] transition-[width] duration-500"
         style={{ width: `${Math.round(Math.min(1, Math.max(0, value)) * 100)}%` }}
       />
     </div>
@@ -316,29 +317,27 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   if (!signedIn) {
     return (
       <section className="relative px-4 pb-24 pt-32 sm:px-6 sm:pt-36">
-        <div className="mx-auto max-w-xl rounded-3xl border border-white/[0.09] bg-white/[0.025] p-7 text-center backdrop-blur-2xl sm:p-10">
-          <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-neon/25 bg-neon/[0.07] text-neon">
+        <div className="panel mx-auto max-w-xl p-7 text-center sm:p-10">
+          <span className="mx-auto grid h-11 w-11 place-items-center border border-[var(--accent)] text-[var(--accent)]">
             <ShieldCheck className="h-5 w-5" />
           </span>
-          <p className="mt-5 font-mono text-[8.5px] uppercase tracking-[0.22em] text-neon/60">
-            {t("account.kicker")}
-          </p>
-          <h1 className="mt-2 font-display text-[26px] font-medium leading-tight tracking-[-0.03em] text-white sm:text-[32px]">
+          <p className="mt-5 section-kicker">{t("account.kicker")}</p>
+          <h1 className="mt-2 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.04em] text-[var(--ink)] sm:text-[2.1rem]">
             {t("account.signedOutTitle")}
           </h1>
-          <p className="mx-auto mt-3 max-w-sm text-[12.5px] leading-relaxed text-white/45">
+          <p className="mx-auto mt-3 max-w-sm text-[0.78rem] leading-relaxed text-[var(--muted)]">
             {t("account.signedOutBody")}
           </p>
           <button
             type="button"
             onClick={status === "loading" ? undefined : onAuth}
             disabled={status === "loading"}
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-neon to-electric px-5 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_12px_34px_-12px_rgba(0,240,255,0.85)] transition-opacity disabled:opacity-60"
+            className="btn btn-primary mt-6 disabled:opacity-60"
           >
             {status === "loading" ? (
               <Loader className="h-4 w-4 animate-spin" />
             ) : (
-              <Sparkles className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" />
             )}
             {t("account.signIn")}
           </button>
@@ -347,7 +346,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
             onClick={() => {
               if (status !== "loading") signIn();
             }}
-            className="mt-2 block w-full text-[10.5px] text-white/30 transition-colors hover:text-neon/70"
+            className="mt-2 block w-full text-[0.66rem] text-[var(--faint)] transition-colors hover:text-[var(--accent)]"
           >
             {t("auth.discordCta")}
           </button>
@@ -359,34 +358,27 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   return (
     <section className="relative px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
       <div className="mx-auto max-w-5xl">
-        <div className="flex items-center gap-2.5">
-          <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-          <span className="section-kicker text-neon/70">{t("account.kicker")}</span>
-        </div>
-        <h1 className="mt-4 max-w-2xl font-display text-[30px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[40px]">
+        <span className="section-kicker">{t("account.kicker")}</span>
+        <h1 className="section-title">
           {t("account.titleLead")}
-          <span className="bg-gradient-to-r from-white via-[#B9F8FF] to-[#5F91FF] bg-clip-text text-transparent">
-            {t("account.titleHighlight")}
-          </span>
+          <span className="text-accent">{t("account.titleHighlight")}</span>
         </h1>
-        <p className="mt-3 max-w-xl text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-          {t("account.description")}
-        </p>
+        <p className="section-lead">{t("account.description")}</p>
 
         {loading && !profile && (
-          <div className="mt-10 flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.02] px-5 py-6 text-[12px] text-white/45">
-            <Loader className="h-4 w-4 animate-spin text-neon/70" />
+          <div className="panel mt-10 flex items-center gap-3 px-5 py-6 text-[0.76rem] text-[var(--muted)]">
+            <Loader className="h-4 w-4 animate-spin text-[var(--info)]" />
             {t("account.loading")}
           </div>
         )}
 
         {failed && !profile && (
-          <div className="mt-10 rounded-2xl border border-blood/35 bg-blood-deep/25 px-5 py-6">
-            <p className="text-[12px] text-[#ffb3b3]">{t("account.loadFailed")}</p>
+          <div className="mt-10 border border-[var(--accent)] bg-[var(--accent-soft)] px-5 py-6">
+            <p className="text-[0.76rem] text-[var(--accent)]">{t("account.loadFailed")}</p>
             <button
               type="button"
               onClick={() => void load()}
-              className="mt-3 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-[11px] text-white/70 transition-colors hover:border-neon/30 hover:text-white"
+              className="btn btn-secondary btn-sm mt-3"
             >
               {t("auth.retry")}
             </button>
@@ -395,12 +387,12 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
         {profile && (
           <>
-            <div className="mt-8 overflow-hidden rounded-3xl border border-white/[0.09] bg-[linear-gradient(135deg,rgba(0,240,255,0.07),rgba(255,255,255,0.02)_45%,rgba(0,102,255,0.06))] backdrop-blur-2xl">
+            <div className="profile-panel mt-8">
               <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:p-7">
                 <UserAvatar user={profile.user} className="h-16 w-16 text-[20px]" />
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="truncate font-display text-[22px] font-medium tracking-[-0.02em] text-white sm:text-[26px]">
+                    <h2 className="truncate font-display text-[1.45rem] font-bold tracking-[-0.04em] text-[var(--ink)] sm:text-[1.7rem]">
                       {profile.user.displayName}
                     </h2>
                     <VerifiedMark
@@ -409,7 +401,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       className="h-5 w-5"
                     />
                   </div>
-                  <p className="mt-0.5 truncate font-mono text-[10.5px] text-white/35">
+                  <p className="mt-0.5 truncate font-mono text-[0.62rem] text-[var(--muted)]">
                     @{profile.user.username} · {t("account.joined", {
                       time: timeAgo(profile.user.createdAt, locale),
                     })}
@@ -417,18 +409,18 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                   <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
                     <span
                       className={cn(
-                        "rounded-full border px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
+                        "border px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em]",
                         profile.user.role === "admin"
-                          ? "border-[#8B0000]/50 bg-[#4A0000]/45 text-[#ffb3b3]"
-                          : "border-white/[0.1] bg-white/[0.04] text-white/45",
+                          ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                          : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)]",
                       )}
                     >
                       {profile.user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
                     </span>
-                    <span className="rounded-full border border-neon/25 bg-neon/[0.07] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-neon/80">
+                    <span className="border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
                       {t("account.level", { level: profile.level })}
                     </span>
-                    <span className="rounded-full border border-white/[0.1] bg-white/[0.03] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/45">
+                    <span className="border border-[var(--line)] bg-[var(--surface-2)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--muted)]">
                       {t("account.xp", { xp: profile.xp })}
                     </span>
                   </div>
@@ -437,7 +429,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       <button
                         type="button"
                         onClick={() => void shareProfile()}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors hover:border-neon/45 hover:text-neon"
+                        className="btn btn-secondary btn-sm text-[var(--accent)]"
                       >
                         <Share2 className="h-3 w-3" />
                         {t("profile.share")}
@@ -445,7 +437,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       <button
                         type="button"
                         onClick={startEditing}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.1] bg-white/[0.03] px-2.5 py-1.5 text-[10.5px] font-medium text-white/55 transition-colors hover:border-neon/30 hover:text-white"
+                        className="btn btn-secondary btn-sm"
                       >
                         <Pencil className="h-3 w-3" />
                         {t("profile.edit")}
@@ -454,16 +446,16 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                   )}
                 </div>
                 <div className="w-full sm:w-56">
-                  <div className="flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/35">
+                  <div className="flex items-center justify-between font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
                     <span>{t(levelTitle(profile.level))}</span>
-                    <span className="text-neon/70">
+                    <span className="text-[var(--accent)]">
                       {t("account.level", { level: profile.level })}
                     </span>
                   </div>
                   <div className="mt-2">
                     <Bar value={profile.levelProgress} />
                   </div>
-                  <p className="mt-2 font-mono text-[9px] text-white/30">
+                  <p className="mt-2 font-mono text-[0.58rem] text-[var(--faint)]">
                     {profile.nextLevelXp === null
                       ? t("account.maxLevel")
                       : t("account.nextLevel", {
@@ -478,7 +470,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                 {editing ? (
                   <div className="space-y-3">
                     <div>
-                      <label className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                      <label className="field-label">
                         {t("profile.bioLabel")}
                       </label>
                       <textarea
@@ -487,15 +479,15 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         rows={3}
                         maxLength={180}
                         placeholder={t("profile.bioPlaceholder")}
-                        className="mt-1.5 w-full resize-y rounded-xl border border-white/[0.08] bg-black/25 px-3 py-2.5 text-[12px] leading-relaxed text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                        className="field mt-1.5 min-h-[86px] resize-y"
                       />
-                      <p className="mt-1 text-right font-mono text-[8px] text-white/20">
+                      <p className="mt-1 text-right font-mono text-[0.55rem] text-[var(--faint)]">
                         {draftBio.length}/180
                       </p>
                     </div>
                     <div>
                       <div className="flex flex-wrap items-center justify-between gap-2">
-                        <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                        <p className="field-label">
                           {t("profile.linksTitle")}
                         </p>
                         {draftLinks.length < 3 && (
@@ -504,7 +496,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                             onClick={() =>
                               setDraftLinks((previous) => [...previous, { label: "", url: "" }])
                             }
-                            className="inline-flex items-center gap-1 text-[10px] text-neon/70 transition-colors hover:text-neon"
+                            className="inline-flex items-center gap-1 text-[0.62rem] font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent-strong)]"
                           >
                             <Plus className="h-3 w-3" />
                             {t("profile.addLink")}
@@ -524,7 +516,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                               }
                               placeholder={t("profile.linkLabel")}
                               aria-label={t("profile.linkLabel")}
-                              className="rounded-lg border border-white/[0.08] bg-black/25 px-2.5 py-2 text-[11px] text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                              className="field"
                             />
                             <input
                               value={link.url}
@@ -534,7 +526,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                               placeholder="https://"
                               aria-label={t("profile.linkUrl")}
                               inputMode="url"
-                              className="rounded-lg border border-white/[0.08] bg-black/25 px-2.5 py-2 text-[11px] text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+                              className="field"
                             />
                             <button
                               type="button"
@@ -544,7 +536,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                                 )
                               }
                               aria-label={t("profile.removeLink")}
-                              className="grid h-9 w-9 place-items-center rounded-lg border border-white/[0.08] text-white/30 transition-colors hover:border-blood/40 hover:text-[#ff9d9d]"
+                              className="icon-btn h-9 w-9 hover:border-[var(--accent)] hover:text-[var(--accent)]"
                             >
                               <X className="h-3.5 w-3.5" />
                             </button>
@@ -557,7 +549,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         type="button"
                         onClick={() => void saveProfile()}
                         disabled={saving}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-neon to-electric px-3 py-2 text-[10.5px] font-semibold text-[#02070a] transition-opacity disabled:opacity-50"
+                        className="btn btn-primary btn-sm disabled:opacity-50"
                       >
                         {saving ? <Loader className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
                         {saving ? t("profile.saving") : t("profile.save")}
@@ -566,7 +558,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         type="button"
                         onClick={() => setEditing(false)}
                         disabled={saving}
-                        className="rounded-lg border border-white/[0.1] bg-white/[0.03] px-3 py-2 text-[10.5px] font-medium text-white/55 transition-colors hover:border-white/25 hover:text-white disabled:opacity-50"
+                        className="btn btn-secondary btn-sm disabled:opacity-50"
                       >
                         {t("profile.cancel")}
                       </button>
@@ -574,10 +566,10 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                   </div>
                 ) : (
                   <>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-neon/55">
+                    <p className="field-label text-[var(--accent)]">
                       {t("profile.about")}
                     </p>
-                    <p className="mt-2 whitespace-pre-wrap text-[12px] leading-relaxed text-white/55">
+                    <p className="mt-2 whitespace-pre-wrap text-[0.78rem] leading-relaxed text-[var(--ink-soft)]">
                       {profile.user.bio?.trim() || t("profile.bioEmpty")}
                     </p>
                     {profileLinks.length > 0 && (
@@ -588,7 +580,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[10.5px] text-white/55 transition-colors hover:border-neon/30 hover:text-neon"
+                            className="inline-flex items-center gap-1.5 border border-[var(--line)] bg-[var(--surface-2)] px-2.5 py-1.5 text-[0.62rem] text-[var(--muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                           >
                             <Link2 className="h-3 w-3" />
                             {link.label || link.url}
@@ -600,7 +592,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-px border-t border-white/[0.07] bg-white/[0.06] sm:grid-cols-5">
+              <div className="grid grid-cols-2 gap-px border-t border-[var(--line)] bg-[var(--line)] sm:grid-cols-5">
                 {[
                   { label: "account.statScripts", value: stats?.scripts ?? 0 },
                   { label: "account.statComments", value: stats?.comments ?? 0 },
@@ -608,11 +600,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                   { label: "account.statDislikes", value: stats?.dislikesGiven ?? 0 },
                   { label: "account.statLikesReceived", value: stats?.likesReceived ?? 0 },
                 ].map((item) => (
-                  <div key={item.label} className="bg-[#050a11]/85 px-4 py-4">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+                  <div key={item.label} className="bg-[var(--surface)] px-4 py-4">
+                    <p className="font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
                       {t(item.label as MessageKey)}
                     </p>
-                    <p className="mt-1 font-display text-[20px] font-medium text-white/85">
+                    <p className="mt-1 font-display text-[1.35rem] font-bold text-[var(--ink)]">
                       {item.value}
                     </p>
                   </div>
@@ -621,22 +613,22 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
             </div>
 
             <div className="mt-4 grid gap-4 lg:grid-cols-2">
-              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 backdrop-blur-xl">
+              <div className="panel p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-neon/60">
+                    <p className="field-label text-[var(--accent)]">
                       {t("card.verifiedCommunity")}
                     </p>
-                    <h3 className="mt-2 font-display text-[18px] font-medium text-white/90">
+                    <h3 className="mt-2 font-display text-[1.15rem] font-bold text-[var(--ink)]">
                       {t("account.verifyTitle")}
                     </h3>
                   </div>
                   <span
                     className={cn(
-                      "shrink-0 rounded-full border px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.12em]",
+                      "shrink-0 border px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.05em]",
                       profile.verification.met
-                        ? "border-neon/35 bg-neon/[0.1] text-neon"
-                        : "border-white/[0.1] bg-white/[0.04] text-white/40",
+                        ? "border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]"
+                        : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--faint)]",
                     )}
                   >
                     {profile.verification.met
@@ -644,7 +636,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       : t("account.verifyPending")}
                   </span>
                 </div>
-                <p className="mt-2 text-[11.5px] leading-relaxed text-white/40">
+                <p className="mt-2 text-[0.7rem] leading-relaxed text-[var(--muted)]">
                   {t("account.verifyDescription")}
                 </p>
 
@@ -654,19 +646,19 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                     const done = row.data.current >= row.data.required;
                     return (
                       <div key={row.key}>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="flex items-center gap-1.5 text-white/60">
+                        <div className="flex items-center justify-between text-[0.7rem]">
+                          <span className="flex items-center gap-1.5 text-[var(--ink-soft)]">
                             {done ? (
-                              <Check className="h-3 w-3 text-neon" strokeWidth={2.6} />
+                              <Check className="h-3 w-3 text-[var(--info)]" strokeWidth={2.6} />
                             ) : (
-                              <Lock className="h-3 w-3 text-white/25" />
+                              <Lock className="h-3 w-3 text-[var(--faint)]" />
                             )}
                             {t(row.key)}
                           </span>
                           <span
                             className={cn(
-                              "font-mono text-[9.5px]",
-                              done ? "text-neon/80" : "text-white/35",
+                              "font-mono text-[0.58rem]",
+                              done ? "text-[var(--info)]" : "text-[var(--faint)]",
                             )}
                           >
                             {t("account.progress", {
@@ -684,11 +676,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 backdrop-blur-xl">
-                <h3 className="font-display text-[18px] font-medium text-white/90">
+              <div className="panel p-5">
+                <h3 className="font-display text-[1.15rem] font-bold text-[var(--ink)]">
                   {t("account.achievementsTitle")}
                 </h3>
-                <p className="mt-1.5 text-[11.5px] text-white/40">
+                <p className="mt-1.5 text-[0.7rem] text-[var(--muted)]">
                   {t("account.achievementsDescription")}
                 </p>
 
@@ -701,8 +693,8 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         className={cn(
                           "rounded-xl border p-3 transition-colors",
                           achievement.unlocked
-                            ? "achievement-card--unlocked border-neon/20 bg-neon/[0.05]"
-                            : "border-white/[0.06] bg-black/20",
+                            ? "achievement-card--unlocked border-[var(--accent)] bg-[var(--accent-soft)]"
+                            : "border-[var(--line)] bg-[var(--surface-2)]",
                         )}
                         style={
                           achievement.unlocked
@@ -715,8 +707,8 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                             className={cn(
                               "grid h-7 w-7 shrink-0 place-items-center rounded-lg border",
                               achievement.unlocked
-                                ? "border-neon/30 bg-neon/[0.1] text-neon"
-                                : "border-white/[0.08] bg-white/[0.02] text-white/25",
+                                ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                                : "border-[var(--line)] bg-[var(--surface)] text-[var(--faint)]",
                             )}
                           >
                             <Icon className="h-3.5 w-3.5" />
@@ -725,7 +717,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                             <p
                               className={cn(
                                 "truncate text-[11.5px] font-medium",
-                                achievement.unlocked ? "text-white/85" : "text-white/45",
+                                achievement.unlocked ? "text-[var(--ink)]" : "text-[var(--muted)]",
                               )}
                             >
                               {t(`achievement.${achievement.id}.title` as MessageKey)}
@@ -736,7 +728,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                           </div>
                         </div>
                         <div className="mt-2 flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.12em]">
-                          <span className={achievement.unlocked ? "text-neon/70" : "text-white/20"}>
+                          <span className={achievement.unlocked ? "text-[var(--accent)]" : "text-[var(--faint)]"}>
                             {achievement.unlocked ? t("account.unlocked") : t("account.locked")}
                           </span>
                           <span className="text-white/25">
@@ -752,32 +744,32 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
             </div>
 
             {admin && (
-              <div className="mt-4 rounded-2xl border border-[#8B0000]/25 bg-[#2a0606]/20 p-5 backdrop-blur-xl">
+              <div className="mt-4 border border-[var(--accent)] bg-[var(--accent-soft)] p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div>
-                    <h3 className="font-display text-[18px] font-medium text-white/90">
+                    <h3 className="font-display text-[1.15rem] font-bold text-[var(--ink)]">
                       {t("account.adminTitle")}
                     </h3>
-                    <p className="mt-1 text-[11.5px] text-white/40">
+                    <p className="mt-1 text-[0.7rem] text-[var(--muted)]">
                       {t("account.adminDescription")}
                     </p>
                   </div>
                   {adminLoading && <Loader className="h-4 w-4 animate-spin text-white/30" />}
                 </div>
 
-                <div className="mt-3.5 flex items-center gap-2 rounded-xl border border-white/[0.08] bg-black/30 px-3 py-2">
-                  <Search className="h-3.5 w-3.5 shrink-0 text-white/30" />
+                <div className="mt-3.5 flex items-center gap-2 border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2">
+                  <Search className="h-3.5 w-3.5 shrink-0 text-[var(--faint)]" />
                   <input
                     value={adminQuery}
                     onChange={(event) => setAdminQuery(event.target.value.slice(0, 60))}
                     placeholder={t("account.searchPlaceholder")}
-                    className="w-full bg-transparent text-[12px] text-white/80 placeholder:text-white/25 focus:outline-none"
+                    className="w-full bg-transparent text-[0.76rem] text-[var(--ink)] placeholder:text-[var(--faint)] focus:outline-none"
                   />
                 </div>
 
                 <ul className="mt-3 space-y-2">
                   {adminUsers.length === 0 ? (
-                    <li className="py-3 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/25">
+                    <li className="py-3 text-center font-mono text-[0.58rem] uppercase tracking-[0.06em] text-[var(--faint)]">
                       {t("account.noUsers")}
                     </li>
                   ) : (
@@ -787,11 +779,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                       return (
                         <li
                           key={row.id}
-                          className="flex flex-wrap items-center gap-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5"
+                          className="flex flex-wrap items-center gap-2.5 border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2.5"
                         >
                           <UserAvatar user={row} className="h-8 w-8" />
                           <div className="min-w-0 flex-1">
-                            <p className="flex items-center gap-1.5 truncate text-[11.5px] font-medium text-white/80">
+                            <p className="flex items-center gap-1.5 truncate text-[0.72rem] font-semibold text-[var(--ink)]">
                               {row.displayName}
                               <VerifiedMark
                                 role={row.role}
@@ -799,16 +791,16 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                                 className="h-3 w-3"
                               />
                             </p>
-                            <p className="truncate font-mono text-[8.5px] text-white/30">
+                            <p className="truncate font-mono text-[0.55rem] text-[var(--faint)]">
                               @{row.username} · {t("account.level", { level: row.level })}
                             </p>
                           </div>
                           <span
                             className={cn(
-                              "rounded-full border px-2 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.12em]",
+                              "border px-2 py-0.5 font-mono text-[0.52rem] uppercase tracking-[0.05em]",
                               row.role === "admin"
-                                ? "border-[#8B0000]/50 bg-[#4A0000]/45 text-[#ffb3b3]"
-                                : "border-white/[0.1] bg-white/[0.04] text-white/40",
+                                ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                                : "border-[var(--line)] bg-[var(--surface)] text-[var(--muted)]",
                             )}
                           >
                             {row.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
@@ -818,10 +810,10 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                             onClick={() => void toggleRole(row)}
                             disabled={self || busyRow}
                             className={cn(
-                              "rounded-lg border px-2.5 py-1.5 text-[10px] font-medium transition-colors disabled:opacity-40",
+                              "border px-2.5 py-1.5 text-[0.62rem] font-semibold transition-colors disabled:opacity-40",
                               row.role === "admin"
-                                ? "border-white/[0.1] bg-white/[0.03] text-white/55 hover:border-white/25 hover:text-white"
-                                : "border-neon/25 bg-neon/[0.07] text-neon/85 hover:border-neon/45 hover:text-neon",
+                                ? "border-[var(--line)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]"
+                                : "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white",
                             )}
                           >
                             {busyRow
@@ -847,20 +839,20 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
         <div
           role="status"
           aria-live="polite"
-          className="achievement-toast fixed left-1/2 top-24 z-[95] w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 rounded-2xl border border-neon/30 bg-[#060b13]/97 p-3.5 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.95),0_0_60px_-28px_rgba(0,240,255,0.8)] backdrop-blur-2xl"
+          className="achievement-toast toast-card fixed left-1/2 top-24 z-[95] w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 border-l-[var(--accent)] p-3.5"
         >
           <div className="flex items-start gap-3">
-            <span className="achievement-toast__icon grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-neon/35 bg-neon/[0.12] text-neon">
+            <span className="achievement-toast__icon grid h-10 w-10 shrink-0 place-items-center border border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]">
               <UnlockIcon className="h-5 w-5" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-neon/65">
+              <p className="field-label text-[var(--accent)]">
                 {t("account.achievementUnlocked")}
               </p>
-              <p className="mt-1 truncate text-[12.5px] font-medium text-white/90">
+              <p className="mt-1 truncate text-[0.8rem] font-semibold text-[var(--ink)]">
                 {t(`achievement.${unlockToast.id}.title` as MessageKey)}
               </p>
-              <p className="mt-0.5 line-clamp-2 text-[10px] leading-snug text-white/40">
+              <p className="mt-0.5 line-clamp-2 text-[0.66rem] leading-snug text-[var(--muted)]">
                 {t(`achievement.${unlockToast.id}.desc` as MessageKey)}
               </p>
             </div>
@@ -868,12 +860,12 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
               type="button"
               onClick={() => setUnlockQueue((queue) => queue.slice(1))}
               aria-label={t("toast.dismiss")}
-              className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-white/25 transition-colors hover:bg-white/[0.06] hover:text-white/75"
+              className="grid h-6 w-6 shrink-0 place-items-center text-[var(--faint)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
             >
               <X className="h-3 w-3" />
             </button>
           </div>
-          <span aria-hidden="true" className="achievement-toast__bar mt-3 block h-px w-full bg-gradient-to-r from-transparent via-neon/70 to-transparent" />
+          <span aria-hidden="true" className="achievement-toast__bar mt-3 block h-px w-full bg-[var(--accent)]" />
         </div>
       )}
     </section>

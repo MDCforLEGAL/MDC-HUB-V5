@@ -60,7 +60,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
 
   return (
     <div
-      className="fade-in fixed inset-0 z-[70] flex items-end justify-center bg-[#02040a]/80 p-0 backdrop-blur-md sm:items-center sm:p-6"
+      className="modal-overlay fade-in fixed inset-0 z-[70] flex items-end justify-center p-0 sm:items-center sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -71,13 +71,13 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
         aria-modal="true"
         aria-labelledby={`script-title-${script.id}`}
         tabIndex={-1}
-        className="modal-in relative flex max-h-[92svh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95),0_0_80px_-50px_rgba(0,240,255,0.5)] backdrop-blur-2xl outline-none sm:max-h-[88vh] sm:rounded-3xl"
+        className="modal-panel modal-in relative flex max-h-[92svh] w-full max-w-3xl flex-col overflow-hidden outline-none sm:max-h-[88vh]"
       >
         <span
           aria-hidden="true"
           className={cn(
-            "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent",
-            script.status === "working" ? "via-neon/60" : "via-blood/80",
+            "absolute inset-x-0 top-0 h-px",
+            script.status === "working" ? "bg-[var(--info)]" : "bg-[var(--accent)]",
           )}
         />
 
@@ -94,17 +94,12 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
           <div className="p-5 pr-14 sm:p-7 sm:pr-16">
             <div className="flex items-center gap-3">
               <span
-                className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
-                style={{
-                  borderColor: `${script.colors[0]}38`,
-                  backgroundImage: `linear-gradient(145deg, ${script.colors[0]}26, ${script.colors[1]}0f 58%, transparent)`,
-                }}
+                className={cn(
+                  "relative grid h-12 w-12 shrink-0 place-items-center border border-[var(--line)] bg-[var(--surface-2)]",
+                  script.status === "working" ? "text-[var(--info)]" : "text-[var(--accent)]",
+                )}
               >
-                <GameGlyph
-                  name={script.glyph}
-                  className="h-6 w-6"
-                  style={{ color: script.colors[0] }}
-                />
+                <GameGlyph name={script.glyph} className="h-6 w-6" />
               </span>
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
@@ -117,7 +112,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
                   <StatusBadge status={script.status} />
                   {script.premium && (
-                    <span className="rounded-full border border-blood/45 bg-blood-deep/70 px-2 py-1 font-mono text-[8.5px] uppercase tracking-[0.14em] text-[#ffa8a8]">
+                    <span className="border border-[var(--accent)] bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.05em] text-[var(--accent)]">
                       {t("modal.premium")}
                     </span>
                   )}
@@ -133,7 +128,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
             </h2>
 
             <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-              <span className="grid h-4 w-4 place-items-center rounded-full border border-white/10 bg-gradient-to-br from-white/20 to-white/[0.04] text-[7.5px] font-semibold uppercase text-white/65">
+              <span className="grid h-4 w-4 place-items-center border border-[var(--line)] bg-[var(--surface-2)] text-[0.5rem] font-semibold uppercase text-[var(--muted)]">
                 {script.author.charAt(0)}
               </span>
               <span className="text-white/45">@{script.author}</span>
@@ -212,7 +207,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
                   href={script.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/source ml-auto inline-flex items-center gap-1.5 rounded-md border border-neon/20 bg-neon/[0.05] px-2 py-1 text-[10px] font-medium text-neon/80 transition-colors duration-300 hover:border-neon/40 hover:bg-neon/[0.1] hover:text-neon"
+                  className="group/source ml-auto inline-flex items-center gap-1.5 border border-[var(--info)] bg-[var(--info-soft)] px-2 py-1 text-[0.62rem] font-medium text-[var(--info)] transition-colors hover:bg-[var(--info)] hover:text-white"
                 >
                   {t("modal.openSource", { source: script.sourceLabel ?? "Source" })}
                   <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/source:-translate-y-0.5 group-hover/source:translate-x-0.5" />
@@ -240,22 +235,22 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
             )}
 
             {isExternal && (
-              <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-[#f3ad6b]/25 bg-[#f3ad6b]/[0.06] px-3.5 py-3">
-                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#f3ad6b]" />
-                <p className="text-[11px] leading-relaxed text-[#f8d6a8]/75">
-                  <span className="font-medium text-[#f8d6a8]">{t("modal.thirdPartyTitle")}</span>{" "}
+              <div className="mt-4 flex items-start gap-2.5 border border-[var(--info)] bg-[var(--info-soft)] px-3.5 py-3">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[var(--info)]" />
+                <p className="text-[0.7rem] leading-relaxed text-[var(--ink-soft)]">
+                  <span className="font-semibold text-[var(--info)]">{t("modal.thirdPartyTitle")}</span>{" "}
                   {t("modal.thirdPartyBody", { source: script.sourceLabel ?? "Source" })}
                 </p>
               </div>
             )}
 
-            <div data-keep-dark className="mt-6 overflow-hidden rounded-xl border border-white/[0.08] bg-[#04080e]/70">
+            <div data-keep-dark className="code-window mt-6">
               <div className="flex items-center justify-between border-b border-white/[0.06] px-3.5 py-2 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/25">
                 <span className="flex items-center gap-2">
                   <span className="flex gap-1" aria-hidden="true">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5f57]/60" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]/60" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]/60" />
+                    <span className="h-1.5 w-1.5 bg-[#d0263a]" />
+                    <span className="h-1.5 w-1.5 bg-[#3b3e45]" />
+                    <span className="h-1.5 w-1.5 bg-[#5c8fc8]" />
                   </span>
                   {codeName}
                 </span>
@@ -274,15 +269,13 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 border-t border-white/[0.07] bg-white/[0.02] p-4 backdrop-blur-xl sm:px-6">
+        <div className="flex items-center gap-2 border-t border-[var(--line)] bg-[var(--surface-2)] p-4 sm:px-6">
           <button
             type="button"
             onClick={() => void copy(script.code)}
             className={cn(
-              "group inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-[12px] font-semibold transition-all duration-300 sm:flex-none",
-              copied
-                ? "border border-neon/40 bg-neon/[0.12] text-neon"
-                : "bg-gradient-to-r from-neon to-electric text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.9)]",
+              "btn flex-1 sm:flex-none",
+              copied ? "btn-secondary text-[var(--info)]" : "btn-primary",
             )}
           >
             {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
@@ -291,12 +284,12 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/55 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white sm:flex-none"
+            className="btn btn-secondary flex-1 sm:flex-none"
           >
             {t("modal.close")}
           </button>
-          <span className="ml-auto hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/20 sm:flex">
-            <span className="h-1 w-1 rounded-full bg-neon/60" />
+          <span className="ml-auto hidden items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)] sm:flex">
+            <span className="h-1 w-1 bg-[var(--info)]" />
             {isExternal
               ? t("modal.sourceBadge", { source: script.sourceLabel ?? "Source" })
               : t("modal.mdcVerified")}

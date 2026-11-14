@@ -62,15 +62,15 @@ const BUILTINS = new Set([
 ]);
 
 const STYLES = {
-  comment: "text-[#4c6478] italic",
-  string: "text-[#79e8c9]",
-  number: "text-[#f3ad6b]",
-  keyword: "text-[#5b9dff]",
-  builtin: "text-[#22dff0]",
-  fn: "text-[#c7b3ff]",
-  constant: "text-[#9ed8ff]",
-  punct: "text-[#647d93]",
-  plain: "text-[#c4d2e2]",
+  comment: "text-[#7b828c] italic",
+  string: "text-[#d8b4b4]",
+  number: "text-[#e0a58f]",
+  keyword: "text-[#7ea6d8]",
+  builtin: "text-[#b8c7d8]",
+  fn: "text-[#e2e8f0]",
+  constant: "text-[#e08d9a]",
+  punct: "text-[#8b949e]",
+  plain: "text-[#c9d1d9]",
 } as const;
 
 export function highlightLua(line: string): ReactNode[] {

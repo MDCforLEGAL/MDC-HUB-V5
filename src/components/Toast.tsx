@@ -14,17 +14,17 @@ export function Toast({ message, onClose }: ToastProps) {
       <div
         role="status"
         aria-live="polite"
-        className="toast-in pointer-events-auto flex max-w-[92vw] items-center gap-2.5 rounded-xl border border-neon/25 bg-[#060d15]/95 py-2.5 pl-3 pr-2 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9),0_0_40px_-16px_rgba(0,240,255,0.6)] backdrop-blur-2xl"
+        className="toast-in toast-card pointer-events-auto flex max-w-[92vw] items-center gap-2.5 py-2.5 pl-3 pr-2"
       >
-        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-neon/30 bg-neon/[0.1] text-neon">
+        <span className="grid h-6 w-6 shrink-0 place-items-center border border-[var(--info)] text-[var(--info)]">
           <Check className="h-3 w-3" strokeWidth={2.4} />
         </span>
-        <p className="text-[11.5px] text-white/75">{message}</p>
+        <p className="text-[0.72rem] text-[var(--ink-soft)]">{message}</p>
         <button
           type="button"
           onClick={onClose}
           aria-label={t("toast.dismiss")}
-          className="ml-1 grid h-6 w-6 shrink-0 place-items-center rounded-md text-white/25 transition-colors hover:bg-white/[0.06] hover:text-white/70"
+          className="ml-1 grid h-6 w-6 shrink-0 place-items-center text-[var(--faint)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
         >
           <X className="h-3 w-3" />
         </button>

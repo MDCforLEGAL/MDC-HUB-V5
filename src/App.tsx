@@ -27,22 +27,6 @@ interface ToastState {
   message: string;
 }
 
-function Atmosphere() {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-    >
-      <div className="atmosphere-base absolute inset-0 bg-[#04060a]" />
-      <div className="atmosphere-glow animate-float-slow absolute -left-40 top-[-16%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(0,240,255,0.15),transparent_66%)] blur-3xl" />
-      <div className="atmosphere-glow animate-float-slow absolute right-[-14%] top-[20%] h-[620px] w-[620px] rounded-full bg-[radial-gradient(circle,rgba(0,102,255,0.13),transparent_68%)] blur-3xl [animation-delay:-7s]" />
-      <div className="atmosphere-glow absolute bottom-[-18%] left-1/4 h-[460px] w-[680px] rounded-full bg-[radial-gradient(circle,rgba(139,0,0,0.12),transparent_72%)] blur-3xl" />
-      <div className="bg-grid absolute inset-0 opacity-70" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/30 to-transparent" />
-    </div>
-  );
-}
-
 export default function App() {
   const library = useScriptLibrary();
   const sourcePage = useSourcePage();
@@ -178,9 +162,7 @@ export default function App() {
   }, [toast]);
 
   return (
-    <div className="relative min-h-screen">
-      <Atmosphere />
-
+    <div className="site-shell relative min-h-screen">
       <Header onAuth={setAuthMode} onPublish={() => setPublishOpen(true)} />
 
       <main>

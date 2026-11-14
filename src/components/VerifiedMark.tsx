@@ -17,7 +17,7 @@ export function VerifiedMark({ role, verified, className }: VerifiedMarkProps) {
     return (
       <BadgeCheck
         className={cn(
-          "shrink-0 text-[#ff5252] drop-shadow-[0_0_6px_rgba(255,50,50,0.45)]",
+          "shrink-0 text-[#d0263a]",
           className,
         )}
         aria-label={t("card.adminBadge")}
@@ -29,7 +29,7 @@ export function VerifiedMark({ role, verified, className }: VerifiedMarkProps) {
 
   return (
     <BadgeCheck
-      className={cn("shrink-0 text-neon/80", className)}
+      className={cn("shrink-0 text-[var(--accent)]", className)}
       aria-label={t("card.verifiedCommunity")}
     />
   );

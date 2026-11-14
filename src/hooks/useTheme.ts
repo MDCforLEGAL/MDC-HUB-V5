@@ -4,8 +4,8 @@ export type Theme = "dark" | "light";
 
 const THEME_KEY = "mdc-hub.theme";
 const THEME_COLORS: Record<Theme, string> = {
-  dark: "#04060a",
-  light: "#eef4fa",
+  dark: "#0a0a0b",
+  light: "#f3f1ec",
 };
 
 function readTheme(): Theme {

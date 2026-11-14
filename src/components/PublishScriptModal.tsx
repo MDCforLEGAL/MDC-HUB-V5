@@ -16,8 +16,7 @@ interface PublishScriptModalProps {
   onNotify: (message: string) => void;
 }
 
-const inputClass =
-  "w-full rounded-xl border border-white/[0.08] bg-black/30 px-3 py-2.5 text-[12px] text-white/85 placeholder:text-white/25 focus:border-neon/35 focus:outline-none";
+const inputClass = "field";
 
 export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishScriptModalProps) {
   const { t } = useI18n();
@@ -90,7 +89,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
 
   return (
     <div
-      className="fade-in fixed inset-0 z-[75] flex items-end justify-center bg-[#02040a]/80 p-0 backdrop-blur-md sm:items-center sm:p-6"
+      className="modal-overlay fade-in fixed inset-0 z-[75] flex items-end justify-center p-0 sm:items-center sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -102,37 +101,37 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
         aria-labelledby="publish-title"
         tabIndex={-1}
         onSubmit={submit}
-        className="modal-in relative flex max-h-[92svh] w-full max-w-2xl flex-col overflow-hidden rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95),0_0_80px_-50px_rgba(0,240,255,0.5)] backdrop-blur-2xl outline-none sm:max-h-[88vh] sm:rounded-3xl"
+        className="modal-panel modal-in relative flex max-h-[92svh] w-full max-w-2xl flex-col overflow-hidden outline-none sm:max-h-[88vh]"
       >
         <span
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/60 to-transparent"
+          className="absolute inset-x-0 top-0 h-px bg-[var(--accent)]"
         />
 
         <button
           type="button"
           onClick={onClose}
           aria-label={t("publish.cancel")}
-          className="absolute right-4 top-4 z-10 grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/40 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+          className="icon-btn absolute right-4 top-4 z-10"
         >
           <X className="h-3.5 w-3.5" />
         </button>
 
         <div className="code-scroll flex-1 overflow-y-auto p-5 pr-14 sm:p-7 sm:pr-16">
-          <p className="font-mono text-[8.5px] uppercase tracking-[0.22em] text-neon/70">
+          <p className="section-kicker">
             {t("publish.kicker")}
           </p>
           <h2
             id="publish-title"
-            className="mt-2 font-display text-[22px] font-medium tracking-[-0.02em] text-white sm:text-[26px]"
+            className="mt-2 font-display text-[1.45rem] font-bold tracking-[-0.04em] text-[var(--ink)] sm:text-[1.7rem]"
           >
             {t("publish.title")}
           </h2>
-          <p className="mt-2 text-[11.5px] leading-relaxed text-white/45">{t("publish.subtitle")}</p>
+          <p className="mt-2 text-[0.74rem] leading-relaxed text-[var(--muted)]">{t("publish.subtitle")}</p>
 
           {isAdmin ? (
             <div className="mt-4">
-              <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+              <span className="field-label mb-1.5">
                 {t("publish.sectionLabel")}
               </span>
               <div className="grid gap-2 sm:grid-cols-2">
@@ -141,16 +140,16 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
                   onClick={() => setSection("mdc")}
                   aria-pressed={section === "mdc"}
                   className={cn(
-                    "rounded-xl border px-3 py-2.5 text-left transition-all duration-300",
+                    "border px-3 py-2.5 text-left transition-colors",
                     section === "mdc"
-                      ? "border-neon/40 bg-neon/[0.1] shadow-[0_0_24px_-14px_rgba(0,240,255,0.8)]"
-                      : "border-white/[0.08] bg-white/[0.02] hover:border-white/20",
+                      ? "border-[var(--accent)] bg-[var(--accent-soft)]"
+                      : "border-[var(--line)] bg-[var(--surface-2)] hover:border-[var(--line-strong)]",
                   )}
                 >
                   <span
                     className={cn(
                       "block text-[11.5px] font-medium",
-                      section === "mdc" ? "text-neon" : "text-white/65",
+                      section === "mdc" ? "text-[var(--accent)]" : "text-[var(--ink-soft)]",
                     )}
                   >
                     {t("publish.sectionMdc")}
@@ -164,16 +163,16 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
                   onClick={() => setSection("community")}
                   aria-pressed={section === "community"}
                   className={cn(
-                    "rounded-xl border px-3 py-2.5 text-left transition-all duration-300",
+                    "border px-3 py-2.5 text-left transition-colors",
                     section === "community"
-                      ? "border-neon/40 bg-neon/[0.1] shadow-[0_0_24px_-14px_rgba(0,240,255,0.8)]"
-                      : "border-white/[0.08] bg-white/[0.02] hover:border-white/20",
+                      ? "border-[var(--accent)] bg-[var(--accent-soft)]"
+                      : "border-[var(--line)] bg-[var(--surface-2)] hover:border-[var(--line-strong)]",
                   )}
                 >
                   <span
                     className={cn(
                       "block text-[11.5px] font-medium",
-                      section === "community" ? "text-neon" : "text-white/65",
+                      section === "community" ? "text-[var(--accent)]" : "text-[var(--ink-soft)]",
                     )}
                   >
                     {t("publish.sectionCommunity")}
@@ -188,11 +187,11 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
               </p>
             </div>
           ) : (
-            <div className="mt-4 rounded-xl border border-neon/20 bg-neon/[0.05] px-3 py-2.5">
-              <p className="text-[11.5px] font-medium text-neon/85">
+            <div className="mt-4 border border-[var(--accent)] bg-[var(--accent-soft)] px-3 py-2.5">
+              <p className="text-[0.74rem] font-semibold text-[var(--accent)]">
                 {t("publish.sectionCommunity")}
               </p>
-              <p className="mt-0.5 text-[10px] leading-relaxed text-white/40">
+              <p className="mt-0.5 text-[0.66rem] leading-relaxed text-[var(--muted)]">
                 {t("publish.memberNote")}
               </p>
             </div>
@@ -200,7 +199,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             <label className="block">
-              <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+              <span className="field-label mb-1.5">
                 {t("publish.game")}
               </span>
               <input
@@ -212,7 +211,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+              <span className="field-label mb-1.5">
                 {t("publish.name")}
               </span>
               <input
@@ -226,7 +225,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           </div>
 
           <label className="mt-3 block">
-            <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+            <span className="field-label mb-1.5">
               {t("publish.description")}
             </span>
             <input
@@ -238,7 +237,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           </label>
 
           <label className="mt-3 block">
-            <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+            <span className="field-label mb-1.5">
               {t("publish.tagsField")}
             </span>
             <input
@@ -250,7 +249,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           </label>
 
           <label className="mt-3 block">
-            <span className="mb-1.5 block font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/30">
+            <span className="field-label mb-1.5">
               {t("publish.codeField")}
             </span>
             <textarea
@@ -259,14 +258,14 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
               rows={9}
               spellCheck={false}
               placeholder={'-- loadstring(game:HttpGet("..."))()'}
-              className="w-full resize-y rounded-xl border border-white/[0.08] bg-[#04080e]/80 px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-white/80 placeholder:text-white/20 focus:border-neon/35 focus:outline-none"
+              className="field resize-y font-mono"
             />
           </label>
 
-          <p className="mt-2 font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/20">
+          <p className="mt-2 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
             {t("publish.hint")}
           </p>
-          <p className="mt-1 font-mono text-[8.5px] uppercase tracking-[0.14em] text-neon/45">
+          <p className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--accent)]">
             {t("publish.verifiedHint", { count: 5 })}
           </p>
 
@@ -277,11 +276,11 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           )}
         </div>
 
-        <div className="flex items-center gap-2 border-t border-white/[0.07] bg-white/[0.02] p-4 backdrop-blur-xl sm:px-6">
+        <div className="flex items-center gap-2 border-t border-[var(--line)] bg-[var(--surface-2)] p-4 sm:px-6">
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon to-electric px-4 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-opacity duration-300 disabled:opacity-50 sm:flex-none"
+            className="btn btn-primary flex-1 disabled:opacity-50 sm:flex-none"
           >
             {busy && <Loader className="h-4 w-4 animate-spin" />}
             {busy ? t("publish.submitting") : t("publish.submit")}
@@ -289,7 +288,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/55 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white sm:flex-none"
+            className="btn btn-secondary flex-1 sm:flex-none"
           >
             {t("publish.cancel")}
           </button>

@@ -212,18 +212,18 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
   );
 
   return (
-    <div className="mt-6 rounded-xl border border-white/[0.08] bg-[#04080e]/70">
-      <div className="flex flex-wrap items-center gap-2 border-b border-white/[0.06] px-3.5 py-2.5">
+    <div className="mt-6 border border-[var(--line)] bg-[var(--surface)]">
+      <div className="flex flex-wrap items-center gap-2 border-b border-[var(--line)] px-3.5 py-2.5">
         <button
           type="button"
           onClick={() => void react(1)}
           aria-pressed={social.mine === 1}
           disabled={pending}
           className={cn(
-            "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[11px] font-medium transition-all duration-300 disabled:opacity-60",
+            "inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-[0.68rem] font-semibold transition-colors disabled:opacity-60",
             social.mine === 1
-              ? "border-neon/40 bg-neon/[0.12] text-neon"
-              : "border-white/[0.08] bg-white/[0.03] text-white/55 hover:border-neon/30 hover:text-white",
+              ? "border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]"
+              : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]",
           )}
         >
           <ThumbsUp className="h-3.5 w-3.5" />
@@ -239,10 +239,10 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
           aria-pressed={social.mine === -1}
           disabled={pending}
           className={cn(
-            "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[11px] font-medium transition-all duration-300 disabled:opacity-60",
+            "inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-[0.68rem] font-semibold transition-colors disabled:opacity-60",
             social.mine === -1
-              ? "border-blood/55 bg-blood-deep/60 text-[#ffb3b3]"
-              : "border-white/[0.08] bg-white/[0.03] text-white/55 hover:border-blood/40 hover:text-white",
+              ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+              : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]",
           )}
         >
           <ThumbsDown className="h-3.5 w-3.5" />
@@ -252,7 +252,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
           </span>
         </button>
 
-        <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/25">
+        <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
           <MessageCircle className="h-3 w-3" />
           {t("social.comments")}
           <span className="text-white/45">{social.comments}</span>
@@ -273,13 +273,13 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
             rows={2}
             maxLength={COMMENT_MAX}
             placeholder={t("social.commentPlaceholder")}
-            className="min-h-[42px] flex-1 resize-y rounded-lg border border-white/[0.08] bg-black/30 px-2.5 py-2 text-[11.5px] text-white/80 placeholder:text-white/25 focus:border-neon/35 focus:outline-none"
+            className="field min-h-[42px] flex-1 resize-y"
           />
           <button
             type="button"
             onClick={() => void submit()}
             disabled={sending || draft.trim().length === 0}
-            className="inline-flex h-[42px] shrink-0 items-center gap-1.5 rounded-lg bg-gradient-to-r from-neon to-electric px-3 text-[11px] font-semibold text-[#02070a] transition-opacity duration-300 disabled:opacity-40"
+            className="btn btn-primary btn-sm h-[42px] shrink-0 disabled:opacity-40"
           >
             {sending ? <Loader className="h-3.5 w-3.5 animate-spin" /> : <Send className="h-3.5 w-3.5" />}
             {t("social.commentSend")}
@@ -296,31 +296,31 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
               <div
                 key={comment.id}
                 className={cn(
-                  "flex items-start gap-2 rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-2",
-                  comment.hidden && "border-blood/25 bg-blood-deep/10 opacity-75",
+                  "flex items-start gap-2 border border-[var(--line)] bg-[var(--surface-2)] px-2.5 py-2",
+                  comment.hidden && "border-[var(--accent)] opacity-75",
                 )}
               >
-                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-white/10 bg-gradient-to-br from-white/20 to-white/[0.04] text-[9px] font-semibold uppercase text-white/65">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-[var(--line)] bg-[var(--surface-3)] text-[0.58rem] font-semibold uppercase text-[var(--ink-soft)]">
                   {comment.author.displayName.charAt(0)}
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px]">
-                    <span className="font-medium text-white/70">{comment.author.displayName}</span>
+                    <span className="font-semibold text-[var(--ink)]">{comment.author.displayName}</span>
                     <VerifiedMark
                       role={comment.author.role}
                       verified={comment.author.verified}
                       className="h-3 w-3"
                     />
-                    <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
+                    <span className="font-mono text-[0.52rem] uppercase tracking-[0.05em] text-[var(--faint)]">
                       {timeAgo(comment.createdAt, locale)}
                     </span>
                     {comment.hidden && (
-                      <span className="rounded border border-blood/30 bg-blood-deep/25 px-1.5 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.14em] text-[#ffb3b3]">
+                      <span className="border border-[var(--accent)] bg-[var(--accent-soft)] px-1.5 py-0.5 font-mono text-[0.5rem] uppercase tracking-[0.05em] text-[var(--accent)]">
                         {t("social.hidden")}
                       </span>
                     )}
                   </div>
-                  <p className="mt-1 whitespace-pre-wrap break-words text-[11.5px] leading-relaxed text-white/60">
+                  <p className="mt-1 whitespace-pre-wrap break-words text-[0.72rem] leading-relaxed text-[var(--ink-soft)]">
                     {comment.body}
                   </p>
                 </div>
@@ -330,7 +330,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
                       type="button"
                       onClick={() => void toggleVisibility(comment)}
                       disabled={moderating === comment.id}
-                      className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-[9.5px] text-white/35 transition-colors hover:text-neon disabled:opacity-40"
+                      className="inline-flex items-center gap-1 px-1.5 py-1 text-[0.58rem] text-[var(--faint)] transition-colors hover:text-[var(--accent)] disabled:opacity-40"
                     >
                       {comment.hidden ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
                       {comment.hidden ? t("social.unhide") : t("social.hide")}
@@ -340,7 +340,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
                     <button
                       type="button"
                       onClick={() => void remove(comment.id)}
-                      className="rounded-md px-1.5 py-1 text-[9.5px] text-white/30 transition-colors hover:text-[#ff9d9d]"
+                      className="px-1.5 py-1 text-[0.58rem] text-[var(--faint)] transition-colors hover:text-[var(--accent)]"
                     >
                       {t("social.delete")}
                     </button>

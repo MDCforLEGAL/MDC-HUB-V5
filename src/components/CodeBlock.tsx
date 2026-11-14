@@ -14,10 +14,10 @@ export function CodeBlock({ code, className }: CodeBlockProps) {
       <pre className="min-w-max py-4 font-mono text-[12px] leading-[23px] sm:text-[12.5px]">
         <code className="block">
           {lines.map((line, index) => (
-            <span key={index} className="flex px-4 hover:bg-white/[0.025]">
+            <span key={index} className="flex px-4 hover:bg-white/[0.03]">
               <span
                 aria-hidden="true"
-                className="w-9 shrink-0 select-none pr-4 text-right text-[11px] leading-[23px] text-white/18"
+                className="w-9 shrink-0 select-none pr-4 text-right text-[11px] leading-[23px] text-[#66707c]"
               >
                 {index + 1}
               </span>

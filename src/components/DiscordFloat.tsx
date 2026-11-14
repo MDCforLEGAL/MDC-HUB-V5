@@ -30,14 +30,14 @@ export function DiscordFloat() {
 
   return (
     <div className="fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
-      <div className="discord-float flex items-center rounded-full border border-neon/25 bg-[#060b13]/95 p-1 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.95),0_0_36px_-18px_rgba(0,240,255,0.7)] backdrop-blur-2xl">
+      <div className="discord-card flex items-center p-1">
         <a
           href={DISCORD_INVITE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-2 rounded-full py-2 pl-3 pr-3.5 text-[11px] font-medium text-white/75 transition-colors hover:text-white"
+          className="group flex items-center gap-2 py-2 pl-3 pr-3.5 text-[0.7rem] font-medium text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)]"
         >
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-neon/[0.1] text-neon transition-colors group-hover:bg-neon/[0.16]">
+          <span className="grid h-6 w-6 place-items-center bg-[var(--info-soft)] text-[var(--info)] transition-colors group-hover:bg-[var(--info)] group-hover:text-white">
             <Discord className="h-3.5 w-3.5" />
           </span>
           <span className="whitespace-nowrap">{t("social.joinDiscord")}</span>
@@ -47,7 +47,7 @@ export function DiscordFloat() {
           onClick={dismiss}
           aria-label={t("social.discordClose")}
           title={t("social.discordClose")}
-          className="mr-0.5 grid h-7 w-7 place-items-center rounded-full text-white/30 transition-colors hover:bg-white/[0.06] hover:text-white/80"
+          className="mr-0.5 grid h-7 w-7 place-items-center text-[var(--faint)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
         >
           <X className="h-3 w-3" />
         </button>

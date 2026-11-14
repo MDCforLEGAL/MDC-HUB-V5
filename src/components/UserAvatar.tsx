@@ -16,7 +16,7 @@ export function UserAvatar({ user, className }: UserAvatarProps) {
       <span
         aria-hidden="true"
         className={cn(
-          "grid shrink-0 place-items-center rounded-full border border-white/15 bg-gradient-to-br from-neon/25 to-electric/25 font-mono text-[10px] font-semibold text-white",
+          "grid shrink-0 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface-3)] font-mono text-[10px] font-semibold text-[var(--ink)]",
           className,
         )}
       >
@@ -34,7 +34,7 @@ export function UserAvatar({ user, className }: UserAvatarProps) {
       loading="lazy"
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}
-      className={cn("shrink-0 rounded-full border border-white/15 object-cover", className)}
+      className={cn("shrink-0 rounded-full border border-[var(--line)] object-cover", className)}
     />
   );
 }

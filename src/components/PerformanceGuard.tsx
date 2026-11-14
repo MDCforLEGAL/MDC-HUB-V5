@@ -91,20 +91,20 @@ export function PerformanceGuard({ onNotify }: PerformanceGuardProps) {
     <div
       role="dialog"
       aria-labelledby="performance-title"
-      className="fixed bottom-24 left-4 right-4 z-[80] rounded-2xl border border-neon/25 bg-[#060b13]/97 p-4 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.98),0_0_50px_-30px_rgba(0,240,255,0.65)] backdrop-blur-2xl sm:bottom-6 sm:left-6 sm:max-w-sm"
+      className="perf-panel fixed bottom-24 left-4 right-4 z-[80] p-4 sm:bottom-6 sm:left-6 sm:max-w-sm"
     >
       <div className="flex items-start gap-3">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-neon/25 bg-neon/[0.08] text-neon">
+        <span className="grid h-8 w-8 shrink-0 place-items-center border border-[var(--accent)] text-[var(--accent)]">
           <Gauge className="h-4 w-4" />
         </span>
         <div className="min-w-0 flex-1">
           <p
             id="performance-title"
-            className="font-display text-[14px] font-medium leading-snug text-white/90"
+            className="font-display text-[0.86rem] font-semibold leading-snug text-[var(--ink)]"
           >
             {t("performance.title")}
           </p>
-          <p className="mt-1 text-[11px] leading-relaxed text-white/45">
+          <p className="mt-1 text-[0.68rem] leading-relaxed text-[var(--muted)]">
             {t("performance.body")}
           </p>
         </div>
@@ -112,25 +112,17 @@ export function PerformanceGuard({ onNotify }: PerformanceGuardProps) {
           type="button"
           onClick={dismiss}
           aria-label={t("performance.dismiss")}
-          className="grid h-7 w-7 shrink-0 place-items-center rounded-lg text-white/30 transition-colors hover:bg-white/[0.06] hover:text-white/80"
+          className="grid h-7 w-7 shrink-0 place-items-center text-[var(--faint)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
         >
           <X className="h-3.5 w-3.5" />
         </button>
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={lowerGraphics}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-neon to-electric px-3 py-2 text-[10.5px] font-semibold text-[#02070a]"
-        >
+        <button type="button" onClick={lowerGraphics} className="btn btn-primary btn-sm">
           <Zap className="h-3 w-3" />
           {t("performance.accept")}
         </button>
-        <button
-          type="button"
-          onClick={dismiss}
-          className="rounded-lg border border-white/[0.1] bg-white/[0.03] px-3 py-2 text-[10.5px] font-medium text-white/55 transition-colors hover:border-white/25 hover:text-white"
-        >
+        <button type="button" onClick={dismiss} className="btn btn-secondary btn-sm">
           {t("performance.later")}
         </button>
       </div>

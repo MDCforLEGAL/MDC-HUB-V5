@@ -72,56 +72,40 @@ function AccountMenu() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={t("nav.account")}
-        className="flex items-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.035] py-1.5 pl-1.5 pr-2.5 text-[12px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white"
+        className="account-trigger"
       >
         <UserAvatar user={user} className="h-6 w-6" />
-        <span className="hidden max-w-[104px] truncate sm:block">{user.displayName}</span>
-        <VerifiedMark
-          role={user.role}
-          verified={user.verified}
-          className="h-3.5 w-3.5"
-        />
+        <span className="hidden max-w-[7rem] truncate text-[0.7rem] sm:block">
+          {user.displayName}
+        </span>
+        <VerifiedMark role={user.role} verified={user.verified} className="h-3.5 w-3.5" />
         <ChevronDown
-          className={cn("h-3 w-3 opacity-50 transition-transform duration-300", open && "rotate-180")}
+          className={cn("h-3 w-3 text-[var(--faint)] transition-transform", open && "rotate-180")}
         />
       </button>
 
       {open && (
-        <div
-          role="menu"
-          aria-label={t("nav.account")}
-          className="modal-in fixed inset-x-3 top-[4.75rem] z-30 max-h-[calc(100dvh_-_5.75rem)] overflow-y-auto rounded-2xl border border-white/[0.1] bg-[#060b13]/97 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_0_60px_-40px_rgba(0,240,255,0.6)] backdrop-blur-2xl sm:absolute sm:inset-x-auto sm:right-0 sm:top-full sm:mt-2 sm:max-h-none sm:w-64 sm:overflow-hidden"
-        >
-          <div className="flex items-center gap-3 border-b border-white/[0.06] p-3.5">
-            <UserAvatar user={user} className="h-9 w-9" />
+        <div role="menu" aria-label={t("nav.account")} className="menu-panel modal-in">
+          <div className="menu-panel__head">
+            <UserAvatar user={user} className="h-8 w-8" />
             <div className="min-w-0">
-              <p className="truncate text-[12.5px] font-semibold text-white">{user.displayName}</p>
-              <p className="truncate font-mono text-[9.5px] text-white/35">@{user.username}</p>
+              <p className="truncate text-[0.76rem] font-semibold text-[var(--ink)]">
+                {user.displayName}
+              </p>
+              <p className="truncate font-mono text-[0.58rem] text-[var(--faint)]">
+                @{user.username}
+              </p>
             </div>
           </div>
 
           <div className="flex items-center justify-between px-3.5 py-2.5">
-            <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
-              {t("auth.accountBadge")}
-            </span>
-            <span
-              className={cn(
-                "rounded-md border px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em]",
-                user.role === "admin"
-                  ? "border-[#8B0000]/50 bg-[#4A0000]/45 text-[#ffb3b3]"
-                  : "border-white/[0.1] bg-white/[0.04] text-white/45",
-              )}
-            >
+            <span className="mono-label">{t("auth.accountBadge")}</span>
+            <span className={cn("role-badge", user.role === "admin" && "role-badge--admin")}>
               {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
             </span>
           </div>
 
-          <a
-            role="menuitem"
-            href="#/account"
-            onClick={() => setOpen(false)}
-            className="flex w-full items-center gap-2 border-t border-white/[0.06] px-3.5 py-3 text-[12px] font-medium text-white/60 transition-colors hover:bg-white/[0.04] hover:text-white"
-          >
+          <a role="menuitem" href="#/account" onClick={() => setOpen(false)} className="menu-item">
             <User className="h-3.5 w-3.5" />
             {t("nav.accountPage")}
           </a>
@@ -134,7 +118,7 @@ function AccountMenu() {
               void signOut();
             }}
             disabled={busy}
-            className="flex w-full items-center gap-2 border-t border-white/[0.06] px-3.5 py-3 text-left text-[12px] font-medium text-white/55 transition-colors hover:bg-[#4A0000]/25 hover:text-[#ffb3b3] disabled:opacity-50"
+            className="menu-item menu-item--danger disabled:opacity-50"
           >
             <LogOut className="h-3.5 w-3.5" />
             {t("auth.signOut")}
@@ -175,7 +159,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -196,21 +180,11 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-5">
-      <div
-        className={cn(
-          "relative mx-auto flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 transition-all duration-500 sm:gap-4 sm:px-5",
-          scrolled
-            ? "border-white/[0.1] bg-[#060a11]/90 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.95),0_0_0_1px_rgba(0,240,255,0.045)] backdrop-blur-2xl"
-            : "border-white/[0.07] bg-[#060a11]/55 backdrop-blur-xl",
-        )}
-      >
+    <header className={cn("site-header", scrolled && "is-scrolled")}>
+      <div className="container-page header-inner">
         <Logo />
 
-        <nav
-          aria-label={t("nav.mainMenu")}
-          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 lg:flex"
-        >
+        <nav aria-label={t("nav.mainMenu")} className="main-nav">
           {navItems.map((item) => {
             const active = page === item.page;
             return (
@@ -218,27 +192,17 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={cn(
-                  "group relative rounded-lg px-3 py-2 text-[12.5px] font-medium transition-colors duration-300 hover:text-white",
-                  active ? "text-white" : "text-white/55",
-                )}
+                className={cn("nav-link", active && "is-active")}
               >
                 {t(item.labelKey)}
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "absolute inset-x-3 -bottom-px h-px origin-center bg-gradient-to-r from-transparent via-neon/80 to-transparent transition-transform duration-300 group-hover:scale-x-100",
-                    active ? "scale-x-100" : "scale-x-0",
-                  )}
-                />
               </a>
             );
           })}
         </nav>
 
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="header-actions">
           {!installed && (
-            <div className="relative hidden sm:block">
+            <div className="header-install relative">
               <button
                 type="button"
                 onClick={() => void requestInstall()}
@@ -246,17 +210,14 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
                 aria-expanded={installHint}
                 aria-label={t("nav.installApp")}
                 title={t("nav.installApp")}
-                className="flex h-9 items-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.025] px-2.5 text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon disabled:opacity-50"
+                className="icon-btn"
               >
                 <Download className="h-3.5 w-3.5" />
-                <span className="hidden font-mono text-[9px] font-medium uppercase tracking-[0.08em] xl:inline">
-                  {t("nav.installShort")}
-                </span>
               </button>
               {installHint && (
                 <p
                   role="status"
-                  className="absolute right-0 top-full z-30 mt-2 w-64 rounded-xl border border-white/[0.1] bg-[#060b13]/97 p-3 text-[11px] leading-relaxed text-white/60 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] backdrop-blur-2xl"
+                  className="menu-panel absolute right-0 top-full z-30 mt-2 w-64 p-3 text-[0.66rem] leading-relaxed text-[var(--muted)]"
                 >
                   {t("nav.installSteps")}
                 </p>
@@ -269,7 +230,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
             onClick={toggleTheme}
             aria-label={theme === "dark" ? t("nav.switchToLight") : t("nav.switchToDark")}
             title={theme === "dark" ? t("nav.switchToLight") : t("nav.switchToDark")}
-            className="hidden h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.025] text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon sm:inline-flex"
+            className="icon-btn header-theme"
           >
             {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
           </button>
@@ -279,35 +240,10 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
             onClick={toggleLocale}
             aria-label={locale === "tr" ? t("nav.switchToEnglish") : t("nav.switchToTurkish")}
             title={t("nav.switchLanguage")}
-            className="hidden h-9 items-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.025] px-2.5 text-white/55 transition-all duration-300 hover:border-neon/25 hover:bg-neon/[0.06] hover:text-neon sm:inline-flex"
+            className="icon-btn header-locale"
           >
             <Globe className="h-3.5 w-3.5" />
-            <span className="font-mono text-[9px] font-medium tracking-[0.08em]">
-              {locale === "tr" ? "EN" : "TR"}
-            </span>
           </button>
-
-          {signedIn ? (
-            <AccountMenu />
-          ) : (
-            <>
-              <button
-                type="button"
-                onClick={() => openAuth("login")}
-                className="hidden rounded-xl px-3 py-2 text-[12.5px] font-medium text-white/60 transition-colors duration-300 hover:bg-white/[0.05] hover:text-white md:block"
-              >
-                {t("nav.login")}
-              </button>
-              <button
-                type="button"
-                onClick={() => openAuth("signup")}
-                className="hidden items-center gap-1 rounded-xl border border-white/[0.09] bg-white/[0.035] px-3 py-2 text-[12.5px] font-medium text-white/75 transition-all duration-300 hover:border-neon/30 hover:bg-white/[0.06] hover:text-white md:inline-flex"
-              >
-                {t("nav.signup")}
-                <ArrowUpRight className="h-3 w-3 opacity-50" />
-              </button>
-            </>
-          )}
 
           {signedIn && (
             <button
@@ -318,12 +254,33 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
               }}
               aria-label={t("nav.share")}
               title={t("nav.share")}
-              className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-3 py-2.5 text-[12px] font-semibold text-[#02070c] shadow-[0_8px_28px_-12px_rgba(0,240,255,0.75)] transition-all duration-300 hover:shadow-[0_12px_36px_-10px_rgba(0,240,255,0.9)] sm:px-4 sm:text-[12.5px]"
+              className="btn btn-primary btn-sm"
             >
-              <span aria-hidden="true" className="sheen absolute inset-0" />
-              <Plus className="relative h-3.5 w-3.5" strokeWidth={2.4} />
-              <span className="relative hidden whitespace-nowrap sm:inline">{t("nav.share")}</span>
+              <Plus className="h-3.5 w-3.5" strokeWidth={2.2} />
+              <span className="hidden sm:inline">{t("nav.share")}</span>
             </button>
+          )}
+
+          {signedIn ? (
+            <AccountMenu />
+          ) : (
+            <>
+              <button
+                type="button"
+                onClick={() => openAuth("login")}
+                className="btn btn-ghost header-login"
+              >
+                {t("nav.login")}
+              </button>
+              <button
+                type="button"
+                onClick={() => openAuth("signup")}
+                className="btn btn-secondary header-signup"
+              >
+                {t("nav.signup")}
+                <ArrowUpRight className="h-3 w-3 opacity-50" />
+              </button>
+            </>
           )}
 
           <button
@@ -332,7 +289,7 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             aria-label={mobileOpen ? t("nav.menuClose") : t("nav.menuOpen")}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/70 transition-colors duration-300 hover:border-neon/30 hover:text-white lg:hidden"
+            className="icon-btn menu-toggle"
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -340,125 +297,107 @@ export function Header({ onAuth, onPublish }: HeaderProps) {
       </div>
 
       {mobileOpen && (
-        <div
-          id="mobile-menu"
-          className="fade-in mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.09] bg-[#060a11]/95 p-2.5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl lg:hidden"
-        >
-          <SourceTabs ids={mobileCatalogIds} className="justify-start px-0.5" />
+        <div id="mobile-menu" className="mobile-menu">
+          <div className="container-page space-y-2">
+            <SourceTabs ids={mobileCatalogIds} className="mb-3" />
 
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="mt-2 flex w-full items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
-          >
-            <span className="flex items-center gap-2">
-              {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-              {t("nav.theme")}
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
-              {theme === "dark" ? t("nav.themeNight") : t("nav.themeLight")}
-            </span>
-          </button>
-
-          {signedIn && (
-            <a
-              href="#/account"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.025] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
-            >
+            <button type="button" onClick={toggleTheme} className="mobile-row">
               <span className="flex items-center gap-2">
-                <User className="h-3.5 w-3.5" />
-                {t("nav.accountPage")}
+                {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+                {t("nav.theme")}
               </span>
-              <span aria-hidden="true" className="font-mono text-[9px] text-white/25">
-                →
-              </span>
-            </a>
-          )}
+              <span>{theme === "dark" ? t("nav.themeNight") : t("nav.themeLight")}</span>
+            </button>
 
-          {!installed && (
-            <>
-              <button
-                type="button"
-                onClick={() => void requestInstall()}
-                disabled={installBusy}
-                className="mt-2 flex w-full items-center justify-between rounded-xl border border-neon/20 bg-neon/[0.05] px-3 py-3 text-[13px] text-neon/90 transition-colors hover:bg-neon/[0.1] disabled:opacity-50"
-              >
-                <span className="flex items-center gap-2">
-                  <Download className="h-3.5 w-3.5" />
-                  {t("nav.installApp")}
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-neon/50">
-                  {canPrompt ? t("nav.installReady") : t("nav.installHintShort")}
-                </span>
-              </button>
-              {installHint && (
-                <p className="mt-1.5 rounded-xl border border-white/[0.08] bg-white/[0.02] px-3 py-2 text-[11px] leading-relaxed text-white/55">
-                  {t("nav.installSteps")}
-                </p>
-              )}
-            </>
-          )}
-
-          {signedIn && user ? (
-            <div className="mt-2 flex items-center gap-2.5 rounded-xl border border-white/[0.07] bg-white/[0.03] p-2.5">
+            {signedIn && (
               <a
                 href="#/account"
                 onClick={() => setMobileOpen(false)}
-                className="flex min-w-0 flex-1 items-center gap-2.5"
+                className="mobile-row"
               >
-                <UserAvatar user={user} className="h-8 w-8" />
-                <div className="min-w-0">
-                  <p className="truncate text-[12px] font-medium text-white/85">{user.displayName}</p>
-                  <p className="truncate font-mono text-[9px] text-white/35">@{user.username}</p>
-                </div>
+                <span className="flex items-center gap-2">
+                  <User className="h-3.5 w-3.5" />
+                  {t("nav.accountPage")}
+                </span>
+                <span>→</span>
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileOpen(false);
-                  void signOut();
-                }}
-                disabled={busy}
-                aria-label={t("auth.signOut")}
-                className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] text-white/45 transition-colors hover:border-[#8B0000]/45 hover:text-[#ffb3b3] disabled:opacity-50"
-              >
-                <LogOut className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          ) : (
-            <div className="mt-2 grid grid-cols-2 gap-2 border-t border-white/[0.06] pt-2.5">
-              <button
-                type="button"
-                onClick={() => openAuth("login")}
-                className="rounded-xl border border-white/[0.09] bg-white/[0.03] px-3 py-2.5 text-[12.5px] font-medium text-white/75 transition-colors hover:border-neon/30 hover:text-white"
-              >
-                {t("nav.login")}
-              </button>
-              <button
-                type="button"
-                onClick={() => openAuth("signup")}
-                className="rounded-xl border border-neon/25 bg-neon/[0.08] px-3 py-2.5 text-[12.5px] font-semibold text-neon transition-colors hover:bg-neon/[0.14]"
-              >
-                {t("nav.freeSignup")}
-              </button>
-            </div>
-          )}
+            )}
 
-          <button
-            type="button"
-            onClick={toggleLocale}
-            aria-label={locale === "tr" ? t("nav.switchToEnglish") : t("nav.switchToTurkish")}
-            className="mt-2 flex w-full items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-2.5 text-[12px] text-white/60 transition-colors hover:border-neon/25 hover:text-neon"
-          >
-            <span className="flex items-center gap-2">
-              <Globe className="h-3.5 w-3.5" />
-              {t("nav.language")}
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
-              {locale === "tr" ? t("nav.languageEnglish") : t("nav.languageTurkish")}
-            </span>
-          </button>
+            {!installed && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => void requestInstall()}
+                  disabled={installBusy}
+                  className="mobile-row"
+                >
+                  <span className="flex items-center gap-2">
+                    <Download className="h-3.5 w-3.5" />
+                    {t("nav.installApp")}
+                  </span>
+                  <span>{canPrompt ? t("nav.installReady") : t("nav.installHintShort")}</span>
+                </button>
+                {installHint && <p className="mobile-install-hint">{t("nav.installSteps")}</p>}
+              </>
+            )}
+
+            {signedIn && user ? (
+              <div className="mobile-user">
+                <a
+                  href="#/account"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex min-w-0 flex-1 items-center gap-2.5"
+                >
+                  <UserAvatar user={user} className="h-8 w-8" />
+                  <div className="min-w-0">
+                    <p className="truncate text-[0.72rem] font-medium text-[var(--ink)]">
+                      {user.displayName}
+                    </p>
+                    <p className="truncate font-mono text-[0.56rem] text-[var(--faint)]">
+                      @{user.username}
+                    </p>
+                  </div>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    void signOut();
+                  }}
+                  disabled={busy}
+                  aria-label={t("auth.signOut")}
+                  className="icon-btn disabled:opacity-50"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-2 border-t border-[var(--line)] pt-3">
+                <button
+                  type="button"
+                  onClick={() => openAuth("login")}
+                  className="btn btn-secondary"
+                >
+                  {t("nav.login")}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openAuth("signup")}
+                  className="btn btn-primary"
+                >
+                  {t("nav.freeSignup")}
+                </button>
+              </div>
+            )}
+
+            <button type="button" onClick={toggleLocale} className="mobile-row">
+              <span className="flex items-center gap-2">
+                <Globe className="h-3.5 w-3.5" />
+                {t("nav.language")}
+              </span>
+              <span>{locale === "tr" ? t("nav.languageEnglish") : t("nav.languageTurkish")}</span>
+            </button>
+          </div>
         </div>
       )}
     </header>

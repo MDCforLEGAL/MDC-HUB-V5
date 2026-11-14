@@ -1,3 +1,5 @@
+import { useI18n } from "../i18n";
+
 const fallbackGames = [
   "Blox Fruits",
   "Pet Simulator 99",
@@ -15,27 +17,18 @@ interface GameMarqueeProps {
 }
 
 export function GameMarquee({ games }: GameMarqueeProps) {
+  const { t } = useI18n();
   const supportedGames = (games && games.length > 0 ? games : fallbackGames).slice(0, 14);
 
   return (
-    <div className="relative border-y border-white/[0.06] bg-white/[0.012] py-4">
-      <div className="marquee-mask overflow-hidden">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <div
-              key={copy}
-              aria-hidden={copy === 1}
-              className="flex shrink-0 items-center gap-9 pr-9 sm:gap-12 sm:pr-12"
-            >
-              {supportedGames.map((game) => (
-                <span key={`${copy}-${game}`} className="flex items-center gap-9 sm:gap-12">
-                  <span className="whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.26em] text-white/30 transition-colors hover:text-white/60">
-                    {game}
-                  </span>
-                  <span aria-hidden="true" className="h-1 w-1 rotate-45 bg-neon/40" />
-                </span>
-              ))}
-            </div>
+    <div className="game-strip">
+      <div className="container-page game-strip__inner">
+        <span className="game-strip__label">{t("hero.statGames")}</span>
+        <div className="game-strip__list" aria-label={t("hero.statGames")}>
+          {supportedGames.map((game) => (
+            <span key={game} className="game-strip__item">
+              {game}
+            </span>
           ))}
         </div>
       </div>

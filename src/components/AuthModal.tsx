@@ -23,16 +23,16 @@ interface NoticeProps {
 function Notice({ icon, title, body, children }: NoticeProps) {
   return (
     <div className="py-5">
-      <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-[#8B0000]/40 bg-[#4A0000]/35 text-[#ff9d9d] shadow-[0_0_40px_-18px_rgba(139,0,0,0.9)]">
+      <span className="mx-auto grid h-11 w-11 place-items-center border border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]">
         {icon}
       </span>
       <h2
         id="auth-title"
-        className="mt-4 text-center font-display text-[20px] font-medium leading-tight tracking-[-0.02em] text-white"
+        className="mt-4 text-center font-display text-[1.3rem] font-bold leading-tight tracking-[-0.035em] text-[var(--ink)]"
       >
         {title}
       </h2>
-      <p className="mt-2 text-center text-[11.5px] leading-relaxed text-white/45">{body}</p>
+      <p className="mt-2 text-center text-[0.74rem] leading-relaxed text-[var(--muted)]">{body}</p>
       {children}
     </div>
   );
@@ -66,7 +66,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
   return (
     <div
-      className="fade-in fixed inset-0 z-[80] flex items-end justify-center bg-[#02040a]/85 p-0 backdrop-blur-md sm:items-center sm:p-6"
+      className="modal-overlay fade-in fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -77,18 +77,18 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
         aria-modal="true"
         aria-labelledby="auth-title"
         tabIndex={-1}
-        className="modal-in code-scroll relative max-h-[94svh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-white/[0.1] bg-[#060b13]/95 p-6 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95),0_0_90px_-50px_rgba(0,240,255,0.55)] backdrop-blur-2xl outline-none sm:rounded-3xl sm:p-7"
+        className="modal-panel modal-in code-scroll relative max-h-[94svh] w-full max-w-md overflow-y-auto p-6 outline-none sm:p-7"
       >
         <span
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/50 to-transparent"
+          className="absolute inset-x-0 top-0 h-px bg-[var(--accent)]"
         />
 
         <button
           type="button"
           onClick={onClose}
           aria-label={t("auth.closeAria")}
-          className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/40 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+          className="icon-btn absolute right-4 top-4"
         >
           <X className="h-3.5 w-3.5" />
         </button>
@@ -97,8 +97,8 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
         {status === "loading" && (
           <div className="py-12 text-center" aria-live="polite">
-            <Loader className="mx-auto h-6 w-6 animate-spin text-neon/70" />
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+            <Loader className="mx-auto h-6 w-6 animate-spin text-[var(--info)]" />
+            <p className="mt-4 font-mono text-[0.58rem] uppercase tracking-[0.07em] text-[var(--muted)]">
               {t("auth.loading")}
             </p>
           </div>
@@ -106,7 +106,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
         {status !== "loading" && user && (
           <div className="pt-6">
-            <p className="font-mono text-[8.5px] uppercase tracking-[0.22em] text-neon/60">
+            <p className="section-kicker">
               {t("auth.signedInTitle")}
             </p>
             <div className="mt-3.5 flex items-center gap-3.5">
@@ -114,26 +114,26 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               <div className="min-w-0">
                 <h2
                   id="auth-title"
-                  className="truncate font-display text-[21px] font-medium leading-tight tracking-[-0.02em] text-white"
+                  className="truncate font-display text-[1.35rem] font-bold leading-tight tracking-[-0.03em] text-[var(--ink)]"
                 >
                   {user.displayName}
                 </h2>
-                <p className="truncate font-mono text-[10.5px] text-white/35">@{user.username}</p>
+                <p className="truncate font-mono text-[0.62rem] text-[var(--muted)]">@{user.username}</p>
               </div>
             </div>
 
-            <p className="mt-4 text-[12px] leading-relaxed text-white/45">{t("auth.signedInBody")}</p>
+            <p className="mt-4 text-[0.76rem] leading-relaxed text-[var(--muted)]">{t("auth.signedInBody")}</p>
 
             <div className="mt-4 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-neon/20 bg-neon/[0.06] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-neon/75">
+              <span className="inline-flex items-center gap-1.5 border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
                 <Discord className="h-2.5 w-2.5" />
                 {t("auth.accountBadge")}
               </span>
               <span
                 className={
                   user.role === "admin"
-                    ? "rounded-full border border-[#8B0000]/50 bg-[#4A0000]/45 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-[#ffb3b3]"
-                    : "rounded-full border border-white/[0.1] bg-white/[0.04] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/45"
+                    ? "border border-[var(--accent)] bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--accent)]"
+                    : "border border-[var(--line)] bg-[var(--surface-2)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--muted)]"
                 }
               >
                 {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
@@ -145,7 +145,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
                 type="button"
                 onClick={() => void signOut()}
                 disabled={busy}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-[12px] font-medium text-white/70 transition-all duration-300 hover:border-[#8B0000]/45 hover:bg-[#4A0000]/25 hover:text-[#ffb3b3] disabled:opacity-50"
+                className="btn btn-secondary flex-1 disabled:opacity-50"
               >
                 {busy ? <Loader className="h-3.5 w-3.5 animate-spin" /> : <LogOut className="h-3.5 w-3.5" />}
                 {t("auth.signOut")}
@@ -153,7 +153,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-xl bg-gradient-to-r from-neon to-electric px-5 py-3 text-[12px] font-semibold text-[#02070a] shadow-[0_10px_30px_-12px_rgba(0,240,255,0.8)] transition-all duration-300 hover:shadow-[0_14px_38px_-10px_rgba(0,240,255,0.95)]"
+                className="btn btn-primary"
               >
                 {t("auth.close")}
               </button>
@@ -163,7 +163,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
         {status === "unconfigured" && (
           <Notice icon={<AlertTriangle className="h-5 w-5" />} title={t("auth.notConfiguredTitle")} body={t("auth.notConfiguredBody")}>
-            <code data-keep-dark className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+            <code data-keep-dark className="code-note mt-4 block">
               public/config.json → {'{ "apiBaseUrl": "https://…workers.dev" }'}
             </code>
           </Notice>
@@ -174,7 +174,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
             <button
               type="button"
               onClick={() => window.location.reload()}
-              className="mx-auto mt-5 block rounded-xl border border-white/[0.09] bg-white/[0.04] px-4 py-2.5 text-[11.5px] font-medium text-white/70 transition-all duration-300 hover:border-neon/30 hover:text-white"
+              className="btn btn-secondary mx-auto mt-5"
             >
               {t("auth.retry")}
             </button>
@@ -187,7 +187,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
             title={t("auth.discordMissingTitle")}
             body={t("auth.discordMissingBody")}
           >
-            <code data-keep-dark className="mt-4 block rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2.5 font-mono text-[9.5px] leading-relaxed text-neon/70">
+            <code data-keep-dark className="code-note mt-4 block">
               DISCORD_CLIENT_ID · DISCORD_CLIENT_SECRET
             </code>
           </Notice>
@@ -197,11 +197,11 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           <div className="pt-5">
             <h2
               id="auth-title"
-              className="mt-1 font-display text-[25px] font-medium leading-tight tracking-[-0.025em] text-white"
+              className="mt-1 font-display text-[1.6rem] font-bold leading-tight tracking-[-0.04em] text-[var(--ink)]"
             >
               {isSignup ? t("auth.signupTitle") : t("auth.loginTitle")}
             </h2>
-            <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
+            <p className="mt-1.5 text-[0.76rem] leading-relaxed text-[var(--muted)]">
               {isSignup ? t("auth.signupSubtitle") : t("auth.loginSubtitle")}
             </p>
 
@@ -218,7 +218,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               type="button"
               onClick={signIn}
               disabled={busy}
-              className="group mt-5 flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-neon via-[#22D9FF] to-electric px-4 text-[12.5px] font-semibold text-[#02070a] shadow-[0_12px_34px_-12px_rgba(0,240,255,0.85)] transition-all duration-300 hover:shadow-[0_16px_42px_-10px_rgba(0,240,255,0.95)] disabled:opacity-70"
+              className="btn btn-primary group mt-5 h-12 w-full disabled:opacity-70"
             >
               {busy ? (
                 <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
@@ -233,14 +233,14 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </button>
 
-            <p className="mt-2.5 text-center text-[10px] leading-relaxed text-white/30">
+            <p className="mt-2.5 text-center text-[0.66rem] leading-relaxed text-[var(--faint)]">
               {t("auth.discordHint")}
             </p>
 
             <ul className="mt-5 space-y-2.5">
               {[t("auth.perkNoEmail"), t("auth.perkInstant"), t("auth.perkProfile")].map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-white/50">
-                  <span className="mt-px grid h-4 w-4 shrink-0 place-items-center rounded-full border border-neon/25 bg-neon/[0.08] text-neon">
+                <li key={item} className="flex items-start gap-2.5 text-[0.74rem] leading-relaxed text-[var(--ink-soft)]">
+                  <span className="mt-px grid h-4 w-4 shrink-0 place-items-center border border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]">
                     <Check className="h-2.5 w-2.5" strokeWidth={2.8} />
                   </span>
                   {item}
@@ -248,15 +248,15 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               ))}
             </ul>
 
-            <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-white/[0.06] bg-black/25 p-3">
-              <ShieldCheck className="mt-px h-3.5 w-3.5 shrink-0 text-neon/45" />
-              <p className="text-[10px] leading-relaxed text-white/35">{t("auth.privacy")}</p>
+            <div className="mt-5 flex items-start gap-2.5 border border-[var(--line)] bg-[var(--surface-2)] p-3">
+              <ShieldCheck className="mt-px h-3.5 w-3.5 shrink-0 text-[var(--info)]" />
+              <p className="text-[0.66rem] leading-relaxed text-[var(--muted)]">{t("auth.privacy")}</p>
             </div>
 
-            <p className="mt-4 text-center text-[9px] leading-relaxed text-white/25">{t("auth.terms")}</p>
+            <p className="mt-4 text-center text-[0.6rem] leading-relaxed text-[var(--faint)]">{t("auth.terms")}</p>
 
-            <div className="mt-4 border-t border-white/[0.06] pt-3.5 text-center">
-              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/20">
+            <div className="mt-4 border-t border-[var(--line)] pt-3.5 text-center">
+              <p className="font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
                 {t("auth.secureNote")}
               </p>
             </div>

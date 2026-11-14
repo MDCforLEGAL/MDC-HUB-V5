@@ -16,8 +16,6 @@ import {
   Plus,
   Search,
   Sliders,
-  Sparkles,
-  TrendingUp,
   X,
   Zap,
 } from "./Icons";
@@ -207,48 +205,39 @@ export function ScriptExplorer({
   };
 
   return (
-    <section
-      id="kesfet"
-      className={cn(
-        "relative scroll-mt-28 py-20 sm:py-24",
-        page !== "all" && "pt-28 sm:pt-32",
-      )}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+    <section id="kesfet" className="explorer-section scroll-mt-28">
+      <div className="container-page">
+        <div className="explorer-head">
           <Reveal>
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-              <span className="section-kicker text-neon/70">
-                {page === "all" ? t("explorer.kicker") : t(pageKey("kicker"))}
-              </span>
-            </div>
-            <h2 className="mt-4 max-w-xl font-display text-[30px] font-medium leading-[1.08] tracking-[-0.035em] text-white sm:text-[40px]">
+            <span className="section-kicker">
+              {page === "all" ? t("explorer.kicker") : t(pageKey("kicker"))}
+            </span>
+            <h2 className="section-title">
               {page === "all" ? t("explorer.titleLead") : t(pageKey("title"))}
-              <span className="bg-gradient-to-r from-white via-[#B9F8FF] to-[#5F91FF] bg-clip-text text-transparent">
+              <span className="text-accent">
                 {page === "all" ? t("explorer.titleHighlight") : t(pageKey("titleHighlight"))}
               </span>
             </h2>
-            <p className="mt-3 max-w-lg text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
+            <p className="section-lead">
               {page === "all" ? t("explorer.description") : t(pageKey("description"))}
             </p>
-            {page !== "all" && <SourceTabs className="mt-4 justify-start" />}
+            {page !== "all" && <SourceTabs className="mt-4" />}
             {page !== "all" && (
-              <div className="mt-3 flex max-w-md items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2 backdrop-blur-xl transition-colors focus-within:border-neon/35">
-                <Search className="h-3.5 w-3.5 shrink-0 text-white/35" />
+              <div className="mt-4 flex max-w-md items-center gap-2 border border-[var(--line)] bg-[var(--surface)] px-3 py-2 focus-within:border-[var(--info)]">
+                <Search className="h-3.5 w-3.5 shrink-0 text-[var(--faint)]" />
                 <input
                   value={query}
                   onChange={(event) => onQueryChange(event.target.value)}
                   placeholder={t("hero.searchPlaceholder")}
                   aria-label={t("hero.searchAria")}
-                  className="w-full bg-transparent text-[12.5px] text-white/85 placeholder:text-white/25 focus:outline-none"
+                  className="w-full bg-transparent text-[0.76rem] text-[var(--ink)] placeholder:text-[var(--faint)] focus:outline-none"
                 />
                 {query && (
                   <button
                     type="button"
                     onClick={() => onQueryChange("")}
                     aria-label={t("hero.clearSearch")}
-                    className="text-white/35 transition-colors hover:text-neon"
+                    className="text-[var(--faint)] transition-colors hover:text-[var(--accent)]"
                   >
                     <X className="h-3 w-3" />
                   </button>
@@ -258,86 +247,70 @@ export function ScriptExplorer({
           </Reveal>
 
           <Reveal delay={100} className="shrink-0">
-            <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.02] px-3.5 py-2.5 backdrop-blur-xl">
-              <span className="relative flex h-2 w-2 items-center justify-center">
-                <span className="absolute inset-0 animate-ping rounded-full bg-neon/40 [animation-duration:2.6s]" />
-                <span className="h-2 w-2 rounded-full bg-neon shadow-[0_0_10px_2px_rgba(0,240,255,0.5)]" />
+            <div className="explorer-status">
+              <strong>
+                {libraryState === "live"
+                  ? t("explorer.sourceLive", { source: pageSourceLabel })
+                  : libraryState === "loading"
+                    ? t("explorer.sourceLoading")
+                    : t("explorer.sourceCurated")}
+              </strong>
+              <span>
+                {t("hero.statSource")} / {libraryState === "live" ? pageSourceLabel : t("explorer.local")}
               </span>
-              <div>
-                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/25">
-                  {t("hero.statSource")}
-                </p>
-                <p className="mt-0.5 text-[11px] font-medium text-white/60">
-                  {libraryState === "live"
-                    ? t("explorer.sourceLive", { source: pageSourceLabel })
-                    : libraryState === "loading"
-                      ? t("explorer.sourceLoading")
-                      : t("explorer.sourceCurated")}
-                </p>
-              </div>
-              <span aria-hidden="true" className="ml-1 h-6 w-px bg-white/[0.08]" />
-              <TrendingUp className="h-3.5 w-3.5 text-neon/50" />
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={140}>
-          <div className="mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.025] p-2.5 backdrop-blur-2xl sm:p-3">
-            <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
-              <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
-                <Layers className="h-3 w-3" />
-                {t("explorer.category")}
-              </span>
-              <div className="flex shrink-0 gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setCategory("all")}
-                  aria-pressed={category === "all"}
-                  className={cn(
-                    "flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
-                    category === "all"
-                      ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_22px_-10px_rgba(0,240,255,0.9)]"
-                      : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
-                  )}
-                >
-                  {t("explorer.all")}
-                  <span className="font-mono text-[8.5px] opacity-50">{scripts.length}</span>
-                </button>
-                {categories.map((item) => {
-                  const active = category === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setCategory(item.id)}
-                      aria-pressed={active}
-                      title={categoryDescription(item)}
-                      className={cn(
-                        "flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
-                        active
-                          ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_22px_-10px_rgba(0,240,255,0.9)]"
-                          : "border-transparent bg-white/[0.025] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.05] hover:text-white/80",
-                      )}
-                    >
-                      {categoryLabel(item)}
-                      <span className="font-mono text-[8.5px] opacity-50">{item.count}</span>
-                    </button>
-                  );
-                })}
+          <div className="filter-panel">
+            <div className="filter-row">
+              <div className="filter-row__group">
+                <span className="filter-label">
+                  <Layers className="h-3 w-3" />
+                  {t("explorer.category")}
+                </span>
+                <div className="filter-chips">
+                  <button
+                    type="button"
+                    onClick={() => setCategory("all")}
+                    aria-pressed={category === "all"}
+                    className={cn("filter-chip", category === "all" && "is-active")}
+                  >
+                    {t("explorer.all")}
+                    <span>{scripts.length}</span>
+                  </button>
+                  {categories.map((item) => {
+                    const active = category === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setCategory(item.id)}
+                        aria-pressed={active}
+                        title={categoryDescription(item)}
+                        className={cn("filter-chip", active && "is-active")}
+                      >
+                        {categoryLabel(item)}
+                        <span>{item.count}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-              <span className="ml-auto hidden shrink-0 items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/20 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 sm:flex">
-                <Globe className="h-2.5 w-2.5 text-neon/50" />
+              <span className="hidden shrink-0 items-center gap-1.5 border-l border-[var(--line)] pl-3 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)] sm:flex">
+                <Globe className="h-2.5 w-2.5" />
                 {libraryState === "live" ? pageSourceLabel : t("explorer.local")}
               </span>
             </div>
 
-            <div className="mt-2 flex flex-col gap-2 border-t border-white/[0.06] pt-2.5 xl:flex-row xl:items-center xl:justify-between">
-              <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
-                <span className="hidden shrink-0 items-center gap-1.5 pl-1 pr-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25 sm:flex">
+            <div className="filter-row">
+              <div className="filter-row__group">
+                <span className="filter-label">
                   <Sliders className="h-3 w-3" />
                   {t("explorer.status")}
                 </span>
-                <div className="flex shrink-0 rounded-xl border border-white/[0.07] bg-black/25 p-1">
+                <div className="status-tabs">
                   {statusTabs.map((tab) => {
                     const active = status === tab.id;
                     return (
@@ -347,54 +320,36 @@ export function ScriptExplorer({
                         onClick={() => setStatus(tab.id)}
                         aria-pressed={active}
                         className={cn(
-                          "flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
-                          active
-                            ? tab.id === "patched"
-                              ? "bg-blood-deep/60 text-[#ffb3b3] shadow-[inset_0_0_0_1px_rgba(139,0,0,0.4)]"
-                              : "bg-white/[0.09] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]"
-                            : "text-white/50 hover:bg-white/[0.04] hover:text-white/80",
+                          "status-tab",
+                          active && "is-active",
+                          tab.id === "patched" && "is-danger",
                         )}
                       >
                         {tab.id !== "all" && (
                           <span
                             aria-hidden="true"
                             className={cn(
-                              "h-1.5 w-1.5 rounded-full",
-                              tab.id === "working"
-                                ? "bg-neon shadow-[0_0_6px_1px_rgba(0,240,255,0.5)]"
-                                : "bg-[#ff5a5a]",
-                              !active && "opacity-60",
+                              "status-tab__dot",
+                              tab.id === "patched" && "is-danger",
                             )}
                           />
                         )}
                         {t(tab.labelKey)}
-                        <span
-                          className={cn(
-                            "font-mono text-[8.5px]",
-                            active ? "text-white/40" : "text-white/20",
-                          )}
-                        >
-                          {counts[tab.id]}
-                        </span>
+                        <span>{counts[tab.id]}</span>
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar xl:justify-end">
+              <div className="filter-row__group">
                 {gameOptions.map((item) => (
                   <button
                     key={item}
                     type="button"
                     onClick={() => setGame(item)}
                     aria-pressed={game === item}
-                    className={cn(
-                      "whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-medium transition-all duration-300",
-                      game === item
-                        ? "border-neon/35 bg-neon/[0.09] text-neon shadow-[0_0_20px_-10px_rgba(0,240,255,0.8)]"
-                        : "border-transparent bg-white/[0.02] text-white/45 hover:border-white/[0.08] hover:bg-white/[0.04] hover:text-white/80",
-                    )}
+                    className={cn("filter-chip", game === item && "is-active")}
                   >
                     {item === ALL_GAMES ? t("explorer.gameAll") : item}
                   </button>
@@ -404,15 +359,13 @@ export function ScriptExplorer({
           </div>
         </Reveal>
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-[10.5px] text-white/40">
-            <Sparkles className="h-3 w-3 text-neon/50" />
+        <div className="results-line">
+          <div className="flex flex-wrap items-center gap-2">
+            <span aria-hidden="true" className="h-1.5 w-1.5 bg-[var(--accent)]" />
             <span>
-              <span className="font-medium text-white/60">{filtered.length}</span>{" "}
-              {filtered.length === 1
-                ? t("explorer.scriptOne")
-                : t("explorer.scriptMany")}
-              {activeCategory ? ` · ${activeCategoryLabel}` : ""}
+              <strong>{filtered.length}</strong>{" "}
+              {filtered.length === 1 ? t("explorer.scriptOne") : t("explorer.scriptMany")}
+              {activeCategory ? ` / ${activeCategoryLabel}` : ""}
               {query.trim()
                 ? t("explorer.searchSuffix", { query: query.trim() })
                 : libraryState === "live"
@@ -423,56 +376,46 @@ export function ScriptExplorer({
               <button
                 type="button"
                 onClick={resetFilters}
-                className="ml-1 inline-flex items-center gap-1 rounded-md border border-white/[0.07] bg-white/[0.025] px-1.5 py-0.5 text-[9.5px] text-white/40 transition-colors hover:border-neon/25 hover:text-neon"
+                className="inline-flex items-center gap-1 border-b border-[var(--line)] py-0.5 text-[0.65rem] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 <X className="h-2.5 w-2.5" />
                 {t("explorer.clear")}
               </button>
             )}
           </div>
-          {user && (
-            <button
-              type="button"
-              onClick={onPublish}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-neon/25 bg-neon/[0.07] px-2.5 py-1.5 text-[10.5px] font-medium text-neon/85 transition-colors duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:text-neon"
-            >
-              <Plus className="h-3 w-3" />
-              {t("explorer.publish")}
-            </button>
-          )}
-          <div className="hidden items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex">
-            <span className="h-1 w-1 rounded-full bg-neon/60" />
-            {libraryState === "live"
-              ? t("explorer.syncLive", { time: timeAgo(lastSync, locale) })
-              : libraryState === "loading"
-                ? t("explorer.syncLoading")
-                : t("explorer.syncLocal")}
+          <div className="flex items-center gap-2">
+            {user && (
+              <button type="button" onClick={onPublish} className="btn btn-secondary btn-sm">
+                <Plus className="h-3 w-3" />
+                {t("explorer.publish")}
+              </button>
+            )}
+            <div className="hidden items-center gap-2 font-mono text-[0.55rem] uppercase tracking-[0.05em] text-[var(--faint)] sm:flex">
+              <span className="h-1.5 w-1.5 bg-[var(--info)]" />
+              {libraryState === "live"
+                ? t("explorer.syncLive", { time: timeAgo(lastSync, locale) })
+                : libraryState === "loading"
+                  ? t("explorer.syncLoading")
+                  : t("explorer.syncLocal")}
+            </div>
           </div>
         </div>
 
         {filtered.length === 0 ? (
-          <div className="mt-6 flex flex-col items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.02] px-6 py-16 text-center backdrop-blur-xl">
-            <span className="grid h-12 w-12 place-items-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/30">
+          <div className="empty-state">
+            <span className="empty-state__icon">
               <Search className="h-5 w-5" />
             </span>
-            <h3 className="mt-4 font-display text-[18px] font-medium text-white/85">
-              {t("explorer.emptyTitle")}
-            </h3>
-            <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-white/45">
-              {t("explorer.emptyDescription")}
-            </p>
-            <button
-              type="button"
-              onClick={resetFilters}
-              className="mt-5 rounded-xl border border-neon/25 bg-neon/[0.07] px-4 py-2.5 text-[11.5px] font-medium text-neon transition-colors duration-300 hover:bg-neon/[0.12]"
-            >
+            <h3>{t("explorer.emptyTitle")}</h3>
+            <p>{t("explorer.emptyDescription")}</p>
+            <button type="button" onClick={resetFilters} className="btn btn-secondary mt-5">
               {t("explorer.reset")}
             </button>
           </div>
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {visibleScripts.map((script, index) => (
-              <Reveal key={script.id} delay={Math.min(index * 55, 275)} className="h-full">
+              <Reveal key={script.id} delay={Math.min(index * 40, 200)} className="h-full">
                 <ScriptCard script={script} onOpen={onOpenScript} onNotify={onNotify} />
               </Reveal>
             ))}
@@ -483,16 +426,12 @@ export function ScriptExplorer({
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="flex flex-wrap items-center justify-center gap-2">
               {hasMore && (
-                <button
-                  type="button"
-                  onClick={loadMore}
-                  className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.09] bg-white/[0.03] px-5 py-3 text-[11.5px] font-medium text-white/60 backdrop-blur-xl transition-all duration-300 hover:border-neon/30 hover:bg-neon/[0.05] hover:text-white"
-                >
+                <button type="button" onClick={loadMore} className="btn btn-secondary">
                   {t("explorer.loadMore")}
-                  <span className="rounded-md border border-white/[0.08] bg-black/20 px-1.5 py-0.5 font-mono text-[9px] text-white/35">
+                  <span className="font-mono text-[0.58rem] text-[var(--faint)]">
                     +{filtered.length - visibleCount}
                   </span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               )}
               {filtered.length > 6 && (
@@ -504,16 +443,11 @@ export function ScriptExplorer({
                   }}
                   aria-pressed={autoLoad}
                   aria-label={t("explorer.autoLoad")}
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-xl border px-3.5 py-3 text-[10.5px] font-medium transition-all duration-300",
-                    autoLoad
-                      ? "border-neon/35 bg-neon/[0.1] text-neon shadow-[0_0_24px_-12px_rgba(0,240,255,0.9)]"
-                      : "border-white/[0.09] bg-white/[0.03] text-white/45 hover:border-neon/25 hover:text-white",
-                  )}
+                  className={cn("btn", autoLoad ? "btn-primary" : "btn-secondary")}
                 >
                   <Zap className="h-3 w-3" />
                   Auto
-                  <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] opacity-60">
+                  <span className="font-mono text-[0.55rem] uppercase tracking-[0.04em] opacity-70">
                     {autoLoad ? t("explorer.autoOn") : t("explorer.autoOff")}
                   </span>
                 </button>
@@ -521,7 +455,7 @@ export function ScriptExplorer({
             </div>
             <div ref={loadMoreRef} aria-hidden="true" className="h-px w-full" />
             {filtered.length <= visibleCount && filtered.length > 6 && (
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
+              <p className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-[var(--faint)]">
                 {t("explorer.allShown")}
               </p>
             )}

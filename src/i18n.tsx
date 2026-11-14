@@ -11,7 +11,7 @@ import {
 export type Locale = "tr" | "en";
 
 const en = {
-  "meta.title": "MDC HUB — Next-Gen Roblox Script Ecosystem",
+  "meta.title": "MDC HUB — Roblox Script Index",
   "meta.description":
     "MDC HUB is a live, category-based Roblox script feed powered by the ScriptBlox catalog. Inspect source, status and code, then copy in one click.",
 
@@ -51,7 +51,7 @@ const en = {
   "nav.switchToLight": "Switch to light theme",
   "nav.switchToDark": "Switch to night theme",
 
-  "layout.kicker": "Welcome to MDC HUB",
+  "layout.kicker": "MDC HUB",
   "layout.title": "Which layout should open?",
   "layout.body":
     "Pick how the site should look for this visit. We will ask again the next time you enter.",
@@ -63,7 +63,7 @@ const en = {
   "layout.desktopHint": "Same as a computer",
   "layout.note": "This choice lasts for the current visit only.",
 
-  "intro.tagline": "Script Ecosystem",
+  "intro.tagline": "Script Archive",
 
   "pages.scriptblox.kicker": "Source · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
@@ -90,12 +90,14 @@ const en = {
   "pages.community.description":
     "Scripts shared by MDC HUB members. Like, comment and follow the blue-check progress of their authors.",
 
-  "hero.badgeLive": "Library live",
-  "hero.badgeLoading": "Library loading",
-  "hero.badgeCurated": "Curated selection",
+  "hero.badgeLive": "Index current",
+  "hero.badgeLoading": "Index updating",
+  "hero.badgeCurated": "Local archive",
+  "hero.titleLead": "A considered index for",
+  "hero.titleHighlight": "Roblox scripts.",
   "hero.subtitle":
-    "A live script feed pulled from the ScriptBlox catalog and organized into categories.",
-  "hero.subtitleEmphasis": " Browse, copy, use.",
+    "ScriptBlox and Rscripts catalogues, collected in one place with status and source context.",
+  "hero.subtitleEmphasis": " Review before you run.",
   "hero.searchPlaceholder": "Search games, scripts or features…",
   "hero.searchAria": "Search scripts",
   "hero.clearSearch": "Clear search",
@@ -112,11 +114,11 @@ const en = {
   "hero.statSource": "Data source",
   "hero.statLocal": "Local",
 
-  "explorer.kicker": "Script Discovery",
-  "explorer.titleLead": "Category-based ",
-  "explorer.titleHighlight": "live script feed",
+  "explorer.kicker": "Index",
+  "explorer.titleLead": "Every script, ",
+  "explorer.titleHighlight": "in one index.",
   "explorer.description":
-    "Synced automatically from the ScriptBlox catalog. Review status, source and access before running any third-party code.",
+    "Search ScriptBlox, Rscripts and community entries. Check status, source and access before running third-party code.",
   "explorer.sourceLive": "{source} · live sync",
   "explorer.sourceLoading": "Syncing library",
   "explorer.sourceCurated": "MDC curated selection",
@@ -209,8 +211,8 @@ const en = {
   "modal.verifiedSource": "Verified by {source}",
 
   "code.kicker": "Developer Experience",
-  "code.titleLead": "One line. ",
-  "code.titleHighlight": "Full power.",
+  "code.titleLead": "Read the source. ",
+  "code.titleHighlight": "Then run it.",
   "code.description":
     "MDC Engine loads modules with a single loadstring call. Versions update in the background; you focus on your game.",
   "code.featureSourceTitle": "Source-aware",
@@ -302,7 +304,7 @@ const en = {
   "auth.errorServer": "The account service hit an error. Please try again in a moment.",
   "auth.errorExpired": "That sign-in link was already used. Please start again.",
   "auth.terms": "By continuing, you agree to the Terms of Use.",
-  "auth.footer": "MDC HUB · Cyber-Luxury Script Ecosystem",
+  "auth.footer": "MDC HUB · Script Index",
 
   "account.kicker": "Account center",
   "account.titleLead": "Level, achievements and ",
@@ -482,7 +484,7 @@ const en = {
 export type MessageKey = keyof typeof en;
 
 const tr: Record<MessageKey, string> = {
-  "meta.title": "MDC HUB — Next-Gen Roblox Script Ecosystem",
+  "meta.title": "MDC HUB — Roblox Script Arşivi",
   "meta.description":
     "MDC HUB, ScriptBlox kataloğundan beslenen kategorilere ayrılmış canlı Roblox script akışı. Kaynağı, durumu ve kodu incele; tek tıkla kopyala.",
 
@@ -522,7 +524,7 @@ const tr: Record<MessageKey, string> = {
   "nav.switchToLight": "Açık temaya geç",
   "nav.switchToDark": "Gece temasına geç",
 
-  "layout.kicker": "MDC HUB'a hoş geldin",
+  "layout.kicker": "MDC HUB",
   "layout.title": "Site hangi düzende açılsın?",
   "layout.body":
     "Bu ziyaret için görünümü seç. Bir sonraki girişte tekrar soracağız.",
@@ -534,7 +536,7 @@ const tr: Record<MessageKey, string> = {
   "layout.desktopHint": "Bilgisayardaki görünüm",
   "layout.note": "Bu seçim yalnızca bu ziyaret için geçerli.",
 
-  "intro.tagline": "Script Ekosistemi",
+  "intro.tagline": "Script Arşivi",
 
   "pages.scriptblox.kicker": "Kaynak · ScriptBlox",
   "pages.scriptblox.label": "ScriptBlox",
@@ -561,12 +563,14 @@ const tr: Record<MessageKey, string> = {
   "pages.community.description":
     "MDC HUB üyelerinin paylaştığı scriptler. Beğen, yorum yap ve yazarların mavi tik ilerlemesini takip et.",
 
-  "hero.badgeLive": "Kütüphane canlı",
-  "hero.badgeLoading": "Kütüphane yükleniyor",
-  "hero.badgeCurated": "Küratör seçkisi",
+  "hero.badgeLive": "Katalog güncel",
+  "hero.badgeLoading": "Katalog güncelleniyor",
+  "hero.badgeCurated": "Yerel arşiv",
+  "hero.titleLead": "Roblox scriptleri için",
+  "hero.titleHighlight": "düzenli bir arşiv.",
   "hero.subtitle":
-    "ScriptBlox kataloğundan otomatik çekilen, kategori kategori keşfedebileceğin canlı script akışı.",
-  "hero.subtitleEmphasis": " İncele, kopyala, kullan.",
+    "ScriptBlox ve Rscripts kataloglarını durum ve kaynak bilgisiyle tek yerde toplayan arşiv.",
+  "hero.subtitleEmphasis": " Çalıştırmadan önce incele.",
   "hero.searchPlaceholder": "Oyun, script veya özellik ara…",
   "hero.searchAria": "Script ara",
   "hero.clearSearch": "Aramayı temizle",
@@ -583,11 +587,11 @@ const tr: Record<MessageKey, string> = {
   "hero.statSource": "Veri kaynağı",
   "hero.statLocal": "Yerel",
 
-  "explorer.kicker": "Script Keşfi",
-  "explorer.titleLead": "Kategorilere ayrılmış ",
-  "explorer.titleHighlight": "canlı script akışı",
+  "explorer.kicker": "Katalog",
+  "explorer.titleLead": "Tüm scriptler, ",
+  "explorer.titleHighlight": "tek bir listede.",
   "explorer.description":
-    "ScriptBlox kataloğundan otomatik senkronize edilir. Durum, kaynak ve erişim bilgisini gör; üçüncü taraf kodları çalıştırmadan önce incele.",
+    "ScriptBlox, Rscripts ve topluluk kayıtlarını tek yerde ara. Üçüncü taraf kodu çalıştırmadan önce durum, kaynak ve erişim bilgisini kontrol et.",
   "explorer.sourceLive": "{source} · canlı senkron",
   "explorer.sourceLoading": "Kütüphane senkronize ediliyor",
   "explorer.sourceCurated": "MDC küratör seçkisi",
@@ -680,8 +684,8 @@ const tr: Record<MessageKey, string> = {
   "modal.verifiedSource": "{source} tarafından doğrulanmış",
 
   "code.kicker": "Geliştirici Deneyimi",
-  "code.titleLead": "Tek satır. ",
-  "code.titleHighlight": "Tüm güç.",
+  "code.titleLead": "Önce kaynağı oku. ",
+  "code.titleHighlight": "Sonra çalıştır.",
   "code.description":
     "MDC Engine, modülleri tek bir loadstring çağrısıyla yükler. Sürümler arka planda güncellenir; sen sadece oyununa odaklanırsın.",
   "code.featureSourceTitle": "Kaynak etiketli",
@@ -773,7 +777,7 @@ const tr: Record<MessageKey, string> = {
   "auth.errorServer": "Hesap servisinde bir hata oluştu. Biraz sonra tekrar dene.",
   "auth.errorExpired": "Bu giriş bağlantısı zaten kullanılmış. Lütfen baştan başla.",
   "auth.terms": "Devam ederek Kullanım Koşulları'nı kabul etmiş olursun.",
-  "auth.footer": "MDC HUB · Cyber-Luxury Script Ecosystem",
+  "auth.footer": "MDC HUB · Script Arşivi",
 
   "account.kicker": "Hesap merkezi",
   "account.titleLead": "Seviye, başarımlar ve ",

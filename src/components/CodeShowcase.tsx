@@ -53,7 +53,7 @@ print(("[MDC] Ready · v%s"):format(MDC.version))`;
 
 const configCode = `-- MDC HUB · config / v5
 local CONFIG = {
-    theme         = "cyber-luxury",
+    theme         = "editorial",
     autoUpdate    = true,
     notifications = true,
     safeMode      = true,
@@ -115,43 +115,37 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
   const lineCount = active.code.trim().split("\n").length;
 
   return (
-    <section id="kod" className="relative scroll-mt-28 overflow-hidden py-20 sm:py-24">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 translate-x-1/3 rounded-full bg-[radial-gradient(circle,rgba(0,102,255,0.1),transparent_66%)] blur-3xl"
-      />
-      <div aria-hidden="true" className="dot-field pointer-events-none absolute inset-y-0 right-0 -z-10 w-1/2 opacity-40" />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section id="kod" className="scroll-mt-28 py-20 sm:py-24">
+      <div className="container-page">
         <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 xl:gap-20">
           <Reveal>
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-neon/70 to-transparent" />
-              <span className="section-kicker text-neon/70">{t("code.kicker")}</span>
-            </div>
+            <span className="section-kicker">{t("code.kicker")}</span>
 
-            <h2 className="mt-4 max-w-md font-display text-[30px] font-medium leading-[1.06] tracking-[-0.035em] text-white sm:text-[42px]">
+            <h2 className="section-title">
               {t("code.titleLead")}
-              <span className="bg-gradient-to-r from-[#CFFBFF] via-neon to-[#4E86FF] bg-clip-text text-transparent">
-                {t("code.titleHighlight")}
-              </span>
+              <span className="text-accent">{t("code.titleHighlight")}</span>
             </h2>
 
-            <p className="mt-4 max-w-md text-[12.5px] leading-relaxed text-white/50 sm:text-[13.5px]">
-              {t("code.description")}
-            </p>
+            <p className="section-lead">{t("code.description")}</p>
 
             <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
-              {features.map((feature) => (
+              {features.map((feature, index) => (
                 <div key={feature.titleKey} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-neon/70">
+                  <span
+                    className={cn(
+                      "mt-0.5 grid h-8 w-8 shrink-0 place-items-center border",
+                      index % 2 === 0
+                        ? "border-[var(--info)] text-[var(--info)]"
+                        : "border-[var(--accent)] text-[var(--accent)]",
+                    )}
+                  >
                     <feature.icon className="h-3.5 w-3.5" />
                   </span>
                   <div>
-                    <p className="text-[11.5px] font-medium text-white/75">
+                    <p className="text-[0.76rem] font-semibold text-[var(--ink)]">
                       {t(feature.titleKey)}
                     </p>
-                    <p className="mt-0.5 text-[10px] leading-relaxed text-white/40">
+                    <p className="mt-0.5 text-[0.66rem] leading-relaxed text-[var(--muted)]">
                       {t(feature.descriptionKey)}
                     </p>
                   </div>
@@ -160,98 +154,88 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
             </div>
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a
-                href="#kesfet"
-                className="group inline-flex items-center gap-2 rounded-xl border border-neon/25 bg-neon/[0.07] px-4 py-2.5 text-[11.5px] font-semibold text-neon transition-all duration-300 hover:border-neon/45 hover:bg-neon/[0.12] hover:shadow-[0_0_30px_-12px_rgba(0,240,255,0.7)]"
-              >
+              <a href="#kesfet" className="btn btn-secondary">
                 {t("code.cta")}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-3.5 w-3.5" />
               </a>
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/22">
+              <span className="font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--faint)]">
                 {t("code.installTime")}
               </span>
             </div>
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(ellipse_at_60%_40%,rgba(0,240,255,0.13),transparent_68%)] blur-2xl"
-              />
-
-              <div data-keep-dark className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#04080e]/85 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
-                <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5" aria-hidden="true">
-                      <span className="h-2 w-2 rounded-full bg-[#ff5f57]/75" />
-                      <span className="h-2 w-2 rounded-full bg-[#febc2e]/75" />
-                      <span className="h-2 w-2 rounded-full bg-[#28c840]/75" />
-                    </div>
-                    <span aria-hidden="true" className="h-4 w-px bg-white/[0.08]" />
-                    <span className="hidden items-center gap-1.5 font-mono text-[9.5px] text-white/30 sm:flex">
-                      <span className="text-neon/50">~/mdc</span>
-                      <span className="text-white/15">/</span>
-                      <span className="text-white/45">{active.name}</span>
-                    </span>
+            <div data-keep-dark className="code-window">
+              <div className="code-window__bar">
+                <div className="flex items-center gap-3">
+                  <div className="code-window__dots" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
                   </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="hidden items-center gap-1.5 rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white/30 sm:flex">
-                      <Code2 className="h-2.5 w-2.5 text-neon/50" />
-                      {t("code.lua")}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => void copy(active.code)}
-                      aria-label={t("code.copyAria")}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[10px] font-medium transition-all duration-300",
-                        copied
-                          ? "border-neon/40 bg-neon/[0.12] text-neon"
-                          : "border-white/[0.08] bg-white/[0.03] text-white/45 hover:border-neon/30 hover:text-white",
-                      )}
-                    >
-                      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                      {copied ? t("code.copied") : t("code.copy")}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1 border-b border-white/[0.05] bg-black/20 px-3 py-2">
-                  {samples.map((sample) => (
-                    <button
-                      key={sample.id}
-                      type="button"
-                      onClick={() => setActiveId(sample.id)}
-                      aria-pressed={active.id === sample.id}
-                      className={cn(
-                        "rounded-lg px-2.5 py-1.5 font-mono text-[9.5px] transition-all duration-300",
-                        active.id === sample.id
-                          ? "bg-white/[0.07] text-white/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-                          : "text-white/30 hover:bg-white/[0.03] hover:text-white/55",
-                      )}
-                    >
-                      {sample.name}
-                    </button>
-                  ))}
-                  <span className="ml-auto hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-neon/40 sm:flex">
-                    <span className="h-1 w-1 rounded-full bg-neon/60" />
-                    {t("code.engine")}
+                  <span aria-hidden="true" className="h-4 w-px bg-[#292c32]" />
+                  <span className="hidden items-center gap-1.5 font-mono text-[0.58rem] text-[#858b94] sm:flex">
+                    <span className="text-[#7ea6d8]">~/mdc</span>
+                    <span className="text-[#4c5158]">/</span>
+                    <span className="text-[#c5cbd4]">{active.name}</span>
                   </span>
                 </div>
 
-                <CodeBlock code={active.code} className="max-h-[380px] bg-[#04080e]/60" />
+                <div className="flex items-center gap-2">
+                  <span className="hidden items-center gap-1.5 border border-[#292c32] px-2 py-1 font-mono text-[0.52rem] uppercase tracking-[0.05em] text-[#8d949e] sm:flex">
+                    <Code2 className="h-2.5 w-2.5" />
+                    {t("code.lua")}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => void copy(active.code)}
+                    aria-label={t("code.copyAria")}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-[0.6rem] font-semibold transition-colors",
+                      copied
+                        ? "border-[#7ea6d8] bg-[#7ea6d8]/10 text-[#a9c5e8]"
+                        : "border-[#34383f] text-[#a9b0ba] hover:border-[#565c65] hover:text-white",
+                    )}
+                  >
+                    {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                    {copied ? t("code.copied") : t("code.copy")}
+                  </button>
+                </div>
+              </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/[0.06] bg-white/[0.015] px-4 py-2.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">
-                  <span>UTF-8 · Lua 5.1 · MDC v5.0.4</span>
-                  <div className="flex items-center gap-3">
-                    <span>{t("code.lines", { count: lineCount })}</span>
-                    <span className="flex items-center gap-1.5 text-neon/55">
-                      <ShieldCheck className="h-2.5 w-2.5" />
-                      {t("code.secure")}
-                    </span>
-                  </div>
+              <div className="flex items-center gap-1 border-b border-[#24272c] bg-[#0a0c0f] px-3 py-1.5">
+                {samples.map((sample) => (
+                  <button
+                    key={sample.id}
+                    type="button"
+                    onClick={() => setActiveId(sample.id)}
+                    aria-pressed={active.id === sample.id}
+                    className={cn(
+                      "px-2.5 py-1.5 font-mono text-[0.58rem] transition-colors",
+                      active.id === sample.id
+                        ? "bg-[#22252a] text-[#e5e8ec]"
+                        : "text-[#7d848e] hover:bg-[#181b1f] hover:text-[#c5cbd4]",
+                    )}
+                  >
+                    {sample.name}
+                  </button>
+                ))}
+                <span className="ml-auto hidden items-center gap-1.5 font-mono text-[0.52rem] uppercase tracking-[0.05em] text-[#7ea6d8] sm:flex">
+                  <span className="h-1 w-1 bg-[#7ea6d8]" />
+                  {t("code.engine")}
+                </span>
+              </div>
+
+              <CodeBlock code={active.code} className="max-h-[380px] bg-[#0c0e11]" />
+
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#24272c] bg-[#0a0c0f] px-4 py-2.5 font-mono text-[0.52rem] uppercase tracking-[0.04em] text-[#7d848e]">
+                <span>UTF-8 · Lua 5.1 · MDC v5.0.4</span>
+                <div className="flex items-center gap-3">
+                  <span>{t("code.lines", { count: lineCount })}</span>
+                  <span className="flex items-center gap-1.5 text-[#7ea6d8]">
+                    <ShieldCheck className="h-2.5 w-2.5" />
+                    {t("code.secure")}
+                  </span>
                 </div>
               </div>
             </div>
