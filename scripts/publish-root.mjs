@@ -19,6 +19,8 @@ for (const file of [
   "favicon.svg",
   "google3fc423323d99f3e8.html",
   "manifest.webmanifest",
+  "robots.txt",
+  "sitemap.xml",
   "sw.js",
   "icon-180.png",
   "icon-192.png",
