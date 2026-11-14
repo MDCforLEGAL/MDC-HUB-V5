@@ -221,7 +221,7 @@ export async function fetchPresenceStats(signal?: AbortSignal): Promise<Presence
   return payload.stats;
 }
 
-interface SessionPayload {
+export interface SessionPayload {
   token: string;
   expiresAt: string;
   user: AuthUser;
@@ -232,6 +232,14 @@ export async function exchangeLoginCode(code: string, signal?: AbortSignal): Pro
     method: "POST",
     body: { code },
     signal,
+  });
+}
+
+/** Verifies a Firebase Google ID token and returns an MDC HUB session. */
+export async function firebaseLogin(idToken: string): Promise<SessionPayload> {
+  return request<SessionPayload>("/auth/firebase", {
+    method: "POST",
+    body: { idToken },
   });
 }
 

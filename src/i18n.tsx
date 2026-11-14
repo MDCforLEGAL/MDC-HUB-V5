@@ -316,6 +316,8 @@ const en = {
   "auth.errorState": "The sign-in request expired. Please start again.",
   "auth.errorServer": "The account service hit an error. Please try again in a moment.",
   "auth.errorExpired": "That sign-in link was already used. Please start again.",
+  "auth.errorGoogle": "Google sign-in could not be completed. Please try again.",
+  "auth.errorDomain": "Google sign-in is not allowed on this domain yet. Add the site to Firebase authorized domains.",
   "auth.terms": "By continuing, you agree to the Terms of Use.",
   "auth.footer": "MDC HUB · Script Index",
 
@@ -802,6 +804,8 @@ const tr: Record<MessageKey, string> = {
   "auth.errorState": "Giriş isteğinin süresi doldu. Lütfen baştan başla.",
   "auth.errorServer": "Hesap servisinde bir hata oluştu. Biraz sonra tekrar dene.",
   "auth.errorExpired": "Bu giriş bağlantısı zaten kullanılmış. Lütfen baştan başla.",
+  "auth.errorGoogle": "Google girişi tamamlanamadı. Lütfen tekrar dene.",
+  "auth.errorDomain": "Google girişi bu alan adında henüz izinli değil. Siteyi Firebase yetkili alan adlarına ekle.",
   "auth.terms": "Devam ederek Kullanım Koşulları'nı kabul etmiş olursun.",
   "auth.footer": "MDC HUB · Script Arşivi",
 

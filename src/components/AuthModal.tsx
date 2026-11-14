@@ -64,7 +64,13 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           ? t("auth.errorServer")
           : errorDetail === "invalid_code"
             ? t("auth.errorExpired")
-            : t("auth.callbackFailed");
+            : errorDetail === "google"
+              ? t("auth.errorGoogle")
+              : errorDetail === "domain"
+                ? t("auth.errorDomain")
+                : errorDetail === "network"
+                  ? t("auth.offlineBody")
+                  : t("auth.callbackFailed");
 
   return (
     <div
@@ -196,7 +202,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
             <code data-keep-dark className="code-note mt-4 block">
               DISCORD_CLIENT_ID · DISCORD_CLIENT_SECRET
               <br />
-              GOOGLE_CLIENT_ID · GOOGLE_CLIENT_SECRET
+              FIREBASE_PROJECT_ID
             </code>
           </Notice>
         )}

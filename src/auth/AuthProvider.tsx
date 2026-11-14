@@ -14,11 +14,30 @@ import {
   clearStoredToken,
   endSession,
   fetchMe,
+  firebaseLogin,
   getStoredToken,
+  storeToken,
   type AuthSnapshot,
   type AuthUser,
   type OAuthProvider,
 } from "../lib/api";
+
+function firebaseErrorDetail(error: unknown): string {
+  if (error instanceof ApiError) {
+    if (error.status === 0 || error.code === "network") return "network";
+    if (error.status === 503) return "config";
+    return "google";
+  }
+
+  const code =
+    typeof error === "object" && error && "code" in error
+      ? String((error as { code: unknown }).code)
+      : "";
+  if (code.includes("popup-closed") || code.includes("cancelled-popup")) return "cancelled";
+  if (code.includes("unauthorized-domain")) return "domain";
+  if (code.includes("operation-not-allowed")) return "config";
+  return "google";
+}
 
 interface AuthContextValue extends AuthSnapshot {
   busy: boolean;
@@ -54,6 +73,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = useCallback((provider: OAuthProvider = "discord") => {
     setBusy(true);
+
+    if (provider === "google") {
+      void (async () => {
+        try {
+          const { requestGoogleIdToken } = await import("../lib/firebase");
+          const idToken = await requestGoogleIdToken();
+          const session = await firebaseLogin(idToken);
+          storeToken(session.token);
+          setSnapshot((previous) => ({
+            ...previous,
+            status: "signed-in",
+            user: session.user,
+            error: null,
+            errorDetail: null,
+          }));
+        } catch (error) {
+          setSnapshot((previous) => ({
+            ...previous,
+            status: "signed-out",
+            user: null,
+            error: "callback",
+            errorDetail: firebaseErrorDetail(error),
+          }));
+        } finally {
+          setBusy(false);
+        }
+      })();
+      return;
+    }
+
     void beginOAuthLogin(provider)
       .then((started) => {
         if (!started) {
@@ -74,6 +123,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // A failed remote logout must not trap the user in a stale session.
     } finally {
       clearStoredToken();
+      try {
+        const { signOutOfFirebase } = await import("../lib/firebase");
+        await signOutOfFirebase();
+      } catch {
+        // Firebase is optional and must not block the MDC sign-out.
+      }
       setSnapshot((previous) => ({
         ...previous,
         status: "signed-out",
