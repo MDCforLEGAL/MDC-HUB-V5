@@ -105,13 +105,6 @@ function adminUsernames(env: Env): string[] {
     .filter(Boolean);
 }
 
-function adminGoogleIds(env: Env): string[] {
-  return (env.ADMIN_GOOGLE_IDS ?? "")
-    .split(",")
-    .map((id) => id.trim())
-    .filter(Boolean);
-}
-
 /** Admins come from the env allowlist (ids or usernames) or a granted role in D1. */
 function isAdminIdentity(env: Env, discordId: string, username: string): boolean {
   return (
@@ -304,11 +297,12 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
   }
 
   // The env allowlist wins even for sessions created before the username was added.
-  const allowlisted =
-    row.provider === "google"
-      ? adminGoogleIds(env).includes(row.provider_id)
-      : isAdminIdentity(env, row.provider_id, row.username);
-  if (row.role !== "admin" && allowlisted) {
+  // Google accounts are promoted through the admin panel instead.
+  if (
+    row.provider !== "google" &&
+    row.role !== "admin" &&
+    isAdminIdentity(env, row.provider_id, row.username)
+  ) {
     const promoted = await setUserRole(env.DB, row.id, "admin");
     if (promoted) row.role = "admin";
   }
