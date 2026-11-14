@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBeprn-MEnX9H29yCEkRO01L02cUbS6Fag",
+  apiKey: "AIzaSyA4vs3oghdTdmpw-KNaez0h7LLB8Woc9vs",
   authDomain: "mdc-hub-v5.firebaseapp.com",
   projectId: "mdc-hub-v5",
   storageBucket: "mdc-hub-v5.firebasestorage.app",
