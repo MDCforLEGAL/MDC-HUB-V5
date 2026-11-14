@@ -18,7 +18,7 @@ comments, reactions, achievements, and a blue-check system into one interface.
 - **MDC Scripts** — official releases published by authorized MDC accounts.
 - **Community** — scripts shared by signed-in members, with likes, dislikes, and
   comments.
-- **Accounts** — Discord sign-in, profiles, levels, XP, achievements, and blue
+- **Accounts** — Discord & Google sign-in, profiles, levels, XP, achievements, and blue
   check progress. Members can add a bio and up to three links, then share a
   public profile page.
 - **Comment moderation** — administrators can hide or restore comments; hidden
