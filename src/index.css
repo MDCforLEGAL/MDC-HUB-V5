@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Generated bundles, snapshots and data files are not UI sources. Excluding
+   them keeps stale utility classes from old builds out of the stylesheet. */
+@source not "../assets";
+@source not "../dist";
+@source not "../data";
+@source not "../public";
+
 @theme {
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
