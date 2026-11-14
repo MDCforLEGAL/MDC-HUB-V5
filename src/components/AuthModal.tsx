@@ -93,7 +93,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           <X className="h-3.5 w-3.5" />
         </button>
 
-        <Logo compact className="w-fit" />
+        <Logo className="w-fit" />
 
         {status === "loading" && (
           <div className="py-12 text-center" aria-live="polite">

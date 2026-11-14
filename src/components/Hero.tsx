@@ -1,6 +1,8 @@
 import { useEffect, useRef, type FormEvent } from "react";
+import type { PresenceState } from "../hooks/usePresence";
 import type { LibraryState } from "../hooks/useScriptLibrary";
 import { useI18n } from "../i18n";
+import type { PresenceStats } from "../lib/api";
 import { formatCompact, timeAgo } from "../lib/format";
 import { ArrowRight, Search, X } from "./Icons";
 import { SourceTabs } from "./SourceTabs";
@@ -11,10 +13,11 @@ interface HeroProps {
   onSubmitSearch: () => void;
   resultCount: number;
   scriptCount: number;
-  gameCount: number;
   workingRate: number;
   lastSync: string | null;
   libraryState: LibraryState;
+  presence: PresenceStats | null;
+  presenceState: PresenceState;
   popularSearches: string[];
 }
 
@@ -24,10 +27,11 @@ export function Hero({
   onSubmitSearch,
   resultCount,
   scriptCount,
-  gameCount,
   workingRate,
   lastSync,
   libraryState,
+  presence,
+  presenceState,
   popularSearches,
 }: HeroProps) {
   const { t, locale } = useI18n();
@@ -66,15 +70,44 @@ export function Hero({
 
   const stats = [
     { value: formatCompact(scriptCount, locale), label: t("hero.statScripts") },
-    { value: formatCompact(gameCount, locale), label: t("hero.statGames") },
     {
       value: `${workingRate.toLocaleString(locale === "tr" ? "tr-TR" : "en-US", {
         maximumFractionDigits: 1,
       })}%`,
       label: t("hero.statWorking"),
     },
-    { value: syncValue, label: isLive ? t("hero.statSync") : t("hero.statSource") },
   ];
+
+  const presenceValue = (value: number | undefined) =>
+    typeof value === "number"
+      ? value.toLocaleString(locale === "tr" ? "tr-TR" : "en-US")
+      : "—";
+
+  const presenceStats = [
+    {
+      value: presenceValue(presence?.registeredActive),
+      label: t("hero.presenceRegistered"),
+    },
+    {
+      value: presenceValue(presence?.guestActive),
+      label: t("hero.presenceGuests"),
+    },
+    {
+      value: presenceValue(presence?.offline),
+      label: t("hero.presenceOffline"),
+    },
+    {
+      value: presenceValue(presence?.totalVisitors),
+      label: t("hero.presenceTotal"),
+    },
+  ];
+
+  const presenceLabel =
+    presenceState === "live"
+      ? t("hero.presenceLive")
+      : presenceState === "loading"
+        ? t("hero.presenceLoading")
+        : t("hero.presenceUnavailable");
 
   return (
     <section id="top" className="hero-section">
@@ -179,6 +212,23 @@ export function Hero({
               </div>
             ))}
           </dl>
+
+          <div className="hero-index__community">
+            <div className="hero-index__community-head">
+              <span>{t("hero.presenceTitle")}</span>
+              <span className={`hero-index__community-state is-${presenceState}`}>
+                {presenceLabel}
+              </span>
+            </div>
+            <dl className="hero-index__grid hero-index__grid--presence">
+              {presenceStats.map((stat) => (
+                <div key={stat.label} className="hero-stat">
+                  <dt>{stat.label}</dt>
+                  <dd>{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
 
           <div className="hero-index__foot">
             <span>{t("hero.statSync")}</span>

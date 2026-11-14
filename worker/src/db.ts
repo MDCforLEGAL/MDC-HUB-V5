@@ -285,6 +285,70 @@ export async function pruneExpired(db: D1Database, now: string): Promise<void> {
 }
 
 /* ------------------------------------------------------------------ */
+/* Live presence counters                                              */
+/* ------------------------------------------------------------------ */
+
+export interface PresenceSnapshot {
+  registeredActive: number;
+  guestActive: number;
+  offline: number;
+  totalVisitors: number;
+}
+
+/** Upserts one anonymous visitor heartbeat. The first-seen timestamp is kept. */
+export async function touchPresence(
+  db: D1Database,
+  visitorId: string,
+  userId: string | null,
+  now: number,
+): Promise<void> {
+  await db
+    .prepare(
+      `INSERT INTO presence (visitor_id, user_id, first_seen, last_seen)
+       VALUES (?, ?, ?, ?)
+       ON CONFLICT(visitor_id) DO UPDATE SET
+         user_id = excluded.user_id,
+         last_seen = excluded.last_seen`,
+    )
+    .bind(visitorId, userId, now, now)
+    .run();
+}
+
+/** Counts active registered members, active guests, offline members and all visitors. */
+export async function presenceStats(
+  db: D1Database,
+  activeSince: number,
+): Promise<PresenceSnapshot> {
+  const row = await db
+    .prepare(
+      `SELECT
+         (SELECT COUNT(DISTINCT user_id) FROM presence
+           WHERE user_id IS NOT NULL AND last_seen >= ?) AS registered_active,
+         (SELECT COUNT(*) FROM presence
+           WHERE user_id IS NULL AND last_seen >= ?) AS guest_active,
+         (SELECT COUNT(*) FROM users) AS total_registered,
+         (SELECT COUNT(*) FROM presence) AS total_visitors`,
+    )
+    .bind(activeSince, activeSince)
+    .first<{
+      registered_active: number;
+      guest_active: number;
+      total_registered: number;
+      total_visitors: number;
+    }>();
+
+  const registeredActive = Number(row?.registered_active ?? 0);
+  const totalRegistered = Number(row?.total_registered ?? 0);
+
+  return {
+    registeredActive,
+    guestActive: Number(row?.guest_active ?? 0),
+    offline: Math.max(0, totalRegistered - registeredActive),
+    totalVisitors: Number(row?.total_visitors ?? 0),
+  };
+}
+
+/* ------------------------------------------------------------------ */
 /* Community scripts, reactions and comments                           */
 /* ------------------------------------------------------------------ */
 

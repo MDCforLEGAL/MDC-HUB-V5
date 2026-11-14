@@ -27,6 +27,13 @@ export interface HealthInfo {
   discord: boolean;
 }
 
+export interface PresenceStats {
+  registeredActive: number;
+  guestActive: number;
+  offline: number;
+  totalVisitors: number;
+}
+
 export interface RuntimeConfig {
   apiBaseUrl: string | null;
 }
@@ -190,6 +197,25 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 
 export async function fetchHealth(signal?: AbortSignal): Promise<HealthInfo> {
   return request<HealthInfo>("/health", { signal });
+}
+
+/** Sends one anonymous presence heartbeat; the API derives the account from the token. */
+export async function sendPresenceHeartbeat(
+  visitorId: string,
+  token: string | null,
+  signal?: AbortSignal,
+): Promise<void> {
+  await request<{ ok: boolean }>("/api/presence", {
+    method: "POST",
+    token,
+    body: { visitorId },
+    signal,
+  });
+}
+
+export async function fetchPresenceStats(signal?: AbortSignal): Promise<PresenceStats> {
+  const payload = await request<{ stats: PresenceStats }>("/api/presence/stats", { signal });
+  return payload.stats;
 }
 
 interface SessionPayload {

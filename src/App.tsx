@@ -3,7 +3,6 @@ import { useAuth } from "./auth/AuthProvider";
 import { AuthModal, type AuthMode } from "./components/AuthModal";
 import { CodeShowcase } from "./components/CodeShowcase";
 import { Footer } from "./components/Footer";
-import { GameMarquee } from "./components/GameMarquee";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { ScriptExplorer } from "./components/ScriptExplorer";
@@ -11,6 +10,7 @@ import { PublishScriptModal } from "./components/PublishScriptModal";
 import { ScriptModal } from "./components/ScriptModal";
 import { Toast } from "./components/Toast";
 import type { ScriptEntry } from "./data/scripts";
+import { usePresence } from "./hooks/usePresence";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
 import { useAccountPage, useProfileUsername, useSourcePage } from "./hooks/useSourcePage";
 import { AccountPage } from "./components/AccountPage";
@@ -29,6 +29,7 @@ interface ToastState {
 
 export default function App() {
   const library = useScriptLibrary();
+  const presence = usePresence();
   const sourcePage = useSourcePage();
   const accountPage = useAccountPage();
   const profileUsername = useProfileUsername();
@@ -180,14 +181,13 @@ export default function App() {
               onSubmitSearch={scrollToResults}
               resultCount={heroResultCount}
               scriptCount={library.scripts.length}
-              gameCount={library.games.length}
               workingRate={workingRate}
               lastSync={library.generatedAt}
               libraryState={library.state}
+              presence={presence.stats}
+              presenceState={presence.state}
               popularSearches={popularSearches}
             />
-
-            <GameMarquee games={library.games} />
           </>
         )}
 

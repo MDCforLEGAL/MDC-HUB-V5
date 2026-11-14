@@ -117,7 +117,7 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
   return (
     <section id="kod" className="scroll-mt-28 py-20 sm:py-24">
       <div className="container-page">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 xl:gap-20">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 xl:gap-20">
           <Reveal>
             <span className="section-kicker">{t("code.kicker")}</span>
 
@@ -128,7 +128,7 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
 
             <p className="section-lead">{t("code.description")}</p>
 
-            <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
+            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
               {features.map((feature, index) => (
                 <div key={feature.titleKey} className="flex items-start gap-3">
                   <span
@@ -164,8 +164,8 @@ export function CodeShowcase({ onNotify }: CodeShowcaseProps) {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <div data-keep-dark className="code-window">
+          <Reveal delay={120} className="min-w-0">
+            <div data-keep-dark className="code-window min-w-0">
               <div className="code-window__bar">
                 <div className="flex items-center gap-3">
                   <div className="code-window__dots" aria-hidden="true">

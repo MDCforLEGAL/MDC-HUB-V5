@@ -314,20 +314,12 @@ html[data-theme="light"] {
   font-weight: 760;
 }
 
-.brand-name small {
-  margin-left: 0.15rem;
-  color: var(--faint);
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
 .brand-sub {
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.48rem;
-  letter-spacing: 0.1em;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -916,6 +908,7 @@ html[data-theme="light"] {
 }
 
 .hero-index {
+  min-width: 0;
   border: 1px solid var(--line);
   background: var(--surface);
 }
@@ -992,6 +985,48 @@ html[data-theme="light"] {
   line-height: 1;
 }
 
+.hero-index__community {
+  border-top: 1px solid var(--line);
+}
+
+.hero-index__community-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.72rem 1rem;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hero-index__community-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.hero-index__community-state::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  background: currentColor;
+}
+
+.hero-index__community-state.is-live {
+  color: var(--info);
+}
+
+.hero-index__community-state.is-error {
+  color: var(--accent);
+}
+
 .hero-index__foot {
   display: flex;
   align-items: center;
@@ -1011,46 +1046,59 @@ html[data-theme="light"] {
   font-weight: 500;
 }
 
-/* ---------- Game strip ---------- */
-
-.game-strip {
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-soft);
-  padding: 0.9rem 0;
+@media (max-width: 767px) {
+  .header-login,
+  .header-signup {
+    display: none;
+  }
 }
 
-.game-strip__inner {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
+@media (max-width: 639px) {
+  .header-actions {
+    gap: 0.3rem;
+  }
 
-.game-strip__label {
-  flex-shrink: 0;
-  color: var(--faint);
-  font-family: var(--font-mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
+  .header-install,
+  .header-theme,
+  .header-locale {
+    display: none;
+  }
 
-.game-strip__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 0.8rem;
-  min-width: 0;
-}
+  .hero-title {
+    font-size: clamp(2.3rem, 10.5vw, 2.8rem);
+  }
 
-.game-strip__item {
-  color: var(--muted);
-  font-size: 0.68rem;
-  white-space: nowrap;
-}
+  .hero-stat {
+    min-height: 4.9rem;
+    padding: 0.85rem;
+  }
 
-.game-strip__item + .game-strip__item::before {
-  content: "/";
-  margin-right: 0.8rem;
-  color: var(--line-strong);
+  .hero-stat dd {
+    font-size: 1.3rem;
+  }
+
+  .hero-stat dt {
+    font-size: 0.5rem;
+  }
+
+  .hero-index__community-head {
+    padding-inline: 0.85rem;
+  }
+
+  .source-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .source-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .source-tab {
+    flex: 0 0 auto;
+  }
 }
 
 /* ---------- Explorer ---------- */

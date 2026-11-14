@@ -40,7 +40,7 @@ export function DiscordFloat() {
           <span className="grid h-6 w-6 place-items-center bg-[var(--info-soft)] text-[var(--info)] transition-colors group-hover:bg-[var(--info)] group-hover:text-white">
             <Discord className="h-3.5 w-3.5" />
           </span>
-          <span className="whitespace-nowrap">{t("social.joinDiscord")}</span>
+          <span className="hidden whitespace-nowrap sm:inline">{t("social.joinDiscord")}</span>
         </a>
         <button
           type="button"

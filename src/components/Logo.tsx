@@ -2,10 +2,9 @@ import { cn } from "../lib/cn";
 
 interface LogoProps {
   className?: string;
-  compact?: boolean;
 }
 
-export function Logo({ className, compact = false }: LogoProps) {
+export function Logo({ className }: LogoProps) {
   return (
     <a href="#top" className={cn("brand", className)} aria-label="MDC HUB">
       <span className="brand-mark" aria-hidden="true">
@@ -14,9 +13,8 @@ export function Logo({ className, compact = false }: LogoProps) {
       <span className="brand-copy">
         <span className="brand-name">
           MDC <b>HUB</b>
-          <small>V5</small>
         </span>
-        {!compact && <span className="brand-sub">Script Archive</span>}
+        <span className="brand-sub">V5</span>
       </span>
     </a>
   );

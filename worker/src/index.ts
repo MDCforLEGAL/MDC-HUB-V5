@@ -20,6 +20,7 @@ import {
   listUsersForAdmin,
   myReactions,
   parseProfileLinks,
+  presenceStats,
   pruneExpired,
   setCommentHidden,
   setReaction,
@@ -28,6 +29,7 @@ import {
   toPublicAuthor,
   toPublicCommunityScript,
   toPublicUser,
+  touchPresence,
   touchSession,
   updateUserProfile,
   upsertDiscordUser,
@@ -324,6 +326,8 @@ const PROFILE_LINKS_MAX = 3;
 const PROFILE_LINK_LABEL_MAX = 28;
 const PROFILE_LINK_URL_MAX = 240;
 const MAX_JSON_BYTES = 120_000;
+const PRESENCE_ACTIVE_MS = 90_000;
+const VISITOR_ID_PATTERN = /^[a-zA-Z0-9_-]{16,64}$/;
 
 function isScriptId(value: string | null): value is string {
   return Boolean(value && SCRIPT_ID_PATTERN.test(value));
@@ -399,6 +403,36 @@ async function sessionUser(request: Request, env: Env): Promise<SessionRow | nul
   const token = bearerToken(request);
   if (!token) return null;
   return findSessionUser(env.DB, await sha256Hex(token), iso(Date.now()));
+}
+
+async function handlePresence(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload || typeof payload !== "object") {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const visitorId = field(payload, "visitorId", 64);
+  if (!VISITOR_ID_PATTERN.test(visitorId)) {
+    return apiError("invalid_visitor", 400, request, env, "A valid visitor id is required.");
+  }
+
+  const user = await sessionUser(request, env);
+  await touchPresence(env.DB, visitorId, user?.id ?? null, Date.now());
+
+  return json({ ok: true }, 200, request, env);
+}
+
+async function handlePresenceStats(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const stats = await presenceStats(env.DB, Date.now() - PRESENCE_ACTIVE_MS);
+  return json({ stats }, 200, request, env);
 }
 
 async function handleCommunityList(request: Request, env: Env): Promise<Response> {
@@ -918,6 +952,10 @@ export default {
         response = await handleLogout(request, env);
       } else if (url.pathname === "/api/me") {
         response = await handleMe(request, env);
+      } else if (url.pathname === "/api/presence") {
+        response = await handlePresence(request, env);
+      } else if (url.pathname === "/api/presence/stats") {
+        response = await handlePresenceStats(request, env);
       } else if (url.pathname === "/api/community") {
         response =
           request.method === "GET"
