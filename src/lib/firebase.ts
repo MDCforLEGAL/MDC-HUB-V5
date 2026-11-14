@@ -8,12 +8,8 @@ import {
 
 const firebaseConfig = {
   apiKey: "AIzaSyA4vs3oghdTdmpw-KNaez0h7LLB8Woc9vs",
-  authDomain: "mdc-hub-v5.firebaseapp.com",
-  projectId: "mdc-hub-v5",
-  storageBucket: "mdc-hub-v5.firebasestorage.app",
-  messagingSenderId: "1008541898743",
-  appId: "1:1008541898743:web:c40b05d1b44ddba6a400f2",
-  measurementId: "G-3Y69PBWNLH",
+  authDomain: "mdc-hub-v5-b637e.firebaseapp.com",
+  projectId: "mdc-hub-v5-b637e",
 };
 
 const app = getApps()[0] ?? initializeApp(firebaseConfig);

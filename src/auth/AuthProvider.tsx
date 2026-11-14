@@ -34,7 +34,7 @@ function firebaseErrorDetail(error: unknown): string {
       ? String((error as { code: unknown }).code)
       : "";
   if (code.includes("popup-closed") || code.includes("cancelled-popup")) return "cancelled";
-  if (code.includes("unauthorized-domain")) return "domain";
+  if (code.includes("unauthorized-domain") || code.includes("invalid-continue-uri")) return "domain";
   if (code.includes("operation-not-allowed")) return "config";
   return "google";
 }
