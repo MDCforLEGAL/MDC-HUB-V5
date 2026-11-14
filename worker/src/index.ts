@@ -31,12 +31,20 @@ import {
   toPublicUser,
   touchPresence,
   touchSession,
+  uniqueOAuthUsername,
   updateUserProfile,
   upsertDiscordUser,
+  upsertOAuthUser,
   userStats,
 } from "./db";
 import type { ProfileLink, ScriptSection, SessionRow } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
+import {
+  buildGoogleAuthorizeUrl,
+  exchangeGoogleCode,
+  fetchGoogleProfile,
+  googleConfigured,
+} from "./google";
 import {
   apiError,
   applyCors,
@@ -63,6 +71,10 @@ function iso(timestamp: number): string {
 
 function callbackUrl(request: Request): string {
   return `${new URL(request.url).origin}/auth/discord/callback`;
+}
+
+function googleCallbackUrl(request: Request): string {
+  return `${new URL(request.url).origin}/auth/google/callback`;
 }
 
 function siteUrl(env: Env): URL | null {
@@ -110,6 +122,7 @@ function isAdminIdentity(env: Env, discordId: string, username: string): boolean
   );
 }
 
+
 function bearerToken(request: Request): string | null {
   const header = request.headers.get("Authorization");
   if (!header) return null;
@@ -134,6 +147,7 @@ async function handleHealth(request: Request, env: Env): Promise<Response> {
       service: "mdc-hub-api",
       database,
       discord: discordConfigured(env),
+      google: googleConfigured(env),
       time: new Date().toISOString(),
     },
     200,
@@ -226,6 +240,94 @@ async function handleDiscordCallback(request: Request, env: Env): Promise<Respon
   }
 }
 
+async function handleGoogleStart(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "GET") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+  if (!googleConfigured(env)) {
+    return apiError(
+      "auth_not_configured",
+      503,
+      request,
+      env,
+      "Google login is not configured on this API yet.",
+    );
+  }
+
+  const state = randomToken(24);
+  const now = Date.now();
+  await createOAuthState(env.DB, state, iso(now), iso(now + OAUTH_STATE_TTL_MS));
+
+  const response = redirect(buildGoogleAuthorizeUrl(env, state, googleCallbackUrl(request)));
+  response.headers.append(
+    "Set-Cookie",
+    serializeCookie(STATE_COOKIE, state, {
+      maxAge: OAUTH_STATE_TTL_MS / 1000,
+      path: STATE_COOKIE_PATH,
+      secure: new URL(request.url).protocol === "https:",
+    }),
+  );
+  return response;
+}
+
+async function handleGoogleCallback(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const state = url.searchParams.get("state") ?? "";
+  const code = url.searchParams.get("code") ?? "";
+  const providerError = url.searchParams.get("error");
+  const cookieState = readCookie(request, STATE_COOKIE) ?? "";
+  const clearedCookie = clearCookie(STATE_COOKIE, STATE_COOKIE_PATH);
+
+  if (providerError) {
+    return redirectToSiteError(env, "cancelled", clearedCookie);
+  }
+  if (!state || !cookieState || !timingSafeEqual(state, cookieState)) {
+    return redirectToSiteError(env, "state", clearedCookie);
+  }
+
+  const now = Date.now();
+  if (!(await consumeOAuthState(env.DB, state, iso(now)))) {
+    return redirectToSiteError(env, "state", clearedCookie);
+  }
+  if (!code || !googleConfigured(env)) {
+    return redirectToSiteError(env, "config", clearedCookie);
+  }
+
+  try {
+    const accessToken = await exchangeGoogleCode(env, code, googleCallbackUrl(request));
+    const profile = await fetchGoogleProfile(accessToken);
+    const username = await uniqueOAuthUsername(env.DB, "google", profile.id, profile.username);
+    // Google accounts start as members and are promoted from the admin panel.
+    const user = await upsertOAuthUser(
+      env.DB,
+      "google",
+      { ...profile, username },
+      "member",
+      iso(now),
+    );
+
+    const loginCode = randomToken(32);
+    await createLoginCode(
+      env.DB,
+      await sha256Hex(loginCode),
+      user.id,
+      iso(now),
+      iso(now + LOGIN_CODE_TTL_MS),
+    );
+
+    const target = siteRedirect(env, "mdc_auth", loginCode);
+    if (!target) {
+      return redirectToSiteError(env, "config", clearedCookie);
+    }
+
+    await pruneExpired(env.DB, iso(now)).catch((error) => console.error("prune_failed", error));
+    return redirect(target, { "Set-Cookie": clearedCookie });
+  } catch (error) {
+    console.error("google_callback_failed", error);
+    return redirectToSiteError(env, "server", clearedCookie);
+  }
+}
+
 async function handleExchange(request: Request, env: Env): Promise<Response> {
   if (request.method !== "POST") {
     return apiError("method_not_allowed", 405, request, env);
@@ -292,7 +394,12 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
   }
 
   // The env allowlist wins even for sessions created before the username was added.
-  if (row.role !== "admin" && isAdminIdentity(env, row.provider_id, row.username)) {
+  // Google accounts are promoted through the admin panel instead.
+  if (
+    row.provider !== "google" &&
+    row.role !== "admin" &&
+    isAdminIdentity(env, row.provider_id, row.username)
+  ) {
     const promoted = await setUserRole(env.DB, row.id, "admin");
     if (promoted) row.role = "admin";
   }
@@ -946,6 +1053,10 @@ export default {
         response = await handleDiscordStart(request, env);
       } else if (url.pathname === "/auth/discord/callback") {
         response = await handleDiscordCallback(request, env);
+      } else if (url.pathname === "/auth/google") {
+        response = await handleGoogleStart(request, env);
+      } else if (url.pathname === "/auth/google/callback") {
+        response = await handleGoogleCallback(request, env);
       } else if (url.pathname === "/auth/exchange") {
         response = await handleExchange(request, env);
       } else if (url.pathname === "/auth/logout") {

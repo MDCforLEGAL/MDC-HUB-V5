@@ -9,7 +9,7 @@ import {
 } from "react";
 import {
   ApiError,
-  beginDiscordLogin,
+  beginOAuthLogin,
   bootstrapAuth,
   clearStoredToken,
   endSession,
@@ -17,12 +17,13 @@ import {
   getStoredToken,
   type AuthSnapshot,
   type AuthUser,
+  type OAuthProvider,
 } from "../lib/api";
 
 interface AuthContextValue extends AuthSnapshot {
   busy: boolean;
   signedIn: boolean;
-  signIn: () => void;
+  signIn: (provider?: OAuthProvider) => void;
   signOut: () => Promise<void>;
   refresh: () => Promise<void>;
 }
@@ -51,9 +52,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const signIn = useCallback(() => {
+  const signIn = useCallback((provider: OAuthProvider = "discord") => {
     setBusy(true);
-    void beginDiscordLogin()
+    void beginOAuthLogin(provider)
       .then((started) => {
         if (!started) {
           setBusy(false);

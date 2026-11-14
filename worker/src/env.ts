@@ -7,6 +7,11 @@ export interface Env {
   /** Discord application secret, stored with `wrangler secret put`. */
   DISCORD_CLIENT_SECRET?: string;
 
+  /** Optional Google OAuth client id, enabled when both Google values are set. */
+  GOOGLE_CLIENT_ID?: string;
+  /** Google OAuth client secret, stored with `wrangler secret put`. */
+  GOOGLE_CLIENT_SECRET?: string;
+
   /** Comma separated browser origins allowed to call this API. */
   SITE_ORIGINS?: string;
   /** Static site URL that receives the browser after a successful login. */

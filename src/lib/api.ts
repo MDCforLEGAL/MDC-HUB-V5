@@ -1,4 +1,5 @@
 export type AuthRole = "admin" | "member";
+export type OAuthProvider = "discord" | "google";
 export type ScriptSection = "mdc" | "community";
 
 export interface ProfileLink {
@@ -8,6 +9,7 @@ export interface ProfileLink {
 
 export interface AuthUser {
   id: string;
+  provider?: OAuthProvider;
   username: string;
   displayName: string;
   avatarUrl: string | null;
@@ -25,6 +27,7 @@ export interface HealthInfo {
   ok: boolean;
   database: boolean;
   discord: boolean;
+  google?: boolean;
 }
 
 export interface PresenceStats {
@@ -241,12 +244,12 @@ export async function endSession(token: string): Promise<void> {
   await request<{ ok: boolean }>("/auth/logout", { method: "POST", token });
 }
 
-/** Sends the browser to Discord. Returns false when the API is not configured. */
-export async function beginDiscordLogin(): Promise<boolean> {
+/** Sends the browser to an OAuth provider. Returns false when the API is not configured. */
+export async function beginOAuthLogin(provider: OAuthProvider): Promise<boolean> {
   const { apiBaseUrl } = await getRuntimeConfig();
   if (!apiBaseUrl) return false;
 
-  window.location.assign(`${apiBaseUrl}/auth/discord`);
+  window.location.assign(`${apiBaseUrl}/auth/${provider}`);
   return true;
 }
 

@@ -3,7 +3,7 @@ import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
-import { AlertTriangle, ArrowRight, Check, Discord, Loader, LogOut, ShieldCheck, X } from "./Icons";
+import { AlertTriangle, ArrowRight, Check, Discord, Google, Loader, LogOut, ShieldCheck, X } from "./Icons";
 
 export type AuthMode = "login" | "signup";
 
@@ -43,6 +43,8 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
   const { status, user, health, error, errorDetail, busy, signIn, signOut } = useAuth();
   const panelRef = useRef<HTMLDivElement>(null);
   const isSignup = mode === "signup";
+  const hasDiscord = Boolean(health?.discord);
+  const hasGoogle = Boolean(health?.google);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -126,8 +128,12 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
 
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
-                <Discord className="h-2.5 w-2.5" />
-                {t("auth.accountBadge")}
+                {user.provider === "google" ? (
+                  <Google className="h-2.5 w-2.5" />
+                ) : (
+                  <Discord className="h-2.5 w-2.5" />
+                )}
+                {user.provider === "google" ? t("auth.googleAccount") : t("auth.accountBadge")}
               </span>
               <span
                 className={
@@ -181,7 +187,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           </Notice>
         )}
 
-        {status === "signed-out" && !health?.discord && (
+        {status === "signed-out" && !hasDiscord && !hasGoogle && (
           <Notice
             icon={<Discord className="h-5 w-5" />}
             title={t("auth.discordMissingTitle")}
@@ -189,11 +195,13 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           >
             <code data-keep-dark className="code-note mt-4 block">
               DISCORD_CLIENT_ID · DISCORD_CLIENT_SECRET
+              <br />
+              GOOGLE_CLIENT_ID · GOOGLE_CLIENT_SECRET
             </code>
           </Notice>
         )}
 
-        {status === "signed-out" && health?.discord && (
+        {status === "signed-out" && (hasDiscord || hasGoogle) && (
           <div className="pt-5">
             <h2
               id="auth-title"
@@ -214,27 +222,60 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               </p>
             )}
 
-            <button
-              type="button"
-              onClick={signIn}
-              disabled={busy}
-              className="btn btn-primary group mt-5 h-12 w-full disabled:opacity-70"
-            >
-              {busy ? (
-                <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
-              ) : (
-                <Discord className="h-4 w-4" />
-              )}
-              {busy
-                ? t("auth.redirecting")
-                : isSignup
-                  ? t("auth.discordCtaSignup")
-                  : t("auth.discordCta")}
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </button>
+            {hasDiscord && (
+              <button
+                type="button"
+                onClick={() => signIn("discord")}
+                disabled={busy}
+                className={`btn ${hasGoogle ? "btn-secondary" : "btn-primary"} group mt-5 h-12 w-full disabled:opacity-70`}
+              >
+                {busy ? (
+                  <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
+                ) : (
+                  <Discord className="h-4 w-4" />
+                )}
+                {busy
+                  ? t("auth.redirecting")
+                  : isSignup
+                    ? t("auth.discordCtaSignup")
+                    : t("auth.discordCta")}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </button>
+            )}
+
+            {hasDiscord && hasGoogle && (
+              <div className="my-3 flex items-center gap-3">
+                <span className="h-px flex-1 bg-[var(--line)]" />
+                <span className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-[var(--faint)]">
+                  {t("auth.or")}
+                </span>
+                <span className="h-px flex-1 bg-[var(--line)]" />
+              </div>
+            )}
+
+            {hasGoogle && (
+              <button
+                type="button"
+                onClick={() => signIn("google")}
+                disabled={busy}
+                className={`btn ${hasDiscord ? "btn-secondary" : "btn-primary"} group ${hasDiscord ? "mt-3" : "mt-5"} h-12 w-full disabled:opacity-70`}
+              >
+                {busy ? (
+                  <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
+                ) : (
+                  <Google className="h-4 w-4" />
+                )}
+                {busy
+                  ? t("auth.redirecting")
+                  : isSignup
+                    ? t("auth.googleCtaSignup")
+                    : t("auth.googleCta")}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </button>
+            )}
 
             <p className="mt-2.5 text-center text-[0.66rem] leading-relaxed text-[var(--faint)]">
-              {t("auth.discordHint")}
+              {hasGoogle ? t("auth.providerHint") : t("auth.discordHint")}
             </p>
 
             <ul className="mt-5 space-y-2.5">

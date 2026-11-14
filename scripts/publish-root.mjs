@@ -17,6 +17,7 @@ await copyFile("dist/index.html", "index.html");
 
 for (const file of [
   "favicon.svg",
+  "og-image.png",
   "google3fc423323d99f3e8.html",
   "manifest.webmanifest",
   "robots.txt",

@@ -37,6 +37,7 @@ export interface ProfileLink {
 
 export interface PublicUser {
   id: string;
+  provider: "discord" | "google";
   username: string;
   displayName: string;
   avatarUrl: string | null;
@@ -97,6 +98,7 @@ export function toPublicUser(
 
   return {
     id: row.id,
+    provider: row.provider === "google" ? "google" : "discord",
     username: row.username,
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
@@ -109,12 +111,14 @@ export function toPublicUser(
   };
 }
 
-export interface DiscordIdentity {
+export interface OAuthIdentity {
   id: string;
   username: string;
   displayName: string;
   avatarUrl: string | null;
 }
+
+export type DiscordIdentity = OAuthIdentity;
 
 export async function upsertDiscordUser(
   db: D1Database,
@@ -137,6 +141,75 @@ export async function upsertDiscordUser(
     )
     .bind(
       `discord:${identity.id}`,
+      identity.id,
+      identity.username,
+      identity.displayName,
+      identity.avatarUrl,
+      role,
+      now,
+      now,
+    )
+    .first<UserRow>();
+
+  if (!row) throw new Error("user_upsert_failed");
+  return row;
+}
+
+/** Keeps a provider account's original username, or finds a free one. */
+export async function uniqueOAuthUsername(
+  db: D1Database,
+  provider: string,
+  providerId: string,
+  preferred: string,
+): Promise<string> {
+  const existing = await db
+    .prepare("SELECT username FROM users WHERE provider = ? AND provider_id = ?")
+    .bind(provider, providerId)
+    .first<{ username: string }>();
+  if (existing?.username) return existing.username;
+
+  const base =
+    preferred
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9_]/g, "")
+      .slice(0, 24) || `${provider}_${providerId.slice(0, 8)}`;
+
+  for (let index = 0; index < 30; index += 1) {
+    const candidate = index === 0 ? base : `${base}${index}`;
+    const taken = await db
+      .prepare("SELECT 1 AS found FROM users WHERE lower(username) = lower(?) LIMIT 1")
+      .bind(candidate)
+      .first<{ found: number }>();
+    if (!taken) return candidate;
+  }
+
+  return `${base}_${Date.now().toString(36).slice(-4)}`;
+}
+
+export async function upsertOAuthUser(
+  db: D1Database,
+  provider: string,
+  identity: OAuthIdentity,
+  role: "admin" | "member",
+  now: string,
+): Promise<UserRow> {
+  const row = await db
+    .prepare(
+      `INSERT INTO users
+         (id, provider, provider_id, username, display_name, avatar_url, role, created_at, last_login_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(id) DO UPDATE SET
+         username = excluded.username,
+         display_name = excluded.display_name,
+         avatar_url = excluded.avatar_url,
+         last_login_at = excluded.last_login_at,
+         role = CASE WHEN excluded.role = 'admin' THEN 'admin' ELSE users.role END
+       RETURNING *`,
+    )
+    .bind(
+      `${provider}:${identity.id}`,
+      provider,
       identity.id,
       identity.username,
       identity.displayName,
