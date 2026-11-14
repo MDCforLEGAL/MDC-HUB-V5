@@ -22,6 +22,7 @@ import {
   parseProfileLinks,
   presenceStats,
   pruneExpired,
+  renameUser,
   setCommentHidden,
   setReaction,
   setUserRole,
@@ -101,6 +102,13 @@ function adminUsernames(env: Env): string[] {
   return (env.ADMIN_USERNAMES ?? "")
     .split(",")
     .map((name) => name.trim().replace(/^@/, "").toLowerCase())
+    .filter(Boolean);
+}
+
+function adminGoogleIds(env: Env): string[] {
+  return (env.ADMIN_GOOGLE_IDS ?? "")
+    .split(",")
+    .map((id) => id.trim())
     .filter(Boolean);
 }
 
@@ -296,12 +304,11 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
   }
 
   // The env allowlist wins even for sessions created before the username was added.
-  // Google accounts are promoted through the admin panel instead.
-  if (
-    row.provider !== "google" &&
-    row.role !== "admin" &&
-    isAdminIdentity(env, row.provider_id, row.username)
-  ) {
+  const allowlisted =
+    row.provider === "google"
+      ? adminGoogleIds(env).includes(row.provider_id)
+      : isAdminIdentity(env, row.provider_id, row.username);
+  if (row.role !== "admin" && allowlisted) {
     const promoted = await setUserRole(env.DB, row.id, "admin");
     if (promoted) row.role = "admin";
   }
@@ -898,6 +905,49 @@ async function handleAdminUsers(
   return json({ users }, 200, request, env);
 }
 
+async function handleAdminRename(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const user = await sessionUser(request, env);
+  if (!user) {
+    return apiError("unauthorized", 401, request, env);
+  }
+  if (user.role !== "admin") {
+    return apiError("forbidden", 403, request, env, "Admin access required.");
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const userId = field(payload, "userId", 80);
+  const username = field(payload, "username", 32);
+  const displayName = field(payload, "displayName", 80) || username;
+
+  if (!userId || !/^[a-zA-Z0-9_]{3,32}$/.test(username)) {
+    return apiError(
+      "invalid_username",
+      400,
+      request,
+      env,
+      "Username must be 3-32 letters, numbers or underscores.",
+    );
+  }
+
+  const updated = await renameUser(env.DB, userId, username, displayName);
+  if (updated === "taken") {
+    return apiError("username_taken", 409, request, env, "That username is already in use.");
+  }
+  if (!updated) {
+    return apiError("not_found", 404, request, env);
+  }
+
+  return json({ ok: true, user: toPublicUser(updated) }, 200, request, env);
+}
+
 async function handleAdminRoles(request: Request, env: Env): Promise<Response> {
   if (request.method !== "POST") {
     return apiError("method_not_allowed", 405, request, env);
@@ -1002,6 +1052,8 @@ export default {
         response = await handleAdminUsers(request, env, url);
       } else if (url.pathname === "/api/admin/roles") {
         response = await handleAdminRoles(request, env);
+      } else if (url.pathname === "/api/admin/rename") {
+        response = await handleAdminRename(request, env);
       } else if (url.pathname.startsWith("/api/social/comments/")) {
         const commentId = url.pathname.slice("/api/social/comments/".length);
         response =

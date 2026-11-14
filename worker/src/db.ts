@@ -1128,3 +1128,23 @@ export async function setUserRole(
       .first<UserRow>()) ?? null
   );
 }
+
+export async function renameUser(
+  db: D1Database,
+  userId: string,
+  username: string,
+  displayName: string,
+): Promise<UserRow | "taken" | null> {
+  const conflict = await db
+    .prepare("SELECT 1 AS found FROM users WHERE lower(username) = lower(?) AND id <> ? LIMIT 1")
+    .bind(username, userId)
+    .first<{ found: number }>();
+  if (conflict) return "taken";
+
+  return (
+    (await db
+      .prepare("UPDATE users SET username = ?, display_name = ? WHERE id = ? RETURNING *")
+      .bind(username, displayName, userId)
+      .first<UserRow>()) ?? null
+  );
+}
