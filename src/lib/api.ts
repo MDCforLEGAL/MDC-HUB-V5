@@ -61,7 +61,7 @@ const TOKEN_KEY = "mdc-hub.session";
 
 export function getStoredToken(): string | null {
   try {
-    return window.localStorage.getItem(TOKEN_KEY);
+    return window.sessionStorage.getItem(TOKEN_KEY);
   } catch {
     return null;
   }
@@ -69,7 +69,7 @@ export function getStoredToken(): string | null {
 
 export function storeToken(token: string): void {
   try {
-    window.localStorage.setItem(TOKEN_KEY, token);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
   } catch {
     // Private browsing can block storage; the session then lasts this page only.
   }
@@ -77,7 +77,7 @@ export function storeToken(token: string): void {
 
 export function clearStoredToken(): void {
   try {
-    window.localStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.removeItem(TOKEN_KEY);
   } catch {
     // Nothing to clear.
   }
