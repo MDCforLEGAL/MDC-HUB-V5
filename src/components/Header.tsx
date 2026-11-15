@@ -100,8 +100,18 @@ function AccountMenu() {
 
           <div className="flex items-center justify-between px-3.5 py-2.5">
             <span className="mono-label">{t("auth.accountBadge")}</span>
-            <span className={cn("role-badge", user.role === "admin" && "role-badge--admin")}>
-              {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
+            <span
+              className={cn(
+                "role-badge",
+                user.role === "admin" && "role-badge--admin",
+                user.role === "moderator" && "role-badge--moderator",
+              )}
+            >
+              {user.role === "admin"
+                ? t("auth.roleAdmin")
+                : user.role === "moderator"
+                  ? t("auth.roleModerator")
+                  : t("auth.roleMember")}
             </span>
           </div>
 

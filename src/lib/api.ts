@@ -1,4 +1,4 @@
-export type AuthRole = "admin" | "member";
+export type AuthRole = "admin" | "moderator" | "member";
 export type OAuthProvider = "discord" | "google";
 export type ScriptSection = "mdc" | "community";
 
@@ -536,6 +536,21 @@ export async function updateUserRole(
     token,
     body: { userId, role },
   });
+}
+
+/** Admins can rename any account; moderators can rename their own. */
+export async function renameAccount(
+  token: string,
+  userId: string,
+  username: string,
+  displayName: string,
+): Promise<AuthUser> {
+  const payload = await request<{ ok: boolean; user: AuthUser }>("/api/admin/rename", {
+    method: "POST",
+    token,
+    body: { userId, username, displayName },
+  });
+  return payload.user;
 }
 
 /* ------------------------------------------------------------------ */

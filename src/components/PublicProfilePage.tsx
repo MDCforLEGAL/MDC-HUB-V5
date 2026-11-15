@@ -129,12 +129,16 @@ export function PublicProfilePage({ username, onNotify }: PublicProfilePageProps
                         "border px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em]",
                         profile.user.role === "admin"
                           ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
-                          : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)]",
+                          : profile.user.role === "moderator"
+                            ? "border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]"
+                            : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)]",
                       )}
                     >
                       {profile.user.role === "admin"
                         ? t("auth.roleAdmin")
-                        : t("auth.roleMember")}
+                        : profile.user.role === "moderator"
+                          ? t("auth.roleModerator")
+                          : t("auth.roleMember")}
                     </span>
                     <span className="border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
                       {t("account.level", { level: profile.level })}

@@ -25,6 +25,15 @@ export function VerifiedMark({ role, verified, className }: VerifiedMarkProps) {
     );
   }
 
+  if (role === "moderator") {
+    return (
+      <BadgeCheck
+        className={cn("shrink-0 text-[var(--info)]", className)}
+        aria-label={t("card.moderatorBadge")}
+      />
+    );
+  }
+
   if (!verified) return null;
 
   return (

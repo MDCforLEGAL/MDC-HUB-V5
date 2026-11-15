@@ -1,3 +1,19 @@
+export type UserRole = "admin" | "moderator" | "member";
+
+/** The owner account can never be demoted from admin. */
+export const PROTECTED_USERNAME = "mudacher";
+export const PROTECTED_USER_ID = "discord:1213116842521137205";
+
+export function isProtectedAccount(row: Pick<UserRow, "id" | "username">): boolean {
+  return row.id === PROTECTED_USER_ID || row.username.toLowerCase() === PROTECTED_USERNAME;
+}
+
+export function normalizeRole(value: string | null | undefined): UserRole {
+  if (value === "admin") return "admin";
+  if (value === "moderator") return "moderator";
+  return "member";
+}
+
 export interface UserRow {
   id: string;
   provider: string;
@@ -41,7 +57,7 @@ export interface PublicUser {
   username: string;
   displayName: string;
   avatarUrl: string | null;
-  role: "admin" | "member";
+  role: UserRole;
   createdAt: string;
   verified: boolean;
   bio: string;
@@ -102,7 +118,7 @@ export function toPublicUser(
     username: row.username,
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
-    role: row.role === "admin" ? "admin" : "member",
+    role: normalizeRole(row.role),
     createdAt: row.created_at,
     verified: isVerifiedAuthor(stats),
     bio: typeof row.bio === "string" ? row.bio.slice(0, 180) : "",
@@ -123,7 +139,7 @@ export type DiscordIdentity = OAuthIdentity;
 export async function upsertDiscordUser(
   db: D1Database,
   identity: DiscordIdentity,
-  role: "admin" | "member",
+  role: UserRole,
   now: string,
 ): Promise<UserRow> {
   const row = await db
@@ -191,7 +207,7 @@ export async function upsertOAuthUser(
   db: D1Database,
   provider: string,
   identity: OAuthIdentity,
-  role: "admin" | "member",
+  role: UserRole,
   now: string,
 ): Promise<UserRow> {
   const row = await db
@@ -430,7 +446,7 @@ export interface PublicAuthor {
   username: string;
   displayName: string;
   avatarUrl: string | null;
-  role: "admin" | "member";
+  role: UserRole;
   verified: boolean;
   scripts: number;
   comments: number;
@@ -509,7 +525,7 @@ export function toPublicAuthor(
     username: row.username,
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
-    role: row.role === "admin" ? "admin" : "member",
+    role: normalizeRole(row.role),
     verified: isVerifiedAuthor(counts),
     ...counts,
   };
@@ -1066,7 +1082,7 @@ export interface AdminUserSummary {
   username: string;
   displayName: string;
   avatarUrl: string | null;
-  role: "admin" | "member";
+  role: UserRole;
   createdAt: string;
   verified: boolean;
   level: number;
@@ -1106,7 +1122,7 @@ export async function listUsersForAdmin(
       username: row.username,
       displayName: row.display_name || row.username,
       avatarUrl: row.avatar_url,
-      role: row.role === "admin" ? "admin" : "member",
+      role: normalizeRole(row.role),
       createdAt: row.created_at,
       verified: isVerifiedAuthor(stats),
       level: levelFromXp(xp).level,
@@ -1116,10 +1132,16 @@ export async function listUsersForAdmin(
   });
 }
 
+export async function findUserById(db: D1Database, userId: string): Promise<UserRow | null> {
+  return (
+    (await db.prepare("SELECT * FROM users WHERE id = ?").bind(userId).first<UserRow>()) ?? null
+  );
+}
+
 export async function setUserRole(
   db: D1Database,
   userId: string,
-  role: "admin" | "member",
+  role: UserRole,
 ): Promise<UserRow | null> {
   return (
     (await db

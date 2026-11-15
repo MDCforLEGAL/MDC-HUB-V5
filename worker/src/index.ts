@@ -14,12 +14,15 @@ import {
   deleteSession,
   findCommunityScript,
   findPublicProfile,
+  findUserById,
+  isProtectedAccount,
   findSessionUser,
   listComments,
   listCommunityScripts,
   listUsersForAdmin,
   myReactions,
   parseProfileLinks,
+  normalizeRole,
   presenceStats,
   pruneExpired,
   renameUser,
@@ -36,7 +39,7 @@ import {
   upsertDiscordUser,
   userStats,
 } from "./db";
-import type { ProfileLink, ScriptSection, SessionRow } from "./db";
+import type { ProfileLink, ScriptSection, SessionRow, UserRole } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import { firebaseConfigured } from "./firebase";
 import { handleFirebaseLogin } from "./firebase-route";
@@ -111,6 +114,10 @@ function isAdminIdentity(env: Env, discordId: string, username: string): boolean
     adminIds(env).includes(discordId) ||
     adminUsernames(env).includes(username.trim().replace(/^@/, "").toLowerCase())
   );
+}
+
+function isStaffRole(role: string | null | undefined): boolean {
+  return role === "admin" || role === "moderator";
 }
 
 
@@ -651,7 +658,7 @@ async function handleCommentsList(
 
   const user = await sessionUser(request, env);
   const rows = await listComments(env.DB, scriptId, {
-    includeHidden: user?.role === "admin",
+    includeHidden: isStaffRole(user?.role),
   });
 
   const comments = rows.map((row) => ({
@@ -673,7 +680,7 @@ async function handleCommentsList(
         likesGiven: Number(row.author_likes_given ?? 0),
       },
     ),
-    mine: Boolean(user && (row.user_id === user.id || user.role === "admin")),
+    mine: Boolean(user && (row.user_id === user.id || isStaffRole(user.role))),
   }));
 
   return json({ comments }, 200, request, env);
@@ -739,7 +746,7 @@ async function handleCommentDelete(
     return apiError("unauthorized", 401, request, env);
   }
 
-  const result = await deleteComment(env.DB, rawId, user.id, user.role === "admin");
+  const result = await deleteComment(env.DB, rawId, user.id, isStaffRole(user.role));
   if (result === "not_found") {
     return apiError("not_found", 404, request, env);
   }
@@ -763,8 +770,8 @@ async function handleCommentModerate(
   if (!user) {
     return apiError("unauthorized", 401, request, env);
   }
-  if (user.role !== "admin") {
-    return apiError("forbidden", 403, request, env, "Admin access required.");
+  if (!isStaffRole(user.role)) {
+    return apiError("forbidden", 403, request, env, "Staff access required.");
   }
 
   const payload = await readJsonBody(request);
@@ -908,8 +915,8 @@ async function handleAdminRename(request: Request, env: Env): Promise<Response> 
   if (!user) {
     return apiError("unauthorized", 401, request, env);
   }
-  if (user.role !== "admin") {
-    return apiError("forbidden", 403, request, env, "Admin access required.");
+  if (!isStaffRole(user.role)) {
+    return apiError("forbidden", 403, request, env, "Staff access required.");
   }
 
   const payload = await readJsonBody(request);
@@ -917,7 +924,12 @@ async function handleAdminRename(request: Request, env: Env): Promise<Response> 
     return apiError("invalid_body", 400, request, env);
   }
 
-  const userId = field(payload, "userId", 80);
+  const requestedUserId = field(payload, "userId", 80);
+  if (user.role !== "admin" && requestedUserId && requestedUserId !== user.id) {
+    return apiError("forbidden", 403, request, env, "You can only rename your own account.");
+  }
+
+  const userId = user.role === "admin" ? requestedUserId : user.id;
   const username = field(payload, "username", 32);
   const displayName = field(payload, "displayName", 80) || username;
 
@@ -963,20 +975,35 @@ async function handleAdminRoles(request: Request, env: Env): Promise<Response> {
   const userId = field(payload, "userId", 80);
   const role = field(payload, "role", 16);
 
-  if (!userId || (role !== "admin" && role !== "member")) {
+  if (!userId || (role !== "admin" && role !== "moderator" && role !== "member")) {
     return apiError("invalid_body", 400, request, env, "A user and a valid role are required.");
   }
   if (userId === user.id) {
     return apiError("self_role", 400, request, env, "You cannot change your own role.");
   }
 
-  const updated = await setUserRole(env.DB, userId, role);
+  const target = await findUserById(env.DB, userId);
+  if (!target) {
+    return apiError("not_found", 404, request, env);
+  }
+  if (isProtectedAccount(target) && role !== "admin") {
+    return apiError(
+      "protected_account",
+      403,
+      request,
+      env,
+      "The main account must stay an admin.",
+    );
+  }
+
+  const nextRole: UserRole = role;
+  const updated = await setUserRole(env.DB, userId, nextRole);
   if (!updated) {
     return apiError("not_found", 404, request, env);
   }
 
   return json(
-    { ok: true, user: { id: updated.id, role: updated.role === "admin" ? "admin" : "member" } },
+    { ok: true, user: { id: updated.id, role: normalizeRole(updated.role) } },
     200,
     request,
     env,

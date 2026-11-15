@@ -4,9 +4,11 @@ import { useI18n, type MessageKey } from "../i18n";
 import { cn } from "../lib/cn";
 import { timeAgo } from "../lib/format";
 import {
+  ApiError,
   fetchAdminUsers,
   fetchProfile,
   getStoredToken,
+  renameAccount,
   updateProfile,
   updateUserRole,
   type AchievementId,
@@ -87,11 +89,13 @@ interface AccountPageProps {
 
 export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   const { t, locale } = useI18n();
-  const { user, signedIn, status, signIn } = useAuth();
+  const { user, signedIn, status, signIn, refresh } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [draftUsername, setDraftUsername] = useState("");
+  const [draftDisplayName, setDraftDisplayName] = useState("");
   const [draftBio, setDraftBio] = useState("");
   const [draftLinks, setDraftLinks] = useState<ProfileLink[]>([]);
   const [saving, setSaving] = useState(false);
@@ -173,6 +177,8 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   }, [unlockQueue]);
 
   const admin = user?.role === "admin";
+  const canEditName =
+    profile?.user.role === "admin" || profile?.user.role === "moderator";
   const [adminUsers, setAdminUsers] = useState<AdminUserSummary[]>([]);
   const [adminQuery, setAdminQuery] = useState("");
   const [adminLoading, setAdminLoading] = useState(false);
@@ -200,12 +206,11 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
     };
   }, [admin, adminQuery]);
 
-  const toggleRole = useCallback(
-    async (target: AdminUserSummary) => {
+  const changeRole = useCallback(
+    async (target: AdminUserSummary, next: AuthRole) => {
       const token = getStoredToken();
-      if (!token || roleBusy) return;
+      if (!token || roleBusy || next === target.role) return;
 
-      const next: AuthRole = target.role === "admin" ? "member" : "admin";
       setRoleBusy(target.id);
       try {
         await updateUserRole(token, target.id, next);
@@ -213,8 +218,12 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
           previous.map((row) => (row.id === target.id ? { ...row, role: next } : row)),
         );
         onNotify(t("account.roleUpdated", { name: target.displayName }));
-      } catch {
-        onNotify(t("account.roleFailed"));
+      } catch (error) {
+        onNotify(
+          error instanceof ApiError && error.code === "protected_account"
+            ? t("account.roleProtected")
+            : t("account.roleFailed"),
+        );
       } finally {
         setRoleBusy(null);
       }
@@ -224,6 +233,8 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
   const startEditing = useCallback(() => {
     if (!profile) return;
+    setDraftUsername(profile.user.username);
+    setDraftDisplayName(profile.user.displayName);
     setDraftBio(profile.user.bio ?? "");
     setDraftLinks(
       profile.user.links?.length
@@ -270,6 +281,22 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
     const token = getStoredToken();
     if (!token) return;
 
+    const canEditName =
+      profile.user.role === "admin" || profile.user.role === "moderator";
+    const nextUsername = draftUsername.trim();
+    const nextDisplayName = draftDisplayName.trim();
+
+    if (canEditName) {
+      if (!/^[a-zA-Z0-9_]{3,32}$/.test(nextUsername)) {
+        onNotify(t("profile.invalidUsername"));
+        return;
+      }
+      if (nextDisplayName.length < 2) {
+        onNotify(t("profile.nameTooShort"));
+        return;
+      }
+    }
+
     const links = draftLinks
       .map((link) => ({ label: link.label.trim(), url: link.url.trim() }))
       .filter((link) => link.url.length > 0);
@@ -289,16 +316,31 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
     setSaving(true);
     try {
+      if (
+        canEditName &&
+        (nextUsername !== profile.user.username ||
+          nextDisplayName !== profile.user.displayName)
+      ) {
+        await renameAccount(token, profile.user.id, nextUsername, nextDisplayName);
+      }
+
       const next = await updateProfile(token, { bio: draftBio.trim(), links });
       setProfile(next);
       setEditing(false);
+      if (canEditName) await refresh();
       onNotify(t("profile.saved"));
-    } catch {
-      onNotify(t("profile.saveFailed"));
+    } catch (error) {
+      onNotify(
+        error instanceof ApiError && error.code === "username_taken"
+          ? t("profile.usernameTaken")
+          : error instanceof ApiError && error.code === "invalid_username"
+            ? t("profile.invalidUsername")
+            : t("profile.saveFailed"),
+      );
     } finally {
       setSaving(false);
     }
-  }, [draftBio, draftLinks, onNotify, profile, saving, t]);
+  }, [draftBio, draftDisplayName, draftLinks, draftUsername, onNotify, profile, refresh, saving, t]);
 
   const stats = profile?.stats;
   const profileLinks = profile?.user.links ?? [];
@@ -412,10 +454,16 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                         "border px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em]",
                         profile.user.role === "admin"
                           ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
-                          : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)]",
+                          : profile.user.role === "moderator"
+                            ? "border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]"
+                            : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--muted)]",
                       )}
                     >
-                      {profile.user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
+                      {profile.user.role === "admin"
+                        ? t("auth.roleAdmin")
+                        : profile.user.role === "moderator"
+                          ? t("auth.roleModerator")
+                          : t("auth.roleMember")}
                     </span>
                     <span className="border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
                       {t("account.level", { level: profile.level })}
@@ -469,6 +517,44 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
               <div className="border-t border-white/[0.07] px-5 py-4 sm:px-7">
                 {editing ? (
                   <div className="space-y-3">
+                    {canEditName && (
+                      <div>
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <div>
+                            <label className="field-label">
+                              {t("profile.displayNameLabel")}
+                            </label>
+                            <input
+                              value={draftDisplayName}
+                              onChange={(event) =>
+                                setDraftDisplayName(event.target.value.slice(0, 80))
+                              }
+                              maxLength={80}
+                              className="field mt-1.5"
+                            />
+                          </div>
+                          <div>
+                            <label className="field-label">
+                              {t("profile.usernameLabel")}
+                            </label>
+                            <input
+                              value={draftUsername}
+                              onChange={(event) =>
+                                setDraftUsername(event.target.value.slice(0, 32))
+                              }
+                              maxLength={32}
+                              autoCapitalize="none"
+                              autoCorrect="off"
+                              spellCheck={false}
+                              className="field mt-1.5 font-mono"
+                            />
+                          </div>
+                        </div>
+                        <p className="mt-1 text-[0.6rem] text-[var(--faint)]">
+                          {t("profile.nameHint")}
+                        </p>
+                      </div>
+                    )}
                     <div>
                       <label className="field-label">
                         {t("profile.bioLabel")}
@@ -776,54 +862,75 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
                     adminUsers.map((row) => {
                       const self = row.id === profile.user.id;
                       const busyRow = roleBusy === row.id;
+                      const protectedRow = row.username.toLowerCase() === "mudacher";
                       return (
                         <li
                           key={row.id}
-                          className="flex flex-wrap items-center gap-2.5 border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2.5"
+                          className="flex flex-col gap-3 border border-[var(--line)] bg-[var(--surface-2)] px-3 py-3 sm:flex-row sm:items-center"
                         >
-                          <UserAvatar user={row} className="h-8 w-8" />
-                          <div className="min-w-0 flex-1">
-                            <p className="flex items-center gap-1.5 truncate text-[0.72rem] font-semibold text-[var(--ink)]">
-                              {row.displayName}
-                              <VerifiedMark
-                                role={row.role}
-                                verified={row.verified}
-                                className="h-3 w-3"
-                              />
-                            </p>
-                            <p className="truncate font-mono text-[0.55rem] text-[var(--faint)]">
-                              @{row.username} · {t("account.level", { level: row.level })}
-                            </p>
+                          <div className="flex min-w-0 flex-1 items-center gap-2.5">
+                            <UserAvatar user={row} className="h-8 w-8 shrink-0" />
+                            <div className="min-w-0 flex-1">
+                              <p className="flex items-center gap-1.5 truncate text-[0.72rem] font-semibold text-[var(--ink)]">
+                                {row.displayName}
+                                <VerifiedMark
+                                  role={row.role}
+                                  verified={row.verified}
+                                  className="h-3 w-3"
+                                />
+                              </p>
+                              <p className="truncate font-mono text-[0.55rem] text-[var(--faint)]">
+                                @{row.username} · {t("account.level", { level: row.level })}
+                              </p>
+                              {protectedRow && (
+                                <p className="mt-1 font-mono text-[0.5rem] uppercase tracking-[0.05em] text-[var(--accent)]">
+                                  {t("account.roleProtected")}
+                                </p>
+                              )}
+                            </div>
                           </div>
-                          <span
-                            className={cn(
-                              "border px-2 py-0.5 font-mono text-[0.52rem] uppercase tracking-[0.05em]",
-                              row.role === "admin"
-                                ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
-                                : "border-[var(--line)] bg-[var(--surface)] text-[var(--muted)]",
+                          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--line)] pt-3 sm:justify-end sm:border-0 sm:pt-0">
+                            <span
+                              className={cn(
+                                "border px-2 py-0.5 font-mono text-[0.52rem] uppercase tracking-[0.05em]",
+                                row.role === "admin"
+                                  ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                                  : row.role === "moderator"
+                                    ? "border-[var(--info)] bg-[var(--info-soft)] text-[var(--info)]"
+                                    : "border-[var(--line)] bg-[var(--surface)] text-[var(--muted)]",
+                              )}
+                            >
+                              {row.role === "admin"
+                                ? t("auth.roleAdmin")
+                                : row.role === "moderator"
+                                  ? t("auth.roleModerator")
+                                  : t("auth.roleMember")}
+                            </span>
+                            {busyRow ? (
+                              <Loader className="h-3.5 w-3.5 animate-spin text-[var(--muted)]" />
+                            ) : (
+                              <select
+                                value={row.role}
+                                onChange={(event) =>
+                                  void changeRole(row, event.target.value as AuthRole)
+                                }
+                                disabled={self || protectedRow}
+                                aria-label={t("account.roleLabel")}
+                                title={
+                                  protectedRow
+                                    ? t("account.roleProtected")
+                                    : self
+                                      ? t("account.roleSelf")
+                                      : t("account.roleLabel")
+                                }
+                                className="field h-8 w-auto min-w-[8.5rem] py-1 text-[0.68rem] disabled:opacity-50"
+                              >
+                                <option value="member">{t("auth.roleMember")}</option>
+                                <option value="moderator">{t("auth.roleModerator")}</option>
+                                <option value="admin">{t("auth.roleAdmin")}</option>
+                              </select>
                             )}
-                          >
-                            {row.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => void toggleRole(row)}
-                            disabled={self || busyRow}
-                            className={cn(
-                              "border px-2.5 py-1.5 text-[0.62rem] font-semibold transition-colors disabled:opacity-40",
-                              row.role === "admin"
-                                ? "border-[var(--line)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-[var(--ink)]"
-                                : "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white",
-                            )}
-                          >
-                            {busyRow
-                              ? "..."
-                              : self
-                                ? t("account.roleSelf")
-                                : row.role === "admin"
-                                  ? t("account.makeMember")
-                                  : t("account.makeAdmin")}
-                          </button>
+                          </div>
                         </li>
                       );
                     })

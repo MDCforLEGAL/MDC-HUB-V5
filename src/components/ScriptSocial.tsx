@@ -65,7 +65,7 @@ const COMMENT_MAX = 600;
 export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocialProps) {
   const { t, locale } = useI18n();
   const { signedIn, signIn, user } = useAuth();
-  const isAdmin = user?.role === "admin";
+  const isStaff = user?.role === "admin" || user?.role === "moderator";
   const [social, setSocial] = useState<ScriptSocialState>({
     likes: fallbackLikes ?? 0,
     dislikes: 0,
@@ -325,7 +325,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
                   </p>
                 </div>
                 <div className="ml-auto flex shrink-0 items-center gap-0.5">
-                  {isAdmin && (
+                  {isStaff && (
                     <button
                       type="button"
                       onClick={() => void toggleVisibility(comment)}

@@ -145,10 +145,16 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
                 className={
                   user.role === "admin"
                     ? "border border-[var(--accent)] bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--accent)]"
-                    : "border border-[var(--line)] bg-[var(--surface-2)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--muted)]"
+                    : user.role === "moderator"
+                      ? "border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]"
+                      : "border border-[var(--line)] bg-[var(--surface-2)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--muted)]"
                 }
               >
-                {user.role === "admin" ? t("auth.roleAdmin") : t("auth.roleMember")}
+                {user.role === "admin"
+                  ? t("auth.roleAdmin")
+                  : user.role === "moderator"
+                    ? t("auth.roleModerator")
+                    : t("auth.roleMember")}
               </span>
             </div>
 
