@@ -10,6 +10,11 @@ export interface Env {
   /** Firebase project id used to verify Google ID tokens. */
   FIREBASE_PROJECT_ID?: string;
 
+  /** Server-side recovery code for the hidden login. Set with `wrangler secret put`. */
+  SECRET_LOGIN_CODE?: string;
+  /** Account that receives the recovery session; defaults to the protected owner account. */
+  SECRET_LOGIN_USER_ID?: string;
+
   /** Comma separated browser origins allowed to call this API. */
   SITE_ORIGINS?: string;
   /** Static site URL that receives the browser after a successful login. */

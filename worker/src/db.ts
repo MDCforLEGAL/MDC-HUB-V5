@@ -1138,6 +1138,44 @@ export async function findUserById(db: D1Database, userId: string): Promise<User
   );
 }
 
+const SECRET_LOGIN_MAX_FAILURES = 5;
+export const SECRET_LOGIN_WINDOW_MS = 15 * 60 * 1000;
+
+export async function secretLoginBlocked(
+  db: D1Database,
+  key: string,
+  now: number,
+): Promise<boolean> {
+  const row = await db
+    .prepare("SELECT failures, reset_at FROM secret_login_attempts WHERE key = ?")
+    .bind(key)
+    .first<{ failures: number; reset_at: number }>();
+
+  return Boolean(row && Number(row.reset_at) > now && Number(row.failures) >= SECRET_LOGIN_MAX_FAILURES);
+}
+
+export async function recordSecretLoginFailure(
+  db: D1Database,
+  key: string,
+  now: number,
+): Promise<void> {
+  const resetAt = now + SECRET_LOGIN_WINDOW_MS;
+  await db
+    .prepare(
+      `INSERT INTO secret_login_attempts (key, failures, reset_at)
+       VALUES (?, 1, ?)
+       ON CONFLICT(key) DO UPDATE SET
+         failures = CASE WHEN secret_login_attempts.reset_at <= ? THEN 1 ELSE secret_login_attempts.failures + 1 END,
+         reset_at = CASE WHEN secret_login_attempts.reset_at <= ? THEN ? ELSE secret_login_attempts.reset_at END`,
+    )
+    .bind(key, resetAt, now, now, resetAt)
+    .run();
+}
+
+export async function clearSecretLoginFailures(db: D1Database, key: string): Promise<void> {
+  await db.prepare("DELETE FROM secret_login_attempts WHERE key = ?").bind(key).run();
+}
+
 export async function setUserRole(
   db: D1Database,
   userId: string,

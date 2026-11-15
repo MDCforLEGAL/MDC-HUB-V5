@@ -16,6 +16,7 @@ import {
   fetchMe,
   firebaseLogin,
   getStoredToken,
+  secretLogin,
   storeToken,
   type AuthSnapshot,
   type AuthUser,
@@ -43,6 +44,7 @@ interface AuthContextValue extends AuthSnapshot {
   busy: boolean;
   signedIn: boolean;
   signIn: (provider?: OAuthProvider) => void;
+  secretSignIn: (code: string) => Promise<void>;
   signOut: () => Promise<void>;
   refresh: () => Promise<void>;
 }
@@ -113,6 +115,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .catch(() => setBusy(false));
   }, []);
 
+  const secretSignIn = useCallback(async (code: string) => {
+    const session = await secretLogin(code);
+    storeToken(session.token);
+    setSnapshot((previous) => ({
+      ...previous,
+      status: "signed-in",
+      user: session.user,
+      error: null,
+      errorDetail: null,
+    }));
+  }, []);
+
   const signOut = useCallback(async () => {
     setBusy(true);
     const token = getStoredToken();
@@ -161,10 +175,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       busy,
       signedIn: Boolean(snapshot.user),
       signIn,
+      secretSignIn,
       signOut,
       refresh,
     }),
-    [snapshot, busy, signIn, signOut, refresh],
+    [snapshot, busy, signIn, secretSignIn, signOut, refresh],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

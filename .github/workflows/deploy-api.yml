@@ -84,6 +84,23 @@ jobs:
             echo "Next: add \`DISCORD_CLIENT_SECRET\` under Cloudflare -> Workers & Pages -> mdc-hub-api -> Settings -> Variables and Secrets, add the redirect URI in Discord, then set the Worker URL in \`public/config.json\`."
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Sync recovery login secret
+        if: steps.guard.outputs.ready == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SECRET_LOGIN_CODE: ${{ secrets.SECRET_LOGIN_CODE }}
+        run: |
+          if [ -z "$SECRET_LOGIN_CODE" ]; then
+            echo "::notice title=Recovery login not configured::Add the SECRET_LOGIN_CODE repository secret to enable the hidden recovery login."
+            exit 0
+          fi
+          if [ "${#SECRET_LOGIN_CODE}" -lt 16 ]; then
+            echo "::error::SECRET_LOGIN_CODE must be at least 16 characters."
+            exit 1
+          fi
+          printf '%s' "$SECRET_LOGIN_CODE" | npx wrangler secret put SECRET_LOGIN_CODE --config worker/wrangler.jsonc
+
       - name: Print deployment details
         if: steps.guard.outputs.ready == 'true'
         run: |

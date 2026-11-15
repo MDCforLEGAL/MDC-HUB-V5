@@ -52,6 +52,7 @@ const footerColumns: Array<{ titleKey: MessageKey; links: FooterLink[] }> = [
 
 interface FooterProps {
   onOpenAuth: () => void;
+  onSecretLogin: () => void;
 }
 
 function scrollToSection(section: string): void {
@@ -73,7 +74,7 @@ function scrollToSection(section: string): void {
   }, 120);
 }
 
-export function Footer({ onOpenAuth }: FooterProps) {
+export function Footer({ onOpenAuth, onSecretLogin }: FooterProps) {
   const { t } = useI18n();
   const year = new Date().getFullYear();
 
@@ -199,6 +200,12 @@ export function Footer({ onOpenAuth }: FooterProps) {
               <ShieldCheck className="h-3 w-3 text-[var(--info)]" />
               {t("footer.sourceTagged")}
             </span>
+            <button
+              type="button"
+              onClick={onSecretLogin}
+              aria-label={t("secret.open")}
+              className="secret-trigger"
+            />
             <a
               href={DISCORD_INVITE_URL}
               target="_blank"

@@ -20,7 +20,9 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    # Scheduled and manual runs always deploy. A generated sync commit is the
+    # only push that is skipped, because that run already deployed the artifact.
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Sync live scripts
-        continue-on-error: true
+        id: sync
         env:
           RSCRIPTS_API_KEY: ${{ secrets.RSCRIPTS_API_KEY }}
         run: node scripts/sync-scripts.mjs

@@ -571,9 +571,11 @@ async function main() {
     }
     if (existsSync(OUTPUT)) {
       // Never overwrite a working library with an empty one when every source
-      // is temporarily unreachable.
-      console.warn(`No scripts collected; keeping the existing ${OUTPUT}.`);
-      return;
+      // is temporarily unreachable. Fail loudly so the workflow is not green
+      // while the live library silently stops updating.
+      throw new Error(
+        `No scripts collected from any source; kept the existing ${OUTPUT} without deploying a sync.`,
+      );
     }
     throw new Error("No scripts were collected from any source");
   }

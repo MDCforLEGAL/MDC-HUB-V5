@@ -61,11 +61,19 @@ Set these in `wrangler.jsonc`:
 - `SITE_REDIRECT_URL` — the static site URL that receives the login code.
 - `ADMIN_DISCORD_IDS` — comma separated Discord ids that become `admin`.
 
-Store the secret outside the repository:
+Store the secrets outside the repository:
 
 ```bash
 npx wrangler secret put DISCORD_CLIENT_SECRET --config worker/wrangler.jsonc
+npx wrangler secret put SECRET_LOGIN_CODE --config worker/wrangler.jsonc
 ```
+
+`SECRET_LOGIN_CODE` powers the hidden recovery login. Use at least 16
+characters (a random 32+ character value is recommended). It is checked only
+on the API; the browser never receives it. The deploy workflow can copy it from
+the `SECRET_LOGIN_CODE` GitHub Actions secret automatically. Set
+`SECRET_LOGIN_USER_ID` as a Worker variable only if the recovery session should
+go to an account other than the protected owner account.
 
 `DISCORD_API_BASE` is an optional override for automated tests; leave it unset in
 production.

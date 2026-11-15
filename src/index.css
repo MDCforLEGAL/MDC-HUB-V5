@@ -596,6 +596,36 @@ html[data-theme="light"] {
   color: var(--info);
 }
 
+/* Deliberately quiet entry point for the server-verified recovery login. */
+.secret-trigger {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  opacity: 0.28;
+  transition: opacity 160ms ease;
+}
+
+.secret-trigger::before {
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 9999px;
+  background: var(--faint);
+}
+
+.secret-trigger:hover,
+.secret-trigger:focus-visible {
+  opacity: 1;
+  outline: 1px solid var(--line-strong);
+  outline-offset: 2px;
+}
+
+.secret-trigger:hover::before,
+.secret-trigger:focus-visible::before {
+  background: var(--accent);
+}
+
 .mobile-menu {
   position: fixed;
   inset: 4.25rem 0 auto;

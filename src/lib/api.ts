@@ -243,6 +243,14 @@ export async function firebaseLogin(idToken: string): Promise<SessionPayload> {
   });
 }
 
+/** Recovery login. The code is checked by the API against a server-side secret. */
+export async function secretLogin(code: string): Promise<SessionPayload> {
+  return request<SessionPayload>("/auth/secret", {
+    method: "POST",
+    body: { code },
+  });
+}
+
 export async function fetchMe(token: string, signal?: AbortSignal): Promise<AuthUser> {
   const payload = await request<{ user: AuthUser }>("/api/me", { token, signal });
   return payload.user;

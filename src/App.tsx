@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "./auth/AuthProvider";
 import { AuthModal, type AuthMode } from "./components/AuthModal";
+import { SecretLoginModal } from "./components/SecretLoginModal";
 import { CodeShowcase } from "./components/CodeShowcase";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -38,6 +39,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [activeScript, setActiveScript] = useState<ScriptEntry | null>(null);
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
+  const [secretOpen, setSecretOpen] = useState(false);
   const [publishOpen, setPublishOpen] = useState(false);
   const [toast, setToast] = useState<ToastState | null>(null);
   const [layoutMode, setLayoutMode] = useState<LayoutMode | null>(null);
@@ -54,6 +56,7 @@ export default function App() {
 
   const closeScript = useCallback(() => setActiveScript(null), []);
   const closeAuth = useCallback(() => setAuthMode(null), []);
+  const closeSecret = useCallback(() => setSecretOpen(false), []);
   const closePublish = useCallback(() => setPublishOpen(false), []);
   const finishIntro = useCallback(() => setIntroVisible(false), []);
 
@@ -141,7 +144,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [sourcePage]);
 
-  const overlayOpen = Boolean(activeScript || authMode || publishOpen);
+  const overlayOpen = Boolean(activeScript || authMode || secretOpen || publishOpen);
 
   useEffect(() => {
     if (!overlayOpen) return;
@@ -161,6 +164,17 @@ export default function App() {
     const timer = setTimeout(() => setToast(null), 2800);
     return () => clearTimeout(timer);
   }, [toast]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === "l") {
+        event.preventDefault();
+        setSecretOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <div className="site-shell relative min-h-screen">
@@ -209,7 +223,10 @@ export default function App() {
           </>
         )}
 
-        <Footer onOpenAuth={() => setAuthMode("signup")} />
+        <Footer
+          onOpenAuth={() => setAuthMode("signup")}
+          onSecretLogin={() => setSecretOpen(true)}
+        />
       </main>
 
       {activeScript && (
@@ -219,6 +236,8 @@ export default function App() {
       {authMode && (
         <AuthModal mode={authMode} onModeChange={setAuthMode} onClose={closeAuth} />
       )}
+
+      {secretOpen && <SecretLoginModal onClose={closeSecret} onNotify={notify} />}
 
       {publishOpen && (
         <PublishScriptModal

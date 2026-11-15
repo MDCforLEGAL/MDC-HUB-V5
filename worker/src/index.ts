@@ -2,6 +2,7 @@ import type { Env } from "./env";
 import { randomToken, sha256Hex, timingSafeEqual } from "./crypto";
 import {
   buildProfile,
+  clearSecretLoginFailures,
   consumeLoginCode,
   consumeOAuthState,
   createComment,
@@ -25,7 +26,10 @@ import {
   normalizeRole,
   presenceStats,
   pruneExpired,
+  PROTECTED_USER_ID,
+  recordSecretLoginFailure,
   renameUser,
+  secretLoginBlocked,
   setCommentHidden,
   setReaction,
   setUserRole,
@@ -55,6 +59,7 @@ import {
 } from "./http";
 
 const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const SECRET_LOGIN_MIN_LENGTH = 16;
 const SESSION_REFRESH_MS = 20 * 24 * 60 * 60 * 1000;
 const LOGIN_CODE_TTL_MS = 60 * 1000;
 const OAUTH_STATE_TTL_MS = 10 * 60 * 1000;
@@ -321,6 +326,76 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
   }
 
   return json({ user: toPublicUser(row) }, 200, request, env);
+}
+
+async function handleSecretLogin(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return apiError("method_not_allowed", 405, request, env);
+  }
+
+  const configured = (env.SECRET_LOGIN_CODE ?? "").trim();
+  if (configured.length < SECRET_LOGIN_MIN_LENGTH) {
+    return apiError(
+      "secret_login_not_configured",
+      503,
+      request,
+      env,
+      "Set a SECRET_LOGIN_CODE of at least 16 characters on the API.",
+    );
+  }
+
+  const payload = await readJsonBody(request);
+  if (!payload) {
+    return apiError("invalid_body", 400, request, env);
+  }
+
+  const code = field(payload, "code", 256);
+  if (!code) {
+    return apiError("invalid_code", 400, request, env);
+  }
+
+  const ip =
+    request.headers.get("CF-Connecting-IP") ??
+    request.headers.get("X-Forwarded-For") ??
+    "unknown";
+  const attemptKey = await sha256Hex(`secret-login:${ip.split(",")[0].trim()}`);
+  const now = Date.now();
+
+  if (await secretLoginBlocked(env.DB, attemptKey, now)) {
+    return apiError(
+      "too_many_attempts",
+      429,
+      request,
+      env,
+      "Too many attempts. Try again later.",
+    );
+  }
+
+  const matches = timingSafeEqual(await sha256Hex(code), await sha256Hex(configured));
+  if (!matches) {
+    await recordSecretLoginFailure(env.DB, attemptKey, now);
+    return apiError("invalid_code", 401, request, env);
+  }
+
+  const targetId = (env.SECRET_LOGIN_USER_ID ?? PROTECTED_USER_ID).trim();
+  const user = await findUserById(env.DB, targetId);
+  if (!user || user.role !== "admin") {
+    return apiError(
+      "secret_login_user_missing",
+      503,
+      request,
+      env,
+      "The recovery login account is not available.",
+    );
+  }
+
+  await clearSecretLoginFailures(env.DB, attemptKey);
+
+  const token = randomToken(32);
+  const expiresAt = iso(now + SESSION_TTL_MS);
+  await createSession(env.DB, await sha256Hex(token), user.id, iso(now), expiresAt);
+
+  return json({ token, expiresAt, user: toPublicUser(user) }, 200, request, env);
 }
 
 async function handleLogout(request: Request, env: Env): Promise<Response> {
@@ -1028,6 +1103,8 @@ export default {
         response = await handleDiscordCallback(request, env);
       } else if (url.pathname === "/auth/firebase") {
         response = await handleFirebaseLogin(request, env);
+      } else if (url.pathname === "/auth/secret") {
+        response = await handleSecretLogin(request, env);
       } else if (url.pathname === "/auth/exchange") {
         response = await handleExchange(request, env);
       } else if (url.pathname === "/auth/logout") {
