@@ -220,9 +220,9 @@ export default function App() {
           onPublish={() => setPublishOpen(true)}
         />
 
-        <AdsterraNativeBanner />
-
         {sourcePage === "all" && <CodeShowcase onNotify={notify} />}
+
+        <AdsterraNativeBanner />
           </>
         )}
 
