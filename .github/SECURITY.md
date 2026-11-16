@@ -35,3 +35,24 @@ Reports are especially useful for:
 Never commit API tokens, OAuth client secrets, recovery codes, session tokens
 or D1 credentials. Production secrets belong in GitHub Actions secrets and
 Cloudflare Worker secrets, never in source, client code or build output.
+
+### Session tokens
+
+The browser keeps the session token in memory and persists only AES-GCM
+ciphertext. The non-extractable AES key is stored in IndexedDB, so reading
+`localStorage` alone does not reveal a usable token. Legacy plaintext tokens
+are migrated to encrypted storage on the next page load.
+
+### Firebase web API keys
+
+`src/lib/firebase.ts` contains a Firebase **web** API key. Google documents
+Firebase web API keys as public project identifiers, not authorization
+secrets; access is controlled by Firebase Security Rules, App Check and API
+key restrictions. GitHub secret scanning can still report them as public
+leaks.
+
+Before dismissing such an alert, verify in Google Cloud Console that the key
+is restricted to the Firebase APIs this site uses and to the deployed
+origins, and rotate any old key that is no longer needed. Never place a
+service-account JSON key, OAuth client secret or Admin SDK credential in the
+client source.

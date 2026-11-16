@@ -25,8 +25,9 @@ sessions. The site never talks to Discord directly.
    D1 state, exchanges the code, reads `/users/@me`, upserts the user and creates
    a 60-second one-time login code.
 4. The Worker redirects to `SITE_REDIRECT_URL#mdc_auth=<code>`. The static site
-   reads the fragment, calls `POST /auth/exchange` and stores the returned bearer
-   token in `localStorage`.
+   reads the fragment, calls `POST /auth/exchange` and keeps the returned bearer
+   token in memory. Only AES-GCM ciphertext is persisted, with a non-extractable
+   key in IndexedDB.
 5. `GET /api/me` and `POST /auth/logout` authenticate with
    `Authorization: Bearer <token>`. Only the token hash is stored in D1.
 

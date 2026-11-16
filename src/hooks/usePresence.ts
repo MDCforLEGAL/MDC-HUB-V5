@@ -55,7 +55,7 @@ export function usePresence() {
       if (document.visibilityState === "hidden") return;
 
       try {
-        await sendPresenceHeartbeat(visitorId, getStoredToken());
+        await sendPresenceHeartbeat(visitorId, await getStoredToken());
       } catch {
         if (active) setState((current) => (current === "live" ? current : "error"));
         return;

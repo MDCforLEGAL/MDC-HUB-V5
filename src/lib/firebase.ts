@@ -6,6 +6,9 @@ import {
   signOut,
 } from "firebase/auth";
 
+// Firebase web API keys identify the project; they are not authorization
+// secrets. Restrict this key to Identity Toolkit and the deployed origins in
+// Google Cloud, and never put service-account keys or client secrets here.
 const firebaseConfig = {
   apiKey: "AIzaSyA4vs3oghdTdmpw-KNaez0h7LLB8Woc9vs",
   authDomain: "mdc-hub-v5-b637e.firebaseapp.com",

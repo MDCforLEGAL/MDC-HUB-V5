@@ -84,9 +84,10 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
 
     void (async () => {
       try {
+        const token = await getStoredToken();
         const [snapshot, list] = await Promise.all([
-          fetchSocial([scriptId], getStoredToken(), controller.signal),
-          fetchComments(scriptId, getStoredToken(), controller.signal),
+          fetchSocial([scriptId], token, controller.signal),
+          fetchComments(scriptId, token, controller.signal),
         ]);
         if (!active) return;
         const entry = snapshot[scriptId];
@@ -111,7 +112,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
         return;
       }
 
-      const token = getStoredToken();
+      const token = await getStoredToken();
       if (!token || pending) return;
 
       setPending(true);
@@ -146,7 +147,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
       return;
     }
 
-    const token = getStoredToken();
+    const token = await getStoredToken();
     if (!token || sending) return;
 
     setSending(true);
@@ -164,7 +165,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
 
   const remove = useCallback(
     async (id: string) => {
-      const token = getStoredToken();
+      const token = await getStoredToken();
       if (!token) return;
 
       const target = comments.find((comment) => comment.id === id);
@@ -185,7 +186,7 @@ export function ScriptSocial({ scriptId, fallbackLikes, onNotify }: ScriptSocial
 
   const toggleVisibility = useCallback(
     async (comment: ScriptComment) => {
-      const token = getStoredToken();
+      const token = await getStoredToken();
       if (!token || moderating) return;
 
       const nextHidden = !comment.hidden;

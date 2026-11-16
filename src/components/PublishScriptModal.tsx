@@ -49,7 +49,7 @@ export function PublishScriptModal({ onClose, onPublished, onNotify }: PublishSc
       return;
     }
 
-    const token = getStoredToken();
+    const token = await getStoredToken();
     if (!token) {
       signIn();
       return;

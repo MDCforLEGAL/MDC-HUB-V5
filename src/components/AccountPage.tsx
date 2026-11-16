@@ -102,7 +102,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
   const [unlockQueue, setUnlockQueue] = useState<AchievementState[]>([]);
 
   const load = useCallback(async () => {
-    const token = getStoredToken();
+    const token = await getStoredToken();
     if (!token) return;
 
     setLoading(true);
@@ -186,18 +186,21 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
   useEffect(() => {
     if (!admin) return;
-    const token = getStoredToken();
-    if (!token) return;
 
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
-      setAdminLoading(true);
-      fetchAdminUsers(token, adminQuery, controller.signal)
-        .then((rows) => setAdminUsers(rows))
-        .catch(() => {
-          // Keep the previous list when the API is offline.
-        })
-        .finally(() => setAdminLoading(false));
+      void (async () => {
+        const token = await getStoredToken();
+        if (!token) return;
+
+        setAdminLoading(true);
+        fetchAdminUsers(token, adminQuery, controller.signal)
+          .then((rows) => setAdminUsers(rows))
+          .catch(() => {
+            // Keep the previous list when the API is offline.
+          })
+          .finally(() => setAdminLoading(false));
+      })();
     }, 250);
 
     return () => {
@@ -208,7 +211,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
   const changeRole = useCallback(
     async (target: AdminUserSummary, next: AuthRole) => {
-      const token = getStoredToken();
+      const token = await getStoredToken();
       if (!token || roleBusy || next === target.role) return;
 
       setRoleBusy(target.id);
@@ -278,7 +281,7 @@ export function AccountPage({ onAuth, onNotify }: AccountPageProps) {
 
   const saveProfile = useCallback(async () => {
     if (!profile || saving) return;
-    const token = getStoredToken();
+    const token = await getStoredToken();
     if (!token) return;
 
     const canEditName =

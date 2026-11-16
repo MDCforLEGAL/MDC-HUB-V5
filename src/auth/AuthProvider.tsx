@@ -82,7 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           const { requestGoogleIdToken } = await import("../lib/firebase");
           const idToken = await requestGoogleIdToken();
           const session = await firebaseLogin(idToken);
-          storeToken(session.token);
+          await storeToken(session.token);
           setSnapshot((previous) => ({
             ...previous,
             status: "signed-in",
@@ -117,7 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const secretSignIn = useCallback(async (code: string) => {
     const session = await secretLogin(code);
-    storeToken(session.token);
+    await storeToken(session.token);
     setSnapshot((previous) => ({
       ...previous,
       status: "signed-in",
@@ -129,7 +129,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = useCallback(async () => {
     setBusy(true);
-    const token = getStoredToken();
+    const token = await getStoredToken();
 
     try {
       if (token) await endSession(token);
@@ -155,7 +155,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const refresh = useCallback(async () => {
-    const token = getStoredToken();
+    const token = await getStoredToken();
     if (!token) return;
 
     try {

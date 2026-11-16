@@ -53,35 +53,13 @@ export class ApiError extends Error {
   }
 }
 
-const TOKEN_KEY = "mdc-hub.session";
-
 /* ------------------------------------------------------------------ */
 /* Session token                                                       */
 /* ------------------------------------------------------------------ */
 
-export function getStoredToken(): string | null {
-  try {
-    return window.localStorage.getItem(TOKEN_KEY);
-  } catch {
-    return null;
-  }
-}
-
-export function storeToken(token: string): void {
-  try {
-    window.localStorage.setItem(TOKEN_KEY, token);
-  } catch {
-    // Private browsing can block storage; the session then lasts this page only.
-  }
-}
-
-export function clearStoredToken(): void {
-  try {
-    window.localStorage.removeItem(TOKEN_KEY);
-  } catch {
-    // Nothing to clear.
-  }
-}
+// The implementation persists only encrypted ciphertext; see tokenStore.ts.
+import { clearStoredToken, getStoredToken, storeToken } from "./tokenStore";
+export { clearStoredToken, getStoredToken, storeToken };
 
 /* ------------------------------------------------------------------ */
 /* Runtime configuration (public/config.json, editable without rebuild) */
@@ -629,7 +607,7 @@ async function runBootstrap(): Promise<AuthSnapshot> {
   if (code) {
     try {
       const session = await exchangeLoginCode(code);
-      storeToken(session.token);
+      await storeToken(session.token);
       return { status: "signed-in", user: session.user, health, error: null, errorDetail: null };
     } catch (error) {
       clearStoredToken();
@@ -653,7 +631,7 @@ async function runBootstrap(): Promise<AuthSnapshot> {
     };
   }
 
-  const token = getStoredToken();
+  const token = await getStoredToken();
   if (!token) {
     return { status: "signed-out", user: null, health, error: null, errorDetail: null };
   }
