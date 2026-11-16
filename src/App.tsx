@@ -15,6 +15,7 @@ import { usePresence } from "./hooks/usePresence";
 import { useScriptLibrary } from "./hooks/useScriptLibrary";
 import { useAccountPage, useProfileUsername, useSourcePage } from "./hooks/useSourcePage";
 import { AccountPage } from "./components/AccountPage";
+import { AdsterraNativeBanner } from "./components/AdsterraNativeBanner";
 import { PublicProfilePage } from "./components/PublicProfilePage";
 import { LayoutPrompt } from "./components/LayoutPrompt";
 import { IntroSplash } from "./components/IntroSplash";
@@ -218,6 +219,8 @@ export default function App() {
           onNotify={notify}
           onPublish={() => setPublishOpen(true)}
         />
+
+        <AdsterraNativeBanner />
 
         {sourcePage === "all" && <CodeShowcase onNotify={notify} />}
           </>

@@ -2280,6 +2280,57 @@ html[data-theme="light"] [data-keep-dark][class*="bg-[#04080e]"] {
   background-color: var(--code) !important;
 }
 
+/* ---------- Advertisement ---------- */
+
+.ad-slot {
+  padding-top: 1.5rem;
+  padding-bottom: 1.75rem;
+}
+
+.ad-slot__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.65rem;
+}
+
+.ad-slot__head > span {
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ad-slot__hide {
+  display: grid;
+  width: 1.4rem;
+  height: 1.4rem;
+  place-items: center;
+  color: var(--faint);
+  transition: color 160ms ease;
+}
+
+.ad-slot__hide:hover {
+  color: var(--accent);
+}
+
+.ad-slot__frame {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.ad-slot__frame iframe,
+.ad-slot__frame img,
+.ad-slot__frame > * {
+  max-width: 100% !important;
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

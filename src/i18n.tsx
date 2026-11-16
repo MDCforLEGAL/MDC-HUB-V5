@@ -274,6 +274,9 @@ const en = {
   "footer.githubAria": "GitHub repository",
   "footer.topAria": "Back to top",
 
+  "ad.label": "Advertisement",
+  "ad.hide": "Hide advertisement",
+
   "auth.closeAria": "Close sign-in dialog",
   "auth.loginTitle": "Welcome back.",
   "auth.signupTitle": "Join the ecosystem.",
@@ -786,6 +789,9 @@ const tr: Record<MessageKey, string> = {
   "footer.discordAria": "Discord topluluğu",
   "footer.githubAria": "GitHub deposu",
   "footer.topAria": "Sayfa başına dön",
+
+  "ad.label": "Reklam",
+  "ad.hide": "Reklamı gizle",
 
   "auth.closeAria": "Giriş penceresini kapat",
   "auth.loginTitle": "Tekrar hoş geldin.",
