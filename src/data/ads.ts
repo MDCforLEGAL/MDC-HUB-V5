@@ -13,7 +13,7 @@
  * not account credentials.
  */
 export const adsterraNativeBanner = {
-  enabled: true,
+  enabled: false,
   scriptSrc: "https://bauval.org/21/9c1d8417ffb646ef0744ba7bd00c7acd",
   containerId: "container-9c1d8417ffb646ef0744ba7bd00c7acd",
 } as const;

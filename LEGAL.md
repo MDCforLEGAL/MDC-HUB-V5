@@ -19,10 +19,11 @@ moderator are excluded from public comment lists and public counts, but may
 remain visible to administrators for moderation.
 
 The site links to Discord and GitHub. Those services have their own privacy
-policies. The site displays advertising supplied by Adsterra. Adsterra and its
-partners may use cookies, local storage, or similar technologies to measure and
-personalize ads. See the [Adsterra privacy policy](https://adsterra.com/privacy-policy/)
-for details. MDC HUB does not sell personal data.
+policies. The site may display advertising supplied by Adsterra. When ads are
+enabled, Adsterra and its partners may use cookies, local storage, or similar
+technologies to measure and personalize them. See the
+[Adsterra privacy policy](https://adsterra.com/privacy-policy/) for details.
+MDC HUB does not sell personal data.
 
 ## Terms of Use
 
