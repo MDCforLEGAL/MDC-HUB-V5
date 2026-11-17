@@ -17,9 +17,9 @@ interface WorkflowRun {
  * workflow, so the library keeps syncing on a predictable cadence.
  */
 export async function triggerLibrarySync(env: Env): Promise<void> {
-  const token = (env.GITHUB_SYNC_TOKEN ?? "").trim();
+  const token = (env.SYNC_TRIGGER_TOKEN ?? "").trim();
   if (!token) {
-    console.warn("[sync] GITHUB_SYNC_TOKEN is not configured; skipping dispatch");
+    console.warn("[sync] SYNC_TRIGGER_TOKEN is not configured; skipping dispatch");
     return;
   }
 
