@@ -7,6 +7,7 @@ import {
   GITHUB_LEGAL_URL,
   GITHUB_LICENSE_URL,
   GITHUB_REPO_URL,
+  GITHUB_SPONSORS_URL,
 } from "../lib/links";
 import { Logo } from "./Logo";
 import {
@@ -38,6 +39,7 @@ const footerColumns: Array<{ titleKey: MessageKey; links: FooterLink[] }> = [
       { labelKey: "footer.communityDiscord", href: DISCORD_INVITE_URL, external: true },
       { labelKey: "footer.communityGuide", href: `${GITHUB_REPO_URL}#readme`, external: true },
       { labelKey: "footer.communityContribute", href: GITHUB_ISSUES_URL, external: true },
+      { labelKey: "footer.communitySponsor", href: GITHUB_SPONSORS_URL, external: true },
     ],
   },
   {
