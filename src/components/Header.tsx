@@ -99,7 +99,15 @@ function AccountMenu() {
           </div>
 
           <div className="flex items-center justify-between px-3.5 py-2.5">
-            <span className="mono-label">{t("auth.accountBadge")}</span>
+            <span className="mono-label">
+              {t(
+                user.provider === "google"
+                  ? "auth.googleAccount"
+                  : user.provider === "github"
+                    ? "auth.githubAccount"
+                    : "auth.accountBadge",
+              )}
+            </span>
             <span
               className={cn(
                 "role-badge",
