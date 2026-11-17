@@ -10,6 +10,10 @@ export interface Env {
   /** Firebase project id used to verify Google ID tokens. */
   FIREBASE_PROJECT_ID?: string;
 
+  /** GitHub OAuth app client id and secret for repository imports. */
+  GITHUB_CLIENT_ID?: string;
+  GITHUB_CLIENT_SECRET?: string;
+
   /** Server-side recovery code for the hidden login. Set with `wrangler secret put`. */
   SECRET_LOGIN_CODE?: string;
   /** Account that receives the recovery session; defaults to the protected owner account. */

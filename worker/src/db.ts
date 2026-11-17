@@ -24,6 +24,7 @@ export interface UserRow {
   role: string;
   bio?: string | null;
   links?: string | null;
+  github_login?: string | null;
   created_at: string;
   last_login_at: string;
 }
@@ -53,7 +54,7 @@ export interface ProfileLink {
 
 export interface PublicUser {
   id: string;
-  provider: "discord" | "google";
+  provider: "discord" | "google" | "github";
   username: string;
   displayName: string;
   avatarUrl: string | null;
@@ -62,6 +63,7 @@ export interface PublicUser {
   verified: boolean;
   bio: string;
   links: ProfileLink[];
+  githubLogin?: string;
   scripts: number;
   comments: number;
   likesGiven: number;
@@ -114,7 +116,8 @@ export function toPublicUser(
 
   return {
     id: row.id,
-    provider: row.provider === "google" ? "google" : "discord",
+    provider:
+      row.provider === "google" || row.provider === "github" ? row.provider : "discord",
     username: row.username,
     displayName: row.display_name || row.username,
     avatarUrl: row.avatar_url,
@@ -123,6 +126,7 @@ export function toPublicUser(
     verified: isVerifiedAuthor(stats),
     bio: typeof row.bio === "string" ? row.bio.slice(0, 180) : "",
     links: parseProfileLinks(row.links),
+    githubLogin: row.github_login ?? undefined,
     ...stats,
   };
 }
@@ -653,6 +657,203 @@ export async function deleteCommunityScript(db: D1Database, id: string): Promise
     db.prepare("DELETE FROM script_reactions WHERE script_id = ?").bind(id),
     db.prepare("DELETE FROM community_scripts WHERE id = ?").bind(id),
   ]);
+}
+
+/* ------------------------------------------------------------------ */
+/* Public GitHub repository cards                                      */
+/* ------------------------------------------------------------------ */
+
+export interface GithubRepoRow {
+  id: string;
+  user_id: string;
+  full_name: string;
+  owner: string;
+  name: string;
+  description: string;
+  html_url: string;
+  homepage: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  topics: string;
+  is_public: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface GithubRepo {
+  id: string;
+  fullName: string;
+  owner: string;
+  name: string;
+  description: string;
+  htmlUrl: string;
+  homepage: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  topics: string[];
+  isPublic: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+function parseTopics(value: string): string[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    return Array.isArray(parsed)
+      ? parsed.filter((topic): topic is string => typeof topic === "string").slice(0, 8)
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+export function toGithubRepo(row: GithubRepoRow): GithubRepo {
+  return {
+    id: row.id,
+    fullName: row.full_name,
+    owner: row.owner,
+    name: row.name,
+    description: row.description,
+    htmlUrl: row.html_url,
+    homepage: row.homepage,
+    language: row.language,
+    stars: Number(row.stars ?? 0),
+    forks: Number(row.forks ?? 0),
+    topics: parseTopics(row.topics),
+    isPublic: Boolean(row.is_public),
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+  };
+}
+
+export interface NewGithubRepo {
+  id: string;
+  userId: string;
+  fullName: string;
+  owner: string;
+  name: string;
+  description: string;
+  htmlUrl: string;
+  homepage: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  topics: string[];
+  now: string;
+}
+
+export async function listPublicGithubRepos(
+  db: D1Database,
+  limit = 60,
+): Promise<GithubRepoRow[]> {
+  const result = await db
+    .prepare(
+      `SELECT * FROM github_repos
+        WHERE is_public = 1
+        ORDER BY updated_at DESC
+        LIMIT ?`,
+    )
+    .bind(limit)
+    .all<GithubRepoRow>();
+  return result.results ?? [];
+}
+
+export async function listUserGithubRepos(
+  db: D1Database,
+  userId: string,
+): Promise<GithubRepoRow[]> {
+  const result = await db
+    .prepare("SELECT * FROM github_repos WHERE user_id = ? ORDER BY updated_at DESC")
+    .bind(userId)
+    .all<GithubRepoRow>();
+  return result.results ?? [];
+}
+
+export async function upsertGithubRepo(
+  db: D1Database,
+  repo: NewGithubRepo,
+): Promise<GithubRepoRow> {
+  const row = await db
+    .prepare(
+      `INSERT INTO github_repos
+         (id, user_id, full_name, owner, name, description, html_url, homepage,
+          language, stars, forks, topics, is_public, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)
+       ON CONFLICT(user_id, full_name) DO UPDATE SET
+         owner = excluded.owner,
+         name = excluded.name,
+         description = excluded.description,
+         html_url = excluded.html_url,
+         homepage = excluded.homepage,
+         language = excluded.language,
+         stars = excluded.stars,
+         forks = excluded.forks,
+         topics = excluded.topics,
+         updated_at = excluded.updated_at
+       RETURNING *`,
+    )
+    .bind(
+      repo.id,
+      repo.userId,
+      repo.fullName,
+      repo.owner,
+      repo.name,
+      repo.description,
+      repo.htmlUrl,
+      repo.homepage,
+      repo.language,
+      repo.stars,
+      repo.forks,
+      JSON.stringify(repo.topics),
+      repo.now,
+      repo.now,
+    )
+    .first<GithubRepoRow>();
+
+  if (!row) throw new Error("github_repo_upsert_failed");
+  return row;
+}
+
+export async function setGithubRepoPublic(
+  db: D1Database,
+  id: string,
+  userId: string,
+  isPublic: boolean,
+  now: string,
+): Promise<GithubRepoRow | null> {
+  return (
+    (await db
+      .prepare(
+        `UPDATE github_repos
+            SET is_public = ?, updated_at = ?
+          WHERE id = ? AND user_id = ?
+          RETURNING *`,
+      )
+      .bind(isPublic ? 1 : 0, now, id, userId)
+      .first<GithubRepoRow>()) ?? null
+  );
+}
+
+export async function deleteGithubRepo(
+  db: D1Database,
+  id: string,
+  userId: string,
+): Promise<boolean> {
+  const row = await db
+    .prepare("DELETE FROM github_repos WHERE id = ? AND user_id = ? RETURNING id")
+    .bind(id, userId)
+    .first<{ id: string }>();
+  return Boolean(row);
+}
+
+export async function setGithubLogin(
+  db: D1Database,
+  userId: string,
+  login: string,
+): Promise<void> {
+  await db.prepare("UPDATE users SET github_login = ? WHERE id = ?").bind(login, userId).run();
 }
 
 export interface SocialCounts {

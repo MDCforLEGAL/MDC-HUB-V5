@@ -1,5 +1,5 @@
 export type AuthRole = "admin" | "moderator" | "member";
-export type OAuthProvider = "discord" | "google";
+export type OAuthProvider = "discord" | "google" | "github";
 export type ScriptSection = "mdc" | "community";
 
 export interface ProfileLink {
@@ -21,6 +21,7 @@ export interface AuthUser {
   scripts?: number;
   bio?: string;
   links?: ProfileLink[];
+  githubLogin?: string;
 }
 
 export interface HealthInfo {
@@ -28,6 +29,7 @@ export interface HealthInfo {
   database: boolean;
   discord: boolean;
   google?: boolean;
+  github?: boolean;
 }
 
 export interface PresenceStats {
@@ -309,6 +311,91 @@ export async function publishCommunityScript(
 
 export async function deleteCommunityScript(token: string, id: string): Promise<void> {
   await request<{ ok: boolean }>(`/api/community/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    token,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* GitHub repository cards                                             */
+/* ------------------------------------------------------------------ */
+
+export interface GithubRepo {
+  id: string;
+  fullName: string;
+  owner: string;
+  name: string;
+  description: string;
+  htmlUrl: string;
+  homepage: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  topics: string[];
+  isPublic: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface GithubRepoCandidate {
+  fullName: string;
+  owner: string;
+  name: string;
+  description: string;
+  htmlUrl: string;
+  homepage: string | null;
+  language: string | null;
+  stars: number;
+  forks: number;
+  topics: string[];
+  private: boolean;
+  updatedAt: string;
+}
+
+export async function fetchPublicGithubRepos(signal?: AbortSignal): Promise<GithubRepo[]> {
+  const payload = await request<{ repos: GithubRepo[] }>("/api/repos", { signal });
+  return Array.isArray(payload.repos) ? payload.repos : [];
+}
+
+export async function fetchMyGithubRepos(token: string, signal?: AbortSignal): Promise<GithubRepo[]> {
+  const payload = await request<{ repos: GithubRepo[] }>("/api/repos/mine", { token, signal });
+  return Array.isArray(payload.repos) ? payload.repos : [];
+}
+
+export async function fetchGithubRepoCandidates(
+  token: string,
+  signal?: AbortSignal,
+): Promise<GithubRepoCandidate[]> {
+  const payload = await request<{ repos: GithubRepoCandidate[] }>("/api/github/repos", {
+    token,
+    signal,
+  });
+  return Array.isArray(payload.repos) ? payload.repos : [];
+}
+
+export async function importGithubRepo(token: string, fullName: string): Promise<GithubRepo> {
+  const payload = await request<{ repo: GithubRepo }>("/api/repos", {
+    method: "POST",
+    token,
+    body: { fullName },
+  });
+  return payload.repo;
+}
+
+export async function setGithubRepoPublic(
+  token: string,
+  id: string,
+  isPublic: boolean,
+): Promise<GithubRepo> {
+  const payload = await request<{ repo: GithubRepo }>(
+    `/api/repos/${encodeURIComponent(id)}`,
+    { method: "PATCH", token, body: { public: isPublic } },
+  );
+  return payload.repo;
+}
+
+export async function removeGithubRepo(token: string, id: string): Promise<void> {
+  await request<{ ok: boolean }>(`/api/repos/${encodeURIComponent(id)}`, {
     method: "DELETE",
     token,
   });

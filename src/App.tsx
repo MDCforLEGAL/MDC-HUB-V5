@@ -21,6 +21,8 @@ import { LayoutPrompt } from "./components/LayoutPrompt";
 import { IntroSplash } from "./components/IntroSplash";
 import { DiscordFloat } from "./components/DiscordFloat";
 import { PerformanceGuard } from "./components/PerformanceGuard";
+import { RepoImportModal } from "./components/RepoImportModal";
+import { ReposSection } from "./components/ReposSection";
 import { useI18n } from "./i18n";
 import { applyLayoutMode, type LayoutMode } from "./lib/layout";
 
@@ -35,7 +37,7 @@ export default function App() {
   const sourcePage = useSourcePage();
   const accountPage = useAccountPage();
   const profileUsername = useProfileUsername();
-  const { user, status, error: authError } = useAuth();
+  const { user, signedIn, status, error: authError } = useAuth();
   const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [activeScript, setActiveScript] = useState<ScriptEntry | null>(null);
@@ -45,6 +47,9 @@ export default function App() {
   const [toast, setToast] = useState<ToastState | null>(null);
   const [layoutMode, setLayoutMode] = useState<LayoutMode | null>(null);
   const [introVisible, setIntroVisible] = useState(true);
+  const [repoImportOpen, setRepoImportOpen] = useState(false);
+  const [repoVersion, setRepoVersion] = useState(0);
+  const repoPrompted = useRef(false);
 
   const notify = useCallback((message: string) => {
     setToast({ id: Date.now(), message });
@@ -59,6 +64,7 @@ export default function App() {
   const closeAuth = useCallback(() => setAuthMode(null), []);
   const closeSecret = useCallback(() => setSecretOpen(false), []);
   const closePublish = useCallback(() => setPublishOpen(false), []);
+  const closeRepoImport = useCallback(() => setRepoImportOpen(false), []);
   const finishIntro = useCallback(() => setIntroVisible(false), []);
 
   const seenUser = useRef<{ ready: boolean; id: string | null }>({ ready: false, id: null });
@@ -82,6 +88,23 @@ export default function App() {
   useEffect(() => {
     if (authError === "callback") setAuthMode("login");
   }, [authError]);
+
+  // A GitHub sign-in is the moment when importing a repo is most useful, so
+  // ask once per browser session instead of nagging on every reload.
+  useEffect(() => {
+    if (!signedIn || user?.provider !== "github" || repoPrompted.current) return;
+    repoPrompted.current = true;
+
+    try {
+      const key = `mdc-hub.repo-prompt.${user.id}`;
+      if (window.sessionStorage.getItem(key)) return;
+      window.sessionStorage.setItem(key, "1");
+    } catch {
+      // Private browsing can block sessionStorage; the prompt still appears.
+    }
+
+    setRepoImportOpen(true);
+  }, [signedIn, user]);
 
   const scrollToResults = useCallback(() => {
     document.getElementById("kesfet")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -145,7 +168,9 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [sourcePage]);
 
-  const overlayOpen = Boolean(activeScript || authMode || secretOpen || publishOpen);
+  const overlayOpen = Boolean(
+    activeScript || authMode || secretOpen || publishOpen || repoImportOpen,
+  );
 
   useEffect(() => {
     if (!overlayOpen) return;
@@ -222,6 +247,16 @@ export default function App() {
 
         {sourcePage === "all" && <CodeShowcase onNotify={notify} />}
 
+        {sourcePage === "all" && (
+          <ReposSection
+            refreshKey={repoVersion}
+            onImport={() => {
+              if (signedIn) setRepoImportOpen(true);
+              else setAuthMode("login");
+            }}
+          />
+        )}
+
         <AdsterraNativeBanner />
           </>
         )}
@@ -241,6 +276,14 @@ export default function App() {
       )}
 
       {secretOpen && <SecretLoginModal onClose={closeSecret} onNotify={notify} />}
+
+      {repoImportOpen && (
+        <RepoImportModal
+          onClose={closeRepoImport}
+          onNotify={notify}
+          onChanged={() => setRepoVersion((version) => version + 1)}
+        />
+      )}
 
       {publishOpen && (
         <PublishScriptModal

@@ -33,6 +33,7 @@ const footerColumns: Array<{ titleKey: MessageKey; links: FooterLink[] }> = [
       { labelKey: "footer.platformDiscover", href: "#kesfet" },
       { labelKey: "footer.platformCode", href: "#kod" },
       { labelKey: "footer.platformLive", href: "#kesfet" },
+      { labelKey: "footer.platformRepos", href: "#repolar" },
     ],
   },
   {

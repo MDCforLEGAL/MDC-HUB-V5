@@ -47,6 +47,16 @@ import type { ProfileLink, ScriptSection, SessionRow, UserRole } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import { firebaseConfigured } from "./firebase";
 import { handleFirebaseLogin } from "./firebase-route";
+import { githubConfigured } from "./github";
+import {
+  handleGithubAuthCallback,
+  handleGithubAuthStart,
+  handleGithubMyRepos,
+  handleGithubPublicRepos,
+  handleGithubRepoCandidates,
+  handleGithubRepoImport,
+  handleGithubRepoUpdate,
+} from "./github-routes";
 import { triggerLibrarySync } from "./sync-trigger";
 import {
   apiError,
@@ -73,8 +83,8 @@ function iso(timestamp: number): string {
   return new Date(timestamp).toISOString();
 }
 
-function callbackUrl(request: Request): string {
-  return `${new URL(request.url).origin}/auth/discord/callback`;
+function callbackUrl(request: Request, provider: "discord" | "github" = "discord"): string {
+  return `${new URL(request.url).origin}/auth/${provider}/callback`;
 }
 
 function siteUrl(env: Env): URL | null {
@@ -152,6 +162,7 @@ async function handleHealth(request: Request, env: Env): Promise<Response> {
       database,
       discord: discordConfigured(env),
       google: firebaseConfigured(env),
+      github: githubConfigured(env),
       time: new Date().toISOString(),
     },
     200,
@@ -311,10 +322,12 @@ async function handleMe(request: Request, env: Env): Promise<Response> {
 
   // The env allowlist wins even for sessions created before the username was added.
   // Google accounts are promoted through the admin panel instead.
+  const adminUsername =
+    row.provider === "github" ? (row.github_login ?? row.username) : row.username;
   if (
     row.provider !== "google" &&
     row.role !== "admin" &&
-    isAdminIdentity(env, row.provider_id, row.username)
+    isAdminIdentity(env, row.provider_id, adminUsername)
   ) {
     const promoted = await setUserRole(env.DB, row.id, "admin");
     if (promoted) row.role = "admin";
@@ -1110,6 +1123,10 @@ export default {
         response = await handleDiscordStart(request, env);
       } else if (url.pathname === "/auth/discord/callback") {
         response = await handleDiscordCallback(request, env);
+      } else if (url.pathname === "/auth/github") {
+        response = await handleGithubAuthStart(request, env);
+      } else if (url.pathname === "/auth/github/callback") {
+        response = await handleGithubAuthCallback(request, env);
       } else if (url.pathname === "/auth/firebase") {
         response = await handleFirebaseLogin(request, env);
       } else if (url.pathname === "/auth/secret") {
@@ -1124,6 +1141,21 @@ export default {
         response = await handlePresence(request, env);
       } else if (url.pathname === "/api/presence/stats") {
         response = await handlePresenceStats(request, env);
+      } else if (url.pathname === "/api/github/repos") {
+        response = await handleGithubRepoCandidates(request, env);
+      } else if (url.pathname === "/api/repos/mine") {
+        response = await handleGithubMyRepos(request, env);
+      } else if (url.pathname === "/api/repos") {
+        response =
+          request.method === "GET"
+            ? await handleGithubPublicRepos(request, env)
+            : await handleGithubRepoImport(request, env);
+      } else if (url.pathname.startsWith("/api/repos/")) {
+        response = await handleGithubRepoUpdate(
+          request,
+          env,
+          decodeURIComponent(url.pathname.slice("/api/repos/".length)),
+        );
       } else if (url.pathname === "/api/community") {
         response =
           request.method === "GET"

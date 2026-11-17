@@ -3,7 +3,7 @@ import { useAuth } from "../auth/AuthProvider";
 import { useI18n } from "../i18n";
 import { Logo } from "./Logo";
 import { UserAvatar } from "./UserAvatar";
-import { AlertTriangle, ArrowRight, Check, Discord, Google, Loader, LogOut, ShieldCheck, X } from "./Icons";
+import { AlertTriangle, ArrowRight, Check, Discord, Github, Google, Loader, LogOut, ShieldCheck, X } from "./Icons";
 
 export type AuthMode = "login" | "signup";
 
@@ -45,6 +45,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
   const isSignup = mode === "signup";
   const hasDiscord = Boolean(health?.discord);
   const hasGoogle = Boolean(health?.google);
+  const hasGithub = Boolean(health?.github);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -136,10 +137,16 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               <span className="inline-flex items-center gap-1.5 border border-[var(--info)] bg-[var(--info-soft)] px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.06em] text-[var(--info)]">
                 {user.provider === "google" ? (
                   <Google className="h-2.5 w-2.5" />
+                ) : user.provider === "github" ? (
+                  <Github className="h-2.5 w-2.5" />
                 ) : (
                   <Discord className="h-2.5 w-2.5" />
                 )}
-                {user.provider === "google" ? t("auth.googleAccount") : t("auth.accountBadge")}
+                {user.provider === "google"
+                  ? t("auth.googleAccount")
+                  : user.provider === "github"
+                    ? t("auth.githubAccount")
+                    : t("auth.accountBadge")}
               </span>
               <span
                 className={
@@ -199,7 +206,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           </Notice>
         )}
 
-        {status === "signed-out" && !hasDiscord && !hasGoogle && (
+        {status === "signed-out" && !hasDiscord && !hasGoogle && !hasGithub && (
           <Notice
             icon={<Discord className="h-5 w-5" />}
             title={t("auth.discordMissingTitle")}
@@ -213,7 +220,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
           </Notice>
         )}
 
-        {status === "signed-out" && (hasDiscord || hasGoogle) && (
+        {status === "signed-out" && (hasDiscord || hasGoogle || hasGithub) && (
           <div className="pt-5">
             <h2
               id="auth-title"
@@ -239,7 +246,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
                 type="button"
                 onClick={() => signIn("discord")}
                 disabled={busy}
-                className={`btn ${hasGoogle ? "btn-secondary" : "btn-primary"} group mt-5 h-12 w-full disabled:opacity-70`}
+                className={`btn ${hasGoogle || hasGithub ? "btn-secondary" : "btn-primary"} group mt-5 h-12 w-full disabled:opacity-70`}
               >
                 {busy ? (
                   <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
@@ -255,7 +262,7 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               </button>
             )}
 
-            {hasDiscord && hasGoogle && (
+            {hasDiscord && (hasGoogle || hasGithub) && (
               <div className="my-3 flex items-center gap-3">
                 <span className="h-px flex-1 bg-[var(--line)]" />
                 <span className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-[var(--faint)]">
@@ -286,8 +293,39 @@ export function AuthModal({ mode, onClose }: AuthModalProps) {
               </button>
             )}
 
+            {hasGoogle && hasGithub && (
+              <div className="my-3 flex items-center gap-3">
+                <span className="h-px flex-1 bg-[var(--line)]" />
+                <span className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-[var(--faint)]">
+                  {t("auth.or")}
+                </span>
+                <span className="h-px flex-1 bg-[var(--line)]" />
+              </div>
+            )}
+
+            {hasGithub && (
+              <button
+                type="button"
+                onClick={() => signIn("github")}
+                disabled={busy}
+                className={`btn ${hasDiscord || hasGoogle ? "btn-secondary" : "btn-primary"} group mt-3 h-12 w-full disabled:opacity-70`}
+              >
+                {busy ? (
+                  <Loader className="h-4 w-4 animate-spin" strokeWidth={2.2} />
+                ) : (
+                  <Github className="h-4 w-4" />
+                )}
+                {busy
+                  ? t("auth.redirecting")
+                  : isSignup
+                    ? t("auth.githubCtaSignup")
+                    : t("auth.githubCta")}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </button>
+            )}
+
             <p className="mt-2.5 text-center text-[0.66rem] leading-relaxed text-[var(--faint)]">
-              {hasGoogle ? t("auth.providerHint") : t("auth.discordHint")}
+              {hasGoogle || hasGithub ? t("auth.providerHint") : t("auth.discordHint")}
             </p>
 
             <ul className="mt-5 space-y-2.5">
