@@ -7,6 +7,12 @@
 
   // Create the database with: npx wrangler d1 create mdc-hub
   // then replace the placeholder below with the returned database_id.
+  "triggers": {
+    // Cloudflare Cron is the reliable scheduler; GitHub's own schedule is only
+    // an hourly fallback because it can be delayed for hours.
+    "crons": ["*/10 * * * *"]
+  },
+
   "d1_databases": [
     {
       "binding": "DB",

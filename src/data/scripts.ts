@@ -9,6 +9,7 @@ export interface ScriptEntry {
   category: string;
   title: string;
   author: string;
+  authorUsername?: string;
   authorRole?: "admin" | "moderator" | "member";
   verified: boolean;
   status: ScriptStatus;

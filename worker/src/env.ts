@@ -26,4 +26,7 @@ export interface Env {
 
   /** Override for local tests; defaults to https://discord.com/api. */
   DISCORD_API_BASE?: string;
+
+  /** Fine-grained GitHub token used by the scheduled sync trigger. */
+  GITHUB_SYNC_TOKEN?: string;
 }

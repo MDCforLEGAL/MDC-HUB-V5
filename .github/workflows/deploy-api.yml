@@ -101,6 +101,19 @@ jobs:
           fi
           printf '%s' "$SECRET_LOGIN_CODE" | npx wrangler secret put SECRET_LOGIN_CODE --config worker/wrangler.jsonc
 
+      - name: Sync scheduler token
+        if: steps.guard.outputs.ready == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GITHUB_SYNC_TOKEN: ${{ secrets.GITHUB_SYNC_TOKEN }}
+        run: |
+          if [ -z "$GITHUB_SYNC_TOKEN" ]; then
+            echo "::notice title=Automatic script sync not configured::Add a fine-grained GitHub token as the GITHUB_SYNC_TOKEN repository secret. It needs Actions: read and write for MDCforLEGAL/MDC-HUB-V5."
+            exit 0
+          fi
+          printf '%s' "$GITHUB_SYNC_TOKEN" | npx wrangler secret put GITHUB_SYNC_TOKEN --config worker/wrangler.jsonc
+
       - name: Print deployment details
         if: steps.guard.outputs.ready == 'true'
         run: |

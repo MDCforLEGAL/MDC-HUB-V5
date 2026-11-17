@@ -28,6 +28,7 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
   const { copied, copy } = useCopy(onNotify);
   const { t, locale } = useI18n();
   const working = script.status === "working";
+  const authorLabel = script.authorUsername || script.author;
   const updatedLabel = script.updatedAt ? timeAgo(script.updatedAt, locale) : script.updated;
   const categoryLabel =
     script.source && script.source !== "mdc"
@@ -69,15 +70,35 @@ export function ScriptCard({ script, onOpen, onNotify }: ScriptCardProps) {
       <h3 className="script-card__title">{script.title}</h3>
 
       <div className="script-card__byline">
-        <span className="grid h-4 w-4 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface-2)] text-[7px] font-semibold uppercase text-[var(--muted)]">
-          {script.author.charAt(0)}
-        </span>
-        <b>@{script.author}</b>
-        <VerifiedMark
-          role={script.authorRole}
-          verified={script.verified}
-          className="h-3.5 w-3.5"
-        />
+        {script.authorUsername ? (
+          <a
+            className="script-card__author"
+            href={`#/u/${encodeURIComponent(script.authorUsername)}`}
+            aria-label={`@${authorLabel}`}
+          >
+            <span className="grid h-4 w-4 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface-2)] text-[7px] font-semibold uppercase text-[var(--muted)]">
+              {authorLabel.charAt(0)}
+            </span>
+            <b>@{authorLabel}</b>
+            <VerifiedMark
+              role={script.authorRole}
+              verified={script.verified}
+              className="h-3.5 w-3.5"
+            />
+          </a>
+        ) : (
+          <span className="script-card__author">
+            <span className="grid h-4 w-4 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface-2)] text-[7px] font-semibold uppercase text-[var(--muted)]">
+              {authorLabel.charAt(0)}
+            </span>
+            <b>@{authorLabel}</b>
+            <VerifiedMark
+              role={script.authorRole}
+              verified={script.verified}
+              className="h-3.5 w-3.5"
+            />
+          </span>
+        )}
         <i aria-hidden="true" />
         <span>{updatedLabel}</span>
       </div>

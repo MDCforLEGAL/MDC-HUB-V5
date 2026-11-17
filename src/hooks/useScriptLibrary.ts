@@ -149,6 +149,7 @@ function communityToEntry(script: CommunityScript): ScriptEntry {
     category: official ? "MDC" : "Topluluk",
     title: script.title || "İsimsiz script",
     author,
+    authorUsername: script.author?.username,
     authorRole: script.author?.role,
     verified: Boolean(script.author?.verified),
     status: "working",

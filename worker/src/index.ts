@@ -47,6 +47,7 @@ import type { ProfileLink, ScriptSection, SessionRow, UserRole } from "./db";
 import { buildAuthorizeUrl, discordConfigured, exchangeDiscordCode, fetchDiscordProfile } from "./discord";
 import { firebaseConfigured } from "./firebase";
 import { handleFirebaseLogin } from "./firebase-route";
+import { triggerLibrarySync } from "./sync-trigger";
 import {
   apiError,
   applyCors,
@@ -1086,6 +1087,14 @@ async function handleAdminRoles(request: Request, env: Env): Promise<Response> {
 }
 
 export default {
+  async scheduled(
+    _controller: ScheduledController,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<void> {
+    ctx.waitUntil(triggerLibrarySync(env));
+  },
+
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 

@@ -4,9 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    # Keep the live script library fresh around the clock. GitHub schedules
-    # in five-minute steps; ten minutes stays under Pages' hourly build limit.
-    - cron: "*/10 * * * *"
+    # Fallback only. The Cloudflare Worker cron dispatches this workflow every
+    # 10 minutes because GitHub's scheduler is best-effort and can skip for hours.
+    - cron: "23 * * * *"
   workflow_dispatch:
 
 permissions:

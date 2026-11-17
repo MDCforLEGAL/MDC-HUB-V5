@@ -33,6 +33,7 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
   const { copied, copy } = useCopy(onNotify);
   const { t, locale } = useI18n();
   const codeName = `${(script.slug ?? script.id).replace(/[^a-z0-9-_]/gi, "-")}.lua`;
+  const authorLabel = script.authorUsername || script.author;
   const isExternal = Boolean(script.source && script.source !== "mdc");
   const updatedLabel = script.updatedAt ? timeAgo(script.updatedAt, locale) : script.updated;
   const summary =
@@ -128,15 +129,36 @@ export function ScriptModal({ script, onClose, onNotify }: ScriptModalProps) {
             </h2>
 
             <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-              <span className="grid h-4 w-4 place-items-center border border-[var(--line)] bg-[var(--surface-2)] text-[0.5rem] font-semibold uppercase text-[var(--muted)]">
-                {script.author.charAt(0)}
-              </span>
-              <span className="text-white/45">@{script.author}</span>
-              <VerifiedMark
-                role={script.authorRole}
-                verified={script.verified}
-                className="h-3.5 w-3.5"
-              />
+              {script.authorUsername ? (
+                <a
+                  href={`#/u/${encodeURIComponent(script.authorUsername)}`}
+                  onClick={onClose}
+                  aria-label={`@${authorLabel}`}
+                  className="inline-flex items-center gap-2 rounded-sm text-white/45 transition-colors hover:text-[var(--info)] focus-visible:text-[var(--info)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[var(--info)]"
+                >
+                  <span className="grid h-4 w-4 place-items-center border border-[var(--line)] bg-[var(--surface-2)] text-[0.5rem] font-semibold uppercase text-[var(--muted)]">
+                    {authorLabel.charAt(0)}
+                  </span>
+                  <span>@{authorLabel}</span>
+                  <VerifiedMark
+                    role={script.authorRole}
+                    verified={script.verified}
+                    className="h-3.5 w-3.5"
+                  />
+                </a>
+              ) : (
+                <span className="inline-flex items-center gap-2 text-white/45">
+                  <span className="grid h-4 w-4 place-items-center border border-[var(--line)] bg-[var(--surface-2)] text-[0.5rem] font-semibold uppercase text-[var(--muted)]">
+                    {authorLabel.charAt(0)}
+                  </span>
+                  <span>@{authorLabel}</span>
+                  <VerifiedMark
+                    role={script.authorRole}
+                    verified={script.verified}
+                    className="h-3.5 w-3.5"
+                  />
+                </span>
+              )}
               <span aria-hidden="true" className="mx-0.5 text-white/12">/</span>
               <span className="flex items-center gap-1 text-white/30">
                 <Clock className="h-3 w-3" />
