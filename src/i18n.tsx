@@ -272,6 +272,7 @@ const en = {
   "footer.thirdParty": "Third-party scripts remain under their own licenses.",
   "footer.sourceTagged": "Source-tagged",
   "footer.discordAria": "Discord community",
+  "footer.kofiAria": "Support on Ko-fi",
   "footer.githubAria": "GitHub repository",
   "footer.topAria": "Back to top",
 
@@ -789,6 +790,7 @@ const tr: Record<MessageKey, string> = {
   "footer.thirdParty": "Üçüncü taraf scriptler kendi lisanslarına tabidir.",
   "footer.sourceTagged": "Kaynak etiketli",
   "footer.discordAria": "Discord topluluğu",
+  "footer.kofiAria": "Ko-fi ile destek ol",
   "footer.githubAria": "GitHub deposu",
   "footer.topAria": "Sayfa başına dön",
 

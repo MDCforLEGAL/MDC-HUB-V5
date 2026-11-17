@@ -1,4 +1,5 @@
 export const DISCORD_INVITE_URL = "https://discord.gg/6ETYaxeSTU";
+export const KOFI_URL = "https://ko-fi.com/mdchub";
 
 export const GITHUB_REPO_URL = "https://github.com/MDCforLEGAL/MDC-HUB-V5";
 export const GITHUB_SPONSORS_URL = "https://github.com/sponsors/mudacher";

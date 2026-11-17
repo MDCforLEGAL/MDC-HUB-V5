@@ -8,6 +8,7 @@ import {
   GITHUB_LICENSE_URL,
   GITHUB_REPO_URL,
   GITHUB_SPONSORS_URL,
+  KOFI_URL,
 } from "../lib/links";
 import { Logo } from "./Logo";
 import {
@@ -15,6 +16,7 @@ import {
   ArrowUpRight,
   Discord,
   Github,
+  KoFi,
   ShieldCheck,
 } from "./Icons";
 
@@ -208,6 +210,15 @@ export function Footer({ onOpenAuth, onSecretLogin }: FooterProps) {
               aria-label={t("secret.open")}
               className="secret-trigger"
             />
+            <a
+              href={KOFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("footer.kofiAria")}
+              className="icon-btn h-8 w-8"
+            >
+              <KoFi className="h-3.5 w-3.5" />
+            </a>
             <a
               href={DISCORD_INVITE_URL}
               target="_blank"
