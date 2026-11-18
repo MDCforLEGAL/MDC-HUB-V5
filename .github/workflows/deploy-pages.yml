@@ -24,9 +24,26 @@ jobs:
     # only push that is skipped, because that run already deployed the artifact.
     if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
+    outputs:
+      # "legacy" means GitHub already deploys the generated root when we push
+      # it; only "workflow" repos need the explicit deploy job below.
+      build_type: ${{ steps.pages.outputs.build_type }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      - name: Detect Pages publishing source
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api "repos/${{ github.repository }}/pages" --jq '.build_type' 2>/dev/null || true)
+          if [ "$build_type" != "workflow" ] && [ "$build_type" != "legacy" ]; then
+            echo "::warning::Could not read the Pages build type; assuming legacy branch deployment."
+            build_type="legacy"
+          fi
+          echo "build_type=$build_type" >> "$GITHUB_OUTPUT"
+          echo "Pages build type: $build_type"
 
       - name: Set up Node
         uses: actions/setup-node@v5
@@ -62,12 +79,14 @@ jobs:
           git push
 
       - name: Upload Pages artifact
+        if: steps.pages.outputs.build_type == 'workflow'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
     needs: build
+    if: needs.build.outputs.build_type == 'workflow'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
