@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T19:31:25.105Z",
+  "generatedAt": "2026-11-20T19:41:28.794Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -55,7 +55,7 @@
       "id": "patched",
       "label": "Patched",
       "description": "Kaynakta patched olarak işaretlenen scriptler",
-      "count": 13
+      "count": 12
     }
   ],
   "scripts": [
@@ -80,7 +80,7 @@
         "mvsd",
         "duel"
       ],
-      "views": 2927,
+      "views": 2930,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -118,7 +118,7 @@
         "Brookhaven",
         "avatar copy"
       ],
-      "views": 3084,
+      "views": 3096,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -156,7 +156,7 @@
         "MUSIC",
         "MUSIC PANEL"
       ],
-      "views": 2340,
+      "views": 2341,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -270,7 +270,7 @@
         "kill aura",
         "auto mace"
       ],
-      "views": 5549,
+      "views": 5552,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -420,7 +420,7 @@
       "tags": [
         "keyless"
       ],
-      "views": 8351,
+      "views": 8357,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -456,7 +456,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 4678,
+      "views": 4684,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -468,44 +468,6 @@
         "trending"
       ],
       "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
-      ],
-      "views": 731,
-      "likes": 6,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -540,6 +502,44 @@
       "code": "loadstring(game:HttpGet(\"https://pastefy.app/Au1wV9nQ/raw\"))()",
       "createdAt": "2026-11-12T17:01:00.591Z",
       "updatedAt": "2026-11-12T17:01:00.591Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af5feeb53b28bf04aaf270b",
+      "slug": "Universal-Script-VAELOR-FE-ANIMATION-236449",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-VAELOR-FE-ANIMATION-236449",
+      "title": "VAELOR FE ANIMATION",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794506475697.png",
+      "author": "lol_neshedi",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "VAELOR",
+        "ZORO",
+        "UNIVERSAL"
+      ],
+      "views": 900,
+      "likes": 6,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "VÆLOR FE ANIMATION EDITOR ADVANCED ANIMATION SYSTEM A refined animation solution designed to bring greater creativity, precision, and control to your Roblox experience. FEATURE HIGHLIGHTS - FE Animation Support — Animation functionality…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-ANIMATION-EDITOR/main/V%C3%86LOR%20FE%20ANIMATION%20EDITOR\"))()",
+      "createdAt": "2026-11-12T18:01:16.027Z",
+      "updatedAt": "2026-11-12T18:01:16.027Z",
       "categoryIds": [
         "trending"
       ],
@@ -607,7 +607,7 @@
         "NOTHING PANEL",
         "HEXAGON CLIENT"
       ],
-      "views": 3150,
+      "views": 3151,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -644,7 +644,7 @@
         "UBG",
         "Untitled Boxing Game"
       ],
-      "views": 506,
+      "views": 510,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -682,7 +682,7 @@
         "Gun",
         "Aimbot"
       ],
-      "views": 3159,
+      "views": 3166,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -720,7 +720,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 2429,
+      "views": 2438,
       "likes": 10,
       "dislikes": 2,
       "rating": 4.2,
@@ -758,7 +758,7 @@
         "Aimbot",
         "Arsenal"
       ],
-      "views": 550,
+      "views": 551,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -796,7 +796,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 580,
+      "views": 583,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -808,6 +808,82 @@
         "trending"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6affd35a1147140023a0bd13",
+      "slug": "ALPHA-Practical-Basketball-Best-Script-or-Auto-Green-Auto-Shoot-Auto-Steal-and-Keyless-237582",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/ALPHA-Practical-Basketball-Best-Script-or-Auto-Green-Auto-Shoot-Auto-Steal-and-Keyless-237582",
+      "title": "Best Script | Auto Green, Auto Shoot, Auto Steal & Keyless!",
+      "game": "[ALPHA] Practical Basketball",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-f824bc01968ef597a0a0995497e31d78-bfe0dcbbe6a0.png",
+      "author": "CloutHub",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Practical basketball Script",
+        "best practical basketball script",
+        "practical basketball"
+      ],
+      "views": 35,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "This script is keyless and have many features like Auto Green Auto Shoot Auto Dunk Auto Guard Auto Block Auto Rebound Auto Steal Keyless & More!",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ClouthubOnTop/Loader/main/main.lua\"))()\n-- Ty",
+      "createdAt": "2026-11-20T04:58:02.700Z",
+      "updatedAt": "2026-11-20T18:23:53.127Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6affcf49529f6e376a5cc90d",
+      "slug": "UPD-Naramo-Nuclear-Plant-KEYLESS-237582",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/UPD-Naramo-Nuclear-Plant-KEYLESS-237582",
+      "title": "İsimsiz script",
+      "game": "[UPD] Naramo Nuclear Plant",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-95d61d5cb5af6bbe1504358fec51ac90-3c3a43816a2a.png",
+      "author": "coltenboop",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "fun",
+        "rockets",
+        "op"
+      ],
+      "views": 30,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "This was a script made for Naramo Nuclear Plant, I had alot of fun with it you could spam like RPGs and stuff while they don't always explode they still do damage to tanks if you hit them and if you somehow nail a person. This was for pe…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/xxgoldenwarriors-sketch/Naramo-Nuclear-Plant/refs/heads/main/naramo.lua\"))()",
+      "createdAt": "2026-11-20T04:40:41.686Z",
+      "updatedAt": "2026-11-20T18:22:09.269Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -834,7 +910,7 @@
         "New Update King Legacy Script",
         "Roblox King Legacy Script"
       ],
-      "views": 35,
+      "views": 40,
       "likes": 0,
       "dislikes": 0,
       "summary": "Best Script For King Legacy It Have Everything That You Want.",
@@ -872,7 +948,7 @@
         "ichigo",
         "bankai"
       ],
-      "views": 34,
+      "views": 42,
       "likes": 0,
       "dislikes": 0,
       "summary": "It's a Ichigo bankai script commission i had. it has custom acessories and animations that i animated myself for both r6 & r15. works on all games. This is Client-Sided btw. Just for clips n trolls Ig PC Controls : Release/Unrelease Spir…",
@@ -909,7 +985,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 43,
+      "views": 48,
       "likes": 1,
       "dislikes": 0,
       "summary": "This script contests 4 apps calculater, weather, notes , calander",
@@ -944,7 +1020,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 34,
+      "views": 39,
       "likes": 0,
       "dislikes": 0,
       "summary": "Script fur infection outbreak Dash Bloxy Teleport Tvman :) Hack and Pro EsP Aura pickup Delete Cooldow jump More coming soon",
@@ -982,7 +1058,7 @@
         "Macro",
         "Auto play"
       ],
-      "views": 24,
+      "views": 31,
       "likes": 0,
       "dislikes": 0,
       "summary": "Keyless Macro Auto play Auto farm Best script",
@@ -1020,7 +1096,7 @@
         "farm",
         "autofarm"
       ],
-      "views": 38,
+      "views": 42,
       "likes": 1,
       "dislikes": 0,
       "summary": "auto farm to summit - hard mode only",
@@ -1056,7 +1132,7 @@
       "tags": [
         "Script"
       ],
-      "views": 23,
+      "views": 28,
       "likes": 1,
       "dislikes": 0,
       "summary": "Auto Herbs, Auto Farm Mobs, Auto Craft Pills, Auto Quests, Etc,...",
@@ -1094,7 +1170,7 @@
         "Silent aim",
         "Tarkov"
       ],
-      "views": 33,
+      "views": 38,
       "likes": 0,
       "dislikes": 0,
       "summary": "SNAPE | A Keyless Project Delta script WORK IN PROGRESS - Report bugs and issues in the discord WARNING - As stated in the UI, anything in the combat or weapon tab is still a work in progress and is such a WORK IN PROGRESS, EXPECT ISSUES…",
@@ -1132,7 +1208,7 @@
         "Auto Farm",
         "Afk Farm"
       ],
-      "views": 64,
+      "views": 68,
       "likes": 1,
       "dislikes": 0,
       "summary": "**Horizon Hub | Throw For Animals** A feature-rich automation hub for **Throw For Animals**, powered by WindUI. **Features:** - Auto Train, Auto Throw & Auto Index - Automatic Food Buying & Best Food Equipping - Auto Pet Equipping & Auto…",
@@ -1169,7 +1245,7 @@
         "Script Hub",
         "Auto Win"
       ],
-      "views": 41,
+      "views": 46,
       "likes": 1,
       "dislikes": 0,
       "summary": "KizzDev V20 – MALAM SAMA OPAH 👵💜 The ultimate KizzDev script hub for [KENDURI] MALAM SAMA OPAH! Featuring a powerful collection of automation, ESP, player modifications, teleportation and customization tools. ✨ FEATURES 👁️ VISUALS & E…",
@@ -1206,7 +1282,7 @@
         "Auto bite",
         "Op"
       ],
-      "views": 24,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "🔥 FEATURES: * ⚡ Auto Farm (Warp): Automatically teleports you to farming targets. * 🦷 Auto Chomp (AoE): Automates Bite, Roar, and Destroy abilities. * 🏆 Auto-Claim Quests: Automatically claims available quest rewards. * 📍 High XP Are…",
@@ -1244,7 +1320,7 @@
         "in",
         "forest"
       ],
-      "views": 155936,
+      "views": 155940,
       "likes": 20,
       "dislikes": 1,
       "rating": 4.8,
@@ -1281,7 +1357,7 @@
         "Speed hack",
         "Keyless"
       ],
-      "views": 39,
+      "views": 43,
       "likes": 0,
       "dislikes": 0,
       "summary": "Speed Hack🇧🇷🇧🇷 Second Hub, but inspired by my other script, VENENO HUB🩸. . .",
@@ -1318,7 +1394,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 59,
+      "views": 63,
       "likes": 0,
       "dislikes": 0,
       "summary": "Thirth script",
@@ -1354,7 +1430,7 @@
       "tags": [
         "Script"
       ],
-      "views": 44,
+      "views": 50,
       "likes": 1,
       "dislikes": 0,
       "summary": "This Fishy Hub script for Throw a Seed uses FishyUI and opens with RightControl, organizing features into Throw, Economy, Codes, Visuals, and Probes. Throw centers on a perfect-throw slider that sets the client-computed meter value (0–1)…",
@@ -1390,7 +1466,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 38,
+      "views": 42,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto win c:",
@@ -1428,7 +1504,7 @@
         "Autofarm",
         "Auto Rebirth"
       ],
-      "views": 29,
+      "views": 33,
       "likes": 1,
       "dislikes": 0,
       "summary": "Auto Farm Auto Rebirth Auto Buy Ball Auto Buy Trail",
@@ -1466,7 +1542,7 @@
         "autoplayer",
         "universal"
       ],
-      "views": 4346,
+      "views": 4350,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1504,7 +1580,7 @@
         "Axonic",
         "Open Source"
       ],
-      "views": 6201,
+      "views": 6215,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -1542,7 +1618,7 @@
         "name spoofer",
         "name changer"
       ],
-      "views": 6291,
+      "views": 6294,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -1579,7 +1655,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 50,
+      "views": 52,
       "likes": 0,
       "dislikes": 0,
       "summary": "For destroying maps with f3x and Hd Admin Api source",
@@ -1617,7 +1693,7 @@
         "Codornahub",
         "Verified"
       ],
-      "views": 31,
+      "views": 33,
       "likes": 1,
       "dislikes": 0,
       "summary": "Demon slayer burning ashes Codorna hub Auto farm Version: 1.00.0 Tags: codornahub dsba autofarm auto farm fly flytp fly tp roblox robloxscript roblox script scriptroblox script hub hubroblox gui ui mobile pc android ios executor lua luau…",
@@ -1655,7 +1731,7 @@
         "adoptme",
         "free"
       ],
-      "views": 9947,
+      "views": 9949,
       "likes": 14,
       "dislikes": 1,
       "rating": 4.7,
@@ -1693,7 +1769,7 @@
         "aimbot",
         "esp"
       ],
-      "views": 85,
+      "views": 89,
       "likes": 0,
       "dislikes": 0,
       "summary": "A new keyless script for sniper arena. aimbot, wallhack",
@@ -1729,7 +1805,7 @@
       "tags": [
         "Script"
       ],
-      "views": 56,
+      "views": 60,
       "likes": 0,
       "dislikes": 0,
       "summary": "most op script new kill aura auto armor auto cyrstal bomb more features have fun showcase watch first :9",
@@ -1765,7 +1841,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 79,
+      "views": 81,
       "likes": 0,
       "dislikes": 0,
       "summary": "HOW THIS WORKS ENTER PROMO CODE START BUY THE SCOUT MAKE SURE UR IN A WIDE OPEN SPACE SO UR CAR CAN SPAWN INJECT THE SCRIPT AND ENJOY FARMING JOIN MY DISCORD FOR MORE TORNADO RELATED SCRIPTS!!! https://discord.gg/Y8CEh7GkQB",
@@ -1802,7 +1878,7 @@
         "auto farm",
         "instan kill"
       ],
-      "views": 34,
+      "views": 35,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Farm Auto Stage (Instant Blitz) Target Checkpoint VIP or FREE PLAYER Auto Halloween (Rounds) Auto Boss Fight Auto Boss Halloween (Event) God Mode (Universal) Fast Kill Auto Click Auto Best Zone Auto Rebirth Auto Claim Rewards Claim…",
@@ -1810,8 +1886,7 @@
       "createdAt": "2026-11-19T20:25:22.381Z",
       "updatedAt": "2026-11-20T16:18:04.458Z",
       "categoryIds": [
-        "trending",
-        "new"
+        "trending"
       ],
       "glyph": "dice",
       "colors": [
@@ -1838,7 +1913,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 50,
+      "views": 51,
       "likes": 0,
       "dislikes": 0,
       "summary": "M.E.G Helicity is a tornado tracking script for Twisted, with tornado ESP, wind speed detection, prediction lines, and etc Yes I know, FullBright and no fog will be fixed. I believeall executors are supported, but if not you know what to do",
@@ -1876,7 +1951,7 @@
         "skincahnger",
         "aimbot"
       ],
-      "views": 1129,
+      "views": 1133,
       "likes": 0,
       "dislikes": 0,
       "summary": "things in the script ----UNLOCK ALL ----SKIN CHANGER ----RAGEBOT ----AIMBOT ----SILENT AIM ---- AND MUCH MUCH MORE",
@@ -1913,7 +1988,7 @@
         "Repeat",
         "Overpowered"
       ],
-      "views": 49,
+      "views": 50,
       "likes": 0,
       "dislikes": 0,
       "summary": "FIRST SCRIPT! WOOHOO!! This roblox script contains: Playback saves, you can save/Loop your saved playbacks. Will reset if you leave and rejoin. i've tried to add a saving feature but it jst keeps bugging. Recorder / Begin replay. To begi…",
@@ -1951,7 +2026,7 @@
         "shoot arrows for animals script",
         "shoot arrows for animals scripts"
       ],
-      "views": 71,
+      "views": 72,
       "likes": 1,
       "dislikes": 0,
       "summary": "- inf money - afk auto farm - always perfect shots - no arrow animation - pick any animal - free galaxy griffin - free lucky shots - auto lucky shots - auto train - auto index - auto place best - auto upgrades - auto claim - anti afk - n…",
@@ -1989,7 +2064,7 @@
         "scripts",
         "hack"
       ],
-      "views": 4624,
+      "views": 4626,
       "likes": 1,
       "dislikes": 0,
       "summary": "Hey guys, updated my script for The Forge (v2.1). Fixed a lot of annoying bugs that other public scripts have. Main Features: • Smart Rock Farm: - Farms the closest alive rock instead of walking back and forth randomly (way faster) - Fix…",
@@ -2026,7 +2101,7 @@
         "op",
         "hub"
       ],
-      "views": 45,
+      "views": 48,
       "likes": 0,
       "dislikes": 0,
       "summary": "Break And Steal An Egg | Auto Play🔥, Bat, Buy, Upgrade & More | 🌸Petals Hub - Auto Play - Auto Buy - Auto Upgrade - Auto Train - Auto Equip - Auto Break - Auto Progress - Auto Claim - Auto Index - Index Pets - Pet ESP - Performence Opt…",
@@ -2063,7 +2138,7 @@
         "good",
         "Keyless"
       ],
-      "views": 60,
+      "views": 62,
       "likes": 1,
       "dislikes": 0,
       "summary": "aimbot esp crosshair Esp TeamCheack andmore",
@@ -2101,7 +2176,7 @@
         "Unclock all",
         "Hydra"
       ],
-      "views": 39,
+      "views": 42,
       "likes": 0,
       "dislikes": 0,
       "summary": "Unclock all, Many movements",
@@ -2139,7 +2214,7 @@
         "blox fruits script",
         "blox fruits scripts"
       ],
-      "views": 36274,
+      "views": 36285,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -2177,7 +2252,7 @@
         "brookhaven",
         "coquette hub"
       ],
-      "views": 67,
+      "views": 69,
       "likes": 0,
       "dislikes": 0,
       "summary": "🇧🇷: NEVLIZ HUB é um hub exclusivo para Brookhaven com várias funções de troll, RGB e muito mais. Possui uma interface simples, rápida e fácil de usar. 🇺🇸: NEVLIZ HUB is an exclusive hub for Brookhaven featuring various troll, RGB, an…",
@@ -2214,86 +2289,13 @@
         "blackpowder",
         "guts"
       ],
-      "views": 73,
+      "views": 79,
       "likes": 1,
       "dislikes": 0,
       "summary": "Aimbot, Silent aim, Kill aura, Configuration, Player ESP, Zombie ESP, World ESP, Misc features. Very simple script that is on beta and will be worked on more in the future!",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/northasis/Flatline/refs/heads/main/main.lua\"))()",
       "createdAt": "2026-11-19T22:00:07.634Z",
       "updatedAt": "2026-11-20T15:51:04.750Z",
-      "categoryIds": [
-        "trending",
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6aff70afe7d740b8a0b4fc3e",
-      "slug": "High-School-Life-RP-all-color-237550",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/High-School-Life-RP-all-color-237550",
-      "title": "all color",
-      "game": "High School Life RP",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-86cd0c3418c443119254ac71c6c58785-a70e3c32b50b.png",
-      "author": "St3rrr",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Str",
-        "Keyless"
-      ],
-      "views": 35,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "All color for name bio",
-      "code": "--========================================\n--              ST3R HUB\n--          HIGH SCHOOL LIFE RP\n--          FRANCAIS / ENGLISH\n--========================================\n\nlocal Players = game:GetService(\"Players\")\nlocal ReplicatedStorage = game:GetService(\"ReplicatedStorage\")\nlocal UIS = game:GetService(\"UserInputService\")\n\nlocal Event = ReplicatedStorage:WaitForChild(\"Remotes\"):WaitForChild(\"SetRPNameColor\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\n--========================================\n--              COULEURS\n--========================================\n\nlocal colorList = {\n    [\"rose\"] = Color3.fromRGB(255,105,180),\n    [\"pink\"] = Color3.fromRGB(255,105,180),\n    [\"rose clair\"] = Color3.fromRGB(255,182,193),\n    [\"light pink\"] = Color3.fromRGB(255,182,193),\n    [\"rose fonce\"] = Color3.fromRGB(199,21,133),\n    [\"dark pink\"] = Color3.fromRGB(199,21,133),\n    [\"fuchsia\"] = Color3.fromRGB(255,0,255),\n    [\"magenta\"] = Color3.fromRGB(255,0,180),\n\n    [\"rouge\"] = Color3.fromRGB(255,0,0),\n    [\"red\"] = Color3.fromRGB(255,0,0),\n    [\"rouge clair\"] = Color3.fromRGB(255,100,100),\n    [\"light red\"] = Color3.fromRGB(255,100,100),\n    [\"rouge fonce\"] = Color3.fromRGB(139,0,0),\n    [\"dark red\"] = Color3.fromRGB(139,0,0),\n    [\"bordeaux\"] = Color3.fromRGB(128,0,32),\n    [\"burgundy\"] = Color3.fromRGB(128,0,32),\n    [\"corail\"] = Color3.fromRGB(255,127,80),\n    [\"coral\"] = Color3.fromRGB(255,127,80),\n\n    [\"orange\"] = Color3.fromRGB(255,140,0),\n    [\"orange clair\"] = Color3.fromRGB(255,190,100),\n    [\"light orange\"] = Color3.fromRGB(255,190,100),\n    [\"peche\"] = Color3.fromRGB(255,218,185),\n    [\"peach\"] = Color3.fromRGB(255,218,185),\n\n    [\"jaune\"] = Color3.fromRGB(255,230,0),\n    [\"yellow\"] = Color3.fromRGB(255,230,0),\n    [\"jaune clair\"] = Color3.fromRGB(255,255,150),\n    [\"light yellow\"] = Color3.fromRGB(255,255,150),\n    [\"citron\"] = Color3.fromRGB(220,255,0),\n    [\"lemon\"] = Color3.fromRGB(220,255,0),\n    [\"or\"] = Color3.fromRGB(255,215,0),\n    [\"gold\"] = Color3.fromRGB(255,215,0),\n    [\"dore\"] = Color3.fromRGB(212,175,55),\n    [\"golden\"] = Color3.fromRGB(212,175,55),\n\n    [\"vert\"] = Color3.fromRGB(0,200,80),\n    [\"green\"] = Color3.fromRGB(0,200,80),\n    [\"vert clair\"] = Color3.fromRGB(144,238,144),\n    [\"light green\"] = Color3.fromRGB(144,238,144),\n    [\"vert fonce\"] = Color3.fromRGB(0,100,0),\n    [\"dark green\"] = Color3.fromRGB(0,100,0),\n    [\"emeraude\"] = Color3.fromRGB(80,200,120),\n    [\"emerald\"] = Color3.fromRGB(80,200,120),\n    [\"menthe\"] = Color3.fromRGB(152,255,152),\n    [\"mint\"] = Color3.fromRGB(152,255,152),\n    [\"olive\"] = Color3.fromRGB(128,128,0),\n\n    [\"cyan\"] = Color3.fromRGB(0,255,255),\n    [\"turquoise\"] = Color3.fromRGB(64,224,208),\n\n    [\"bleu\"] = Color3.fromRGB(0,100,255),\n    [\"blue\"] = Color3.fromRGB(0,100,255),\n    [\"bleu clair\"] = Color3.fromRGB(100,180,255),\n    [\"light blue\"] = Color3.fromRGB(100,180,255),\n    [\"bleu ciel\"] = Color3.fromRGB(135,206,250),\n    [\"sky blue\"] = Color3.fromRGB(135,206,250),\n    [\"bleu fonce\"] = Color3.fromRGB(0,0,139),\n    [\"dark blue\"] = Color3.fromRGB(0,0,139),\n    [\"bleu nuit\"] = Color3.fromRGB(25,25,112),\n    [\"midnight blue\"] = Color3.fromRGB(25,25,112),\n    [\"marine\"] = Color3.fromRGB(0,0,128),\n    [\"navy\"] = Color3.fromRGB(0,0,128),\n\n    [\"violet\"] = Color3.fromRGB(148,0,211),\n    [\"purple\"] = Color3.fromRGB(148,0,211),\n    [\"violet clair\"] = Color3.fromRGB(200,150,255),\n    [\"light purple\"] = Color3.fromRGB(200,150,255),\n    [\"lilas\"] = Color3.fromRGB(200,162,200),\n    [\"lilac\"] = Color3.fromRGB(200,162,200),\n    [\"lavande\"] = Color3.fromRGB(230,230,250),\n    [\"lavender\"] = Color3.fromRGB(230,230,250),\n    [\"prune\"] = Color3.fromRGB(112,28,78),\n    [\"plum\"] = Color3.fromRGB(112,28,78),\n\n    [\"marron\"] = Color3.fromRGB(139,69,19),\n    [\"brown\"] = Color3.fromRGB(139,69,19),\n    [\"chocolat\"] = Color3.fromRGB(123,63,0),\n    [\"chocolate\"] = Color3.fromRGB(123,63,0),\n    [\"beige\"] = Color3.fromRGB(245,245,220),\n    [\"creme\"] = Color3.fromRGB(255,253,208),\n    [\"cream\"] = Color3.fromRGB(255,253,208),\n    [\"sable\"] = Color3.fromRGB(194,178,128),\n    [\"sand\"] = Color3.fromRGB(194,178,128),\n\n    [\"blanc\"] = Color3.fromRGB(255,255,255),\n    [\"white\"] = Color3.fromRGB(255,255,255),\n    [\"noir\"] = Color3.fromRGB(0,0,0),\n    [\"black\"] = Color3.fromRGB(0,0,0),\n\n    [\"gris\"] = Color3.fromRGB(128,128,128),\n    [\"gray\"] = Color3.fromRGB(128,128,128),\n    [\"grey\"] = Color3.fromRGB(128,128,128),\n    [\"gris clair\"] = Color3.fromRGB(211,211,211),\n    [\"light gray\"] = Color3.fromRGB(211,211,211),\n    [\"light grey\"] = Color3.fromRGB(211,211,211),\n    [\"gris fonce\"] = Color3.fromRGB(60,60,60),\n    [\"dark gray\"] = Color3.fromRGB(60,60,60),\n    [\"dark grey\"] = Color3.fromRGB(60,60,60),\n\n    [\"argent\"] = Color3.fromRGB(192,192,192),\n    [\"silver\"] = Color3.fromRGB(192,192,192),\n    [\"bronze\"] = Color3.fromRGB(205,127,50),\n    [\"indigo\"] = Color3.fromRGB(75,0,130)\n}\n\n--========================================\n--              VARIABLES\n--========================================\n\nlocal colors = {\n    colorList[\"rose\"],\n    colorList[\"noir\"]\n}\n\nlocal isRunning = false\nlocal isLocked = false\nlocal speed = 0.10\nlocal colorIndex = 1\n\n--========================================\n--                 GUI\n--========================================\n\nlocal oldGui = playerGui:FindFirstChild(\"ST3R\")\nif oldGui then\n    oldGui:Destroy()\nend\n\nlocal gui = Instance.new(\"ScreenGui\")\ngui.Name = \"ST3R\"\ngui.ResetOnSpawn = false\ngui.Parent = playerGui\n\n--========================================\n--          BULLE RETRACTABLE\n--========================================\n\nlocal bubble = Instance.new(\"TextButton\")\nbubble.Name = \"ST3RBubble\"\nbubble.Size = UDim2.fromOffset(55,55)\nbubble.Position = UDim2.new(0,15,0.5,-27)\nbubble.BackgroundColor3 = Color3.fromRGB(190,55,135)\nbubble.Text = \"ST3R\"\nbubble.TextColor3 = Color3.new(1,1,1)\nbubble.TextSize = 15\nbubble.Font = Enum.Font.GothamBold\nbubble.Visible = false\nbubble.Active = true\nbubble.Parent = gui\n\nInstance.new(\"UICorner\",bubble).CornerRadius = UDim.new(1,0)\n\nlocal bubbleStroke = Instance.new(\"UIStroke\")\nbubbleStroke.Color = Color3.fromRGB(255,100,200)\nbubbleStroke.Thickness = 2\nbubbleStroke.Parent = bubble\n\n--========================================\n--          FENETRE PRINCIPALE\n--========================================\n\nlocal main = Instance.new(\"Frame\")\nmain.Size = UDim2.fromOffset(280,210)\nmain.Position = UDim2.new(0.5,-140,0.5,-105)\nmain.BackgroundColor3 = Color3.fromRGB(20,15,27)\nmain.Active = true\nmain.Parent = gui\n\nInstance.new(\"UICorner\",main).CornerRadius = UDim.new(0,12)\n\nlocal stroke = Instance.new(\"UIStroke\")\nstroke.Color = Color3.fromRGB(255,70,180)\nstroke.Thickness = 2\nstroke.Parent = main\n\n-- TITRE\n\nlocal title = Instance.new(\"TextLabel\")\ntitle.Size = UDim2.new(1,-40,0,40)\ntitle.Position = UDim2.fromOffset(5,0)\ntitle.BackgroundTransparency = 1\ntitle.Text = \"ST3R HUB\"\ntitle.TextColor3 = Color3.fromRGB(255,80,180)\ntitle.TextSize = 23\ntitle.Font = Enum.Font.GothamBold\ntitle.Parent = main\n\n-- BOUTON RETRACTER\n\nlocal minimize = Instance.new(\"TextButton\")\nminimize.Size = UDim2.fromOffset(30,30)\nminimize.Position = UDim2.new(1,-38,0,5)\nminimize.BackgroundColor3 = Color3.fromRGB(70,40,70)\nminimize.Text = \"—\"\nminimize.TextColor3 = Color3.new(1,1,1)\nminimize.TextSize = 20\nminimize.Font = Enum.Font.GothamBold\nminimize.Parent = main\n\nInstance.new(\"UICorner\",minimize).CornerRadius = UDim.new(0,8)\n\nminimize.MouseButton1Click:Connect(function()\n    main.Visible = false\n    bubble.Visible = true\nend)\n\nbubble.MouseButton1Click:Connect(function()\n    bubble.Visible = false\n    main.Visible = true\nend)\n\n--========================================\n--          CHAMP DE COULEURS\n--========================================\n\nlocal input = Instance.new(\"TextBox\")\ninput.Size = UDim2.new(1,-30,0,38)\ninput.Position = UDim2.fromOffset(15,48)\ninput.BackgroundColor3 = Color3.fromRGB(43,32,50)\ninput.TextColor3 = Color3.new(1,1,1)\ninput.PlaceholderText = \"Ex: pink black light blue\"\ninput.Text = \"rose noir\"\ninput.TextSize = 14\ninput.ClearTextOnFocus = false\ninput.Font = Enum.Font.Gotham\ninput.Parent = main\n\nInstance.new(\"UICorner\",input).CornerRadius = UDim.new(0,7)\n\n--========================================\n--          BOUTON APPLY\n--========================================\n\nlocal apply = Instance.new(\"TextButton\")\napply.Size = UDim2.new(1,-30,0,32)\napply.Position = UDim2.fromOffset(15,95)\napply.BackgroundColor3 = Color3.fromRGB(190,55,135)\napply.Text = \"APPLY COLORS\"\napply.TextColor3 = Color3.new(1,1,1)\napply.TextSize = 13\napply.Font = Enum.Font.GothamBold\napply.Parent = main\n\nInstance.new(\"UICorner\",apply).CornerRadius = UDim.new(0,7)\n\n--========================================\n--              STATUT\n--========================================\n\nlocal status = Instance.new(\"TextLabel\")\nstatus.Size = UDim2.new(1,-20,0,20)\nstatus.Position = UDim2.fromOffset(10,132)\nstatus.BackgroundTransparency = 1\nstatus.Text = \"Colors available\"\nstatus.TextColor3 = Color3.fromRGB(220,220,220)\nstatus.TextSize = 11\nstatus.Parent = main\n\n--========================================\n--               ON / OFF\n--========================================\n\nlocal toggle = Instance.new(\"TextButton\")\ntoggle.Size = UDim2.fromOffset(115,30)\ntoggle.Position = UDim2.fromOffset(15,165)\ntoggle.BackgroundColor3 = Color3.fromRGB(70,40,70)\ntoggle.Text = \"ST3R : OFF\"\ntoggle.TextColor3 = Color3.new(1,1,1)\ntoggle.Font = Enum.Font.GothamBold\ntoggle.TextSize = 13\ntoggle.Parent = main\n\nInstance.new(\"UICorner\",toggle).CornerRadius = UDim.new(0,7)\n\n--========================================\n--                CADENAS\n--========================================\n\nlocal lock = Instance.new(\"TextButton\")\nlock.Size = UDim2.fromOffset(35,30)\nlock.Position = UDim2.fromOffset(230,165)\nlock.BackgroundColor3 = Color3.fromRGB(50,40,60)\nlock.Text = \"🔓\"\nlock.TextSize = 15\nlock.Parent = main\n\nInstance.new(\"UICorner\",lock).CornerRadius = UDim.new(0,7)\n\n--========================================\n--        DEPLACEMENT DE L'INTERFACE\n--========================================\n\nlocal function makeDraggable(object)\n\n    local dragging = false\n    local dragStart\n    local startPos\n\n    object.InputBegan:Connect(function(i)\n        if isLocked then return end\n\n        if i.UserInputType == Enum.UserInputType.MouseButton1\n        or i.UserInputType == Enum.UserInputType.Touch then\n\n            dragging = true\n            dragStart = i.Position\n            startPos = object.Position\n        end\n    end)\n\n    UIS.InputChanged:Connect(function(i)\n        if dragging and not isLocked then\n\n            if i.UserInputType == Enum.UserInputType.MouseMovement\n            or i.UserInputType == Enum.UserInputType.Touch then\n\n                local delta = i.Position - dragStart\n\n                object.Position = UDim2.new(\n                    startPos.X.Scale,\n                    startPos.X.Offset + delta.X,\n                    startPos.Y.Scale,\n                    startPos.Y.Offset + delta.Y\n                )\n            end\n        end\n    end)\n\n    UIS.InputEnded:Connect(function(i)\n        if i.UserInputType == Enum.UserInputType.MouseButton1\n        or i.UserInputType == Enum.UserInputType.Touch then\n            dragging = false\n        end\n    end)\nend\n\nmakeDraggable(main)\nmakeDraggable(bubble)\n\n--========================================\n--              CADENAS\n--========================================\n\nlock.MouseButton1Click:Connect(function()\n    isLocked = not isLocked\n    lock.Text = isLocked and \"🔒\" or \"🔓\"\nend)\n\n--========================================\n--       LECTURE FRANCAIS / ANGLAIS\n--========================================\n\nlocal names = {}\n\nfor name in pairs(colorList) do\n    table.insert(names,name)\nend\n\ntable.sort(names,function(a,b)\n    return #a > #b\nend)\n\nlocal function setColors()\n\n    local text = string.lower(input.Text)\n    text = text:gsub(\"%s+\",\" \")\n    text = text:gsub(\"^%s+\",\"\")\n    text = text:gsub(\"%s+$\",\"\")\n\n    local newColors = {}\n\n    while text ~= \"\" do\n\n        local found = false\n\n        for _,name in ipairs(names) do\n\n            if text == name\n            or text:sub(1,#name+1) == name..\" \" then\n\n                table.insert(newColors,colorList[name])\n\n                text = text:sub(#name+1)\n                text = text:gsub(\"^%s+\",\"\")\n\n                found = true\n                break\n            end\n        end\n\n        if not found then\n            status.Text = \"Unknown color: \"..text\n            return\n        end\n    end\n\n    if #newColors == 0 then\n        status.Text = \"Enter colors!\"\n        return\n    end\n\n    colors = newColors\n    colorIndex = 1\n\n    status.Text = #colors..\" colors applied!\"\nend\n\napply.MouseButton1Click:Connect(setColors)\n\n--========================================\n--              ACTIVATION\n--========================================\n\ntoggle.MouseButton1Click:Connect(function()\n\n    isRunning = not isRunning\n\n    toggle.Text = isRunning and \"ST3R : ON\" or \"ST3R : OFF\"\n\n    toggle.BackgroundColor3 = isRunning\n        and Color3.fromRGB(190,55,135)\n        or Color3.fromRGB(70,40,70)\nend)\n\n--========================================\n--          ALTERNANCE DES COULEURS\n--========================================\n\ntask.spawn(function()\n\n    while gui.Parent do\n\n        if isRunning then\n\n            Event:FireServer(colors[colorIndex])\n\n            colorIndex = (colorIndex % #colors) + 1\n\n            task.wait(speed)\n\n        else\n            task.wait(0.2)\n        end\n    end\nend)\n\nprint(\"ST3R HUB FR / EN LOADED\")",
-      "createdAt": "2026-11-19T21:57:03.603Z",
-      "updatedAt": "2026-11-20T15:44:48.238Z",
-      "categoryIds": [
-        "trending",
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6aff615b1c318f245b02f28d",
-      "slug": "MEDVED-Hunt-and-Become-Bears-Krevetki-Hub-237540",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/MEDVED-Hunt-and-Become-Bears-Krevetki-Hub-237540",
-      "title": "Krevetki Hub",
-      "game": "MEDVED 🐻‍❄️ (Hunt & Become Bears)",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-8e2b1c4c0261d602e3598e1aaa01d349-197dd3c6d8c5.png",
-      "author": "Innovator",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 84,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "A simple hub created for Auto AFK Farming, which it does very effectively But it also has a couple of features for \"Normal\" gameplay, but all the focus is still on auto farming. Bears Farming Loot Farming Page Farming Inf Stamina (Dont W…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Robotnik-del/script-1/refs/heads/main/Krevetki%20Hub%20MEDVED\"))()",
-      "createdAt": "2026-11-19T20:51:40.111Z",
-      "updatedAt": "2026-11-20T15:40:08.936Z",
       "categoryIds": [
         "trending",
         "new"
@@ -2325,7 +2327,7 @@
         "Roblox Volley Bomb",
         "Volley Bomb Script"
       ],
-      "views": 106,
+      "views": 113,
       "likes": 1,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord ⚔️ COMBAT Section : Status ▸ Live ▸ Reset Stats Section : Auto Hit ▸ Auto Hit ▸ Auto Serve ▸ Serve Delay ▸ Hit Ball Now Section : Aimbot ▸ Smart Aim (L…",
@@ -2362,7 +2364,7 @@
         "steal an egg sae",
         "murder mystery mm"
       ],
-      "views": 370,
+      "views": 388,
       "likes": 2,
       "dislikes": 0,
       "summary": "Keyless Discord: https://discord.gg/Ndzk9kPZmT Website: https://nolag.wtf --- Supported Games & Features --- [Blox Fruits] - Auto Farm Level, Nearest Mob, Specific Mob, Bosses & Materials - Fast Attack, Mob Magnet (Bring Mobs), Safe Mode…",
@@ -2399,7 +2401,7 @@
         "autoclick",
         "autorebirth"
       ],
-      "views": 39,
+      "views": 40,
       "likes": 2,
       "dislikes": 0,
       "summary": "- PROJECT ABYSS MOG EVOLUTİON - - Autoclick - Autorebirth - Autowin yeah thats all :3 have fun",
@@ -2436,7 +2438,7 @@
         "stand",
         "out"
       ],
-      "views": 72,
+      "views": 76,
       "likes": 1,
       "dislikes": 0,
       "summary": "+ Mob farm, pick mob types + Kill aura: NPCs/players/all + Animation-skip swings + Heavy execute at low HP + Fury pistol max fire rate + Auto stand skills + Auto collect + map magnet + Auto use arrows + Auto forage seeds + Auto beach dig…",
@@ -2471,7 +2473,7 @@
       "tags": [
         "Script"
       ],
-      "views": 27,
+      "views": 28,
       "likes": 0,
       "dislikes": 0,
       "summary": "Shoot Arrows For Animals Script Auto Farm Auto Buy Bow 2x Train Upgrade Bench Sell All",
@@ -2482,6 +2484,79 @@
         "new"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b00310656f96b3466467221",
+      "slug": "Ishin-LARPshin-237617",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Ishin-LARPshin-237617",
+      "title": "LARPshin",
+      "game": "Ishin",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-8f93fffea05adc6e7fabc50a4a63cebc-302e69e297f3.png",
+      "author": "L4RPWare",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "parry",
+        "dash",
+        "ishin"
+      ],
+      "views": 3,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Ishin? No, we LARPshin Listen closely. The second you execute this script, you are no longer a casual, you are officially LARPing as a top 0.1% sweat with 10,000 hours, zero grass touched, and frame-perfect muscle memory. Your opponents…",
+      "code": "loadstring(game:HttpGet(\"https://api.x8stuff.lol/scripts/larpshin.lua\"))()",
+      "createdAt": "2026-11-20T11:37:42.344Z",
+      "updatedAt": "2026-11-20T19:39:01.487Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b0030a57c2b58690928da14",
+      "slug": "Universal-Script-Fly-mobile-no-key-by-KM-studios-237616",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Fly-mobile-no-key-by-KM-studios-237616",
+      "title": "Fly mobile no key by KM studios",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795174565039.jpg",
+      "author": "KM_STUDIOS",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Keyless",
+        "Universal"
+      ],
+      "views": 5,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Fly mobile no key by KM studios",
+      "code": "--[[\n    KM STUDIO ULTIMATE - Instant Noclip & 3D Tilt Fly System\n    Creator: Kami_ytt (KM studios)\n]]\n\nif _G.KM_FLY_MOBILE_LOADED then\n\treturn\nend\n_G.KM_FLY_MOBILE_LOADED = true\n\nlocal Players = game:GetService(\"Players\")\nlocal RunService = game:GetService(\"RunService\")\nlocal CoreGui = game:GetService(\"CoreGui\")\nlocal Stats = game:GetService(\"Stats\")\nlocal TweenService = game:GetService(\"TweenService\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal SoundService = game:GetService(\"SoundService\")\n\nlocal player = Players.LocalPlayer\nlocal camera = workspace.CurrentCamera\n\nlocal flying = false\nlocal noclipActive = false\nlocal flySpeed = 50       \nlocal isMinimized = false\nlocal isScriptsScreenOpen = false\n\nlocal heroPoseActive = false\nlocal wideCameraActive = false\nlocal cameraFovValue = 70\nlocal flyCamShakeActive = true\nlocal musicDeleted = false\nlocal currentThemeName = \"NORMAL THEME\"\nlocal currentLanguage = \"ORIGINAL\"\n\nlocal PANEL_WIDTH = 220\nlocal EXPANDED_HEIGHT = 204\nlocal MINIMIZED_HEIGHT = 38\n\nlocal SCRIPTS_WIDTH = 266\nlocal SCRIPTS_HEIGHT = 310\nlocal SCRIPTS_CANVAS_HEIGHT = 462\n\nlocal bodyVelocity, bodyGyro\nlocal mobileGui, mainPanel, panelStroke, contentHolder, minimizeBtn, studioBoxBtn, perfLabel\nlocal titleLabel, subTitle, speedLabel\nlocal flyToggleBtn, noclipToggleBtn, musicToggleBtn, nextTrackBtn, trackInfoLabel, speedBox\nlocal scriptsPanel, scriptsScrollFrame, backArrowBtn, scriptsTitle, heroPoseBtn, cameraFovBtn, camShakeBtn, deleteMusicBtn\nlocal sliderTitle, fovSliderFill, fovSliderKnob, fovValueLabel\nlocal themesHeader, languagesHeader, noteLabel\nlocal themeButtons = {}\nlocal languageButtons = {}\nlocal seasonalContainer\nlocal themeRegisteredItems = {}\nlocal seasonalEffectTokens = {}\n\nlocal savedMainSizeBeforeMin = UDim2.new(0, PANEL_WIDTH, 0, EXPANDED_HEIGHT)\nlocal savedMainPosBeforeMin = nil\n\n-- Bezpieczne pobranie modułu sterowania Robloxa dla telefonu / tabletu\nlocal controlModule = nil\npcall(function()\n\tlocal playerScripts = player:WaitForChild(\"PlayerScripts\", 2)\n\tif playerScripts then\n\t\tlocal playerModule = require(playerScripts:WaitForChild(\"PlayerModule\", 2))\n\t\tcontrolModule = playerModule:GetControls()\n\tend\nend)\n\n-- === TŁUMACZENIA (LANGUAGE SETTINGS 🌍) ===\nlocal TRANSLATIONS = {\n\t[\"ORIGINAL\"] = {\n\t\ttitle = \"FLY MOBILE ☆\",\n\t\tsubTitle = \"by KM studios\",\n\t\tflyOn = \"Fly: ON\",\n\t\tflyOff = \"Fly: OFF\",\n\t\tnoclipOn = \"Noclip: ON\",\n\t\tnoclipOff = \"Noclip: OFF\",\n\t\tmusicOn = \"Music: ON\",\n\t\tmusicOff = \"Music: OFF\",\n\t\ttrackPrefix = \"#\",\n\t\ttrackIdLabel = \"ID\",\n\t\tspeedLabel = \"Speed:\",\n\t\tscriptsTitle = \"KM scripts no keylless by KM studios\",\n\t\tposeOn = \"Pose: ON\",\n\t\tposeOff = \"Pose: OFF\",\n\t\tcam120 = \"Cam: 120\",\n\t\tcam70 = \"Cam: 70\",\n\t\tfovLabel = \"FOV:\",\n\t\tshakeOn = \"Cam Shake: ON\",\n\t\tshakeOff = \"Cam Shake: OFF\",\n\t\tdeleteMusic = \"Delete Music\",\n\t\tmusicDeleted = \"Music Deleted\",\n\t\tthemesHeader = \"THEMES\",\n\t\tlanguagesHeader = \"LANGUAGE SETTINGS 🌍\",\n\t\tnoteText = \"Notatka rozbudowana:\\n• Skrypty KM studios działają w pełni bez klucza (KEYLESS) na telefonie.\\n• Suwak FOV pozwala płynnie dopasować szerokość kamery (70-120), a Cam Shake dodaje drgania kamery w locie.\\n• THEMES zmienia wygląd całego panelu, a 2. menu przytłumia muzykę bez przerywania.\\n• Pose unosi jedną rękę w górę, a Delete Music usuwa przycisk muzyki.\",\n\t},\n\t[\"ENGLISH\"] = {\n\t\ttitle = \"FLY MOBILE ☆\",\n\t\tsubTitle = \"by KM studios\",\n\t\tflyOn = \"Fly: ON\",\n\t\tflyOff = \"Fly: OFF\",\n\t\tnoclipOn = \"Noclip: ON\",\n\t\tnoclipOff = \"Noclip: OFF\",\n\t\tmusicOn = \"Music: ON\",\n\t\tmusicOff = \"Music: OFF\",\n\t\ttrackPrefix = \"#\",\n\t\ttrackIdLabel = \"ID\",\n\t\tspeedLabel = \"Speed:\",\n\t\tscriptsTitle = \"KM scripts keyless by KM studios\",\n\t\tposeOn = \"Pose: ON\",\n\t\tposeOff = \"Pose: OFF\",\n\t\tcam120 = \"Cam: 120\",\n\t\tcam70 = \"Cam: 70\",\n\t\tfovLabel = \"FOV:\",\n\t\tshakeOn = \"Cam Shake: ON\",\n\t\tshakeOff = \"Cam Shake: OFF\",\n\t\tdeleteMusic = \"Delete Music\",\n\t\tmusicDeleted = \"Music Deleted\",\n\t\tthemesHeader = \"THEMES\",\n\t\tlanguagesHeader = \"LANGUAGE SETTINGS 🌍\",\n\t\tnoteText = \"Extended Notes:\\n• KM studios scripts run completely keyless on mobile devices.\\n• The FOV slider adjusts camera view (70-120), while Cam Shake adds smooth camera vibration while flying.\\n• THEMES updates the entire panel look, and Menu 2 muffles active music without stopping playback.\\n• Pose raises one arm up smoothly, and Delete Music removes the music control.\",\n\t},\n\t[\"POLSKI\"] = {\n\t\ttitle = \"LOT MOBILNY ☆\",\n\t\tsubTitle = \"od KM studios\",\n\t\tflyOn = \"Lot: WŁ.\",\n\t\tflyOff = \"Lot: WYŁ.\",\n\t\tnoclipOn = \"Przenikanie: WŁ.\",\n\t\tnoclipOff = \"Przenikanie: WYŁ.\",\n\t\tmusicOn = \"Muzyka: WŁ.\",\n\t\tmusicOff = \"Muzyka: WYŁ.\",\n\t\ttrackPrefix = \"Ut.\",\n\t\ttrackIdLabel = \"ID\",\n\t\tspeedLabel = \"Szybkość:\",\n\t\tscriptsTitle = \"Skrypty KM bez klucza od KM studios\",\n\t\tposeOn = \"Poza: WŁ.\",\n\t\tposeOff = \"Poza: WYŁ.\",\n\t\tcam120 = \"Kamera: 120\",\n\t\tcam70 = \"Kamera: 70\",\n\t\tfovLabel = \"Pole widzenia:\",\n\t\tshakeOn = \"Drgania kam.: WŁ.\",\n\t\tshakeOff = \"Drgania kam.: WYŁ.\",\n\t\tdeleteMusic = \"Usuń muzykę\",\n\t\tmusicDeleted = \"Muzyka usunięta\",\n\t\tthemesHeader = \"MOTYWY\",\n\t\tlanguagesHeader = \"USTAWIENIA JĘZYKA 🌍\",\n\t\tnoteText = \"Rozbudowana notatka:\\n• Skrypty KM studios działają w pełni bez klucza na telefonach.\\n• Suwak zmienia pole widzenia (70-120), a drgania kamery dodają płynny efekt podczas lotu.\\n• Motywy zmieniają wygląd całego panelu, a otwarcie 2. menu przytłumia muzykę bez zatrzymywania.\\n• Poza unosi jedną rękę w górę, a Usuń muzykę usuwa przyciski muzyki.\",\n\t},\n}\n\nlocal function getLangPack()\n\treturn TRANSLATIONS[currentLanguage] or TRANSLATIONS[\"ORIGINAL\"]\nend\n\nlocal function syncCamShakeUi()\n\tlocal lang = getLangPack()\n\tif camShakeBtn and camShakeBtn.Parent then\n\t\tcamShakeBtn.Text = flyCamShakeActive and lang.shakeOn or lang.shakeOff\n\t\tcamShakeBtn.TextColor3 = flyCamShakeActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 80, 80)\n\tend\nend\n\nlocal function refreshAllTexts()\n\tlocal lang = getLangPack()\n\n\tif titleLabel and titleLabel.Parent then\n\t\ttitleLabel.Text = lang.title\n\tend\n\tif subTitle and subTitle.Parent then\n\t\tsubTitle.Text = lang.subTitle\n\tend\n\tif flyToggleBtn and flyToggleBtn.Parent then\n\t\tflyToggleBtn.Text = flying and lang.flyOn or lang.flyOff\n\tend\n\tif noclipToggleBtn and noclipToggleBtn.Parent then\n\t\tnoclipToggleBtn.Text = noclipActive and lang.noclipOn or lang.noclipOff\n\tend\n\tif musicToggleBtn and musicToggleBtn.Parent and not musicDeleted then\n\t\tmusicToggleBtn.Text = musicEnabled and lang.musicOn or lang.musicOff\n\tend\n\tif speedLabel and speedLabel.Parent then\n\t\tspeedLabel.Text = lang.speedLabel\n\tend\n\tif scriptsTitle and scriptsTitle.Parent then\n\t\tscriptsTitle.Text = lang.scriptsTitle\n\tend\n\tif heroPoseBtn and heroPoseBtn.Parent then\n\t\theroPoseBtn.Text = heroPoseActive and lang.poseOn or lang.poseOff\n\tend\n\tif cameraFovBtn and cameraFovBtn.Parent then\n\t\tcameraFovBtn.Text = wideCameraActive and lang.cam120 or lang.cam70\n\tend\n\tif sliderTitle and sliderTitle.Parent then\n\t\tsliderTitle.Text = lang.fovLabel\n\tend\n\tsyncCamShakeUi()\n\tif deleteMusicBtn and deleteMusicBtn.Parent then\n\t\tdeleteMusicBtn.Text = musicDeleted and lang.musicDeleted or lang.deleteMusic\n\tend\n\tif themesHeader and themesHeader.Parent then\n\t\tthemesHeader.Text = lang.themesHeader\n\tend\n\tif languagesHeader and languagesHeader.Parent then\n\t\tlanguagesHeader.Text = lang.languagesHeader\n\tend\n\tif noteLabel and noteLabel.Parent then\n\t\tnoteLabel.Text = lang.noteText\n\tend\nend\n\nlocal function refreshTrackInfo()\n\tif not trackInfoLabel or not trackInfoLabel.Parent or musicDeleted then return end\n\tlocal raw = playlist[currentTrackIndex] or \"\"\n\tlocal idNum = string.match(raw, \"(%d+)$\") or raw\n\tlocal lang = getLangPack()\n\ttrackInfoLabel.Text = string.format(\"%s%d/%d | %s: %s\", lang.trackPrefix, currentTrackIndex, #playlist, lang.trackIdLabel, idNum)\nend\n\nlocal function updateLanguageButtonVisuals()\n\tlocal activeDef = THEMES[currentThemeName] or THEMES[\"NORMAL THEME\"]\n\tfor code, btn in pairs(languageButtons) do\n\t\tif btn and btn.Parent then\n\t\t\tlocal isSelected = (code == currentLanguage)\n\t\t\tbtn.TextColor3 = isSelected and Color3.fromRGB(110, 235, 145) or activeDef.textColor\n\t\tend\n\tend\nend\n\nlocal function setLanguage(langCode)\n\tif not TRANSLATIONS[langCode] then return end\n\tcurrentLanguage = langCode\n\trefreshAllTexts()\n\trefreshTrackInfo()\n\tupdateLanguageButtonVisuals()\nend\n\n-- === PLAYLISTA MUZYCZNA (Przełącza się automatycznie po zakończeniu utworu, w pętli) ===\nplaylist = {\n    \"rbxassetid://1845458027\",\n    \"rbxassetid://85362242154153\",\n    \"rbxassetid://99445078556609\",\n    \"rbxassetid://1846458016\",\n    \"rbxassetid://1841443579\"\n}\ncurrentTrackIndex = 1\nmusicEnabled = true\ntrackGeneration = 0\n\nBASE_MUSIC_VOLUME = 1\nMUFFLED_MUSIC_VOLUME = 0.88\nmuffledStateActive = false\nmuffledSavedVolumes = {}\nmuffledEqualizers = {}\n\nlocal sound = Instance.new(\"Sound\")\nsound.Name = \"KM_Studio_Music\"\nsound.Volume = BASE_MUSIC_VOLUME\nsound.Looped = false\n\nlocal function getMuffledTargetVolume(snd)\n\tif snd == sound then\n\t\treturn MUFFLED_MUSIC_VOLUME\n\tend\n\tlocal orig = muffledSavedVolumes[snd]\n\tif typeof(orig) == \"number\" then\n\t\treturn math.clamp(orig * 0.85, 0.06, 10)\n\tend\n\treturn nil\nend\n\nlocal function collectPlayingSounds()\n\tlocal list = {}\n\tlocal seen = {}\n\n\tlocal function addIfPlaying(obj)\n\t\tif obj and obj:IsA(\"Sound\") and not seen[obj] then\n\t\t\tseen[obj] = true\n\t\t\tlocal isActive = false\n\t\t\tpcall(function()\n\t\t\t\tisActive = obj.IsPlaying or (obj == sound and musicEnabled)\n\t\t\tend)\n\t\t\tif isActive then\n\t\t\t\ttable.insert(list, obj)\n\t\t\tend\n\t\tend\n\tend\n\n\tif sound and sound.Parent then\n\t\taddIfPlaying(sound)\n\tend\n\n\tfor _, container in ipairs({ SoundService, CoreGui, workspace }) do\n\t\tpcall(function()\n\t\t\tfor _, desc in ipairs(container:GetDescendants()) do\n\t\t\t\tif desc:IsA(\"Sound\") and desc.IsPlaying then\n\t\t\t\t\taddIfPlaying(desc)\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\tend\n\n\tlocal pg = player:FindFirstChildOfClass(\"PlayerGui\")\n\tif pg then\n\t\tpcall(function()\n\t\t\tfor _, desc in ipairs(pg:GetDescendants()) do\n\t\t\t\tif desc:IsA(\"Sound\") and desc.IsPlaying then\n\t\t\t\t\taddIfPlaying(desc)\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\tend\n\n\treturn list\nend\n\nlocal function applyMuffledMusicEffect(enable)\n\tif musicDeleted then return end\n\tmuffledStateActive = enable\n\n\tif enable then\n\t\tfor _, snd in ipairs(collectPlayingSounds()) do\n\t\t\tpcall(function()\n\t\t\t\tif muffledSavedVolumes[snd] == nil then\n\t\t\t\t\tmuffledSavedVolumes[snd] = (snd == sound) and BASE_MUSIC_VOLUME or snd.Volume\n\t\t\t\tend\n\n\t\t\t\tlocal eq = muffledEqualizers[snd]\n\t\t\t\tif not eq or not eq.Parent then\n\t\t\t\t\teq = snd:FindFirstChild(\"KM_Muffled_EQ\")\n\t\t\t\t\tif not eq then\n\t\t\t\t\t\teq = Instance.new(\"EqualizerSoundEffect\")\n\t\t\t\t\t\teq.Name = \"KM_Muffled_EQ\"\n\t\t\t\t\t\teq.LowGain = 4.0\n\t\t\t\t\t\teq.MidGain = -9\n\t\t\t\t\t\teq.HighGain = -20\n\t\t\t\t\t\teq.Enabled = true\n\t\t\t\t\t\teq.Parent = snd\n\t\t\t\t\tend\n\t\t\t\t\tmuffledEqualizers[snd] = eq\n\t\t\t\tend\n\t\t\t\teq.LowGain = 4.0\n\t\t\t\teq.MidGain = -9\n\t\t\t\teq.HighGain = -20\n\t\t\t\teq.Enabled = true\n\n\t\t\t\tlocal targetVol = getMuffledTargetVolume(snd)\n\t\t\t\tif targetVol then\n\t\t\t\t\tTweenService:Create(\n\t\t\t\t\t\tsnd,\n\t\t\t\t\t\tTweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),\n\t\t\t\t\t\t{ Volume = targetVol }\n\t\t\t\t\t):Play()\n\t\t\t\tend\n\t\t\tend)\n\t\tend\n\telse\n\t\tfor snd, eq in pairs(muffledEqualizers) do\n\t\t\tpcall(function()\n\t\t\t\tif eq and eq.Parent then\n\t\t\t\t\teq:Destroy()\n\t\t\t\tend\n\t\t\tend)\n\t\t\tmuffledEqualizers[snd] = nil\n\t\tend\n\n\t\tfor snd, origVol in pairs(muffledSavedVolumes) do\n\t\t\tpcall(function()\n\t\t\t\tif snd and snd.Parent then\n\t\t\t\t\tlocal restoreVol = (snd == sound) and BASE_MUSIC_VOLUME or origVol\n\t\t\t\t\tTweenService:Create(\n\t\t\t\t\t\tsnd,\n\t\t\t\t\t\tTweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),\n\t\t\t\t\t\t{ Volume = restoreVol }\n\t\t\t\t\t):Play()\n\t\t\t\tend\n\t\t\tend)\n\t\t\tmuffledSavedVolumes[snd] = nil\n\t\tend\n\n\t\tif sound and sound.Parent then\n\t\t\tpcall(function()\n\t\t\t\tsound.Volume = BASE_MUSIC_VOLUME\n\t\t\tend)\n\t\tend\n\tend\nend\n\nlocal function attachSoundParent()\n\tif musicDeleted or not sound then return end\n\tlocal ok = pcall(function()\n\t\tsound.Parent = CoreGui\n\tend)\n\tif not ok or not sound.Parent then\n\t\tpcall(function()\n\t\t\tsound.Parent = player:WaitForChild(\"PlayerGui\")\n\t\tend)\n\tend\nend\nattachSoundParent()\n\nlocal function advanceIndex()\n\tcurrentTrackIndex = currentTrackIndex + 1\n\tif currentTrackIndex > #playlist then\n\t\tcurrentTrackIndex = 1\n\tend\nend\n\nlocal lastTrackSwitchTick = 0\nlocal isSwitchingTrack = false\n\nlocal function playTrackAtIndex(idx)\n\tif musicDeleted or not sound or isSwitchingTrack then return end\n\tisSwitchingTrack = true\n\tlastTrackSwitchTick = tick()\n\ttrackGeneration = trackGeneration + 1\n\tlocal myGen = trackGeneration\n\n\tlocal wrappedIdx = ((idx - 1) % #playlist) + 1\n\tcurrentTrackIndex = wrappedIdx\n\trefreshTrackInfo()\n\n\tif sound.Parent == nil then\n\t\tattachSoundParent()\n\tend\n\n\tlocal nextAssetId = playlist[currentTrackIndex] or \"\"\n\tpcall(function()\n\t\tsound.Looped = false\n\t\tsound:Stop()\n\t\tsound.SoundId = \"\"\n\t\tsound.TimePosition = 0\n\t\tsound.SoundId = nextAssetId\n\t\tsound.Volume = muffledStateActive and MUFFLED_MUSIC_VOLUME or BASE_MUSIC_VOLUME\n\t\tif musicEnabled and nextAssetId ~= \"\" then\n\t\t\tsound:Play()\n\t\tend\n\tend)\n\n\ttask.delay(0.15, function()\n\t\tif trackGeneration == myGen and sound and not musicDeleted then\n\t\t\tpcall(function()\n\t\t\t\tif musicEnabled and not sound.IsPlaying and sound.SoundId == nextAssetId then\n\t\t\t\t\tsound.TimePosition = 0\n\t\t\t\t\tsound:Play()\n\t\t\t\tend\n\t\t\tend)\n\t\tend\n\t\tisSwitchingTrack = false\n\tend)\n\n\tif muffledStateActive then\n\t\ttask.defer(function()\n\t\t\tapplyMuffledMusicEffect(true)\n\t\tend)\n\tend\nend\n\nlocal function triggerNextTrack()\n\tif musicDeleted or not musicEnabled or isSwitchingTrack then return end\n\tif (tick() - lastTrackSwitchTick) < 0.45 then return end\n\tlocal nextIdx = (currentTrackIndex % #playlist) + 1\n\tplayTrackAtIndex(nextIdx)\nend\n\nsound.Ended:Connect(function()\n\tif musicDeleted or not musicEnabled then return end\n\ttriggerNextTrack()\nend)\n\n-- Nadzór końca utworu (także gdy dźwięk nie zdąży się załadować i ma TimeLength == 0 po próbie odtworzenia)\ntask.spawn(function()\n\tlocal zeroLengthTicks = 0\n\tlocal lastId = \"\"\n\twhile true do\n\t\ttask.wait(0.25)\n\t\tif musicDeleted then break end\n\t\tpcall(function()\n\t\t\tif not musicEnabled or not sound or isSwitchingTrack then\n\t\t\t\tzeroLengthTicks = 0\n\t\t\t\treturn\n\t\t\tend\n\n\t\t\tif sound.SoundId ~= lastId then\n\t\t\t\tlastId = sound.SoundId\n\t\t\t\tzeroLengthTicks = 0\n\t\t\tend\n\n\t\t\tif sound.Parent == nil then\n\t\t\t\tattachSoundParent()\n\t\t\tend\n\n\t\t\tif not sound.IsPlaying and sound.SoundId ~= \"\" and (tick() - lastTrackSwitchTick) > 0.6 then\n\t\t\t\tsound:Play()\n\t\t\tend\n\n\t\t\tif muffledStateActive then\n\t\t\t\tapplyMuffledMusicEffect(true)\n\t\t\tend\n\n\t\t\tlocal length = sound.TimeLength\n\t\t\tif length > 0 then\n\t\t\t\tzeroLengthTicks = 0\n\t\t\t\tif sound.TimePosition >= (length - 0.2) then\n\t\t\t\t\ttriggerNextTrack()\n\t\t\t\tend\n\t\t\telseif sound.IsPlaying then\n\t\t\t\tzeroLengthTicks = zeroLengthTicks + 1\n\t\t\t\tif zeroLengthTicks >= 20 then\n\t\t\t\t\tzeroLengthTicks = 0\n\t\t\t\t\ttriggerNextTrack()\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\tend\nend)\n\nplayTrackAtIndex(currentTrackIndex)\n\n-- === MOTYWY PANELU (THEMES) ===\nTHEMES = {\n\t[\"NORMAL THEME\"] = {\n\t\tpanelBg = Color3.fromRGB(22, 25, 33),\n\t\tcardBg = Color3.fromRGB(32, 36, 46),\n\t\tstrokeColor = Color3.fromRGB(255, 255, 255),\n\t\ttitleColor = Color3.fromRGB(255, 255, 255),\n\t\tsubTitleColor = Color3.fromRGB(150, 160, 180),\n\t\ttextColor = Color3.fromRGB(220, 220, 220),\n\t\tnoteColor = Color3.fromRGB(205, 212, 225),\n\t\taccentColor = Color3.fromRGB(255, 255, 255),\n\t\teffectType = nil,\n\t},\n\t[\"AUTUMN THEME 🍂\"] = {\n\t\tpanelBg = Color3.fromRGB(42, 24, 14),\n\t\tcardBg = Color3.fromRGB(66, 36, 18),\n\t\tstrokeColor = Color3.fromRGB(245, 158, 56),\n\t\ttitleColor = Color3.fromRGB(255, 214, 153),\n\t\tsubTitleColor = Color3.fromRGB(224, 152, 82),\n\t\ttextColor = Color3.fromRGB(255, 226, 185),\n\t\tnoteColor = Color3.fromRGB(245, 206, 158),\n\t\taccentColor = Color3.fromRGB(255, 168, 52),\n\t\teffectType = \"AUTUMN\",\n\t},\n\t[\"WINTER THEME ❄️\"] = {\n\t\tpanelBg = Color3.fromRGB(18, 29, 44),\n\t\tcardBg = Color3.fromRGB(30, 48, 70),\n\t\tstrokeColor = Color3.fromRGB(190, 232, 255),\n\t\ttitleColor = Color3.fromRGB(235, 248, 255),\n\t\tsubTitleColor = Color3.fromRGB(165, 205, 232),\n\t\ttextColor = Color3.fromRGB(220, 240, 255),\n\t\tnoteColor = Color3.fromRGB(205, 230, 248),\n\t\taccentColor = Color3.fromRGB(165, 224, 255),\n\t\teffectType = \"WINTER\",\n\t},\n\t[\"SUMMER THEME ☀️\"] = {\n\t\tpanelBg = Color3.fromRGB(16, 44, 52),\n\t\tcardBg = Color3.fromRGB(24, 68, 78),\n\t\tstrokeColor = Color3.fromRGB(255, 224, 92),\n\t\ttitleColor = Color3.fromRGB(255, 244, 175),\n\t\tsubTitleColor = Color3.fromRGB(115, 232, 218),\n\t\ttextColor = Color3.fromRGB(225, 252, 248),\n\t\tnoteColor = Color3.fromRGB(210, 246, 242),\n\t\taccentColor = Color3.fromRGB(72, 228, 214),\n\t\teffectType = \"SUMMER\",\n\t},\n}\n\nlocal function clearSeasonalEffects()\n\tfor key in pairs(seasonalEffectTokens) do\n\t\tseasonalEffectTokens[key] = (seasonalEffectTokens[key] or 0) + 1\n\tend\n\tif seasonalContainer and seasonalContainer.Parent then\n\t\tfor _, child in ipairs(seasonalContainer:GetChildren()) do\n\t\t\tpcall(function() child:Destroy() end)\n\t\tend\n\tend\nend\n\nlocal function spawnSeasonalEffects(effectType)\n\tclearSeasonalEffects()\n\tif not effectType or not seasonalContainer or not seasonalContainer.Parent then return end\n\n\tlocal particleGlyphs = {}\n\tlocal particleColors = {}\n\tif effectType == \"AUTUMN\" then\n\t\tparticleGlyphs = { \"🍂\", \"🍁\" }\n\t\tparticleColors = { Color3.fromRGB(255, 165, 55), Color3.fromRGB(214, 105, 38), Color3.fromRGB(245, 198, 72) }\n\telseif effectType == \"WINTER\" then\n\t\tparticleGlyphs = { \"❄️\", \"•\" }\n\t\tparticleColors = { Color3.fromRGB(225, 245, 255), Color3.fromRGB(175, 225, 255) }\n\telseif effectType == \"SUMMER\" then\n\t\tparticleGlyphs = { \"☀️\", \"✦\" }\n\t\tparticleColors = { Color3.fromRGB(255, 228, 102), Color3.fromRGB(110, 238, 224) }\n\tend\n\n\tfor i = 1, 6 do\n\t\tlocal token = (seasonalEffectTokens[i] or 0) + 1\n\t\tseasonalEffectTokens[i] = token\n\n\t\ttask.spawn(function()\n\t\t\twhile seasonalContainer and seasonalContainer.Parent and seasonalEffectTokens[i] == token do\n\t\t\t\tlocal pLabel = Instance.new(\"TextLabel\")\n\t\t\t\tpLabel.BackgroundTransparency = 1\n\t\t\t\tpLabel.Font = Enum.Font.GothamBold\n\t\t\t\tpLabel.Text = particleGlyphs[((i - 1) % #particleGlyphs) + 1]\n\t\t\t\tpLabel.TextColor3 = particleColors[((i - 1) % #particleColors) + 1]\n\t\t\t\tpLabel.TextSize = (effectType == \"WINTER\") and 11 or 12\n\t\t\t\tpLabel.TextTransparency = 0.25\n\t\t\t\tpLabel.Size = UDim2.new(0, 16, 0, 16)\n\t\t\t\tlocal startX = math.clamp(0.08 + ((i - 1) * 0.16) + (math.random(-4, 4) * 0.01), 0.05, 0.88)\n\t\t\t\tpLabel.Position = UDim2.new(startX, 0, -0.08, 0)\n\t\t\t\tpLabel.ZIndex = 3\n\t\t\t\tpLabel.Parent = seasonalContainer\n\n\t\t\t\tlocal driftX = math.clamp(startX + (math.random(-8, 8) * 0.01), 0.04, 0.88)\n\t\t\t\tlocal fallTime = math.random(24, 38) / 10\n\t\t\t\tlocal moveTween = TweenService:Create(\n\t\t\t\t\tpLabel,\n\t\t\t\t\tTweenInfo.new(fallTime, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),\n\t\t\t\t\t{\n\t\t\t\t\t\tPosition = UDim2.new(driftX, 0, 1.05, 0),\n\t\t\t\t\t\tTextTransparency = 0.85,\n\t\t\t\t\t\tRotation = math.random(-25, 25)\n\t\t\t\t\t}\n\t\t\t\t)\n\t\t\t\tmoveTween:Play()\n\t\t\t\ttask.wait(fallTime + math.random(2, 7) / 10)\n\t\t\t\tpcall(function() pLabel:Destroy() end)\n\t\t\tend\n\t\tend)\n\tend\nend\n\nlocal function registerThemedElement(obj, role)\n\ttable.insert(themeRegisteredItems, { obj = obj, role = role })\nend\n\nlocal function updateThemeButtonVisuals()\n\tlocal activeDef = THEMES[currentThemeName] or THEMES[\"NORMAL THEME\"]\n\tfor name, btn in pairs(themeButtons) do\n\t\tif btn and btn.Parent then\n\t\t\tlocal isSelected = (name == currentThemeName)\n\t\t\tbtn.TextColor3 = isSelected and Color3.fromRGB(110, 235, 145) or activeDef.textColor\n\t\tend\n\tend\nend\n\nlocal function applyTheme(themeName, instant)\n\tlocal def = THEMES[themeName]\n\tif not def then return end\n\tcurrentThemeName = themeName\n\n\tlocal tweenInfo = instant and TweenInfo.new(0) or TweenInfo.new(0.32, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)\n\n\tfor _, item in ipairs(themeRegisteredItems) do\n\t\tlocal obj = item.obj\n\t\tlocal role = item.role\n\t\tif obj and obj.Parent then\n\t\t\tpcall(function()\n\t\t\t\tif role == \"panelBg\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { BackgroundColor3 = def.panelBg }):Play()\n\t\t\t\telseif role == \"cardBg\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { BackgroundColor3 = def.cardBg }):Play()\n\t\t\t\telseif role == \"stroke\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { Color = def.strokeColor }):Play()\n\t\t\t\telseif role == \"title\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { TextColor3 = def.titleColor }):Play()\n\t\t\t\telseif role == \"subTitle\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { TextColor3 = def.subTitleColor }):Play()\n\t\t\t\telseif role == \"text\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { TextColor3 = def.textColor }):Play()\n\t\t\t\telseif role == \"note\" then\n\t\t\t\t\tTweenService:Create(obj, tweenInfo, { TextColor3 = def.noteColor }):Play()\n\t\t\t\tend\n\t\t\tend)\n\t\tend\n\tend\n\n\tupdateThemeButtonVisuals()\n\tupdateLanguageButtonVisuals()\n\tspawnSeasonalEffects(def.effectType)\nend\n\n-- Płynna poza bohatera: jedna ręka w górze (R15 oraz R6, odporna na animacje gry)\nlocal savedRightShoulderC0 = nil\nlocal currentArmBlend = 0\n\nlocal function findRightArmJoint(char)\n\tif not char then return nil, nil end\n\tlocal r15Arm = char:FindFirstChild(\"RightUpperArm\")\n\tif r15Arm then\n\t\tlocal motor = r15Arm:FindFirstChild(\"RightShoulder\")\n\t\tif motor and motor:IsA(\"Motor6D\") then\n\t\t\treturn motor, \"R15\"\n\t\tend\n\tend\n\tlocal torso = char:FindFirstChild(\"Torso\")\n\tif torso then\n\t\tlocal r6Motor = torso:FindFirstChild(\"Right Shoulder\")\n\t\tif r6Motor and r6Motor:IsA(\"Motor6D\") then\n\t\t\treturn r6Motor, \"R6\"\n\t\tend\n\tend\n\treturn nil, nil\nend\n\nlocal function syncHeroPoseUi()\n\tlocal lang = getLangPack()\n\tif heroPoseBtn and heroPoseBtn.Parent then\n\t\theroPoseBtn.Text = heroPoseActive and lang.poseOn or lang.poseOff\n\t\theroPoseBtn.TextColor3 = heroPoseActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 220, 220)\n\tend\nend\n\nlocal function setHeroPose(enabled)\n\theroPoseActive = enabled\n\tsyncHeroPoseUi()\nend\n\n-- Płynne ustawianie kamery FOV w zakresie 70 - 120 (przycisk i suwak w 2. menu)\nlocal function syncFovSliderVisuals(val)\n\tlocal clamped = math.clamp(math.round(val), 70, 120)\n\tlocal ratio = (clamped - 70) / (120 - 70)\n\tlocal lang = getLangPack()\n\tif fovSliderFill and fovSliderFill.Parent then\n\t\tfovSliderFill.Size = UDim2.new(ratio, 0, 1, 0)\n\tend\n\tif fovSliderKnob and fovSliderKnob.Parent then\n\t\tfovSliderKnob.Position = UDim2.new(ratio, -6, 0.5, -6)\n\tend\n\tif fovValueLabel and fovValueLabel.Parent then\n\t\tfovValueLabel.Text = tostring(clamped)\n\tend\n\tif cameraFovBtn and cameraFovBtn.Parent then\n\t\tcameraFovBtn.Text = wideCameraActive and lang.cam120 or lang.cam70\n\t\tcameraFovBtn.TextColor3 = wideCameraActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 220, 220)\n\tend\nend\n\nlocal function setCameraFovValue(targetFov, smooth)\n\tlocal clamped = math.clamp(targetFov, 70, 120)\n\tcameraFovValue = clamped\n\twideCameraActive = (math.round(clamped) >= 100)\n\tsyncFovSliderVisuals(clamped)\n\n\tlocal activeCam = workspace.CurrentCamera or camera\n\tif activeCam then\n\t\tpcall(function()\n\t\t\tif smooth then\n\t\t\t\tTweenService:Create(\n\t\t\t\t\tactiveCam,\n\t\t\t\t\tTweenInfo.new(0.24, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),\n\t\t\t\t\t{ FieldOfView = clamped }\n\t\t\t\t):Play()\n\t\t\telse\n\t\t\t\tactiveCam.FieldOfView = clamped\n\t\t\tend\n\t\tend)\n\tend\nend\n\nlocal function setCameraFov70_120(wide)\n\twideCameraActive = wide\n\tsetCameraFovValue(wide and 120 or 70, true)\nend\n\n-- Usuwanie przycisku muzyki oraz obiektu dźwięku po kliknięciu Delete Music\nlocal function deleteMusicFeature()\n\tif musicDeleted then return end\n\tmusicDeleted = true\n\tmusicEnabled = false\n\n\tapplyMuffledMusicEffect(false)\n\n\tpcall(function()\n\t\tif sound then\n\t\t\tsound:Stop()\n\t\t\tsound:Destroy()\n\t\t\tsound = nil\n\t\tend\n\tend)\n\n\tif musicToggleBtn and musicToggleBtn.Parent then\n\t\tpcall(function() musicToggleBtn:Destroy() end)\n\t\tmusicToggleBtn = nil\n\tend\n\tif nextTrackBtn and nextTrackBtn.Parent then\n\t\tpcall(function() nextTrackBtn:Destroy() end)\n\t\tnextTrackBtn = nil\n\tend\n\tif trackInfoLabel and trackInfoLabel.Parent then\n\t\tpcall(function() trackInfoLabel:Destroy() end)\n\t\ttrackInfoLabel = nil\n\tend\n\n\tif deleteMusicBtn and deleteMusicBtn.Parent then\n\t\tlocal lang = getLangPack()\n\t\tdeleteMusicBtn.Text = lang.musicDeleted\n\t\tdeleteMusicBtn.TextColor3 = Color3.fromRGB(220, 80, 80)\n\tend\nend\n\n-- Licznik FPS i pingu na górze obok przycisku \"-\"\nlocal fpsFrames = 0\nlocal fpsAccumulator = 0\nlocal currentFps = 60\nlocal currentPing = 0\n\nRunService.RenderStepped:Connect(function(dt)\n\tfpsFrames = fpsFrames + 1\n\tfpsAccumulator = fpsAccumulator + dt\n\tif fpsAccumulator >= 0.5 then\n\t\tcurrentFps = math.clamp(math.round(fpsFrames / fpsAccumulator), 1, 999)\n\t\tfpsFrames = 0\n\t\tfpsAccumulator = 0\n\n\t\tpcall(function()\n\t\t\tlocal netItem = Stats.Network and Stats.Network.ServerStatsItem and Stats.Network.ServerStatsItem[\"Data Ping\"]\n\t\t\tif netItem then\n\t\t\t\tcurrentPing = math.clamp(math.round(netItem:GetValue()), 0, 9999)\n\t\t\tend\n\t\tend)\n\n\t\tif perfLabel and perfLabel.Parent then\n\t\t\tperfLabel.Text = string.format(\"%d FPS | %dms\", currentFps, currentPing)\n\t\tend\n\tend\nend)\n\n-- Animacja białej ramki: zmiana na zielony/czerwony, pętla i powrót do koloru motywu\nlocal strokePulseToken = 0\nlocal GREEN_STROKE = Color3.fromRGB(80, 220, 120)\nlocal RED_STROKE = Color3.fromRGB(220, 80, 80)\n\nlocal function pulseStrokeColor(isOn)\n\tif not panelStroke or not panelStroke.Parent then return end\n\tstrokePulseToken = strokePulseToken + 1\n\tlocal myToken = strokePulseToken\n\n\tlocal activeDef = THEMES[currentThemeName] or THEMES[\"NORMAL THEME\"]\n\tlocal baseStroke = activeDef.strokeColor\n\tlocal accentColor = isOn and GREEN_STROKE or RED_STROKE\n\tlocal dimAccent = isOn and Color3.fromRGB(35, 130, 65) or Color3.fromRGB(130, 35, 35)\n\n\ttask.spawn(function()\n\t\tpcall(function()\n\t\t\tpanelStroke.Color = accentColor\n\t\t\tif strokePulseToken ~= myToken then return end\n\n\t\t\tlocal t1 = TweenService:Create(panelStroke, TweenInfo.new(0.16, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), { Color = dimAccent })\n\t\t\tt1:Play()\n\t\t\tt1.Completed:Wait()\n\t\t\tif strokePulseToken ~= myToken then return end\n\n\t\t\tlocal t2 = TweenService:Create(panelStroke, TweenInfo.new(0.16, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), { Color = accentColor })\n\t\t\tt2:Play()\n\t\t\tt2.Completed:Wait()\n\t\t\tif strokePulseToken ~= myToken then return end\n\n\t\t\tlocal t3 = TweenService:Create(panelStroke, TweenInfo.new(0.26, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Color = baseStroke })\n\t\t\tt3:Play()\n\t\tend)\n\tend)\nend\n\n-- Płynne animowanie minimalizowania panelu i powrotu do poprzedniego rozmiaru oraz pozycji\nlocal slideToken = 0\n\nlocal function applyMinimizeState(instant)\n\tif not mainPanel or not contentHolder or not minimizeBtn then return end\n\tslideToken = slideToken + 1\n\tlocal myToken = slideToken\n\n\tminimizeBtn.Text = isMinimized and \"+\" or \"-\"\n\n\tif isMinimized then\n\t\tsavedMainSizeBeforeMin = UDim2.new(0, PANEL_WIDTH, 0, EXPANDED_HEIGHT)\n\t\tsavedMainPosBeforeMin = mainPanel.Position\n\t\tlocal minSize = UDim2.new(0, PANEL_WIDTH, 0, MINIMIZED_HEIGHT)\n\t\tlocal minPos = UDim2.new(\n\t\t\tsavedMainPosBeforeMin.X.Scale,\n\t\t\tsavedMainPosBeforeMin.X.Offset,\n\t\t\tsavedMainPosBeforeMin.Y.Scale,\n\t\t\tsavedMainPosBeforeMin.Y.Offset + 4\n\t\t)\n\n\t\tif instant then\n\t\t\tcontentHolder.Visible = false\n\t\t\tcontentHolder.Position = UDim2.new(0, 0, 0, -156)\n\t\t\tmainPanel.Size = minSize\n\t\t\tmainPanel.Position = minPos\n\t\t\treturn\n\t\tend\n\n\t\tlocal sizeTween = TweenService:Create(\n\t\t\tmainPanel,\n\t\t\tTweenInfo.new(0.28, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut),\n\t\t\t{ Size = minSize, Position = minPos }\n\t\t)\n\t\tlocal contentTween = TweenService:Create(\n\t\t\tcontentHolder,\n\t\t\tTweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.In),\n\t\t\t{ Position = UDim2.new(0, 0, 0, -156) }\n\t\t)\n\t\tsizeTween:Play()\n\t\tcontentTween:Play()\n\t\tcontentTween.Completed:Connect(function()\n\t\t\tif slideToken == myToken and isMinimized and contentHolder then\n\t\t\t\tcontentHolder.Visible = false\n\t\t\tend\n\t\tend)\n\telse\n\t\tlocal restoreSize = savedMainSizeBeforeMin or UDim2.new(0, PANEL_WIDTH, 0, EXPANDED_HEIGHT)\n\t\tlocal restorePos = savedMainPosBeforeMin or mainPanel.Position\n\n\t\tif instant then\n\t\t\tcontentHolder.Visible = true\n\t\t\tcontentHolder.Position = UDim2.new(0, 0, 0, 36)\n\t\t\tmainPanel.Size = restoreSize\n\t\t\tmainPanel.Position = restorePos\n\t\t\treturn\n\t\tend\n\n\t\tcontentHolder.Visible = true\n\t\tcontentHolder.Position = UDim2.new(0, 0, 0, -156)\n\n\t\tlocal sizeTween = TweenService:Create(\n\t\t\tmainPanel,\n\t\t\tTweenInfo.new(0.32, Enum.EasingStyle.Back, Enum.EasingDirection.Out),\n\t\t\t{ Size = restoreSize, Position = restorePos }\n\t\t)\n\t\tlocal contentTween = TweenService:Create(\n\t\t\tcontentHolder,\n\t\t\tTweenInfo.new(0.26, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),\n\t\t\t{ Position = UDim2.new(0, 0, 0, 36) }\n\t\t)\n\t\tsizeTween:Play()\n\t\tcontentTween:Play()\n\tend\nend\n\n-- Przejście: 1. menu lekko spada w dół i wolniej idzie w górę, a od dołu wyjeżdża 2. menu\nlocal screenSwitchToken = 0\n\nlocal function setScriptsScreen(openScripts, instant)\n\tif not mainPanel or not scriptsPanel then return end\n\tisScriptsScreenOpen = openScripts\n\tapplyMuffledMusicEffect(openScripts)\n\n\tscreenSwitchToken = screenSwitchToken + 1\n\tlocal myToken = screenSwitchToken\n\n\tlocal mainCenterPos = savedMainPosBeforeMin or UDim2.new(0.5, -PANEL_WIDTH / 2, 0.3, -EXPANDED_HEIGHT / 2)\n\tlocal mainDipDownPos = UDim2.new(\n\t\tmainCenterPos.X.Scale,\n\t\tmainCenterPos.X.Offset,\n\t\tmainCenterPos.Y.Scale,\n\t\tmainCenterPos.Y.Offset + 22\n\t)\n\tlocal mainOffTopPos = UDim2.new(0.5, -PANEL_WIDTH / 2, 0, -EXPANDED_HEIGHT - 60)\n\n\tlocal scriptsCenterPos = UDim2.new(0.5, -SCRIPTS_WIDTH / 2, 0.5, -SCRIPTS_HEIGHT / 2)\n\tlocal scriptsOffBottomPos = UDim2.new(0.5, -SCRIPTS_WIDTH / 2, 1, 60)\n\n\tif instant then\n\t\tif openScripts then\n\t\t\tmainPanel.Visible = false\n\t\t\tmainPanel.Position = mainOffTopPos\n\t\t\tscriptsPanel.Visible = true\n\t\t\tscriptsPanel.Position = scriptsCenterPos\n\t\telse\n\t\t\tscriptsPanel.Visible = false\n\t\t\tscriptsPanel.Position = scriptsOffBottomPos\n\t\t\tmainPanel.Visible = true\n\t\t\tmainPanel.Position = mainCenterPos\n\t\tend\n\t\treturn\n\tend\n\n\tif openScripts then\n\t\tscriptsPanel.Visible = true\n\t\tscriptsPanel.Position = scriptsOffBottomPos\n\t\tmainPanel.Visible = true\n\n\t\tlocal inTween = TweenService:Create(\n\t\t\tscriptsPanel,\n\t\t\tTweenInfo.new(0.74, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),\n\t\t\t{ Position = scriptsCenterPos }\n\t\t)\n\t\tinTween:Play()\n\n\t\ttask.spawn(function()\n\t\t\tlocal dipTween = TweenService:Create(\n\t\t\t\tmainPanel,\n\t\t\t\tTweenInfo.new(0.20, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),\n\t\t\t\t{ Position = mainDipDownPos }\n\t\t\t)\n\t\t\tdipTween:Play()\n\t\t\tdipTween.Completed:Wait()\n\t\t\tif screenSwitchToken ~= myToken or not isScriptsScreenOpen or not mainPanel then return end\n\n\t\t\tlocal riseTween = TweenService:Create(\n\t\t\t\tmainPanel,\n\t\t\t\tTweenInfo.new(0.56, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),\n\t\t\t\t{ Position = mainOffTopPos }\n\t\t\t)\n\t\t\triseTween:Play()\n\t\t\triseTween.Completed:Connect(function()\n\t\t\t\tif screenSwitchToken == myToken and isScriptsScreenOpen and mainPanel then\n\t\t\t\t\tmainPanel.Visible = false\n\t\t\t\tend\n\t\t\tend)\n\t\tend)\n\telse\n\t\tmainPanel.Visible = true\n\t\tmainPanel.Position = mainOffTopPos\n\t\tscriptsPanel.Visible = true\n\n\t\tlocal outTween = TweenService:Create(\n\t\t\tscriptsPanel,\n\t\t\tTweenInfo.new(0.54, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut),\n\t\t\t{ Position = scriptsOffBottomPos }\n\t\t)\n\t\tlocal inTween = TweenService:Create(\n\t\t\tmainPanel,\n\t\t\tTweenInfo.new(0.64, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),\n\t\t\t{ Position = mainCenterPos }\n\t\t)\n\n\t\toutTween:Play()\n\t\tinTween:Play()\n\n\t\toutTween.Completed:Connect(function()\n\t\t\tif screenSwitchToken == myToken and (not isScriptsScreenOpen) and scriptsPanel then\n\t\t\t\tscriptsPanel.Visible = false\n\t\t\tend\n\t\tend)\n\tend\nend\n\n-- Efekt lekkiego przyciemnienia liter przy kliknięciu (bez przybliżania/powiększania)\nlocal function attachLetterDimEffect(textObj, normalColor, dimmedColor)\n\tlocal dimId = 0\n\ttextObj.MouseButton1Click:Connect(function()\n\t\tdimId = dimId + 1\n\t\tlocal currentId = dimId\n\n\t\tlocal dimTween = TweenService:Create(\n\t\t\ttextObj,\n\t\t\tTweenInfo.new(0.14, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),\n\t\t\t{ TextColor3 = dimmedColor }\n\t\t)\n\t\tdimTween:Play()\n\t\tdimTween.Completed:Wait()\n\n\t\tif dimId ~= currentId then return end\n\n\t\tlocal restoreTween = TweenService:Create(\n\t\t\ttextObj,\n\t\t\tTweenInfo.new(0.24, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),\n\t\t\t{ TextColor3 = normalColor }\n\t\t)\n\t\trestoreTween:Play()\n\tend)\nend\n\n-- Funkcja tworząca GUI KM STUDIO\nlocal function createMobileGui()\n\tthemeRegisteredItems = {}\n\tthemeButtons = {}\n\tlanguageButtons = {}\n\tclearSeasonalEffects()\n\n\tif mobileGui then\n\t\tpcall(function() mobileGui:Destroy() end)\n\tend\n\n\tmobileGui = Instance.new(\"ScreenGui\")\n\tmobileGui.Name = \"KMMobileSystem\"\n\tmobileGui.ResetOnSpawn = false\n\tmobileGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling\n\n\tlocal success = pcall(function()\n\t\tmobileGui.Parent = CoreGui\n\tend)\n\tif not success then\n\t\tpcall(function()\n\t\t\tmobileGui.Parent = player:WaitForChild(\"PlayerGui\")\n\t\tend)\n\tend\n\n\tlocal initialPos = savedMainPosBeforeMin or UDim2.new(0.5, -110, 0.3, -102)\n\tsavedMainPosBeforeMin = initialPos\n\n\tmainPanel = Instance.new(\"Frame\")\n\tmainPanel.Name = \"MainPanel\"\n\tmainPanel.Size = UDim2.new(0, PANEL_WIDTH, 0, EXPANDED_HEIGHT)\n\tmainPanel.Position = initialPos\n\tmainPanel.BackgroundColor3 = Color3.fromRGB(22, 25, 33)\n\tmainPanel.BackgroundTransparency = 0.05\n\tmainPanel.Active = true\n\tmainPanel.Draggable = true\n\tmainPanel.ClipsDescendants = true\n\tmainPanel.Parent = mobileGui\n\tregisterThemedElement(mainPanel, \"panelBg\")\n\n\tmainPanel:GetPropertyChangedSignal(\"Position\"):Connect(function()\n\t\tif not isMinimized and not isScriptsScreenOpen and mainPanel.Visible then\n\t\t\tsavedMainPosBeforeMin = mainPanel.Position\n\t\tend\n\tend)\n\n\tlocal uiCorner = Instance.new(\"UICorner\")\n\tuiCorner.CornerRadius = UDim.new(0, 10)\n\tuiCorner.Parent = mainPanel\n\n\tpanelStroke = Instance.new(\"UIStroke\")\n\tpanelStroke.Color = Color3.fromRGB(255, 255, 255)\n\tpanelStroke.Thickness = 1.5\n\tpanelStroke.Transparency = 0.3\n\tpanelStroke.Parent = mainPanel\n\tregisterThemedElement(panelStroke, \"stroke\")\n\n\tseasonalContainer = Instance.new(\"Frame\")\n\tseasonalContainer.Name = \"SeasonalEffectsLayer\"\n\tseasonalContainer.Size = UDim2.new(1, 0, 1, 0)\n\tseasonalContainer.Position = UDim2.new(0, 0, 0, 0)\n\tseasonalContainer.BackgroundTransparency = 1\n\tseasonalContainer.ClipsDescendants = true\n\tseasonalContainer.ZIndex = 2\n\tseasonalContainer.Parent = mainPanel\n\n\ttitleLabel = Instance.new(\"TextLabel\")\n\ttitleLabel.Size = UDim2.new(0, 102, 0, 18)\n\ttitleLabel.Position = UDim2.new(0, 10, 0, 3)\n\ttitleLabel.BackgroundTransparency = 1\n\ttitleLabel.Font = Enum.Font.GothamBold\n\ttitleLabel.Text = \"FLY MOBILE ☆\"\n\ttitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)\n\ttitleLabel.TextSize = 13\n\ttitleLabel.TextXAlignment = Enum.TextXAlignment.Left\n\ttitleLabel.ZIndex = 5\n\ttitleLabel.Parent = mainPanel\n\tregisterThemedElement(titleLabel, \"title\")\n\n\tsubTitle = Instance.new(\"TextLabel\")\n\tsubTitle.Size = UDim2.new(0, 76, 0, 14)\n\tsubTitle.Position = UDim2.new(0, 10, 0, 20)\n\tsubTitle.BackgroundTransparency = 1\n\tsubTitle.Font = Enum.Font.Gotham\n\tsubTitle.Text = \"by KM studios\"\n\tsubTitle.TextColor3 = Color3.fromRGB(150, 160, 180)\n\tsubTitle.TextSize = 10\n\tsubTitle.TextXAlignment = Enum.TextXAlignment.Left\n\tsubTitle.ZIndex = 5\n\tsubTitle.Parent = mainPanel\n\tregisterThemedElement(subTitle, \"subTitle\")\n\n\t-- Kwadratowa ikonka obok \"by KM studios\"\n\tstudioBoxBtn = Instance.new(\"TextButton\")\n\tstudioBoxBtn.Name = \"StudioSquareIcon\"\n\tstudioBoxBtn.Size = UDim2.new(0, 14, 0, 14)\n\tstudioBoxBtn.Position = UDim2.new(0, 88, 0, 20)\n\tstudioBoxBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tstudioBoxBtn.Font = Enum.Font.GothamBold\n\tstudioBoxBtn.Text = \"▪\"\n\tstudioBoxBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\tstudioBoxBtn.TextSize = 10\n\tstudioBoxBtn.ZIndex = 6\n\tstudioBoxBtn.Parent = mainPanel\n\tInstance.new(\"UICorner\", studioBoxBtn).CornerRadius = UDim.new(0, 3)\n\tregisterThemedElement(studioBoxBtn, \"cardBg\")\n\tregisterThemedElement(studioBoxBtn, \"text\")\n\n\tlocal studioBoxStroke = Instance.new(\"UIStroke\")\n\tstudioBoxStroke.Color = Color3.fromRGB(255, 255, 255)\n\tstudioBoxStroke.Thickness = 1\n\tstudioBoxStroke.Transparency = 0.45\n\tstudioBoxStroke.Parent = studioBoxBtn\n\tregisterThemedElement(studioBoxStroke, \"stroke\")\n\n\tstudioBoxBtn.MouseButton1Click:Connect(function()\n\t\tsetScriptsScreen(true, false)\n\tend)\n\n\tperfLabel = Instance.new(\"TextLabel\")\n\tperfLabel.Size = UDim2.new(0, 74, 0, 22)\n\tperfLabel.Position = UDim2.new(1, -110, 0, 8)\n\tperfLabel.BackgroundTransparency = 1\n\tperfLabel.Font = Enum.Font.GothamBold\n\tperfLabel.Text = string.format(\"%d FPS | %dms\", currentFps, currentPing)\n\tperfLabel.TextColor3 = Color3.fromRGB(175, 185, 205)\n\tperfLabel.TextSize = 9\n\tperfLabel.TextXAlignment = Enum.TextXAlignment.Right\n\tperfLabel.ZIndex = 5\n\tperfLabel.Parent = mainPanel\n\tregisterThemedElement(perfLabel, \"subTitle\")\n\n\tminimizeBtn = Instance.new(\"TextButton\")\n\tminimizeBtn.Size = UDim2.new(0, 22, 0, 22)\n\tminimizeBtn.Position = UDim2.new(1, -32, 0, 8)\n\tminimizeBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tminimizeBtn.Font = Enum.Font.GothamBold\n\tminimizeBtn.Text = \"-\"\n\tminimizeBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\tminimizeBtn.TextSize = 14\n\tminimizeBtn.ZIndex = 6\n\tminimizeBtn.Parent = mainPanel\n\tInstance.new(\"UICorner\", minimizeBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(minimizeBtn, \"cardBg\")\n\tregisterThemedElement(minimizeBtn, \"text\")\n\n\tminimizeBtn.MouseButton1Click:Connect(function()\n\t\tisMinimized = not isMinimized\n\t\tapplyMinimizeState(false)\n\tend)\n\n\tcontentHolder = Instance.new(\"Frame\")\n\tcontentHolder.Name = \"ContentHolder\"\n\tcontentHolder.Size = UDim2.new(1, 0, 0, EXPANDED_HEIGHT - 36)\n\tcontentHolder.Position = UDim2.new(0, 0, 0, 36)\n\tcontentHolder.BackgroundTransparency = 1\n\tcontentHolder.ZIndex = 5\n\tcontentHolder.Parent = mainPanel\n\n\tflyToggleBtn = Instance.new(\"TextButton\")\n\tflyToggleBtn.Size = UDim2.new(1, -20, 0, 26)\n\tflyToggleBtn.Position = UDim2.new(0, 10, 0, 2)\n\tflyToggleBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tflyToggleBtn.Font = Enum.Font.GothamBold\n\tflyToggleBtn.Text = flying and \"Fly: ON\" or \"Fly: OFF\"\n\tflyToggleBtn.TextColor3 = flying and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 80, 80)\n\tflyToggleBtn.TextSize = 12\n\tflyToggleBtn.ZIndex = 5\n\tflyToggleBtn.Parent = contentHolder\n\tInstance.new(\"UICorner\", flyToggleBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(flyToggleBtn, \"cardBg\")\n\n\tnoclipToggleBtn = Instance.new(\"TextButton\")\n\tnoclipToggleBtn.Size = UDim2.new(1, -20, 0, 26)\n\tnoclipToggleBtn.Position = UDim2.new(0, 10, 0, 32)\n\tnoclipToggleBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tnoclipToggleBtn.Font = Enum.Font.GothamBold\n\tnoclipToggleBtn.Text = noclipActive and \"Noclip: ON\" or \"Noclip: OFF\"\n\tnoclipToggleBtn.TextColor3 = noclipActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 80, 80)\n\tnoclipToggleBtn.TextSize = 12\n\tnoclipToggleBtn.ZIndex = 5\n\tnoclipToggleBtn.Parent = contentHolder\n\tInstance.new(\"UICorner\", noclipToggleBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(noclipToggleBtn, \"cardBg\")\n\n\tif not musicDeleted then\n\t\tmusicToggleBtn = Instance.new(\"TextButton\")\n\t\tmusicToggleBtn.Size = UDim2.new(1, -52, 0, 26)\n\t\tmusicToggleBtn.Position = UDim2.new(0, 10, 0, 62)\n\t\tmusicToggleBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\t\tmusicToggleBtn.Font = Enum.Font.GothamBold\n\t\tmusicToggleBtn.Text = musicEnabled and \"Music: ON\" or \"Music: OFF\"\n\t\tmusicToggleBtn.TextColor3 = musicEnabled and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 80, 80)\n\t\tmusicToggleBtn.TextSize = 12\n\t\tmusicToggleBtn.ZIndex = 5\n\t\tmusicToggleBtn.Parent = contentHolder\n\t\tInstance.new(\"UICorner\", musicToggleBtn).CornerRadius = UDim.new(0, 6)\n\t\tregisterThemedElement(musicToggleBtn, \"cardBg\")\n\n\t\tnextTrackBtn = Instance.new(\"TextButton\")\n\t\tnextTrackBtn.Size = UDim2.new(0, 28, 0, 26)\n\t\tnextTrackBtn.Position = UDim2.new(1, -38, 0, 62)\n\t\tnextTrackBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\t\tnextTrackBtn.Font = Enum.Font.GothamBold\n\t\tnextTrackBtn.Text = \">\"\n\t\tnextTrackBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\t\tnextTrackBtn.TextSize = 13\n\t\tnextTrackBtn.ZIndex = 5\n\t\tnextTrackBtn.Parent = contentHolder\n\t\tInstance.new(\"UICorner\", nextTrackBtn).CornerRadius = UDim.new(0, 6)\n\t\tregisterThemedElement(nextTrackBtn, \"cardBg\")\n\t\tregisterThemedElement(nextTrackBtn, \"text\")\n\n\t\ttrackInfoLabel = Instance.new(\"TextLabel\")\n\t\ttrackInfoLabel.Name = \"TrackIdPreview\"\n\t\ttrackInfoLabel.Size = UDim2.new(1, -20, 0, 14)\n\t\ttrackInfoLabel.Position = UDim2.new(0, 10, 0, 90)\n\t\ttrackInfoLabel.BackgroundTransparency = 1\n\t\ttrackInfoLabel.Font = Enum.Font.GothamBold\n\t\ttrackInfoLabel.Text = string.format(\"#%d/%d | ID: %s\", currentTrackIndex, #playlist, string.match(playlist[currentTrackIndex] or \"\", \"(%d+)$\") or \"\")\n\t\ttrackInfoLabel.TextColor3 = Color3.fromRGB(175, 185, 205)\n\t\ttrackInfoLabel.TextSize = 9\n\t\ttrackInfoLabel.TextXAlignment = Enum.TextXAlignment.Center\n\t\ttrackInfoLabel.ZIndex = 5\n\t\ttrackInfoLabel.Parent = contentHolder\n\t\tregisterThemedElement(trackInfoLabel, \"subTitle\")\n\n\t\tmusicToggleBtn.MouseButton1Click:Connect(function()\n\t\t\tif musicDeleted or not sound then return end\n\t\t\tlocal lang = getLangPack()\n\t\t\tif musicEnabled then\n\t\t\t\tmusicEnabled = false\n\t\t\t\tpcall(function() sound:Pause() end)\n\t\t\t\tmusicToggleBtn.Text = lang.musicOff\n\t\t\t\tmusicToggleBtn.TextColor3 = Color3.fromRGB(220, 80, 80)\n\t\t\telse\n\t\t\t\tmusicEnabled = true\n\t\t\t\tmusicToggleBtn.Text = lang.musicOn\n\t\t\t\tmusicToggleBtn.TextColor3 = Color3.fromRGB(80, 220, 120)\n\t\t\t\tif sound.SoundId == playlist[currentTrackIndex] and sound.TimePosition > 0 then\n\t\t\t\t\tpcall(function() sound:Resume() end)\n\t\t\t\telse\n\t\t\t\t\tplayTrackAtIndex(currentTrackIndex)\n\t\t\t\tend\n\t\t\t\tif muffledStateActive then\n\t\t\t\t\ttask.defer(function()\n\t\t\t\t\t\tapplyMuffledMusicEffect(true)\n\t\t\t\t\tend)\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\n\t\tnextTrackBtn.MouseButton1Click:Connect(function()\n\t\t\tif musicDeleted then return end\n\t\t\tlocal lang = getLangPack()\n\t\t\tlocal nextIdx = (currentTrackIndex % #playlist) + 1\n\t\t\tmusicEnabled = true\n\t\t\tmusicToggleBtn.Text = lang.musicOn\n\t\t\tmusicToggleBtn.TextColor3 = Color3.fromRGB(80, 220, 120)\n\t\t\tplayTrackAtIndex(nextIdx)\n\t\tend)\n\tend\n\n\tlocal speedRow = Instance.new(\"Frame\")\n\tspeedRow.Size = UDim2.new(1, -20, 0, 26)\n\tspeedRow.Position = UDim2.new(0, 10, 0, 108)\n\tspeedRow.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tspeedRow.ZIndex = 5\n\tspeedRow.Parent = contentHolder\n\tInstance.new(\"UICorner\", speedRow).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(speedRow, \"cardBg\")\n\n\tspeedLabel = Instance.new(\"TextLabel\")\n\tspeedLabel.Size = UDim2.new(0.55, 0, 1, 0)\n\tspeedLabel.Position = UDim2.new(0, 8, 0, 0)\n\tspeedLabel.BackgroundTransparency = 1\n\tspeedLabel.Font = Enum.Font.GothamBold\n\tspeedLabel.Text = \"Speed:\"\n\tspeedLabel.TextColor3 = Color3.fromRGB(220, 220, 220)\n\tspeedLabel.TextSize = 11\n\tspeedLabel.TextXAlignment = Enum.TextXAlignment.Left\n\tspeedLabel.ZIndex = 5\n\tspeedLabel.Parent = speedRow\n\tregisterThemedElement(speedLabel, \"text\")\n\n\tspeedBox = Instance.new(\"TextBox\")\n\tspeedBox.Size = UDim2.new(0.38, 0, 0.8, 0)\n\tspeedBox.Position = UDim2.new(0.57, 0, 0.1, 0)\n\tspeedBox.BackgroundTransparency = 1\n\tspeedBox.Font = Enum.Font.GothamBold\n\tspeedBox.Text = tostring(flySpeed)\n\tspeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tspeedBox.TextSize = 12\n\tspeedBox.TextXAlignment = Enum.TextXAlignment.Right\n\tspeedBox.ZIndex = 5\n\tspeedBox.Parent = speedRow\n\tregisterThemedElement(speedBox, \"title\")\n\n\tspeedBox.FocusLost:Connect(function()\n\t\tlocal val = tonumber(speedBox.Text)\n\t\tif val then\n\t\t\tflySpeed = math.clamp(val, 1, 500)\n\t\t\tspeedBox.Text = tostring(flySpeed)\n\t\telse\n\t\t\tspeedBox.Text = tostring(flySpeed)\n\t\tend\n\tend)\n\n\t-- Drugie menu: nieruchome na ekranie, z płynnym przewijaniem w pionie (ScrollingFrame)\n\tscriptsPanel = Instance.new(\"Frame\")\n\tscriptsPanel.Name = \"ScriptsInfoPanel\"\n\tscriptsPanel.Size = UDim2.new(0, SCRIPTS_WIDTH, 0, SCRIPTS_HEIGHT)\n\tscriptsPanel.Position = UDim2.new(0.5, -SCRIPTS_WIDTH / 2, 1, 60)\n\tscriptsPanel.BackgroundColor3 = Color3.fromRGB(22, 25, 33)\n\tscriptsPanel.BackgroundTransparency = 0.05\n\tscriptsPanel.Active = false\n\tscriptsPanel.Draggable = false\n\tscriptsPanel.ClipsDescendants = true\n\tscriptsPanel.Visible = false\n\tscriptsPanel.ZIndex = 8\n\tscriptsPanel.Parent = mobileGui\n\tregisterThemedElement(scriptsPanel, \"panelBg\")\n\n\tInstance.new(\"UICorner\", scriptsPanel).CornerRadius = UDim.new(0, 10)\n\n\tlocal scriptsStroke = Instance.new(\"UIStroke\")\n\tscriptsStroke.Color = Color3.fromRGB(255, 255, 255)\n\tscriptsStroke.Thickness = 1.5\n\tscriptsStroke.Transparency = 0.3\n\tscriptsStroke.Parent = scriptsPanel\n\tregisterThemedElement(scriptsStroke, \"stroke\")\n\n\tlocal scriptsHeaderBar = Instance.new(\"Frame\")\n\tscriptsHeaderBar.Name = \"ScriptsHeaderBar\"\n\tscriptsHeaderBar.Size = UDim2.new(1, 0, 0, 38)\n\tscriptsHeaderBar.Position = UDim2.new(0, 0, 0, 0)\n\tscriptsHeaderBar.BackgroundTransparency = 1\n\tscriptsHeaderBar.ZIndex = 9\n\tscriptsHeaderBar.Parent = scriptsPanel\n\n\tscriptsTitle = Instance.new(\"TextButton\")\n\tscriptsTitle.Size = UDim2.new(1, -46, 0, 30)\n\tscriptsTitle.Position = UDim2.new(0, 10, 0, 4)\n\tscriptsTitle.BackgroundTransparency = 1\n\tscriptsTitle.Active = false\n\tscriptsTitle.AutoButtonColor = false\n\tscriptsTitle.Font = Enum.Font.GothamBold\n\tscriptsTitle.Text = \"KM scripts no keylless by KM studios\"\n\tscriptsTitle.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tscriptsTitle.TextSize = 11\n\tscriptsTitle.TextWrapped = true\n\tscriptsTitle.TextXAlignment = Enum.TextXAlignment.Left\n\tscriptsTitle.TextYAlignment = Enum.TextYAlignment.Center\n\tscriptsTitle.ZIndex = 10\n\tscriptsTitle.Parent = scriptsHeaderBar\n\tregisterThemedElement(scriptsTitle, \"title\")\n\n\tattachLetterDimEffect(\n\t\tscriptsTitle,\n\t\tColor3.fromRGB(255, 255, 255),\n\t\tColor3.fromRGB(135, 143, 158)\n\t)\n\n\tbackArrowBtn = Instance.new(\"TextButton\")\n\tbackArrowBtn.Name = \"BackArrowButton\"\n\tbackArrowBtn.Size = UDim2.new(0, 24, 0, 24)\n\tbackArrowBtn.Position = UDim2.new(1, -34, 0, 7)\n\tbackArrowBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tbackArrowBtn.Font = Enum.Font.GothamBold\n\tbackArrowBtn.Text = \"←\"\n\tbackArrowBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\tbackArrowBtn.TextSize = 14\n\tbackArrowBtn.ZIndex = 11\n\tbackArrowBtn.Parent = scriptsHeaderBar\n\tInstance.new(\"UICorner\", backArrowBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(backArrowBtn, \"cardBg\")\n\tregisterThemedElement(backArrowBtn, \"text\")\n\n\tbackArrowBtn.MouseButton1Click:Connect(function()\n\t\tsetScriptsScreen(false, false)\n\tend)\n\n\tscriptsScrollFrame = Instance.new(\"ScrollingFrame\")\n\tscriptsScrollFrame.Name = \"ScriptsScrollFrame\"\n\tscriptsScrollFrame.Size = UDim2.new(1, -6, 1, -42)\n\tscriptsScrollFrame.Position = UDim2.new(0, 3, 0, 38)\n\tscriptsScrollFrame.BackgroundTransparency = 1\n\tscriptsScrollFrame.BorderSizePixel = 0\n\tscriptsScrollFrame.ScrollBarThickness = 5\n\tscriptsScrollFrame.ScrollBarImageColor3 = Color3.fromRGB(215, 222, 235)\n\tscriptsScrollFrame.ScrollingDirection = Enum.ScrollingDirection.Y\n\tscriptsScrollFrame.ElasticBehavior = Enum.ElasticBehavior.Always\n\tscriptsScrollFrame.CanvasSize = UDim2.new(0, 0, 0, SCRIPTS_CANVAS_HEIGHT)\n\tscriptsScrollFrame.ZIndex = 9\n\tscriptsScrollFrame.Parent = scriptsPanel\n\n\t-- Przycisk poza bohatera (1 ręka w górze, płynnie)\n\theroPoseBtn = Instance.new(\"TextButton\")\n\theroPoseBtn.Name = \"HeroPoseButton\"\n\theroPoseBtn.Size = UDim2.new(0.5, -11, 0, 24)\n\theroPoseBtn.Position = UDim2.new(0, 8, 0, 2)\n\theroPoseBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\theroPoseBtn.Font = Enum.Font.GothamBold\n\theroPoseBtn.Text = heroPoseActive and \"Pose: ON\" or \"Pose: OFF\"\n\theroPoseBtn.TextColor3 = heroPoseActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 220, 220)\n\theroPoseBtn.TextSize = 10\n\theroPoseBtn.ZIndex = 10\n\theroPoseBtn.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", heroPoseBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(heroPoseBtn, \"cardBg\")\n\n\theroPoseBtn.MouseButton1Click:Connect(function()\n\t\tsetHeroPose(not heroPoseActive)\n\tend)\n\n\t-- Przycisk Camera 70 / 120 (płynnie)\n\tcameraFovBtn = Instance.new(\"TextButton\")\n\tcameraFovBtn.Name = \"CameraFovButton\"\n\tcameraFovBtn.Size = UDim2.new(0.5, -11, 0, 24)\n\tcameraFovBtn.Position = UDim2.new(0.5, 3, 0, 2)\n\tcameraFovBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tcameraFovBtn.Font = Enum.Font.GothamBold\n\tcameraFovBtn.Text = wideCameraActive and \"Cam: 120\" or \"Cam: 70\"\n\tcameraFovBtn.TextColor3 = wideCameraActive and Color3.fromRGB(80, 220, 120) or Color3.fromRGB(220, 220, 220)\n\tcameraFovBtn.TextSize = 10\n\tcameraFovBtn.ZIndex = 10\n\tcameraFovBtn.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", cameraFovBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(cameraFovBtn, \"cardBg\")\n\n\tcameraFovBtn.MouseButton1Click:Connect(function()\n\t\tsetCameraFov70_120(not wideCameraActive)\n\tend)\n\n\t-- Suwak FOV (70 - 120) w 2. menu\n\tlocal sliderCard = Instance.new(\"Frame\")\n\tsliderCard.Name = \"FovSliderCard\"\n\tsliderCard.Size = UDim2.new(1, -16, 0, 26)\n\tsliderCard.Position = UDim2.new(0, 8, 0, 30)\n\tsliderCard.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tsliderCard.ZIndex = 10\n\tsliderCard.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", sliderCard).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(sliderCard, \"cardBg\")\n\n\tsliderTitle = Instance.new(\"TextLabel\")\n\tsliderTitle.Size = UDim2.new(0, 82, 1, 0)\n\tsliderTitle.Position = UDim2.new(0, 8, 0, 0)\n\tsliderTitle.BackgroundTransparency = 1\n\tsliderTitle.Font = Enum.Font.GothamBold\n\tsliderTitle.Text = \"FOV:\"\n\tsliderTitle.TextColor3 = Color3.fromRGB(220, 220, 220)\n\tsliderTitle.TextSize = 9\n\tsliderTitle.TextXAlignment = Enum.TextXAlignment.Left\n\tsliderTitle.ZIndex = 11\n\tsliderTitle.Parent = sliderCard\n\tregisterThemedElement(sliderTitle, \"text\")\n\n\tfovValueLabel = Instance.new(\"TextLabel\")\n\tfovValueLabel.Size = UDim2.new(0, 30, 1, 0)\n\tfovValueLabel.Position = UDim2.new(1, -36, 0, 0)\n\tfovValueLabel.BackgroundTransparency = 1\n\tfovValueLabel.Font = Enum.Font.GothamBold\n\tfovValueLabel.Text = tostring(math.round(cameraFovValue))\n\tfovValueLabel.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tfovValueLabel.TextSize = 10\n\tfovValueLabel.TextXAlignment = Enum.TextXAlignment.Right\n\tfovValueLabel.ZIndex = 11\n\tfovValueLabel.Parent = sliderCard\n\tregisterThemedElement(fovValueLabel, \"title\")\n\n\tlocal sliderTrack = Instance.new(\"TextButton\")\n\tsliderTrack.Name = \"FovSliderTrack\"\n\tsliderTrack.Size = UDim2.new(1, -128, 0, 8)\n\tsliderTrack.Position = UDim2.new(0, 88, 0.5, -4)\n\tsliderTrack.BackgroundColor3 = Color3.fromRGB(20, 22, 28)\n\tsliderTrack.Text = \"\"\n\tsliderTrack.AutoButtonColor = false\n\tsliderTrack.ZIndex = 11\n\tsliderTrack.Parent = sliderCard\n\tInstance.new(\"UICorner\", sliderTrack).CornerRadius = UDim.new(1, 0)\n\n\tfovSliderFill = Instance.new(\"Frame\")\n\tfovSliderFill.Size = UDim2.new(0, 0, 1, 0)\n\tfovSliderFill.Position = UDim2.new(0, 0, 0, 0)\n\tfovSliderFill.BackgroundColor3 = Color3.fromRGB(80, 220, 120)\n\tfovSliderFill.BorderSizePixel = 0\n\tfovSliderFill.ZIndex = 12\n\tfovSliderFill.Parent = sliderTrack\n\tInstance.new(\"UICorner\", fovSliderFill).CornerRadius = UDim.new(1, 0)\n\n\tfovSliderKnob = Instance.new(\"TextButton\")\n\tfovSliderKnob.Name = \"FovSliderKnob\"\n\tfovSliderKnob.Size = UDim2.new(0, 12, 0, 12)\n\tfovSliderKnob.Position = UDim2.new(0, -6, 0.5, -6)\n\tfovSliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\n\tfovSliderKnob.Text = \"\"\n\tfovSliderKnob.AutoButtonColor = false\n\tfovSliderKnob.ZIndex = 13\n\tfovSliderKnob.Parent = sliderTrack\n\tInstance.new(\"UICorner\", fovSliderKnob).CornerRadius = UDim.new(1, 0)\n\n\tlocal draggingSlider = false\n\tlocal function updateSliderFromScreenX(screenX)\n\t\tlocal absPos = sliderTrack.AbsolutePosition.X\n\t\tlocal absSize = sliderTrack.AbsoluteSize.X\n\t\tif absSize <= 0 then return end\n\t\tlocal alpha = math.clamp((screenX - absPos) / absSize, 0, 1)\n\t\tsetCameraFovValue(70 + alpha * (120 - 70), false)\n\tend\n\n\tsliderTrack.InputBegan:Connect(function(input)\n\t\tif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n\t\t\tdraggingSlider = true\n\t\t\tupdateSliderFromScreenX(input.Position.X)\n\t\tend\n\tend)\n\n\tfovSliderKnob.InputBegan:Connect(function(input)\n\t\tif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n\t\t\tdraggingSlider = true\n\t\tend\n\tend)\n\n\tUserInputService.InputChanged:Connect(function(input)\n\t\tif draggingSlider and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then\n\t\t\tupdateSliderFromScreenX(input.Position.X)\n\t\tend\n\tend)\n\n\tUserInputService.InputEnded:Connect(function(input)\n\t\tif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n\t\t\tdraggingSlider = false\n\t\tend\n\tend)\n\n\t-- Przycisk efektów drgań kamery podczas lotu w 2. menu\n\tcamShakeBtn = Instance.new(\"TextButton\")\n\tcamShakeBtn.Name = \"FlyCamShakeButton\"\n\tcamShakeBtn.Size = UDim2.new(1, -16, 0, 24)\n\tcamShakeBtn.Position = UDim2.new(0, 8, 0, 60)\n\tcamShakeBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tcamShakeBtn.Font = Enum.Font.GothamBold\n\tcamShakeBtn.Text = \"Cam Shake: ON\"\n\tcamShakeBtn.TextColor3 = Color3.fromRGB(80, 220, 120)\n\tcamShakeBtn.TextSize = 10\n\tcamShakeBtn.ZIndex = 10\n\tcamShakeBtn.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", camShakeBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(camShakeBtn, \"cardBg\")\n\n\tcamShakeBtn.MouseButton1Click:Connect(function()\n\t\tflyCamShakeActive = not flyCamShakeActive\n\t\tsyncCamShakeUi()\n\tend)\n\n\t-- Przycisk Delete Music (usuwa przycisk muzyki z menu)\n\tdeleteMusicBtn = Instance.new(\"TextButton\")\n\tdeleteMusicBtn.Name = \"DeleteMusicButton\"\n\tdeleteMusicBtn.Size = UDim2.new(1, -16, 0, 24)\n\tdeleteMusicBtn.Position = UDim2.new(0, 8, 0, 88)\n\tdeleteMusicBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tdeleteMusicBtn.Font = Enum.Font.GothamBold\n\tdeleteMusicBtn.Text = musicDeleted and \"Music Deleted\" or \"Delete Music\"\n\tdeleteMusicBtn.TextColor3 = musicDeleted and Color3.fromRGB(220, 80, 80) or Color3.fromRGB(235, 195, 95)\n\tdeleteMusicBtn.TextSize = 10\n\tdeleteMusicBtn.ZIndex = 10\n\tdeleteMusicBtn.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", deleteMusicBtn).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(deleteMusicBtn, \"cardBg\")\n\n\tdeleteMusicBtn.MouseButton1Click:Connect(function()\n\t\tdeleteMusicFeature()\n\tend)\n\n\t-- Sekcja THEMES (AUTUMN THEME 🍂, WINTER THEME ❄️, SUMMER THEME ☀️, NORMAL THEME)\n\tthemesHeader = Instance.new(\"TextLabel\")\n\tthemesHeader.Size = UDim2.new(1, -16, 0, 14)\n\tthemesHeader.Position = UDim2.new(0, 8, 0, 116)\n\tthemesHeader.BackgroundTransparency = 1\n\tthemesHeader.Font = Enum.Font.GothamBold\n\tthemesHeader.Text = \"THEMES\"\n\tthemesHeader.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tthemesHeader.TextSize = 10\n\tthemesHeader.TextXAlignment = Enum.TextXAlignment.Left\n\tthemesHeader.ZIndex = 10\n\tthemesHeader.Parent = scriptsScrollFrame\n\tregisterThemedElement(themesHeader, \"title\")\n\n\tlocal themeLayout = {\n\t\t{ name = \"AUTUMN THEME 🍂\", x = 0, y = 132, w = 0.5, ox = 8, ow = -11 },\n\t\t{ name = \"WINTER THEME ❄️\", x = 0.5, y = 132, w = 0.5, ox = 3, ow = -11 },\n\t\t{ name = \"SUMMER THEME ☀️\", x = 0, y = 158, w = 0.5, ox = 8, ow = -11 },\n\t\t{ name = \"NORMAL THEME\", x = 0.5, y = 158, w = 0.5, ox = 3, ow = -11 },\n\t}\n\n\tfor _, tInfo in ipairs(themeLayout) do\n\t\tlocal tBtn = Instance.new(\"TextButton\")\n\t\ttBtn.Name = \"ThemeBtn_\" .. tInfo.name\n\t\ttBtn.Size = UDim2.new(tInfo.w, tInfo.ow, 0, 22)\n\t\ttBtn.Position = UDim2.new(tInfo.x, tInfo.ox, 0, tInfo.y)\n\t\ttBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\t\ttBtn.Font = Enum.Font.GothamBold\n\t\ttBtn.Text = tInfo.name\n\t\ttBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\t\ttBtn.TextSize = 9\n\t\ttBtn.TextTruncate = Enum.TextTruncate.AtEnd\n\t\ttBtn.ZIndex = 10\n\t\ttBtn.Parent = scriptsScrollFrame\n\t\tInstance.new(\"UICorner\", tBtn).CornerRadius = UDim.new(0, 6)\n\t\tregisterThemedElement(tBtn, \"cardBg\")\n\n\t\tthemeButtons[tInfo.name] = tBtn\n\t\ttBtn.MouseButton1Click:Connect(function()\n\t\t\tapplyTheme(tInfo.name, false)\n\t\tend)\n\tend\n\n\t-- Sekcja LANGUAGE SETTINGS 🌍 (ENGLISH 🇬🇧, POLSKI 🇵🇱, ORIGINAL 🇺🇸)\n\tlanguagesHeader = Instance.new(\"TextLabel\")\n\tlanguagesHeader.Size = UDim2.new(1, -16, 0, 14)\n\tlanguagesHeader.Position = UDim2.new(0, 8, 0, 186)\n\tlanguagesHeader.BackgroundTransparency = 1\n\tlanguagesHeader.Font = Enum.Font.GothamBold\n\tlanguagesHeader.Text = \"LANGUAGE SETTINGS 🌍\"\n\tlanguagesHeader.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tlanguagesHeader.TextSize = 10\n\tlanguagesHeader.TextXAlignment = Enum.TextXAlignment.Left\n\tlanguagesHeader.ZIndex = 10\n\tlanguagesHeader.Parent = scriptsScrollFrame\n\tregisterThemedElement(languagesHeader, \"title\")\n\n\tlocal languageLayout = {\n\t\t{ code = \"ENGLISH\", label = \"ENGLISH 🇬🇧\", x = 0, y = 202, w = 0.5, ox = 8, ow = -11 },\n\t\t{ code = \"POLSKI\", label = \"POLSKI 🇵🇱\", x = 0.5, y = 202, w = 0.5, ox = 3, ow = -11 },\n\t\t{ code = \"ORIGINAL\", label = \"ORIGINAL 🇺🇸\", x = 0, y = 228, w = 1, ox = 8, ow = -16 },\n\t}\n\n\tfor _, lInfo in ipairs(languageLayout) do\n\t\tlocal lBtn = Instance.new(\"TextButton\")\n\t\tlBtn.Name = \"LangBtn_\" .. lInfo.code\n\t\tlBtn.Size = UDim2.new(lInfo.w, lInfo.ow, 0, 22)\n\t\tlBtn.Position = UDim2.new(lInfo.x, lInfo.ox, 0, lInfo.y)\n\t\tlBtn.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\t\tlBtn.Font = Enum.Font.GothamBold\n\t\tlBtn.Text = lInfo.label\n\t\tlBtn.TextColor3 = Color3.fromRGB(220, 220, 220)\n\t\tlBtn.TextSize = 9\n\t\tlBtn.TextTruncate = Enum.TextTruncate.AtEnd\n\t\tlBtn.ZIndex = 10\n\t\tlBtn.Parent = scriptsScrollFrame\n\t\tInstance.new(\"UICorner\", lBtn).CornerRadius = UDim.new(0, 6)\n\t\tregisterThemedElement(lBtn, \"cardBg\")\n\n\t\tlanguageButtons[lInfo.code] = lBtn\n\t\tlBtn.MouseButton1Click:Connect(function()\n\t\t\tsetLanguage(lInfo.code)\n\t\tend)\n\tend\n\n\tlocal noteBox = Instance.new(\"Frame\")\n\tnoteBox.Name = \"NoteBox\"\n\tnoteBox.Size = UDim2.new(1, -16, 0, 198)\n\tnoteBox.Position = UDim2.new(0, 8, 0, 256)\n\tnoteBox.BackgroundColor3 = Color3.fromRGB(32, 36, 46)\n\tnoteBox.Active = false\n\tnoteBox.ClipsDescendants = true\n\tnoteBox.ZIndex = 10\n\tnoteBox.Parent = scriptsScrollFrame\n\tInstance.new(\"UICorner\", noteBox).CornerRadius = UDim.new(0, 6)\n\tregisterThemedElement(noteBox, \"cardBg\")\n\n\tnoteLabel = Instance.new(\"TextButton\")\n\tnoteLabel.Size = UDim2.new(1, -14, 1, -10)\n\tnoteLabel.Position = UDim2.new(0, 7, 0, 5)\n\tnoteLabel.BackgroundTransparency = 1\n\tnoteLabel.Active = false\n\tnoteLabel.AutoButtonColor = false\n\tnoteLabel.Font = Enum.Font.Gotham\n\tnoteLabel.Text = \"\"\n\tnoteLabel.TextColor3 = Color3.fromRGB(205, 212, 225)\n\tnoteLabel.TextSize = 9\n\tnoteLabel.TextWrapped = true\n\tnoteLabel.TextXAlignment = Enum.TextXAlignment.Left\n\tnoteLabel.TextYAlignment = Enum.TextYAlignment.Top\n\tnoteLabel.ZIndex = 11\n\tnoteLabel.Parent = noteBox\n\tregisterThemedElement(noteLabel, \"note\")\n\n\tattachLetterDimEffect(\n\t\tnoteLabel,\n\t\tColor3.fromRGB(205, 212, 225),\n\t\tColor3.fromRGB(115, 122, 136)\n\t)\n\n\tsyncFovSliderVisuals(cameraFovValue)\n\tapplyTheme(currentThemeName, true)\n\tsetLanguage(currentLanguage)\n\tapplyMinimizeState(true)\n\tsetScriptsScreen(isScriptsScreenOpen, true)\n\n\treturn flyToggleBtn, noclipToggleBtn\nend\n\n-- Podtrzymywanie pozy bohatera po wykonaniu animacji postaci w danym kroku symulacji\nRunService.Stepped:Connect(function(_, dt)\n\tlocal char = player.Character\n\tif not char then return end\n\n\tif noclipActive then\n\t\tfor _, part in ipairs(char:GetDescendants()) do\n\t\t\tif part:IsA(\"BasePart\") then\n\t\t\t\tpart.CanCollide = false\n\t\t\tend\n\t\tend\n\tend\n\n\tlocal joint, rigType = findRightArmJoint(char)\n\tif joint then\n\t\tif not savedRightShoulderC0 then\n\t\t\tsavedRightShoulderC0 = joint.C0\n\t\tend\n\n\t\tlocal targetBlend = heroPoseActive and 1 or 0\n\t\tlocal step = math.clamp((dt or 0.016) * 10, 0, 1)\n\t\tcurrentArmBlend = currentArmBlend + (targetBlend - currentArmBlend) * step\n\n\t\tif currentArmBlend > 0.002 then\n\t\t\tlocal raisedOffset = (rigType == \"R6\")\n\t\t\t\tand CFrame.Angles(math.rad(175), 0, 0)\n\t\t\t\tor CFrame.Angles(math.rad(165), 0, math.rad(-10))\n\t\t\tlocal targetC0 = savedRightShoulderC0 * raisedOffset\n\t\t\tjoint.C0 = savedRightShoulderC0:Lerp(targetC0, currentArmBlend)\n\t\telseif not heroPoseActive and currentArmBlend <= 0.002 then\n\t\t\tcurrentArmBlend = 0\n\t\t\tjoint.C0 = savedRightShoulderC0\n\t\tend\n\tend\nend)\n\nlocal function toggleFly()\n\tflying = not flying\n\tpulseStrokeColor(flying)\n\n\tlocal char = player.Character\n\tif not char or not char:FindFirstChild(\"HumanoidRootPart\") then \n\t\tflying = false\n\t\treturn \n\tend\n\n\tlocal root = char.HumanoidRootPart\n\tlocal humanoid = char:FindFirstChildOfClass(\"Humanoid\")\n\tlocal lang = getLangPack()\n\n\tif flying then\n\t\tflyToggleBtn.Text = lang.flyOn\n\t\tflyToggleBtn.TextColor3 = Color3.fromRGB(80, 220, 120)\n\t\tif humanoid then humanoid.PlatformStand = true end\n\n\t\tbodyVelocity = Instance.new(\"BodyVelocity\")\n\t\tbodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)\n\t\tbodyVelocity.Velocity = Vector3.new(0, 0, 0)\n\t\tbodyVelocity.Parent = root\n\n\t\tbodyGyro = Instance.new(\"BodyGyro\")\n\t\tbodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)\n\t\tbodyGyro.P = 50000\n\t\tbodyGyro.Parent = root\n\telse\n\t\tflyToggleBtn.Text = lang.flyOff\n\t\tflyToggleBtn.TextColor3 = Color3.fromRGB(220, 80, 80)\n\t\tif humanoid then humanoid.PlatformStand = false end\n\t\tif bodyVelocity then pcall(function() bodyVelocity:Destroy() end) end\n\t\tif bodyGyro then pcall(function() bodyGyro:Destroy() end) end\n\t\tif root then root.Velocity = Vector3.new(0, 0, 0) end\n\tend\nend\n\nlocal function toggleNoclip()\n\tnoclipActive = not noclipActive\n\tpulseStrokeColor(noclipActive)\n\tlocal lang = getLangPack()\n\n\tif noclipActive then\n\t\tnoclipToggleBtn.Text = lang.noclipOn\n\t\tnoclipToggleBtn.TextColor3 = Color3.fromRGB(80, 220, 120)\n\telse\n\t\tnoclipToggleBtn.Text = lang.noclipOff\n\t\tnoclipToggleBtn.TextColor3 = Color3.fromRGB(220, 80, 80)\n\t\tlocal char = player.Character\n\t\tif char then\n\t\t\tfor _, part in ipairs(char:GetDescendants()) do\n\t\t\t\tif part:IsA(\"BasePart\") then\n\t\t\t\t\tpart.CanCollide = true\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\nend\n\nRunService.RenderStepped:Connect(function(dt)\n\tpcall(function()\n\t\tif not flying then return end\n\t\t\n\t\tlocal char = player.Character\n\t\tif not char or not char:FindFirstChild(\"HumanoidRootPart\") or not char:FindFirstChildOfClass(\"Humanoid\") then \n\t\t\tif flying then toggleFly() end\n\t\t\treturn \n\t\tend\n\n\t\tlocal root = char.HumanoidRootPart\n\t\tlocal humanoid = char:FindFirstChildOfClass(\"Humanoid\")\n\t\thumanoid.PlatformStand = true\n\n\t\tlocal moveVector = Vector3.new(0, 0, 0)\n\t\tif controlModule then\n\t\t\tmoveVector = controlModule:GetMoveVector()\n\t\telse\n\t\t\tmoveVector = humanoid.MoveDirection\n\t\tend\n\n\t\tlocal activeCam = workspace.CurrentCamera or camera\n\t\tlocal camCFrame = activeCam.CFrame\n\t\tlocal camLook = camCFrame.LookVector\n\t\tlocal camRight = camCFrame.RightVector\n\n\t\tlocal targetVelocity = Vector3.new(0, 0, 0)\n\n\t\tif moveVector.Magnitude > 0.01 then\n\t\t\ttargetVelocity = (camLook * (-moveVector.Z) + camRight * moveVector.X) * flySpeed\n\t\tend\n\n\t\tif bodyVelocity and bodyVelocity.Parent then\n\t\t\tbodyVelocity.Velocity = targetVelocity\n\t\tend\n\n\t\tif bodyGyro and bodyGyro.Parent then\n\t\t\tbodyGyro.CFrame = camCFrame\n\t\tend\n\n\t\tif flyCamShakeActive and activeCam then\n\t\t\tlocal speedRatio = math.clamp(targetVelocity.Magnitude / math.max(flySpeed, 1), 0.25, 1.5)\n\t\t\tlocal t = tick() * (14 + (flySpeed * 0.05))\n\t\t\tlocal amp = 0.045 * speedRatio\n\t\t\tlocal shakeOffset = Vector3.new(\n\t\t\t\tmath.sin(t * 1.13) * amp,\n\t\t\t\tmath.cos(t * 1.47) * amp,\n\t\t\t\tmath.sin(t * 0.89) * (amp * 0.5)\n\t\t\t)\n\t\t\tlocal shakeTilt = CFrame.Angles(\n\t\t\t\tmath.rad(math.sin(t * 1.3) * 0.22 * speedRatio),\n\t\t\t\tmath.rad(math.cos(t * 0.95) * 0.22 * speedRatio),\n\t\t\t\tmath.rad(math.sin(t * 1.65) * 0.35 * speedRatio)\n\t\t\t)\n\t\t\tactiveCam.CFrame = camCFrame * CFrame.new(shakeOffset) * shakeTilt\n\t\tend\n\tend)\nend)\n\nplayer.CharacterAdded:Connect(function(char)\n\tsavedRightShoulderC0 = nil\n\tcurrentArmBlend = 0\n\tif flying then toggleFly() end\n\ttask.wait(1)\n\tlocal flyBtn, noclipBtn = createMobileGui()\n\tif flyBtn then flyBtn.MouseButton1Click:Connect(toggleFly) end\n\tif noclipBtn then noclipBtn.MouseButton1Click:Connect(toggleNoclip) end\n\tsyncHeroPoseUi()\nend)\n\nlocal initialFlyBtn, initialNoclipBtn = createMobileGui()\nif initialFlyBtn then initialFlyBtn.MouseButton1Click:Connect(toggleFly) end\nif initialNoclipBtn then initialNoclipBtn.MouseButton1Click:Connect(toggleNoclip) end",
+      "createdAt": "2026-11-20T11:36:05.359Z",
+      "updatedAt": "2026-11-20T19:37:50.503Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2508,7 +2583,7 @@
         "Guns",
         "stummy guns"
       ],
-      "views": 7,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "remade the old Stummy guns script for this game and f3x games",
@@ -2543,7 +2618,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 13,
+      "views": 27,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Fruit Collecting Script for the Sea of Memes Map",
@@ -2578,7 +2653,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 16,
+      "views": 24,
       "likes": 1,
       "dislikes": 0,
       "summary": "Vihaan Spammer 🕸️ Something is awake in the chat. It never sleeps, never blinks, and it never runs out of words. Once you whisper your message into the darkness, Vihaan Spammer repeats it again and again, with every pulse of its blood-r…",
@@ -2614,7 +2689,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 13,
+      "views": 20,
       "likes": 0,
       "dislikes": 0,
       "summary": "A recreation of \"survival the Jeff the killer\"animation from the killer from the game but it have touch fling",
@@ -2651,7 +2726,7 @@
         "easy",
         "working"
       ],
-      "views": 7,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "!Working In 2026! Functions -Free Money -Auto Sell",
@@ -2688,7 +2763,7 @@
         "bug Evolution",
         "New Ant Evolution Script"
       ],
-      "views": 90,
+      "views": 91,
       "likes": 0,
       "dislikes": 1,
       "summary": "Auto Farm Food & Orbs Food Filter Client Food Magnet Magnet Range Slider Auto Grab Map Boosts Instant Auto Hatch Auto Feed The Queen Auto Rebirth",
@@ -2724,7 +2799,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 9,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "Macw1u Hub is a universal Roblox script hub with a dark-themed UI and purple accent. The interface can be toggled with the K key. It is designed as a multi-functional tool offering a wide range of features commonly found in universal scr…",
@@ -2761,7 +2836,7 @@
         "open source",
         "tarekscripter"
       ],
-      "views": 14,
+      "views": 16,
       "likes": 0,
       "dislikes": 0,
       "summary": "this is xocu script for fling things and people the original version is UI dead link so i fix this fixed by tarekscripter youtube: tarekscripter",
@@ -2796,7 +2871,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 34,
+      "views": 39,
       "likes": 1,
       "dislikes": 0,
       "summary": "Has features like engine (autoplay) hints, presets and more",
@@ -2831,7 +2906,7 @@
       "tags": [
         "Script"
       ],
-      "views": 537,
+      "views": 542,
       "likes": 1,
       "dislikes": 0,
       "summary": "ARVYN SCRIPTS - BLOX FRUITS All-in-one hub for Blox Fruits (Sea 1, 2 and 3), a clean UI for PC and mobile, and settings that are saved between sessions. HOW TO USE 1. Execute the loadstring. 2. Pick a key provider and duration, press Get…",
@@ -2868,7 +2943,7 @@
         "Solver",
         "Auto Touch"
       ],
-      "views": 20,
+      "views": 22,
       "likes": 0,
       "dislikes": 0,
       "summary": "- Smart Minesweeper Solver (1-pass basic logic, 2-pass subset/overlap constraints, global remaining mines logic for low-mine endgame, and lowest-probability guess highlight). - Top-Face Highlights: Clean top-cap + border visuals for safe…",
@@ -2905,7 +2980,7 @@
         "auto index claim",
         "auto pen upgrade"
       ],
-      "views": 11,
+      "views": 13,
       "likes": 0,
       "dislikes": 0,
       "summary": "-Auto steal [fast] -Select zone (W1&W2 ) -Auto index claim -Auto Pen upgrade -Auto treadmill upgrade -Auto Train",
@@ -2941,7 +3016,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 27,
+      "views": 31,
       "likes": 0,
       "dislikes": 0,
       "summary": "just bhop",
@@ -2978,7 +3053,7 @@
         "knife VS gun DUELS",
         "gun"
       ],
-      "views": 43,
+      "views": 44,
       "likes": 0,
       "dislikes": 0,
       "summary": "KEYLESS its recommended to set smoothness to 0.55 for the best use for small avatar set it to 0.65 or 0.70 Features: Aimbot ESP Color Picker Team Check",
@@ -3015,7 +3090,7 @@
         "vulnerabilities",
         "scanner"
       ],
-      "views": 32,
+      "views": 35,
       "likes": 0,
       "dislikes": 0,
       "summary": "actually scans vulnerabilities in your executor",
@@ -3052,7 +3127,7 @@
         "aimbot",
         "esp"
       ],
-      "views": 31,
+      "views": 39,
       "likes": 0,
       "dislikes": 0,
       "summary": "Made by YES.DEV, the cleanest slickest script ui, with one of the most reliable aimbot coding in roblox. also have triggerbot, aimbot, esp and device spoofy and infinite jump",
@@ -3088,7 +3163,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 47,
+      "views": 56,
       "likes": 0,
       "dislikes": 0,
       "summary": "Enjoy test my script. This is a new universal script by rexx official. Feature on this script : • fly • troll • high jump • speed boost • invisible • ESP • noclip and more feature My discord channel https://discord.gg/kjVyy4vxR5 Thanks f…",
@@ -3125,7 +3200,7 @@
         "Auto Upgrade",
         "Auto Target"
       ],
-      "views": 12,
+      "views": 15,
       "likes": 1,
       "dislikes": 0,
       "summary": "AUTOMATION Auto Play SMART DEPLOY - Status - Placement Queue - Unit (progress bar) - Play Preset (dropdown: Blatant, Custom, Damage Rush, Economy, Humanized) - Enable Deployment (toggle + keybind) - Pattern (dropdown: Brick, Diamond, Hon…",
@@ -3136,80 +3211,6 @@
         "new"
       ],
       "glyph": "tower",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6affd35a1147140023a0bd13",
-      "slug": "ALPHA-Practical-Basketball-Best-Script-or-Auto-Green-Auto-Shoot-Auto-Steal-and-Keyless-237582",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/ALPHA-Practical-Basketball-Best-Script-or-Auto-Green-Auto-Shoot-Auto-Steal-and-Keyless-237582",
-      "title": "Best Script | Auto Green, Auto Shoot, Auto Steal & Keyless!",
-      "game": "[ALPHA] Practical Basketball",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-f824bc01968ef597a0a0995497e31d78-bfe0dcbbe6a0.png",
-      "author": "CloutHub",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Practical basketball Script",
-        "best practical basketball script",
-        "practical basketball"
-      ],
-      "views": 31,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "This script is keyless and have many features like Auto Green Auto Shoot Auto Dunk Auto Guard Auto Block Auto Rebound Auto Steal Keyless & More!",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ClouthubOnTop/Loader/main/main.lua\"))()\n-- Ty",
-      "createdAt": "2026-11-20T04:58:02.700Z",
-      "updatedAt": "2026-11-20T18:23:53.127Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6affcf49529f6e376a5cc90d",
-      "slug": "UPD-Naramo-Nuclear-Plant-KEYLESS-237582",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-Naramo-Nuclear-Plant-KEYLESS-237582",
-      "title": "İsimsiz script",
-      "game": "[UPD] Naramo Nuclear Plant",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-95d61d5cb5af6bbe1504358fec51ac90-3c3a43816a2a.png",
-      "author": "coltenboop",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "fun",
-        "rockets",
-        "op"
-      ],
-      "views": 25,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "This was a script made for Naramo Nuclear Plant, I had alot of fun with it you could spam like RPGs and stuff while they don't always explode they still do damage to tanks if you hit them and if you somehow nail a person. This was for pe…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/xxgoldenwarriors-sketch/Naramo-Nuclear-Plant/refs/heads/main/naramo.lua\"))()",
-      "createdAt": "2026-11-20T04:40:41.686Z",
-      "updatedAt": "2026-11-20T18:22:09.269Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -3234,7 +3235,7 @@
       "tags": [
         "Exlumiaa Hub"
       ],
-      "views": 64,
+      "views": 66,
       "likes": 0,
       "dislikes": 0,
       "summary": "- ESP - Aimbot - Silent Aim - Inf Stamina - Fly - Teleport - Safety Check",
@@ -3245,6 +3246,42 @@
         "new"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff70afe7d740b8a0b4fc3e",
+      "slug": "High-School-Life-RP-all-color-237550",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/High-School-Life-RP-all-color-237550",
+      "title": "all color",
+      "game": "High School Life RP",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-86cd0c3418c443119254ac71c6c58785-a70e3c32b50b.png",
+      "author": "St3rrr",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Str",
+        "Keyless"
+      ],
+      "views": 37,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "All color for name bio",
+      "code": "--========================================\n--              ST3R HUB\n--          HIGH SCHOOL LIFE RP\n--          FRANCAIS / ENGLISH\n--========================================\n\nlocal Players = game:GetService(\"Players\")\nlocal ReplicatedStorage = game:GetService(\"ReplicatedStorage\")\nlocal UIS = game:GetService(\"UserInputService\")\n\nlocal Event = ReplicatedStorage:WaitForChild(\"Remotes\"):WaitForChild(\"SetRPNameColor\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\n--========================================\n--              COULEURS\n--========================================\n\nlocal colorList = {\n    [\"rose\"] = Color3.fromRGB(255,105,180),\n    [\"pink\"] = Color3.fromRGB(255,105,180),\n    [\"rose clair\"] = Color3.fromRGB(255,182,193),\n    [\"light pink\"] = Color3.fromRGB(255,182,193),\n    [\"rose fonce\"] = Color3.fromRGB(199,21,133),\n    [\"dark pink\"] = Color3.fromRGB(199,21,133),\n    [\"fuchsia\"] = Color3.fromRGB(255,0,255),\n    [\"magenta\"] = Color3.fromRGB(255,0,180),\n\n    [\"rouge\"] = Color3.fromRGB(255,0,0),\n    [\"red\"] = Color3.fromRGB(255,0,0),\n    [\"rouge clair\"] = Color3.fromRGB(255,100,100),\n    [\"light red\"] = Color3.fromRGB(255,100,100),\n    [\"rouge fonce\"] = Color3.fromRGB(139,0,0),\n    [\"dark red\"] = Color3.fromRGB(139,0,0),\n    [\"bordeaux\"] = Color3.fromRGB(128,0,32),\n    [\"burgundy\"] = Color3.fromRGB(128,0,32),\n    [\"corail\"] = Color3.fromRGB(255,127,80),\n    [\"coral\"] = Color3.fromRGB(255,127,80),\n\n    [\"orange\"] = Color3.fromRGB(255,140,0),\n    [\"orange clair\"] = Color3.fromRGB(255,190,100),\n    [\"light orange\"] = Color3.fromRGB(255,190,100),\n    [\"peche\"] = Color3.fromRGB(255,218,185),\n    [\"peach\"] = Color3.fromRGB(255,218,185),\n\n    [\"jaune\"] = Color3.fromRGB(255,230,0),\n    [\"yellow\"] = Color3.fromRGB(255,230,0),\n    [\"jaune clair\"] = Color3.fromRGB(255,255,150),\n    [\"light yellow\"] = Color3.fromRGB(255,255,150),\n    [\"citron\"] = Color3.fromRGB(220,255,0),\n    [\"lemon\"] = Color3.fromRGB(220,255,0),\n    [\"or\"] = Color3.fromRGB(255,215,0),\n    [\"gold\"] = Color3.fromRGB(255,215,0),\n    [\"dore\"] = Color3.fromRGB(212,175,55),\n    [\"golden\"] = Color3.fromRGB(212,175,55),\n\n    [\"vert\"] = Color3.fromRGB(0,200,80),\n    [\"green\"] = Color3.fromRGB(0,200,80),\n    [\"vert clair\"] = Color3.fromRGB(144,238,144),\n    [\"light green\"] = Color3.fromRGB(144,238,144),\n    [\"vert fonce\"] = Color3.fromRGB(0,100,0),\n    [\"dark green\"] = Color3.fromRGB(0,100,0),\n    [\"emeraude\"] = Color3.fromRGB(80,200,120),\n    [\"emerald\"] = Color3.fromRGB(80,200,120),\n    [\"menthe\"] = Color3.fromRGB(152,255,152),\n    [\"mint\"] = Color3.fromRGB(152,255,152),\n    [\"olive\"] = Color3.fromRGB(128,128,0),\n\n    [\"cyan\"] = Color3.fromRGB(0,255,255),\n    [\"turquoise\"] = Color3.fromRGB(64,224,208),\n\n    [\"bleu\"] = Color3.fromRGB(0,100,255),\n    [\"blue\"] = Color3.fromRGB(0,100,255),\n    [\"bleu clair\"] = Color3.fromRGB(100,180,255),\n    [\"light blue\"] = Color3.fromRGB(100,180,255),\n    [\"bleu ciel\"] = Color3.fromRGB(135,206,250),\n    [\"sky blue\"] = Color3.fromRGB(135,206,250),\n    [\"bleu fonce\"] = Color3.fromRGB(0,0,139),\n    [\"dark blue\"] = Color3.fromRGB(0,0,139),\n    [\"bleu nuit\"] = Color3.fromRGB(25,25,112),\n    [\"midnight blue\"] = Color3.fromRGB(25,25,112),\n    [\"marine\"] = Color3.fromRGB(0,0,128),\n    [\"navy\"] = Color3.fromRGB(0,0,128),\n\n    [\"violet\"] = Color3.fromRGB(148,0,211),\n    [\"purple\"] = Color3.fromRGB(148,0,211),\n    [\"violet clair\"] = Color3.fromRGB(200,150,255),\n    [\"light purple\"] = Color3.fromRGB(200,150,255),\n    [\"lilas\"] = Color3.fromRGB(200,162,200),\n    [\"lilac\"] = Color3.fromRGB(200,162,200),\n    [\"lavande\"] = Color3.fromRGB(230,230,250),\n    [\"lavender\"] = Color3.fromRGB(230,230,250),\n    [\"prune\"] = Color3.fromRGB(112,28,78),\n    [\"plum\"] = Color3.fromRGB(112,28,78),\n\n    [\"marron\"] = Color3.fromRGB(139,69,19),\n    [\"brown\"] = Color3.fromRGB(139,69,19),\n    [\"chocolat\"] = Color3.fromRGB(123,63,0),\n    [\"chocolate\"] = Color3.fromRGB(123,63,0),\n    [\"beige\"] = Color3.fromRGB(245,245,220),\n    [\"creme\"] = Color3.fromRGB(255,253,208),\n    [\"cream\"] = Color3.fromRGB(255,253,208),\n    [\"sable\"] = Color3.fromRGB(194,178,128),\n    [\"sand\"] = Color3.fromRGB(194,178,128),\n\n    [\"blanc\"] = Color3.fromRGB(255,255,255),\n    [\"white\"] = Color3.fromRGB(255,255,255),\n    [\"noir\"] = Color3.fromRGB(0,0,0),\n    [\"black\"] = Color3.fromRGB(0,0,0),\n\n    [\"gris\"] = Color3.fromRGB(128,128,128),\n    [\"gray\"] = Color3.fromRGB(128,128,128),\n    [\"grey\"] = Color3.fromRGB(128,128,128),\n    [\"gris clair\"] = Color3.fromRGB(211,211,211),\n    [\"light gray\"] = Color3.fromRGB(211,211,211),\n    [\"light grey\"] = Color3.fromRGB(211,211,211),\n    [\"gris fonce\"] = Color3.fromRGB(60,60,60),\n    [\"dark gray\"] = Color3.fromRGB(60,60,60),\n    [\"dark grey\"] = Color3.fromRGB(60,60,60),\n\n    [\"argent\"] = Color3.fromRGB(192,192,192),\n    [\"silver\"] = Color3.fromRGB(192,192,192),\n    [\"bronze\"] = Color3.fromRGB(205,127,50),\n    [\"indigo\"] = Color3.fromRGB(75,0,130)\n}\n\n--========================================\n--              VARIABLES\n--========================================\n\nlocal colors = {\n    colorList[\"rose\"],\n    colorList[\"noir\"]\n}\n\nlocal isRunning = false\nlocal isLocked = false\nlocal speed = 0.10\nlocal colorIndex = 1\n\n--========================================\n--                 GUI\n--========================================\n\nlocal oldGui = playerGui:FindFirstChild(\"ST3R\")\nif oldGui then\n    oldGui:Destroy()\nend\n\nlocal gui = Instance.new(\"ScreenGui\")\ngui.Name = \"ST3R\"\ngui.ResetOnSpawn = false\ngui.Parent = playerGui\n\n--========================================\n--          BULLE RETRACTABLE\n--========================================\n\nlocal bubble = Instance.new(\"TextButton\")\nbubble.Name = \"ST3RBubble\"\nbubble.Size = UDim2.fromOffset(55,55)\nbubble.Position = UDim2.new(0,15,0.5,-27)\nbubble.BackgroundColor3 = Color3.fromRGB(190,55,135)\nbubble.Text = \"ST3R\"\nbubble.TextColor3 = Color3.new(1,1,1)\nbubble.TextSize = 15\nbubble.Font = Enum.Font.GothamBold\nbubble.Visible = false\nbubble.Active = true\nbubble.Parent = gui\n\nInstance.new(\"UICorner\",bubble).CornerRadius = UDim.new(1,0)\n\nlocal bubbleStroke = Instance.new(\"UIStroke\")\nbubbleStroke.Color = Color3.fromRGB(255,100,200)\nbubbleStroke.Thickness = 2\nbubbleStroke.Parent = bubble\n\n--========================================\n--          FENETRE PRINCIPALE\n--========================================\n\nlocal main = Instance.new(\"Frame\")\nmain.Size = UDim2.fromOffset(280,210)\nmain.Position = UDim2.new(0.5,-140,0.5,-105)\nmain.BackgroundColor3 = Color3.fromRGB(20,15,27)\nmain.Active = true\nmain.Parent = gui\n\nInstance.new(\"UICorner\",main).CornerRadius = UDim.new(0,12)\n\nlocal stroke = Instance.new(\"UIStroke\")\nstroke.Color = Color3.fromRGB(255,70,180)\nstroke.Thickness = 2\nstroke.Parent = main\n\n-- TITRE\n\nlocal title = Instance.new(\"TextLabel\")\ntitle.Size = UDim2.new(1,-40,0,40)\ntitle.Position = UDim2.fromOffset(5,0)\ntitle.BackgroundTransparency = 1\ntitle.Text = \"ST3R HUB\"\ntitle.TextColor3 = Color3.fromRGB(255,80,180)\ntitle.TextSize = 23\ntitle.Font = Enum.Font.GothamBold\ntitle.Parent = main\n\n-- BOUTON RETRACTER\n\nlocal minimize = Instance.new(\"TextButton\")\nminimize.Size = UDim2.fromOffset(30,30)\nminimize.Position = UDim2.new(1,-38,0,5)\nminimize.BackgroundColor3 = Color3.fromRGB(70,40,70)\nminimize.Text = \"—\"\nminimize.TextColor3 = Color3.new(1,1,1)\nminimize.TextSize = 20\nminimize.Font = Enum.Font.GothamBold\nminimize.Parent = main\n\nInstance.new(\"UICorner\",minimize).CornerRadius = UDim.new(0,8)\n\nminimize.MouseButton1Click:Connect(function()\n    main.Visible = false\n    bubble.Visible = true\nend)\n\nbubble.MouseButton1Click:Connect(function()\n    bubble.Visible = false\n    main.Visible = true\nend)\n\n--========================================\n--          CHAMP DE COULEURS\n--========================================\n\nlocal input = Instance.new(\"TextBox\")\ninput.Size = UDim2.new(1,-30,0,38)\ninput.Position = UDim2.fromOffset(15,48)\ninput.BackgroundColor3 = Color3.fromRGB(43,32,50)\ninput.TextColor3 = Color3.new(1,1,1)\ninput.PlaceholderText = \"Ex: pink black light blue\"\ninput.Text = \"rose noir\"\ninput.TextSize = 14\ninput.ClearTextOnFocus = false\ninput.Font = Enum.Font.Gotham\ninput.Parent = main\n\nInstance.new(\"UICorner\",input).CornerRadius = UDim.new(0,7)\n\n--========================================\n--          BOUTON APPLY\n--========================================\n\nlocal apply = Instance.new(\"TextButton\")\napply.Size = UDim2.new(1,-30,0,32)\napply.Position = UDim2.fromOffset(15,95)\napply.BackgroundColor3 = Color3.fromRGB(190,55,135)\napply.Text = \"APPLY COLORS\"\napply.TextColor3 = Color3.new(1,1,1)\napply.TextSize = 13\napply.Font = Enum.Font.GothamBold\napply.Parent = main\n\nInstance.new(\"UICorner\",apply).CornerRadius = UDim.new(0,7)\n\n--========================================\n--              STATUT\n--========================================\n\nlocal status = Instance.new(\"TextLabel\")\nstatus.Size = UDim2.new(1,-20,0,20)\nstatus.Position = UDim2.fromOffset(10,132)\nstatus.BackgroundTransparency = 1\nstatus.Text = \"Colors available\"\nstatus.TextColor3 = Color3.fromRGB(220,220,220)\nstatus.TextSize = 11\nstatus.Parent = main\n\n--========================================\n--               ON / OFF\n--========================================\n\nlocal toggle = Instance.new(\"TextButton\")\ntoggle.Size = UDim2.fromOffset(115,30)\ntoggle.Position = UDim2.fromOffset(15,165)\ntoggle.BackgroundColor3 = Color3.fromRGB(70,40,70)\ntoggle.Text = \"ST3R : OFF\"\ntoggle.TextColor3 = Color3.new(1,1,1)\ntoggle.Font = Enum.Font.GothamBold\ntoggle.TextSize = 13\ntoggle.Parent = main\n\nInstance.new(\"UICorner\",toggle).CornerRadius = UDim.new(0,7)\n\n--========================================\n--                CADENAS\n--========================================\n\nlocal lock = Instance.new(\"TextButton\")\nlock.Size = UDim2.fromOffset(35,30)\nlock.Position = UDim2.fromOffset(230,165)\nlock.BackgroundColor3 = Color3.fromRGB(50,40,60)\nlock.Text = \"🔓\"\nlock.TextSize = 15\nlock.Parent = main\n\nInstance.new(\"UICorner\",lock).CornerRadius = UDim.new(0,7)\n\n--========================================\n--        DEPLACEMENT DE L'INTERFACE\n--========================================\n\nlocal function makeDraggable(object)\n\n    local dragging = false\n    local dragStart\n    local startPos\n\n    object.InputBegan:Connect(function(i)\n        if isLocked then return end\n\n        if i.UserInputType == Enum.UserInputType.MouseButton1\n        or i.UserInputType == Enum.UserInputType.Touch then\n\n            dragging = true\n            dragStart = i.Position\n            startPos = object.Position\n        end\n    end)\n\n    UIS.InputChanged:Connect(function(i)\n        if dragging and not isLocked then\n\n            if i.UserInputType == Enum.UserInputType.MouseMovement\n            or i.UserInputType == Enum.UserInputType.Touch then\n\n                local delta = i.Position - dragStart\n\n                object.Position = UDim2.new(\n                    startPos.X.Scale,\n                    startPos.X.Offset + delta.X,\n                    startPos.Y.Scale,\n                    startPos.Y.Offset + delta.Y\n                )\n            end\n        end\n    end)\n\n    UIS.InputEnded:Connect(function(i)\n        if i.UserInputType == Enum.UserInputType.MouseButton1\n        or i.UserInputType == Enum.UserInputType.Touch then\n            dragging = false\n        end\n    end)\nend\n\nmakeDraggable(main)\nmakeDraggable(bubble)\n\n--========================================\n--              CADENAS\n--========================================\n\nlock.MouseButton1Click:Connect(function()\n    isLocked = not isLocked\n    lock.Text = isLocked and \"🔒\" or \"🔓\"\nend)\n\n--========================================\n--       LECTURE FRANCAIS / ANGLAIS\n--========================================\n\nlocal names = {}\n\nfor name in pairs(colorList) do\n    table.insert(names,name)\nend\n\ntable.sort(names,function(a,b)\n    return #a > #b\nend)\n\nlocal function setColors()\n\n    local text = string.lower(input.Text)\n    text = text:gsub(\"%s+\",\" \")\n    text = text:gsub(\"^%s+\",\"\")\n    text = text:gsub(\"%s+$\",\"\")\n\n    local newColors = {}\n\n    while text ~= \"\" do\n\n        local found = false\n\n        for _,name in ipairs(names) do\n\n            if text == name\n            or text:sub(1,#name+1) == name..\" \" then\n\n                table.insert(newColors,colorList[name])\n\n                text = text:sub(#name+1)\n                text = text:gsub(\"^%s+\",\"\")\n\n                found = true\n                break\n            end\n        end\n\n        if not found then\n            status.Text = \"Unknown color: \"..text\n            return\n        end\n    end\n\n    if #newColors == 0 then\n        status.Text = \"Enter colors!\"\n        return\n    end\n\n    colors = newColors\n    colorIndex = 1\n\n    status.Text = #colors..\" colors applied!\"\nend\n\napply.MouseButton1Click:Connect(setColors)\n\n--========================================\n--              ACTIVATION\n--========================================\n\ntoggle.MouseButton1Click:Connect(function()\n\n    isRunning = not isRunning\n\n    toggle.Text = isRunning and \"ST3R : ON\" or \"ST3R : OFF\"\n\n    toggle.BackgroundColor3 = isRunning\n        and Color3.fromRGB(190,55,135)\n        or Color3.fromRGB(70,40,70)\nend)\n\n--========================================\n--          ALTERNANCE DES COULEURS\n--========================================\n\ntask.spawn(function()\n\n    while gui.Parent do\n\n        if isRunning then\n\n            Event:FireServer(colors[colorIndex])\n\n            colorIndex = (colorIndex % #colors) + 1\n\n            task.wait(speed)\n\n        else\n            task.wait(0.2)\n        end\n    end\nend)\n\nprint(\"ST3R HUB FR / EN LOADED\")",
+      "createdAt": "2026-11-19T21:57:03.603Z",
+      "updatedAt": "2026-11-20T15:44:48.238Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -3271,7 +3308,7 @@
         "Ragdoll Soccer Script",
         "Ragdoll Soccer Scripts"
       ],
-      "views": 247,
+      "views": 253,
       "likes": 3,
       "dislikes": 1,
       "rating": 3.8,
@@ -3309,7 +3346,7 @@
         "keyless",
         "open source"
       ],
-      "views": 170,
+      "views": 179,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3345,7 +3382,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 54,
+      "views": 56,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto steal(fastest and best) Safe mode(must use or else banned ) Steal settings Auto Auto upgrade Auto collect And many more ⚠️Click copy script not copy loadstring ⚠️",
@@ -3382,13 +3419,48 @@
         "Freemium",
         "Keyless"
       ],
-      "views": 45,
+      "views": 48,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is the preview! Join the discord for the full version.",
       "code": "loadstring(game:HttpGet(\"https://api.getvortex.vip/api/t/ADJBS7/s/Strikeforcelocked\"))()",
       "createdAt": "2026-11-19T20:52:39.183Z",
       "updatedAt": "2026-11-20T15:36:28.188Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff615b1c318f245b02f28d",
+      "slug": "MEDVED-Hunt-and-Become-Bears-Krevetki-Hub-237540",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/MEDVED-Hunt-and-Become-Bears-Krevetki-Hub-237540",
+      "title": "Krevetki Hub",
+      "game": "MEDVED 🐻‍❄️ (Hunt & Become Bears)",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-8e2b1c4c0261d602e3598e1aaa01d349-197dd3c6d8c5.png",
+      "author": "Innovator",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 85,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "A simple hub created for Auto AFK Farming, which it does very effectively But it also has a couple of features for \"Normal\" gameplay, but all the focus is still on auto farming. Bears Farming Loot Farming Page Farming Inf Stamina (Dont W…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Robotnik-del/script-1/refs/heads/main/Krevetki%20Hub%20MEDVED\"))()",
+      "createdAt": "2026-11-19T20:51:40.111Z",
+      "updatedAt": "2026-11-20T15:40:08.936Z",
       "categoryIds": [
         "new"
       ],
@@ -3419,7 +3491,7 @@
         "rivals",
         "Rival"
       ],
-      "views": 806,
+      "views": 813,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3456,7 +3528,7 @@
         "aether studios",
         "Universal"
       ],
-      "views": 199,
+      "views": 203,
       "likes": 3,
       "dislikes": 1,
       "rating": 3.8,
@@ -3464,44 +3536,6 @@
       "code": "loadstring(game:HttpGet(\"https://getaether.cc/loader.lua\"))()",
       "createdAt": "2026-11-19T20:32:44.630Z",
       "updatedAt": "2026-11-19T20:32:43.290Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6aff57affac398fd19b80fb8",
-      "slug": "Vox-Seas-Vanta-or-Most-OP-Script-Literally-Has-Everything-237534",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Vox-Seas-Vanta-or-Most-OP-Script-Literally-Has-Everything-237534",
-      "title": "Vanta | Most OP  Script Literally Has Everything",
-      "game": "Vox Seas",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-36861d7d2bd9749b9ad4dffda1b223d6-6ffca16d8153.png",
-      "author": "_VantaHub_",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Vanta",
-        "Vox Seas",
-        "OP"
-      ],
-      "views": 435,
-      "likes": 3,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "## Supported Game - [Vox Seas](https://www.roblox.com/games/104067066727140) @everyone **Farming** • Auto Level Farm - levels you up on the best enemies for your level (Max Enemy Level Above You, Search Radius, Farm Bosses) • Auto Farm B…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/JustHey-Projects/NexusHubX/refs/heads/main/Main.lua\"))()",
-      "createdAt": "2026-11-19T20:10:23.407Z",
-      "updatedAt": "2026-11-19T20:10:23.399Z",
       "categoryIds": [
         "new"
       ],
@@ -3532,7 +3566,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5541450,
+      "views": 5541500,
       "likes": 110,
       "dislikes": 54,
       "rating": 3.4,
@@ -3572,7 +3606,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4485711,
+      "views": 4485720,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3613,7 +3647,7 @@
         "sae",
         "universal"
       ],
-      "views": 3971764,
+      "views": 3971776,
       "likes": 93,
       "dislikes": 50,
       "rating": 3.3,
@@ -3654,7 +3688,7 @@
         "flow",
         "script"
       ],
-      "views": 3817690,
+      "views": 3817819,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -3694,7 +3728,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3791437,
+      "views": 3791566,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -3733,7 +3767,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3507220,
+      "views": 3507228,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -3773,7 +3807,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3468012,
+      "views": 3468144,
       "likes": 66,
       "dislikes": 13,
       "rating": 4.2,
@@ -3813,7 +3847,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3388809,
+      "views": 3388811,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -3852,7 +3886,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3150448,
+      "views": 3150449,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -3891,7 +3925,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3138335,
+      "views": 3138346,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -3928,7 +3962,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 3122267,
+      "views": 3122399,
       "likes": 50,
       "dislikes": 26,
       "rating": 3.3,
@@ -4007,7 +4041,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2718375,
+      "views": 2718383,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4046,7 +4080,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2700248,
+      "views": 2700381,
       "likes": 74,
       "dislikes": 24,
       "rating": 3.8,
@@ -4085,7 +4119,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2514698,
+      "views": 2514705,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4126,7 +4160,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2481131,
+      "views": 2481140,
       "likes": 173,
       "dislikes": 31,
       "rating": 4.2,
@@ -4441,7 +4475,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2040004,
+      "views": 2040006,
       "likes": 80,
       "dislikes": 13,
       "rating": 4.3,
@@ -4480,7 +4514,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1981794,
+      "views": 1981797,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -4630,7 +4664,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1890783,
+      "views": 1890787,
       "likes": 204,
       "dislikes": 34,
       "rating": 4.3,
@@ -4709,7 +4743,7 @@
         "adopt me",
         "blox fruits"
       ],
-      "views": 1882918,
+      "views": 1883050,
       "likes": 160,
       "dislikes": 46,
       "rating": 3.9,
@@ -4937,7 +4971,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 1788452,
+      "views": 1788455,
       "likes": 35,
       "dislikes": 13,
       "rating": 3.6,
@@ -5013,7 +5047,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1777883,
+      "views": 1778017,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5281,7 +5315,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1687965,
+      "views": 1687966,
       "likes": 334,
       "dislikes": 45,
       "rating": 4.4,
@@ -5435,7 +5469,7 @@
         "Blox Fruits",
         "Op script"
       ],
-      "views": 1610841,
+      "views": 1610843,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -5667,7 +5701,7 @@
         "nescoroco",
         "sapnish hub"
       ],
-      "views": 1481696,
+      "views": 1481697,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -5785,7 +5819,7 @@
         "peely",
         "bf"
       ],
-      "views": 1425959,
+      "views": 1425960,
       "likes": 5,
       "dislikes": 4,
       "rating": 2.8,
@@ -5824,7 +5858,7 @@
         "egg",
         "collect"
       ],
-      "views": 1378164,
+      "views": 1378165,
       "likes": 49,
       "dislikes": 3,
       "rating": 4.7,
@@ -5938,7 +5972,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1345848,
+      "views": 1345850,
       "likes": 179,
       "dislikes": 16,
       "rating": 4.6,
@@ -6090,7 +6124,7 @@
         "join in dc for more",
         "subscribe pls"
       ],
-      "views": 1325330,
+      "views": 1325331,
       "likes": 27,
       "dislikes": 1,
       "rating": 4.8,
@@ -6206,7 +6240,7 @@
         "Hub",
         "BF"
       ],
-      "views": 1285208,
+      "views": 1285209,
       "likes": 20,
       "dislikes": 1,
       "rating": 4.8,
@@ -6353,7 +6387,7 @@
         "free",
         "easy"
       ],
-      "views": 1249390,
+      "views": 1249521,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6466,7 +6500,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1186704,
+      "views": 1186838,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6956,7 +6990,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 777445,
+      "views": 777446,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7180,7 +7214,7 @@
         "scripthub",
         "universal"
       ],
-      "views": 734223,
+      "views": 734224,
       "likes": 4,
       "dislikes": 3,
       "rating": 2.9,
@@ -7218,7 +7252,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 733137,
+      "views": 733143,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7558,7 +7592,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 609643,
+      "views": 609644,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -7596,7 +7630,7 @@
         "OP",
         "Mobile"
       ],
-      "views": 602798,
+      "views": 602799,
       "likes": 27,
       "dislikes": 6,
       "rating": 4.1,
@@ -7634,7 +7668,7 @@
         "verified",
         "decompiler"
       ],
-      "views": 601746,
+      "views": 601747,
       "likes": 6,
       "dislikes": 18,
       "rating": 1.3,
@@ -7710,7 +7744,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 599623,
+      "views": 599624,
       "likes": 18,
       "dislikes": 9,
       "rating": 3.3,
@@ -7746,7 +7780,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 591549,
+      "views": 591550,
       "likes": 88,
       "dislikes": 5,
       "rating": 4.7,
@@ -8151,7 +8185,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1165715,
+      "views": 1165716,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -8227,7 +8261,7 @@
         "best",
         "Op"
       ],
-      "views": 1066357,
+      "views": 1066370,
       "likes": 94,
       "dislikes": 16,
       "rating": 4.3,
@@ -8493,7 +8527,7 @@
         "GUI",
         "Admin"
       ],
-      "views": 923911,
+      "views": 923912,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -8568,7 +8602,7 @@
         "Bladeball",
         "Keyless"
       ],
-      "views": 893760,
+      "views": 893761,
       "likes": 13,
       "dislikes": 8,
       "rating": 3.1,
@@ -8682,7 +8716,7 @@
         "script center",
         "script hub"
       ],
-      "views": 191,
+      "views": 193,
       "likes": 0,
       "dislikes": 0,
       "summary": "Void Hub — a universal Roblox script with a built-in script center, for PC and mobile. ━━━━━━━━━━━━━━━━━━━━━━━━━ ⚡ BUILT-IN FEATURES (own code): • Player — Speed, Gravity, Invisible • Visuals — Highlight on all players / selected player…",
@@ -8828,7 +8862,7 @@
       "tags": [
         "PROP HUB",
         "VAELOR",
-        "ZORO"
+        "PROPS"
       ],
       "views": 1143,
       "likes": 5,
@@ -9068,43 +9102,6 @@
       ]
     },
     {
-      "id": "scriptblox-6ae80858ea8c2fff7ef64876",
-      "slug": "Fatal-Floors-Fatal-Floor-Hub-234738",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Fatal-Floors-Fatal-Floor-Hub-234738",
-      "title": "K24: AutoFarm, Collect Shards, Noclip, ESP & More",
-      "game": "Fatal Floors 👁️",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-ae1a82b462572dea6804defd81fdc710-99259e49f712.png",
-      "author": "vkeyto",
-      "authorVerified": false,
-      "verified": false,
-      "status": "patched",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Autofarm",
-        "ESP",
-        "Fullbright"
-      ],
-      "views": 2017,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "FATAL FLOORS HUB (K24 HUB): - Autofarm Ores - Collect Manual Ores - ESP (Ores, Players, Monsters) - Collect Shards - Spectate Players - Walkspeed & Jumppower - Instant Proximity Prompt - Fullbright - Noclip - InfiniteJump - Fly - TP to S…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/k24r/FatalFloorsMenu/refs/heads/main/source.lua\"))()",
-      "createdAt": "2026-11-02T03:49:44.969Z",
-      "updatedAt": "2026-11-08T04:05:45.971Z",
-      "categoryIds": [
-        "patched"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#B33A3A",
-        "#4A0000"
-      ]
-    },
-    {
       "id": "rscripts-6a242440dd3f1d0cc6966d56",
       "slug": "unlock-infinity-trail-1-speed-c6BY",
       "source": "rscripts",
@@ -9196,7 +9193,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 486681,
+      "views": 486687,
       "likes": 432,
       "dislikes": 115,
       "rating": 3.9,
@@ -9457,7 +9454,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 67881,
+      "views": 67882,
       "likes": 181,
       "dislikes": 58,
       "rating": 3.8,
@@ -9494,7 +9491,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89125,
+      "views": 89126,
       "likes": 167,
       "dislikes": 102,
       "rating": 3.1,
@@ -9678,7 +9675,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 56522,
+      "views": 56523,
       "likes": 127,
       "dislikes": 18,
       "rating": 4.4,
@@ -9714,7 +9711,7 @@
       "tags": [
         "Script"
       ],
-      "views": 25,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "A new update v2.15! Aimbot Assistant which helps you with destroying your opponents with a special target function, silent aim, and lot of more features",
@@ -9749,7 +9746,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 9,
+      "views": 14,
       "likes": 0,
       "dislikes": 0,
       "summary": "Smoov.lol [24 hour] Test paid version We dont play by the rules",
@@ -9784,7 +9781,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 13,
+      "views": 18,
       "likes": 2,
       "dislikes": 0,
       "summary": "- Auto Equip Units - Auto Place Units - Auto Cast - Auto Upgrade - Auto Apply Target Priority - Sell All - Auto Claim Quests - Auto Claim Rewards - Auto Summon - 10x Summons - Auto Queue - Auto Vote - TPs &amp; TONS MORE OP FEATURES",
@@ -9959,7 +9956,7 @@
       "tags": [
         "Script"
       ],
-      "views": 34,
+      "views": 35,
       "likes": 0,
       "dislikes": 0,
       "summary": "-- NEED HELP? JOIN OUR DISCORD SERVER -- SERVER: https://discord.gg/pzVJV34AH8",
@@ -9994,7 +9991,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 38,
+      "views": 44,
       "likes": 0,
       "dislikes": 0,
       "summary": "## Supported Game - [Ragdoll Soccer]( https://www.roblox.com/games/10770730129 ) @everyone Shooting • Zero-Miss (100% Accuracy) - removes shot spread and weak-foot penalties • Instant Max Power and Auto Volley / Bicycle • Force Shot Fami…",
@@ -10029,7 +10026,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 48,
+      "views": 51,
       "likes": 0,
       "dislikes": 0,
       "summary": "## Supported Game - [RIVALS]( https://www.roblox.com/games/17625359962 ) @everyone Aim &amp; Rage • Silent Aim (Target Hitbox, Headshot Chance, Hit Chance, FOV Radius, 360° Rage Mode, Wall / Visibility Check, Shoot Through Smoke, Project…",
@@ -10134,7 +10131,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 0,
       "dislikes": 0,
       "summary": "Join the server for the script because is only work if you join my server",
@@ -10169,7 +10166,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 52,
+      "views": 53,
       "likes": 1,
       "dislikes": 0,
       "summary": "Best script for iron Soul Dungeon it have everything that you want.",
@@ -10238,7 +10235,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 70,
+      "views": 71,
       "likes": 1,
       "dislikes": 1,
       "summary": "Illegal Soccer Hub is a streamlined utility suite for Illegal Soccer, focusing on instant gameplay reactions, infinite stamina, and precise curved shots. Join my Discord for updates and support: https://discord.gg/2ksQSAnnW6 ⚽ Gameplay &…",
@@ -10564,7 +10561,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 199073,
+      "views": 199074,
       "likes": 115,
       "dislikes": 19,
       "rating": 4.3,
@@ -10638,7 +10635,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 106352,
+      "views": 106355,
       "likes": 111,
       "dislikes": 25,
       "rating": 4.1,
