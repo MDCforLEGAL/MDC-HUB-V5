@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T15:11:39.011Z",
+  "generatedAt": "2026-11-20T15:21:23.925Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -55,7 +55,7 @@
       "id": "patched",
       "label": "Patched",
       "description": "Kaynakta patched olarak işaretlenen scriptler",
-      "count": 15
+      "count": 16
     }
   ],
   "scripts": [
@@ -80,7 +80,7 @@
         "CATALOG",
         "AVATAR"
       ],
-      "views": 2482,
+      "views": 2484,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -118,7 +118,7 @@
         "mvsd",
         "duel"
       ],
-      "views": 2708,
+      "views": 2721,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -156,7 +156,7 @@
         "Brookhaven",
         "avatar copy"
       ],
-      "views": 2922,
+      "views": 2923,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -194,7 +194,7 @@
         "MUSIC",
         "MUSIC PANEL"
       ],
-      "views": 2303,
+      "views": 2304,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -270,7 +270,7 @@
         "kill aura",
         "auto mace"
       ],
-      "views": 5477,
+      "views": 5480,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -346,7 +346,7 @@
         "func",
         "sunc"
       ],
-      "views": 1540,
+      "views": 1541,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -420,7 +420,7 @@
       "tags": [
         "keyless"
       ],
-      "views": 8210,
+      "views": 8220,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -456,7 +456,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 4599,
+      "views": 4602,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -474,72 +474,72 @@
       ]
     },
     {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "id": "scriptblox-6af5feeb53b28bf04aaf270b",
+      "slug": "Universal-Script-VAELOR-FE-ANIMATION-236449",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-VAELOR-FE-ANIMATION-236449",
+      "title": "VAELOR FE ANIMATION",
       "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
+      "gameImage": "https://scriptblox.com/images/sb/0-1794506475697.png",
+      "author": "lol_neshedi",
+      "authorVerified": false,
+      "verified": false,
       "status": "working",
       "premium": false,
       "keyless": true,
       "universal": true,
       "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
+        "VAELOR",
+        "ZORO",
+        "UNIVERSAL"
       ],
-      "views": 723,
+      "views": 892,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
+      "summary": "VÆLOR FE ANIMATION EDITOR ADVANCED ANIMATION SYSTEM A refined animation solution designed to bring greater creativity, precision, and control to your Roblox experience. FEATURE HIGHLIGHTS - FE Animation Support — Animation functionality…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-ANIMATION-EDITOR/main/V%C3%86LOR%20FE%20ANIMATION%20EDITOR\"))()",
+      "createdAt": "2026-11-12T18:01:16.027Z",
+      "updatedAt": "2026-11-12T18:01:16.027Z",
       "categoryIds": [
         "trending"
       ],
-      "glyph": "car",
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
       ]
     },
     {
-      "id": "scriptblox-6af5f0ccbf1e53a2645681d6",
-      "slug": "UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
+      "id": "scriptblox-6af751cb4537e227cb33b343",
+      "slug": "Universal-Script-VAELOR-SCRIPTS-HUB-or-Keyless-236614",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
-      "title": "Advanced bot that plays for you (works well)",
-      "game": "Forsaken",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-14d993b5a906bca017a07cd3b6fa4c8b-9319662ae886.png",
-      "author": "CakeMix",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-VAELOR-SCRIPTS-HUB-or-Keyless-236614",
+      "title": "VAELOR UNIVERSAL HUB | Keyless",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794593227740.png",
+      "author": "lol_neshedi",
       "authorVerified": false,
       "verified": false,
       "status": "working",
       "premium": false,
       "keyless": true,
-      "universal": false,
+      "universal": true,
       "tags": [
-        "forsaken",
-        "macro",
-        "bot"
+        "VAELOR",
+        "UNIVERSAL",
+        "ZORO"
       ],
-      "views": 1019,
+      "views": 584,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
-      "summary": "Forsaken Macro — Survivor & Killer Bot A bot that moves around the map, does tasks, and uses your character’s abilities properly. Works for both survivors and killers! Features - Survivor: Finds generators, collects items, and runs from…",
-      "code": "loadstring(game:HttpGet(\"https://pastefy.app/Au1wV9nQ/raw\"))()",
-      "createdAt": "2026-11-12T17:01:00.591Z",
-      "updatedAt": "2026-11-12T17:01:00.591Z",
+      "summary": "VÆLOR SCRIPTS HUB A centralized script hub designed with a clean interface and organized functionality. FEATURES - Multi-Script Hub Interface - Clean & Modern UI Design - Organized Script Categories - Quick Navigation System - Search & F…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-SCRIPTS-HUB-/refs/heads/main/V%C3%86LOR%20SCRIPTS%20HUB\"))()",
+      "createdAt": "2026-11-13T18:07:07.951Z",
+      "updatedAt": "2026-11-13T18:07:07.951Z",
       "categoryIds": [
         "trending"
       ],
@@ -569,7 +569,7 @@
         "LightningHub",
         "universal script"
       ],
-      "views": 2589,
+      "views": 2590,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -607,7 +607,7 @@
         "NOTHING PANEL",
         "HEXAGON CLIENT"
       ],
-      "views": 3089,
+      "views": 3092,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -682,7 +682,7 @@
         "Gun",
         "Aimbot"
       ],
-      "views": 3052,
+      "views": 3057,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -720,7 +720,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 2287,
+      "views": 2290,
       "likes": 10,
       "dislikes": 2,
       "rating": 4.2,
@@ -796,7 +796,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 532,
+      "views": 535,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -804,6 +804,158 @@
       "code": "loadstring(game:HttpGet(\"https://projectabyss.lol/loader/universal\"))()",
       "createdAt": "2026-11-19T11:56:06.266Z",
       "updatedAt": "2026-11-19T11:56:06.266Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b005504511714379a3a1af5",
+      "slug": "Universal-Script-No-Lag-Hub-or-KEYLESS-202-237639",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-No-Lag-Hub-or-KEYLESS-202-237639",
+      "title": "No Lag Hub | KEYLESS 2026",
+      "game": "Script hub",
+      "gameImage": "https://scriptblox.com/images/thumbnail-pending.webp",
+      "author": "No6No6No7y",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "blox fruits fruit bf",
+        "steal an egg sae",
+        "murder mystery mm"
+      ],
+      "views": 84,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Keyless Discord: https://discord.gg/Ndzk9kPZmT Website: https://nolag.wtf --- Supported Games & Features --- [Blox Fruits] - Auto Farm Level, Nearest Mob, Specific Mob, Bosses & Materials - Fast Attack, Mob Magnet (Bring Mobs), Safe Mode…",
+      "code": "loadstring(game:HttpGet(\"https://nolag.wtf/script.lua\"))()",
+      "createdAt": "2026-11-20T14:11:16.888Z",
+      "updatedAt": "2026-11-20T14:11:16.581Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "paw",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af8cef660e2570d7b63b30e",
+      "slug": "Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
+      "title": "Silent Aim | Auto Shoot | Infinite Stamina | Anti-Ragdoll |",
+      "game": "Ragdoll Soccer",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-fd3eea7e3e98dadf633410cc815193bf-f511beb91a38.png",
+      "author": "czmx",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Ragdoll Soccer",
+        "Ragdoll Soccer Script",
+        "Ragdoll Soccer Hack"
+      ],
+      "views": 3998,
+      "likes": 6,
+      "dislikes": 2,
+      "rating": 3.8,
+      "summary": "------------ MYSTRIX HUB ------------ Join our Discord Server for more amazing scripts like this! ✦ Features Included : ➤ Silent Aim : • Silent Aim • Auto Curve ➤ Power : • Auto Max ➤ Sprint : • Infinite Sprint • Auto Sprint ➤ Ragdoll :…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ummarxfarooq/mystrix-hub/refs/heads/main/loader\"))()",
+      "createdAt": "2026-11-14T21:13:26.087Z",
+      "updatedAt": "2026-11-20T14:10:52.956Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6afefcdbc1c273a7990f3556",
+      "slug": "RIVALS-Vexel-or-AimbotESP-237491",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RIVALS-Vexel-or-AimbotESP-237491",
+      "title": "Vexel  | Aimbot/ESP",
+      "game": "[🎯] RIVALS",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-d5afde5495056f523329ae96479de426-b7deea639768.png",
+      "author": "Totowi",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "rivals",
+        "aimbot",
+        "esp"
+      ],
+      "views": 26,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Vexel Hub | Rivals Clean black and white hub built on Rayfield Gen2. **Aim** - Aim assist with FOV circle, smoothness, aim key and target part **Trigger** - Triggerbot with delay and hold fire - Pauses while an enemy's katana is up **Kat…",
+      "code": "loadstring(game:HttpGet(\"https://luarun.com/s/01a1ed1d-1b72-734b-9a06-30ac50a11e1d\"))()",
+      "createdAt": "2026-11-19T13:42:51.810Z",
+      "updatedAt": "2026-11-20T14:09:02.142Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6affedd60e5f440e059b144f",
+      "slug": "Knife-VS-Gun-DUELS-Star-hub-237589",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Knife-VS-Gun-DUELS-Star-hub-237589",
+      "title": "Star hub",
+      "game": "Knife VS Gun DUELS",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-6c4406224334bdf536020c963683ad40-85d12f3c36d8.png",
+      "author": "yourrobloxviewer",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "knife",
+        "knife VS gun DUELS",
+        "gun"
+      ],
+      "views": 22,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "KEYLESS its recommended to set smoothness to 0.55 for the best use for small avatar set it to 0.65 or 0.70 Features: Aimbot ESP Color Picker Team Check",
+      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/KVSGD.lua\"))()",
+      "createdAt": "2026-11-20T06:51:02.479Z",
+      "updatedAt": "2026-11-20T14:05:11.395Z",
       "categoryIds": [
         "trending",
         "new"
@@ -835,7 +987,7 @@
         "autoclick",
         "autorebirth"
       ],
-      "views": 17,
+      "views": 19,
       "likes": 1,
       "dislikes": 0,
       "summary": "- PROJECT ABYSS MOG EVOLUTİON - - Autoclick - Autorebirth - Autowin yeah thats all :3 have fun",
@@ -872,7 +1024,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 25,
+      "views": 28,
       "likes": 0,
       "dislikes": 0,
       "summary": "Features: - Toggle flight on/off with a button or the F key - Fly in the direction your camera is facing - Mobile support with on-screen FLY, Up and Down buttons - Works with the default mobile joystick - Clean on/off state, resets autom…",
@@ -910,7 +1062,7 @@
         "Fun",
         "Parkour"
       ],
-      "views": 24,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "🏃 R6 Retro Parkour By DuaKNo A smooth R6 parkour script with slide, air dash, double jump, wall climbing, wall running and more. Built-in animations, nothing else to install. ✨ Features • Slide with sound effect • Air dash with real das…",
@@ -985,7 +1137,7 @@
         "Clientsided",
         "Objectverse"
       ],
-      "views": 25,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "SlopCode Animatic [SlopCode] Canon Animatic (the Animatic skinned model) with the animations: idle, walk, chase run (running) and jump. The animations drive the model's 100 bones (Bone.Transform) straight from the Keyframe data in the an…",
@@ -1021,7 +1173,7 @@
       "tags": [
         "Script"
       ],
-      "views": 68515,
+      "views": 68520,
       "likes": 45,
       "dislikes": 2,
       "rating": 4.8,
@@ -1059,7 +1211,7 @@
         "stand",
         "out"
       ],
-      "views": 29,
+      "views": 30,
       "likes": 1,
       "dislikes": 0,
       "summary": "+ Mob farm, pick mob types + Kill aura: NPCs/players/all + Animation-skip swings + Heavy execute at low HP + Fury pistol max fire rate + Auto stand skills + Auto collect + map magnet + Auto use arrows + Auto forage seeds + Auto beach dig…",
@@ -1095,7 +1247,7 @@
       "tags": [
         "Script"
       ],
-      "views": 14,
+      "views": 15,
       "likes": 0,
       "dislikes": 0,
       "summary": "Steal A Scooter Script Auto Steal Auto Buy Trail Upgrade Treadmill Sell All",
@@ -1166,7 +1318,7 @@
       "tags": [
         "Script"
       ],
-      "views": 16,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "Shoot Arrows For Animals Script Auto Farm Auto Buy Bow 2x Train Upgrade Bench Sell All",
@@ -1204,7 +1356,7 @@
         "Autofarm",
         "Smart autofarm"
       ],
-      "views": 29,
+      "views": 32,
       "likes": 1,
       "dislikes": 0,
       "summary": "Autofarm Smart autofarm taeen to ball / hit when near autofarm just does everything for you its like if you where playing normally BUT just afk it moves and dives and hits and bumos so yeah 24h afk farm https://firehub.lol website for a…",
@@ -1242,7 +1394,7 @@
         "silent aim",
         "ragebot"
       ],
-      "views": 4428,
+      "views": 4432,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -1280,7 +1432,7 @@
         "roblox",
         "math"
       ],
-      "views": 7776,
+      "views": 7777,
       "likes": 4,
       "dislikes": 2,
       "rating": 3.3,
@@ -1356,7 +1508,7 @@
         "Brookhaven",
         "Troll"
       ],
-      "views": 31,
+      "views": 33,
       "likes": 0,
       "dislikes": 0,
       "summary": "## ⚡ Drx Bang — Brookhaven RP Smooth and responsive target interaction & movement script with clean controls and protection toggles. ### ✨ Features * **Target Selection:** Quick target search & selection tool * **Modes:** Bang (Back), Fa…",
@@ -1431,7 +1583,7 @@
         "AUTO ROLL",
         "AUTO SELL"
       ],
-      "views": 26,
+      "views": 28,
       "likes": 0,
       "dislikes": 0,
       "summary": "[FASTEST KEY] -AUTO ROLL -ROLL TRESHOLD -AUTO SELL -AUTO UPGRADE -AUTO INDEX CLAIM -SPEED AND INF JUMP",
@@ -1505,7 +1657,7 @@
         "Character Mesh Remover",
         "FE"
       ],
-      "views": 41,
+      "views": 42,
       "likes": 0,
       "dislikes": 0,
       "summary": "It will only work in Baseplate game and there's just a few games on Roblox that has RejectCharacterDeletions Disabled, i don't know what it is i hope I'll find one so I'll recommend it here if i find one also If that text in the script s…",
@@ -1655,7 +1807,7 @@
         "Free",
         "Open Source"
       ],
-      "views": 35,
+      "views": 37,
       "likes": 0,
       "dislikes": 0,
       "summary": "### Auto Farm * Auto Farm – Automatically breaks doors, collects treasures, returns to base, and repeats. * Auto Stage Progression – Progresses through available stages automatically. * Smart Door Detection – Detects door health, hit req…",
@@ -1730,7 +1882,7 @@
         "autopaly",
         "piano"
       ],
-      "views": 25,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Play Slider 0-100% Accuracy",
@@ -1917,7 +2069,7 @@
         "Speed Hack",
         "Keyless"
       ],
-      "views": 32,
+      "views": 33,
       "likes": 0,
       "dislikes": 0,
       "summary": "Speed Hack🩸 Very rare for junk mechanics scripts🍀 . .",
@@ -1955,7 +2107,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2480861,
+      "views": 2480871,
       "likes": 173,
       "dislikes": 31,
       "rating": 4.2,
@@ -1996,7 +2148,7 @@
         "farm",
         "best"
       ],
-      "views": 678592,
+      "views": 678594,
       "likes": 32,
       "dislikes": 9,
       "rating": 3.9,
@@ -2070,7 +2222,7 @@
       "tags": [
         "Script"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 2,
       "dislikes": 0,
       "summary": "This Fishy Hub script for Vox Seas uses FishyUI and opens with RightControl, organizing features into Combat, Farm, Movement, Items, Player, Visuals, Server, and Config. Combat covers auto attack with adjustable interval, kill aura with…",
@@ -2114,8 +2266,7 @@
       "createdAt": "2026-11-18T23:32:54.686Z",
       "updatedAt": "2026-11-20T12:32:12.198Z",
       "categoryIds": [
-        "trending",
-        "new"
+        "trending"
       ],
       "glyph": "crosshair",
       "colors": [
@@ -2151,192 +2302,9 @@
       "createdAt": "2026-11-18T22:42:38.111Z",
       "updatedAt": "2026-11-20T12:32:04.424Z",
       "categoryIds": [
-        "trending",
-        "new"
-      ],
-      "glyph": "car",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6a424f60d2877b53ed303d63",
-      "slug": "Universal-Script-DEX-REContinued-240081",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-DEX-REContinued-240081",
-      "title": "DEX REContinued",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1782730592589.png",
-      "author": "Undtc",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "DEX",
-        "Explorer",
-        "Script"
-      ],
-      "views": 26065,
-      "likes": 43,
-      "dislikes": 2,
-      "rating": 4.8,
-      "summary": "A recontinuation of the old DEX Explorer with many features from the original roadmap https://github.com/Tesker-103/DexRecontinued Features Include: - Data Explorer app, lets you search garbage collection for const, upvals, etc, and allo…",
-      "code": "loadstring(game:HttpGet(\"https://github.com/Tesker-103/DexRecontinued/releases/latest/download/out.lua\"))()",
-      "createdAt": "2026-06-29T10:56:32.606Z",
-      "updatedAt": "2026-11-20T12:24:58.680Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afd987d97a0ffa2e693621c",
-      "slug": "Universal-Script-Streamer-mod-and-Badge-237390",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Streamer-mod-and-Badge-237390",
-      "title": "Streamer mod and Badge",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1795004839928.jpg",
-      "author": "aybat_ataybek",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "Universal",
-        "Streamer",
-        "FakeName"
-      ],
-      "views": 44,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "[🇷🇺]: Изменяет отображение твоего имени и отображаемого имени только на твоём экране (таблица лидеров, чат, именные таблички). Другие игроки этого не увидят. Как изменить значок (Badge) Установи Badge перед запуском скрипта: Badge = \"r…",
-      "code": "getgenv().FakeName = \"Aybat\"\ngetgenv().FakeDisplay = \"Aybat\"\ngetgenv().Badge = \"premium\"\ngetgenv().DisplayColor = \"#FF0000\"\n\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/aybat-ataybek/test/refs/heads/main/FakeNameBadge.lua\"))()",
-      "createdAt": "2026-11-18T12:22:21.481Z",
-      "updatedAt": "2026-11-20T12:20:54.640Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afe18145ebab946c166ec72",
-      "slug": "Train-VS-Car-Vs-Plane-18-Find-All-parts-237433",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Train-VS-Car-Vs-Plane-18-Find-All-parts-237433",
-      "title": "Find All parts",
-      "game": "Train VS Car Vs Plane [1.8]",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-864c5797865f1f75619378463fb4adb3-69a3981e6f7c.png",
-      "author": "A2000",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 24,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "Reupload",
-      "code": "local Players = game:GetService(\"Players\")\nlocal TweenService = game:GetService(\"TweenService\")\nlocal RunService = game:GetService(\"RunService\")\nlocal UserInputService = game:GetService(\"UserInputService\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\nlocal FOLDER_NAME = \"HuntParts\"\nlocal AURORA_PREFIX = \"AuroraHunt_\"\nlocal AURORA_FIRST = 1\nlocal AURORA_LAST = 28\nlocal ORIGINAL_KEYWORDS = { \"jet\", \"car\", \"train\" }\nlocal CHECK_INTERVAL = 0.5\nlocal ALERT_DURATION = 3\nlocal ARROW_EDGE_MARGIN = 60\nlocal ARROW_COLOR = Color3.fromRGB(255, 210, 60)\nlocal COLOR_VISIBLE = Color3.fromRGB(120, 255, 120)\nlocal COLOR_HIDDEN = Color3.fromRGB(150, 150, 150)\nlocal SEPARATOR_COLOR = Color3.fromRGB(255, 210, 60)\nlocal OTHER_LABEL = \"Other Hunts\"\n\nlocal EXPANDED_SIZE = UDim2.new(0, 250, 0.8, 0)\nlocal MINIMIZED_SIZE = UDim2.fromOffset(150, 34)\nlocal MINIMIZE_TWEEN = TweenInfo.new(0.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)\n\nlocal huntFolder = workspace:WaitForChild(FOLDER_NAME)\n\nlocal originalAlertsOn = false\nlocal visibleOnly = false\nlocal autoArrowOn = true\nlocal minimized = false\nlocal currentTween = nil\nlocal wasVisible = {}\nlocal collected = {}\nlocal alertOverride = {}\nlocal arrows = {}\nlocal entries = {}\nlocal headers = {}\nlocal selected = nil\n\nlocal function makeCorner(parent, radius)\n\tlocal corner = Instance.new(\"UICorner\")\n\tcorner.CornerRadius = UDim.new(0, radius)\n\tcorner.Parent = parent\nend\n\nlocal function makeButton(parent, text, position, size)\n\tlocal button = Instance.new(\"TextButton\")\n\tbutton.Position = position\n\tbutton.Size = size\n\tbutton.BackgroundColor3 = Color3.fromRGB(55, 55, 55)\n\tbutton.TextColor3 = Color3.new(1, 1, 1)\n\tbutton.Font = Enum.Font.GothamBold\n\tbutton.TextSize = 14\n\tbutton.Text = text\n\tbutton.Parent = parent\n\tmakeCorner(button, 6)\n\treturn button\nend\n\nlocal screenGui = Instance.new(\"ScreenGui\")\nscreenGui.Name = \"VisibilityAlerts\"\nscreenGui.ResetOnSpawn = false\nscreenGui.Parent = playerGui\n\nlocal function makeDraggable(frame, header)\n\theader.Active = true\n\tlocal dragging = false\n\tlocal dragInput = nil\n\tlocal dragStartMouse = Vector2.new()\n\tlocal dragStartPos = Vector2.new()\n\n\theader.InputBegan:Connect(function(input)\n\t\tif input.UserInputType == Enum.UserInputType.MouseButton1\n\t\t\tor input.UserInputType == Enum.UserInputType.Touch then\n\t\t\tdragging = true\n\t\t\tdragInput = input\n\t\t\tdragStartMouse = Vector2.new(input.Position.X, input.Position.Y)\n\t\t\tdragStartPos = Vector2.new(frame.Position.X.Offset, frame.Position.Y.Offset)\n\n\t\t\tinput.Changed:Connect(function()\n\t\t\t\tif input.UserInputState == Enum.UserInputState.End then\n\t\t\t\t\tdragging = false\n\t\t\t\t\tdragInput = nil\n\t\t\t\tend\n\t\t\tend)\n\t\tend\n\tend)\n\n\tUserInputService.InputChanged:Connect(function(input)\n\t\tif not dragging or input ~= dragInput then\n\t\t\treturn\n\t\tend\n\t\tif input.UserInputType ~= Enum.UserInputType.MouseMovement\n\t\t\tand input.UserInputType ~= Enum.UserInputType.Touch then\n\t\t\treturn\n\t\tend\n\n\t\tlocal delta = Vector2.new(input.Position.X, input.Position.Y) - dragStartMouse\n\t\tlocal maxX = math.max(0, screenGui.AbsoluteSize.X - frame.AbsoluteSize.X)\n\t\tlocal maxY = math.max(0, screenGui.AbsoluteSize.Y - frame.AbsoluteSize.Y)\n\t\tlocal newX = math.clamp(dragStartPos.X + delta.X, 0, maxX)\n\t\tlocal newY = math.clamp(dragStartPos.Y + delta.Y, 0, maxY)\n\n\t\tframe.Position = UDim2.fromOffset(newX, newY)\n\tend)\nend\n\nlocal alertHolder = Instance.new(\"Frame\")\nalertHolder.Name = \"AlertHolder\"\nalertHolder.AnchorPoint = Vector2.new(0.5, 0)\nalertHolder.Position = UDim2.new(0.5, 0, 0, 20)\nalertHolder.Size = UDim2.fromOffset(400, 300)\nalertHolder.BackgroundTransparency = 1\nalertHolder.Active = false\nalertHolder.Parent = screenGui\n\nlocal alertLayout = Instance.new(\"UIListLayout\")\nalertLayout.Padding = UDim.new(0, 8)\nalertLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center\nalertLayout.SortOrder = Enum.SortOrder.LayoutOrder\nalertLayout.Parent = alertHolder\n\nlocal viewerFrame = Instance.new(\"Frame\")\nviewerFrame.Name = \"Viewer\"\nviewerFrame.Position = UDim2.fromOffset(20, 100)\nviewerFrame.Size = EXPANDED_SIZE\nviewerFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)\nviewerFrame.BackgroundTransparency = 0.2\nviewerFrame.ClipsDescendants = true\nviewerFrame.Active = false\nviewerFrame.Parent = screenGui\nmakeCorner(viewerFrame, 8)\n\nlocal body = Instance.new(\"Frame\")\nbody.Name = \"Body\"\nbody.Size = UDim2.fromScale(1, 1)\nbody.BackgroundTransparency = 1\nbody.Parent = viewerFrame\n\nlocal viewerHeader = Instance.new(\"Frame\")\nviewerHeader.Name = \"Header\"\nviewerHeader.Size = UDim2.new(1, 0, 0, 30)\nviewerHeader.BackgroundTransparency = 1\nviewerHeader.Parent = viewerFrame\n\nlocal viewerTitle = Instance.new(\"TextLabel\")\nviewerTitle.Size = UDim2.new(1, -40, 1, 0)\nviewerTitle.Position = UDim2.fromOffset(8, 0)\nviewerTitle.BackgroundTransparency = 1\nviewerTitle.TextXAlignment = Enum.TextXAlignment.Left\nviewerTitle.Text = \"Hunts\"\nviewerTitle.TextColor3 = Color3.new(1, 1, 1)\nviewerTitle.Font = Enum.Font.GothamBold\nviewerTitle.TextSize = 18\nviewerTitle.Parent = viewerHeader\n\nlocal minimizeButton = makeButton(viewerHeader, \"-\", UDim2.new(1, -32, 0, 3), UDim2.fromOffset(26, 24))\n\nmakeDraggable(viewerFrame, viewerHeader)\n\nlocal settingsButton = makeButton(body, \"\", UDim2.fromOffset(8, 34), UDim2.new(1, -16, 0, 28))\nlocal filterButton = makeButton(body, \"\", UDim2.fromOffset(8, 66), UDim2.new(1, -16, 0, 28))\nlocal autoArrowButton = makeButton(body, \"\", UDim2.fromOffset(8, 98), UDim2.new(1, -16, 0, 28))\n\nlocal searchBox = Instance.new(\"TextBox\")\nsearchBox.Name = \"Search\"\nsearchBox.Position = UDim2.fromOffset(8, 130)\nsearchBox.Size = UDim2.new(1, -16, 0, 28)\nsearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)\nsearchBox.TextColor3 = Color3.new(1, 1, 1)\nsearchBox.PlaceholderText = \"Search (e.g. hawk)\"\nsearchBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 130)\nsearchBox.Text = \"\"\nsearchBox.Font = Enum.Font.Gotham\nsearchBox.TextSize = 14\nsearchBox.ClearTextOnFocus = false\nsearchBox.Parent = body\nmakeCorner(searchBox, 6)\n\nlocal listFrame = Instance.new(\"ScrollingFrame\")\nlistFrame.Position = UDim2.fromOffset(8, 164)\nlistFrame.Size = UDim2.new(1, -16, 1, -172)\nlistFrame.BackgroundTransparency = 1\nlistFrame.BorderSizePixel = 0\nlistFrame.ScrollBarThickness = 6\nlistFrame.ScrollingDirection = Enum.ScrollingDirection.Y\nlistFrame.CanvasSize = UDim2.new(0, 0, 0, 0)\nlistFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y\nlistFrame.Parent = body\n\nlocal listLayout = Instance.new(\"UIListLayout\")\nlistLayout.Padding = UDim.new(0, 4)\nlistLayout.SortOrder = Enum.SortOrder.LayoutOrder\nlistLayout.Parent = listFrame\n\nlocal detailFrame = Instance.new(\"Frame\")\ndetailFrame.Name = \"Detail\"\ndetailFrame.Position = UDim2.fromOffset(260, 100)\ndetailFrame.Size = UDim2.fromOffset(200, 170)\ndetailFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)\ndetailFrame.BackgroundTransparency = 0.2\ndetailFrame.Visible = false\ndetailFrame.Active = false\ndetailFrame.Parent = screenGui\nmakeCorner(detailFrame, 8)\n\nlocal detailHeader = Instance.new(\"Frame\")\ndetailHeader.Name = \"Header\"\ndetailHeader.Size = UDim2.new(1, 0, 0, 30)\ndetailHeader.BackgroundTransparency = 1\ndetailHeader.Parent = detailFrame\n\nlocal detailTitle = Instance.new(\"TextLabel\")\ndetailTitle.Size = UDim2.new(1, 0, 1, 0)\ndetailTitle.BackgroundTransparency = 1\ndetailTitle.TextColor3 = Color3.new(1, 1, 1)\ndetailTitle.Font = Enum.Font.GothamBold\ndetailTitle.TextSize = 16\ndetailTitle.TextScaled = false\ndetailTitle.Parent = detailHeader\n\nmakeDraggable(detailFrame, detailHeader)\n\nlocal arrowButton = makeButton(detailFrame, \"\", UDim2.fromOffset(8, 38), UDim2.new(1, -16, 0, 30))\nlocal alertButton = makeButton(detailFrame, \"\", UDim2.fromOffset(8, 74), UDim2.new(1, -16, 0, 30))\nlocal closeButton = makeButton(detailFrame, \"Close\", UDim2.fromOffset(8, 110), UDim2.new(1, -16, 0, 30))\n\nlocal function isOriginal(name)\n\tlocal lower = string.lower(name)\n\tfor _, keyword in ipairs(ORIGINAL_KEYWORDS) do\n\t\tif string.find(lower, keyword, 1, true) then\n\t\t\treturn true\n\t\tend\n\tend\n\treturn false\nend\n\nlocal function alertsEnabled(model)\n\tlocal override = alertOverride[model]\n\tif override ~= nil then\n\t\treturn override\n\tend\n\tif isOriginal(model.Name) then\n\t\treturn originalAlertsOn\n\tend\n\treturn true\nend\n\nlocal function isPartVisible(part)\n\treturn part.Transparency < 1 and part.LocalTransparencyModifier < 1\nend\n\nlocal function isModelVisible(model)\n\tif model:IsA(\"BasePart\") then\n\t\treturn isPartVisible(model)\n\tend\n\tfor _, descendant in ipairs(model:GetDescendants()) do\n\t\tif descendant:IsA(\"BasePart\") and isPartVisible(descendant) then\n\t\t\treturn true\n\t\tend\n\tend\n\treturn false\nend\n\nlocal function getPosition(model)\n\tif model:IsA(\"BasePart\") then\n\t\treturn model.Position\n\tend\n\tif model:IsA(\"Model\") then\n\t\treturn model:GetPivot().Position\n\tend\n\tlocal part = model:FindFirstChildWhichIsA(\"BasePart\", true)\n\treturn part and part.Position\nend\n\nlocal function getQuery()\n\tlocal text = string.match(searchBox.Text, \"^%s*(.-)%s*$\")\n\treturn string.lower(text)\nend\n\nlocal function nameMatches(name, query)\n\treturn query == \"\" or string.find(string.lower(name), query, 1, true) ~= nil\nend\n\nlocal function groupOf(name)\n\tlocal huntAt = string.find(string.lower(name), \"hunt\", 1, true)\n\tlocal base = huntAt and string.sub(name, 1, huntAt - 1) or name\n\n\tbase = string.gsub(base, \"_\", \" \")\n\tbase = string.gsub(base, \"(%l)(%u)\", \"%1 %2\")\n\tbase = string.gsub(base, \"[%d%p]\", \" \")\n\tbase = string.gsub(base, \"%s+\", \" \")\n\tbase = string.match(base, \"^%s*(.-)%s*$\")\n\n\tif base == \"\" then\n\t\treturn OTHER_LABEL\n\tend\n\n\tbase = string.gsub(base, \"(%a)(%a*)\", function(first, rest)\n\t\treturn string.upper(first) .. string.lower(rest)\n\tend)\n\n\tif huntAt then\n\t\treturn base .. \" Hunt\"\n\tend\n\treturn base\nend\n\nlocal function showAlert(message)\n\tlocal label = Instance.new(\"TextLabel\")\n\tlabel.Size = UDim2.new(1, 0, 0, 40)\n\tlabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)\n\tlabel.BackgroundTransparency = 0.2\n\tlabel.TextColor3 = Color3.new(1, 1, 1)\n\tlabel.Font = Enum.Font.GothamBold\n\tlabel.TextSize = 20\n\tlabel.Text = message\n\tlabel.Parent = alertHolder\n\tmakeCorner(label, 8)\n\n\ttask.delay(ALERT_DURATION, function()\n\t\tlocal tween = TweenService:Create(label, TweenInfo.new(0.5), {\n\t\t\tBackgroundTransparency = 1,\n\t\t\tTextTransparency = 1,\n\t\t})\n\t\ttween:Play()\n\t\ttween.Completed:Wait()\n\t\tlabel:Destroy()\n\tend)\nend\n\nlocal function refreshDetail()\n\tif not selected then\n\t\tdetailFrame.Visible = false\n\t\treturn\n\tend\n\tdetailFrame.Visible = true\n\tdetailTitle.Text = selected.Name\n\tarrowButton.Text = \"Show Arrow: \" .. (arrows[selected] and \"ON\" or \"OFF\")\n\talertButton.Text = \"Alerts: \" .. (alertsEnabled(selected) and \"ON\" or \"OFF\")\nend\n\nlocal function refreshSettingsButton()\n\tsettingsButton.Text = \"Original alerts: \" .. (originalAlertsOn and \"ON\" or \"OFF\")\n\tfilterButton.Text = \"Visible only: \" .. (visibleOnly and \"ON\" or \"OFF\")\n\tautoArrowButton.Text = \"Search arrows: \" .. (autoArrowOn and \"ON\" or \"OFF\")\nend\n\nlocal function setArrow(model, on)\n\tif on and not arrows[model] then\n\t\tlocal arrow = Instance.new(\"TextLabel\")\n\t\tarrow.Name = model.Name .. \"_Arrow\"\n\t\tarrow.AnchorPoint = Vector2.new(0.5, 0.5)\n\t\tarrow.Size = UDim2.fromOffset(40, 40)\n\t\tarrow.BackgroundTransparency = 1\n\t\tarrow.Text = \"▲\"\n\t\tarrow.TextColor3 = ARROW_COLOR\n\t\tarrow.TextStrokeTransparency = 0.3\n\t\tarrow.Font = Enum.Font.GothamBlack\n\t\tarrow.TextSize = 36\n\t\tarrow.Visible = false\n\t\tarrow.Parent = screenGui\n\t\tarrows[model] = arrow\n\telseif not on and arrows[model] then\n\t\tarrows[model]:Destroy()\n\t\tarrows[model] = nil\n\tend\nend\n\nlocal function applySearchArrows()\n\tif not autoArrowOn then\n\t\treturn\n\tend\n\tlocal query = getQuery()\n\tif query == \"\" then\n\t\treturn\n\tend\n\tfor model in pairs(entries) do\n\t\tif nameMatches(model.Name, query) then\n\t\t\tsetArrow(model, true)\n\t\tend\n\tend\nend\n\nlocal function updateArrows()\n\tlocal cam = workspace.CurrentCamera\n\tif not cam then\n\t\treturn\n\tend\n\n\tlocal viewport = cam.ViewportSize\n\tlocal center = viewport / 2\n\tlocal halfW = center.X - ARROW_EDGE_MARGIN\n\tlocal halfH = center.Y - ARROW_EDGE_MARGIN\n\n\tfor model, arrow in pairs(arrows) do\n\t\tlocal pos = getPosition(model)\n\t\tif not pos then\n\t\t\tarrow.Visible = false\n\t\telse\n\t\t\tlocal screenPos, onScreen = cam:WorldToViewportPoint(pos)\n\t\t\tlocal target = Vector2.new(screenPos.X, screenPos.Y)\n\n\t\t\tif onScreen then\n\t\t\t\tarrow.Position = UDim2.fromOffset(target.X, target.Y - 50)\n\t\t\t\tarrow.Rotation = 180\n\t\t\t\tarrow.Visible = true\n\t\t\telse\n\t\t\t\tlocal dir = target - center\n\t\t\t\tif screenPos.Z < 0 then\n\t\t\t\t\tdir = -dir\n\t\t\t\tend\n\t\t\t\tif dir.Magnitude < 0.001 then\n\t\t\t\t\tdir = Vector2.new(0, -1)\n\t\t\t\tend\n\n\t\t\t\tlocal dx, dy = math.abs(dir.X), math.abs(dir.Y)\n\t\t\t\tlocal tx = dx > 0.001 and halfW / dx or math.huge\n\t\t\t\tlocal ty = dy > 0.001 and halfH / dy or math.huge\n\t\t\t\tlocal edge = center + dir * math.min(tx, ty)\n\n\t\t\t\tarrow.Position = UDim2.fromOffset(edge.X, edge.Y)\n\t\t\t\tarrow.Rotation = math.deg(math.atan2(dir.Y, dir.X)) + 90\n\t\t\t\tarrow.Visible = true\n\t\t\tend\n\t\tend\n\tend\nend\n\nlocal function ensureEntry(model)\n\tif entries[model] then\n\t\treturn entries[model]\n\tend\n\n\tlocal button = Instance.new(\"TextButton\")\n\tbutton.Name = model.Name\n\tbutton.Size = UDim2.new(1, 0, 0, 26)\n\tbutton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)\n\tbutton.TextColor3 = COLOR_HIDDEN\n\tbutton.Font = Enum.Font.Gotham\n\tbutton.TextSize = 16\n\tbutton.Text = model.Name\n\tbutton.Parent = listFrame\n\tmakeCorner(button, 6)\n\n\tbutton.MouseButton1Click:Connect(function()\n\t\tselected = model\n\t\trefreshDetail()\n\tend)\n\n\tentries[model] = button\n\treturn button\nend\n\nlocal function forget(model)\n\tif entries[model] then\n\t\tentries[model]:Destroy()\n\t\tentries[model] = nil\n\tend\n\tsetArrow(model, false)\n\twasVisible[model] = nil\n\tif selected == model then\n\t\tselected = nil\n\t\trefreshDetail()\n\tend\nend\n\nlocal function collect(model)\n\tcollected[model] = true\n\tforget(model)\nend\n\nlocal function refreshList()\n\tlocal query = getQuery()\n\tlocal buckets, labels = {}, {}\n\n\tfor model, entry in pairs(entries) do\n\t\tlocal shown = nameMatches(model.Name, query) and (not visibleOnly or wasVisible[model] == true)\n\t\tentry.Visible = shown\n\t\tif shown then\n\t\t\tlocal label = groupOf(model.Name)\n\t\t\tif not buckets[label] then\n\t\t\t\tbuckets[label] = {}\n\t\t\t\ttable.insert(labels, label)\n\t\t\tend\n\t\t\ttable.insert(buckets[label], model)\n\t\tend\n\tend\n\n\ttable.sort(labels)\n\n\tlocal order = 0\n\tlocal usedHeaders = {}\n\n\tfor _, label in ipairs(labels) do\n\t\tlocal header = headers[label]\n\t\tif not header then\n\t\t\theader = Instance.new(\"TextLabel\")\n\t\t\theader.Name = \"Separator_\" .. label\n\t\t\theader.Size = UDim2.new(1, 0, 0, 22)\n\t\t\theader.BackgroundTransparency = 1\n\t\t\theader.TextColor3 = SEPARATOR_COLOR\n\t\t\theader.Font = Enum.Font.GothamBold\n\t\t\theader.TextSize = 13\n\t\t\theader.Text = \"- \" .. label .. \" -\"\n\t\t\theader.Parent = listFrame\n\t\t\theaders[label] = header\n\t\tend\n\n\t\torder += 1\n\t\theader.LayoutOrder = order\n\t\tusedHeaders[label] = true\n\n\t\tlocal items = buckets[label]\n\t\ttable.sort(items, function(a, b)\n\t\t\treturn a.Name < b.Name\n\t\tend)\n\t\tfor _, model in ipairs(items) do\n\t\t\torder += 1\n\t\t\tentries[model].LayoutOrder = order\n\t\tend\n\tend\n\n\tfor label, header in pairs(headers) do\n\t\tif not usedHeaders[label] then\n\t\t\theader:Destroy()\n\t\t\theaders[label] = nil\n\t\tend\n\tend\nend\n\nlocal function getCandidates()\n\tlocal list, seen = {}, {}\n\n\tlocal function add(model)\n\t\tif model and not seen[model] and not collected[model] then\n\t\t\tseen[model] = true\n\t\t\ttable.insert(list, model)\n\t\tend\n\tend\n\n\tfor _, child in ipairs(huntFolder:GetChildren()) do\n\t\tadd(child)\n\tend\n\tfor n = AURORA_FIRST, AURORA_LAST do\n\t\tadd(huntFolder:FindFirstChild(string.format(\"%s%02d\", AURORA_PREFIX, n)))\n\tend\n\n\treturn list\nend\n\nlocal function checkModels()\n\tlocal current = {}\n\tlocal query = getQuery()\n\tlocal searching = query ~= \"\"\n\n\tfor _, model in ipairs(getCandidates()) do\n\t\tcurrent[model] = true\n\t\tlocal visible = isModelVisible(model)\n\t\tlocal previous = wasVisible[model]\n\t\tlocal matches = searching and nameMatches(model.Name, query)\n\n\t\tif not entries[model] and matches and autoArrowOn then\n\t\t\tsetArrow(model, true)\n\t\tend\n\n\t\tif visible and previous ~= true then\n\t\t\tif searching then\n\t\t\t\tif matches then\n\t\t\t\t\tshowAlert(model.Name .. \" is visible\")\n\t\t\t\tend\n\t\t\telseif alertsEnabled(model) then\n\t\t\t\tshowAlert(model.Name .. \" is visible\")\n\t\t\tend\n\n\t\t\tif matches and autoArrowOn then\n\t\t\t\tsetArrow(model, true)\n\t\t\tend\n\t\tend\n\n\t\tif not visible and previous == true then\n\t\t\tcollect(model)\n\t\telse\n\t\t\twasVisible[model] = visible\n\t\t\tlocal entry = ensureEntry(model)\n\t\t\tentry.TextColor3 = visible and COLOR_VISIBLE or COLOR_HIDDEN\n\t\tend\n\tend\n\n\tfor model in pairs(entries) do\n\t\tif not current[model] then\n\t\t\tif arrows[model] and (query == \"\" or nameMatches(model.Name, query)) then\n\t\t\t\tshowAlert(model.Name .. \" disappeared\")\n\t\t\tend\n\t\t\tforget(model)\n\t\tend\n\tend\n\n\trefreshList()\nend\n\nlocal function setMinimized(on)\n\tminimized = on\n\tif currentTween then\n\t\tcurrentTween:Cancel()\n\tend\n\tif not on then\n\t\tbody.Visible = true\n\tend\n\n\tminimizeButton.Text = on and \"+\" or \"-\"\n\n\tlocal tween = TweenService:Create(viewerFrame, MINIMIZE_TWEEN, {\n\t\tSize = on and MINIMIZED_SIZE or EXPANDED_SIZE,\n\t})\n\tcurrentTween = tween\n\ttween.Completed:Connect(function(state)\n\t\tif state == Enum.PlaybackState.Completed and minimized then\n\t\t\tbody.Visible = false\n\t\tend\n\tend)\n\ttween:Play()\nend\n\nminimizeButton.MouseButton1Click:Connect(function()\n\tsetMinimized(not minimized)\nend)\n\narrowButton.MouseButton1Click:Connect(function()\n\tif not selected then\n\t\treturn\n\tend\n\tsetArrow(selected, arrows[selected] == nil)\n\trefreshDetail()\nend)\n\nalertButton.MouseButton1Click:Connect(function()\n\tif not selected then\n\t\treturn\n\tend\n\talertOverride[selected] = not alertsEnabled(selected)\n\trefreshDetail()\nend)\n\ncloseButton.MouseButton1Click:Connect(function()\n\tselected = nil\n\trefreshDetail()\nend)\n\nsettingsButton.MouseButton1Click:Connect(function()\n\toriginalAlertsOn = not originalAlertsOn\n\trefreshSettingsButton()\n\trefreshDetail()\nend)\n\nfilterButton.MouseButton1Click:Connect(function()\n\tvisibleOnly = not visibleOnly\n\trefreshSettingsButton()\n\trefreshList()\nend)\n\nautoArrowButton.MouseButton1Click:Connect(function()\n\tautoArrowOn = not autoArrowOn\n\trefreshSettingsButton()\n\tapplySearchArrows()\nend)\n\nsearchBox:GetPropertyChangedSignal(\"Text\"):Connect(function()\n\tapplySearchArrows()\n\trefreshList()\nend)\n\nrefreshSettingsButton()\nRunService.RenderStepped:Connect(updateArrows)\n\nwhile true do\n\tcheckModels()\n\ttask.wait(CHECK_INTERVAL)\nend",
-      "createdAt": "2026-11-18T21:26:44.616Z",
-      "updatedAt": "2026-11-20T12:18:08.096Z",
-      "categoryIds": [
         "trending"
       ],
       "glyph": "car",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afe0c73a54825ddff53a513",
-      "slug": "HLWN-Evade-best-auto-jump-for-legacy-pc-need-237429",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/HLWN-Evade-best-auto-jump-for-legacy-pc-need-237429",
-      "title": "best auto jump for  legacy (pc need)",
-      "game": "[🎃HLWN🎃] Evade",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-a404c59a18fb6b6e3c8ff7d6c423cf50-f09fbe903605.png",
-      "author": "XnsL",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 25,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "auto jump",
-      "code": "--!strict\nlocal Players = game:GetService(\"Players\")\nlocal LocalPlayer = Players.LocalPlayer\nlocal SCRIPT_ID = \"ConsoleJumpLegacy\"\n\nif getgenv()[SCRIPT_ID] then\n\tgetgenv()[SCRIPT_ID]()\nend\n\nlocal enabled = true\nlocal oldNamecall\n\noldNamecall = hookmetamethod(game, \"__namecall\", newcclosure(function(self: any, ...)\n\tlocal method = getnamecallmethod()\n\tif enabled and not checkcaller() and (method == \"GetAttribute\" or method == \"getAttribute\") and self == LocalPlayer then\n\t\tlocal attr = ...\n\t\tif attr == \"OnXbox\" then\n\t\t\tlocal src = debug.info(2, \"s\")\n\t\t\tif src and string.find(src, \"Movement\") then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend\n\treturn oldNamecall(self, ...)\nend))\n\ngetgenv()[SCRIPT_ID] = function()\n\tenabled = false\n\tpcall(function()\n\t\thookmetamethod(game, \"__namecall\", oldNamecall)\n\tend)\n\tgetgenv()[SCRIPT_ID] = nil\nend",
-      "createdAt": "2026-11-18T20:37:07.318Z",
-      "updatedAt": "2026-11-20T12:11:52.526Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b005504511714379a3a1af5",
-      "slug": "Universal-Script-No-Lag-Hub-or-KEYLESS-202-237639",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-No-Lag-Hub-or-KEYLESS-202-237639",
-      "title": "No Lag Hub | KEYLESS 2026",
-      "game": "Script hub",
-      "gameImage": "https://scriptblox.com/images/thumbnail-pending.webp",
-      "author": "No6No6No7y",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "blox fruits fruit bf",
-        "steal an egg sae",
-        "murder mystery mm"
-      ],
-      "views": 76,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "Keyless Discord: https://discord.gg/Ndzk9kPZmT Website: https://nolag.wtf --- Supported Games & Features --- [Blox Fruits] - Auto Farm Level, Nearest Mob, Specific Mob, Bosses & Materials - Fast Attack, Mob Magnet (Bring Mobs), Safe Mode…",
-      "code": "loadstring(game:HttpGet(\"https://nolag.wtf/script.lua\"))()",
-      "createdAt": "2026-11-20T14:11:16.888Z",
-      "updatedAt": "2026-11-20T14:11:16.581Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "paw",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2363,7 +2331,7 @@
         "bug Evolution",
         "New Ant Evolution Script"
       ],
-      "views": 58,
+      "views": 59,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Farm Food & Orbs Food Filter Client Food Magnet Magnet Range Slider Auto Grab Map Boosts Instant Auto Hatch Auto Feed The Queen Auto Rebirth",
@@ -2398,7 +2366,7 @@
       "tags": [
         "Script"
       ],
-      "views": 348,
+      "views": 352,
       "likes": 1,
       "dislikes": 0,
       "summary": "ARVYN SCRIPTS - BLOX FRUITS All-in-one hub for Blox Fruits (Sea 1, 2 and 3), a clean UI for PC and mobile, and settings that are saved between sessions. HOW TO USE 1. Execute the loadstring. 2. Pick a key provider and duration, press Get…",
@@ -2409,43 +2377,6 @@
         "new"
       ],
       "glyph": "fruit",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6affedd60e5f440e059b144f",
-      "slug": "Knife-VS-Gun-DUELS-Star-hub-237589",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Knife-VS-Gun-DUELS-Star-hub-237589",
-      "title": "Star hub",
-      "game": "Knife VS Gun DUELS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-6c4406224334bdf536020c963683ad40-85d12f3c36d8.png",
-      "author": "yourrobloxviewer",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "knife",
-        "knife VS gun DUELS",
-        "gun"
-      ],
-      "views": 20,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "KEYLESS its recommended to set smoothness to 0.55 for the best use for small avatar set it to 0.65 or 0.70 Features: Aimbot ESP Color Picker Team Check",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/KVSGD.lua\"))()",
-      "createdAt": "2026-11-20T06:51:02.479Z",
-      "updatedAt": "2026-11-20T14:05:11.395Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2470,7 +2401,7 @@
       "tags": [
         "Exlumiaa Hub"
       ],
-      "views": 52,
+      "views": 53,
       "likes": 0,
       "dislikes": 0,
       "summary": "- ESP - Aimbot - Silent Aim - Inf Stamina - Fly - Teleport - Safety Check",
@@ -2545,7 +2476,7 @@
         "rivals",
         "Rival"
       ],
-      "views": 642,
+      "views": 652,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2582,7 +2513,7 @@
         "aether studios",
         "Universal"
       ],
-      "views": 179,
+      "views": 180,
       "likes": 3,
       "dislikes": 1,
       "rating": 3.8,
@@ -2620,13 +2551,160 @@
         "Vox Seas",
         "OP"
       ],
-      "views": 353,
+      "views": 356,
       "likes": 2,
       "dislikes": 0,
       "summary": "## Supported Game - [Vox Seas](https://www.roblox.com/games/104067066727140) @everyone **Farming** • Auto Level Farm - levels you up on the best enemies for your level (Max Enemy Level Above You, Search Radius, Farm Bosses) • Auto Farm B…",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/JustHey-Projects/NexusHubX/refs/heads/main/Main.lua\"))()",
       "createdAt": "2026-11-19T20:10:23.407Z",
       "updatedAt": "2026-11-19T20:10:23.399Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff5575f13f73cffe50c0ab",
+      "slug": "Universal-Script-Universal-Aimbot-PC-Recommended-237533",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Universal-Aimbot-PC-Recommended-237533",
+      "title": "Universal Aimbot [PC Recommended]",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795118453927.png",
+      "author": "vitin_reidelas",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Keyless",
+        "Universal"
+      ],
+      "views": 6,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "dont really know",
+      "code": "pcall(function()\n    loadstring(game:HttpGet(\"https://gist.githubusercontent.com/ddifdudscripts/871f81b7a307876518713ea94bc8d4fe/raw/d8799d674eacdcc4e9fd80ea9dd4c93d803e6a4b/gistfile1.txt\"))()\nend)",
+      "createdAt": "2026-11-19T20:00:54.013Z",
+      "updatedAt": "2026-11-20T15:17:43.883Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff4f3832d3619809a4ea9f",
+      "slug": "Vox-Seas-Auto-Level-Auto-Story-Auto-Farm-Bosses-Fruits-or-BBR-HUB-237527",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Vox-Seas-Auto-Level-Auto-Story-Auto-Farm-Bosses-Fruits-or-BBR-HUB-237527",
+      "title": "Auto Level, Auto Story, Auto Farm Bosses, Fruits | BBR HUB",
+      "game": "Vox Seas",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-36861d7d2bd9749b9ad4dffda1b223d6-6ffca16d8153.png",
+      "author": "bbrscripts",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Auto Farm",
+        "Auto Level",
+        "Auto Boss"
+      ],
+      "views": 7,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "BBR HUB – Vox Seas script for mobile and PC. Turn it on and your pirate levels up, plays the main story and farms bosses and fruits by itself, from the start menu to the next rejoin. Features: • Auto Level: takes the quest for your level…",
+      "code": "loadstring(game:HttpGet(\"https://painel.bbrscripts.com/loader?src=scriptblox\"))()",
+      "createdAt": "2026-11-19T19:34:16.412Z",
+      "updatedAt": "2026-11-20T15:12:05.344Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "fruit",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff4677c20e65a0e25fdb50",
+      "slug": "Universal-Script-ANTI-VC-BAN-free-KEYLESS-ESV-Admin-237522",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-ANTI-VC-BAN-free-KEYLESS-ESV-Admin-237522",
+      "title": "ANTI VC BAN free KEYLESS ESV Admin.",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795114615540.png",
+      "author": "Binx",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "ANTI VC BAN",
+        "features",
+        "Troll"
+      ],
+      "views": 11,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "140+ Command absolute free will. Completely keyless and free!",
+      "code": "loadstring(game:HttpGet(\"https://luaprot.net/api/v3/loaders/get/97850837243651933035\"))()",
+      "createdAt": "2026-11-19T18:56:55.930Z",
+      "updatedAt": "2026-11-20T15:11:02.420Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff38da60e2acea5c3b5fc9",
+      "slug": "DEMONIC-ARTS-ORIGIN-KEY-AUTO-GATHER-AUTO-QI-AUTO-BREAKTHROUGH-AUTO-FARMS-237521",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/DEMONIC-ARTS-ORIGIN-KEY-AUTO-GATHER-AUTO-QI-AUTO-BREAKTHROUGH-AUTO-FARMS-237521",
+      "title": "[KEY] AUTO GATHER AUTO QI AUTO BREAKTHROUGH AUTO FARMS",
+      "game": "[DEMONIC ARTS] ORIGIN",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-799a57713c92b1abaffe415419f790ff-bd2cc59034f7.png",
+      "author": "aixx1",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "auto train",
+        "auto farm",
+        "auto breakthrough"
+      ],
+      "views": 5,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "[SOFT RELEASED] AixxHub Origin - v1.4.0 6 toggleable features(Currently).Open the hub, flip on what you need, play normally. CURRENT FEATURES - Anti-AFK - Auto Breakthrough - Auto Train - Auto Gather Herbs -Auto Parry -Mob Farms - Auto R…",
+      "code": "loadstring(game:HttpGet(\"https://pasteblox.com/raw/fehgujpxwn\"))()",
+      "createdAt": "2026-11-19T17:58:50.234Z",
+      "updatedAt": "2026-11-20T15:16:48.975Z",
       "categoryIds": [
         "new"
       ],
@@ -2657,7 +2735,7 @@
         "Craftblox",
         "Vulnerability"
       ],
-      "views": 12,
+      "views": 16,
       "likes": 1,
       "dislikes": 0,
       "summary": "Puts an infinite number of items in 1 slot into the chest, which triggers anticheat for every player who opens that chest",
@@ -2693,7 +2771,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 9,
+      "views": 15,
       "likes": 0,
       "dislikes": 0,
       "summary": "Rage clan spammer 👑🔥",
@@ -2730,7 +2808,7 @@
         "vox seas script",
         "vox sea"
       ],
-      "views": 196,
+      "views": 199,
       "likes": 1,
       "dislikes": 0,
       "summary": "This script is brought to you by SolixHub. SolixHub the #1 scripthub with daily updates since 2023. Feature for this game consists of: [+] Added Auto Farm Story [+] Added TP to Story [+] Added Auto Farm Quest [+] Added Auto Farm Best Que…",
@@ -2803,7 +2881,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 14,
+      "views": 18,
       "likes": 0,
       "dislikes": 0,
       "summary": "fly, speed, noclip",
@@ -2840,7 +2918,7 @@
         "auto solver",
         "automation"
       ],
-      "views": 7,
+      "views": 10,
       "likes": 0,
       "dislikes": 0,
       "summary": "SEO Math War Hack | Math War Scripts | Roblox Math War | Math War Auto Solver | Math War Auto Farm ⸻ Math Auto v0.9.1 An advanced automated equation solver for Roblox Math War, featuring intelligent pathfinding, obstacle avoidance, multi…",
@@ -2877,7 +2955,7 @@
         "autofarm",
         "Keyless"
       ],
-      "views": 948,
+      "views": 955,
       "likes": 0,
       "dislikes": 0,
       "summary": "+ Auto Farm Level + Auto Farm Nearest + Auto Factory Raid + Auto Pirate Raid + Auto Farm Ectoplasm + Auto Farm Chest + Auto Chest Bypass + Stop Items + Auto Farm Berry + Auto Farm Berry + Hop + Auto Kill Mob + Auto Farm All Island + Auto…",
@@ -2914,7 +2992,7 @@
         "Perfect accuracy",
         "Auto play"
       ],
-      "views": 17,
+      "views": 22,
       "likes": 0,
       "dislikes": 0,
       "summary": "100% accurate logo maker for “make the logo!”",
@@ -2950,7 +3028,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 34,
+      "views": 38,
       "likes": 0,
       "dislikes": 0,
       "summary": "I made this for games in roblox that doesnt allow you to reset this script can make you respawn and respawn where you died",
@@ -2987,7 +3065,7 @@
         "keyless",
         "silent aim"
       ],
-      "views": 15,
+      "views": 16,
       "likes": 0,
       "dislikes": 0,
       "summary": "\u001b[0;32m\u001b[0;32m[+] Silent Aim, Aimbot, Triggerbot, FOV [+] Instant ADS, No Recoil, No Spread, Rapid Fire, Full Auto, No Sway, No Bob, Fire Rate Mult, Infinite Ammo, Hitbox Expander [+] Disable Client FX | Muzzle, Tracers, Sounds, Shake, A…",
@@ -3023,7 +3101,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 26,
+      "views": 27,
       "likes": 0,
       "dislikes": 0,
       "summary": "this script have : c00lgui, inf yield, goner, soldied, LOCUST(JAB) , LOCUST, sinir391 decal spam, decal spam c00lkidd(loud), Player list, Respawn, rejoin server. its supported for all games. its free now!",
@@ -3059,7 +3137,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 50,
+      "views": 54,
       "likes": 1,
       "dislikes": 0,
       "summary": "🌌 Celestial Universe Hub UV2 (v2.0) — By Yadsan An all-in-one WindUI-powered hub packed with movement, combat, visual, server, and utility tools—plus dedicated collections for Life Together RP, Spammer/Troll scripts, and Yadsan favorite…",
@@ -3094,7 +3172,7 @@
       "tags": [
         "Script"
       ],
-      "views": 30,
+      "views": 33,
       "likes": 0,
       "dislikes": 0,
       "summary": "legitbot ragebot esp and more",
@@ -3130,50 +3208,13 @@
         "unstable pvp",
         "Keyless"
       ],
-      "views": 32,
+      "views": 38,
       "likes": 1,
       "dislikes": 0,
       "summary": "-Auto hit -Skinchanger -Esp -Autoeat And More features",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/nehan123-king/Unstable-smp-/main/README.md\"))()",
       "createdAt": "2026-11-19T14:02:25.781Z",
       "updatedAt": "2026-11-20T14:35:31.494Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afefcdbc1c273a7990f3556",
-      "slug": "RIVALS-Vexel-or-AimbotESP-237491",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RIVALS-Vexel-or-AimbotESP-237491",
-      "title": "Vexel  | Aimbot/ESP",
-      "game": "[🎯] RIVALS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-d5afde5495056f523329ae96479de426-b7deea639768.png",
-      "author": "Totowi",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "rivals",
-        "aimbot",
-        "esp"
-      ],
-      "views": 25,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Vexel Hub | Rivals Clean black and white hub built on Rayfield Gen2. **Aim** - Aim assist with FOV circle, smoothness, aim key and target part **Trigger** - Triggerbot with delay and hold fire - Pauses while an enemy's katana is up **Kat…",
-      "code": "loadstring(game:HttpGet(\"https://luarun.com/s/01a1ed1d-1b72-734b-9a06-30ac50a11e1d\"))()",
-      "createdAt": "2026-11-19T13:42:51.810Z",
-      "updatedAt": "2026-11-20T14:09:02.142Z",
       "categoryIds": [
         "new"
       ],
@@ -3239,7 +3280,7 @@
         "Aurix",
         "Animal"
       ],
-      "views": 195,
+      "views": 197,
       "likes": 1,
       "dislikes": 1,
       "summary": "Animal Survival Kill Aura, ESP, Auto Farm, Hitbox Expander?! and much more?!",
@@ -3274,7 +3315,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 21,
+      "views": 23,
       "likes": 0,
       "dislikes": 0,
       "summary": "Join my discord to support me: https://discord.gg/fFZCwWNjN",
@@ -3348,87 +3389,13 @@
         "undetected",
         "money"
       ],
-      "views": 199,
+      "views": 200,
       "likes": 1,
       "dislikes": 0,
       "summary": "Butter | Jailbreak 0% UNC support (Meaning it works on any executor under the sun) Auto Rob Bank, Casino, Jewelry Store, Power Plant Museum, Tomb, Mansion, Oil Rig Cargo Ship, Cargo Plane, Cargo Train, Passenger Train Airdrops, Gas Stati…",
       "code": "getgenv().LDKey = \"Key here\" -- GET A FREE 24 HOUR KEY HERE | https://beta.luadefender.xyz/key?script=BUTTER_HUB\n\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/main.lua\"))()",
       "createdAt": "2026-11-19T01:25:13.738Z",
       "updatedAt": "2026-11-19T14:02:46.159Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afe2480f1968eeb732a2c83",
-      "slug": "Throw-Food-For-Animals-Perfect-Throw-Auto-Farm-Ring-Rush-Train-Anywhere-237438",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Throw-Food-For-Animals-Perfect-Throw-Auto-Farm-Ring-Rush-Train-Anywhere-237438",
-      "title": "Perfect Throw, Auto Farm, Ring Rush, Train Anywhere",
-      "game": "Throw Food For Animals",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e8b4deada30535db18163fe79a016492-495bebadaf72.png",
-      "author": "Gensis",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "flow hub",
-        "auto throw",
-        "perfect throw"
-      ],
-      "views": 740,
-      "likes": 0,
-      "dislikes": 1,
-      "summary": "**Flow Hub // Throw Food For Animals** – free key, PC + mobile. Right Shift opens the menu (FLOW pill on mobile). **OP** - Perfect Meter: +20 studs on every throw - Train Anywhere: XP keeps ticking after you leave the bar - Ring Rush aut…",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/29f4f4b924aff467652814456286bb05.lua\"))()",
-      "createdAt": "2026-11-18T22:19:45.098Z",
-      "updatedAt": "2026-11-18T22:19:44.995Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afe1da661558daae0fad181",
-      "slug": "Jump-for-Cases-Auto-Farm-Case-Opening-and-Best-Animals-or-School-Hub-237435",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Jump-for-Cases-Auto-Farm-Case-Opening-and-Best-Animals-or-School-Hub-237435",
-      "title": "Auto Farm, Case Opening & Best Animals | School Hub",
-      "game": "Jump for Cases🎲",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-b03217bcdf44454872f839cbbed68dcb-ed6dd02577f3.png",
-      "author": "SchoolHub",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Auto Farm",
-        "Auto Jump",
-        "Auto Open"
-      ],
-      "views": 49,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "School Hub for Jump for Cases combines training, jumping, case opening and animal management in one shared menu. Full Auto Farm runs its own training and jumping cycle. It handles the numbered training circles, x2 training bonuses and Pe…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/suzukir987/School-Hub/main/loader.lua\"))()",
-      "createdAt": "2026-11-18T21:50:30.569Z",
-      "updatedAt": "2026-11-20T05:22:59.130Z",
       "categoryIds": [
         "new"
       ],
@@ -3459,7 +3426,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5540291,
+      "views": 5540318,
       "likes": 110,
       "dislikes": 54,
       "rating": 3.4,
@@ -3499,7 +3466,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4485412,
+      "views": 4485420,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3540,7 +3507,7 @@
         "sae",
         "universal"
       ],
-      "views": 3971270,
+      "views": 3971289,
       "likes": 92,
       "dislikes": 50,
       "rating": 3.2,
@@ -3581,7 +3548,7 @@
         "flow",
         "script"
       ],
-      "views": 3813122,
+      "views": 3813288,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -3621,7 +3588,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3786975,
+      "views": 3787140,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -3660,7 +3627,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3507105,
+      "views": 3507111,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -3700,7 +3667,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3463398,
+      "views": 3463567,
       "likes": 66,
       "dislikes": 13,
       "rating": 4.2,
@@ -3740,7 +3707,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3388760,
+      "views": 3388761,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -3818,7 +3785,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3138052,
+      "views": 3138063,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -3855,7 +3822,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 3117779,
+      "views": 3117942,
       "likes": 50,
       "dislikes": 26,
       "rating": 3.3,
@@ -3934,7 +3901,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2718253,
+      "views": 2718254,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -3972,7 +3939,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2695759,
+      "views": 2695922,
       "likes": 74,
       "dislikes": 24,
       "rating": 3.8,
@@ -4011,7 +3978,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2514443,
+      "views": 2514453,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4167,7 +4134,7 @@
         "Free Keyless",
         "Universal"
       ],
-      "views": 2142509,
+      "views": 2142510,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -4327,7 +4294,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2039976,
+      "views": 2039977,
       "likes": 80,
       "dislikes": 13,
       "rating": 4.3,
@@ -4366,7 +4333,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1981748,
+      "views": 1981751,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -4516,7 +4483,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1890692,
+      "views": 1890694,
       "likes": 204,
       "dislikes": 34,
       "rating": 4.3,
@@ -4556,7 +4523,7 @@
         "Ink Games ESP Auto Win",
         "Roblox GUI Keyless"
       ],
-      "views": 1886119,
+      "views": 1886121,
       "likes": 15,
       "dislikes": 4,
       "rating": 3.9,
@@ -4595,7 +4562,7 @@
         "adopt me",
         "blox fruits"
       ],
-      "views": 1878231,
+      "views": 1878402,
       "likes": 159,
       "dislikes": 46,
       "rating": 3.9,
@@ -4672,7 +4639,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875107,
+      "views": 1875108,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -4899,7 +4866,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1773359,
+      "views": 1773529,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -4974,7 +4941,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1747548,
+      "views": 1747550,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5206,7 +5173,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682041,
+      "views": 1682042,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -5435,7 +5402,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1567641,
+      "views": 1567642,
       "likes": 8,
       "dislikes": 4,
       "rating": 3.3,
@@ -5710,7 +5677,7 @@
         "egg",
         "collect"
       ],
-      "views": 1378155,
+      "views": 1378156,
       "likes": 49,
       "dislikes": 3,
       "rating": 4.7,
@@ -6052,7 +6019,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1290736,
+      "views": 1290744,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6239,7 +6206,7 @@
         "free",
         "easy"
       ],
-      "views": 1244959,
+      "views": 1245124,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6388,7 +6355,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1182214,
+      "views": 1182383,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6539,7 +6506,7 @@
         "Script Hub",
         "Roblox Script Hub"
       ],
-      "views": 1335953,
+      "views": 1335954,
       "likes": 13,
       "dislikes": 3,
       "rating": 4.1,
@@ -6578,7 +6545,7 @@
         "Recoil",
         "Keyless"
       ],
-      "views": 1054588,
+      "views": 1054589,
       "likes": 16,
       "dislikes": 8,
       "rating": 3.3,
@@ -7104,7 +7071,7 @@
         "scripthub",
         "universal"
       ],
-      "views": 734220,
+      "views": 734221,
       "likes": 4,
       "dislikes": 3,
       "rating": 2.9,
@@ -7142,7 +7109,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 732976,
+      "views": 732983,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7217,7 +7184,7 @@
         "FE Scripts",
         "Genesis"
       ],
-      "views": 693017,
+      "views": 693020,
       "likes": 16,
       "dislikes": 9,
       "rating": 3.2,
@@ -7255,7 +7222,7 @@
         "FE Scripts",
         "Genesis FE"
       ],
-      "views": 686424,
+      "views": 686425,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -7407,7 +7374,7 @@
         "script",
         "hub"
       ],
-      "views": 630984,
+      "views": 630985,
       "likes": 4,
       "dislikes": 2,
       "rating": 3.3,
@@ -7482,7 +7449,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 609630,
+      "views": 609631,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -7634,7 +7601,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 599588,
+      "views": 599589,
       "likes": 18,
       "dislikes": 9,
       "rating": 3.3,
@@ -7890,7 +7857,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1369590,
+      "views": 1369591,
       "likes": 126,
       "dislikes": 32,
       "rating": 4,
@@ -8151,7 +8118,7 @@
         "best",
         "Op"
       ],
-      "views": 1066130,
+      "views": 1066136,
       "likes": 94,
       "dislikes": 16,
       "rating": 4.3,
@@ -8227,7 +8194,7 @@
         "test",
         "Keyless"
       ],
-      "views": 1046008,
+      "views": 1046009,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -8265,7 +8232,7 @@
         "thunder",
         "client"
       ],
-      "views": 1041270,
+      "views": 1041271,
       "likes": 26,
       "dislikes": 5,
       "rating": 4.2,
@@ -8455,7 +8422,7 @@
         "cheat",
         "fast"
       ],
-      "views": 901104,
+      "views": 901105,
       "likes": 24,
       "dislikes": 5,
       "rating": 4.1,
@@ -8492,7 +8459,7 @@
         "Bladeball",
         "Keyless"
       ],
-      "views": 893747,
+      "views": 893748,
       "likes": 13,
       "dislikes": 8,
       "rating": 3.1,
@@ -8754,7 +8721,7 @@
         "VAELOR",
         "ZORO"
       ],
-      "views": 1138,
+      "views": 1139,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -9104,6 +9071,43 @@
       ]
     },
     {
+      "id": "scriptblox-6ae71ad3b6841b949c05fbc3",
+      "slug": "Universal-Script-universal-script-AIM-SAILENT-ESP-FLY-234579",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-universal-script-AIM-SAILENT-ESP-FLY-234579",
+      "title": "universal script AIM + SILENT + ESP + FLY + TP + Blitz",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1793530579089.png",
+      "author": "1337Scripts",
+      "authorVerified": false,
+      "verified": false,
+      "status": "patched",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "free",
+        "universal",
+        "Keyless"
+      ],
+      "views": 1370,
+      "likes": 2,
+      "dislikes": 0,
+      "summary": "1337 Script [v4] — Key Features 🔥 Combat & Aim: Aimbot 🎯: Precise target tracking with customizable FOV, smoothness, distance checks, and bone selection (Head, Torso, Nearest). Silent Aim 👻: Automatically redirects bullets to targets…",
+      "code": "loadstring(game:HttpGet(\"https://gist.githubusercontent.com/qw1xx25/8c06a137b15d968727e12c170646ae7b/raw/\"))()",
+      "createdAt": "2026-11-01T10:56:19.184Z",
+      "updatedAt": "2026-11-03T17:43:05.712Z",
+      "categoryIds": [
+        "patched"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#B33A3A",
+        "#4A0000"
+      ]
+    },
+    {
       "id": "rscripts-6a242440dd3f1d0cc6966d56",
       "slug": "unlock-infinity-trail-1-speed-c6BY",
       "source": "rscripts",
@@ -9195,7 +9199,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 486366,
+      "views": 486376,
       "likes": 432,
       "dislikes": 115,
       "rating": 3.9,
@@ -9268,7 +9272,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 228085,
+      "views": 228087,
       "likes": 283,
       "dislikes": 42,
       "rating": 4.4,
@@ -9306,7 +9310,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 151804,
+      "views": 151805,
       "likes": 268,
       "dislikes": 64,
       "rating": 4,
@@ -9343,7 +9347,7 @@
       "tags": [
         "Script"
       ],
-      "views": 82121,
+      "views": 82122,
       "likes": 247,
       "dislikes": 4,
       "rating": 4.9,
@@ -9456,7 +9460,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 67868,
+      "views": 67869,
       "likes": 181,
       "dislikes": 58,
       "rating": 3.8,
@@ -9493,7 +9497,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89118,
+      "views": 89119,
       "likes": 167,
       "dislikes": 102,
       "rating": 3.1,
@@ -9530,7 +9534,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 51634,
+      "views": 51635,
       "likes": 151,
       "dislikes": 75,
       "rating": 3.3,
@@ -9696,6 +9700,41 @@
       ]
     },
     {
+      "id": "rscripts-6aff0ebfaba7423b5a266b58",
+      "slug": "keyless-dupe-script-d8Jv",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/keyless-dupe-script-d8Jv",
+      "title": "[KEYLESS] Dupe Script",
+      "game": "[❄️💫CHRISTMAS] Anime Adventures",
+      "gameImage": "https://rscripts.net/assets/games/8304191830-thumb-3a791889a8e6b449.webp",
+      "author": "Yunelle",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 17,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "🔥 ANIME ADVENTURES DUPE SCRIPT 🔥 The Ultimate Duplication Experience! Introducing the Anime Adventures Dupe Script, a powerful script designed to bring a new level of convenience to your Anime Adventures gameplay! ⚡ FEATURES: - Item Du…",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/Roblox-Script-Web/AnimeAdventure-Duper/refs/heads/main/NonVisual\"))()",
+      "createdAt": "2026-11-20T15:15:58.222Z",
+      "updatedAt": "2026-11-19T15:00:59.351Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "fruit",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "rscripts-6b004f2de25a522199d9df68",
       "slug": "aimbot-prediction-no-recoil-fast-reload-rapid-fire-chams-GQQw",
       "source": "rscripts",
@@ -9714,7 +9753,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 7,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "Aimbot &amp; Silent Aim Aimbot Camera Lock Adjustable Smoothness Prediction Customizable FOV Silent Aim 360° Targeting Sniper Drop Compensation 🔫 Weapon Mods No Recoil No Spread Fast Reload Rapid Fire Triggerbot (Auto Fire) 👁 ESP &amp;…",
@@ -9749,7 +9788,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 16,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "Join our Discord for updates, support and keys: https://discord.gg/ghshhXdEu2 (you need to join the Discord to get a key) Features Target Selection modes: nearest, lowest health, closest to crosshair FOV circle, max distance, team check,…",
@@ -9784,7 +9823,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 63,
+      "views": 64,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -9820,7 +9859,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 16,
+      "views": 22,
       "likes": 1,
       "dislikes": 0,
       "summary": "ULT Hub Auto Farm Auto Pearl Free Unique Keyless",
@@ -9890,7 +9929,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 37,
+      "views": 39,
       "likes": 0,
       "dislikes": 0,
       "summary": "-- Auto Train - Automatically trains to earn XP. -- Auto Upgrade Stand - Automatically upgrades the training stand. -- Auto Training Bonus - Automatically collects training bonuses. -- Fast Training - Speeds up training animations. -- Tr…",
@@ -9925,7 +9964,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 34,
+      "views": 36,
       "likes": 1,
       "dislikes": 0,
       "summary": "Main Auto Farm 2x Train Auto Upgrade Training Bench Shop Auto Buy Bow Sell All",
@@ -9960,7 +9999,7 @@
       "tags": [
         "Script"
       ],
-      "views": 26,
+      "views": 27,
       "likes": 1,
       "dislikes": 0,
       "summary": "AUTOPLAY FEATURES NEVER MISS 100% ACCURACY TOGGLE BUTTON CUSTOMIZABLE KEYBIND SLEEK MENU",
@@ -9995,7 +10034,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 25,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "Join the discord for updates and direct key link, optional but recommended. Premium extended keys available, more games coming to the script hub! Auto Farming Automated Customer Jobs Junkyard Car Sniper ( Serverhopper + Rare Colors ) Veh…",
@@ -10030,7 +10069,7 @@
       "tags": [
         "Script"
       ],
-      "views": 38,
+      "views": 41,
       "likes": 0,
       "dislikes": 0,
       "summary": "Shoot Arrows For Animals Script Auto Farm 2x Train Upgrade Bench Auto Buy Bow Sell All",
@@ -10065,7 +10104,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 120,
+      "views": 128,
       "likes": 1,
       "dislikes": 0,
       "summary": "All Functions: Automation › Mining Auto Mine Automatic Tool Swing Rock Type Selection Mining Zone Selection Custom Ore Filters Revealed Ore Filtering Adjustable Search Range Custom Mining Depth &amp; Speed Player Avoidance Fight Nearby M…",
@@ -10135,7 +10174,7 @@
       "tags": [
         "Script"
       ],
-      "views": 42,
+      "views": 47,
       "likes": 1,
       "dislikes": 0,
       "summary": "UPDATED ALL FEATURES AND Uİ HAVE FUN",
@@ -10170,7 +10209,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 76,
+      "views": 78,
       "likes": 1,
       "dislikes": 0,
       "summary": "7ssssssssssssssssssssss31 Work",
@@ -10205,48 +10244,13 @@
       "tags": [
         "Mobile"
       ],
-      "views": 55,
+      "views": 58,
       "likes": 0,
       "dislikes": 0,
       "summary": "Combat Fast Auto Punch ( Kill Aura ) Kill Aura Reach Slider Auto Face Target Camlock ( Key: C + Mobile Lock Pill) Auto Weave Aura Auto Stomp / Slam Infinite Stamina Safe Anti-Ragdoll Hitbox Expander Hitbox Size Slider Ignore Friends Low-…",
       "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nloadstring(game:HttpGet(\"https://gist.githubusercontent.com/raw/667bd818e5c2f5ef271c016491afb4f4/l_a575ae.lua\", true))()",
       "createdAt": "2026-11-20T10:52:17.372Z",
       "updatedAt": "2026-11-20T09:38:51.442Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b0021f3e6ec517877b43197",
-      "slug": "opensrc-basic-violence-district-helper-3Zz7",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/opensrc-basic-violence-district-helper-3Zz7",
-      "title": "[OPENSRC]  Basic Violence District Helper",
-      "game": "Violence District",
-      "gameImage": "https://rscripts.net/assets/games/93978595733734-thumb-6f18274a06d4f111.webp",
-      "author": "deca",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 63,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "esp, auto solve trap, auto generator, and some basic stuff",
-      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nlocal Players             = game:GetService(\"Players\")\r\nlocal RunService          = game:GetService(\"RunService\")\r\nlocal CoreGui             = game:GetService(\"CoreGui\")\r\nlocal UserInputService    = game:GetService(\"UserInputService\")\r\nlocal Workspace           = game:GetService(\"Workspace\")\r\nlocal ReplicatedStorage   = game:GetService(\"ReplicatedStorage\")\r\nlocal VirtualInputManager = game:GetService(\"VirtualInputManager\")\r\nlocal TweenService        = game:GetService(\"TweenService\")\r\n\r\nlocal player = Players.LocalPlayer\r\nlocal camera = Workspace.CurrentCamera\r\nlocal env    = getgenv()\r\n\r\nif env.VD_Cleanup then pcall(env.VD_Cleanup) end\r\nfor _, name in ipairs({ \"CustomScriptGUI\", \"VDInterface\" }) do\r\n    local old = CoreGui:FindFirstChild(name)\r\n    if old then old:Destroy() end\r\nend\r\nif env.Violence2DESPConn then pcall(function() env.Violence2DESPConn:Disconnect() end) end\r\nif env.ViolenceDrawings then\r\n    for _, d in pairs(env.ViolenceDrawings) do pcall(function() d:Remove() end) end\r\nend\r\nenv.ViolenceDrawings = nil\r\n\r\nlocal connections, drawings = {}, {}\r\nlocal gui\r\n\r\nlocal function connect(signal, fn)\r\n    local c = signal:Connect(fn)\r\n    connections[#connections + 1] = c\r\n    return c\r\nend\r\n\r\nlocal alive = true\r\nenv.VD_Cleanup = function()\r\n    alive = false\r\n    for _, c in ipairs(connections) do pcall(function() c:Disconnect() end) end\r\n    for d in pairs(drawings) do pcall(function() d:Remove() end) end\r\n    if gui then pcall(function() gui:Destroy() end) end\r\nend\r\n\r\nlocal cfg = {\r\n    KillerESP     = false,\r\n    SurvivorESP   = false,\r\n    GeneratorESP  = false,\r\n    PumpkinESP    = false,\r\n    Tracers       = false,\r\n    MaxDistance   = 1000,\r\n    AutoGenerator = false,\r\n    AutoSolveTrap = false,\r\n}\r\n\r\nlocal hidden = false\r\n\r\nlocal floor, clamp, max, min = math.floor, math.clamp, math.max, math.min\r\n\r\nlocal function newDrawing(class, props)\r\n    local d = Drawing.new(class)\r\n    for k, v in pairs(props) do d[k] = v end\r\n    drawings[d] = true\r\n    return d\r\nend\r\n\r\nlocal function killDrawing(d)\r\n    drawings[d] = nil\r\n    pcall(function() d:Remove() end)\r\nend\r\n\r\nlocal COLORS = {\r\n    Killer   = Color3.fromRGB(255, 82, 82),\r\n    Survivor = Color3.fromRGB(120, 200, 255),\r\n    Pumpkin  = Color3.fromRGB(255, 150, 40),\r\n    GenLow   = Color3.fromRGB(255, 200, 60),\r\n    GenHigh  = Color3.fromRGB(100, 225, 130),\r\n    Black    = Color3.new(0, 0, 0),\r\n    HpLow    = Color3.fromRGB(255, 70, 70),\r\n    HpHigh   = Color3.fromRGB(90, 230, 120),\r\n}\r\n\r\nlocal HEAD_OFFSET = Vector3.new(0, 2.8, 0)\r\nlocal FEET_OFFSET = Vector3.new(0, 3.2, 0)\r\n\r\nlocal ESP = { players = {}, gens = {}, pumpkins = {} }\r\n\r\nlocal function createPlayerEntry(plr)\r\n    local e = {\r\n        plr = plr,\r\n        label = plr.Name,\r\n        shown = false,\r\n        isKiller = false,\r\n        box    = newDrawing(\"Square\", { Thickness = 1, Filled = false, Visible = false }),\r\n        hpBack = newDrawing(\"Line\",   { Thickness = 4, Color = COLORS.Black, Transparency = 0.6, Visible = false }),\r\n        hpBar  = newDrawing(\"Line\",   { Thickness = 2, Visible = false }),\r\n        name   = newDrawing(\"Text\",   { Size = 13, Center = true, Outline = true, Font = 2, Visible = false }),\r\n        info   = newDrawing(\"Text\",   { Size = 12, Center = true, Outline = true, Font = 2, Visible = false }),\r\n        tracer = newDrawing(\"Line\",   { Thickness = 1, Transparency = 0.7, Visible = false }),\r\n    }\r\n    e.all = { e.box, e.hpBack, e.hpBar, e.name, e.info, e.tracer }\r\n    ESP.players[plr] = e\r\n    return e\r\nend\r\n\r\nlocal function destroyPlayerEntry(plr)\r\n    local e = ESP.players[plr]\r\n    if not e then return end\r\n    for _, d in ipairs(e.all) do killDrawing(d) end\r\n    ESP.players[plr] = nil\r\nend\r\n\r\nlocal function hideEntry(e)\r\n    if e.shown then\r\n        e.shown = false\r\n        for _, d in ipairs(e.all) do d.Visible = false end\r\n    end\r\nend\r\n\r\nlocal function createLabelEntry(extra)\r\n    local e = {\r\n        shown = false,\r\n        text = newDrawing(\"Text\", { Size = 13, Center = true, Outline = true, Font = 2, Visible = false }),\r\n    }\r\n    for k, v in pairs(extra) do e[k] = v end\r\n    return e\r\nend\r\n\r\nlocal function destroyLabelEntry(e) killDrawing(e.text) end\r\n\r\nlocal function hideLabel(e)\r\n    if e.shown then\r\n        e.shown = false\r\n        e.text.Visible = false\r\n    end\r\nend\r\n\r\nlocal function clearTable(t, destroyFn)\r\n    for k, e in pairs(t) do\r\n        destroyFn(e)\r\n        t[k] = nil\r\n    end\r\nend\r\n\r\nlocal function hideAllESP()\r\n    for _, e in pairs(ESP.players) do hideEntry(e) end\r\n    for _, e in pairs(ESP.gens) do hideLabel(e) end\r\n    for _, e in pairs(ESP.pumpkins) do hideLabel(e) end\r\nend\r\n\r\nlocal function isKillerPlayer(plr, char)\r\n    if char and char:FindFirstChild(\"Killer\") then return true end\r\n    if plr:FindFirstChild(\"Killer\") then return true end\r\n    local team = plr.Team\r\n    return team ~= nil and team.Name:lower():find(\"killer\") ~= nil\r\nend\r\n\r\nlocal function scanPlayers()\r\n    if not (cfg.KillerESP or cfg.SurvivorESP) then\r\n        for plr in pairs(ESP.players) do destroyPlayerEntry(plr) end\r\n        return\r\n    end\r\n    for _, plr in ipairs(Players:GetPlayers()) do\r\n        if plr ~= player then\r\n            local e = ESP.players[plr] or createPlayerEntry(plr)\r\n            local char = plr.Character\r\n            e.char = char\r\n            e.hrp  = char and char:FindFirstChild(\"HumanoidRootPart\")\r\n            e.hum  = char and char:FindFirstChildOfClass(\"Humanoid\")\r\n            e.isKiller = isKillerPlayer(plr, char)\r\n        end\r\n    end\r\nend\r\n\r\nlocal function scanWorld()\r\n    local map = Workspace:FindFirstChild(\"Map\")\r\n\r\n    if cfg.GeneratorESP and map then\r\n        local folder = map:FindFirstChild(\"new Generators\")\r\n        local seen = {}\r\n        if folder then\r\n            for _, gen in ipairs(folder:GetChildren()) do\r\n                seen[gen] = true\r\n                if not ESP.gens[gen] then\r\n                    local part = gen:FindFirstChild(\"GeneratorBody\")\r\n                        or gen:FindFirstChild(\"HitBox\")\r\n                        or gen:FindFirstChild(\"RootPart\")\r\n                    if part and part:IsA(\"BasePart\") then\r\n                        ESP.gens[gen] = createLabelEntry({ part = part })\r\n                    end\r\n                end\r\n            end\r\n        end\r\n        for gen, e in pairs(ESP.gens) do\r\n            if not seen[gen] then destroyLabelEntry(e); ESP.gens[gen] = nil end\r\n        end\r\n    else\r\n        clearTable(ESP.gens, destroyLabelEntry)\r\n    end\r\n\r\n    if cfg.PumpkinESP and map then\r\n        local folder = map:FindFirstChild(\"Pumpkins\")\r\n        local seen = {}\r\n        if folder then\r\n            for _, pumpkin in ipairs(folder:GetChildren()) do\r\n                if pumpkin:IsA(\"PVInstance\") then\r\n                    local available = false\r\n                    for _, part in ipairs(pumpkin:GetChildren()) do\r\n                        if (part.Name == \"shell\" or part.Name == \"inside\")\r\n                            and part:IsA(\"BasePart\") and part.Transparency < 1 then\r\n                            available = true\r\n                            break\r\n                        end\r\n                    end\r\n                    if available then\r\n                        seen[pumpkin] = true\r\n                        if not ESP.pumpkins[pumpkin] then\r\n                            ESP.pumpkins[pumpkin] = createLabelEntry({ inst = pumpkin })\r\n                        end\r\n                    end\r\n                end\r\n            end\r\n        end\r\n        for pumpkin, e in pairs(ESP.pumpkins) do\r\n            if not seen[pumpkin] then destroyLabelEntry(e); ESP.pumpkins[pumpkin] = nil end\r\n        end\r\n    else\r\n        clearTable(ESP.pumpkins, destroyLabelEntry)\r\n    end\r\nend\r\n\r\ntask.spawn(function()\r\n    while alive do\r\n        pcall(scanPlayers)\r\n        pcall(scanWorld)\r\n        task.wait(0.3)\r\n    end\r\nend)\r\n\r\nconnect(Players.PlayerRemoving, function(plr) destroyPlayerEntry(plr) end)\r\n\r\nlocal function drawLabel(e, pos, text, color)\r\n    local v = camera:WorldToViewportPoint(pos)\r\n    if v.Z <= 0 then\r\n        hideLabel(e)\r\n        return\r\n    end\r\n    local t = e.text\r\n    if e.last ~= text then t.Text = text; e.last = text end\r\n    if e.color ~= color then t.Color = color; e.color = color end\r\n    t.Position = Vector2.new(floor(v.X), floor(v.Y) - 7)\r\n    if not e.shown then t.Visible = true; e.shown = true end\r\nend\r\n\r\nconnect(RunService.RenderStepped, function()\r\n    if hidden then return end\r\n    camera = Workspace.CurrentCamera\r\n    if not camera then return end\r\n\r\n    local camPos  = camera.CFrame.Position\r\n    local vp      = camera.ViewportSize\r\n    local maxDist = cfg.MaxDistance\r\n\r\n    for _, e in pairs(ESP.players) do\r\n        local isK = e.isKiller\r\n        local hrp, hum = e.hrp, e.hum\r\n        local enabled = (isK and cfg.KillerESP) or (not isK and cfg.SurvivorESP)\r\n\r\n        if not enabled or not hrp or not hum or hrp.Parent == nil or hum.Health <= 0 then\r\n            hideEntry(e)\r\n            continue\r\n        end\r\n\r\n        local pos = hrp.Position\r\n        local dist = (pos - camPos).Magnitude\r\n        if dist > maxDist then\r\n            hideEntry(e)\r\n            continue\r\n        end\r\n\r\n        local top = camera:WorldToViewportPoint(pos + HEAD_OFFSET)\r\n        local bot = camera:WorldToViewportPoint(pos - FEET_OFFSET)\r\n        if top.Z <= 0 or bot.Z <= 0 then\r\n            hideEntry(e)\r\n            continue\r\n        end\r\n\r\n        local h = floor(bot.Y - top.Y)\r\n        if h < 6 then\r\n            hideEntry(e)\r\n            continue\r\n        end\r\n        local w = floor(h * 0.55)\r\n        local x, y = floor(top.X - w / 2), floor(top.Y)\r\n        local cx = x + w / 2\r\n\r\n        local color = isK and COLORS.Killer or COLORS.Survivor\r\n        if e.color ~= color then\r\n            e.color = color\r\n            e.box.Color, e.name.Color, e.info.Color, e.tracer.Color = color, color, color, color\r\n        end\r\n\r\n        e.box.Size = Vector2.new(w, h)\r\n        e.box.Position = Vector2.new(x, y)\r\n\r\n        local ratio = clamp(hum.Health / max(hum.MaxHealth, 1), 0, 1)\r\n        local hx = x - 5\r\n        e.hpBack.From = Vector2.new(hx, y - 1)\r\n        e.hpBack.To   = Vector2.new(hx, y + h + 1)\r\n        e.hpBar.From  = Vector2.new(hx, y + h)\r\n        e.hpBar.To    = Vector2.new(hx, y + h - floor(h * ratio))\r\n        e.hpBar.Color = COLORS.HpLow:Lerp(COLORS.HpHigh, ratio)\r\n\r\n        local nameText = isK and (\"KILLER  \" .. e.label) or e.label\r\n        if e.nameText ~= nameText then e.name.Text = nameText; e.nameText = nameText end\r\n        e.name.Position = Vector2.new(cx, y - 16)\r\n\r\n        local infoText = floor(dist) .. \"m\"\r\n        if e.infoText ~= infoText then e.info.Text = infoText; e.infoText = infoText end\r\n        e.info.Position = Vector2.new(cx, y + h + 2)\r\n\r\n        if cfg.Tracers then\r\n            e.tracer.From = Vector2.new(vp.X / 2, vp.Y)\r\n            e.tracer.To   = Vector2.new(cx, y + h)\r\n        end\r\n        e.tracer.Visible = cfg.Tracers\r\n\r\n        if not e.shown then\r\n            e.shown = true\r\n            e.box.Visible, e.hpBack.Visible, e.hpBar.Visible = true, true, true\r\n            e.name.Visible, e.info.Visible = true, true\r\n        end\r\n    end\r\n\r\n    for gen, e in pairs(ESP.gens) do\r\n        local part = e.part\r\n        if not cfg.GeneratorESP or part.Parent == nil then\r\n            hideLabel(e)\r\n        else\r\n            local pos = part.Position\r\n            local dist = floor((pos - camPos).Magnitude)\r\n            if dist > maxDist then\r\n                hideLabel(e)\r\n            else\r\n                local prog = floor(gen:GetAttribute(\"RepairProgress\") or 0)\r\n                local text = prog >= 100\r\n                    and string.format(\"Generator - Done - %dm\", dist)\r\n                    or  string.format(\"Generator - %d%% - %dm\", prog, dist)\r\n                local color = prog >= 100 and COLORS.GenHigh\r\n                    or COLORS.GenLow:Lerp(COLORS.GenHigh, clamp(prog / 100, 0, 1))\r\n                drawLabel(e, pos, text, color)\r\n            end\r\n        end\r\n    end\r\n\r\n    for pumpkin, e in pairs(ESP.pumpkins) do\r\n        if not cfg.PumpkinESP or pumpkin.Parent == nil then\r\n            hideLabel(e)\r\n        else\r\n            local pos = pumpkin:GetPivot().Position\r\n            local dist = floor((pos - camPos).Magnitude)\r\n            if dist > maxDist then\r\n                hideLabel(e)\r\n            else\r\n                drawLabel(e, pos, string.format(\"Pumpkin - %dm\", dist), COLORS.Pumpkin)\r\n            end\r\n        end\r\n    end\r\nend)\r\n\r\nlocal Remotes = ReplicatedStorage:FindFirstChild(\"Remotes\")\r\n\r\nlocal function getRemote(...)\r\n    local inst = Remotes\r\n    for _, name in ipairs({ ... }) do\r\n        inst = inst and inst:FindFirstChild(name)\r\n    end\r\n    return inst\r\nend\r\n\r\nlocal function fire(remote, ...)\r\n    if remote then pcall(remote.FireServer, remote, ...) end\r\nend\r\n\r\nlocal lastCheck = { source = nil, args = nil }\r\n\r\nfor _, source in ipairs({ \"Generator\", \"Healing\" }) do\r\n    local ev = getRemote(source, \"SkillCheckEvent\")\r\n    if ev then\r\n        connect(ev.OnClientEvent, function(args)\r\n            lastCheck.source = source\r\n            lastCheck.args = args\r\n        end)\r\n    end\r\nend\r\n\r\nlocal function inWindow(line, goal)\r\n    local diff = (line.Rotation - goal.Rotation) % 360\r\n    return diff >= 102 and diff <= 116\r\nend\r\n\r\nlocal function pressSpace()\r\n    task.spawn(function()\r\n        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Space, false, game)\r\n        task.wait(0.04)\r\n        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Space, false, game)\r\n    end)\r\nend\r\n\r\nlocal lastFire = 0\r\n\r\nconnect(RunService.RenderStepped, function()\r\n    if hidden then return end\r\n    if not (cfg.AutoGenerator or cfg.AutoSolveTrap) then return end\r\n    if tick() - lastFire < 0.4 then return end\r\n\r\n    local pg = player:FindFirstChild(\"PlayerGui\")\r\n    local prompt = pg and pg:FindFirstChild(\"SkillCheckPromptGui\")\r\n    local check = prompt and prompt:FindFirstChild(\"Check\")\r\n    if not check or not check.Visible then return end\r\n\r\n    local line = check:FindFirstChild(\"Line\")\r\n    if not line then return end\r\n\r\n    local trapGoal    = check:FindFirstChild(\"TrapGoal\")\r\n    local trapPerfect = check:FindFirstChild(\"TrapPerfect\")\r\n    local perfectOn   = trapPerfect and trapPerfect.Visible\r\n    local trapOn      = perfectOn or (trapGoal and trapGoal.Visible)\r\n\r\n    if trapOn then\r\n        if not cfg.AutoSolveTrap then return end\r\n        local target = perfectOn and trapPerfect or trapGoal\r\n        if inWindow(line, target) then\r\n            lastFire = tick()\r\n            fire(getRemote(\"Killers\", \"Butcher\", \"TrapSkillResult\"), \"success\")\r\n            fire(getRemote(\"Killers\", \"Butcher\", \"FreeTrap\"))\r\n            pressSpace()\r\n        end\r\n    else\r\n        if not cfg.AutoGenerator then return end\r\n        local goal = check:FindFirstChild(\"Goal\")\r\n        if goal and inWindow(line, goal) then\r\n            lastFire = tick()\r\n            local src = lastCheck.source\r\n            if src then\r\n                fire(getRemote(src, \"SkillCheckResultEvent\"), \"success\", 1, lastCheck.args)\r\n            else\r\n                fire(getRemote(\"Generator\", \"SkillCheckResultEvent\"), \"success\", 1, lastCheck.args)\r\n                fire(getRemote(\"Healing\", \"SkillCheckResultEvent\"), \"success\", 1, lastCheck.args)\r\n            end\r\n            pressSpace()\r\n        end\r\n    end\r\nend)\r\n\r\nlocal Theme = {\r\n    RowOff      = Color3.fromRGB(206, 211, 220),\r\n    RowOn       = Color3.fromRGB(34, 36, 42),\r\n    RowOffT     = 0.5,\r\n    RowOnT      = 0.08,\r\n    HoverDelta  = 0.12,\r\n    Text        = Color3.fromRGB(28, 30, 36),\r\n    OnText      = Color3.fromRGB(255, 255, 255),\r\n    IconOff     = Color3.fromRGB(62, 66, 76),\r\n    SubText     = Color3.fromRGB(112, 118, 130),\r\n    Stroke      = Color3.fromRGB(190, 196, 206),\r\n    FontRegular = Enum.Font.BuilderSans,\r\n    FontMedium  = Enum.Font.BuilderSansMedium,\r\n    FontBold    = Enum.Font.BuilderSansBold,\r\n}\r\n\r\nlocal isTouch = UserInputService.TouchEnabled\r\nlocal hasMouse = UserInputService.MouseEnabled\r\n\r\nlocal function create(class, props)\r\n    local inst = Instance.new(class)\r\n    for k, v in pairs(props) do\r\n        if k ~= \"Parent\" then inst[k] = v end\r\n    end\r\n    inst.Parent = props.Parent\r\n    return inst\r\nend\r\n\r\nlocal function corner(parent, r)\r\n    return create(\"UICorner\", { CornerRadius = UDim.new(0, r), Parent = parent })\r\nend\r\n\r\nlocal function tween(obj, time, props)\r\n    TweenService:Create(obj, TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), props):Play()\r\nend\r\n\r\nlocal guiParent = (gethui and gethui()) or CoreGui\r\ngui = create(\"ScreenGui\", {\r\n    Name = \"VDInterface\", ResetOnSpawn = false, IgnoreGuiInset = true,\r\n    ZIndexBehavior = Enum.ZIndexBehavior.Sibling, Parent = guiParent,\r\n})\r\n\r\nlocal toastHolder = create(\"Frame\", {\r\n    AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.new(0.5, 0, 0, 12),\r\n    Size = UDim2.fromOffset(220, 0), AutomaticSize = Enum.AutomaticSize.Y,\r\n    BackgroundTransparency = 1, Parent = gui,\r\n})\r\ncreate(\"UIListLayout\", {\r\n    SortOrder = Enum.SortOrder.LayoutOrder,\r\n    HorizontalAlignment = Enum.HorizontalAlignment.Center,\r\n    Padding = UDim.new(0, 5), Parent = toastHolder,\r\n})\r\n\r\nlocal function notify(text, on)\r\n    task.spawn(function()\r\n        local toast = create(\"Frame\", {\r\n            Size = UDim2.fromOffset(210, 34), BackgroundColor3 = Color3.fromRGB(250, 251, 253),\r\n            BackgroundTransparency = 1, BorderSizePixel = 0, Parent = toastHolder,\r\n        })\r\n        corner(toast, 8)\r\n        local stroke = create(\"UIStroke\", {\r\n            Color = Theme.Stroke, Transparency = 1, Thickness = 1,\r\n            ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = toast,\r\n        })\r\n        local label = create(\"TextLabel\", {\r\n            Size = UDim2.new(1, -70, 1, 0), Position = UDim2.new(0, 14, 0, 0),\r\n            BackgroundTransparency = 1, Font = Theme.FontMedium, TextSize = 14,\r\n            TextColor3 = Theme.Text, TextXAlignment = Enum.TextXAlignment.Left,\r\n            TextTransparency = 1, Text = text, Parent = toast,\r\n        })\r\n        local state = create(\"TextLabel\", {\r\n            Size = UDim2.new(0, 40, 1, 0), Position = UDim2.new(1, -54, 0, 0),\r\n            BackgroundTransparency = 1, Font = Theme.FontMedium, TextSize = 13,\r\n            TextColor3 = on and Theme.Text or Theme.SubText,\r\n            TextXAlignment = Enum.TextXAlignment.Right, TextTransparency = 1,\r\n            Text = on and \"On\" or \"Off\", Parent = toast,\r\n        })\r\n        tween(toast, 0.2, { BackgroundTransparency = 0.1 })\r\n        tween(stroke, 0.2, { Transparency = 0.3 })\r\n        tween(label, 0.2, { TextTransparency = 0 })\r\n        tween(state, 0.2, { TextTransparency = 0 })\r\n        task.wait(2)\r\n        tween(toast, 0.25, { BackgroundTransparency = 1 })\r\n        tween(stroke, 0.25, { Transparency = 1 })\r\n        tween(label, 0.25, { TextTransparency = 1 })\r\n        tween(state, 0.25, { TextTransparency = 1 })\r\n        task.wait(0.3)\r\n        toast:Destroy()\r\n    end)\r\nend\r\n\r\nlocal WIDTH, HEADER_H, ROW_H, GAP, ROWS = 372, 156, 40, 5, 6\r\nlocal HEIGHT = HEADER_H + 2 + ROWS * ROW_H + (ROWS - 1) * GAP + 16\r\n\r\nlocal window = create(\"Frame\", {\r\n    Name = \"Window\", Active = true,\r\n    AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5),\r\n    Size = UDim2.fromOffset(WIDTH, HEIGHT),\r\n    BackgroundColor3 = Color3.new(1, 1, 1), BackgroundTransparency = 0.18,\r\n    BorderSizePixel = 0, Parent = gui,\r\n})\r\ncorner(window, 18)\r\ncreate(\"UIStroke\", {\r\n    Color = Theme.Stroke, Transparency = 0.35, Thickness = 1,\r\n    ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = window,\r\n})\r\ncreate(\"UIGradient\", {\r\n    Rotation = 90,\r\n    Color = ColorSequence.new({\r\n        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),\r\n        ColorSequenceKeypoint.new(1, Color3.fromRGB(228, 232, 240)),\r\n    }),\r\n    Parent = window,\r\n})\r\nlocal uiScale = create(\"UIScale\", { Parent = window })\r\n\r\nlocal function updateScale()\r\n    local vp = gui.AbsoluteSize\r\n    if vp.X <= 0 or vp.Y <= 0 then return end\r\n    uiScale.Scale = clamp(min((vp.X - 24) / WIDTH, (vp.Y - 24) / HEIGHT, 1), 0.45, 1)\r\nend\r\n\r\nlocal function placeAt(target, topLeft)\r\n    local vp = gui.AbsoluteSize\r\n    local size = target.AbsoluteSize\r\n    local x = clamp(topLeft.X, 0, max(vp.X - size.X, 0))\r\n    local y = clamp(topLeft.Y, 0, max(vp.Y - size.Y, 0))\r\n    local ap = target.AnchorPoint\r\n    local pos = target.Position\r\n    target.Position = UDim2.new(\r\n        pos.X.Scale, x + size.X * ap.X - vp.X * pos.X.Scale,\r\n        pos.Y.Scale, y + size.Y * ap.Y - vp.Y * pos.Y.Scale\r\n    )\r\nend\r\n\r\nlocal function isPointer(input)\r\n    return input.UserInputType == Enum.UserInputType.MouseButton1\r\n        or input.UserInputType == Enum.UserInputType.Touch\r\nend\r\n\r\nlocal function makeDraggable(handle, target, onTap)\r\n    local dragging, dragInput, dragStart, startAbs, moved = false, nil, nil, nil, false\r\n\r\n    connect(handle.InputBegan, function(input)\r\n        if isPointer(input) then\r\n            dragging = true\r\n            moved = false\r\n            dragInput = input\r\n            dragStart = input.Position\r\n            startAbs = target.AbsolutePosition\r\n        end\r\n    end)\r\n\r\n    connect(UserInputService.InputChanged, function(input)\r\n        if not dragging then return end\r\n        local valid\r\n        if dragInput.UserInputType == Enum.UserInputType.Touch then\r\n            valid = input == dragInput\r\n        else\r\n            valid = input.UserInputType == Enum.UserInputType.MouseMovement\r\n        end\r\n        if not valid then return end\r\n        local d = input.Position - dragStart\r\n        if d.Magnitude > 6 then moved = true end\r\n        if moved then\r\n            placeAt(target, startAbs + Vector2.new(d.X, d.Y))\r\n        end\r\n    end)\r\n\r\n    connect(UserInputService.InputEnded, function(input)\r\n        if not dragging then return end\r\n        local ended\r\n        if dragInput.UserInputType == Enum.UserInputType.Touch then\r\n            ended = input == dragInput\r\n        else\r\n            ended = input.UserInputType == dragInput.UserInputType\r\n        end\r\n        if not ended then return end\r\n        dragging = false\r\n        if not moved and onTap then onTap() end\r\n    end)\r\nend\r\n\r\nlocal header = create(\"Frame\", {\r\n    Size = UDim2.new(1, 0, 0, HEADER_H), BackgroundTransparency = 1, Parent = window,\r\n})\r\n\r\nlocal ring = create(\"Frame\", {\r\n    Size = UDim2.fromOffset(76, 76), Position = UDim2.new(0.5, -38, 0, 14),\r\n    BackgroundColor3 = Color3.new(1, 1, 1), BackgroundTransparency = 0.3,\r\n    BorderSizePixel = 0, Parent = header,\r\n})\r\ncorner(ring, 38)\r\ncreate(\"UIStroke\", {\r\n    Color = Theme.Stroke, Transparency = 0.2, Thickness = 1,\r\n    ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = ring,\r\n})\r\n\r\nlocal avatar = create(\"ImageLabel\", {\r\n    Size = UDim2.fromOffset(62, 62), Position = UDim2.new(0.5, -31, 0.5, -31),\r\n    BackgroundColor3 = Color3.fromRGB(200, 206, 214), BorderSizePixel = 0,\r\n    Image = \"\", Parent = ring,\r\n})\r\ncorner(avatar, 31)\r\n\r\ntask.spawn(function()\r\n    local ok, img = pcall(Players.GetUserThumbnailAsync, Players, player.UserId,\r\n        Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size150x150)\r\n    if ok and avatar.Parent then avatar.Image = img end\r\nend)\r\n\r\ncreate(\"TextLabel\", {\r\n    Size = UDim2.new(1, -24, 0, 22), Position = UDim2.new(0, 12, 0, 94),\r\n    BackgroundTransparency = 1, Font = Theme.FontBold, TextSize = 19,\r\n    TextColor3 = Theme.Text, Text = player.DisplayName, Parent = header,\r\n})\r\ncreate(\"TextLabel\", {\r\n    Size = UDim2.new(1, -24, 0, 14), Position = UDim2.new(0, 12, 0, 118),\r\n    BackgroundTransparency = 1, Font = Theme.FontRegular, TextSize = 12,\r\n    TextColor3 = Theme.SubText, Text = \"@\" .. player.Name, Parent = header,\r\n})\r\ncreate(\"TextLabel\", {\r\n    Size = UDim2.new(1, -24, 0, 14), Position = UDim2.new(0, 12, 0, 132),\r\n    BackgroundTransparency = 1, Font = Theme.FontRegular, TextSize = 12,\r\n    TextColor3 = Theme.SubText, Text = tostring(player.UserId), Parent = header,\r\n})\r\n\r\nmakeDraggable(header, window)\r\n\r\nlocal list = create(\"Frame\", {\r\n    Size = UDim2.new(1, 0, 1, -HEADER_H), Position = UDim2.new(0, 0, 0, HEADER_H),\r\n    BackgroundTransparency = 1, Parent = window,\r\n})\r\ncreate(\"UIPadding\", {\r\n    PaddingLeft = UDim.new(0, 14), PaddingRight = UDim.new(0, 14),\r\n    PaddingTop = UDim.new(0, 2), PaddingBottom = UDim.new(0, 16), Parent = list,\r\n})\r\ncreate(\"UIListLayout\", {\r\n    SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, GAP), Parent = list,\r\n})\r\n\r\nlocal order = 0\r\nlocal function nextOrder() order += 1 return order end\r\n\r\nlocal CENTER = Vector2.new(0.5, 0.5)\r\n\r\nlocal function solid(holder, reg, w, h, ox, oy, rot, radius)\r\n    local f = create(\"Frame\", {\r\n        AnchorPoint = CENTER, Position = UDim2.new(0.5, ox or 0, 0.5, oy or 0),\r\n        Size = UDim2.fromOffset(w, h), Rotation = rot or 0,\r\n        BackgroundColor3 = Theme.IconOff, BorderSizePixel = 0, Parent = holder,\r\n    })\r\n    if radius then corner(f, radius) end\r\n    reg[#reg + 1] = { f, \"BackgroundColor3\" }\r\nend\r\n\r\nlocal function outline(holder, reg, w, h, ox, oy, radius, rot)\r\n    local f = create(\"Frame\", {\r\n        AnchorPoint = CENTER, Position = UDim2.new(0.5, ox or 0, 0.5, oy or 0),\r\n        Size = UDim2.fromOffset(w, h), Rotation = rot or 0,\r\n        BackgroundTransparency = 1, BorderSizePixel = 0, Parent = holder,\r\n    })\r\n    corner(f, radius or 0)\r\n    local s = create(\"UIStroke\", {\r\n        Color = Theme.IconOff, Thickness = 1.5,\r\n        ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = f,\r\n    })\r\n    reg[#reg + 1] = { s, \"Color\" }\r\nend\r\n\r\nlocal Icons = {\r\n    cross = function(h, r)\r\n        solid(h, r, 16, 1.6, 0, 0, 45)\r\n        solid(h, r, 16, 1.6, 0, 0, -45)\r\n    end,\r\n    target = function(h, r)\r\n        outline(h, r, 14, 14, 0, 0, 7)\r\n        solid(h, r, 4, 4, 0, 0, 0, 2)\r\n    end,\r\n    ban = function(h, r)\r\n        outline(h, r, 14, 14, 0, 0, 7)\r\n        solid(h, r, 15, 1.6, 0, 0, -45)\r\n    end,\r\n    box = function(h, r)\r\n        outline(h, r, 12, 15, 0, 0, 2)\r\n    end,\r\n    person = function(h, r)\r\n        outline(h, r, 6, 6, 0, -5, 3)\r\n        outline(h, r, 13, 7, 0, 5, 4)\r\n    end,\r\n    bars = function(h, r)\r\n        solid(h, r, 15, 2, 0, -5, 0, 1)\r\n        solid(h, r, 11, 2, -2, 0, 0, 1)\r\n        solid(h, r, 7, 2, -4, 5, 0, 1)\r\n    end,\r\n    diamond = function(h, r)\r\n        outline(h, r, 11, 11, 0, 0, 2, 45)\r\n    end,\r\n    line = function(h, r)\r\n        solid(h, r, 17, 1.6, 0, 0, -40)\r\n        solid(h, r, 5, 5, 7, -6, 0, 3)\r\n    end,\r\n    rings = function(h, r)\r\n        outline(h, r, 15, 15, 0, 0, 8)\r\n        outline(h, r, 6, 6, 0, 0, 3)\r\n    end,\r\n}\r\n\r\nlocal function makeIcon(parent, name)\r\n    local holder = create(\"Frame\", {\r\n        Size = UDim2.fromOffset(20, 20), Position = UDim2.new(0, 13, 0.5, -10),\r\n        BackgroundTransparency = 1, Parent = parent,\r\n    })\r\n    local reg = {}\r\n    if Icons[name] then Icons[name](holder, reg) end\r\n    return function(color)\r\n        for _, item in ipairs(reg) do item[1][item[2]] = color end\r\n    end\r\nend\r\n\r\nlocal function makeButton(parent, size, position, iconName, text, getState, onClick, hintText)\r\n    local btn = create(\"TextButton\", {\r\n        Size = size, Position = position or UDim2.new(),\r\n        BackgroundColor3 = Theme.RowOff, BackgroundTransparency = Theme.RowOffT,\r\n        BorderSizePixel = 0, AutoButtonColor = false, Text = \"\", Parent = parent,\r\n    })\r\n    corner(btn, 6)\r\n\r\n    local setIconColor = makeIcon(btn, iconName)\r\n    local label = create(\"TextLabel\", {\r\n        Size = UDim2.new(1, hintText and -118 or -70, 1, 0), Position = UDim2.new(0, 40, 0, 0),\r\n        BackgroundTransparency = 1, Font = Theme.FontMedium, TextSize = 14,\r\n        TextColor3 = Theme.Text, TextXAlignment = Enum.TextXAlignment.Left,\r\n        TextTruncate = Enum.TextTruncate.AtEnd, Text = text, Parent = btn,\r\n    })\r\n\r\n    local hintLabel\r\n    if hintText then\r\n        hintLabel = create(\"TextLabel\", {\r\n            Size = UDim2.new(0, 64, 1, 0), Position = UDim2.new(1, -76, 0, 0),\r\n            BackgroundTransparency = 1, Font = Theme.FontRegular, TextSize = 12,\r\n            TextColor3 = Theme.SubText, TextXAlignment = Enum.TextXAlignment.Right,\r\n            Text = hintText, Parent = btn,\r\n        })\r\n    end\r\n\r\n    local indicator, indicatorStroke\r\n    if getState then\r\n        indicator = create(\"Frame\", {\r\n            Size = UDim2.fromOffset(10, 10), Position = UDim2.new(1, -24, 0.5, -5),\r\n            BackgroundColor3 = Theme.OnText, BackgroundTransparency = 1,\r\n            BorderSizePixel = 0, Parent = btn,\r\n        })\r\n        corner(indicator, 5)\r\n        indicatorStroke = create(\"UIStroke\", {\r\n            Color = Theme.SubText, Transparency = 0.2, Thickness = 1.2,\r\n            ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = indicator,\r\n        })\r\n    end\r\n\r\n    local hover = false\r\n    local function paint()\r\n        local on = getState and getState() or false\r\n        local base = on and Theme.RowOnT or Theme.RowOffT\r\n        tween(btn, 0.14, {\r\n            BackgroundColor3 = on and Theme.RowOn or Theme.RowOff,\r\n            BackgroundTransparency = base - (hover and Theme.HoverDelta or 0),\r\n        })\r\n        local c = on and Theme.OnText or Theme.Text\r\n        tween(label, 0.14, { TextColor3 = c })\r\n        setIconColor(on and Theme.OnText or Theme.IconOff)\r\n        if indicator then\r\n            tween(indicator, 0.14, { BackgroundTransparency = on and 0 or 1 })\r\n            tween(indicatorStroke, 0.14, {\r\n                Color = on and Theme.OnText or Theme.SubText,\r\n                Transparency = on and 0.4 or 0.2,\r\n            })\r\n        end\r\n    end\r\n    paint()\r\n\r\n    if hasMouse then\r\n        connect(btn.MouseEnter, function() hover = true paint() end)\r\n        connect(btn.MouseLeave, function() hover = false paint() end)\r\n    end\r\n    connect(btn.MouseButton1Click, function()\r\n        onClick()\r\n        paint()\r\n    end)\r\n    return btn, hintLabel\r\nend\r\n\r\nlocal function addToggle(parent, size, position, icon, text, key)\r\n    return makeButton(parent, size, position, icon, text,\r\n        function() return cfg[key] end,\r\n        function()\r\n            cfg[key] = not cfg[key]\r\n            notify(text, cfg[key])\r\n        end)\r\nend\r\n\r\nlocal function fullRow()\r\n    return UDim2.new(1, 0, 0, ROW_H)\r\nend\r\n\r\nlocal LEFT_POS  = UDim2.new(0, 0, 0, 0)\r\nlocal RIGHT_POS = UDim2.new(0.5, GAP / 2, 0, 0)\r\nlocal HALF      = UDim2.new(0.5, -GAP / 2, 1, 0)\r\n\r\nlocal function pairRow()\r\n    return create(\"Frame\", {\r\n        Size = fullRow(), BackgroundTransparency = 1, LayoutOrder = nextOrder(), Parent = list,\r\n    })\r\nend\r\n\r\nlocal menuOpen = true\r\n\r\nlocal function setMenu(open)\r\n    menuOpen = open\r\n    window.Visible = open\r\nend\r\n\r\nlocal function togglePanic()\r\n    hidden = not hidden\r\n    gui.Enabled = not hidden\r\n    if hidden then hideAllESP() end\r\nend\r\n\r\ndo\r\n    local b = makeButton(list, fullRow(), nil, \"cross\", \"Close menu\", nil, function()\r\n        setMenu(false)\r\n    end)\r\n    b.LayoutOrder = nextOrder()\r\nend\r\n\r\ndo\r\n    local a = addToggle(list, fullRow(), nil, \"target\", \"Auto Generator\", \"AutoGenerator\")\r\n    a.LayoutOrder = nextOrder()\r\n    local b = addToggle(list, fullRow(), nil, \"ban\", \"Auto Solve Trap\", \"AutoSolveTrap\")\r\n    b.LayoutOrder = nextOrder()\r\nend\r\n\r\ndo\r\n    local row = pairRow()\r\n    addToggle(row, HALF, LEFT_POS,  \"box\",    \"Killer ESP\",   \"KillerESP\")\r\n    addToggle(row, HALF, RIGHT_POS, \"person\", \"Survivor ESP\", \"SurvivorESP\")\r\nend\r\ndo\r\n    local row = pairRow()\r\n    addToggle(row, HALF, LEFT_POS,  \"bars\",    \"Generator ESP\", \"GeneratorESP\")\r\n    addToggle(row, HALF, RIGHT_POS, \"diamond\", \"Pumpkin ESP\",   \"PumpkinESP\")\r\nend\r\n\r\ndo\r\n    local row = pairRow()\r\n    addToggle(row, HALF, LEFT_POS, \"line\", \"Tracers\", \"Tracers\")\r\n\r\n    local ranges = {\r\n        { label = \"300m\",     value = 300 },\r\n        { label = \"600m\",     value = 600 },\r\n        { label = \"1000m\",    value = 1000 },\r\n        { label = \"No limit\", value = math.huge },\r\n    }\r\n    local idx = 3\r\n    for i, r in ipairs(ranges) do if r.value == cfg.MaxDistance then idx = i end end\r\n\r\n    local hint\r\n    _, hint = makeButton(row, HALF, RIGHT_POS, \"rings\", \"Range\", nil, function()\r\n        idx = idx % #ranges + 1\r\n        cfg.MaxDistance = ranges[idx].value\r\n        hint.Text = ranges[idx].label\r\n    end, ranges[idx].label)\r\nend\r\n\r\nlocal fabSize = isTouch and 50 or 42\r\n\r\nlocal fab = create(\"Frame\", {\r\n    Name = \"Toggle\", Active = true,\r\n    AnchorPoint = Vector2.new(0, 0.5), Position = UDim2.new(0, 16, 0.5, 0),\r\n    Size = UDim2.fromOffset(fabSize, fabSize),\r\n    BackgroundColor3 = Color3.new(1, 1, 1), BackgroundTransparency = 0.15,\r\n    BorderSizePixel = 0, ZIndex = 5, Parent = gui,\r\n})\r\ncorner(fab, fabSize / 2)\r\ncreate(\"UIStroke\", {\r\n    Color = Theme.Stroke, Transparency = 0.2, Thickness = 1,\r\n    ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Parent = fab,\r\n})\r\nfor i = -1, 1 do\r\n    create(\"Frame\", {\r\n        AnchorPoint = CENTER, Position = UDim2.new(0.5, 0, 0.5, i * 6),\r\n        Size = UDim2.fromOffset(18, 2), BackgroundColor3 = Theme.Text,\r\n        BorderSizePixel = 0, ZIndex = 6, Parent = fab,\r\n    })\r\nend\r\nfor _, d in ipairs(fab:GetChildren()) do\r\n    if d:IsA(\"Frame\") then corner(d, 1) end\r\nend\r\n\r\nmakeDraggable(fab, fab, function()\r\n    setMenu(not menuOpen)\r\nend)\r\n\r\nupdateScale()\r\nconnect(gui:GetPropertyChangedSignal(\"AbsoluteSize\"), function()\r\n    updateScale()\r\n    task.defer(function()\r\n        placeAt(window, window.AbsolutePosition)\r\n        placeAt(fab, fab.AbsolutePosition)\r\n    end)\r\nend)\r\n\r\nconnect(UserInputService.InputBegan, function(input, processed)\r\n    if processed then return end\r\n    if input.KeyCode == Enum.KeyCode.RightControl then\r\n        togglePanic()\r\n    end\r\nend)",
-      "createdAt": "2026-11-20T10:33:23.936Z",
-      "updatedAt": "2026-11-20T10:33:23.936Z",
       "categoryIds": [
         "new"
       ],
@@ -10347,7 +10351,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 248765,
+      "views": 248766,
       "likes": 90,
       "dislikes": 31,
       "rating": 3.7,
@@ -10492,7 +10496,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221404,
+      "views": 221405,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10640,7 +10644,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 106239,
+      "views": 106246,
       "likes": 111,
       "dislikes": 25,
       "rating": 4.1,
@@ -10676,7 +10680,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 28800,
+      "views": 28803,
       "likes": 98,
       "dislikes": 26,
       "rating": 4,
@@ -10749,7 +10753,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 84633,
+      "views": 84634,
       "likes": 113,
       "dislikes": 27,
       "rating": 4,
