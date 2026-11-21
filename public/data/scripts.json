@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T08:21:30.325Z",
+  "generatedAt": "2026-11-21T08:31:21.864Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -80,7 +80,7 @@
         "duel",
         "aimbot"
       ],
-      "views": 3260,
+      "views": 3262,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -118,7 +118,7 @@
         "Brookhaven",
         "avatar copy"
       ],
-      "views": 4002,
+      "views": 4009,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -156,7 +156,7 @@
         "MUSIC",
         "MUSIC PANEL"
       ],
-      "views": 2450,
+      "views": 2451,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -194,7 +194,7 @@
         "build a boat",
         "keyless"
       ],
-      "views": 1209,
+      "views": 1213,
       "likes": 7,
       "dislikes": 1,
       "rating": 4.4,
@@ -270,7 +270,7 @@
         "kill aura",
         "auto mace"
       ],
-      "views": 5701,
+      "views": 5703,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -308,7 +308,7 @@
         "UNIVERSAL",
         "UTILITY"
       ],
-      "views": 1909,
+      "views": 1910,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -384,7 +384,7 @@
         "King Legacy Update",
         "King Legacy scripts"
       ],
-      "views": 3004,
+      "views": 3006,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -458,7 +458,7 @@
       "tags": [
         "keyless"
       ],
-      "views": 8776,
+      "views": 8788,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -494,7 +494,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 4865,
+      "views": 4869,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -512,38 +512,38 @@
       ]
     },
     {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "id": "scriptblox-6af751cb4537e227cb33b343",
+      "slug": "Universal-Script-VAELOR-SCRIPTS-HUB-or-Keyless-236614",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-VAELOR-SCRIPTS-HUB-or-Keyless-236614",
+      "title": "VAELOR UNIVERSAL HUB | Keyless",
       "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
+      "gameImage": "https://scriptblox.com/images/sb/0-1794593227740.png",
+      "author": "lol_neshedi",
+      "authorVerified": false,
+      "verified": false,
       "status": "working",
       "premium": false,
       "keyless": true,
       "universal": true,
       "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
+        "VAELOR",
+        "UNIVERSAL",
+        "ZORO"
       ],
-      "views": 753,
+      "views": 613,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
+      "summary": "VÆLOR SCRIPTS HUB A centralized script hub designed with a clean interface and organized functionality. FEATURES - Multi-Script Hub Interface - Clean & Modern UI Design - Organized Script Categories - Quick Navigation System - Search & F…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-SCRIPTS-HUB-/refs/heads/main/V%C3%86LOR%20SCRIPTS%20HUB\"))()",
+      "createdAt": "2026-11-13T18:07:07.951Z",
+      "updatedAt": "2026-11-13T18:07:07.951Z",
       "categoryIds": [
         "trending"
       ],
-      "glyph": "car",
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -569,7 +569,7 @@
         "LightningHub",
         "universal script"
       ],
-      "views": 2681,
+      "views": 2682,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -682,7 +682,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 3410,
+      "views": 3411,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -720,7 +720,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 2852,
+      "views": 2861,
       "likes": 12,
       "dislikes": 2,
       "rating": 4.3,
@@ -758,7 +758,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 694,
+      "views": 695,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -796,7 +796,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 708,
+      "views": 709,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -808,6 +808,81 @@
         "trending"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff774a8cdbd83bb2c1f5c8",
+      "slug": "SCROOMS-CRESCENDO-VALLEY-Verdant-237555",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/SCROOMS-CRESCENDO-VALLEY-Verdant-237555",
+      "title": "Verdant SCR",
+      "game": "SCROOMS 🍄[CRESCENDO VALLEY]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-4b0bb08200261a1ce0a94e5c30e8020f-077e0aa904b9.png",
+      "author": "invokexpression",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "autofarm",
+        "teleports",
+        "movement"
+      ],
+      "views": 30,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Verdant for Scrooms is an autofarm script for the Roblox game Scrooms. It's fully open source and includes a bunch of teleports as well! All changelogs and bug reports go in the discord.",
+      "code": "loadstring(game:HttpGet(\"https://aptfxx.dev/scripts/verdant/scrooms\"))()",
+      "createdAt": "2026-11-19T22:25:14.202Z",
+      "updatedAt": "2026-11-21T06:17:59.305Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6afffa2cfb590cff8b1fdba2",
+      "slug": "RoChess-Auto-Play-Best-Move-and-Auto-Puzzle-Solver-or-AZOTH-KEYLESS-237596",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RoChess-Auto-Play-Best-Move-and-Auto-Puzzle-Solver-or-AZOTH-KEYLESS-237596",
+      "title": "Auto Play, Best Move & Auto Puzzle Solver | AZOTH KEYLESS",
+      "game": "RoChess!",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-ea2a118d31f4d70a43d63774e60c2e40-9719c0c06d55.png",
+      "author": "REALAZOTH666",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "keyless",
+        "rochess",
+        "azoth"
+      ],
+      "views": 92,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Keyless RoChess! script by AZOTH with a clean UI, a strong best-move engine, smart autoplay, a full puzzle solver, and game review — no key, no checkpoints, just execute and play. Features: - Best Move Engine: Analyses every position and…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Azoth666/AZOTH/main/loader.lua\"))()",
+      "createdAt": "2026-11-20T07:43:40.269Z",
+      "updatedAt": "2026-11-21T05:59:01.167Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -833,7 +908,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 81,
+      "views": 90,
       "likes": 1,
       "dislikes": 0,
       "summary": "🌟 MB Admin - Modern Universal FE Admin (v4.0) ⚡ 100% KEYLESS | NO ADS | PC & MOBILE SUPPORT ⚡ MB Admin is a clean, lightweight, and modern FE admin script built from the ground up for both PC and Mobile players. Designed with reactive a…",
@@ -871,7 +946,7 @@
         "mvsd",
         "murder vs sheriff duels"
       ],
-      "views": 54,
+      "views": 60,
       "likes": 0,
       "dislikes": 0,
       "summary": "ORYN’s initial MVSD release includes aim assist, triggerbot, predictive shooting, auto queue, and visual settings. It also has editable keybinds, automatic config saving, and an animated panda. Press Right Shift to show or hide the menu.",
@@ -909,7 +984,7 @@
         "auto farm",
         "Keyless"
       ],
-      "views": 2639,
+      "views": 2652,
       "likes": 1,
       "dislikes": 0,
       "summary": "Useless Hub for Break and Steal an Egg. WARNING: SOME BUGS BEING FIXED, GIVE FEEDBACK IN DISCORD [ AUTO FARM ] - Full loop: break egg > wait for pet > steal > bank > place - Multi-select zones (1-10) and pickup rarities - Egg priority: N…",
@@ -946,7 +1021,7 @@
         "Auto Punch",
         "Summon A Pet Army"
       ],
-      "views": 59,
+      "views": 64,
       "likes": 1,
       "dislikes": 0,
       "summary": "- Auto-Punch - Auto-Soul - Auto-equip best army - Zone select + auto-travel - Hop to far targets - WalkSpeed control - Live stats - Config saving",
@@ -984,7 +1059,7 @@
         "Loot ESP",
         "Keyless"
       ],
-      "views": 106,
+      "views": 116,
       "likes": 0,
       "dislikes": 0,
       "summary": "[+] NEXWORKS | Criminal Simulator (Keyless) Combat: • Gun & Taser Silent Aim (Pistol, AK-47, Taser) • Customizable FOV Circle, Target Bone & Wall Check • Extended Melee Reach & Knockout Aura (Punch) • Auto Swing Baseball Bat • Auto Break…",
@@ -1022,7 +1097,7 @@
         "AutoThrow",
         "Roblox"
       ],
-      "views": 27,
+      "views": 31,
       "likes": 0,
       "dislikes": 0,
       "summary": "- Auto tap the x2 training bonus - Auto Shoot - Auto Train - Teleport to the shooting line - Shoot only during events - Events that count - Minimum event multiplier - Shoot for (min) - Then train for (min) - Skip the shot animation - Aut…",
@@ -1058,7 +1133,7 @@
       "tags": [
         "Script"
       ],
-      "views": 7253,
+      "views": 7259,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -1096,7 +1171,7 @@
         "aimbot",
         "triggerbot"
       ],
-      "views": 15700,
+      "views": 15705,
       "likes": 10,
       "dislikes": 3,
       "rating": 3.8,
@@ -1134,7 +1209,7 @@
         "FTP",
         "FTAP"
       ],
-      "views": 16394,
+      "views": 16400,
       "likes": 14,
       "dislikes": 1,
       "rating": 4.7,
@@ -1172,7 +1247,7 @@
         "Project slayers script",
         "Slayer best script"
       ],
-      "views": 4785,
+      "views": 4789,
       "likes": 7,
       "dislikes": 1,
       "rating": 4.4,
@@ -1210,7 +1285,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5545033,
+      "views": 5545074,
       "likes": 110,
       "dislikes": 55,
       "rating": 3.3,
@@ -1251,7 +1326,7 @@
         "acro hub",
         "op free"
       ],
-      "views": 163111,
+      "views": 163119,
       "likes": 226,
       "dislikes": 20,
       "rating": 4.6,
@@ -1287,7 +1362,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1107,
+      "views": 1112,
       "likes": 2,
       "dislikes": 0,
       "summary": "auto throw auto train auto upgrade auto buy food",
@@ -1324,7 +1399,7 @@
         "rivals skin changer",
         "rivals silent aim"
       ],
-      "views": 3367,
+      "views": 3375,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1362,7 +1437,7 @@
         "aimbot",
         "esp"
       ],
-      "views": 384,
+      "views": 392,
       "likes": 2,
       "dislikes": 0,
       "summary": "Made by YES.DEV, the cleanest slickest script ui, with one of the most reliable aimbot coding in roblox. also have triggerbot, aimbot, esp and device spoofy and infinite jump",
@@ -1400,7 +1475,7 @@
         "adopt me",
         "blox fruits"
       ],
-      "views": 1893881,
+      "views": 1894015,
       "likes": 161,
       "dislikes": 46,
       "rating": 3.9,
@@ -1441,7 +1516,7 @@
         "Keyless",
         "Esp"
       ],
-      "views": 1804,
+      "views": 1812,
       "likes": 2,
       "dislikes": 0,
       "summary": "Combat Silent Aim FOV Radius FOV Transparency FOV Fill Spin FOV Color Ragebot Ragebot Fire Rate No Spray Rapid Fire Bullet Tracers Tracer Duration Tracer Size Visuals ESP Boxes Tracers (2D) Skeleton Names Distance Chams Hit Notifs Hit So…",
@@ -1478,7 +1553,7 @@
         "best practical basketball script",
         "practical basketball"
       ],
-      "views": 577,
+      "views": 583,
       "likes": 2,
       "dislikes": 0,
       "summary": "This script is keyless and have many features like Auto Green Auto Shoot Auto Dunk Auto Guard Auto Block Auto Rebound Auto Steal Keyless & More!",
@@ -1516,7 +1591,7 @@
         "auto stronghold",
         "creator mode"
       ],
-      "views": 17758,
+      "views": 17768,
       "likes": 21,
       "dislikes": 1,
       "rating": 4.8,
@@ -1552,7 +1627,7 @@
       "tags": [
         "Script"
       ],
-      "views": 134,
+      "views": 138,
       "likes": 1,
       "dislikes": 0,
       "summary": "By purchasing, accessing, downloading, executing, or using any product, key, software, script, service, loader, website, API, or system provided by Rift Corporation (\"Rift\", \"we\", \"us\", or \"our\"), you agree to comply with these Terms of…",
@@ -1590,7 +1665,7 @@
         "Fling Things and People script",
         "ftap"
       ],
-      "views": 1963,
+      "views": 1967,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1626,7 +1701,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 178,
+      "views": 182,
       "likes": 2,
       "dislikes": 0,
       "summary": "is this undetected (Most likely yes i was very careful when making this to make sure the game detections weren't triggered on like other scripts i made sure that most jobs has legit advanced pathfinding like Pizza Delivery is fully pathf…",
@@ -1664,7 +1739,7 @@
         "Universal",
         "Hub"
       ],
-      "views": 4381,
+      "views": 4382,
       "likes": 17,
       "dislikes": 1,
       "rating": 4.7,
@@ -1702,7 +1777,7 @@
         "brookhaven",
         "Keyless"
       ],
-      "views": 3054,
+      "views": 3057,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -1739,7 +1814,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 13210,
+      "views": 13212,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -1777,7 +1852,7 @@
         "Un*led Tag Game",
         "UN*LED TAG GAME"
       ],
-      "views": 3295,
+      "views": 3297,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -1815,7 +1890,7 @@
         "universal speed gui fast vehicle bike player boost",
         "keyless no key pastebin delta executor undetected"
       ],
-      "views": 3793,
+      "views": 3796,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -1853,7 +1928,7 @@
         "fling things and people script",
         "ftap"
       ],
-      "views": 448,
+      "views": 458,
       "likes": 4,
       "dislikes": 1,
       "rating": 4,
@@ -1892,7 +1967,7 @@
         "bee swarm",
         "bee swarm simulator"
       ],
-      "views": 435947,
+      "views": 435950,
       "likes": 28,
       "dislikes": 5,
       "rating": 4.2,
@@ -1930,7 +2005,7 @@
         "lumber tycoon",
         "trees"
       ],
-      "views": 681694,
+      "views": 681698,
       "likes": 159,
       "dislikes": 23,
       "rating": 4.4,
@@ -1968,7 +2043,7 @@
         "Key System",
         "Quality"
       ],
-      "views": 11657,
+      "views": 11659,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -2006,7 +2081,7 @@
         "Brookhaven script",
         "Keyless"
       ],
-      "views": 111681,
+      "views": 111687,
       "likes": 35,
       "dislikes": 3,
       "rating": 4.6,
@@ -2044,7 +2119,7 @@
         "tsb",
         "the strongest battlegrounds"
       ],
-      "views": 169,
+      "views": 170,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2082,7 +2157,7 @@
         "nights in the forest",
         "solvexgui"
       ],
-      "views": 87691,
+      "views": 87694,
       "likes": 34,
       "dislikes": 2,
       "rating": 4.7,
@@ -2120,7 +2195,7 @@
         "universal aimbot",
         "keyless aimbot"
       ],
-      "views": 4157,
+      "views": 4158,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -2156,7 +2231,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 283,
+      "views": 287,
       "likes": 1,
       "dislikes": 0,
       "summary": "Silent Aim : • Silent Aim • Auto Curve ➤ Power : • Auto Max ➤ Sprint : • Infinite Sprint • Auto Sprint ➤ Ragdoll : • Anti Ragdoll ➤ Poke : • Auto Poke • Poke Range Slider ➤ Shooting : • Auto Shoot When Near Goalpost • Shoot Distance Slid…",
@@ -2194,7 +2269,7 @@
         "keyless",
         "stealanegg"
       ],
-      "views": 655,
+      "views": 669,
       "likes": 1,
       "dislikes": 0,
       "summary": "Rivals Gun Silent Aim & Esp Steal An Egg steal an egg stealanegg StealAnEgg Egg Stealing",
@@ -2202,46 +2277,9 @@
       "createdAt": "2026-11-20T20:42:58.321Z",
       "updatedAt": "2026-11-20T20:42:58.310Z",
       "categoryIds": [
-        "trending",
         "new"
       ],
       "glyph": "paw",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ae7897a455a009032ebca58",
-      "slug": "UPDATE-REALISTIC-HOME-DEFENSE-Silent-aim-or-Wallbang-or-ESP-KEYLESS-234668",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPDATE-REALISTIC-HOME-DEFENSE-Silent-aim-or-Wallbang-or-ESP-KEYLESS-234668",
-      "title": "Silent aim | Wallbang | ESP [KEYLESS]",
-      "game": "[RANKED] REALISTIC HOME DEFENSE",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-2769432649fa6fccb9564ffbdc7c5ae2-56c14e396b4f.png",
-      "author": "noic",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 2456,
-      "likes": 4,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "features: silent aim team check visible check wallbang auto fire triggerbot auto reload auto unjam no recoil no spread no bullet drop no ads sway ESP Chams Tracers Rader Anti afk no fog fullbright",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/noicyreal/bracehub/refs/heads/main/home.luau\"))()",
-      "createdAt": "2026-11-01T18:48:26.781Z",
-      "updatedAt": "2026-11-20T20:30:44.010Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2268,7 +2306,7 @@
         "happy land rp",
         "hawzhir"
       ],
-      "views": 13,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "MENU ADD MONEY UNLOCK ALL GAMEPASS",
@@ -2305,7 +2343,7 @@
         "HvH",
         "Minecraft"
       ],
-      "views": 20,
+      "views": 27,
       "likes": 0,
       "dislikes": 0,
       "summary": "It also contains its own functions. The descriptions are compiled from various cheats (to make it clearer and to immediately understand what and where). 1. Mace PvP 2. Sword PvP 3. Combat 4. Gear 5. Movement 6. Visuals 7. Resourse Packs…",
@@ -2342,7 +2380,7 @@
         "INSTNAT WIN",
         "INSTANT CATCH"
       ],
-      "views": 21,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "FARM - AUTO CATCH - CLAIM DELAY - CAST GAP - CATCH ONCE - CLAIM MIN RARITY FILTER - AUTO FAVORITE RARE - PROTECT RARITY - AUTO SELL - SELL MODE - SELL NOW - LIVE STATUS TELEPORT - POI TELEPORTS - AREA TELEPORTS WORLD - NPC ESP - QUEST OB…",
@@ -2378,7 +2416,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 22,
+      "views": 28,
       "likes": 1,
       "dislikes": 0,
       "summary": "Hmm CT ON TOP",
@@ -2451,7 +2489,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 18,
+      "views": 22,
       "likes": 1,
       "dislikes": 0,
       "summary": "xtr00p back less go f01dss",
@@ -2488,7 +2526,7 @@
         "FREE",
         "UNDETECTED"
       ],
-      "views": 34,
+      "views": 41,
       "likes": 0,
       "dislikes": 0,
       "summary": "The official loader for Onehub. Supported games : King legacy Features : (alot more features) Auto Farm Level Auto Farm Mobs Auto Farm Bosses Auto Farm Halloween Bosses (Jack O’Lantern) Auto Farm Material Auto Boss Bounty Auto Collect Fr…",
@@ -2562,7 +2600,7 @@
         "Auto Sell",
         "Auto Train"
       ],
-      "views": 22,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "School Hub for Throw a Seed brings training, seed throwing, plant management and upgrades into one shared menu. Auto Farm alternates training at your own station with seed throws, then places the best earning plants. Adjust the training…",
@@ -2599,7 +2637,7 @@
         "Visual",
         "KVAPL"
       ],
-      "views": 31,
+      "views": 34,
       "likes": 0,
       "dislikes": 0,
       "summary": "⚡ KvaplScript v6.3 — Open-Source Script for Cameraman Tower Defense (CTD) NEW: MOBILE SUPPORT KvaplScript is a free, open-source utility script built for fast trading, exact unit value checking, and FPS optimization in Cameraman Tower De…",
@@ -2635,7 +2673,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 40,
+      "views": 51,
       "likes": 1,
       "dislikes": 0,
       "summary": "Spins in a triangle shape without stopping; you can turn it off",
@@ -2672,7 +2710,7 @@
         "hitbox optimizer",
         "lag optimizer"
       ],
-      "views": 29,
+      "views": 31,
       "likes": 1,
       "dislikes": 0,
       "summary": "​Anti-fling with rollback ​Void trap with deep positioning and return ​Cheat alerts with history ​Suspicion score per player ​Chat mute and word filter ​Muted messages panel ​Hide, silhouette, distance hide, and performance mode ​Spectat…",
@@ -2709,7 +2747,7 @@
         "Troll",
         "Desync"
       ],
-      "views": 77,
+      "views": 91,
       "likes": 1,
       "dislikes": 0,
       "summary": "Combat -Aimbot (Always Aim, Sticky Aim, Aim Part, Smoothness, Prediction) -FOV Circle (Filled, Rainbow, From Screen Center, Target Line) -Team Check -Wall Check -Forcefield Check -Target NPCs -Whitelist -Triggerbot -Hitbox Expander Visua…",
@@ -2746,7 +2784,7 @@
         "auto farm",
         "beginner"
       ],
-      "views": 39,
+      "views": 41,
       "likes": 1,
       "dislikes": 0,
       "summary": "Put script in AUTOEXEC folder in your executor! Gamemode: Easy Map: Glided Path Towers: Shotgunner, Soldier Auto Skip: No Timescale W/o: Yes (turn on if want more money) Skill Tree: No Modifiers: No 4k/hr without timescale 8k/hr with tim…",
@@ -2783,7 +2821,7 @@
         "Auto bite",
         "Op"
       ],
-      "views": 86,
+      "views": 87,
       "likes": 1,
       "dislikes": 0,
       "summary": "🔥 FEATURES: * ⚡ Auto Farm (Warp): Automatically teleports you to farming targets. * 🦷 Auto Chomp (AoE): Automates Bite, Roar, and Destroy abilities. * 🏆 Auto-Claim Quests: Automatically claims available quest rewards. * 📍 High XP Are…",
@@ -2819,7 +2857,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 52,
+      "views": 57,
       "likes": 1,
       "dislikes": 0,
       "summary": "Idk enjoy",
@@ -2856,7 +2894,7 @@
         "SCORPION",
         "VICTOR"
       ],
-      "views": 46,
+      "views": 50,
       "likes": 0,
       "dislikes": 0,
       "summary": "A SPAMMER DESIGNED FOR FIGHTS AND THE TEXT WILL NOT BECOME TAGS",
@@ -2880,7 +2918,7 @@
       "sourceUrl": "https://scriptblox.com/script/Universal-Script-Dark-Mango-Psychology-lua-237545",
       "title": "Dark Mango Psychology lua",
       "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1795185376950.jpg",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795249842783.png",
       "author": "uxepi",
       "authorVerified": false,
       "verified": false,
@@ -2893,7 +2931,7 @@
         "clkidd",
         "ServerSide"
       ],
-      "views": 3,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "Dark Mango Psychology — local troll/visual script based on the meme. No unfair advantage, no data theft. Gives a tool that plays loud audio, spawns neon blocks, shakes camera, makes everyone jump, and ends with a jumpscare. Credits: gavi…",
@@ -2930,7 +2968,7 @@
         "steal an egg sae",
         "murder mystery mm"
       ],
-      "views": 964,
+      "views": 971,
       "likes": 2,
       "dislikes": 0,
       "summary": "No Lag Hub | KEYLESS 2026 BF · SAE · MM2 — one loader, full scripts for Blox Fruits, Steal An Egg and Murder Mystery 2. Discord: https://discord.gg/Ndzk9kPZmT Website: https://nolag.wtf Search: no lag, nolag, mm2, mm2 no lag, no lag mm2,…",
@@ -3222,7 +3260,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 182,
+      "views": 185,
       "likes": 0,
       "dislikes": 0,
       "summary": "Fly mobile no key by KM studios",
@@ -3259,7 +3297,7 @@
         "Guns",
         "stummy guns"
       ],
-      "views": 146,
+      "views": 147,
       "likes": 2,
       "dislikes": 0,
       "summary": "remade the old Stummy guns script for this game and f3x games",
@@ -3294,7 +3332,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 174,
+      "views": 175,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Fruit Collecting Script for the Sea of Memes Map",
@@ -3365,7 +3403,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 207,
+      "views": 208,
       "likes": 1,
       "dislikes": 0,
       "summary": "A recreation of \"survival the Jeff the killer\"animation from the killer from the game but it have touch fling",
@@ -3402,7 +3440,7 @@
         "easy",
         "working"
       ],
-      "views": 106,
+      "views": 107,
       "likes": 0,
       "dislikes": 0,
       "summary": "!Working In 2026! Functions -Free Money -Auto Sell",
@@ -3439,7 +3477,7 @@
         "bug Evolution",
         "New Ant Evolution Script"
       ],
-      "views": 122,
+      "views": 123,
       "likes": 0,
       "dislikes": 1,
       "summary": "Auto Farm Food & Orbs Food Filter Client Food Magnet Magnet Range Slider Auto Grab Map Boosts Instant Auto Hatch Auto Feed The Queen Auto Rebirth",
@@ -3545,7 +3583,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1070,
+      "views": 1080,
       "likes": 1,
       "dislikes": 0,
       "summary": "ARVYN SCRIPTS - BLOX FRUITS All-in-one hub for Blox Fruits (Sea 1, 2 and 3), a clean UI for PC and mobile, and settings that are saved between sessions. HOW TO USE 1. Execute the loadstring. 2. Pick a key provider and duration, press Get…",
@@ -3589,43 +3627,6 @@
       "code": "-- Services\nlocal Players = game:GetService(\"Players\")\nlocal Workspace = game:GetService(\"Workspace\")\nlocal TweenService = game:GetService(\"TweenService\")\nlocal RunService = game:GetService(\"RunService\")\n\n-- PlaceId check\nlocal TARGET_PLACE_ID = 7871169780\nif game.PlaceId ~= TARGET_PLACE_ID then\n    warn(string.format(\"[Minesweeper Script] Wrong PlaceId (%s). Expected %s.\", tostring(game.PlaceId), tostring(TARGET_PLACE_ID)))\n    return\nend\n\nlocal player = Players.LocalPlayer or Players.PlayerAdded:Wait()\n\n-- Determine GUI parent\nlocal guiParent\nif type(gethui) == \"function\" then\n    guiParent = gethui()\nelse\n    local success = pcall(function()\n        return game:GetService(\"CoreGui\").Name\n    end)\n    if success then\n        guiParent = game:GetService(\"CoreGui\")\n    else\n        guiParent = player:WaitForChild(\"PlayerGui\")\n    end\nend\n\n-- Create ScreenGui\nlocal screenGui = Instance.new(\"ScreenGui\")\nscreenGui.Name = \"Gui_\" .. math.random(10000, 99999)\nscreenGui.ResetOnSpawn = false\nscreenGui.DisplayOrder = 2147483647\nscreenGui.IgnoreGuiInset = true\nscreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global\nscreenGui.Parent = guiParent\n\n-- Main draggable frame (fixed 200x100)\nlocal mainFrame = Instance.new(\"Frame\")\nmainFrame.Parent = screenGui\nmainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)\nmainFrame.Size = UDim2.new(0, 200, 0, 100)\nmainFrame.Position = UDim2.new(0.3, 0, 0.5, -50)\nmainFrame.Active = true\nmainFrame.BorderSizePixel = 0\n\nlocal status = Instance.new(\"TextLabel\")\nstatus.Parent = mainFrame\nstatus.BackgroundColor3 = Color3.fromRGB(60, 60, 60)\nstatus.Size = UDim2.new(0, 200, 0, 30)\nstatus.Position = UDim2.new(0, 0, 0, -30)\nstatus.Text = \"Status: Offline\"\nstatus.TextColor3 = Color3.fromRGB(255, 0, 0)\nstatus.TextScaled = true\nstatus.BorderSizePixel = 0\n\nlocal function createButton(name, text, x, y, width, height, textColor)\n    local btn = Instance.new(\"TextButton\")\n    btn.Name = name\n    btn.Parent = mainFrame\n    btn.Text = text\n    btn.Size = UDim2.new(0, width, 0, height)\n    btn.Position = UDim2.new(0, x, 0, y)\n    btn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)\n    btn.TextColor3 = textColor or Color3.fromRGB(255, 255, 255)\n    btn.TextScaled = true\n    btn.AutoButtonColor = true\n    btn.BorderSizePixel = 0\n    return btn\nend\n\nlocal toggleBtn  = createButton(\"ToggleBtn\", \"START\", 8, 8, 88, 26, Color3.fromRGB(0, 255, 0))\nlocal fastBtn    = createButton(\"FastBtn\", \"AUTO TOUCH: OFF\", 104, 8, 88, 26, Color3.fromRGB(0, 255, 255))\nlocal antiLagBtn = createButton(\"AntiLagBtn\", \"ANTI-LAG: OFF\", 8, 38, 88, 26, Color3.fromRGB(255, 255, 255))\n\nlocal flagWarningLabel = Instance.new(\"TextLabel\")\nflagWarningLabel.Name = \"FlagWarningLabel\"\nflagWarningLabel.Parent = mainFrame\nflagWarningLabel.Text = \"Flag skins can cause bugs.\"\nflagWarningLabel.Size = UDim2.new(0, 88, 0, 26)\nflagWarningLabel.Position = UDim2.new(0, 104, 0, 38)\nflagWarningLabel.BackgroundColor3 = Color3.fromRGB(52, 52, 52)\nflagWarningLabel.TextColor3 = Color3.fromRGB(255, 220, 100)\nflagWarningLabel.TextScaled = true\nflagWarningLabel.TextWrapped = true\nflagWarningLabel.Font = Enum.Font.SourceSansBold\nflagWarningLabel.BorderSizePixel = 0\n\nlocal destroyBtn = createButton(\"DestroyBtn\", \"Destroy UI\", 8, 68, 184, 24, Color3.fromRGB(255, 100, 100))\n\n-- Drag (PC + Mobile)\ndo\n    local dragging = false\n    local dragStart, startPos\n\n    mainFrame.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1\n            or input.UserInputType == Enum.UserInputType.Touch then\n            dragging = true\n            dragStart = input.Position\n            startPos = mainFrame.Position\n            input.Changed:Connect(function()\n                if input.UserInputState == Enum.UserInputState.End then\n                    dragging = false\n                end\n            end)\n        end\n    end)\n\n    mainFrame.InputChanged:Connect(function(input)\n        if not dragging then return end\n        if input.UserInputType == Enum.UserInputType.MouseMovement\n            or input.UserInputType == Enum.UserInputType.Touch then\n            local delta = input.Position - dragStart\n            mainFrame.Position = UDim2.new(\n                startPos.X.Scale, startPos.X.Offset + delta.X,\n                startPos.Y.Scale, startPos.Y.Offset + delta.Y\n            )\n        end\n    end)\nend\n\n-------------------------------------------------------------------------------\n-- CONFIG\n-------------------------------------------------------------------------------\n\nlocal BATCH_SIZE = 30                -- số ô chạm song song mỗi vòng\nlocal TOTAL_MINES_DEFAULT = 100      -- tổng số mìn của bàn\nlocal LAST_TILE_DEDUCTION = true     -- tự suy ra các ô còn lại khi đã biết hết phần còn lại (dựa trên tổng số mìn)\nlocal GLOBAL_MINES_ENABLED = true    -- dùng ràng buộc \"tổng số mìn\" (tự tắt nếu dữ liệu mâu thuẫn)\nlocal MINE_MARKER_THRESHOLD = 90     -- đủ số mìn này thì dựng tia \"Here\"\nlocal AUTO_TOUCH_RANGE = 60\nlocal ANTI_LAG_DISTANCE = 60\nlocal SOLVER_CONTEXT_PADDING = 8\nlocal FLAG_REFRESH_INTERVAL = 0.5\nlocal VISUALS_IN_WORKSPACE = true\nlocal VISUAL_HARD_RANGE = 250        -- khi Anti-Lag OFF vẫn không vẽ highlight xa hơn mức này (giảm lag mobile)\nlocal LOOP_INTERVAL = 0.12\nlocal FORCE_SOLVE_INTERVAL = 2       -- ép giải lại tối thiểu mỗi 2s dù trạng thái không đổi\nlocal MAX_COMPONENT_CELLS = 26       -- cụm biên lớn hơn mức này dùng suy luận tập hợp thay vì liệt kê\nlocal MAX_ENUM_NODES = 40000         -- trần số nút backtracking mỗi cụm\nlocal BULK_CHANGE_THRESHOLD = 150    -- số part thêm/xoá cùng lúc coi là \"ván mới\"\nlocal FLAG_CELL = 6                  -- kích thước ô lưới băm vị trí cờ\n\n-------------------------------------------------------------------------------\n-- STATE\n-------------------------------------------------------------------------------\n\nlocal isScanning = false\nlocal isAutoTouching = false\nlocal isAntiLagOn = false\n\nlocal solverGeneration = 0\nlocal autoTouchGeneration = 0\n\nlocal cachedParts = {}\nlocal cachedSet = {}\nlocal neighborMap = {}\nlocal numberTiles = {}\nlocal knownMines = {}\nlocal knownSafe = {}\nlocal probabilityMap = {}\nlocal currentBestGuess = nil\nlocal connections = {}\nlocal trackedVisuals = {}\nlocal checkedNoNumber = {}     -- [part] = {n = lần thử, t = thời điểm thử gần nhất}\nlocal flagGrid = {}\nlocal lastUnknown = {}\nlocal lastSig = nil\nlocal lastSolveTime = 0\nlocal lastSoftReset = 0\nlocal conflicts = 0\n\nlocal actionCooldown = setmetatable({}, { __mode = \"k\" })\n\nlocal addedQueue = {}\nlocal removedSinceFlush = 0\nlocal flushScheduled = false\n\nlocal herePillarPart = nil\nlocal hereBillboardGui = nil\nlocal hereTargetPart = nil\nlocal hereHeight = 8\nlocal hereRenderConn = nil\n\nlocal fiftyFiftyAlertActive = false\nlocal activeAlertLabel = nil\nlocal activeAlertTween = nil\nlocal alertToken = 0\n\nlocal visualsFolder = Instance.new(\"Folder\")\nvisualsFolder.Name = \"TopEspVisuals_\" .. tostring(screenGui.Name)\nif VISUALS_IN_WORKSPACE then\n    pcall(function() visualsFolder.Parent = Workspace end)\nend\nif not visualsFolder.Parent then\n    visualsFolder.Parent = guiParent\nend\n\n-------------------------------------------------------------------------------\n-- 50/50 NOTIFICATION\n-------------------------------------------------------------------------------\n\nlocal function clearFiftyFiftyAlert()\n    alertToken = alertToken + 1\n    fiftyFiftyAlertActive = false\n    if activeAlertTween then\n        pcall(function() activeAlertTween:Cancel() end)\n        activeAlertTween = nil\n    end\n    if activeAlertLabel then\n        pcall(function() activeAlertLabel:Destroy() end)\n        activeAlertLabel = nil\n    end\nend\n\nlocal function triggerFiftyFiftyAlert()\n    if fiftyFiftyAlertActive then return end\n    fiftyFiftyAlertActive = true\n    alertToken = alertToken + 1\n    local currentToken = alertToken\n\n    local lbl = Instance.new(\"TextLabel\")\n    lbl.Name = \"FiftyFiftyAlert\"\n    lbl.AnchorPoint = Vector2.new(0.5, 0.5)\n    lbl.Position = UDim2.new(0.5, 0, 0.75, 0)\n    lbl.Size = UDim2.new(0, 420, 0, 22)\n    lbl.BackgroundTransparency = 1\n    lbl.Text = \"Open other boxes to reduce the chances of having to guess.\"\n    lbl.TextColor3 = Color3.fromRGB(255, 255, 255)\n    lbl.TextSize = 14\n    lbl.Font = Enum.Font.GothamMedium\n    lbl.TextWrapped = false\n    lbl.TextScaled = false\n    lbl.TextXAlignment = Enum.TextXAlignment.Center\n    lbl.TextYAlignment = Enum.TextYAlignment.Center\n    lbl.Parent = screenGui\n    activeAlertLabel = lbl\n\n    task.delay(3, function()\n        if currentToken ~= alertToken or not lbl or not lbl.Parent then return end\n        local tween = TweenService:Create(lbl,\n            TweenInfo.new(0.85, Enum.EasingStyle.Quad, Enum.EasingDirection.In),\n            { Position = UDim2.new(0.5, 0, 1.08, 0), TextTransparency = 1 })\n        activeAlertTween = tween\n        tween.Completed:Connect(function()\n            if currentToken == alertToken then\n                if activeAlertLabel == lbl then activeAlertLabel = nil end\n                activeAlertTween = nil\n                fiftyFiftyAlertActive = false\n                pcall(function() lbl:Destroy() end)\n            end\n        end)\n        tween:Play()\n    end)\nend\n\n-------------------------------------------------------------------------------\n-- HELPERS\n-------------------------------------------------------------------------------\n\nlocal function getTileRoot()\n    local flagObj = Workspace:FindFirstChild(\"Flag\")\n    if not flagObj then return nil end\n    return flagObj:FindFirstChild(\"Parts\")\nend\n\nlocal function getCharPos()\n    local char = player.Character\n    local root = char and (char:FindFirstChild(\"HumanoidRootPart\") or char:FindFirstChild(\"Head\"))\n    return root and root.Position or nil\nend\n\nlocal function isWithinDistance(part, charPos, maxDist)\n    if not charPos or not part then return true end\n    return (part.Position - charPos).Magnitude <= maxDist\nend\n\nlocal function isWithinActiveRange(part, charPos, extraPadding)\n    if not isAntiLagOn then return true end\n    if not charPos or not part then return true end\n    return (part.Position - charPos).Magnitude <= ANTI_LAG_DISTANCE + (extraPadding or 0)\nend\n\nlocal function sortByProximity(list, charPos)\n    if not charPos or #list <= 1 then return end\n    table.sort(list, function(a, b)\n        return (a.Position - charPos).Magnitude < (b.Position - charPos).Magnitude\n    end)\nend\n\nlocal function countKnownMines()\n    local count = 0\n    for part, isMine in pairs(knownMines) do\n        if isMine and part and part.Parent then\n            count = count + 1\n        end\n    end\n    return count\nend\n\nlocal function countKnownSafeUnrevealed()\n    local count = 0\n    for part, isSafe in pairs(knownSafe) do\n        if isSafe and part and part.Parent then\n            count = count + 1\n        end\n    end\n    return count\nend\n\nlocal function isColorMatch(c1, r, g, b)\n    return math.abs(c1.R - r) < 0.05 and math.abs(c1.G - g) < 0.05 and math.abs(c1.B - b) < 0.05\nend\n\n-- Ô rác: RGB(255,255,125)\nlocal function isExcluded(part)\n    if not part:IsA(\"BasePart\") then return true end\n    return isColorMatch(part.Color, 1.000, 1.000, 0.490)\nend\n\n-- Ô số: RGB(230,230,113)\nlocal function isNumberColor(part)\n    if not part or not part:IsA(\"BasePart\") then return false end\n    return isColorMatch(part.Color, 0.902, 0.902, 0.443)\nend\n\n-- Ô chưa mở: chỉ dựa trên màu (không phụ thuộc cache số) để phát hiện ván reset\nlocal function isUnrevealed(part)\n    if not part or not part.Parent or not part:IsA(\"BasePart\") then return false end\n    local c = part.Color\n    if isColorMatch(c, 1.000, 1.000, 0.490) then return false end\n    return isColorMatch(c, 0.804, 0.557, 0.392) or isColorMatch(c, 0.706, 0.490, 0.345)\nend\n\n-- FIX: bản gốc có thể lặp vô hạn ở đây (FindFirstChildWhichIsA không nhận tham số thứ 3)\nlocal function getNumber(part)\n    if not part or not part:IsA(\"BasePart\") or isExcluded(part) then return nil end\n    for _, d in ipairs(part:GetDescendants()) do\n        if d:IsA(\"TextLabel\") and d.Visible then\n            local num = tonumber(string.match(d.Text, \"%d+\"))\n            if num and num >= 1 and num <= 8 then return num end\n        end\n    end\n    return nil\nend\n\nlocal function isTileCandidate(part)\n    if not part or not part:IsA(\"BasePart\") then return false end\n    if isExcluded(part) then return false end\n    if isNumberColor(part) or isUnrevealed(part) then return true end\n    if part.Name == \"Part\" and part.Parent and string.find(string.lower(part.Parent.Name), \"part\") then\n        return true\n    end\n    if part:FindFirstChildWhichIsA(\"TextLabel\", true) then\n        return getNumber(part) ~= nil\n    end\n    return false\nend\n\nlocal function countUnrevealedNeighbors(part)\n    local neighbors = neighborMap[part]\n    if not neighbors then return 0 end\n    local c = 0\n    for _, n in ipairs(neighbors) do\n        if isUnrevealed(n) and not knownMines[n] and not knownSafe[n] then c = c + 1 end\n    end\n    return c\nend\n\nlocal function countRevealedNumberNeighbors(part)\n    local neighbors = neighborMap[part]\n    if not neighbors then return 0 end\n    local c = 0\n    for _, n in ipairs(neighbors) do\n        if n.Parent and numberTiles[n] then c = c + 1 end\n    end\n    return c\nend\n\nlocal function onCooldown(part, secs)\n    local t = actionCooldown[part]\n    return t ~= nil and (os.clock() - t) < secs\nend\n\nlocal function stamp(part)\n    actionCooldown[part] = os.clock()\nend\n\n-------------------------------------------------------------------------------\n-- FLAG CACHE (lưới băm không gian -> hasFlag O(1))\n-------------------------------------------------------------------------------\n\nlocal function addFlagPos(pos)\n    local k = math.floor(pos.X / FLAG_CELL) .. \":\" .. math.floor(pos.Z / FLAG_CELL)\n    local b = flagGrid[k]\n    if not b then b = {}; flagGrid[k] = b end\n    b[#b + 1] = pos\nend\n\nlocal function refreshFlagCache()\n    flagGrid = {}\n\n    local flagFolder = Workspace:FindFirstChild(\"Flag\") or Workspace:FindFirstChild(\"Flags\")\n    if flagFolder then\n        for _, desc in ipairs(flagFolder:GetDescendants()) do\n            if desc:IsA(\"BasePart\") and not cachedSet[desc] then\n                addFlagPos(desc.Position)\n            end\n        end\n    end\n\n    for _, obj in ipairs(Workspace:GetChildren()) do\n        if obj:IsA(\"Model\") and string.find(string.lower(obj.Name), \"flag\") then\n            local primary = obj.PrimaryPart or obj:FindFirstChildWhichIsA(\"BasePart\")\n            if primary then addFlagPos(primary.Position) end\n        end\n    end\nend\n\nlocal function hasFlag(part)\n    if not part or not part.Parent then return false end\n    local pPos = part.Position\n    local sx = part.Size.X * 0.55\n    local sz = part.Size.Z * 0.55\n    local cx = math.floor(pPos.X / FLAG_CELL)\n    local cz = math.floor(pPos.Z / FLAG_CELL)\n    for ix = cx - 1, cx + 1 do\n        for iz = cz - 1, cz + 1 do\n            local b = flagGrid[ix .. \":\" .. iz]\n            if b then\n                for _, f in ipairs(b) do\n                    local dy = f.Y - pPos.Y\n                    if math.abs(f.X - pPos.X) < sx and math.abs(f.Z - pPos.Z) < sz and dy > 0.3 and dy < 6 then\n                        return true\n                    end\n                end\n            end\n        end\n    end\n    return false\nend\n\nlocal function clickTile(part)\n    if not part or not part.Parent then return end\n    local cd = part:FindFirstChildOfClass(\"ClickDetector\") or part:FindFirstChildWhichIsA(\"ClickDetector\", true)\n    if cd and typeof(fireclickdetector) == \"function\" then\n        fireclickdetector(cd, 0)\n    end\nend\n\n-------------------------------------------------------------------------------\n-- TOUCH TRIGGER\n-------------------------------------------------------------------------------\n\nlocal function triggerTileTouch(targetTile)\n    if not targetTile or not targetTile.Parent then return end\n    local char = player.Character\n    if not char then return end\n\n    local limb = char:FindFirstChild(\"RightFoot\")\n        or char:FindFirstChild(\"Right Leg\")\n        or char:FindFirstChild(\"LeftFoot\")\n        or char:FindFirstChild(\"Left Leg\")\n        or char:FindFirstChild(\"HumanoidRootPart\")\n    if not limb then return end\n\n    if typeof(firetouchinterest) == \"function\" then\n        firetouchinterest(limb, targetTile, 0)\n        task.wait(0.015)\n        firetouchinterest(limb, targetTile, 1)\n    else\n        local probe = Instance.new(\"Part\")\n        probe.Name = \"LegProbe\"\n        probe.Size = limb.Size\n        probe.CanCollide = false\n        probe.CanQuery = false\n        probe.CanTouch = true\n        probe.Massless = true\n        probe.Transparency = 1\n        probe.CFrame = targetTile.CFrame\n        probe.Parent = char\n        task.wait(0.02)\n        pcall(function() probe:Destroy() end)\n    end\nend\n\n-------------------------------------------------------------------------------\n-- \"HERE\" 3D FLAT RAY + BILLBOARD (>= MINE_MARKER_THRESHOLD)\n-------------------------------------------------------------------------------\n\nlocal function stopHereFacingLoop()\n    if hereRenderConn then\n        hereRenderConn:Disconnect()\n        hereRenderConn = nil\n    end\nend\n\nlocal function applyHereFacingCFrame()\n    if not herePillarPart or not herePillarPart.Parent or not hereTargetPart or not hereTargetPart.Parent then\n        return\n    end\n    local baseTopY = hereTargetPart.Position.Y + (hereTargetPart.Size.Y * 0.5)\n    local centerPos = Vector3.new(hereTargetPart.Position.X, baseTopY + (hereHeight * 0.5), hereTargetPart.Position.Z)\n\n    local cam = Workspace.CurrentCamera\n    local lookTarget = cam and Vector3.new(cam.CFrame.Position.X, centerPos.Y, cam.CFrame.Position.Z)\n    if lookTarget and (lookTarget - centerPos).Magnitude > 0.01 then\n        herePillarPart.CFrame = CFrame.lookAt(centerPos, lookTarget)\n    else\n        herePillarPart.CFrame = CFrame.new(centerPos)\n    end\nend\n\nlocal function startHereFacingLoop()\n    if hereRenderConn then return end\n    hereRenderConn = RunService.RenderStepped:Connect(function()\n        if not isScanning or not herePillarPart or not herePillarPart.Parent then\n            stopHereFacingLoop()\n            return\n        end\n        applyHereFacingCFrame()\n    end)\nend\n\nlocal function clearHerePillar()\n    stopHereFacingLoop()\n    hereTargetPart = nil\n    if hereBillboardGui then\n        pcall(function() hereBillboardGui:Destroy() end)\n        hereBillboardGui = nil\n    end\n    if herePillarPart then\n        pcall(function() herePillarPart:Destroy() end)\n        herePillarPart = nil\n    end\nend\n\nlocal function findNearestUnrevealedTile(charPos)\n    local nearestPart, shortestDist = nil, math.huge\n    for _, part in ipairs(lastUnknown) do\n        if part.Parent and isUnrevealed(part)\n            and not knownMines[part] and not knownSafe[part]\n            and isWithinActiveRange(part, charPos, 0)\n            and not hasFlag(part) then\n            local dist = charPos and (part.Position - charPos).Magnitude or 0\n            if dist < shortestDist then\n                shortestDist = dist\n                nearestPart = part\n            end\n        end\n    end\n    return nearestPart\nend\n\nlocal function updateHerePillar(charPos, foundMinesCount)\n    if not isScanning or foundMinesCount < MINE_MARKER_THRESHOLD then\n        clearHerePillar()\n        return\n    end\n\n    local target = findNearestUnrevealedTile(charPos)\n    if not target then\n        clearHerePillar()\n        return\n    end\n    hereTargetPart = target\n\n    local flatWidth = math.max(0.45, math.min(target.Size.X, target.Size.Z) * 0.35)\n    local flatThickness = 0.06\n\n    if not herePillarPart or not herePillarPart.Parent then\n        local p = Instance.new(\"Part\")\n        p.Name = \"HereFlatRay\"\n        p.Anchored = true\n        p.CanCollide = false\n        p.CanTouch = false\n        p.CanQuery = false\n        p.CastShadow = false\n        p.Massless = true\n        p.Material = Enum.Material.Neon\n        p.Color = Color3.fromRGB(255, 255, 255)\n        p.Transparency = 0.25\n        p.Size = Vector3.new(flatWidth, hereHeight, flatThickness)\n        p.Parent = visualsFolder\n        herePillarPart = p\n    else\n        herePillarPart.Size = Vector3.new(flatWidth, hereHeight, flatThickness)\n    end\n\n    applyHereFacingCFrame()\n    startHereFacingLoop()\n\n    if not hereBillboardGui or not hereBillboardGui.Parent then\n        local bb = Instance.new(\"BillboardGui\")\n        bb.Name = \"HereBillboard\"\n        bb.Adornee = herePillarPart\n        bb.AlwaysOnTop = true\n        bb.Size = UDim2.new(0, 76, 0, 26)\n        bb.StudsOffset = Vector3.new(0, (hereHeight * 0.5) + 1.2, 0)\n        bb.Parent = guiParent\n\n        local lbl = Instance.new(\"TextLabel\")\n        lbl.Name = \"HereLabel\"\n        lbl.Size = UDim2.new(1, 0, 1, 0)\n        lbl.BackgroundTransparency = 1\n        lbl.Text = \"Here\"\n        lbl.TextColor3 = Color3.fromRGB(255, 255, 255)\n        lbl.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)\n        lbl.TextStrokeTransparency = 0.35\n        lbl.TextScaled = true\n        lbl.Font = Enum.Font.GothamBold\n        lbl.Parent = bb\n        hereBillboardGui = bb\n    else\n        hereBillboardGui.Adornee = herePillarPart\n    end\nend\n\n-------------------------------------------------------------------------------\n-- TOP-FACE VISUALS (ESP)\n-------------------------------------------------------------------------------\n\nlocal function clearVisuals(part)\n    if not part then return end\n    local entry = trackedVisuals[part]\n    if entry then\n        if entry.box then pcall(function() entry.box:Destroy() end) end\n        if entry.topFill then pcall(function() entry.topFill:Destroy() end) end\n        trackedVisuals[part] = nil\n    end\nend\n\nlocal function clearAllVisuals()\n    for part, entry in pairs(trackedVisuals) do\n        if entry then\n            if entry.box then pcall(function() entry.box:Destroy() end) end\n            if entry.topFill then pcall(function() entry.topFill:Destroy() end) end\n        end\n        trackedVisuals[part] = nil\n    end\nend\n\nlocal function withinVisualRange(part, charPos)\n    if not charPos or not part then return true end\n    local limit = isAntiLagOn and ANTI_LAG_DISTANCE or VISUAL_HARD_RANGE\n    return (part.Position - charPos).Magnitude <= limit\nend\n\nlocal function createHighlight(part, color, name)\n    if not part or not part:IsA(\"BasePart\") or not part.Parent then return end\n\n    local charPos = getCharPos()\n    if not withinVisualRange(part, charPos) then\n        clearVisuals(part)\n        return\n    end\n\n    local existing = trackedVisuals[part]\n    if name == \"Guess_Highlight\" and existing\n        and (existing.tag == \"Safe_Highlight\" or existing.tag == \"Mine_Highlight\") then\n        return\n    end\n    if existing and existing.tag == name and existing.topFill and existing.topFill.Parent then\n        return\n    end\n\n    clearVisuals(part)\n\n    local capThickness = 0.06\n    local topFill = Instance.new(\"Part\")\n    topFill.Name = name .. \"_TopCap\"\n    topFill.Anchored = true\n    topFill.CanCollide = false\n    topFill.CanTouch = false\n    topFill.CanQuery = false\n    topFill.CastShadow = false\n    topFill.Massless = true\n    topFill.Material = Enum.Material.SmoothPlastic\n    topFill.Color = color\n    topFill.Transparency = 0.45\n    topFill.Size = Vector3.new(\n        math.max(0.1, part.Size.X * 0.96),\n        capThickness,\n        math.max(0.1, part.Size.Z * 0.96)\n    )\n    topFill.CFrame = part.CFrame * CFrame.new(0, (part.Size.Y * 0.5) + (capThickness * 0.5) + 0.02, 0)\n    topFill.Parent = visualsFolder\n\n    local box = Instance.new(\"SelectionBox\")\n    box.Name = name .. \"_Border\"\n    box.Adornee = topFill\n    box.Color3 = color\n    box.LineThickness = 0.04\n    box.Transparency = 0.05\n    box.SurfaceTransparency = 1\n    box.Parent = visualsFolder\n\n    trackedVisuals[part] = { tag = name, box = box, topFill = topFill }\nend\n\nlocal function syncVisualsRange(charPos)\n    for part, _ in pairs(trackedVisuals) do\n        if not part.Parent or isExcluded(part) or numberTiles[part] or not isUnrevealed(part) then\n            clearVisuals(part)\n        elseif not withinVisualRange(part, charPos) then\n            clearVisuals(part)\n        end\n    end\n\n    for part, isMine in pairs(knownMines) do\n        if isMine and part.Parent and isUnrevealed(part) and withinVisualRange(part, charPos) then\n            createHighlight(part, Color3.new(1, 0, 0), \"Mine_Highlight\")\n        end\n    end\n\n    for part, isSafe in pairs(knownSafe) do\n        if isSafe and part.Parent and isUnrevealed(part) and withinVisualRange(part, charPos) then\n            createHighlight(part, Color3.new(0, 1, 0), \"Safe_Highlight\")\n        end\n    end\n\n    if currentBestGuess and currentBestGuess.Parent and isUnrevealed(currentBestGuess)\n        and not knownMines[currentBestGuess] and not knownSafe[currentBestGuess]\n        and withinVisualRange(currentBestGuess, charPos) then\n        createHighlight(currentBestGuess, Color3.fromRGB(255, 255, 0), \"Guess_Highlight\")\n    end\nend\n\n-------------------------------------------------------------------------------\n-- NEIGHBOR CACHING\n-------------------------------------------------------------------------------\n\nlocal function buildNeighborMapBulk(parts)\n    local maxDim = 1\n    for _, p in ipairs(parts) do\n        local d = math.max(p.Size.X, p.Size.Z)\n        if d > maxDim then maxDim = d end\n    end\n    local cellSize = math.max(4, maxDim * 2)\n\n    local buckets = {}\n    for _, p in ipairs(parts) do\n        local key = math.floor(p.Position.X / cellSize) .. \":\" .. math.floor(p.Position.Z / cellSize)\n        local b = buckets[key]\n        if not b then b = {}; buckets[key] = b end\n        b[#b + 1] = p\n    end\n\n    for _, center in ipairs(parts) do\n        local cx = math.floor(center.Position.X / cellSize)\n        local cz = math.floor(center.Position.Z / cellSize)\n        local radius = center.Size.X * 1.85\n        local neighbors = {}\n        for ix = cx - 1, cx + 1 do\n            for iz = cz - 1, cz + 1 do\n                local b = buckets[ix .. \":\" .. iz]\n                if b then\n                    for _, p in ipairs(b) do\n                        if p ~= center\n                            and math.abs(p.Position.Y - center.Position.Y) < 1.5\n                            and (p.Position - center.Position).Magnitude < radius then\n                            neighbors[#neighbors + 1] = p\n                        end\n                    end\n                end\n            end\n        end\n        neighborMap[center] = neighbors\n    end\nend\n\nlocal function cacheNeighbors(centerPart, forceRefresh)\n    if not forceRefresh and neighborMap[centerPart] then return end\n\n    local neighbors = {}\n    local partsInBox = Workspace:GetPartBoundsInBox(centerPart.CFrame, centerPart.Size * 2.5)\n    for _, p in ipairs(partsInBox) do\n        if p ~= centerPart and isTileCandidate(p) then\n            if math.abs(p.Position.Y - centerPart.Position.Y) < 1.5\n                and (p.Position - centerPart.Position).Magnitude < (centerPart.Size.X * 1.85) then\n                neighbors[#neighbors + 1] = p\n            end\n        end\n    end\n    neighborMap[centerPart] = neighbors\nend\n\nlocal function rescanBoard()\n    cachedParts = {}\n    cachedSet = {}\n    neighborMap = {}\n    local tileRoot = getTileRoot()\n    if not tileRoot then return end\n\n    local candidates = {}\n    for _, obj in ipairs(tileRoot:GetDescendants()) do\n        if isTileCandidate(obj) then\n            candidates[#candidates + 1] = obj\n            cachedSet[obj] = true\n        end\n    end\n    cachedParts = candidates\n    buildNeighborMapBulk(candidates)\nend\n\n-------------------------------------------------------------------------------\n-- RESET HELPERS\n-------------------------------------------------------------------------------\n\n-- Reset \"mềm\": chỉ xoá suy luận (giữ số đã đọc)\nlocal function softResetKnowledge()\n    clearAllVisuals()\n    clearFiftyFiftyAlert()\n    clearHerePillar()\n    knownMines = {}\n    knownSafe = {}\n    probabilityMap = {}\n    currentBestGuess = nil\n    lastSig = nil\n    lastSoftReset = os.clock()\nend\n\n-- Reset \"cứng\": ván mới -> xoá cả số đã đọc\nlocal function hardResetKnowledge()\n    softResetKnowledge()\n    numberTiles = {}\n    checkedNoNumber = {}\n    lastUnknown = {}\nend\n\n-------------------------------------------------------------------------------\n-- SOLVER\n-------------------------------------------------------------------------------\n\nlocal function markMine(p)\n    if not p or not p.Parent or knownMines[p] then return false end\n    if knownSafe[p] then\n        conflicts = conflicts + 1 -- suy luận mâu thuẫn -> dữ liệu có thể cũ\n        return false\n    end\n    knownMines[p] = true\n    createHighlight(p, Color3.new(1, 0, 0), \"Mine_Highlight\")\n    return true\nend\n\nlocal function markSafe(p)\n    if not p or not p.Parent or knownSafe[p] then return false end\n    if knownMines[p] then\n        conflicts = conflicts + 1\n        return false\n    end\n    knownSafe[p] = true\n    createHighlight(p, Color3.new(0, 1, 0), \"Safe_Highlight\")\n    return true\nend\n\n-- Thu thập ràng buộc: mỗi ô số -> {cells = ô chưa rõ, need = số mìn còn thiếu}\nlocal function collectConstraints(charPos)\n    local cons = {}\n    for centerPart, targetNum in pairs(numberTiles) do\n        if not centerPart.Parent then\n            numberTiles[centerPart] = nil\n        elseif isWithinActiveRange(centerPart, charPos, SOLVER_CONTEXT_PADDING) then\n            local neighbors = neighborMap[centerPart]\n            if neighbors then\n                local cells, need = {}, targetNum\n                for _, n in ipairs(neighbors) do\n                    if knownMines[n] then\n                        need = need - 1\n                    elseif knownSafe[n] then\n                        -- an toàn: bỏ khỏi tập\n                    elseif isUnrevealed(n) then\n                        cells[#cells + 1] = n\n                    end\n                end\n                if #cells > 0 then\n                    cons[#cons + 1] = { part = centerPart, cells = cells, need = need }\n                end\n            end\n        end\n    end\n    return cons\nend\n\n-- Lan truyền: luật cơ bản (need=0 / need=số ô) + luật hiệu tập con, lặp đến khi hết tiến triển\nlocal function propagate(cons)\n    for _ = 1, 10 do\n        local progressed = false\n        local index = {}\n\n        for _, c in ipairs(cons) do\n            if not c.dead then\n                local need = c.need\n                local cells, set = {}, {}\n                for _, p in ipairs(c.cells) do\n                    if knownMines[p] then\n                        need = need - 1\n                    elseif not knownSafe[p] then\n                        cells[#cells + 1] = p\n                        set[p] = true\n                    end\n                end\n                c.cells, c.need, c.set = cells, need, set\n\n                if #cells == 0 then\n                    c.dead = true\n                elseif need < 0 or need > #cells then\n                    c.dead = true\n                    conflicts = conflicts + 1\n                elseif need == 0 then\n                    for _, p in ipairs(cells) do\n                        if markSafe(p) then progressed = true end\n                    end\n                    c.dead = true\n                elseif need == #cells then\n                    for _, p in ipairs(cells) do\n                        if markMine(p) then progressed = true end\n                    end\n                    c.dead = true\n                else\n                    for _, p in ipairs(cells) do\n                        local l = index[p]\n                        if not l then l = {}; index[p] = l end\n                        l[#l + 1] = c\n                    end\n                end\n            end\n        end\n\n        -- Subset rule: A ⊂ B  =>  (B \\ A) chứa đúng (needB - needA) mìn\n        for _, A in ipairs(cons) do\n            if not A.dead and A.set then\n                local list = index[A.cells[1]]\n                if list then\n                    for _, B in ipairs(list) do\n                        if B ~= A and not B.dead and B.set and #B.cells > #A.cells then\n                            local sub = true\n                            for _, p in ipairs(A.cells) do\n                                if not B.set[p] then sub = false; break end\n                            end\n                            if sub then\n                                local diff = {}\n                                for _, p in ipairs(B.cells) do\n                                    if not A.set[p] then diff[#diff + 1] = p end\n                                end\n                                local dn = B.need - A.need\n                                if dn == 0 then\n                                    for _, p in ipairs(diff) do\n                                        if markSafe(p) then progressed = true end\n                                    end\n                                elseif dn == #diff then\n                                    for _, p in ipairs(diff) do\n                                        if markMine(p) then progressed = true end\n                                    end\n                                end\n                            end\n                        end\n                    end\n                end\n            end\n        end\n\n        if not progressed then break end\n    end\nend\n\n-- Chia ràng buộc thành các cụm liên thông (độc lập nhau)\nlocal function buildComponents(cons)\n    local cellCons = {}\n    for ci, c in ipairs(cons) do\n        for _, p in ipairs(c.cells) do\n            local l = cellCons[p]\n            if not l then l = {}; cellCons[p] = l end\n            l[#l + 1] = ci\n        end\n    end\n\n    local visitedCon, comps = {}, {}\n    for ci = 1, #cons do\n        if not visitedCon[ci] then\n            visitedCon[ci] = true\n            local stack = { ci }\n            local conList, cellList, cellSeen = {}, {}, {}\n            while #stack > 0 do\n                local cur = table.remove(stack)\n                conList[#conList + 1] = cons[cur]\n                for _, p in ipairs(cons[cur].cells) do\n                    if not cellSeen[p] then\n                        cellSeen[p] = true\n                        cellList[#cellList + 1] = p\n                        for _, cj in ipairs(cellCons[p]) do\n                            if not visitedCon[cj] then\n                                visitedCon[cj] = true\n                                stack[#stack + 1] = cj\n                            end\n                        end\n                    end\n                end\n            end\n            comps[#comps + 1] = { cons = conList, cells = cellList }\n        end\n    end\n    return comps\nend\n\n-- Liệt kê chính xác mọi cấu hình mìn hợp lệ của một cụm (backtracking có cắt tỉa)\n-- Trả về: countByK[k] = số nghiệm có k mìn; cellByK[k][i] = số nghiệm đó có mìn ở ô i\nlocal function enumerateComponent(comp)\n    local cells = comp.cells\n    local n = #cells\n    local cellIndex = {}\n    for i, c in ipairs(cells) do cellIndex[c] = i end\n\n    local cellCons = {}\n    for i = 1, n do cellCons[i] = {} end\n    local conCells, conNeed, conAssigned, conUnassigned = {}, {}, {}, {}\n    for ci, c in ipairs(comp.cons) do\n        local idxs = {}\n        for _, p in ipairs(c.cells) do\n            local ix = cellIndex[p]\n            idxs[#idxs + 1] = ix\n            table.insert(cellCons[ix], ci)\n        end\n        conCells[ci] = idxs\n        conNeed[ci] = c.need\n        conAssigned[ci] = 0\n        conUnassigned[ci] = #idxs\n    end\n\n    -- Thứ tự BFS để các ràng buộc được \"đóng\" sớm -> cắt tỉa mạnh\n    local order, seen, queue, qi = {}, { [1] = true }, { 1 }, 1\n    while qi <= #queue do\n        local u = queue[qi]\n        qi = qi + 1\n        order[#order + 1] = u\n        for _, ci in ipairs(cellCons[u]) do\n            for _, v in ipairs(conCells[ci]) do\n                if not seen[v] then\n                    seen[v] = true\n                    queue[#queue + 1] = v\n                end\n            end\n        end\n    end\n    if #order ~= n then return nil end\n\n    local assign = {}\n    for i = 1, n do assign[i] = 0 end\n    local countByK, cellByK = {}, {}\n    local nodes, aborted, mines = 0, false, 0\n\n    local function rec(pos)\n        if aborted then return end\n        nodes = nodes + 1\n        if nodes > MAX_ENUM_NODES then\n            aborted = true\n            return\n        end\n        if pos > n then\n            countByK[mines] = (countByK[mines] or 0) + 1\n            local arr = cellByK[mines]\n            if not arr then\n                arr = {}\n                for i = 1, n do arr[i] = 0 end\n                cellByK[mines] = arr\n            end\n            for i = 1, n do\n                if assign[i] == 1 then arr[i] = arr[i] + 1 end\n            end\n            return\n        end\n\n        local u = order[pos]\n        local cl = cellCons[u]\n        for v = 0, 1 do\n            local ok = true\n            for _, ci in ipairs(cl) do\n                local a = conAssigned[ci] + v\n                local un = conUnassigned[ci] - 1\n                if a > conNeed[ci] or a + un < conNeed[ci] then\n                    ok = false\n                    break\n                end\n            end\n            if ok then\n                assign[u] = v\n                for _, ci in ipairs(cl) do\n                    conAssigned[ci] = conAssigned[ci] + v\n                    conUnassigned[ci] = conUnassigned[ci] - 1\n                end\n                mines = mines + v\n                rec(pos + 1)\n                mines = mines - v\n                for _, ci in ipairs(cl) do\n                    conAssigned[ci] = conAssigned[ci] - v\n                    conUnassigned[ci] = conUnassigned[ci] + 1\n                end\n                assign[u] = 0\n            end\n        end\n    end\n\n    rec(1)\n    if aborted then return nil end\n    return { countByK = countByK, cellByK = cellByK, n = n }\nend\n\nlocal function clamp(x, lo, hi)\n    if x < lo then return lo end\n    if x > hi then return hi end\n    return x\nend\n\n-- Phân tích biên: xác suất từng ô + ô chắc chắn mìn/an toàn.\n-- R = số mìn còn lại, O = số ô chưa rõ nằm ngoài biên, useGlobal = dùng ràng buộc tổng số mìn.\nlocal function analyzeFrontier(cons, R, O, useGlobal)\n    local comps = buildComponents(cons)\n    local res = {\n        probs = {}, mines = {}, safes = {}, frontier = {},\n        rho = nil, outsideSafe = false, outsideMine = false, conflict = false,\n    }\n\n    local sumMin, sumMax, totalFrontier = 0, 0, 0\n    for _, comp in ipairs(comps) do\n        for _, p in ipairs(comp.cells) do res.frontier[p] = true end\n        totalFrontier = totalFrontier + #comp.cells\n\n        if #comp.cells <= MAX_COMPONENT_CELLS then\n            comp.enum = enumerateComponent(comp)\n        end\n\n        if comp.enum then\n            local kmin, kmax = math.huge, -1\n            for k in pairs(comp.enum.countByK) do\n                if k < kmin then kmin = k end\n                if k > kmax then kmax = k end\n            end\n            if kmax < 0 then\n                res.conflict = true -- cụm vô nghiệm => số liệu không nhất quán\n                comp.enum = nil\n                comp.kmin, comp.kmax = 0, #comp.cells\n            else\n                comp.kmin, comp.kmax = kmin, kmax\n            end\n        else\n            comp.kmin, comp.kmax = 0, #comp.cells\n        end\n\n        -- Xác suất heuristic cho cụm quá lớn\n        if not comp.enum then\n            comp.heur = {}\n            local e = 0\n            for _, c in ipairs(comp.cons) do\n                local pr = c.need / #c.cells\n                for _, p in ipairs(c.cells) do\n                    if not comp.heur[p] or pr > comp.heur[p] then comp.heur[p] = pr end\n                end\n            end\n            for _, p in ipairs(comp.cells) do e = e + (comp.heur[p] or 0.5) end\n            comp.heurE = e\n        end\n\n        sumMin = sumMin + comp.kmin\n        sumMax = sumMax + comp.kmax\n    end\n\n    local globalOk = useGlobal and R >= 0 and sumMin <= R and (sumMax + O) >= R\n    local useDensity = globalOk and O > 0\n\n    local function allowed(comp, k)\n        if not globalOk then return true end\n        return (k + (sumMin - comp.kmin) <= R) and (k + (sumMax - comp.kmax) + O >= R)\n    end\n\n    -- Mật độ mìn ngoài biên (rho) hội tụ lặp: rho = (R - E[mìn biên]) / O\n    local rho = 0.5\n    if useDensity then\n        rho = clamp(R / (O + math.max(1, totalFrontier)), 0.001, 0.999)\n    end\n    local r = 1\n    for _ = 1, 3 do\n        r = useDensity and (rho / (1 - rho)) or 1\n        local sumE = 0\n        for _, comp in ipairs(comps) do\n            if comp.enum then\n                local wsum, ksum = 0, 0\n                for k, cnt in pairs(comp.enum.countByK) do\n                    if allowed(comp, k) then\n                        local w = cnt * (r ^ k)\n                        wsum = wsum + w\n                        ksum = ksum + w * k\n                    end\n                end\n                comp.E = wsum > 0 and (ksum / wsum) or 0\n            else\n                comp.E = comp.heurE\n            end\n            sumE = sumE + comp.E\n        end\n        if useDensity then\n            rho = clamp((R - sumE) / O, 0.001, 0.999)\n        end\n    end\n    r = useDensity and (rho / (1 - rho)) or 1\n\n    -- Xác suất cuối + ô chắc chắn\n    for _, comp in ipairs(comps) do\n        if comp.enum then\n            local n = comp.enum.n\n            local cellW, mineSol = {}, {}\n            for i = 1, n do cellW[i] = 0; mineSol[i] = 0 end\n            local wsum, totalSol = 0, 0\n\n            for k, cnt in pairs(comp.enum.countByK) do\n                if allowed(comp, k) then\n                    local rk = r ^ k\n                    wsum = wsum + cnt * rk\n                    totalSol = totalSol + cnt\n                    local arr = comp.enum.cellByK[k]\n                    for i = 1, n do\n                        cellW[i] = cellW[i] + arr[i] * rk\n                        mineSol[i] = mineSol[i] + arr[i]\n                    end\n                end\n            end\n\n            if wsum > 0 and totalSol > 0 then\n                for i, p in ipairs(comp.cells) do\n                    res.probs[p] = cellW[i] / wsum\n                    if mineSol[i] == 0 then\n                        res.safes[#res.safes + 1] = p\n                    elseif mineSol[i] == totalSol then\n                        res.mines[#res.mines + 1] = p\n                    end\n                end\n            else\n                res.conflict = true\n                for _, p in ipairs(comp.cells) do res.probs[p] = 0.5 end\n            end\n        else\n            for _, p in ipairs(comp.cells) do\n                res.probs[p] = comp.heur[p] or 0.5\n            end\n        end\n    end\n\n    if globalOk and O > 0 then\n        res.rho = rho\n        if sumMin >= R then res.outsideSafe = true end\n        if sumMax + O <= R then res.outsideMine = true end\n    elseif useGlobal and not globalOk and #comps > 0 then\n        res.globalInconsistent = true\n    end\n\n    return res\nend\n\nlocal function gatherUnknown(charPos)\n    local list = {}\n    for _, p in ipairs(cachedParts) do\n        if p.Parent and isUnrevealed(p) and not knownMines[p] and not knownSafe[p]\n            and isWithinActiveRange(p, charPos, 0) then\n            list[#list + 1] = p\n        end\n    end\n    return list\nend\n\nlocal function applyAnalysis(res, unknown)\n    local progressed = false\n    for _, p in ipairs(res.safes) do\n        if markSafe(p) then progressed = true end\n    end\n    for _, p in ipairs(res.mines) do\n        if markMine(p) then progressed = true end\n    end\n    if res.outsideSafe then\n        for _, p in ipairs(unknown) do\n            if not res.frontier[p] and markSafe(p) then progressed = true end\n        end\n    elseif res.outsideMine then\n        for _, p in ipairs(unknown) do\n            if not res.frontier[p] and markMine(p) then progressed = true end\n        end\n    end\n    return progressed\nend\n\n-- Chọn ô đoán tốt nhất (xác suất thấp nhất, hoà thì ưu tiên ô nhiều thông tin / gần người chơi)\nlocal function pickGuess(res, unknown, charPos, R)\n    local endgame = R <= 2\n    local list = {}\n\n    for p, prob in pairs(res.probs) do\n        if p.Parent and isUnrevealed(p) and not knownMines[p] and not knownSafe[p]\n            and isWithinActiveRange(p, charPos, 0) then\n            local info = countUnrevealedNeighbors(p) * 0.6 + countRevealedNumberNeighbors(p) * 0.3\n            if endgame then info = info * 2 end\n            local dist = charPos and (p.Position - charPos).Magnitude or 0\n            list[#list + 1] = { part = p, prob = prob, score = prob * 1000 - info + dist * 0.005 }\n        end\n    end\n\n    -- Ô ngoài biên: chỉ thêm ứng viên gần người chơi nhất\n    local outsideProb = res.rho\n    if not outsideProb then\n        outsideProb = (R > 0 and #unknown > 0) and clamp(R / #unknown, 0.001, 0.999) or 0.5\n    end\n    local nearest, nd = nil, math.huge\n    for _, p in ipairs(unknown) do\n        if not res.frontier[p] and not hasFlag(p) then\n            local d = charPos and (p.Position - charPos).Magnitude or 0\n            if d < nd then nd = d; nearest = p end\n        end\n    end\n    if nearest then\n        list[#list + 1] = { part = nearest, prob = outsideProb, score = outsideProb * 1000 + nd * 0.005 }\n    end\n\n    if #list == 0 then return nil, 1 end\n    table.sort(list, function(a, b) return a.score < b.score end)\n\n    local chosen\n    for i = 1, math.min(#list, 6) do\n        if not hasFlag(list[i].part) then chosen = list[i]; break end\n    end\n    chosen = chosen or list[1]\n\n    -- Phát hiện 50/50: tốt nhất vẫn ~50% và có >= 2 ô ~50%\n    local fifty = 0\n    for _, e in ipairs(list) do\n        if math.abs(e.prob - 0.5) < 0.03 then fifty = fifty + 1 end\n    end\n    if chosen.prob >= 0.45 and fifty >= 2 then\n        triggerFiftyFiftyAlert()\n    end\n\n    return chosen.part, chosen.prob\nend\n\n-- Suy luận ô còn lại: khi mọi ô khác đã được xác định (mìn / an toàn),\n-- các ô chưa rõ còn sót lại được quyết định hoàn toàn bởi tổng số mìn.\n--   R = TOTAL - số mìn đã biết,  U = số ô chưa mở và chưa xác định\n--   R == 0 -> toàn bộ U an toàn;  R == U -> toàn bộ U là mìn\n-- Chỉ chạy khi Anti-Lag OFF (cần nhìn thấy cả bàn).\nlocal function deduceLastTiles(charPos)\n    if not LAST_TILE_DEDUCTION or not GLOBAL_MINES_ENABLED or isAntiLagOn then return false end\n\n    local unknown = gatherUnknown(charPos)\n    local U = #unknown\n    local R = TOTAL_MINES_DEFAULT - countKnownMines()\n    if U == 0 or R < 0 or R > U then return false end -- dữ liệu không nhất quán -> bỏ qua\n\n    local progressed = false\n    if R == 0 then\n        for _, p in ipairs(unknown) do\n            if markSafe(p) then progressed = true end\n        end\n    elseif R == U then\n        for _, p in ipairs(unknown) do\n            if markMine(p) then progressed = true end\n        end\n    end\n    return progressed\nend\n\nlocal function solveBoard(charPos)\n    conflicts = 0\n    local useGlobal = GLOBAL_MINES_ENABLED and not isAntiLagOn\n    local analysis, unknown\n\n    for _ = 1, 3 do\n        local cons = collectConstraints(charPos)\n        propagate(cons)\n\n        local alive = {}\n        for _, c in ipairs(cons) do\n            if not c.dead and #c.cells > 0 then alive[#alive + 1] = c end\n        end\n\n        unknown = gatherUnknown(charPos)\n        local frontierProbe = {}\n        for _, c in ipairs(alive) do\n            for _, p in ipairs(c.cells) do frontierProbe[p] = true end\n        end\n        local O = 0\n        for _, p in ipairs(unknown) do\n            if not frontierProbe[p] then O = O + 1 end\n        end\n\n        local R = TOTAL_MINES_DEFAULT - countKnownMines()\n        analysis = analyzeFrontier(alive, R, O, useGlobal)\n        if analysis.conflict then conflicts = conflicts + 1 end\n\n        local progressed = applyAnalysis(analysis, unknown)\n        if deduceLastTiles(charPos) then progressed = true end\n        if not progressed then break end\n    end\n\n    probabilityMap = analysis and analysis.probs or {}\n    lastUnknown = gatherUnknown(charPos)\n\n    -- Có nước an toàn trong tầm?\n    local hasSafe = false\n    for part, isSafe in pairs(knownSafe) do\n        if isSafe and part.Parent and isUnrevealed(part) and isWithinActiveRange(part, charPos, 0) then\n            hasSafe = true\n            break\n        end\n    end\n\n    if currentBestGuess and (\n        not currentBestGuess.Parent\n        or knownSafe[currentBestGuess]\n        or knownMines[currentBestGuess]\n        or hasSafe\n        or not isWithinActiveRange(currentBestGuess, charPos, 0)\n    ) then\n        local e = trackedVisuals[currentBestGuess]\n        if e and e.tag == \"Guess_Highlight\" then clearVisuals(currentBestGuess) end\n        currentBestGuess = nil\n    end\n\n    if not hasSafe and analysis then\n        local R = TOTAL_MINES_DEFAULT - countKnownMines()\n        local best = pickGuess(analysis, lastUnknown, charPos, R)\n        if best and best ~= currentBestGuess then\n            if currentBestGuess then\n                local e = trackedVisuals[currentBestGuess]\n                if e and e.tag == \"Guess_Highlight\" then clearVisuals(currentBestGuess) end\n            end\n            currentBestGuess = best\n            createHighlight(best, Color3.fromRGB(255, 255, 0), \"Guess_Highlight\")\n        end\n    end\nend\n\n-------------------------------------------------------------------------------\n-- MAIN SOLVER LOOP\n-------------------------------------------------------------------------------\n\nlocal lastFlagRefresh = 0\nlocal lastStatusText = \"\"\n\nlocal function solverTick()\n    local charPos = getCharPos()\n    local now = os.clock()\n\n    if now - lastFlagRefresh >= FLAG_REFRESH_INTERVAL then\n        lastFlagRefresh = now\n        refreshFlagCache()\n    end\n\n    local unrevCount, numCount, staleNumbers = 0, 0, 0\n    local writeIndex = 1\n\n    for readIndex = 1, #cachedParts do\n        local part = cachedParts[readIndex]\n        if part and part.Parent then\n            cachedParts[writeIndex] = part\n            writeIndex = writeIndex + 1\n\n            if isAntiLagOn and not isWithinActiveRange(part, charPos, SOLVER_CONTEXT_PADDING) then\n                clearVisuals(part)\n            else\n                if not neighborMap[part] then cacheNeighbors(part, false) end\n\n                if isExcluded(part) then\n                    if numberTiles[part] or knownSafe[part] or knownMines[part] then\n                        numberTiles[part] = nil; knownSafe[part] = nil; knownMines[part] = nil\n                        clearVisuals(part)\n                    end\n                elseif isUnrevealed(part) then\n                    unrevCount = unrevCount + 1\n                    if numberTiles[part] then\n                        -- ô số quay lại trạng thái chưa mở => ván được reset\n                        numberTiles[part] = nil\n                        checkedNoNumber[part] = nil\n                        staleNumbers = staleNumbers + 1\n                    end\n                else\n                    if knownSafe[part] then\n                        knownSafe[part] = nil\n                        clearVisuals(part)\n                    end\n                    if numberTiles[part] then\n                        numCount = numCount + 1\n                    else\n                        local rec = checkedNoNumber[part]\n                        if not rec or (rec.n < 4 and now - rec.t > 0.4) then\n                            local num = getNumber(part)\n                            if num then\n                                numberTiles[part] = num\n                                checkedNoNumber[part] = nil\n                                numCount = numCount + 1\n                                clearVisuals(part)\n                            else\n                                checkedNoNumber[part] = { n = (rec and rec.n or 0) + 1, t = now }\n                            end\n                        end\n                    end\n                end\n            end\n        else\n            if part then\n                clearVisuals(part)\n                neighborMap[part] = nil\n                numberTiles[part] = nil\n                knownMines[part] = nil\n                knownSafe[part] = nil\n                checkedNoNumber[part] = nil\n                cachedSet[part] = nil\n            end\n        end\n    end\n    for i = writeIndex, #cachedParts do cachedParts[i] = nil end\n\n    if staleNumbers >= 3 then\n        hardResetKnowledge()\n        return\n    end\n\n    local minesCount = countKnownMines()\n    local safeCount = countKnownSafeUnrevealed()\n    local bx = isAntiLagOn and charPos and math.floor(charPos.X / 6) or 0\n    local bz = isAntiLagOn and charPos and math.floor(charPos.Z / 6) or 0\n    local sig = string.format(\"%d|%d|%d|%d|%d|%d|%s\", unrevCount, numCount, minesCount, safeCount, bx, bz, tostring(isAntiLagOn))\n\n    local solved = false\n    if sig ~= lastSig or now - lastSolveTime >= FORCE_SOLVE_INTERVAL then\n        solveBoard(charPos)\n        lastSig = sig\n        lastSolveTime = now\n        solved = true\n\n        -- Mâu thuẫn -> dữ liệu suy luận có thể cũ, reset mềm (có cooldown tránh nhấp nháy)\n        if conflicts > 0 and now - lastSoftReset > 1.5 then\n            softResetKnowledge()\n            return\n        end\n    end\n\n    if solved or isAntiLagOn then\n        syncVisualsRange(charPos)\n    end\n    updateHerePillar(charPos, countKnownMines())\n\n    local text = string.format(\"%s %d/%d | safe %d\",\n        isAutoTouching and \"Auto(60)\" or \"Scan\",\n        countKnownMines(), TOTAL_MINES_DEFAULT, countKnownSafeUnrevealed())\n    if text ~= lastStatusText then\n        lastStatusText = text\n        status.Text = text\n    end\nend\n\nlocal function startSolverLoop()\n    solverGeneration = solverGeneration + 1\n    local myGeneration = solverGeneration\n\n    task.spawn(function()\n        local lastErr = nil\n        while isScanning and myGeneration == solverGeneration do\n            local ok, err = pcall(solverTick)\n            if not ok and err ~= lastErr then\n                lastErr = err\n                warn(\"[Minesweeper Script] solver error: \" .. tostring(err))\n            end\n            task.wait(LOOP_INTERVAL)\n        end\n        clearHerePillar()\n    end)\nend\n\n-------------------------------------------------------------------------------\n-- BOARD CHANGE HANDLING (gộp sự kiện thêm/xoá part)\n-------------------------------------------------------------------------------\n\nlocal function flushBoardChanges()\n    flushScheduled = false\n    if not isScanning then\n        addedQueue = {}\n        removedSinceFlush = 0\n        return\n    end\n\n    local q = addedQueue\n    local removed = removedSinceFlush\n    addedQueue = {}\n    removedSinceFlush = 0\n\n    if #q + removed >= BULK_CHANGE_THRESHOLD then\n        -- Khả năng cao là ván mới: quét lại bàn và xoá toàn bộ tri thức cũ\n        hardResetKnowledge()\n        rescanBoard()\n        return\n    end\n\n    local touched = {}\n    for _, part in ipairs(q) do\n        if part.Parent then touched[part] = true end\n    end\n    for part in pairs(touched) do\n        cacheNeighbors(part, true)\n        for _, nb in ipairs(neighborMap[part] or {}) do\n            cacheNeighbors(nb, true)\n        end\n    end\n    lastSig = nil -- buộc giải lại\nend\n\nlocal function scheduleFlush()\n    if flushScheduled then return end\n    flushScheduled = true\n    task.delay(0.15, flushBoardChanges)\nend\n\nlocal function onDescendantAdded(descendant)\n    if isScanning and isTileCandidate(descendant) then\n        if not cachedSet[descendant] then\n            cachedSet[descendant] = true\n            cachedParts[#cachedParts + 1] = descendant\n        end\n        addedQueue[#addedQueue + 1] = descendant\n        scheduleFlush()\n    end\nend\n\nlocal function onDescendantRemoving(descendant)\n    if isScanning and cachedSet[descendant] then\n        removedSinceFlush = removedSinceFlush + 1\n        scheduleFlush()\n    end\nend\n\n-------------------------------------------------------------------------------\n-- UI CONNECTIONS\n-------------------------------------------------------------------------------\n\ntoggleBtn.MouseButton1Click:Connect(function()\n    if isScanning then\n        isScanning = false\n        isAutoTouching = false\n        solverGeneration = solverGeneration + 1\n        autoTouchGeneration = autoTouchGeneration + 1\n\n        toggleBtn.Text = \"START\"\n        toggleBtn.TextColor3 = Color3.fromRGB(0, 255, 0)\n        fastBtn.Text = \"AUTO TOUCH: OFF\"\n        fastBtn.TextColor3 = Color3.fromRGB(0, 255, 255)\n        status.Text = \"Status: Offline\"\n        status.TextColor3 = Color3.fromRGB(255, 0, 0)\n\n        for _, conn in pairs(connections) do conn:Disconnect() end\n        connections = {}\n        hardResetKnowledge()\n        cachedParts = {}; cachedSet = {}; neighborMap = {}\n        addedQueue = {}; removedSinceFlush = 0\n    else\n        local tileRoot = getTileRoot()\n        if not tileRoot then\n            warn(\"[Minesweeper Script] Không tìm thấy workspace.Flag.Parts\")\n            status.Text = \"Status: Flag.Parts Not Found\"\n            status.TextColor3 = Color3.fromRGB(255, 170, 0)\n            return\n        end\n\n        isScanning = true\n        toggleBtn.Text = \"STOP\"\n        toggleBtn.TextColor3 = Color3.fromRGB(255, 0, 0)\n        status.Text = \"Status: Scanning...\"\n        status.TextColor3 = Color3.fromRGB(0, 255, 0)\n        lastStatusText = \"\"\n\n        hardResetKnowledge()\n        rescanBoard()\n        refreshFlagCache()\n\n        table.insert(connections, tileRoot.DescendantAdded:Connect(onDescendantAdded))\n        table.insert(connections, tileRoot.DescendantRemoving:Connect(onDescendantRemoving))\n        startSolverLoop()\n    end\nend)\n\nfastBtn.MouseButton1Click:Connect(function()\n    if not isScanning then return end\n\n    isAutoTouching = not isAutoTouching\n    lastStatusText = \"\"\n\n    if isAutoTouching then\n        fastBtn.Text = \"AUTO TOUCH: ON\"\n        fastBtn.TextColor3 = Color3.fromRGB(0, 255, 0)\n\n        autoTouchGeneration = autoTouchGeneration + 1\n        local myGeneration = autoTouchGeneration\n\n        task.spawn(function()\n            local lastErr = nil\n            while isAutoTouching and isScanning and myGeneration == autoTouchGeneration do\n                local ok, err = pcall(function()\n                    local charPos = getCharPos()\n                    if not charPos then\n                        task.wait(0.1)\n                        return\n                    end\n\n                    refreshFlagCache()\n                    local didWork = false\n\n                    -- 1. Gỡ cờ đặt nhầm trên ô an toàn (gần nhất trước)\n                    local misplaced = {}\n                    for part in pairs(knownSafe) do\n                        if part.Parent and isUnrevealed(part) and hasFlag(part)\n                            and not onCooldown(part, 0.7)\n                            and isWithinDistance(part, charPos, AUTO_TOUCH_RANGE) then\n                            misplaced[#misplaced + 1] = part\n                        end\n                    end\n                    sortByProximity(misplaced, charPos)\n                    for _, part in ipairs(misplaced) do\n                        if not isAutoTouching or not isScanning then break end\n                        local latest = getCharPos()\n                        if latest and isWithinDistance(part, latest, AUTO_TOUCH_RANGE) then\n                            clickTile(part)\n                            stamp(part)\n                            didWork = true\n                            task.wait(0.02)\n                        end\n                    end\n\n                    -- 2. Cắm cờ lên mìn đã chắc chắn\n                    local toFlag = {}\n                    for part in pairs(knownMines) do\n                        if part.Parent and isUnrevealed(part) and not hasFlag(part)\n                            and not onCooldown(part, 0.7)\n                            and isWithinDistance(part, charPos, AUTO_TOUCH_RANGE) then\n                            toFlag[#toFlag + 1] = part\n                        end\n                    end\n                    sortByProximity(toFlag, charPos)\n                    for _, part in ipairs(toFlag) do\n                        if not isAutoTouching or not isScanning then break end\n                        local latest = getCharPos()\n                        if latest and isWithinDistance(part, latest, AUTO_TOUCH_RANGE) then\n                            clickTile(part)\n                            stamp(part)\n                            didWork = true\n                            task.wait(0.02)\n                        end\n                    end\n\n                    -- 3. Mở ô an toàn (theo lô song song)\n                    local toReveal = {}\n                    for part in pairs(knownSafe) do\n                        if part.Parent and isUnrevealed(part) and not hasFlag(part)\n                            and not onCooldown(part, 0.35)\n                            and isWithinDistance(part, charPos, AUTO_TOUCH_RANGE) then\n                            toReveal[#toReveal + 1] = part\n                        end\n                    end\n                    sortByProximity(toReveal, charPos)\n\n                    if #toReveal > 0 then\n                        for i = 1, math.min(#toReveal, BATCH_SIZE) do\n                            local part = toReveal[i]\n                            stamp(part)\n                            task.spawn(function()\n                                if isAutoTouching and isScanning then\n                                    local latest = getCharPos()\n                                    if latest and isWithinDistance(part, latest, AUTO_TOUCH_RANGE) then\n                                        triggerTileTouch(part)\n                                    end\n                                end\n                            end)\n                        end\n                        didWork = true\n                        task.wait(0.05)\n                    end\n\n                    if not didWork then task.wait(0.08) end\n                end)\n\n                if not ok and err ~= lastErr then\n                    lastErr = err\n                    warn(\"[Minesweeper Script] auto-touch error: \" .. tostring(err))\n                    task.wait(0.2)\n                end\n            end\n\n            if myGeneration == autoTouchGeneration then\n                isAutoTouching = false\n                if fastBtn and fastBtn.Parent then\n                    fastBtn.Text = \"AUTO TOUCH: OFF\"\n                    fastBtn.TextColor3 = Color3.fromRGB(0, 255, 255)\n                end\n            end\n        end)\n    else\n        autoTouchGeneration = autoTouchGeneration + 1\n        fastBtn.Text = \"AUTO TOUCH: OFF\"\n        fastBtn.TextColor3 = Color3.fromRGB(0, 255, 255)\n    end\nend)\n\nantiLagBtn.MouseButton1Click:Connect(function()\n    isAntiLagOn = not isAntiLagOn\n    if isAntiLagOn then\n        antiLagBtn.Text = \"ANTI-LAG: ON\"\n        antiLagBtn.TextColor3 = Color3.fromRGB(0, 255, 0)\n    else\n        antiLagBtn.Text = \"ANTI-LAG: OFF\"\n        antiLagBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\n    end\n\n    lastSig = nil -- buộc giải lại với phạm vi mới\n    if isScanning then\n        local charPos = getCharPos()\n        syncVisualsRange(charPos)\n        updateHerePillar(charPos, countKnownMines())\n    end\nend)\n\ndestroyBtn.MouseButton1Click:Connect(function()\n    isScanning = false\n    isAutoTouching = false\n    isAntiLagOn = false\n    solverGeneration = solverGeneration + 1\n    autoTouchGeneration = autoTouchGeneration + 1\n\n    for _, conn in pairs(connections) do conn:Disconnect() end\n    connections = {}\n    clearAllVisuals()\n    clearFiftyFiftyAlert()\n    clearHerePillar()\n    pcall(function() visualsFolder:Destroy() end)\n    screenGui:Destroy()\nend)",
       "createdAt": "2026-11-20T07:44:34.669Z",
       "updatedAt": "2026-11-20T18:49:53.699Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6afffa2cfb590cff8b1fdba2",
-      "slug": "RoChess-Auto-Play-Best-Move-and-Auto-Puzzle-Solver-or-AZOTH-KEYLESS-237596",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RoChess-Auto-Play-Best-Move-and-Auto-Puzzle-Solver-or-AZOTH-KEYLESS-237596",
-      "title": "Auto Play, Best Move & Auto Puzzle Solver | AZOTH KEYLESS",
-      "game": "RoChess!",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-ea2a118d31f4d70a43d63774e60c2e40-9719c0c06d55.png",
-      "author": "REALAZOTH666",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "keyless",
-        "rochess",
-        "azoth"
-      ],
-      "views": 87,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "Keyless RoChess! script by AZOTH with a clean UI, a strong best-move engine, smart autoplay, a full puzzle solver, and game review — no key, no checkpoints, just execute and play. Features: - Best Move Engine: Analyses every position and…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Azoth666/AZOTH/main/loader.lua\"))()",
-      "createdAt": "2026-11-20T07:43:40.269Z",
-      "updatedAt": "2026-11-21T05:59:01.167Z",
       "categoryIds": [
         "new"
       ],
@@ -3766,7 +3767,7 @@
         "vulnerabilities",
         "scanner"
       ],
-      "views": 148,
+      "views": 151,
       "likes": 1,
       "dislikes": 0,
       "summary": "actually scans vulnerabilities in your executor",
@@ -3876,7 +3877,7 @@
         "rockets",
         "op"
       ],
-      "views": 88,
+      "views": 89,
       "likes": 1,
       "dislikes": 0,
       "summary": "This was a script made for Naramo Nuclear Plant, I had alot of fun with it you could spam like RPGs and stuff while they don't always explode they still do damage to tanks if you hit them and if you somehow nail a person. This was for pe…",
@@ -3913,7 +3914,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4486467,
+      "views": 4486484,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3954,7 +3955,7 @@
         "sae",
         "universal"
       ],
-      "views": 3973103,
+      "views": 3973120,
       "likes": 94,
       "dislikes": 50,
       "rating": 3.3,
@@ -3995,7 +3996,7 @@
         "flow",
         "script"
       ],
-      "views": 3828188,
+      "views": 3828320,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -4035,7 +4036,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3801645,
+      "views": 3801768,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4074,7 +4075,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3507551,
+      "views": 3507555,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4114,7 +4115,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3478571,
+      "views": 3478700,
       "likes": 66,
       "dislikes": 13,
       "rating": 4.2,
@@ -4154,7 +4155,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3388946,
+      "views": 3388949,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4193,7 +4194,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3150543,
+      "views": 3150545,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -4232,7 +4233,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3139093,
+      "views": 3139107,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4269,7 +4270,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 3132554,
+      "views": 3132682,
       "likes": 50,
       "dislikes": 26,
       "rating": 3.3,
@@ -4308,7 +4309,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3022776,
+      "views": 3022778,
       "likes": 48,
       "dislikes": 10,
       "rating": 4.1,
@@ -4348,7 +4349,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2718725,
+      "views": 2718729,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4387,7 +4388,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2710530,
+      "views": 2710656,
       "likes": 75,
       "dislikes": 24,
       "rating": 3.8,
@@ -4426,7 +4427,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2515482,
+      "views": 2515493,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4467,7 +4468,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2481744,
+      "views": 2481756,
       "likes": 173,
       "dislikes": 31,
       "rating": 4.2,
@@ -4702,7 +4703,7 @@
         "script",
         "Keyless"
       ],
-      "views": 2098710,
+      "views": 2098712,
       "likes": 7,
       "dislikes": 4,
       "rating": 3.2,
@@ -4782,7 +4783,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2040076,
+      "views": 2040077,
       "likes": 80,
       "dislikes": 13,
       "rating": 4.3,
@@ -4821,7 +4822,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1981914,
+      "views": 1981916,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -4858,7 +4859,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1927569,
+      "views": 1927570,
       "likes": 11,
       "dislikes": 2,
       "rating": 4.2,
@@ -4971,7 +4972,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1890996,
+      "views": 1891000,
       "likes": 204,
       "dislikes": 34,
       "rating": 4.3,
@@ -5087,7 +5088,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875190,
+      "views": 1875191,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5199,7 +5200,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1788886,
+      "views": 1788887,
       "likes": 25,
       "dislikes": 0,
       "rating": 5,
@@ -5238,7 +5239,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 1788466,
+      "views": 1788467,
       "likes": 35,
       "dislikes": 13,
       "rating": 3.6,
@@ -5277,7 +5278,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1788265,
+      "views": 1788395,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5389,7 +5390,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1747665,
+      "views": 1747667,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5621,7 +5622,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682099,
+      "views": 1682100,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -5660,7 +5661,7 @@
         "tsb",
         "bf"
       ],
-      "views": 1674500,
+      "views": 1674501,
       "likes": 54,
       "dislikes": 9,
       "rating": 4.3,
@@ -5736,7 +5737,7 @@
         "Blox Fruits",
         "Op script"
       ],
-      "views": 1610949,
+      "views": 1610951,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -5813,7 +5814,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1576342,
+      "views": 1576343,
       "likes": 11,
       "dislikes": 3,
       "rating": 3.9,
@@ -5968,7 +5969,7 @@
         "nescoroco",
         "sapnish hub"
       ],
-      "views": 1481759,
+      "views": 1481760,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -6086,7 +6087,7 @@
         "peely",
         "bf"
       ],
-      "views": 1426001,
+      "views": 1426002,
       "likes": 5,
       "dislikes": 4,
       "rating": 2.8,
@@ -6164,7 +6165,7 @@
         "invisible",
         "keyless OP"
       ],
-      "views": 1369422,
+      "views": 1369423,
       "likes": 22,
       "dislikes": 8,
       "rating": 3.7,
@@ -6239,7 +6240,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1345900,
+      "views": 1345901,
       "likes": 179,
       "dislikes": 16,
       "rating": 4.6,
@@ -6467,7 +6468,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1290934,
+      "views": 1290937,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6507,7 +6508,7 @@
         "Hub",
         "BF"
       ],
-      "views": 1285239,
+      "views": 1285240,
       "likes": 20,
       "dislikes": 1,
       "rating": 4.8,
@@ -6654,7 +6655,7 @@
         "free",
         "easy"
       ],
-      "views": 1259531,
+      "views": 1259658,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6692,7 +6693,7 @@
         "aimbot",
         "silent aim"
       ],
-      "views": 1240719,
+      "views": 1240720,
       "likes": 24,
       "dislikes": 4,
       "rating": 4.3,
@@ -6767,7 +6768,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1196992,
+      "views": 1197121,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6992,7 +6993,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 1053252,
+      "views": 1053253,
       "likes": 1,
       "dislikes": 2,
       "rating": 1.7,
@@ -7257,7 +7258,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 777654,
+      "views": 777655,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7519,7 +7520,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 733362,
+      "views": 733365,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7556,7 +7557,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 726992,
+      "views": 726993,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -7632,7 +7633,7 @@
         "FE Scripts",
         "Genesis FE"
       ],
-      "views": 686448,
+      "views": 686449,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -7859,7 +7860,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 609680,
+      "views": 609682,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -8011,7 +8012,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 599733,
+      "views": 599734,
       "likes": 18,
       "dislikes": 9,
       "rating": 3.3,
@@ -8047,7 +8048,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 591583,
+      "views": 591585,
       "likes": 88,
       "dislikes": 5,
       "rating": 4.7,
@@ -8231,7 +8232,7 @@
         "slap battles script",
         "godmode"
       ],
-      "views": 1416011,
+      "views": 1416012,
       "likes": 75,
       "dislikes": 12,
       "rating": 4.3,
@@ -8267,7 +8268,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1369650,
+      "views": 1369652,
       "likes": 126,
       "dislikes": 32,
       "rating": 4,
@@ -8528,7 +8529,7 @@
         "best",
         "Op"
       ],
-      "views": 1066903,
+      "views": 1066911,
       "likes": 94,
       "dislikes": 16,
       "rating": 4.3,
@@ -8680,7 +8681,7 @@
         "serversided",
         "trolling"
       ],
-      "views": 971407,
+      "views": 971408,
       "likes": 15,
       "dislikes": 5,
       "rating": 3.8,
@@ -8756,7 +8757,7 @@
         "drain gang",
         "drain"
       ],
-      "views": 936043,
+      "views": 936044,
       "likes": 2,
       "dislikes": 2,
       "rating": 2.5,
@@ -8794,7 +8795,7 @@
         "GUI",
         "Admin"
       ],
-      "views": 923962,
+      "views": 923963,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -8945,7 +8946,7 @@
         "jb",
         "jailbreak"
       ],
-      "views": 9277,
+      "views": 9278,
       "likes": 7,
       "dislikes": 3,
       "rating": 3.5,
@@ -9166,7 +9167,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 43906,
+      "views": 43907,
       "likes": 494,
       "dislikes": 14,
       "rating": 4.9,
@@ -9202,7 +9203,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 487517,
+      "views": 487533,
       "likes": 432,
       "dislikes": 116,
       "rating": 3.9,
@@ -9313,7 +9314,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 151991,
+      "views": 152000,
       "likes": 268,
       "dislikes": 64,
       "rating": 4,
@@ -9463,7 +9464,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 67892,
+      "views": 67894,
       "likes": 181,
       "dislikes": 58,
       "rating": 3.8,
@@ -9500,7 +9501,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89155,
+      "views": 89156,
       "likes": 167,
       "dislikes": 102,
       "rating": 3.1,
@@ -9611,7 +9612,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 67831,
+      "views": 67832,
       "likes": 144,
       "dislikes": 41,
       "rating": 3.9,
@@ -9721,7 +9722,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 9,
+      "views": 11,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -9757,7 +9758,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 7,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "· Auto Build · Auto Drive · Auto Drive Again · Auto Flip · Auto Buy Crate · Auto Buy Part · Auto Open Crate",
@@ -9792,7 +9793,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 32,
+      "views": 33,
       "likes": 1,
       "dislikes": 0,
       "summary": "Roll a Lucky Egg — Automation Script Automate repetitive tasks in Roll a Lucky Egg with a simple and lightweight interface. Features Auto Farm — Automatically moves to the egg rolling area and performs repeated rolls. Auto Buy Weight — A…",
@@ -9827,7 +9828,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 19,
+      "views": 22,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Clean — Automatically finds and cleans messes at 8 Eleven and Mofumofu. Auto Restock — Restocks shelves at 8 Eleven, Mofumofu Pet Shop, and Pet Cafe. Smart Navigation — Walks to job objectives, sprints, and attempts to recover when…",
@@ -10002,7 +10003,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 46,
+      "views": 53,
       "likes": 1,
       "dislikes": 0,
       "summary": "WatHUB adalah script utilitas Roblox yang ringan dan rapi untuk mempermudah gameplay, dilengkapi mode cepat Win Only, ESP (Rembo, Key, Kertas Kode, Item Lain, Safe Zone), Noclip, Speed, Brightness, Instant Hold, dan Auto Buka Laci + Ambi…",
@@ -10072,7 +10073,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -10248,7 +10249,7 @@
       "tags": [
         "Script"
       ],
-      "views": 41,
+      "views": 43,
       "likes": 0,
       "dislikes": 0,
       "summary": "ᴡᴇʙꜱɪᴛᴇ : https://nevalium.discxnnect.workers.dev/ ✨ ꜰᴇᴀᴛᴜʀᴇ + ᴀɪᴍʙᴏᴛ + ꜱɪʟᴇɴᴛ ᴀɪᴍ + ᴀᴜᴛᴏ ꜱʜᴏᴏᴛ + ᴇꜱᴘ + ᴡᴇᴀᴘᴏɴ ꜱᴋɪɴꜱ",
@@ -10318,7 +10319,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 288393,
+      "views": 288395,
       "likes": 93,
       "dislikes": 24,
       "rating": 4,
@@ -10500,7 +10501,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221452,
+      "views": 221453,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10612,7 +10613,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 143771,
+      "views": 143772,
       "likes": 120,
       "dislikes": 12,
       "rating": 4.5,
@@ -10648,7 +10649,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 106560,
+      "views": 106562,
       "likes": 110,
       "dislikes": 25,
       "rating": 4.1,
@@ -10684,7 +10685,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 28906,
+      "views": 28907,
       "likes": 98,
       "dislikes": 26,
       "rating": 4,
@@ -10793,7 +10794,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 103823,
+      "views": 103824,
       "likes": 102,
       "dislikes": 19,
       "rating": 4.2,
