@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T14:11:33.255Z",
+  "generatedAt": "2026-11-23T14:21:38.543Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -25,7 +25,7 @@
       "id": "new",
       "label": "Yeni",
       "description": "Kataloğa en son eklenen scriptler",
-      "count": 74
+      "count": 73
     },
     {
       "id": "popular",
@@ -55,7 +55,7 @@
       "id": "patched",
       "label": "Patched",
       "description": "Kaynakta patched olarak işaretlenen scriptler",
-      "count": 10
+      "count": 12
     }
   ],
   "scripts": [
@@ -80,7 +80,7 @@
         "VAELOR",
         "ZORO"
       ],
-      "views": 2975,
+      "views": 2978,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -118,7 +118,7 @@
         "kill aura",
         "auto mace"
       ],
-      "views": 8550,
+      "views": 8564,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -156,7 +156,7 @@
         "UNIVERSAL",
         "UTILITY"
       ],
-      "views": 3064,
+      "views": 3067,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -194,7 +194,7 @@
         "FE",
         "PARTICLE GIVER"
       ],
-      "views": 1234,
+      "views": 1235,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -232,7 +232,7 @@
         "AUTO FARM",
         "OP"
       ],
-      "views": 10029,
+      "views": 10031,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -307,7 +307,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 5770,
+      "views": 5773,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -345,7 +345,7 @@
         "Keyless",
         "Mobile"
       ],
-      "views": 1957,
+      "views": 1958,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -357,44 +357,6 @@
         "trending"
       ],
       "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
-      ],
-      "views": 940,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -459,7 +421,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 1567,
+      "views": 1569,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -497,7 +459,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 1246,
+      "views": 1249,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -535,7 +497,7 @@
         "NOTHING PANEL",
         "HEXAGON CLIENT"
       ],
-      "views": 3899,
+      "views": 3900,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -543,6 +505,44 @@
       "code": "loadstring(game:HttpGet(\"https://github.com/lol-nashedi/VAELOR-/raw/refs/heads/main/protected.lua.txt\"))()",
       "createdAt": "2026-11-14T18:10:26.019Z",
       "updatedAt": "2026-11-14T18:10:26.019Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af8e896d8170eaa32732cf5",
+      "slug": "Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
+      "title": "[KEYLESS] Auto Farm, Auto Punch and more",
+      "game": "Ability Arena 💥",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-e6e18dfb2a19fb0eafc684591ee2ad04-6bf7c775bbcf.png",
+      "author": "Moondiety",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "ability arena",
+        "ability arena script",
+        "auto farm"
+      ],
+      "views": 2355,
+      "likes": 7,
+      "dislikes": 1,
+      "rating": 4.4,
+      "summary": "Moondiety Hub | Ability Arena Script *NOTE: The features mentioned below are frequently updated as the game patches (new features are regularly added and outdated ones removed). Execute the script to experience the most current features,…",
+      "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
+      "createdAt": "2026-11-14T23:02:46.302Z",
+      "updatedAt": "2026-11-14T23:02:46.302Z",
       "categoryIds": [
         "trending"
       ],
@@ -573,7 +573,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 2683,
+      "views": 2687,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -648,7 +648,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 4386,
+      "views": 4389,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -686,7 +686,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 4993,
+      "views": 4999,
       "likes": 13,
       "dislikes": 3,
       "rating": 4.1,
@@ -724,7 +724,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 1587,
+      "views": 1590,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -762,7 +762,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 1561,
+      "views": 1563,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -800,7 +800,7 @@
         "clawd",
         "universal"
       ],
-      "views": 478,
+      "views": 481,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -812,6 +812,80 @@
         "trending"
       ],
       "glyph": "paw",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b01168672e5c973268d681a",
+      "slug": "Terminal-Escape-Room-ESCAPE-ROOM-SCRIPT-237629",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Terminal-Escape-Room-ESCAPE-ROOM-SCRIPT-237629",
+      "title": "ESCAPE ROOM SCRIPT",
+      "game": "Terminal [Escape Room]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-4e8df9de836e91eabc46ab93bf410263-85a79c28c849.png",
+      "author": "LUCIVIOUS",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 69,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Lobby: auto-solves the weekly keypad puzzle and shows its code. It also redeems the 4 working codes for free hints, claims the timed free hint, and auto-plays Simon and Cards (higher or lower). Room: shows everything you can press, click…",
+      "code": "loadstring(game:HttpGet(\"https://loadstring.net/raw/OjSx9t4N3T\"))()",
+      "createdAt": "2026-11-21T03:56:54.779Z",
+      "updatedAt": "2026-11-23T08:01:56.032Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b0127cc3f187ee9c8462b18",
+      "slug": "UPD-Volleyball-Legends-UPD-237632",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/UPD-Volleyball-Legends-UPD-237632",
+      "title": "[UPD]",
+      "game": "[UPD] Volleyball Legends",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-7748523af45cef2737eb962e8396b112-50bc6dcdf564.png",
+      "author": "2pmatmidnight00",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "UPD Volleyball Legends",
+        "vbbl",
+        "vbl"
+      ],
+      "views": 108,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Ball Hitbox Hitbox Size Transparency Ping Compensation Color --------------------- Serve Power Modifier Power strength --------------------- Hit Delay Modifier Delay Repeats --------------------- Helper Tracers Studs Thickness Color",
+      "code": "loadstring(game:HttpGet(\"https://cdn.luaprotect.dev/u/e25cf2/6sAvJT693Tv8c9df\"))()",
+      "createdAt": "2026-11-21T05:10:36.581Z",
+      "updatedAt": "2026-11-23T07:50:11.288Z",
+      "categoryIds": [
+        "trending",
+        "new"
+      ],
+      "glyph": "ball",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -838,7 +912,7 @@
         "STAND OUT",
         "Auto Raid"
       ],
-      "views": 103,
+      "views": 107,
       "likes": 0,
       "dislikes": 0,
       "summary": "**Evenesce – Stand Out** Smooth, fast and constantly updated. Farms run on their own, so you can stay AFK. ### Autofarm - **Auto Raid** – picks the raid and difficulty and clears it for you - **Auto Story** – does the story quests start…",
@@ -875,7 +949,7 @@
         "aimbot",
         "triggerbot"
       ],
-      "views": 3399,
+      "views": 3401,
       "likes": 0,
       "dislikes": 0,
       "summary": "Features: - Aimbot - Triggerbot - ESP - Fly - Noclip - WalkSpeed & JumpHeight Modifier - Anti-Fling - Teleport to Player - Player Fling (Click Fling & Adjustable Strength) - Orbit Player - Walk Follow & Stick to Player - Sky Color Tint &…",
@@ -911,7 +985,7 @@
       "tags": [
         "Script"
       ],
-      "views": 59,
+      "views": 62,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -950,7 +1024,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 69,
+      "views": 71,
       "likes": 0,
       "dislikes": 0,
       "summary": "✨ Golden New Year Countdown & Celebration Party Hub ✨ A golden countdown UI that tracks the time left until the next New Year and triggers a full celebration sequence when the timer hits zero. How it works: • Live Countdown: Displays day…",
@@ -987,7 +1061,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 136,
+      "views": 138,
       "likes": 0,
       "dislikes": 0,
       "summary": "This Is A C00l Gojo Morph that comes with two outfits and the hollow purple ability",
@@ -1025,7 +1099,7 @@
         "Admin",
         "Auto"
       ],
-      "views": 121,
+      "views": 123,
       "likes": 0,
       "dislikes": 1,
       "summary": "Features -Auto Finish Supported games Gear Slap Tower✋ 💥 Extreme Gear Troll Tower Hug TROLL Tower🤗 Mega Obby Fun [🔥AURA] Phonk Edit Tower Glide Tower Smack Tower Strawberry Keys Slap Tower!🍓 Tower of Jump [Free Halos😇] Troll Ragdoll…",
@@ -1061,7 +1135,7 @@
       "tags": [
         "Script"
       ],
-      "views": 85,
+      "views": 87,
       "likes": 1,
       "dislikes": 0,
       "summary": "Scripting 404 — AutoDodge | Dodge or Die Scripting 404 — AutoDodge is a feature-rich dodge assistance script designed for Dodge or Die, featuring predictive tracking, customizable dodge behavior, visual tracking tools, and real-time syst…",
@@ -1097,7 +1171,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 353,
+      "views": 356,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -1135,7 +1209,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 78,
+      "views": 80,
       "likes": 0,
       "dislikes": 0,
       "summary": "generation by AI :33",
@@ -1171,7 +1245,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 98,
+      "views": 99,
       "likes": 0,
       "dislikes": 0,
       "summary": "Silent Aim: Directly hooks require(Viewmodel) (no __namecall hook), automatically redirecting shots to the player closest to the center of your screen. Outline ESP: Clean outline-only glow through walls (Highlight with no inner fill), au…",
@@ -1209,7 +1283,7 @@
         "aimbot",
         "skin changer"
       ],
-      "views": 126,
+      "views": 129,
       "likes": 0,
       "dislikes": 0,
       "summary": "Best One shot script to use! This script includes an optional usage logger. Data collected: - HWID - Username - JobId -------- The collected data is used solely to understand which scripts are used the most, helping us improve and priori…",
@@ -1247,7 +1321,7 @@
         "Urban Reload",
         "Universal"
       ],
-      "views": 61,
+      "views": 62,
       "likes": 1,
       "dislikes": 0,
       "summary": "- Des Hood (If not working game is deleted and will be fixed [dont decline because of this pls]) - Urban Reload",
@@ -1285,7 +1359,7 @@
         "Orbs",
         "Burger"
       ],
-      "views": 75,
+      "views": 76,
       "likes": 1,
       "dislikes": 0,
       "summary": "This script will help you remove the annoying orb menus and also allow you to call them up anywhere.",
@@ -1293,8 +1367,7 @@
       "createdAt": "2026-11-21T00:08:07.436Z",
       "updatedAt": "2026-11-23T06:01:36.046Z",
       "categoryIds": [
-        "trending",
-        "new"
+        "trending"
       ],
       "glyph": "dice",
       "colors": [
@@ -1321,7 +1394,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 106,
+      "views": 108,
       "likes": 0,
       "dislikes": 0,
       "summary": "Muscle Legends Hub is a powerful automation and combat suite for Muscle Legends, designed for efficient grinding and PvP dominance. Join my Discord for updates and support: https://discord.gg/2ksQSAnnW6 💪 Auto Training: Auto Train (all…",
@@ -1358,7 +1431,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 98,
+      "views": 100,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is a movement script and op its like admin and its pretty cool thanks!",
@@ -1394,7 +1467,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 64,
+      "views": 65,
       "likes": 0,
       "dislikes": 0,
       "summary": "All color for high school life rp",
@@ -1431,7 +1504,7 @@
         "cool script",
         "Keyless"
       ],
-      "views": 73,
+      "views": 74,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is piggy script 👍👍👍 made by also tint👍👍👍 also use shiftlock to make it perfect 👍 at bring -speed hack🏃‍♂️ -grab item(use tp grab first or it won't work)😀😀😀 -676767 full bright 🥰🥰🥰 -also am too lazy to change name in sc…",
@@ -1468,7 +1541,7 @@
         "No key",
         "Keyless"
       ],
-      "views": 161,
+      "views": 163,
       "likes": 1,
       "dislikes": 0,
       "summary": "Subsection:Visuals / ESP Box ESP Name ESP Health ESP Distance ESP Tool ESP Tracer ESP Off-Screen Arrows Head Dot View Direction Line Skeleton ESP Chams History ESP Gradient ESP Item ESP ESP Settings Subsection: Models / Cosmetics Hat Fac…",
@@ -1503,7 +1576,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 3182671,
+      "views": 3182847,
       "likes": 50,
       "dislikes": 27,
       "rating": 3.2,
@@ -1581,7 +1654,7 @@
         "My anime mine script",
         "Node priority"
       ],
-      "views": 65,
+      "views": 66,
       "likes": 1,
       "dislikes": 0,
       "summary": "Lunar Hub | My Anime Mine - Node Priority - Swing Delay - Equip Best Now - Collect At Items - Take All Now - Item Type Filter - Rarity Filter - Keep Above Value - Sell At Item Count - Teleport To Sell Stand - Return After Selling - Sell…",
@@ -1879,7 +1952,7 @@
         "free",
         "no key"
       ],
-      "views": 29654,
+      "views": 29661,
       "likes": 15,
       "dislikes": 0,
       "rating": 5,
@@ -1955,7 +2028,7 @@
         "keyless script",
         "forsaken keyless"
       ],
-      "views": 8187,
+      "views": 8188,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -2031,7 +2104,7 @@
         "scape  auto farm speed auto farm win",
         "lunar hub script lunar hub gui rivals"
       ],
-      "views": 280346,
+      "views": 280347,
       "likes": 20,
       "dislikes": 13,
       "rating": 3,
@@ -2069,7 +2142,7 @@
         "attack on titan revolution",
         "attack on titan script"
       ],
-      "views": 5886,
+      "views": 5891,
       "likes": 4,
       "dislikes": 1,
       "rating": 4,
@@ -2107,7 +2180,7 @@
         "biggames",
         "huge"
       ],
-      "views": 546908,
+      "views": 546910,
       "likes": 13,
       "dislikes": 11,
       "rating": 2.7,
@@ -2163,82 +2236,6 @@
       ]
     },
     {
-      "id": "scriptblox-6add085983f783548ed0c82f",
-      "slug": "HIRED-KILLER-Jujutsu-Shenanigans-FREE-CANDY-and-MONEY-FARM-233415",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/HIRED-KILLER-Jujutsu-Shenanigans-FREE-CANDY-and-MONEY-FARM-233415",
-      "title": "FREE CANDY & MONEY FARM",
-      "game": "[🎃] Jujutsu Shenanigans",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-decec85a41b80e4ac0beca8bc2952a7f-3ada0f3b779a.png",
-      "author": "53kpp",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "AUTO FARM",
-        "CANDY FARM",
-        "CASH FARM"
-      ],
-      "views": 8281,
-      "likes": 12,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "+ NEW SCRIPT: JJS 100+ FEATURES! + Auto Block + Block + Punish + Counter + Dash Assist/BFC + Black Flash Chain + Side Dash Assist + Block Break + Combat + Reactive TP + Always Last M1 + Ability Hook + Void + Charakter-Autos: Nanami, Haka…",
-      "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/4edadc1849a9e19555f2328138618dd6.lua\"))()",
-      "createdAt": "2026-10-24T19:34:50.041Z",
-      "updatedAt": "2026-11-22T20:21:02.676Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6ac57f28982c768870b503aa",
-      "slug": "Universal-Script-VALOR-HUB-10+-games-Free-Key-231682",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-VALOR-HUB-10%2B-games-Free-Key-231682",
-      "title": "VALOR HUB | 13+ Games | Free Key Easy & Forever",
-      "game": "Script hub",
-      "gameImage": "https://scriptblox.com/images/sb/-1-1793593081720.png",
-      "author": "9okx",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": true,
-      "tags": [
-        "free",
-        "latest",
-        "Huss Valley"
-      ],
-      "views": 9131,
-      "likes": 8,
-      "dislikes": 1,
-      "rating": 4.4,
-      "summary": "VALOR HUB: one loader, the right panel for every game. Free key, and your first 3 days need no key at all. ### Supported Games: * Bey Rivals (auto battle, auto farm, best bey picker, boss fights) * Rivals (ESP, aim assist, silent aim, tr…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/9okVR/VALOR_HUB/refs/heads/main/ValorHub_Loader\"))()",
-      "createdAt": "2026-10-06T23:07:20.664Z",
-      "updatedAt": "2026-11-22T19:35:11.109Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-6b0444a7615ad3789c6e8100",
       "slug": "Bee-Swarm-Simulator-Auto-Farm-Auto-Quests-Auto-Hatch-Mob-Hunt-Map-Sweep-237998",
       "source": "scriptblox",
@@ -2259,7 +2256,7 @@
         "auto farm",
         "auto quest"
       ],
-      "views": 12,
+      "views": 14,
       "likes": 0,
       "dislikes": 0,
       "summary": "**Flow Hub // Bee Swarm Simulator** – free key, PC + mobile. Right Shift opens the menu (FLOW pill on mobile). **Farm** - Auto farm any field (smooth tween along the ground, no field teleports) - Auto convert at your bag %, Instant Conve…",
@@ -2296,7 +2293,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 247,
+      "views": 264,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2334,7 +2331,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 428,
+      "views": 430,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -2372,7 +2369,7 @@
         "miles river",
         "mdr"
       ],
-      "views": 462,
+      "views": 467,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2410,7 +2407,7 @@
         "aimbot",
         "auto play"
       ],
-      "views": 108,
+      "views": 111,
       "likes": 0,
       "dislikes": 0,
       "summary": "This script made by me: Game name : Grapple Sniper arena. https://www.roblox.com/games/75407502025821/Grapple-Sniper-Arena",
@@ -2447,7 +2444,7 @@
         "Roblox Ant Evolution",
         "Ant Evolution Script"
       ],
-      "views": 355,
+      "views": 357,
       "likes": 2,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord 🍎 FARMING Section : Status ▸ Your Ant ▸ Session ▸ Reset Session Stats Section : Food Farm ▸ Food ▸ Auto Farm Food ▸ Farm Zone ▸ Farm Teleport Delay (m…",
@@ -2484,7 +2481,7 @@
         "best script",
         "gui"
       ],
-      "views": 792,
+      "views": 796,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -2521,7 +2518,7 @@
         "king legacy script",
         "king legacy scripts"
       ],
-      "views": 532,
+      "views": 538,
       "likes": 2,
       "dislikes": 0,
       "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
@@ -2596,7 +2593,7 @@
         "delta",
         "kings"
       ],
-      "views": 321,
+      "views": 323,
       "likes": 2,
       "dislikes": 0,
       "summary": "Auto Farm Farm Mode (Best Quest/Selected Mob/Nearest Mob) Mob Select Weapon (Best/Melee/Sword/Fruit) Use Skills Bring Mobs Skip Boss Quests Position (Above/Below) Distance From Mob (3-25) Instant Teleport Fly Speed (100-600) Retreat When…",
@@ -2633,7 +2630,7 @@
         "auto spam",
         "auto parry"
       ],
-      "views": 537,
+      "views": 539,
       "likes": 2,
       "dislikes": 0,
       "summary": "Pulse is the Number 1 script for BB with auto parry, spam, ability esp and more.",
@@ -2670,7 +2667,7 @@
         "dandys world",
         "dandy world"
       ],
-      "views": 462,
+      "views": 464,
       "likes": 1,
       "dislikes": 0,
       "summary": "lot of stuff",
@@ -2706,7 +2703,7 @@
         "Silent Aim",
         "Keyless"
       ],
-      "views": 1067,
+      "views": 1071,
       "likes": 1,
       "dislikes": 0,
       "summary": "voxel wars fps silent aim",
@@ -2743,7 +2740,7 @@
         "stand out script",
         "stand outs script"
       ],
-      "views": 431,
+      "views": 432,
       "likes": 1,
       "dislikes": 0,
       "summary": "Script For Stand Out, Released by SolixHub. SolixHub the #1 scripthub with daily Updates since 2023!",
@@ -2780,7 +2777,7 @@
         "mm",
         "keyless"
       ],
-      "views": 1092,
+      "views": 1096,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2853,7 +2850,7 @@
         "keyless",
         "auto play"
       ],
-      "views": 973,
+      "views": 981,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2891,7 +2888,7 @@
         "Auto Vacuum",
         "Auto Upgrade"
       ],
-      "views": 124,
+      "views": 125,
       "likes": 1,
       "dislikes": 0,
       "summary": "School Hub for Flat the Mountain has separate menus for the mountain and lobby, with independent activities and teleport movement in both modes. Full Auto Farm combines mining, vacuum collection, best owned mining tool equip and teleport…",
@@ -2965,7 +2962,7 @@
         "AutoTrain",
         "Roblox script"
       ],
-      "views": 387,
+      "views": 388,
       "likes": 0,
       "dislikes": 0,
       "summary": "- Auto Fish - Auto Train - Only fish during events - Events that count - Start fishing before an event (s) - Minimum server luck - Ride out to sea - Ride animal - Tap the screen during the reveal - Auto close pop-ups - Teleport to the le…",
@@ -3113,7 +3110,7 @@
         "Forge",
         "The Forge Script"
       ],
-      "views": 782,
+      "views": 784,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3151,7 +3148,7 @@
         "Roblox  Miles Down the River",
         "Miles Down the River Script"
       ],
-      "views": 582,
+      "views": 583,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -3368,9 +3365,10 @@
       "tags": [
         "Keyless"
       ],
-      "views": 76,
+      "views": 87,
       "likes": 2,
-      "dislikes": 0,
+      "dislikes": 1,
+      "rating": 3.3,
       "summary": "This script has a lot of features to it but if there any more commands what you can add for ur self pls also forgetting the system channel is kinda working just needs fixing System channel: “!test”",
       "code": "--[[\n================================================================================\n  ADMINJOY v3  |  GUI EDITION  |  LAG-FREE REBUILD\n================================================================================\n  NO external loadstrings (KohlsNoob / SkidNation X both REMOVED — they were\n  the lag source). Pure AdminJoy, lightweight, no namecall hooks.\n  TextBox focus auto-released so you can ALWAYS move (WASD never gets stolen).\n\n  OPEN UI:  click the ⚡ button (left side)  or  press RIGHT-CTRL\n  TARGET:   set at top (me/all/others/random/name)  —  VALUE box for numbers\n  TABS:     Visuals / OP / Player / Server / Fun / Settings\n================================================================================\n]]\n\nlocal PREFIX       = \"!\"\nlocal KOHLS_PREFIX = \";\"\nlocal ACCENT       = Color3.fromRGB(120, 255, 180)\nlocal ACCENT2      = Color3.fromRGB(100, 200, 255)\nlocal BG_DARK      = Color3.fromRGB(12, 14, 22)\nlocal BG_MID       = Color3.fromRGB(20, 24, 36)\nlocal SHOWOFF      = true\nlocal ANTI_KICK    = true\n\nlocal Players           = game:GetService(\"Players\")\nlocal ReplicatedStorage = game:GetService(\"ReplicatedStorage\")\nlocal RunService        = game:GetService(\"RunService\")\nlocal TweenService      = game:GetService(\"TweenService\")\nlocal UserInputService  = game:GetService(\"UserInputService\")\nlocal GuiService        = game:GetService(\"GuiService\")\nlocal TeleportService   = game:GetService(\"TeleportService\")\nlocal TextChatService   = pcall(function() return game:GetService(\"TextChatService\") end) and game:GetService(\"TextChatService\") or nil\nlocal LocalPlayer       = Players.LocalPlayer\nlocal PlayerGui         = LocalPlayer:WaitForChild(\"PlayerGui\")\n\n-- Safe focus release (UserInputService has NO ReleaseFocus method; calling it\n-- spammed red errors every click/Enter. GuiService.SelectedObject = nil is\n-- the supported path, fully pcall-guarded).\nlocal function releaseFocus()\n    pcall(function() GuiService.SelectedObject = nil end)\n    local sel = GuiService.SelectedObject\n    if sel then pcall(function() sel:ReleaseFocus(false) end) end\nend\n\n--===========================================================================--\n--  CHAT / REMOTE (lightweight — no hooks)\n--===========================================================================--\n--===========================================================================--\n--  MULTI-CHANNEL COMMAND ENGINE  (works even when muted)\n--  Priority: dedicated admin RemoteEvent/Function > chat remotes >\n--  TextChatService. A muted player's chat is rejected server-side; admin\n--  remotes bypass chat moderation entirely, so commands still fire.\n--===========================================================================--\nlocal CHAT_REMOTES  = {}\nlocal ADMIN_REMOTES = {}\nlocal ADMIN_FUNCS   = {}\nlocal legacySay     = nil  -- DefaultChatSystemChatEvents.SayMessageRequest (this game's real command pipe)\n\nlocal ADMIN_KEYS = {\"admin\",\"command\",\"kohl\",\"cmd\",\"handler\",\"executor\",\"announcer\",\"permission\",\"staff\",\"net\",\"modsys\"}\n\nlocal function discoverRemotes()\n    table.clear(CHAT_REMOTES); table.clear(ADMIN_REMOTES); table.clear(ADMIN_FUNCS)\n    legacySay = nil\n    local okE, ev = pcall(function() return ReplicatedStorage:FindFirstChild(\"DefaultChatSystemChatEvents\") end)\n    if okE and ev then legacySay = ev:FindFirstChild(\"SayMessageRequest\") end\n    local containers = {ReplicatedStorage, ReplicatedFirst, Workspace}\n    if LocalPlayer then\n        table.insert(containers, LocalPlayer.PlayerScripts)\n        table.insert(containers, LocalPlayer.PlayerGui)\n    end\n    for _, cont in ipairs(containers) do\n        local ok, desc = pcall(function() return cont:GetDescendants() end)\n        if ok and desc then\n            for _, obj in ipairs(desc) do\n                local n  = obj.Name:lower()\n                local isR = obj:IsA(\"RemoteEvent\")\n                local isF = obj:IsA(\"RemoteFunction\")\n                if (isR or isF) and obj ~= legacySay then\n                    if n:match(\"message\") or n:match(\"chat\") or n:match(\"say\") then\n                        if isR then table.insert(CHAT_REMOTES, obj) end\n                    end\n                    local hit = false\n                    for _, k in ipairs(ADMIN_KEYS) do\n                        if n:find(k, 1, true) then hit = true; break end\n                    end\n                    if hit then\n                        if isR then table.insert(ADMIN_REMOTES, obj)\n                        elseif isF then table.insert(ADMIN_FUNCS, obj) end\n                    end\n                end\n            end\n        end\n    end\nend\ndiscoverRemotes()\n-- late remotes / chat system appear after load; keep rescanning quietly\ntask.spawn(function()\n    local ev = ReplicatedStorage:WaitForChild(\"DefaultChatSystemChatEvents\", 12)\n    if ev then legacySay = ev:WaitForChild(\"SayMessageRequest\", 6) end\n    for _ = 1, 25 do task.wait(3); discoverRemotes() end\nend)\n\n-- Legacy chat command pipe. Channel \"System\" = admin commands (bypasses the\n-- chat flood/moderation gate, exactly how Kohl's Noob drives this game);\n-- channel \"All\" = visible public message everyone can read.\nlocal function fireLegacy(message, channel)\n    if not legacySay then return false end\n    local ok = pcall(function() legacySay:FireServer(message, channel) end)\n    return ok\nend\n\nlocal function fireAdminRemotes(full, plain)\n    for idx, r in ipairs(ADMIN_REMOTES) do\n        pcall(function()\n            if r:IsA(\"RemoteEvent\") then\n                r:FireServer(full)\n                if idx == 1 then r:FireServer(plain); r:FireServer(LocalPlayer, full) end\n            end\n        end)\n    end\n    for _, r in ipairs(ADMIN_FUNCS) do\n        pcall(function() r:InvokeServer(full) end)\n    end\nend\n\nlocal function sendTextChat(message)\n    if not TextChatService then return end\n    pcall(function()\n        local root = TextChatService:FindFirstChild(\"TextChannels\")\n        if root then\n            for _, ch in ipairs(root:GetChildren()) do\n                if ch:IsA(\"TextChannel\") then pcall(function() ch:SendAsync(message) end) end\n            end\n        end\n    end)\nend\n\n-- Public visible message (showoff banners / announces / hints).\nlocal function say(message)\n    fireLegacy(message, \"All\")\n    for _, r in ipairs(CHAT_REMOTES) do pcall(function() r:FireServer(message, \"All\") end) end\n    sendTextChat(message)\nend\n\n-- Admin command sender. Tries every spelling the Kohl's parser accepts:\n-- \";cmd\" (semicolon), \":cmd\" (colon), bare \"cmd\". System channel first.\nlocal function kohl(cmd)\n    local semi  = KOHLS_PREFIX .. cmd\n    local colon = \":\" .. cmd\n    fireAdminRemotes(semi, cmd)\n    fireLegacy(semi,  \"System\")\n    fireLegacy(colon, \"System\")\n    fireLegacy(cmd,   \"System\")\n    sendTextChat(semi)\nend\n\nlocal function kohlMulti(cmds, d)\n    d = d or 0.06\n    task.spawn(function()\n        for _, c in ipairs(cmds) do kohl(c); task.wait(d) end\n    end)\nend\n\nlocal function remoteStatus()\n    local legacy = legacySay and \"yes\" or \"no\"\n    local tch = \"none\"\n    if TextChatService then\n        local root = TextChatService:FindFirstChild(\"TextChannels\")\n        if root then tch = tostring(#root:GetChildren()) end\n    end\n    return (\"legacy=%s textch=%s admin=%d func=%d chat=%d\"):format(legacy, tch, #ADMIN_REMOTES, #ADMIN_FUNCS, #CHAT_REMOTES)\nend\n\nlocal function flashAnnounce(text)\n    if not SHOWOFF then return end\n    task.spawn(function()\n        say(\";announce [AdminJoy v3] \" .. text)\n        task.wait(0.15)\n        say(\";hint >> \" .. text)\n    end)\nend\n\n--===========================================================================--\n--  TARGET RESOLVER\n--===========================================================================--\nlocal function resolveTarget(arg)\n    if not arg or arg == \"\" then return {LocalPlayer} end\n    arg = arg:lower(); local r = {}\n    if arg == \"me\" then table.insert(r, LocalPlayer)\n    elseif arg == \"all\" then r = Players:GetPlayers()\n    elseif arg == \"others\" then for _, p in ipairs(Players:GetPlayers()) do if p ~= LocalPlayer then table.insert(r, p) end end\n    elseif arg == \"random\" then local l = Players:GetPlayers(); if #l > 0 then table.insert(r, l[math.random(1, #l)]) end\n    else for _, p in ipairs(Players:GetPlayers()) do\n        if p.Name:lower():find(arg, 1, true) or (p.DisplayName and p.DisplayName:lower():find(arg, 1, true)) then table.insert(r, p) end\n    end end\n    if #r == 0 then table.insert(r, LocalPlayer) end\n    return r\nend\nlocal function names(plrs) local t={}; for _,p in ipairs(plrs) do table.insert(t,p.Name) end; return table.concat(t,\",\") end\n\n--===========================================================================--\n--  GUI  (lightweight — no constant loops)\n--===========================================================================--\nlocal ScreenGui = Instance.new(\"ScreenGui\")\nScreenGui.Name = \"AdminJoyV3\"; ScreenGui.ResetOnSpawn = false\nScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling; ScreenGui.Parent = PlayerGui\n\n-- Toast\nlocal Toast = Instance.new(\"Frame\")\nToast.Size = UDim2.new(0, 380, 0, 34); Toast.Position = UDim2.new(0.5, -190, 0, -50)\nToast.BackgroundColor3 = BG_DARK; Toast.BackgroundTransparency = 0.15; Toast.Visible = false\nInstance.new(\"UICorner\", Toast).CornerRadius = UDim.new(0, 10)\nlocal tStroke = Instance.new(\"UIStroke\"); tStroke.Color = ACCENT; tStroke.Thickness = 1.5; tStroke.Transparency = 0.3; tStroke.Parent = Toast\nlocal ToastLabel = Instance.new(\"TextLabel\")\nToastLabel.Size = UDim2.new(1,-16,1,0); ToastLabel.Position = UDim2.new(0,8,0,0)\nToastLabel.BackgroundTransparency = 1; ToastLabel.Font = Enum.Font.GothamBold; ToastLabel.TextSize = 13\nToastLabel.TextColor3 = ACCENT; ToastLabel.Parent = Toast\nToast.Parent = ScreenGui\n\nlocal toastBusy = false\nlocal function notify(msg, color)\n    ToastLabel.Text = msg; ToastLabel.TextColor3 = color or ACCENT; tStroke.Color = color or ACCENT\n    Toast.Visible = true\n    if toastBusy then return end\n    toastBusy = true\n    TweenService:Create(Toast, TweenInfo.new(0.35, Enum.EasingStyle.Back), {Position = UDim2.new(0.5,-190,0,14)}):Play()\n    task.wait(3); TweenService:Create(Toast, TweenInfo.new(0.35), {Position = UDim2.new(0.5,-190,0,-50)}):Play()\n    task.wait(0.4); Toast.Visible = false; toastBusy = false\nend\n\n-- Floating ⚡ button\nlocal FloatBtn = Instance.new(\"TextButton\")\nFloatBtn.Size = UDim2.new(0,46,0,46); FloatBtn.Position = UDim2.new(0,12,0.5,-23)\nFloatBtn.BackgroundColor3 = ACCENT; FloatBtn.BackgroundTransparency = 0.15\nFloatBtn.Font = Enum.Font.GothamBlack; FloatBtn.TextSize = 20; FloatBtn.TextColor3 = BG_DARK; FloatBtn.Text = \"⚡\"\nInstance.new(\"UICorner\", FloatBtn).CornerRadius = UDim.new(1,0)\nFloatBtn.Parent = ScreenGui\n\n-- Main panel (hidden by default — no lag from rendering)\nlocal Panel = Instance.new(\"Frame\")\nPanel.Size = UDim2.new(0,560,0,420); Panel.Position = UDim2.new(0.5,-280,0.5,-210)\nPanel.BackgroundColor3 = BG_DARK; Panel.BackgroundTransparency = 0.08; Panel.Visible = false; Panel.Active = true\nInstance.new(\"UICorner\", Panel).CornerRadius = UDim.new(0,16)\nlocal pStroke = Instance.new(\"UIStroke\"); pStroke.Color = ACCENT; pStroke.Thickness = 1.5; pStroke.Transparency = 0.3; pStroke.Parent = Panel\nPanel.Parent = ScreenGui\n\n-- Title bar (drag)\nlocal TitleBar = Instance.new(\"Frame\")\nTitleBar.Size = UDim2.new(1,0,0,38); TitleBar.BackgroundColor3 = BG_MID; TitleBar.BackgroundTransparency = 0.3\nInstance.new(\"UICorner\", TitleBar).CornerRadius = UDim.new(0,16); TitleBar.Parent = Panel\nlocal TitleLbl = Instance.new(\"TextLabel\")\nTitleLbl.Size = UDim2.new(1,-50,1,0); TitleLbl.Position = UDim2.new(0,14,0,0)\nTitleLbl.BackgroundTransparency = 1; TitleLbl.Font = Enum.Font.GothamBlack; TitleLbl.TextSize = 15\nTitleLbl.TextXAlignment = Enum.TextXAlignment.Left; TitleLbl.TextColor3 = ACCENT; TitleLbl.RichText = true\nTitleLbl.Text = '<font color=\"#78ffb4\">ADMINJOY</font> <font color=\"#64c8ff\">v3</font>  •  LAG-FREE'\nTitleLbl.Parent = TitleBar\nlocal CloseBtn = Instance.new(\"TextButton\")\nCloseBtn.Size = UDim2.new(0,30,0,30); CloseBtn.Position = UDim2.new(1,-36,0,4)\nCloseBtn.BackgroundColor3 = Color3.fromRGB(255,80,80); CloseBtn.BackgroundTransparency = 0.2\nCloseBtn.Font = Enum.Font.GothamBold; CloseBtn.TextSize = 16; CloseBtn.TextColor3 = Color3.fromRGB(255,255,255); CloseBtn.Text = \"✕\"\nInstance.new(\"UICorner\", CloseBtn).CornerRadius = UDim.new(0,8); CloseBtn.Parent = TitleBar\n\nlocal dragging, dragStart, startPos\nTitleBar.InputBegan:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging=true; dragStart=input.Position; startPos=Panel.Position end\nend)\nUserInputService.InputChanged:Connect(function(input)\n    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then\n        local d = input.Position - dragStart\n        Panel.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset+d.X, startPos.Y.Scale, startPos.Y.Offset+d.Y)\n    end\nend)\nUserInputService.InputEnded:Connect(function(input) if input.UserInputType==Enum.UserInputType.MouseButton1 then dragging=false end end)\n\n-- Target bar\nlocal currentTarget = \"me\"\nlocal TargetBar = Instance.new(\"Frame\")\nTargetBar.Size = UDim2.new(1,-20,0,32); TargetBar.Position = UDim2.new(0,10,0,46)\nTargetBar.BackgroundColor3 = BG_MID; TargetBar.BackgroundTransparency = 0.4\nInstance.new(\"UICorner\", TargetBar).CornerRadius = UDim.new(0,8); TargetBar.Parent = Panel\nlocal TargetLbl = Instance.new(\"TextLabel\")\nTargetLbl.Size = UDim2.new(0,52,1,0); TargetLbl.Position = UDim2.new(0,8,0,0)\nTargetLbl.BackgroundTransparency = 1; TargetLbl.Font = Enum.Font.GothamBold; TargetLbl.TextSize = 12\nTargetLbl.TextXAlignment = Enum.TextXAlignment.Left; TargetLbl.TextColor3 = ACCENT2; TargetLbl.Text = \"TARGET\"; TargetLbl.Parent = TargetBar\nlocal TargetInput = Instance.new(\"TextBox\")\nTargetInput.Size = UDim2.new(1,-180,1,-6); TargetInput.Position = UDim2.new(0,60,0,3)\nTargetInput.BackgroundColor3 = BG_DARK; TargetInput.BackgroundTransparency = 0.5\nTargetInput.Font = Enum.Font.Code; TargetInput.TextSize = 13; TargetInput.TextColor3 = Color3.fromRGB(240,248,255)\nTargetInput.Text = \"me\"; TargetInput.ClearTextOnFocus = false\nInstance.new(\"UICorner\", TargetInput).CornerRadius = UDim.new(0,6); TargetInput.Parent = TargetBar\nTargetInput.FocusLost:Connect(function() currentTarget = TargetInput.Text ~= \"\" and TargetInput.Text or \"me\"; releaseFocus() end)\n\nfor i, qt in ipairs({\"me\",\"all\",\"others\",\"random\"}) do\n    local b = Instance.new(\"TextButton\")\n    b.Size = UDim2.new(0,52,0,24); b.Position = UDim2.new(1,-170+(i-1)*56,0,4)\n    b.BackgroundColor3 = ACCENT2; b.BackgroundTransparency = 0.7\n    b.Font = Enum.Font.GothamBold; b.TextSize = 11; b.TextColor3 = Color3.fromRGB(255,255,255); b.Text = qt\n    Instance.new(\"UICorner\", b).CornerRadius = UDim.new(0,6); b.Parent = TargetBar\n    b.MouseButton1Click:Connect(function() currentTarget=qt; TargetInput.Text=qt; notify(\"Target: \"..qt); releaseFocus() end)\nend\n\n-- Value bar\nlocal currentValue = \"\"\nlocal ValueBar = Instance.new(\"Frame\")\nValueBar.Size = UDim2.new(1,-20,0,30); ValueBar.Position = UDim2.new(0,10,0,82)\nValueBar.BackgroundColor3 = BG_MID; ValueBar.BackgroundTransparency = 0.4\nInstance.new(\"UICorner\", ValueBar).CornerRadius = UDim.new(0,8); ValueBar.Parent = Panel\nlocal ValueLbl = Instance.new(\"TextLabel\")\nValueLbl.Size = UDim2.new(0,52,1,0); ValueLbl.Position = UDim2.new(0,8,0,0)\nValueLbl.BackgroundTransparency = 1; ValueLbl.Font = Enum.Font.GothamBold; ValueLbl.TextSize = 12\nValueLbl.TextXAlignment = Enum.TextXAlignment.Left; ValueLbl.TextColor3 = ACCENT2; ValueLbl.Text = \"VALUE\"; ValueLbl.Parent = ValueBar\nlocal ValueInput = Instance.new(\"TextBox\")\nValueInput.Size = UDim2.new(1,-70,1,-6); ValueInput.Position = UDim2.new(0,60,0,3)\nValueInput.BackgroundColor3 = BG_DARK; ValueInput.BackgroundTransparency = 0.5\nValueInput.Font = Enum.Font.Code; ValueInput.TextSize = 13; ValueInput.TextColor3 = Color3.fromRGB(240,248,255)\nValueInput.PlaceholderText = \"number / song id / message\"; ValueInput.ClearTextOnFocus = false\nInstance.new(\"UICorner\", ValueInput).CornerRadius = UDim.new(0,6); ValueInput.Parent = ValueBar\nValueInput.FocusLost:Connect(function() currentValue = ValueInput.Text; releaseFocus() end)\n\n-- Tab bar + content\nlocal TabBar = Instance.new(\"Frame\")\nTabBar.Size = UDim2.new(1,-20,0,30); TabBar.Position = UDim2.new(0,10,0,118); TabBar.BackgroundTransparency = 1; TabBar.Parent = Panel\nlocal Content = Instance.new(\"ScrollingFrame\")\nContent.Size = UDim2.new(1,-20,1,-190); Content.Position = UDim2.new(0,10,0,154)\nContent.BackgroundTransparency = 1; Content.ScrollBarThickness = 4; Content.ScrollBarImageColor3 = Color3.fromRGB(100,110,140)\nContent.CanvasSize = UDim2.new(0,0,0,0); Content.AutomaticCanvasSize = Enum.AutomaticSize.Y\nlocal cLayout = Instance.new(\"UIGridLayout\"); cLayout.CellSize = UDim2.new(0,122,0,34); cLayout.CellPadding = UDim2.new(0,6,0,6); cLayout.Parent = Content\nContent.Parent = Panel\n\n-- Bottom command bar\nlocal CmdBar = Instance.new(\"Frame\")\nCmdBar.Size = UDim2.new(1,-20,0,30); CmdBar.Position = UDim2.new(0,10,1,-38)\nCmdBar.BackgroundColor3 = BG_MID; CmdBar.BackgroundTransparency = 0.4\nInstance.new(\"UICorner\", CmdBar).CornerRadius = UDim.new(0,8); CmdBar.Parent = Panel\nlocal CmdInput = Instance.new(\"TextBox\")\nCmdInput.Size = UDim2.new(1,-16,1,-6); CmdInput.Position = UDim2.new(0,8,0,3)\nCmdInput.BackgroundTransparency = 1; CmdInput.Font = Enum.Font.Code; CmdInput.TextSize = 13\nCmdInput.TextColor3 = Color3.fromRGB(240,248,255); CmdInput.ClearTextOnFocus = false\nCmdInput.PlaceholderText = PREFIX..\"command (type + Enter)\"; CmdInput.Parent = CmdBar\nCmdInput.FocusLost:Connect(function(enter)\n    if enter and CmdInput.Text ~= \"\" then runCommand(CmdInput.Text); CmdInput.Text = \"\" end\n    releaseFocus()  -- CRITICAL: return keyboard to movement\nend)\n\n-- Click panel background to release focus (so WASD always works)\nPanel.InputBegan:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 then releaseFocus() end\nend)\n\n--===========================================================================--\n--  COMMANDS\n--===========================================================================--\nlocal Commands = {}\nlocal function register(nl, f) for _, n in ipairs(nl) do Commands[n] = f end end\n\nregister({\"beam\"}, function(a) local x,y=resolveTarget(a[1]),resolveTarget(a[2]); if #x==0 or #y==0 then notify(\"beam: two targets\", Color3.fromRGB(255,120,120)); return end; for _,p1 in ipairs(x) do for _,p2 in ipairs(y) do if p1~=p2 then kohl(\"beam \"..p1.Name..\" \"..p2.Name) end end end; notify(\"Beam connected\") end)\nregister({\"unbeam\"}, function() kohl(\"unbeam all\"); notify(\"Beams cleared\") end)\nregister({\"rap\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); notify(\"RAP: \"..tn); task.spawn(function() local fx={\"fire\",\"smoke\",\"sparkles\",\"lightning\",\"invisible\",\"visible\",\"trail\"}; for i=1,24 do kohl(fx[math.random(1,#fx)]..\" \"..tn); if i%3==0 then kohl(\"explode \"..tn) end; task.wait(0.22) end; kohl(\"unfire \"..tn); kohl(\"unsmoke \"..tn); kohl(\"unsparkles \"..tn) end) end)\nregister({\"kaboom\",\"boom\"}, function(a)\n    local plrs = resolveTarget(a[1] or \"random\"); local tn = names(plrs)\n    notify(\"KABOOM x5: \"..tn, Color3.fromRGB(255,120,60))\n    flashAnnounce(\"KABOOM! \"..tn..\" bombed 5x by \"..LocalPlayer.Name..\"!\")\n    task.spawn(function()\n        for _, p in ipairs(plrs) do\n            kohl(\"fire \"..p.Name); kohl(\"smoke \"..p.Name); kohl(\"sparkles \"..p.Name); task.wait(0.2)\n            for i=1,5 do\n                kohl(\"explode \"..p.Name); kohl(\"rocket \"..p.Name)\n                if i<5 then kohl(\"fire \"..p.Name) end\n                task.wait(0.35)\n            end\n            kohl(\"explode \"..p.Name); kohl(\"explode \"..p.Name); kohl(\"kill \"..p.Name)\n            task.wait(0.2); kohl(\"unfire \"..p.Name); kohl(\"unsmoke \"..p.Name); kohl(\"unsparkles \"..p.Name)\n        end\n    end)\nend)\nregister({\"nuke\"}, function(a)\n    local plrs = resolveTarget(a[1] or \"random\"); local tn = names(plrs)\n    notify(\"NUKE: \"..tn, Color3.fromRGB(255,180,80)); flashAnnounce(LocalPlayer.Name..\" NUKED \"..tn..\"!\")\n    for _, p in ipairs(plrs) do\n        kohlMulti({\"fire \"..p.Name,\"smoke \"..p.Name,\"sparkles \"..p.Name,\"explode \"..p.Name,\"explode \"..p.Name,\"explode \"..p.Name,\"rocket \"..p.Name,\"kill \"..p.Name},0.08)\n    end\nend)\nregister({\"armageddon\",\"army\"}, function(a) local tn=names(resolveTarget(a[1] or \"others\")); notify(\"ARMAGEDDON: \"..tn, Color3.fromRGB(255,80,80)); flashAnnounce(\"ARMAGEDDON — \"..LocalPlayer.Name..\" ends \"..tn..\"!\"); task.spawn(function() for i=1,8 do kohl(\"explode \"..tn); kohl(\"lightning \"..tn); kohl(\"fire \"..tn); kohl(\"rocket \"..tn); task.wait(0.35) end; kohl(\"kill \"..tn); kohl(\"unfire \"..tn); kohl(\"unsmoke \"..tn) end) end)\nregister({\"tornado\",\"torn\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"TORNADO: \"..tn, Color3.fromRGB(180,255,180)); task.spawn(function() for i=1,12 do kohl(\"speed \"..tn..\" \"..tostring(50+i*15)); kohl(\"jump \"..tn..\" \"..tostring(100+i*20)); kohl(\"sparkles \"..tn); if i%2==0 then kohl(\"smoke \"..tn) end; task.wait(0.3) end; kohl(\"speed \"..tn..\" 16\"); kohl(\"jump \"..tn..\" 50\") end) end)\nregister({\"orbit\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); notify(\"ORBIT: \"..tn); kohlMulti({\"sparkles \"..tn,\"fire \"..tn,\"smoke \"..tn,\"trail \"..tn,\"forcefield \"..tn},0.1) end)\nregister({\"blackhole\",\"bh\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"BLACKHOLE: \"..tn, Color3.fromRGB(200,160,255)); kohlMulti({\"invisible \"..tn,\"freeze \"..tn,\"smoke \"..tn,\"sparkles \"..tn,\"visible \"..tn,\"explode \"..tn},0.15) end)\nregister({\"meteor\",\"met\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"METEOR: \"..tn, Color3.fromRGB(255,120,60)); kohlMulti({\"fire \"..tn,\"rocket \"..tn,\"explode \"..tn,\"smoke \"..tn,\"kill \"..tn},0.12) end)\nregister({\"rainbow\",\"rb\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); notify(\"RAINBOW: \"..tn, Color3.fromRGB(255,120,220)); kohlMulti({\"sparkles \"..tn,\"trail \"..tn,\"forcefield \"..tn,\"speed \"..tn..\" 80\",\"jump \"..tn..\" 150\"},0.1) end)\nregister({\"disco\",\"party\"}, function(a) local tn=names(resolveTarget(a[1] or \"all\")); notify(\"DISCO: \"..tn, Color3.fromRGB(255,120,220)); flashAnnounce(\"DISCO TIME! \"..LocalPlayer.Name..\" started a party!\"); task.spawn(function() local fx={\"sparkles\",\"fire\",\"smoke\",\"trail\",\"forcefield\",\"invisible\",\"visible\"}; for i=1,20 do kohl(fx[math.random(1,#fx)]..\" \"..tn); kohl(\"speed \"..tn..\" \"..tostring(math.random(20,200))); task.wait(0.3) end; kohl(\"unsparkles \"..tn); kohl(\"unfire \"..tn); kohl(\"unsmoke \"..tn); kohl(\"untrail \"..tn); kohl(\"speed \"..tn..\" 16\") end) end)\nregister({\"ice\",\"freeze2\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"ICE: \"..tn, Color3.fromRGB(160,220,255)); kohlMulti({\"freeze \"..tn,\"forcefield \"..tn,\"sparkles \"..tn,\"invisible \"..tn,\"visible \"..tn},0.15) end)\nregister({\"cage\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"CAGED: \"..tn, Color3.fromRGB(255,220,120)); kohlMulti({\"jail \"..tn,\"freeze \"..tn,\"speed \"..tn..\" 0\"},0.1) end)\nregister({\"uncage\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); kohlMulti({\"unjail \"..tn,\"thaw \"..tn,\"speed \"..tn..\" 16\"},0.1); notify(\"Released: \"..tn) end)\nregister({\"rocket\",\"launch\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"ROCKET: \"..tn, Color3.fromRGB(255,160,80)); kohlMulti({\"rocket \"..tn,\"fire \"..tn,\"smoke \"..tn,\"explode \"..tn},0.15) end)\nregister({\"fling\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"FLING: \"..tn, Color3.fromRGB(255,140,140)); kohlMulti({\"speed \"..tn..\" 255\",\"jump \"..tn..\" 300\",\"rocket \"..tn},0.08); task.delay(2,function() kohl(\"speed \"..tn..\" 16\"); kohl(\"jump \"..tn..\" 50\") end) end)\nregister({\"spin\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"SPIN: \"..tn); task.spawn(function() for i=1,10 do kohl(\"sit \"..tn); task.wait(0.15); kohl(\"jump \"..tn..\" 200\"); task.wait(0.15) end end) end)\nregister({\"void\",\"voidsend\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"VOID: \"..tn, Color3.fromRGB(140,100,255)); flashAnnounce(LocalPlayer.Name..\" banished \"..tn..\" to the VOID!\"); kohlMulti({\"freeze \"..tn,\"invisible \"..tn},0.1); task.spawn(function() kohl(\"void \"..tn); task.wait(0.2); kohl(\"kill \"..tn); task.wait(0.5); kohl(\"visible \"..tn); kohl(\"thaw \"..tn) end) end)\nregister({\"crusade\",\"godmode\"}, function() local me=LocalPlayer.Name; notify(\"CRUSADE!\", Color3.fromRGB(255,220,100)); flashAnnounce(me..\" HAS ASCENDED — CRUSADE MODE!\"); kohlMulti({\"god \"..me,\"forcefield \"..me,\"sparkles \"..me,\"trail \"..me,\"speed \"..me..\" 200\",\"jump \"..me..\" 250\",\"size \"..me..\" 2\",\"heal \"..me},0.08) end)\nregister({\"midas\",\"gold\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); notify(\"MIDAS: \"..tn, Color3.fromRGB(255,215,0)); flashAnnounce(\"MIDAS! \"..LocalPlayer.Name..\" turned \"..tn..\" to gold!\"); kohlMulti({\"forcefield \"..tn,\"sparkles \"..tn,\"freeze \"..tn,\"size \"..tn..\" 1.5\",\"trail \"..tn},0.1) end)\nregister({\"purge\",\"killall\"}, function()\n    notify(\"PURGE!\", Color3.fromRGB(255,60,60)); flashAnnounce(\"PURGE! \"..LocalPlayer.Name..\" kills everyone!\")\n    task.spawn(function()\n        for _, p in ipairs(Players:GetPlayers()) do\n            if p ~= LocalPlayer then\n                kohl(\"kill \"..p.Name)\n                kohl(\"explode \"..p.Name)\n                kohl(\"fire \"..p.Name)\n                kohl(\"rocket \"..p.Name)\n                kohl(\"reset \"..p.Name)\n                task.wait(0.08)\n            end\n        end\n    end)\nend)\nregister({\"heaven\",\"ascend\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); notify(\"ASCEND: \"..tn, Color3.fromRGB(200,255,255)); flashAnnounce(tn..\" ascends to HEAVEN!\"); kohlMulti({\"sparkles \"..tn,\"forcefield \"..tn,\"jump \"..tn..\" 500\",\"rocket \"..tn},0.15) end)\n\nlocal DESTRUCTIVE = {kill=true, explode=true, fire=true, rocket=true, lightning=true, meteor=true, void=true, freeze=true, jail=true, cage=true}\nfor _, c in ipairs({\"kill\",\"heal\",\"respawn\",\"god\",\"ungod\",\"fire\",\"unfire\",\"smoke\",\"unsmoke\",\"sparkles\",\"unsparkles\",\"lightning\",\"explode\",\"forcefield\",\"unforcefield\",\"trail\",\"untrail\",\"invisible\",\"visible\",\"freeze\",\"thaw\",\"jail\",\"unjail\",\"sit\",\"sword\"}) do\n    register({c}, function(a)\n        local raw = a[1]\n        local plrs = resolveTarget(raw)\n        local explicit = (raw ~= nil and raw ~= \"\" and raw ~= \"me\" and raw ~= \"all\" and raw ~= \"others\" and raw ~= \"random\")\n        if DESTRUCTIVE[c] and explicit and #plrs == 1 and plrs[1] == LocalPlayer then\n            notify(\"No target matched '\"..tostring(raw)..\"' for \"..c, Color3.fromRGB(255,120,120)); return\n        end\n        if DESTRUCTIVE[c] then\n            for _, p in ipairs(plrs) do\n                if c == \"kill\" then\n                    kohl(\"kill \"..p.Name)\n                    kohl(\"explode \"..p.Name)\n                    kohl(\"fire \"..p.Name)\n                    kohl(\"rocket \"..p.Name)\n                else\n                    kohl(c..\" \"..p.Name)\n                end\n            end\n        else\n            kohl(c..\" \"..names(plrs))\n        end\n        notify(c..\" -> \"..names(plrs))\n    end)\nend\nregister({\"test\",\"ping\",\"remotes\"}, function()\n    local st = remoteStatus()\n    notify(\"Delivery \"..st, ACCENT)\n    print(\"[AdminJoy] delivery \"..st..\" | admin remotes=\"..#ADMIN_REMOTES..\" funcs=\"..#ADMIN_FUNCS)\n    say(\";hint AdminJoy online \"..LocalPlayer.Name..\" | \"..st)\nend)\nregister({\"speed\",\"sp\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); local n=tonumber(a[2]) or 16; kohl(\"speed \"..tn..\" \"..n); notify(\"Speed \"..n..\" -> \"..tn) end)\nregister({\"jump\",\"jp\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); local n=tonumber(a[2]) or 50; kohl(\"jump \"..tn..\" \"..n); notify(\"Jump \"..n..\" -> \"..tn) end)\nregister({\"size\",\"scale\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); local n=tonumber(a[2]) or 1; kohl(\"size \"..tn..\" \"..n); notify(\"Size \"..n..\"x -> \"..tn) end)\nregister({\"tp\",\"teleport\"}, function(a) local x,y=resolveTarget(a[1]),resolveTarget(a[2]); if #x==0 or #y==0 then notify(\"tp: two targets\", Color3.fromRGB(255,120,120)); return end; kohl(\"tp \"..names(x)..\" \"..names(y)); notify(\"TP: \"..names(x)..\" -> \"..names(y)) end)\nregister({\"bring\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); kohl(\"bring \"..tn); notify(\"Brought: \"..tn) end)\nregister({\"goto\"}, function(a) local t=resolveTarget(a[1]); if #t==0 then notify(\"goto: no target\", Color3.fromRGB(255,120,120)); return end; kohl(\"goto \"..names(t)); notify(\"You -> \"..names(t)) end)\nregister({\"announce\",\"ann\",\"msg\"}, function(a) say(\";announce \"..table.concat(a,\" \")); notify(\"Announced\") end)\nregister({\"hint\"}, function(a) say(\";hint \"..table.concat(a,\" \")) end)\nregister({\"music\",\"song\"}, function(a) local id=a[1] or \"1845234174\"; kohl(\"music \"..id); notify(\"Music: \"..id) end)\nregister({\"stopmusic\"}, function() kohl(\"stopmusic\") end)\nregister({\"time\"}, function(a) local h=tonumber(a[1]) or 12; kohl(\"time \"..h); notify(\"Time: \"..h..\":00\") end)\nregister({\"weather\"}, function(a) local w=a[1] or \"rain\"; kohl(\"weather \"..w); notify(\"Weather: \"..w) end)\nregister({\"gravity\"}, function(a) local g=tonumber(a[1]) or 196.2; kohl(\"gravity \"..g); notify(\"Gravity: \"..g) end)\nregister({\"healall\"}, function() kohl(\"heal all\"); notify(\"Healed all\") end)\nregister({\"respawnall\"}, function() kohl(\"respawn all\"); notify(\"Respawned all\") end)\n\nregister({\"fly\"}, function()\n    local char=LocalPlayer.Character; if not char then return end\n    local hum=char:FindFirstChildOfClass(\"Humanoid\"); if not hum then return end\n    if char:FindFirstChild(\"AJFly\") then for _,o in ipairs(char:GetChildren()) do if o.Name==\"AJFly\" or o.Name==\"AJFlyGyro\" then o:Destroy() end end; hum.PlatformStand=false; notify(\"Fly OFF\"); return end\n    hum.PlatformStand=true; local root=char:FindFirstChild(\"HumanoidRootPart\") or char.PrimaryPart\n    local att=Instance.new(\"Attachment\",root); local lv=Instance.new(\"LinearVelocity\"); lv.Name=\"AJFly\"; lv.MaxForce=Vector3.new(1e5,1e5,1e5); lv.Attachment0=att; lv.VectorVelocity=Vector3.new(); lv.Parent=char\n    local bg=Instance.new(\"BodyGyro\"); bg.Name=\"AJFlyGyro\"; bg.MaxTorque=Vector3.new(1e5,1e5,1e5); bg.P=1e4; bg.CFrame=root.CFrame; bg.Parent=root\n    notify(\"Fly ON — Space=up Shift=down\"); local conn; conn=RunService.RenderStepped:Connect(function()\n        if not char:FindFirstChild(\"AJFly\") then conn:Disconnect(); return end\n        local cam=workspace.CurrentCamera; local dir=Vector3.new()\n        if UserInputService:IsKeyDown(Enum.KeyCode.W) then dir=dir+cam.CFrame.LookVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir=dir-cam.CFrame.LookVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir=dir+cam.CFrame.RightVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir=dir-cam.CFrame.RightVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.Space) then dir=dir+Vector3.new(0,1,0) end\n        if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then dir=dir-Vector3.new(0,1,0) end\n        lv.VectorVelocity=dir.Magnitude>0 and dir.Unit*60 or Vector3.new()\n    end)\nend)\nregister({\"noclip\",\"nc\"}, function()\n    local char=LocalPlayer.Character; if not char then return end\n    if char:FindFirstChild(\"AJNoclip\") then char.AJNoclip:Destroy(); notify(\"Noclip OFF\"); return end\n    Instance.new(\"BoolValue\",char).Name=\"AJNoclip\"; notify(\"Noclip ON\")\n    local conn; conn=RunService.Stepped:Connect(function() if not char:FindFirstChild(\"AJNoclip\") then conn:Disconnect(); return end; for _,p in ipairs(char:GetDescendants()) do if p:IsA(\"BasePart\") then p.CanCollide=false end end end)\nend)\nregister({\"fpsboost\",\"antilag\",\"fps\",\"boost\",\"lag\"}, function() pcall(function() settings().Rendering.QualityLevel=1 end); pcall(function() UserSettings():GetService(\"UserGameSettings\").RenderQuality=Enum.SavedQualitySetting.QualityLevel1 end); for _,e in ipairs(game:GetService(\"Lighting\"):GetChildren()) do if e:IsA(\"PostEffect\") then e.Enabled=false end end; notify(\"Anti-lag ON — effects disabled\", Color3.fromRGB(120,255,140)) end)\nregister({\"rejoin\",\"rj\"}, function() notify(\"Rejoining...\", Color3.fromRGB(255,80,80)); pcall(function() TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer) end) end)\nregister({\"showoff\",\"flex\"}, function() SHOWOFF=not SHOWOFF; if SHOWOFF then flashAnnounce(LocalPlayer.Name..\" turned on SHOWOFF!\") end; notify(\"Showoff: \"..tostring(SHOWOFF)) end)\nregister({\"antikick\",\"ak\"}, function() ANTI_KICK=not ANTI_KICK; notify(\"Anti-kick: \"..(ANTI_KICK and \"ON\" or \"OFF\")) end)\nregister({\"hideui\",\"ui\"}, function() Panel.Visible=false; notify(\"UI hidden — click ⚡ or Right-Ctrl\") end)\nregister({\"help\",\"cmds\",\"?\"}, function() local l={}; for n in pairs(Commands) do table.insert(l,n) end; table.sort(l); notify(\"Commands: \"..table.concat(l,\", \"), Color3.fromRGB(180,255,180)); print(\"[AdminJoy v3]\\n\"..table.concat(l,\"\\n\")) end)\nregister({\"prefix\"}, function(a) if a[1] and #a[1]==1 then PREFIX=a[1]; CmdInput.PlaceholderText=PREFIX..\"command\"; notify(\"Prefix: \"..PREFIX) end end)\n\nlocal SILENT = {help=true,cmds=true,[\"?\"]=true,prefix=true,fly=true,noclip=true,nc=true,fpsboost=true,antilag=true,fps=true,boost=true,lag=true,hideui=true,ui=true,antikick=true,ak=true,rejoin=true,rj=true,showoff=true,flex=true}\n\nfunction runCommand(raw)\n    raw = raw:gsub(\"^%s+\",\"\"):gsub(\"%s+$\",\"\")\n    if raw:sub(1,#PREFIX)~=PREFIX then return false end\n    local body=raw:sub(#PREFIX+1); local parts={}\n    for w in body:gmatch(\"%S+\") do table.insert(parts,w) end\n    if #parts==0 then return false end\n    local cn=parts[1]:lower(); local args={}\n    for i=2,#parts do args[i-1]=parts[i] end\n    local cmd=Commands[cn]\n    if cmd then\n        local ok,err=pcall(cmd,args)\n        if not ok then notify(\"Error: \"..tostring(err), Color3.fromRGB(255,100,100)) end\n        if ok and SHOWOFF and not SILENT[cn] then flashAnnounce(LocalPlayer.Name..\" used \"..PREFIX..cn..\" \"..table.concat(args,\" \")) end\n        return true\n    else\n        notify(\"Unknown '\"..cn..\"' — passing to Kohl's\", Color3.fromRGB(255,200,100)); kohl(body); return true\n    end\nend\n\n--===========================================================================--\n--  GUI TABS + BUTTONS\n--===========================================================================--\nlocal TABS = {\"Visuals\",\"OP\",\"Player\",\"Server\",\"Fun\",\"Settings\"}\nlocal TAB_COLORS = {Visuals=ACCENT, OP=Color3.fromRGB(255,120,80), Player=ACCENT2, Server=Color3.fromRGB(200,160,255), Fun=Color3.fromRGB(255,120,220), Settings=Color3.fromRGB(255,220,100)}\nlocal CMD_DEFS = {\n    Visuals = {{\"Beam\",\"beam\",true,false,true},{\"Unbeam\",\"unbeam\"},{\"RAP Storm\",\"rap\",true},{\"Fire\",\"fire\",true},{\"Unfire\",\"unfire\",true},{\"Smoke\",\"smoke\",true},{\"Unsmoke\",\"unsmoke\",true},{\"Sparkles\",\"sparkles\",true},{\"Unsparkles\",\"unsparkles\",true},{\"Trail\",\"trail\",true},{\"Untrail\",\"untrail\",true},{\"Forcefield\",\"forcefield\",true},{\"Invisible\",\"invisible\",true},{\"Visible\",\"visible\",true},{\"Rainbow\",\"rainbow\",true},{\"Disco\",\"disco\",true},{\"Lightning\",\"lightning\",true},{\"Explode\",\"explode\",true}},\n    OP = {{\"KABOOM x5\",\"kaboom\",true},{\"Nuke\",\"nuke\",true},{\"Armageddon\",\"armageddon\",true},{\"Tornado\",\"tornado\",true},{\"Orbit\",\"orbit\",true},{\"Black Hole\",\"blackhole\",true},{\"Meteor\",\"meteor\",true},{\"Ice\",\"ice\",true},{\"Cage\",\"cage\",true},{\"Uncage\",\"uncage\",true},{\"Rocket\",\"rocket\",true},{\"Fling\",\"fling\",true},{\"Spin\",\"spin\",true},{\"Void\",\"void\",true},{\"Midas\",\"midas\",true},{\"Heaven\",\"heaven\",true},{\"Purge\",\"purge\"}},\n    Player = {{\"Kill\",\"kill\",true},{\"Heal\",\"heal\",true},{\"Respawn\",\"respawn\",true},{\"God\",\"god\",true},{\"Ungod\",\"ungod\",true},{\"Freeze\",\"freeze\",true},{\"Thaw\",\"thaw\",true},{\"Jail\",\"jail\",true},{\"Unjail\",\"unjail\",true},{\"Sit\",\"sit\",true},{\"Sword\",\"sword\",true},{\"Speed\",\"speed\",true,true},{\"Jump\",\"jump\",true,true},{\"Resize\",\"size\",true,true},{\"TP\",\"tp\",true,false,true},{\"Bring\",\"bring\",true},{\"Goto\",\"goto\",true},{\"Crusade\",\"crusade\"}},\n    Server = {{\"Announce\",\"announce\",false,true},{\"Hint\",\"hint\",false,true},{\"Music\",\"music\",false,true},{\"Stop Music\",\"stopmusic\"},{\"Time\",\"time\",false,true},{\"Weather\",\"weather\",false,true},{\"Gravity\",\"gravity\",false,true},{\"Heal All\",\"healall\"},{\"Respawn All\",\"respawnall\"}},\n    Fun = {{\"Fly\",\"fly\"},{\"Noclip\",\"noclip\"},{\"Anti-Lag / FPS\",\"antilag\"},{\"Rejoin\",\"rejoin\"}},\n    Settings = {{\"Showoff\",\"showoff\"},{\"PermAdmin\",\"permadmin\"},{\"Anti-Abuse\",\"antiabuse\"},{\"Anti-Kick\",\"antikick\"},{\"Keep Target\",\"keep\",true},{\"Anti-Lag\",\"antilag\"},{\"Antis Status\",\"antis\"},{\"Test Remotes\",\"test\"},{\"Hide UI\",\"hideui\"},{\"Help\",\"help\"},{\"Prefix\",\"prefix\"}},\n}\n\nlocal tabBtns = {}\nlocal function renderTab(id)\n    for _, c in ipairs(Content:GetChildren()) do if c:IsA(\"TextButton\") then c:Destroy() end end\n    for i, def in ipairs(CMD_DEFS[id] or {}) do\n        local label, cmd, needsT, needsV, needsT2 = def[1], def[2], def[3], def[4], def[5]\n        local btn = Instance.new(\"TextButton\")\n        btn.Size = UDim2.new(0,122,0,34); btn.LayoutOrder = i\n        btn.BackgroundColor3 = BG_MID; btn.BackgroundTransparency = 0.3\n        btn.Font = Enum.Font.GothamBold; btn.TextSize = 11; btn.TextWrapped = true\n        btn.TextColor3 = Color3.fromRGB(230,240,255); btn.Text = label\n        Instance.new(\"UICorner\", btn).CornerRadius = UDim.new(0,7)\n        local bs = Instance.new(\"UIStroke\"); bs.Color = ACCENT2; bs.Thickness = 1; bs.Transparency = 0.6; bs.Parent = btn\n        btn.Parent = Content\n        btn.MouseButton1Click:Connect(function()\n            local t = currentTarget; local v = currentValue\n            local DESTRUCTIVE_GUI = {kill=true,explode=true,fire=true,rocket=true,lightning=true,meteor=true,void=true,freeze=true,jail=true,smoke=true,sparkles=true}\n            if DESTRUCTIVE_GUI[cmd] and (t == \"me\" or t == \"\") then t = \"others\" end\n            local s = PREFIX..cmd\n            if needsT then s = s..\" \"..t end\n            if needsT2 then s = s..\" \"..(v~=\"\" and v or \"me\") end\n            if needsV and v~=\"\" then s = s..\" \"..v end\n            if (cmd==\"announce\" or cmd==\"hint\" or cmd==\"music\" or cmd==\"time\" or cmd==\"weather\" or cmd==\"gravity\") and v~=\"\" then s = PREFIX..cmd..\" \"..v end\n            runCommand(s); releaseFocus()\n            btn.BackgroundColor3 = ACCENT; btn.TextColor3 = BG_DARK\n            task.delay(0.15, function() btn.BackgroundColor3 = BG_MID; btn.TextColor3 = Color3.fromRGB(230,240,255) end)\n        end)\n    end\n    for tid, b in pairs(tabBtns) do b.BackgroundTransparency = (tid==id) and 0.1 or 0.7; b.TextColor3 = (tid==id) and BG_DARK or Color3.fromRGB(200,210,230) end\nend\n\nfor i, id in ipairs(TABS) do\n    local b = Instance.new(\"TextButton\")\n    b.Size = UDim2.new(0,86,0,28); b.Position = UDim2.new(0,(i-1)*92,0,0)\n    b.BackgroundColor3 = TAB_COLORS[id]; b.BackgroundTransparency = 0.7\n    b.Font = Enum.Font.GothamBold; b.TextSize = 12; b.TextColor3 = Color3.fromRGB(200,210,230); b.Text = id\n    Instance.new(\"UICorner\", b).CornerRadius = UDim.new(0,7); b.Parent = TabBar\n    tabBtns[id] = b\n    b.MouseButton1Click:Connect(function() renderTab(id); releaseFocus() end)\nend\nrenderTab(\"Visuals\")\n\n--===========================================================================--\n--  UI TOGGLE + FOCUS RELEASE (fixes \"can't move\")\n--===========================================================================--\nlocal function toggleUI()\n    Panel.Visible = not Panel.Visible\n    releaseFocus()  -- ALWAYS release focus so WASD works\n    if not Panel.Visible then notify(\"UI hidden — click ⚡ or Right-Ctrl\") end\nend\nFloatBtn.MouseButton1Click:Connect(toggleUI)\nCloseBtn.MouseButton1Click:Connect(toggleUI)\nUserInputService.InputBegan:Connect(function(input, gp)\n    if not gp and input.KeyCode == Enum.KeyCode.RightControl then toggleUI() end\nend)\n\n-- Release focus on ANY click outside a textbox (guarantees movement)\nUserInputService.InputBegan:Connect(function(input, gp)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 and not gp then\n        task.delay(0.05, function()\n            if not (TargetInput:IsFocused() or ValueInput:IsFocused() or CmdInput:IsFocused()) then\n                releaseFocus()\n            end\n        end)\n    end\nend)\n\n-- Chat input works too\nLocalPlayer.Chatted:Connect(function(msg)\n    runCommand(msg)\n    if SHOWOFF and msg:sub(1,1) == KOHLS_PREFIX then flashAnnounce(LocalPlayer.Name..\" ran: \"..msg) end\nend)\n\n-- TextChatService fallback: Player.Chatted does not fire in the new\n-- text-chat stack, so catch our own RBXGeneral messages and run them too.\ntask.spawn(function()\n    if not TextChatService then return end\n    local root = TextChatService:WaitForChild(\"TextChannels\", 20)\n    if not root then return end\n    local gen = root:WaitForChild(\"RBXGeneral\", 10)\n    if not gen then return end\n    gen.MessageReceived:Connect(function(msg)\n        local src = msg.TextSource\n        if src and msg.Text and src.UserId == LocalPlayer.UserId then\n            pcall(runCommand, msg.Text)\n        end\n    end)\nend)\n\n--===========================================================================--\n--  ANTI-KICK (auto-rejoin + warning)\n--===========================================================================--\nlocal function rejoin() notify(\"KICKED — rejoining...\", Color3.fromRGB(255,80,80)); pcall(function() TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer) end) end\nPlayers.PlayerRemoving:Connect(function(p) if p==LocalPlayer and ANTI_KICK then task.spawn(rejoin) end end)\nlocal function hookKick(p)\n    p.Chatted:Connect(function(msg)\n        if p==LocalPlayer then return end\n        local lower=msg:lower()\n        if (lower:match(\"kick\") or lower:match(\"ban\") or lower:match(\"shutdown\")) and (lower:find(LocalPlayer.Name:lower(),1,true) or lower:find(LocalPlayer.DisplayName:lower(),1,true) or lower:match(\"all\") or lower:match(\"others\")) then\n            notify(\"⚠ \"..p.Name..\" tries to kick you!\", Color3.fromRGB(255,60,60))\n            task.spawn(function() kohl(\"god \"..LocalPlayer.Name); kohl(\"forcefield \"..LocalPlayer.Name) end)\n        end\n    end)\nend\nfor _,p in ipairs(Players:GetPlayers()) do hookKick(p) end\nPlayers.PlayerAdded:Connect(hookKick)\n\n--===========================================================================--\n--  EXTERNAL LOADERS DISABLED: hosted KohlsNoob payload only kicks/redirects\n--  and the obfuscated VM build spiked client FPS. Commands fire through the\n--  native legacy admin chat pipe above; nothing external loads.\n--===========================================================================--\n\n--===========================================================================--\n--  ALL ANTIS + ADMIN PROTECTION (auto, always-on)\n--===========================================================================--\nlocal ANTI_VOID   = true\nlocal ANTI_FLING  = true\nlocal ANTI_FREEZE = true\nlocal ANTI_KILL   = true\nlocal ANTI_ABUSE  = true\nlocal PERM_ADMIN  = false\nlocal protectedPlayers = {}\n\n-- Anti-void + anti-fling + anti-freeze + anti-kill + permadmin monitor\ntask.spawn(function()\n    local lastSafe = nil\n    while true do\n        task.wait(0.5)\n        local char = LocalPlayer.Character\n        if char then\n            local root = char:FindFirstChild(\"HumanoidRootPart\")\n            local hum = char:FindFirstChildOfClass(\"Humanoid\")\n            if root and hum then\n                if ANTI_VOID and root.Position.Y < -300 and lastSafe then\n                    notify(\"VOID DETECTED — returning\", Color3.fromRGB(255,120,120))\n                    root.CFrame = CFrame.new(lastSafe)\n                    kohl(\"thaw \"..LocalPlayer.Name); kohl(\"visible \"..LocalPlayer.Name)\n                elseif root.Position.Y > -50 and root.Position.Y < 500 then\n                    lastSafe = root.Position\n                end\n                if ANTI_FLING and root.Velocity.Magnitude > 350 then\n                    root.Velocity = Vector3.new(); kohl(\"thaw \"..LocalPlayer.Name)\n                end\n                if ANTI_FREEZE and (hum.WalkSpeed <= 1 or hum.PlatformStand) then\n                    hum.WalkSpeed = 16; hum.PlatformStand = false\n                    kohl(\"thaw \"..LocalPlayer.Name); kohl(\"unjail \"..LocalPlayer.Name)\n                end\n                if ANTI_KILL and hum.Health < hum.MaxHealth and hum.Health > 0 then\n                    kohl(\"heal \"..LocalPlayer.Name); kohl(\"god \"..LocalPlayer.Name); kohl(\"forcefield \"..LocalPlayer.Name)\n                end\n            end\n        end\n        if PERM_ADMIN then\n            kohl(\"god \"..LocalPlayer.Name); kohl(\"forcefield \"..LocalPlayer.Name)\n            kohl(\"speed \"..LocalPlayer.Name..\" 16\"); kohl(\"jump \"..LocalPlayer.Name..\" 50\")\n        end\n    end\nend)\n\n-- Anti-abuse: detect commands used on you via chat + auto-counter\nlocal function counter(attacker, cmd, target)\n    if not ANTI_ABUSE then return end\n    local me = LocalPlayer.Name:lower()\n    local dn = LocalPlayer.DisplayName:lower()\n    local t = target:lower()\n    if not (t:find(me,1,true) or t:find(dn,1,true) or t==\"all\" or t==\"others\") then return end\n    notify(attacker..\" used ;\"..cmd..\" on you! Countering...\", Color3.fromRGB(255,80,80))\n    local c = cmd:lower()\n    if c:match(\"kick\") or c:match(\"ban\") or c:match(\"shutdown\") then\n        pcall(function() TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer) end)\n    elseif c:match(\"kill\") or c:match(\"explode\") or c:match(\"rocket\") or c:match(\"meteor\") then\n        kohl(\"god \"..LocalPlayer.Name); kohl(\"forcefield \"..LocalPlayer.Name); kohl(\"heal \"..LocalPlayer.Name)\n    elseif c:match(\"freeze\") or c:match(\"jail\") or c:match(\"sit\") or c:match(\"ice\") or c:match(\"cage\") then\n        kohl(\"thaw \"..LocalPlayer.Name); kohl(\"unjail \"..LocalPlayer.Name); kohl(\"speed \"..LocalPlayer.Name..\" 16\")\n    elseif c:match(\"invisible\") then kohl(\"visible \"..LocalPlayer.Name)\n    elseif c:match(\"speed\") or c:match(\"jump\") then kohl(\"speed \"..LocalPlayer.Name..\" 16\"); kohl(\"jump \"..LocalPlayer.Name..\" 50\")\n    elseif c:match(\"size\") then kohl(\"size \"..LocalPlayer.Name..\" 1\")\n    elseif c:match(\"void\") or c:match(\"fling\") then kohl(\"thaw \"..LocalPlayer.Name); kohl(\"visible \"..LocalPlayer.Name) end\n    for uid in pairs(protectedPlayers) do\n        local p = Players:GetPlayerByUserId(uid)\n        if p then kohl(\"god \"..p.Name); kohl(\"heal \"..p.Name); kohl(\"thaw \"..p.Name); kohl(\"forcefield \"..p.Name) end\n    end\nend\nlocal function hookAbuse(p)\n    p.Chatted:Connect(function(msg)\n        if p == LocalPlayer then return end\n        local cmd, target = msg:match(\"^[;!](%w+)%s+(.+)\")\n        if cmd and target then counter(p.Name, cmd, target:gsub(\"%s+\",\"\")) end\n    end)\nend\nfor _, p in ipairs(Players:GetPlayers()) do hookAbuse(p) end\nPlayers.PlayerAdded:Connect(hookAbuse)\n\n-- Admin protection chat commands (;permadmin, ;keep, ;min, ;max, ;antiabuse, ;antis)\nLocalPlayer.Chatted:Connect(function(msg)\n    local lower = msg:lower()\n    if lower:match(\"permadmin\") then\n        PERM_ADMIN = not PERM_ADMIN\n        notify(\"PermAdmin: \"..(PERM_ADMIN and \"ON\" or \"OFF\"), PERM_ADMIN and Color3.fromRGB(120,255,140) or Color3.fromRGB(255,200,100))\n    elseif lower:match(\"^[;!]keep\") then\n        local name = msg:match(\"keep%s+(%S+)\")\n        if name then\n            for _, p in ipairs(Players:GetPlayers()) do\n                if p.Name:lower():find(name:lower(),1,true) or name:lower()==\"all\" then\n                    protectedPlayers[p.UserId] = true\n                    kohl(\"god \"..p.Name); kohl(\"forcefield \"..p.Name); kohl(\"heal \"..p.Name)\n                    notify(\"Kept: \"..p.Name, Color3.fromRGB(120,255,140))\n                end\n            end\n        end\n    elseif lower:match(\"^[;!]min%s\") then\n        local name = msg:match(\"min%s+(%S+)\"); if name then kohl(\"size \"..name..\" 0.3\"); notify(\"Shrunk: \"..name) end\n    elseif lower:match(\"^[;!]max%s\") then\n        local name = msg:match(\"max%s+(%S+)\"); if name then kohl(\"size \"..name..\" 3\"); notify(\"Grew: \"..name) end\n    elseif lower:match(\"antiabuse\") then\n        ANTI_ABUSE = not ANTI_ABUSE; notify(\"Anti-abuse: \"..tostring(ANTI_ABUSE))\n    elseif lower:match(\"^[;!]antis\") then\n        notify(\"Void:\"..tostring(ANTI_VOID)..\" Fling:\"..tostring(ANTI_FLING)..\" Freeze:\"..tostring(ANTI_FREEZE)..\" Kill:\"..tostring(ANTI_KILL)..\" Abuse:\"..tostring(ANTI_ABUSE)..\" PermAdmin:\"..tostring(PERM_ADMIN))\n    end\nend)\n\n-- Register anti commands so GUI buttons + typed !commands work too\nregister({\"permadmin\",\"pa\"}, function() PERM_ADMIN=not PERM_ADMIN; notify(\"PermAdmin: \"..tostring(PERM_ADMIN), PERM_ADMIN and Color3.fromRGB(120,255,140) or Color3.fromRGB(255,200,100)) end)\nregister({\"antiabuse\",\"aa\"}, function() ANTI_ABUSE=not ANTI_ABUSE; notify(\"Anti-abuse: \"..tostring(ANTI_ABUSE)) end)\nregister({\"antis\"}, function() notify(\"Void:\"..tostring(ANTI_VOID)..\" Fling:\"..tostring(ANTI_FLING)..\" Freeze:\"..tostring(ANTI_FREEZE)..\" Kill:\"..tostring(ANTI_KILL)..\" Abuse:\"..tostring(ANTI_ABUSE)..\" PermAdmin:\"..tostring(PERM_ADMIN)) end)\nregister({\"keep\"}, function(a) local tn=names(resolveTarget(a[1] or \"me\")); for _,p in ipairs(resolveTarget(a[1] or \"me\")) do protectedPlayers[p.UserId]=true; kohl(\"god \"..p.Name); kohl(\"forcefield \"..p.Name) end; notify(\"Kept: \"..tn, Color3.fromRGB(120,255,140)) end)\nregister({\"min\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); kohl(\"size \"..tn..\" 0.3\"); notify(\"Shrunk: \"..tn) end)\nregister({\"max\"}, function(a) local tn=names(resolveTarget(a[1] or \"random\")); kohl(\"size \"..tn..\" 3\"); notify(\"Grew: \"..tn) end)\n\n--===========================================================================--\n--  LOAD NOTIFICATION + FOCUS RELEASE ON START\n--===========================================================================--\nreleaseFocus()  -- CRITICAL: ensure movement works immediately\n\ntask.spawn(function()\n    task.wait(1.2)\n    say(\";announce [ADMINJOY v3] LOADED — \"..LocalPlayer.Name..\"! Type \"..PREFIX..\"help\")\n    task.wait(0.4); say(\";hint >> AdminJoy v3 lag-free — click ⚡ button! <<\")\nend)\n\nnotify(\"AdminJoy v3 loaded — click ⚡ or Right-Ctrl\", ACCENT)\nprint(\"[AdminJoy v3] Lag-free GUI edition loaded. No external scripts. WASD always active.\")\n\n-- Clean exit: script returns nil (no leftover value in execution or system output)\nreturn nil",
       "createdAt": "2026-11-21T06:31:08.582Z",
@@ -3405,7 +3403,7 @@
         "Duels",
         "Duelos vs sheriffs"
       ],
-      "views": 85,
+      "views": 88,
       "likes": 1,
       "dislikes": 0,
       "summary": "Descripción: Uzivert Hub para Duelos MvS. Script optimizado y sin sistema de llaves (No Key). Funciones principales: · ESP de jugadores (detección de roles con colores) · Aimlock suave y preciso · Shoot asistido · Speed / Walkspeed ajust…",
@@ -3442,7 +3440,7 @@
         "chesscom",
         "anti afk"
       ],
-      "views": 143,
+      "views": 151,
       "likes": 2,
       "dislikes": 0,
       "summary": "IF ITS CRASHED/LAGS IN THE OBFUSCATORS FAULT! NOT THE SCRIPT IT SELF! THIS SCRIPT IS FOR ALL GAMES IF YOUR BORED, I RECOMMEND USING THIS ON AFK GAMES THAT REQUIRES YOU TO AFK SO YOU WONT GET BORED AT ALL Features, 6 Different bot and lev…",
@@ -3478,7 +3476,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 162,
+      "views": 167,
       "likes": 2,
       "dislikes": 0,
       "summary": "🔥 DELTA HUB 2.0 - UNIVERSAL MOBILE GUI 🔥 Lightweight, fast, and 100% optimized for Mobile (Delta, Arceus X, Codex, Fluxus) and PC! No keys, no lag, clean draggable & minimizable interface with individual ON/OFF toggles. ✨ FEATURES (15…",
@@ -3515,7 +3513,7 @@
         "silent aim",
         "esp"
       ],
-      "views": 108,
+      "views": 110,
       "likes": 1,
       "dislikes": 0,
       "summary": "opticalz md v6 - murder duels custom script i made for murder duels with a bunch of features and settings. everything is organized into different tabs so its easy to find what you need and change stuff around. features: - aim: aimbot, si…",
@@ -3526,43 +3524,6 @@
         "new"
       ],
       "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b0127cc3f187ee9c8462b18",
-      "slug": "UPD-Volleyball-Legends-UPD-237632",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-Volleyball-Legends-UPD-237632",
-      "title": "[UPD]",
-      "game": "[UPD] Volleyball Legends",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-7748523af45cef2737eb962e8396b112-50bc6dcdf564.png",
-      "author": "2pmatmidnight00",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "UPD Volleyball Legends",
-        "vbbl",
-        "vbl"
-      ],
-      "views": 103,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Ball Hitbox Hitbox Size Transparency Ping Compensation Color --------------------- Serve Power Modifier Power strength --------------------- Hit Delay Modifier Delay Repeats --------------------- Helper Tracers Studs Thickness Color",
-      "code": "loadstring(game:HttpGet(\"https://cdn.luaprotect.dev/u/e25cf2/6sAvJT693Tv8c9df\"))()",
-      "createdAt": "2026-11-21T05:10:36.581Z",
-      "updatedAt": "2026-11-23T07:50:11.288Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "ball",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -3589,48 +3550,13 @@
         "Admin Panel",
         "Tools"
       ],
-      "views": 93,
+      "views": 97,
       "likes": 1,
       "dislikes": 0,
       "summary": "Dekiut Hub | Spam Text | MAIN MENU (no key needed) • Send messages to chat, favorites list, fake local system messages (only you see them) • 4 color themes, cinematic intro, adjustable size and transparency • FPS/Ping widgets, Anti-AFK,…",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/AnonimSixGHB/SpamText/refs/heads/main/DekiutHub\"))()",
       "createdAt": "2026-11-21T05:05:11.701Z",
       "updatedAt": "2026-11-23T08:28:04.699Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b01168672e5c973268d681a",
-      "slug": "Terminal-Escape-Room-ESCAPE-ROOM-SCRIPT-237629",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Terminal-Escape-Room-ESCAPE-ROOM-SCRIPT-237629",
-      "title": "ESCAPE ROOM SCRIPT",
-      "game": "Terminal [Escape Room]",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-4e8df9de836e91eabc46ab93bf410263-85a79c28c849.png",
-      "author": "LUCIVIOUS",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 67,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Lobby: auto-solves the weekly keypad puzzle and shows its code. It also redeems the 4 working codes for free hints, claims the timed free hint, and auto-plays Simon and Cards (higher or lower). Room: shows everything you can press, click…",
-      "code": "loadstring(game:HttpGet(\"https://loadstring.net/raw/OjSx9t4N3T\"))()",
-      "createdAt": "2026-11-21T03:56:54.779Z",
-      "updatedAt": "2026-11-23T08:01:56.032Z",
       "categoryIds": [
         "new"
       ],
@@ -3661,7 +3587,7 @@
         "Auto Punch",
         "Summon A Pet Army"
       ],
-      "views": 468,
+      "views": 470,
       "likes": 2,
       "dislikes": 0,
       "summary": "- Auto-Punch - Auto-Soul - Auto-equip best army - Zone select + auto-travel - Hop to far targets - WalkSpeed control - Live stats - Config saving",
@@ -3734,7 +3660,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5560580,
+      "views": 5560607,
       "likes": 110,
       "dislikes": 55,
       "rating": 3.3,
@@ -3774,7 +3700,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4489812,
+      "views": 4489821,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3815,7 +3741,7 @@
         "sae",
         "universal"
       ],
-      "views": 3980711,
+      "views": 3980738,
       "likes": 98,
       "dislikes": 50,
       "rating": 3.3,
@@ -3856,7 +3782,7 @@
         "flow",
         "script"
       ],
-      "views": 3879223,
+      "views": 3879401,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -3896,7 +3822,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3851224,
+      "views": 3851399,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -3935,7 +3861,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3530315,
+      "views": 3530492,
       "likes": 68,
       "dislikes": 13,
       "rating": 4.2,
@@ -3975,7 +3901,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3508610,
+      "views": 3508612,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4015,7 +3941,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3389654,
+      "views": 3389656,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4054,7 +3980,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3150828,
+      "views": 3150830,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -4093,7 +4019,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3142078,
+      "views": 3142089,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4132,7 +4058,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023259,
+      "views": 3023263,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4171,7 +4097,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2761430,
+      "views": 2761606,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4211,7 +4137,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2720255,
+      "views": 2720258,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4250,7 +4176,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2518923,
+      "views": 2518930,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4291,7 +4217,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2484349,
+      "views": 2484355,
       "likes": 174,
       "dislikes": 32,
       "rating": 4.2,
@@ -4318,7 +4244,7 @@
       "sourceUrl": "https://scriptblox.com/script/Troll-Smart-IQ-Tower-Infinite-money-script-55156",
       "title": "Infinite money script (cannot work use loadstring)",
       "game": "Troll Smart IQ Tower 🧠",
-      "gameImage": "https://tr.rbxcdn.com/180DAY-003273aff115669a426e786af0ee6691/480/270/Image/Png/noFilter",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-003273aff115669a426e786af0ee6691-15d9fb696079.png",
       "author": "BLUE2SPOOKYSCARY",
       "authorVerified": false,
       "verified": false,
@@ -4368,7 +4294,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 2327786,
+      "views": 2327788,
       "likes": 38,
       "dislikes": 9,
       "rating": 4,
@@ -4645,7 +4571,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1982486,
+      "views": 1982489,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -4684,7 +4610,7 @@
         "adopt me",
         "blox fruits"
       ],
-      "views": 1946081,
+      "views": 1946261,
       "likes": 161,
       "dislikes": 46,
       "rating": 3.9,
@@ -4875,7 +4801,7 @@
         "Ink Games ESP Auto Win",
         "Roblox GUI Keyless"
       ],
-      "views": 1886250,
+      "views": 1886252,
       "likes": 15,
       "dislikes": 4,
       "rating": 3.9,
@@ -4951,7 +4877,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875393,
+      "views": 1875396,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5026,7 +4952,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1838262,
+      "views": 1838439,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5253,7 +5179,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748054,
+      "views": 1748056,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5329,7 +5255,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1717666,
+      "views": 1717667,
       "likes": 10,
       "dislikes": 5,
       "rating": 3.3,
@@ -5446,7 +5372,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1689147,
+      "views": 1689148,
       "likes": 335,
       "dislikes": 45,
       "rating": 4.4,
@@ -5561,7 +5487,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1656529,
+      "views": 1656530,
       "likes": 91,
       "dislikes": 12,
       "rating": 4.4,
@@ -5714,7 +5640,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1567693,
+      "views": 1567695,
       "likes": 8,
       "dislikes": 4,
       "rating": 3.3,
@@ -6028,7 +5954,7 @@
         "invisible",
         "keyless OP"
       ],
-      "views": 1369551,
+      "views": 1369553,
       "likes": 22,
       "dislikes": 8,
       "rating": 3.7,
@@ -6255,7 +6181,7 @@
         "join in dc for more",
         "subscribe pls"
       ],
-      "views": 1325612,
+      "views": 1325613,
       "likes": 27,
       "dislikes": 1,
       "rating": 4.8,
@@ -6293,7 +6219,7 @@
         "autoplayer",
         "free"
       ],
-      "views": 1314080,
+      "views": 1314082,
       "likes": 18,
       "dislikes": 7,
       "rating": 3.6,
@@ -6331,7 +6257,7 @@
         "free",
         "easy"
       ],
-      "views": 1308782,
+      "views": 1308955,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6369,7 +6295,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1291659,
+      "views": 1291662,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6482,7 +6408,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1282239,
+      "views": 1282240,
       "likes": 13,
       "dislikes": 6,
       "rating": 3.4,
@@ -6556,7 +6482,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1246703,
+      "views": 1246877,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6596,7 +6522,7 @@
         "aimbot",
         "silent aim"
       ],
-      "views": 1240808,
+      "views": 1240809,
       "likes": 24,
       "dislikes": 4,
       "rating": 4.3,
@@ -6706,7 +6632,7 @@
         "dupe",
         "Keyless"
       ],
-      "views": 1180761,
+      "views": 1180763,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -7007,7 +6933,7 @@
         "afem",
         "emote"
       ],
-      "views": 863962,
+      "views": 863963,
       "likes": 51,
       "dislikes": 6,
       "rating": 4.5,
@@ -7121,7 +7047,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 778477,
+      "views": 778481,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7197,7 +7123,7 @@
         "FE Scripts",
         "Genesis"
       ],
-      "views": 773451,
+      "views": 773452,
       "likes": 1,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7234,7 +7160,7 @@
         "FE",
         "Genesis FE"
       ],
-      "views": 767079,
+      "views": 767080,
       "likes": 2,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7496,7 +7422,7 @@
         "FE Scripts",
         "Genesis FE"
       ],
-      "views": 686532,
+      "views": 686533,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -7761,7 +7687,7 @@
         "OP",
         "Mobile"
       ],
-      "views": 602955,
+      "views": 602956,
       "likes": 27,
       "dislikes": 6,
       "rating": 4.1,
@@ -7875,7 +7801,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 600145,
+      "views": 600147,
       "likes": 18,
       "dislikes": 10,
       "rating": 3.2,
@@ -8095,7 +8021,7 @@
         "slap battles script",
         "godmode"
       ],
-      "views": 1416108,
+      "views": 1416110,
       "likes": 75,
       "dislikes": 12,
       "rating": 4.3,
@@ -8280,7 +8206,7 @@
         "Auto Farm",
         "Teleport"
       ],
-      "views": 1179963,
+      "views": 1179964,
       "likes": 23,
       "dislikes": 5,
       "rating": 4.1,
@@ -8392,7 +8318,7 @@
         "best",
         "Op"
       ],
-      "views": 1070501,
+      "views": 1070514,
       "likes": 97,
       "dislikes": 17,
       "rating": 4.3,
@@ -8582,7 +8508,7 @@
         "auto parry",
         "clash"
       ],
-      "views": 955625,
+      "views": 955627,
       "likes": 25,
       "dislikes": 7,
       "rating": 3.9,
@@ -8658,7 +8584,7 @@
         "GUI",
         "Admin"
       ],
-      "views": 924179,
+      "views": 924180,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -8920,7 +8846,7 @@
         "grind",
         "Keyless"
       ],
-      "views": 598,
+      "views": 599,
       "likes": 2,
       "dislikes": 0,
       "summary": "the best orb farming script Xeno/solara supported keyless btw open source noclip fly tp to save zone player esp anti afk event orb collector [void orb and sand orb] xp farm script will be updated ALL EXECUTORS SUPPORTED Phone supported t…",
@@ -9120,6 +9046,80 @@
       ]
     },
     {
+      "id": "scriptblox-6af30de3e0fb63674632720e",
+      "slug": "RoWorld-World-PvP-Stars-Give-236119",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RoWorld-World-PvP-Stars-Give-236119",
+      "title": "Stars Give",
+      "game": "RoWorld [World PvP]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-d4965dc3211acbc4ee8979d1507a6219-9fc8154466f5.png",
+      "author": "Hope_",
+      "authorVerified": false,
+      "verified": false,
+      "status": "patched",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "gold",
+        "money",
+        "give"
+      ],
+      "views": 1127,
+      "likes": 4,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "RoWorld Stars Give",
+      "code": "local net = game:GetService(\"ReplicatedStorage\").AirfrontNet.ToServer\n\nwhile true do\nnet:FireServer(11, \"match_start\", \"solo2\")\nnet:FireServer(16, {\n    spawned=true, left=false, won=true,\n    minutes=math.random(1, 52), shares=math.random(1, 52), kills=math.random(1, 1488), place=1, field=math.random(1, 148852),\n})\nprint(\"sent\")\ntask.wait(1 + math.random(-0.075, 0.075))\nend",
+      "createdAt": "2026-11-10T12:28:19.603Z",
+      "updatedAt": "2026-11-10T12:43:52.674Z",
+      "categoryIds": [
+        "patched"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#B33A3A",
+        "#4A0000"
+      ]
+    },
+    {
+      "id": "scriptblox-6aec92211c048f43b086eb1f",
+      "slug": "Brookhaven-RP-Spammer-v1-235210",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Brookhaven-RP-Spammer-v1-235210",
+      "title": "Spammer v1",
+      "game": "Brookhaven 🏡RP",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-6ee25638908aba49f33c6ce6f13fdf3b-a5fd8c178aa8.png",
+      "author": "Babalalal",
+      "authorVerified": false,
+      "verified": false,
+      "status": "patched",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 1738,
+      "likes": 2,
+      "dislikes": 1,
+      "rating": 3.3,
+      "summary": "Spammer v1",
+      "code": "-- [[ ⚡ KIAN SPAMMER V2 - ULTIMATE COMPLETE SCRIPT ⚡ ]] --\n\nlocal Players = game:GetService(\"Players\")\nlocal ReplicatedStorage = game:GetService(\"ReplicatedStorage\")\nlocal TextChatService = game:GetService(\"TextChatService\")\nlocal TweenService = game:GetService(\"TweenService\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\npcall(function()\n\tif playerGui:FindFirstChild(\"KianSpammerGui\") then\n\t\tplayerGui[\"KianSpammerGui\"]:Destroy()\n\tend\nend)\n\nlocal RP_NAME = \"KIAN SPAMMER LOADED{ANTI-SPEED🤡}\"\nlocal RP_BIO  = \"KIAN SPAMMER LOADED\"\n\n-- Robust Chat Send Function\nlocal function sendMessage(msg)\n\tpcall(function()\n\t\tlocal success = false\n\t\tpcall(function()\n\t\t\tlocal textChannels = TextChatService:FindFirstChild(\"TextChannels\")\n\t\t\tif textChannels then\n\t\t\t\tlocal generalChannel = textChannels:FindFirstChild(\"RBXGeneral\")\n\t\t\t\tif generalChannel then\n\t\t\t\t\tgeneralChannel:SendAsync(msg)\n\t\t\t\t\tsuccess = true\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\n\t\tif not success then\n\t\t\tpcall(function()\n\t\t\t\tlocal events = ReplicatedStorage:FindFirstChild(\"DefaultChatSystemChatEvents\")\n\t\t\t\tif events then\n\t\t\t\t\tlocal sayMessage = events:FindFirstChild(\"SayMessageRequest\")\n\t\t\t\t\tif sayMessage then\n\t\t\t\t\t\tsayMessage:FireServer(msg, \"All\")\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend)\n\t\tend\n\tend)\nend\n\n-- RP Name & Bio Auto Sender\ntask.spawn(function()\n\tlocal RE = ReplicatedStorage:WaitForChild(\"RE\", 8)\n\tif not RE then return end\n\n\tlocal NameRemote = RE:FindFirstChild(\"1RPNam1eTex1t\")\n\tlocal ColorRemote = RE:FindFirstChild(\"1RPNam1eColo1r\")\n\n\tif NameRemote then\n\t\tfor i = 1, 5 do\n\t\t\tpcall(function()\n\t\t\t\tNameRemote:FireServer(\"RolePlayName\", RP_NAME)\n\t\t\t\tNameRemote:FireServer(\"RolePlayBio\", RP_BIO)\n\t\t\tend)\n\t\t\ttask.wait(0.3)\n\t\tend\n\tend\n\n\tif ColorRemote then\n\t\twhile true do\n\t\t\tlocal c = Color3.fromHSV((tick() % 4) / 4, 1, 1)\n\t\t\tpcall(function()\n\t\t\t\tColorRemote:FireServer(\"PickingRPNameColor\", c)\n\t\t\t\tColorRemote:FireServer(\"PickingRPBioColor\", c)\n\t\t\tend)\n\t\t\ttask.wait(0.1)\n\t\tend\n\tend\nend)\n\nlocal ScreenGui = Instance.new(\"ScreenGui\", playerGui)\nScreenGui.Name = \"KianSpammerGui\"\nScreenGui.ResetOnSpawn = false\nScreenGui.DisplayOrder = 9999\n\n-- ================= LOADING BAR SCREEN =================\nlocal LoadingFrame = Instance.new(\"Frame\", ScreenGui)\nLoadingFrame.Size = UDim2.fromOffset(340, 140)\nLoadingFrame.AnchorPoint = Vector2.new(0.5, 0.5)\nLoadingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)\nLoadingFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 16)\nLoadingFrame.ZIndex = 100\nInstance.new(\"UICorner\", LoadingFrame).CornerRadius = UDim.new(0, 12)\n\nlocal LoadingStroke = Instance.new(\"UIStroke\", LoadingFrame)\nLoadingStroke.Color = Color3.fromRGB(255, 50, 90)\nLoadingStroke.Thickness = 2\n\nlocal TitleLbl = Instance.new(\"TextLabel\", LoadingFrame)\nTitleLbl.Size = UDim2.new(1, 0, 0, 35)\nTitleLbl.Position = UDim2.fromOffset(0, 12)\nTitleLbl.BackgroundTransparency = 1\nTitleLbl.Text = \"⚡ LOADING SPAMCORE... ⚡\"\nTitleLbl.TextColor3 = Color3.fromRGB(255, 255, 255)\nTitleLbl.TextSize = 14\nTitleLbl.Font = Enum.Font.SourceSansBold\nTitleLbl.ZIndex = 101\n\nlocal PercentLbl = Instance.new(\"TextLabel\", LoadingFrame)\nPercentLbl.Size = UDim2.new(1, 0, 0, 25)\nPercentLbl.Position = UDim2.fromOffset(0, 45)\nPercentLbl.BackgroundTransparency = 1\nPercentLbl.Text = \"0%\"\nPercentLbl.TextColor3 = Color3.fromRGB(0, 255, 120)\nPercentLbl.TextSize = 16\nPercentLbl.Font = Enum.Font.SourceSansBold\nPercentLbl.ZIndex = 101\n\nlocal BarBg = Instance.new(\"Frame\", LoadingFrame)\nBarBg.Size = UDim2.new(1, -40, 0, 22)\nBarBg.Position = UDim2.fromOffset(20, 85)\nBarBg.BackgroundColor3 = Color3.fromRGB(25, 22, 32)\nBarBg.ZIndex = 101\nInstance.new(\"UICorner\", BarBg).CornerRadius = UDim.new(1, 0)\n\nlocal BarFill = Instance.new(\"Frame\", BarBg)\nBarFill.Size = UDim2.new(0, 0, 1, 0)\nBarFill.BackgroundColor3 = Color3.fromRGB(0, 255, 120)\nBarFill.ZIndex = 102\nInstance.new(\"UICorner\", BarFill).CornerRadius = UDim.new(1, 0)\n\n-- ================= MODERN MAIN PANEL =================\nlocal MainScreenHolder = Instance.new(\"Frame\", ScreenGui)\nMainScreenHolder.Name = \"MainScreenHolder\"\nMainScreenHolder.Size = UDim2.fromOffset(450, 360)\nMainScreenHolder.AnchorPoint = Vector2.new(0.5, 0.5)\nMainScreenHolder.Position = UDim2.new(0.5, 0, 0.5, 0)\nMainScreenHolder.BackgroundColor3 = Color3.fromRGB(12, 12, 16)\nMainScreenHolder.Visible = false\nMainScreenHolder.Active = true\nMainScreenHolder.Draggable = true\nInstance.new(\"UICorner\", MainScreenHolder).CornerRadius = UDim.new(0, 14)\n\nlocal MainStroke = Instance.new(\"UIStroke\", MainScreenHolder)\nMainStroke.Color = Color3.fromRGB(255, 50, 90)\nMainStroke.Thickness = 2\n\n-- Top Header\nlocal TopHeader = Instance.new(\"Frame\", MainScreenHolder)\nTopHeader.Size = UDim2.new(1, 0, 0, 45)\nTopHeader.BackgroundColor3 = Color3.fromRGB(20, 18, 25)\nInstance.new(\"UICorner\", TopHeader).CornerRadius = UDim.new(0, 14)\n\nlocal HeaderTitle = Instance.new(\"TextLabel\", TopHeader)\nHeaderTitle.Size = UDim2.new(1, -50, 1, 0)\nHeaderTitle.Position = UDim2.fromOffset(15, 0)\nHeaderTitle.BackgroundTransparency = 1\nHeaderTitle.Text = \"⚡ KIAN SPAMMER V2 - ULTIMATE ⚡\"\nHeaderTitle.TextColor3 = Color3.fromRGB(255, 255, 255)\nHeaderTitle.TextSize = 14\nHeaderTitle.Font = Enum.Font.SourceSansBold\nHeaderTitle.TextXAlignment = Enum.TextXAlignment.Left\n\n-- Close Button\nlocal CloseBtn = Instance.new(\"TextButton\", TopHeader)\nCloseBtn.Size = UDim2.fromOffset(30, 30)\nCloseBtn.AnchorPoint = Vector2.new(1, 0.5)\nCloseBtn.Position = UDim2.new(1, -10, 0.5, 0)\nCloseBtn.BackgroundColor3 = Color3.fromRGB(45, 20, 20)\nCloseBtn.Text = \"✕\"\nCloseBtn.TextColor3 = Color3.fromRGB(255, 50, 50)\nCloseBtn.TextSize = 14\nCloseBtn.Font = Enum.Font.SourceSansBold\nInstance.new(\"UICorner\", CloseBtn).CornerRadius = UDim.new(0, 6)\n\n-- Content Area inside Main Panel\nlocal ContentArea = Instance.new(\"Frame\", MainScreenHolder)\nContentArea.Size = UDim2.new(1, -24, 1, -65)\nContentArea.Position = UDim2.fromOffset(12, 53)\nContentArea.BackgroundTransparency = 1\n\n-- Target Input Box\nlocal TargetBox = Instance.new(\"TextBox\", ContentArea)\nTargetBox.Size = UDim2.new(1, 0, 0, 38)\nTargetBox.Position = UDim2.fromOffset(0, 0)\nTargetBox.BackgroundColor3 = Color3.fromRGB(22, 20, 28)\nTargetBox.PlaceholderText = \"Enter Target Name...\"\nTargetBox.Text = \"GOKU\"\nTargetBox.TextColor3 = Color3.fromRGB(255, 255, 255)\nTargetBox.TextSize = 13\nTargetBox.Font = Enum.Font.SourceSansBold\nInstance.new(\"UICorner\", TargetBox).CornerRadius = UDim.new(0, 8)\nlocal TStroke = Instance.new(\"UIStroke\", TargetBox)\nTStroke.Color = Color3.fromRGB(80, 80, 100)\nTStroke.Thickness = 1\n\n-- Delay Input Box\nlocal DelayBox = Instance.new(\"TextBox\", ContentArea)\nDelayBox.Size = UDim2.new(1, 0, 0, 38)\nDelayBox.Position = UDim2.fromOffset(0, 46)\nDelayBox.BackgroundColor3 = Color3.fromRGB(22, 20, 28)\nDelayBox.PlaceholderText = \"Delay (0.1 - 10 sec)\"\nDelayBox.Text = \"0.8\"\nDelayBox.TextColor3 = Color3.fromRGB(255, 255, 255)\nDelayBox.TextSize = 13\nDelayBox.Font = Enum.Font.SourceSansBold\nInstance.new(\"UICorner\", DelayBox).CornerRadius = UDim.new(0, 8)\nlocal DStroke = Instance.new(\"UIStroke\", DelayBox)\nDStroke.Color = Color3.fromRGB(80, 80, 100)\nDStroke.Thickness = 1\n\n-- Emoji Cycle Toggle Button\nlocal EmojiToggleBtn = Instance.new(\"TextButton\", ContentArea)\nEmojiToggleBtn.Size = UDim2.new(1, 0, 0, 38)\nEmojiToggleBtn.Position = UDim2.fromOffset(0, 92)\nEmojiToggleBtn.BackgroundColor3 = Color3.fromRGB(30, 20, 35)\nEmojiToggleBtn.Text = \"EMOJI CYCLE: OFF\"\nEmojiToggleBtn.TextColor3 = Color3.fromRGB(255, 150, 200)\nEmojiToggleBtn.TextSize = 13\nEmojiToggleBtn.Font = Enum.Font.SourceSansBold\nInstance.new(\"UICorner\", EmojiToggleBtn).CornerRadius = UDim.new(0, 8)\nlocal EStroke = Instance.new(\"UIStroke\", EmojiToggleBtn)\nEStroke.Color = Color3.fromRGB(255, 100, 150)\nEStroke.Thickness = 1\n\nlocal emojiCycleActive = false\nEmojiToggleBtn.MouseButton1Click:Connect(function()\n\temojiCycleActive = not emojiCycleActive\n\tif emojiCycleActive then\n\t\tEmojiToggleBtn.Text = \"EMOJI CYCLE: ON\"\n\t\tEmojiToggleBtn.TextColor3 = Color3.fromRGB(0, 255, 120)\n\t\tEStroke.Color = Color3.fromRGB(0, 255, 120)\n\telse\n\t\tEmojiToggleBtn.Text = \"EMOJI CYCLE: OFF\"\n\t\tEmojiToggleBtn.TextColor3 = Color3.fromRGB(255, 150, 200)\n\t\tEStroke.Color = Color3.fromRGB(255, 100, 150)\n\tend\nend)\n\n-- Start / Stop Button\nlocal InitBtn = Instance.new(\"TextButton\", ContentArea)\nInitBtn.Size = UDim2.new(1, 0, 0, 44)\nInitBtn.Position = UDim2.fromOffset(0, 138)\nInitBtn.BackgroundColor3 = Color3.fromRGB(30, 50, 35)\nInitBtn.Text = \"▶ INITIALIZE SPAMCORE\"\nInitBtn.TextColor3 = Color3.fromRGB(0, 255, 120)\nInitBtn.TextSize = 14\nInitBtn.Font = Enum.Font.SourceSansBold\nInstance.new(\"UICorner\", InitBtn).CornerRadius = UDim.new(0, 8)\nlocal IStroke = Instance.new(\"UIStroke\", InitBtn)\nIStroke.Color = Color3.fromRGB(0, 255, 120)\nIStroke.Thickness = 1.5\n\n-- Credits Label at bottom (Updated)\nlocal CreditsLbl = Instance.new(\"TextLabel\", ContentArea)\nCreditsLbl.Size = UDim2.new(1, 0, 0, 25)\nCreditsLbl.Position = UDim2.fromOffset(0, 190)\nCreditsLbl.BackgroundTransparency = 1\nCreditsLbl.Text = \"Made by Kian | Owner: KIAN\"\nCreditsLbl.TextColor3 = Color3.fromRGB(150, 150, 170)\nCreditsLbl.TextSize = 11\nCreditsLbl.Font = Enum.Font.SourceSansBold\n\n-- ================= SPAMMER, EMOJI & CLEAN PRESETS =================\nlocal spamming = false\nlocal emojis = {\"🤡\", \"😈\", \"😭\", \"🔥\", \"😎\", \"🌚\", \"🥵\", \"⚠️\", \"🌊\", \"😃\", \"🤓\", \"🤫\", \"💀\", \"🩸\", \"🚨\", \"🌋\"}\nlocal emojiIndex = 1\n\nlocal customPresets = {\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH BAG\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH PAINT\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH BED\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH OGGY KA GHAR\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH COPY\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH JADU\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH UFO\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH UNIVERSE\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH EARTH\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH JUPITER\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH INDIA\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH NEPAL\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH MULTIVERSE\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH DIAMOND\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH EMRELD\",\n\t\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ [TARGET NAME] TMX MEH LAPIS\"\n}\n\nInitBtn.MouseButton1Click:Connect(function()\n\tspamming = not spamming\n\tif spamming then\n\t\tInitBtn.Text = \"■ STOP SPAMCORE\"\n\t\tInitBtn.TextColor3 = Color3.fromRGB(255, 50, 50)\n\t\tIStroke.Color = Color3.fromRGB(255, 50, 50)\n\t\tInitBtn.BackgroundColor3 = Color3.fromRGB(50, 25, 25)\n\t\t\n\t\ttask.spawn(function()\n\t\t\tlocal idx = 1\n\t\t\twhile spamming do\n\t\t\t\tlocal targetVal = TargetBox.Text ~= \"\" and TargetBox.Text or \"GOKU\"\n\t\t\t\tlocal finalMsg = customPresets[idx]:gsub(\"%[TARGET NAME%]\", targetVal)\n\t\t\t\t\n\t\t\t\tif emojiCycleActive then\n\t\t\t\t\tfinalMsg = finalMsg .. \" \" .. emojis[emojiIndex]\n\t\t\t\t\temojiIndex = emojiIndex + 1\n\t\t\t\t\tif emojiIndex > #emojis then emojiIndex = 1 end\n\t\t\t\tend\n\t\t\t\t\n\t\t\t\tidx = idx + 1\n\t\t\t\tif idx > #customPresets then idx = 1 end\n\n\t\t\t\tsendMessage(finalMsg)\n\n\t\t\t\tlocal userDelay = tonumber(DelayBox.Text) or 0.8\n\t\t\t\tuserDelay = math.clamp(userDelay, 0.1, 10)\n\t\t\t\ttask.wait(userDelay)\n\t\t\tend\n\t\tend)\n\telse\n\t\tInitBtn.Text = \"▶ INITIALIZE SPAMCORE\"\n\t\tInitBtn.TextColor3 = Color3.fromRGB(0, 255, 120)\n\t\tIStroke.Color = Color3.fromRGB(0, 255, 120)\n\t\tInitBtn.BackgroundColor3 = Color3.fromRGB(30, 50, 35)\n\tend\nend)\n\n-- ================= TOGGLE BUTTON & CLOSE BUTTON LOGIC =================\nlocal ToggleBtn = Instance.new(\"TextButton\", ScreenGui)\nToggleBtn.Name = \"KianToggle\"\nToggleBtn.Size = UDim2.new(0, 45, 0, 45)\nToggleBtn.Position = UDim2.new(0, 15, 1, -65)\nToggleBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)\nToggleBtn.Text = \"KIAN\"\nToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\nToggleBtn.TextSize = 12\nToggleBtn.Font = Enum.Font.SourceSansBold\nToggleBtn.Active = true\nToggleBtn.Draggable = true\nInstance.new(\"UICorner\", ToggleBtn).CornerRadius = UDim.new(1, 0)\n\nlocal T_Stroke = Instance.new(\"UIStroke\", ToggleBtn)\nT_Stroke.Color = Color3.fromRGB(255, 50, 90)\nT_Stroke.Thickness = 2\n\nCloseBtn.MouseButton1Click:Connect(function()\n\tMainScreenHolder.Visible = false\nend)\n\nToggleBtn.MouseButton1Click:Connect(function()\n\tMainScreenHolder.Visible = not MainScreenHolder.Visible\nend)\n\n-- ================= LOADING BAR ANIMATION & INTRO CHAT SEND =================\ntask.spawn(function()\n\tlocal duration = 2.5\n\tlocal startTime = tick()\n\t\n\twhile true do\n\t\tlocal elapsed = tick() - startTime\n\t\tlocal alpha = math.clamp(elapsed / duration, 0, 1)\n\t\tlocal percent = math.floor(alpha * 100)\n\t\t\n\t\tPercentLbl.Text = percent .. \"%\"\n\t\tBarFill.Size = UDim2.new(alpha, 0, 1, 0)\n\t\t\n\t\tif alpha >= 1 then\n\t\t\tTitleLbl.Text = \"⚡ LOADED SUCCESSFULLY! ⚡\"\n\t\t\t\n\t\t\tsendMessage(\"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@KIAN SPAMMER LOADED {ANTI-SPEED🤡}\\n[THE COMEBACK OF KIAN IS GOING TO BE IN 5 DAYS(NEW SPAMMER COMING SOON\")\n\t\t\t\n\t\t\ttask.wait(0.5)\n\t\t\tLoadingFrame:Destroy()\n\t\t\tMainScreenHolder.Visible = true\n\t\t\tbreak\n\t\tend\n\t\ttask.wait(0.03)\n\tend\nend)",
+      "createdAt": "2026-11-05T14:26:41.052Z",
+      "updatedAt": "2026-11-08T16:06:38.002Z",
+      "categoryIds": [
+        "patched"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#B33A3A",
+        "#4A0000"
+      ]
+    },
+    {
       "id": "rscripts-6a242440dd3f1d0cc6966d56",
       "slug": "unlock-infinity-trail-1-speed-c6BY",
       "source": "rscripts",
@@ -9211,7 +9211,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 491527,
+      "views": 491534,
       "likes": 433,
       "dislikes": 117,
       "rating": 3.9,
@@ -9248,7 +9248,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 144135,
+      "views": 144137,
       "likes": 336,
       "dislikes": 106,
       "rating": 3.8,
@@ -9284,7 +9284,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 229209,
+      "views": 229212,
       "likes": 284,
       "dislikes": 42,
       "rating": 4.4,
@@ -9322,7 +9322,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 152621,
+      "views": 152626,
       "likes": 269,
       "dislikes": 64,
       "rating": 4,
@@ -9472,7 +9472,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 68016,
+      "views": 68017,
       "likes": 181,
       "dislikes": 58,
       "rating": 3.8,
@@ -9509,7 +9509,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89291,
+      "views": 89292,
       "likes": 167,
       "dislikes": 102,
       "rating": 3.1,
@@ -9620,7 +9620,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 67861,
+      "views": 67862,
       "likes": 144,
       "dislikes": 41,
       "rating": 3.9,
@@ -9730,7 +9730,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1,
+      "views": 5,
       "likes": 0,
       "dislikes": 0,
       "summary": "Event-driven native chassis speed multiplier for Backseat Offroad with a clean toggleable UI ( RightShift to hide). Modifies engine power, rev limiter, gear shift RPM, tyre grip, and drag directly through CarController with zero-garbage…",
@@ -9765,9 +9765,9 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3,
+      "views": 15,
       "likes": 1,
-      "dislikes": 0,
+      "dislikes": 1,
       "summary": "⭐ INFINITE ROLLS &amp; DUPE TRAITS 🔥 Features - ⭐ Infinite Rolls – Trait rolling functionality. - 👑 Universal Rollback – Rollback options with Trait methods. - 🎯 Trait Method – Select your preferred rollback method. - ⚙️ Macro – Gamep…",
       "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\n--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b0435c407e6106c3a385d48\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nloadstring(game:HttpGet(\"https://pastefy.app/CpIEKx7Q/raw\"))()",
       "createdAt": "2026-11-23T14:08:24.959Z",
@@ -9800,7 +9800,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 7,
+      "views": 11,
       "likes": 1,
       "dislikes": 0,
       "summary": "Does not work with Xeno, Solara and etc... Please use a good executor ☆ Auto Race -&gt; Speed Mode selection, Drive Fastest Car, Stay Off Leaderboards, Boards selection, Take Breaks ☆ Auto Drive -&gt; Straight, Swerve, Speed Mode selecti…",
@@ -9835,7 +9835,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 24,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "- Automation: Auto Pick (MoneyBag &amp; Ammo), Open Save Gear (Church). - Drill: Auto Pilot, Auto Power Boost (Always / Boss Wall), Auto Off by Meter Suffix, Auto Weld Items, Unweld All, Auto Fuel Drill. - Auto Farm: Auto Farm Ores (Tele…",
@@ -9870,7 +9870,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29,
+      "views": 32,
       "likes": 1,
       "dislikes": 0,
       "summary": "# 🎮 Autoschwund Project Delta What is it? An easy-to-use menu for Project Delta that helps you see items through walls, aim better, and make the game clearer and easier to play! Works on both PC and Mobile . Press *RightShift** on your…",
@@ -10010,7 +10010,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 65,
+      "views": 68,
       "likes": 0,
       "dislikes": 0,
       "summary": "Butter Hub - Jailbreak. This script should work for all public executors as it uses minimal UNC functions, also tested and works on mobile. Has been tested for a month with no bans. Features: - Auto Rob - Configurable Auto-Rob Priorities…",
@@ -10113,7 +10113,7 @@
       "tags": [
         "Script"
       ],
-      "views": 23,
+      "views": 25,
       "likes": 0,
       "dislikes": 0,
       "summary": "Exonia is a simple built script with a skin changer, loot esp, player ESP, and Ai ESP. There is more features.",
@@ -10183,7 +10183,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 21,
+      "views": 22,
       "likes": 0,
       "dislikes": 0,
       "summary": "Throwing Auto Throw (Perfect) with Humanize mode Randomized throw timing for more natural behavior Optional non-perfect throws Adjustable delay between throws 💪 Training Auto Train Auto XP Boost Throw / Train timer when both features ar…",
@@ -10218,7 +10218,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 27,
+      "views": 30,
       "likes": 0,
       "dislikes": 0,
       "summary": "Story &amp; Quests Auto Story – Automatically completes story quests, including Howler. Opens Cash Cases along the way. Auto Side Quests. Auto Raid (Premium required for Raid Side Quests). ⚔️ Combat &amp; Farming Mob Farm. Auto Farm with…",
@@ -10253,7 +10253,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 28,
+      "views": 29,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Farm Auto Open Presents Auto Buy Presents Auto Sell Presents Automated farming utilities 🏆 Fall Maze Auto Grab Trophy Collect All Chests ⚡ Player Utilities Walk Speed Jump Power Anti Burn Wear ID Reset Avatar 🔓 Bypasses &amp; Unlo…",
@@ -10323,7 +10323,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 288538,
+      "views": 288540,
       "likes": 94,
       "dislikes": 24,
       "rating": 4,
@@ -10360,7 +10360,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 248996,
+      "views": 248997,
       "likes": 90,
       "dislikes": 31,
       "rating": 3.7,
@@ -10396,7 +10396,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 242916,
+      "views": 242918,
       "likes": 93,
       "dislikes": 28,
       "rating": 3.8,
@@ -10505,7 +10505,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221632,
+      "views": 221633,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10653,7 +10653,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 107704,
+      "views": 107705,
       "likes": 110,
       "dislikes": 25,
       "rating": 4.1,
@@ -10689,7 +10689,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29361,
+      "views": 29365,
       "likes": 98,
       "dislikes": 26,
       "rating": 4,
@@ -10726,7 +10726,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 35658,
+      "views": 35659,
       "likes": 96,
       "dislikes": 41,
       "rating": 3.5,
