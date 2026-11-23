@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T05:21:28.130Z",
+  "generatedAt": "2026-11-23T05:31:27.500Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -55,7 +55,7 @@
       "id": "patched",
       "label": "Patched",
       "description": "Kaynakta patched olarak işaretlenen scriptler",
-      "count": 4
+      "count": 2
     }
   ],
   "scripts": [
@@ -80,7 +80,7 @@
         "VAELOR",
         "ZORO"
       ],
-      "views": 2764,
+      "views": 2767,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -118,7 +118,7 @@
         "kill aura",
         "auto mace"
       ],
-      "views": 7868,
+      "views": 7881,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -156,7 +156,7 @@
         "UNIVERSAL",
         "UTILITY"
       ],
-      "views": 2865,
+      "views": 2871,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -164,6 +164,44 @@
       "code": "if identifyexecutor or printidentity then\ngame:GetService(\"GuiService\"):SetGameplayPausedNotificationEnabled(false)\nloadstring(game:HttpGet(('https://raw.githubusercontent.com/MizunoSync/WASOR/refs/heads/main/github_loader.lua'),true))()\nend",
       "createdAt": "2026-11-09T22:53:11.906Z",
       "updatedAt": "2026-11-09T22:53:11.906Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af2ca8d6954135d3d36f543",
+      "slug": "Universal-Script-debUNC-executor-test-suite-236088",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-debUNC-executor-test-suite-236088",
+      "title": "debUNC executor test suite (open source)",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794296461994.png",
+      "author": "goldtm",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "executor function test",
+        "func",
+        "sunc"
+      ],
+      "views": 2145,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "this is the largest, strictest, most developer-oriented, documented executor function test suite note: it's the best in those fields combined, not individually, for example myriad is the largest and sunc is the strictest, debUNC combines…",
+      "code": "loadstring(game:HttpGet(\"https://github.com/alyssagithub/debUNC/raw/main/debUNC.luau\"))()",
+      "createdAt": "2026-11-10T07:41:02.247Z",
+      "updatedAt": "2026-11-10T07:41:02.247Z",
       "categoryIds": [
         "trending"
       ],
@@ -270,7 +308,7 @@
         "VAELOR",
         "PROPS"
       ],
-      "views": 1392,
+      "views": 1393,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -362,44 +400,6 @@
       ]
     },
     {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
-      ],
-      "views": 890,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "car",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-6af5feeb53b28bf04aaf270b",
       "slug": "Universal-Script-VAELOR-FE-ANIMATION-236449",
       "source": "scriptblox",
@@ -420,7 +420,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 1453,
+      "views": 1455,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -458,7 +458,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 1125,
+      "views": 1129,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -496,7 +496,7 @@
         "NOTHING PANEL",
         "HEXAGON CLIENT"
       ],
-      "views": 3838,
+      "views": 3839,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -508,6 +508,44 @@
         "trending"
       ],
       "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af8cef660e2570d7b63b30e",
+      "slug": "Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
+      "title": "Silent Aim | Auto Shoot | Infinite Stamina | Anti-Ragdoll |",
+      "game": "Ragdoll Soccer",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-fd3eea7e3e98dadf633410cc815193bf-f511beb91a38.png",
+      "author": "czmx",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Ragdoll Soccer",
+        "Ragdoll Soccer Script",
+        "Ragdoll Soccer Hack"
+      ],
+      "views": 5538,
+      "likes": 7,
+      "dislikes": 2,
+      "rating": 3.9,
+      "summary": "------------ MYSTRIX HUB ------------ Join our Discord Server for more amazing scripts like this! ✦ Features Included : ➤ Silent Aim : • Silent Aim • Auto Curve ➤ Power : • Auto Max ➤ Sprint : • Infinite Sprint • Auto Sprint ➤ Ragdoll :…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ummarxfarooq/mystrix-hub/refs/heads/main/loader\"))()",
+      "createdAt": "2026-11-14T21:13:26.087Z",
+      "updatedAt": "2026-11-14T21:13:26.087Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -572,7 +610,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 2553,
+      "views": 2557,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -685,7 +723,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 4769,
+      "views": 4773,
       "likes": 13,
       "dislikes": 3,
       "rating": 4.1,
@@ -723,7 +761,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 1450,
+      "views": 1453,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -761,7 +799,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 1437,
+      "views": 1440,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -779,15 +817,53 @@
       ]
     },
     {
-      "id": "scriptblox-6aff64ca56b47b13728e3bc0",
-      "slug": "RIVALS-zerohubcc-keyless-opensource-237545",
+      "id": "scriptblox-6ae5dd9dae8d9e9a1cd6c20a",
+      "slug": "ALPHA-Practical-Basketball-BEST-AUTO-GREEN-AUTO-GUARD-or-Arcane-Hub-234422",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RIVALS-zerohubcc-keyless-opensource-237545",
-      "title": "zerohub.cc keyless opensource",
-      "game": "[🛡️] RIVALS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e5dc0ebbd2205f661451ec3c8e0bd57e-fdbc5fe873d4.png",
-      "author": "dnezero",
+      "sourceUrl": "https://scriptblox.com/script/ALPHA-Practical-Basketball-BEST-AUTO-GREEN-AUTO-GUARD-or-Arcane-Hub-234422",
+      "title": "BEST AUTO PERFECT, AUTO GUARD. DRIBBLE GLIDE & COMBOS, MORE!",
+      "game": "[THANKSGIVING] Practical Basketball",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-f824bc01968ef597a0a0995497e31d78-bfe0dcbbe6a0.png",
+      "author": "hrznLOL",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "practical basketball",
+        "auto green",
+        "auto guard"
+      ],
+      "views": 14904,
+      "likes": 24,
+      "dislikes": 4,
+      "rating": 4.3,
+      "summary": "Shooting - Auto Green that solves the shot meter and releases on the target - Release lead slider - Match your ping - Auto tune per meter with correction size - Precision window and fit quality settings - Shot stats, performance and cali…",
+      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/arcane.lua\"))()",
+      "createdAt": "2026-10-31T12:22:53.182Z",
+      "updatedAt": "2026-11-22T19:28:50.076Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "ball",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6adce74ee8cc52efb5be0caa",
+      "slug": "ZOMBIES-Warfare-Tycoon-OP-script-keyless-open-source-233392",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/ZOMBIES-Warfare-Tycoon-OP-script-keyless-open-source-233392",
+      "title": "OP script keyless open source",
+      "game": "[ZOMBIES] Warfare Tycoon",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-133093b64c0055db41a7d90abf822eb4-b13f863211cd.png",
+      "author": "plma",
       "authorVerified": false,
       "verified": false,
       "status": "working",
@@ -795,22 +871,21 @@
       "keyless": true,
       "universal": false,
       "tags": [
-        "rivals",
-        "keyless",
-        "open source"
+        "Tycoon",
+        "Silent Aim",
+        "Rage"
       ],
-      "views": 1698,
-      "likes": 7,
-      "dislikes": 1,
-      "rating": 4.4,
-      "summary": "DISCORD: https://join.zerohub.cc/ WEBSITE: https://zerohub.cc/ DONATE: https://revolut.me/vqj UI LIBRARY IS RAYFIELD GEN2 FEATURES [COMBAT & AIMBOT] - precision aimbot (smooth mouse tracking, target bone selection & fov circle) - velocit…",
-      "code": "loadstring(game:HttpGet(\"https://zerohub.cc/rivals.lua\"))()",
-      "createdAt": "2026-11-19T21:06:18.472Z",
-      "updatedAt": "2026-11-19T21:06:18.472Z",
+      "views": 2018,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "IMPORTANT: THIS IS NOT OFFICIAL ASTER, ONLY USED ASTER UI LIBRARY!!! Warfare Tycoon — Version 2.5.0 A script for [ZOMBIES] Warfare Tycoon featuring the AsterUI interface: ESP for characters and vehicles, Silent Aim for regular weapons, R…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Toru-de/Warfare-Tycoon-AsterHUB-custom/refs/heads/main/Warfare-Aster.standalone.luau\"))()",
+      "createdAt": "2026-10-24T17:13:50.527Z",
+      "updatedAt": "2026-11-22T18:56:33.805Z",
       "categoryIds": [
         "trending"
       ],
-      "glyph": "dice",
+      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -837,7 +912,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 302,
+      "views": 305,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -876,7 +951,7 @@
         "anti aim",
         "esp"
       ],
-      "views": 912,
+      "views": 913,
       "likes": 0,
       "dislikes": 0,
       "summary": "## HanamiHub Premium Rage and legit aim, anti-aim, ESP, world visuals and skins in one menu, with its own phone layout. **Free with a key until 16 December**, then subscription only. Get the key in the key window. ### Rage - Silent aim u…",
@@ -913,7 +988,7 @@
         "sUNC",
         "Myriad"
       ],
-      "views": 4524,
+      "views": 4525,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -951,7 +1026,7 @@
         "free",
         "Keyless"
       ],
-      "views": 2504,
+      "views": 2507,
       "likes": 3,
       "dislikes": 1,
       "rating": 3.8,
@@ -989,7 +1064,7 @@
         "auto farm",
         "auto raid"
       ],
-      "views": 278,
+      "views": 279,
       "likes": 2,
       "dislikes": 0,
       "summary": "Description Project Slayers 2 all-in-one script by nobulem.wtf. Works across the Lobby, Ouwland, Final Selection, Ouwigahara, Boss Rush and Mt. Natagumo Raid with one script. Farming and Quests (Ouwland) Auto Level with automatic quest s…",
@@ -1027,7 +1102,7 @@
         "miles river",
         "mdr"
       ],
-      "views": 336,
+      "views": 340,
       "likes": 2,
       "dislikes": 0,
       "summary": "Moondiety Hub | 100 Miles Down the River Script *NOTE: The features mentioned below are frequently updated as the game patches (new features are regularly added and outdated ones removed). Execute the script to experience the most curren…",
@@ -1065,7 +1140,7 @@
         "Free",
         "BEST"
       ],
-      "views": 5219,
+      "views": 5224,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -1101,7 +1176,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1021,
+      "views": 1022,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1139,7 +1214,7 @@
         "Script Hub",
         "Project Stark"
       ],
-      "views": 136257,
+      "views": 136258,
       "likes": 58,
       "dislikes": 11,
       "rating": 4.2,
@@ -1175,7 +1250,7 @@
       "tags": [
         "Script"
       ],
-      "views": 28510,
+      "views": 28511,
       "likes": 22,
       "dislikes": 3,
       "rating": 4.4,
@@ -1213,7 +1288,7 @@
         "esp",
         "chams"
       ],
-      "views": 625,
+      "views": 626,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1251,7 +1326,7 @@
         "Roblox Ant Evolution",
         "Ant Evolution Script"
       ],
-      "views": 277,
+      "views": 280,
       "likes": 2,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord 🍎 FARMING Section : Status ▸ Your Ant ▸ Session ▸ Reset Session Stats Section : Food Farm ▸ Food ▸ Auto Farm Food ▸ Farm Zone ▸ Farm Teleport Delay (m…",
@@ -1289,7 +1364,7 @@
         "frust hub",
         "auto collect"
       ],
-      "views": 718,
+      "views": 719,
       "likes": 1,
       "dislikes": 0,
       "summary": "• Auto Collect Wisps • Allow Holding Jump • Jump While Carrying • No Carry Slowdown • Nextbot ESP",
@@ -1326,7 +1401,7 @@
         "Roblox Volley Bomb",
         "Volley Bomb Script"
       ],
-      "views": 909,
+      "views": 910,
       "likes": 1,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord ⚔️ COMBAT Section : Status ▸ Live ▸ Reset Stats Section : Auto Hit ▸ Auto Hit ▸ Auto Serve ▸ Serve Delay ▸ Hit Ball Now Section : Aimbot ▸ Smart Aim (L…",
@@ -1363,7 +1438,7 @@
         "keyless",
         "emote"
       ],
-      "views": 16827,
+      "views": 16828,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -1401,7 +1476,7 @@
         "auto summon",
         "minigames"
       ],
-      "views": 360,
+      "views": 361,
       "likes": 2,
       "dislikes": 0,
       "summary": "Game Auto Play Toggle (This Stage / Loop / Routine) Loop Retry / Next Routine & Preset Select Auto Play Pace Smart AFK Rejoin / Auto Reconnect Auto Start / Auto Skip Waves / Auto Replay / Auto Next Stage Auto Upgrade Units / Auto Abiliti…",
@@ -1438,7 +1513,7 @@
         "rivals silent aim aimbot esp anti katana",
         "roblox rivals script silent aim aimbot esp"
       ],
-      "views": 19050,
+      "views": 19051,
       "likes": 12,
       "dislikes": 2,
       "rating": 4.3,
@@ -1476,7 +1551,7 @@
         "command",
         "Keyless"
       ],
-      "views": 7294,
+      "views": 7297,
       "likes": 13,
       "dislikes": 2,
       "rating": 4.3,
@@ -1514,7 +1589,7 @@
         "best script",
         "gui"
       ],
-      "views": 582,
+      "views": 583,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -1552,7 +1627,7 @@
         "Animal hospital",
         "The strongest battlegrounds"
       ],
-      "views": 602,
+      "views": 603,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1590,7 +1665,7 @@
         "RBXZ",
         "RBXScriptz"
       ],
-      "views": 286,
+      "views": 290,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1629,7 +1704,7 @@
         "king legacy script",
         "king legacy scripts"
       ],
-      "views": 386,
+      "views": 387,
       "likes": 2,
       "dislikes": 0,
       "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
@@ -1667,7 +1742,7 @@
         "delta",
         "kings"
       ],
-      "views": 269,
+      "views": 270,
       "likes": 2,
       "dislikes": 0,
       "summary": "Auto Farm Farm Mode (Best Quest/Selected Mob/Nearest Mob) Mob Select Weapon (Best/Melee/Sword/Fruit) Use Skills Bring Mobs Skip Boss Quests Position (Above/Below) Distance From Mob (3-25) Instant Teleport Fly Speed (100-600) Retreat When…",
@@ -1705,7 +1780,7 @@
         "Throw Food For Animals script",
         "Throw Food For Animals keyless"
       ],
-      "views": 33673,
+      "views": 33680,
       "likes": 19,
       "dislikes": 1,
       "rating": 4.8,
@@ -1743,7 +1818,7 @@
         "keyless",
         "tap simulator"
       ],
-      "views": 4729,
+      "views": 4731,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -1781,7 +1856,7 @@
         "keyless",
         "open source"
       ],
-      "views": 14944,
+      "views": 14948,
       "likes": 12,
       "dislikes": 2,
       "rating": 4.3,
@@ -1819,7 +1894,7 @@
         "auto farm",
         "aimbot"
       ],
-      "views": 51756,
+      "views": 51761,
       "likes": 32,
       "dislikes": 6,
       "rating": 4.2,
@@ -1857,7 +1932,7 @@
         "unlock all",
         "keyless"
       ],
-      "views": 95120,
+      "views": 95128,
       "likes": 72,
       "dislikes": 4,
       "rating": 4.7,
@@ -1895,7 +1970,7 @@
         "auto spam",
         "auto parry"
       ],
-      "views": 425,
+      "views": 430,
       "likes": 2,
       "dislikes": 0,
       "summary": "Pulse is the Number 1 script for BB with auto parry, spam, ability esp and more.",
@@ -1931,7 +2006,7 @@
       "tags": [
         "Script"
       ],
-      "views": 14861,
+      "views": 14862,
       "likes": 5,
       "dislikes": 2,
       "rating": 3.6,
@@ -1969,7 +2044,7 @@
         "bh",
         "yarhm"
       ],
-      "views": 14593,
+      "views": 14596,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -2007,7 +2082,7 @@
         "dandys world",
         "dandy world"
       ],
-      "views": 373,
+      "views": 376,
       "likes": 1,
       "dislikes": 0,
       "summary": "lot of stuff",
@@ -2043,7 +2118,7 @@
       "tags": [
         "Rival Rivals"
       ],
-      "views": 354614,
+      "views": 354615,
       "likes": 45,
       "dislikes": 7,
       "rating": 4.3,
@@ -2081,7 +2156,7 @@
         "auto breakthrough",
         "gathering herbs"
       ],
-      "views": 205,
+      "views": 208,
       "likes": 0,
       "dislikes": 0,
       "summary": "AixxHub Cultivation Unbound All-in-one script. Automate farming, pagoda climbing, alchemy, herb gathering, breakthroughs, tribulations and trading — plus ESP — from one clean Meridian UI. Every feature is toggleable and saves automatical…",
@@ -2118,7 +2193,7 @@
         "Silent Aim",
         "Keyless"
       ],
-      "views": 849,
+      "views": 858,
       "likes": 1,
       "dislikes": 0,
       "summary": "voxel wars fps silent aim",
@@ -2156,7 +2231,7 @@
         "auto farm",
         "auto perfect throw"
       ],
-      "views": 452,
+      "views": 454,
       "likes": 1,
       "dislikes": 0,
       "summary": "➤ Throwing: - Auto Throw - Auto Perfect Throw (Adjustable Accuracy) - Auto Select Best Reachable Area - Auto Adjust Throw Power - Adjustable Throw Delay - Auto Use Super Throws ➤ Training: - Auto Training - Auto Tap Bonus - Automatic Thr…",
@@ -2194,88 +2269,13 @@
         "Opponent Tracking",
         "UserFriendly Interface"
       ],
-      "views": 262,
+      "views": 263,
       "likes": 1,
       "dislikes": 0,
       "summary": "AutoPlay Suggestions Think Time Maximum Depth Move delay Plays like the best bot in the game!",
       "code": "loadstring(game:HttpGet(('https://pastebin.com/raw/4WNXaj0X'),true))()",
       "createdAt": "2026-11-20T22:51:21.777Z",
       "updatedAt": "2026-11-22T10:30:20.367Z",
-      "categoryIds": [
-        "trending",
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b02c252b50902aa8e1a8963",
-      "slug": "STAND-OUT-100-FEATURE-BEST-SCRIPT-AUTO-STORY-AUTO-RAID-AUTO-EVERYTHIN-237842",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/STAND-OUT-100-FEATURE-BEST-SCRIPT-AUTO-STORY-AUTO-RAID-AUTO-EVERYTHIN-237842",
-      "title": "100+ FEATURE BEST SCRIPT AUTO STORY AUTO RAID AUTO EVERYTHIN",
-      "game": "[UPD 1] STAND OUT",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-c86f5ffe3148d1fe705fde16c320f1d3-ca4f484750cd.png",
-      "author": "solixhub",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "stand out",
-        "stand out script",
-        "stand outs script"
-      ],
-      "views": 355,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "Script For Stand Out, Released by SolixHub. SolixHub the #1 scripthub with daily Updates since 2023!",
-      "code": "loadstring(game:HttpGet(\"https://solixhub.com/loader\"))()",
-      "createdAt": "2026-11-22T10:22:10.832Z",
-      "updatedAt": "2026-11-22T10:22:10.362Z",
-      "categoryIds": [
-        "trending",
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b00cc018fe5ca30b34d93d9",
-      "slug": "RELEASE-Beyond-Nen-Auto-Fight-First-BOSS-Brick-Hub-237597",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RELEASE-Beyond-Nen-Auto-Fight-First-BOSS-Brick-Hub-237597",
-      "title": "Auto Fight First BOSS (Brick Hub)",
-      "game": "[RELEASE!] Beyond Nen",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-505b509a881902d5d30f4a74144e4f5a-c35b27ad95e1.png",
-      "author": "emericklabrick11",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "FREE",
-        "Keyless"
-      ],
-      "views": 196,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Auto fight for Beyond Nen, only for the first boss to beat him.",
-      "code": "--[[\n    Beyond Nen - Auto Parry / Dodge / Auto Fight  (single file, GUI included)\n\n    - Automatic parry on the attacks that actually deal damage\n    - Dodge (Q) on heavy attacks, automatic exit from red telegraph zones\n    - Auto Fight: walks up to the boss and only attacks during its endlag\n\n    Target executors: Wave / Delta / Solara\n    Keys:     [P] everything on/off | [G] Auto Fight | [Right Ctrl] hide the panel | [End] unload\n    Settings: see the CONFIG table below\n]]\n\n-- Prevent double execution: unload the previous instance first\nlocal env = (getgenv and getgenv()) or _G\nif env.BeyondNenAutoParry then\n    pcall(env.BeyondNenAutoParry)\nend\n\n---------------------------------------------------------------------\n-- CONFIG (adjust per game / boss)\n---------------------------------------------------------------------\nlocal CONFIG = {\n    ParryKey      = Enum.KeyCode.F,   -- parry key in the game\n    ToggleKey     = Enum.KeyCode.P,   -- enable / disable everything\n    UnloadKey     = Enum.KeyCode.End, -- unload the script\n    Range         = 14,               -- max distance (studs) of an attacker\n    FacingDot     = 0.2,              -- 1 = facing you exactly, -1 = back turned; >0.2 = roughly facing you\n    ReactionDelay = 0.12,             -- delay before parrying after the animation starts (s)\n    HoldTime      = 0.08,             -- key press duration (s)\n    Cooldown      = 0.35,             -- minimum delay between two parries (s)\n    TargetPlayers = true,             -- react to players\n    TargetNPCs    = true,             -- react to NPCs / mobs\n\n    -- Animation priorities treated as attacks\n    -- (Idle/Movement/Core are ignored: walking, running, jumping...)\n    ActionPriorities = {\n        [Enum.AnimationPriority.Action]  = true,\n        [Enum.AnimationPriority.Action2] = true,\n        [Enum.AnimationPriority.Action3] = true,\n        [Enum.AnimationPriority.Action4] = true,\n    },\n    -- Words to ignore in animation names (lowercase)\n    IgnoreNames = { \"idle\", \"walk\", \"run\", \"jump\", \"fall\", \"climb\", \"swim\", \"emote\", \"dance\", \"sit\" },\n    -- Keywords that force detection even if the priority is low\n    ForceNames  = { \"attack\", \"slash\", \"punch\", \"swing\", \"strike\", \"hit\", \"m1\", \"combo\", \"skill\", \"nen\" },\n\n    -- PARRY: only the animations that REALLY deal damage (measured from logs: they hit 0.38-0.43s after\n    -- the animation starts). The boss' other animations (feints / stances) never hit: parrying them\n    -- = a missed parry = 3s cooldown = you take everything.\n    ParryOnlyIds     = true,\n    -- true = standard delay (ReactionDelay); number = specific press delay (s after the animation starts)\n    ParryIds = {\n        [\"100770856564580\"] = true,\n        [\"130277557014228\"] = true,\n        [\"91493878890049\"]  = true,\n        [\"93314100789910\"]  = true,\n        [\"93865528583760\"]  = 0.03,   -- fast hit: lands 0.33s after the animation starts\n    },\n    PointBlank       = 4,             -- below this distance (studs) the attacker is always treated as a threat\n    NormalHitAt      = 0.42,          -- impact time of a normal hit (used for the dodge fallback)\n\n    -- DODGE (heavy attacks)\n    DodgeKey         = Enum.KeyCode.Q, -- dodge / dash key in the game\n    HeavyNames       = { \"heavy\", \"smash\", \"slam\", \"charge\", \"critical\", \"crit\", \"ult\", \"finisher\", \"unblock\", \"grab\", \"m2\" },\n    HeavyMinLength   = 1.4,            -- an animation longer than this (s) is considered heavy\n    DodgeLead        = 0.30,           -- the dodge starts X seconds BEFORE the impact (tunes the \"perfect\" dodge)\n    HeavyHitFraction = 0.85,           -- estimated impact at x% of the real duration for an unknown heavy animation\n    -- Known heavy attacks: animation id -> impact time (s after the start, speed included)\n    --   at = fixed press delay (s): used for grab skills where you get locked and can no longer dash\n    --   (add your own with Debug = true)\n    HeavyDB = {\n        -- Slow big hit (slowed animation). ~0.6s in, the boss grabs you (flinch animation, no dash\n        -- possible), so we dash right away instead of waiting for the impact.\n        [\"120074647445778\"] = { hit = 3.06, at = 0.05 },\n        -- Skills that grab you and launch you in the air (LastRag): you are locked (flinch animation, dash\n        -- impossible) 0.5-0.8s after the start -> dash IMMEDIATELY on the first animation.\n        [\"79940982521179\"]  = { hit = 1.98, at = 0.05 },  -- followed by 121888999208574 0.53s later\n        [\"116767125715788\"] = { hit = 1.12, at = 0.05 },  -- followed by 122047448848886 0.52s later\n        [\"92614875456334\"]  = { hit = 1.54, at = 0.05 },\n        [\"90549446872856\"]  = { hit = 2.44 },  -- same hit, 0.62s later (duplicate is ignored automatically)\n        [\"121888999208574\"] = { hit = 1.45 },\n        [\"96968963810616\"]  = { hit = 0.58 },\n        [\"108733713646184\"] = { hit = 1.97 },\n        [\"101853308988006\"] = { hit = 1.34 },  -- same hit as the previous one, 0.63s later\n    },\n    -- The game's dash needs a direction: if you are not moving, this key is held together with Q\n    DodgeDirKey       = Enum.KeyCode.S,        -- S = backwards (you face the boss)\n    DodgeDirHold      = 0.15,\n    HeavyDedupeWindow = 0.9,           -- two heavy animations whose impacts are within X s = a single hit\n    DodgeCooldown     = 0.6,           -- minimum delay between two dodges (s)\n    -- Animations to ignore completely: the boss' parry / stagger (otherwise we \"react\" to its own parry)\n    IgnoreIds = {\n        [\"14115657114\"] = true,\n        [\"14115573519\"] = true,\n        [\"17257966580\"] = true,\n    },\n\n    -- Cancels your own attack (M1, combo...) right before parrying / dodging,\n    -- so that an attack in progress does not block the defensive action\n    CancelOwnAttack  = true,\n    CancelFadeTime   = 0.05,           -- fade time (s) used to cut attack animations\n    ClearAttributes  = { \"Busy\" },     -- character bool attributes reset to false (\"busy\" state)\n\n    ParryEnabled     = true,           -- parry on normal attacks (toggle in the GUI)\n    DodgeEnabled     = true,           -- dodge on heavy attacks (toggle in the GUI)\n\n    -- AUTO FIGHT: walks up to the boss and only hits (M1) while it is in \"endlag\" (after its own\n    -- attack or after your parry). Outside that window it parries your M1 and stuns you.\n    AutoFight        = false,          -- toggle in the GUI or with FightKey\n    FightKey         = Enum.KeyCode.G,\n    BossNames        = { \"Evil\" },     -- model names treated as bosses (besides anything with NpcEndlagUntil)\n    FightRange       = 200,            -- max distance to look for the boss\n    ApproachDist     = 5.5,            -- stop walking at this distance\n    AttackRange      = 8,              -- only attack below this distance\n    AttackMinEndlag  = 0.30,           -- only attack if the boss still has at least X s of endlag\n    ClickInterval    = 0.20,           -- delay between two M1 clicks\n\n    -- RED ZONES: big attacks place a telegraph on the ground. You have to LEAVE it, not just dash.\n    AvoidZones       = true,\n    ZoneMinSize      = 8,              -- minimum largest dimension of a zone (studs)\n    ZoneMaxThickness = 3,              -- zones are flat: max thickness (studs)\n    ZoneMargin       = 2,              -- safety margin around the zone\n    ZoneExitPad      = 4,              -- aim for a point X studs outside the zone\n    ZoneDashDist     = 7,              -- if the exit point is farther than this, dash as well\n    ZoneNames        = { \"telegraph\", \"warning\", \"indicator\", \"danger\", \"aoe\", \"markeroverlay\" },\n    LogZones         = false,          -- writes every detected zone to apZones.txt (to tune the filters)\n\n    ShowGui          = true,           -- show the small panel\n    GuiToggleKey     = Enum.KeyCode.RightControl, -- hide / show the panel\n\n    Debug = false,                     -- true: prints name/length/priority of every detected animation\n}\n\n---------------------------------------------------------------------\n-- SERVICES\n---------------------------------------------------------------------\nlocal Players          = game:GetService(\"Players\")\nlocal RunService       = game:GetService(\"RunService\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal VIM              = game:GetService(\"VirtualInputManager\")\n\nlocal LocalPlayer = Players.LocalPlayer\n\n---------------------------------------------------------------------\n-- STATE\n---------------------------------------------------------------------\nlocal enabled      = true\nlocal lastParry    = 0\nlocal lastDodge    = 0\nlocal lastHeavyHit = -math.huge   -- impact time (os.clock) of the last scheduled heavy hit\nlocal fleeUntil    = 0            -- while os.clock() < fleeUntil, auto fight does not move (we are leaving a zone)\nlocal connections  = {}           -- global connections\nlocal hooked       = {}           -- [Animator] = connection\n\nlocal function track(conn)\n    table.insert(connections, conn)\n    return conn\nend\n\n---------------------------------------------------------------------\n-- UTILITIES\n---------------------------------------------------------------------\nlocal function getRoot(model)\n    return model and (model:FindFirstChild(\"HumanoidRootPart\") or model.PrimaryPart)\nend\n\nlocal function myRoot()\n    return getRoot(LocalPlayer.Character)\nend\n\nlocal function notify(text)\n    pcall(function()\n        game:GetService(\"StarterGui\"):SetCore(\"SendNotification\", {\n            Title = \"Auto Parry\",\n            Text = text,\n            Duration = 2,\n        })\n    end)\nend\n\nlocal function nameMatches(name, list)\n    name = string.lower(name or \"\")\n    for _, word in ipairs(list) do\n        if string.find(name, word, 1, true) then\n            return true\n        end\n    end\n    return false\nend\n\n-- Press a key (VirtualInputManager, with keypress fallback)\nlocal function pressKey(keyCode)\n    local ok = pcall(function()\n        VIM:SendKeyEvent(true, keyCode, false, game)\n        task.wait(CONFIG.HoldTime)\n        VIM:SendKeyEvent(false, keyCode, false, game)\n    end)\n    if not ok and keypress and keyrelease then\n        local code = keyCode.Value\n        pcall(keypress, code)\n        task.wait(CONFIG.HoldTime)\n        pcall(keyrelease, code)\n    end\nend\n\n-- Cuts the local player's current attack to free up the defensive action\nlocal function cancelOwnAttack()\n    local char = LocalPlayer.Character\n    if not char then return end\n\n    local animator = char:FindFirstChildWhichIsA(\"Animator\", true)\n    if animator then\n        for _, animTrack in ipairs(animator:GetPlayingAnimationTracks()) do\n            if CONFIG.ActionPriorities[animTrack.Priority]\n                and not nameMatches(animTrack.Name, CONFIG.IgnoreNames) then\n                pcall(function() animTrack:Stop(CONFIG.CancelFadeTime) end)\n            end\n        end\n    end\n\n    for _, attr in ipairs(CONFIG.ClearAttributes) do\n        if char:GetAttribute(attr) == true then\n            pcall(function() char:SetAttribute(attr, false) end)\n        end\n    end\nend\n\nlocal function defend(keyCode, dirKey)\n    if CONFIG.CancelOwnAttack then\n        cancelOwnAttack()\n        task.wait()  -- let the game register the cancellation before the key press\n    end\n\n    -- Dash: without a held direction the game ignores Q, so we hold a movement key\n    local dir = dirKey or CONFIG.DodgeDirKey\n    if keyCode == CONFIG.DodgeKey and dir then\n        local char = LocalPlayer.Character\n        local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n        if dirKey or (hum and hum.MoveDirection.Magnitude < 0.1) then\n            pcall(function() VIM:SendKeyEvent(true, dir, false, game) end)\n            task.wait(0.04)\n            pressKey(keyCode)\n            task.wait(CONFIG.DodgeDirHold)\n            pcall(function() VIM:SendKeyEvent(false, dir, false, game) end)\n            return\n        end\n    end\n\n    pressKey(keyCode)\nend\n\nlocal function doParry()\n    local now = os.clock()\n    if now - lastParry < CONFIG.Cooldown then\n        return\n    end\n    lastParry = now\n    task.spawn(defend, CONFIG.ParryKey)\nend\n\nlocal function doDodge(dirKey)\n    local now = os.clock()\n    if now - lastDodge < CONFIG.DodgeCooldown then\n        return\n    end\n    lastDodge = now\n    task.spawn(defend, CONFIG.DodgeKey, dirKey)\nend\n\n---------------------------------------------------------------------\n-- DETECTION\n---------------------------------------------------------------------\n-- Is the attacker close enough and facing us?\nlocal function isThreat(attackerModel)\n    local mine, theirs = myRoot(), getRoot(attackerModel)\n    if not mine or not theirs then\n        return false\n    end\n\n    local offset = mine.Position - theirs.Position\n    local dist = offset.Magnitude\n    if dist > CONFIG.Range then\n        return false\n    end\n    if dist < 0.1 then\n        return true\n    end\n\n    -- in melee range the boss overlaps you: the facing test becomes noise\n    if dist <= CONFIG.PointBlank then\n        return true\n    end\n\n    local facing = theirs.CFrame.LookVector:Dot(offset.Unit)\n    return facing >= CONFIG.FacingDot\nend\n\nlocal function animName(animTrack)\n    local anim = animTrack.Animation\n    return (anim and anim.Name) or animTrack.Name or \"\"\nend\n\nlocal function animId(animTrack)\n    local anim = animTrack.Animation\n    return anim and string.match(anim.AnimationId, \"%d+\") or \"\"\nend\n\nlocal function isAttackAnimation(animTrack)\n    local name = animName(animTrack)\n\n    if nameMatches(name, CONFIG.ForceNames) then\n        return true\n    end\n    if nameMatches(name, CONFIG.IgnoreNames) then\n        return false\n    end\n    return CONFIG.ActionPriorities[animTrack.Priority] == true\nend\n\n-- Heavy attack: known id, explicit name or long animation\nlocal function isHeavyAnimation(animTrack)\n    if CONFIG.HeavyDB[animId(animTrack)] then\n        return true\n    end\n    if nameMatches(animName(animTrack), CONFIG.HeavyNames) then\n        return true\n    end\n    -- length alone is not enough: otherwise long idles / emotes would count as \"heavy\"\n    return animTrack.Length >= CONFIG.HeavyMinLength and isAttackAnimation(animTrack)\nend\n\nlocal function onAnimationPlayed(attackerModel, animTrack)\n    if not enabled then return end\n    if CONFIG.IgnoreIds[animId(animTrack)] then return end\n\n    local heavy = CONFIG.DodgeEnabled and isHeavyAnimation(animTrack)\n    if not heavy and not (CONFIG.ParryEnabled and isAttackAnimation(animTrack)) then return end\n    if not isThreat(attackerModel) then return end\n\n    if CONFIG.Debug then\n        print(string.format(\"[AutoParry] %s | %s id=%s | len=%.2f | prio=%s | %s\",\n            attackerModel.Name, animName(animTrack), animId(animTrack), animTrack.Length,\n            animTrack.Priority.Name, heavy and \"DODGE\" or \"PARRY\"))\n    end\n\n    if heavy then\n        -- Perfect dodge: aim for the impact time (known or estimated) minus DodgeLead.\n        -- No IsPlaying check here: the boss cuts/replaces its animations while the hit still lands.\n        local entry = CONFIG.HeavyDB[animId(animTrack)]\n        local speed = math.max(animTrack.Speed, 0.1)\n        local hitAt = entry and entry.hit or (animTrack.Length / speed) * CONFIG.HeavyHitFraction\n        local delay = entry and entry.at or math.max(0, hitAt - CONFIG.DodgeLead)\n\n        -- the same heavy hit often arrives through 2 animations: only one dash (cooldown ~2.3s)\n        local now = os.clock()\n        local absHit = now + hitAt\n        if math.abs(absHit - lastHeavyHit) < CONFIG.HeavyDedupeWindow and lastHeavyHit > now - 0.2 then\n            return\n        end\n        lastHeavyHit = absHit\n\n        task.delay(delay, function()\n            if enabled and CONFIG.DodgeEnabled and isThreat(attackerModel) then\n                doDodge()\n            end\n        end)\n        return\n    end\n\n    -- animation that never deals damage: don't waste the parry\n    if CONFIG.ParryOnlyIds and not CONFIG.ParryIds[animId(animTrack)] then return end\n\n    local pressDelay = CONFIG.ParryIds[animId(animTrack)]\n    if type(pressDelay) ~= \"number\" then pressDelay = CONFIG.ReactionDelay end\n\n    task.delay(pressDelay, function()\n        -- re-check: the animation is still playing and the threat is still there\n        if not (enabled and animTrack.IsPlaying and isThreat(attackerModel)) then return end\n\n        local char = LocalPlayer.Character\n        if char and char:GetAttribute(\"ParryOnCooldown\") == true then\n            -- parry unavailable: F would only block. Dodge instead if the dash is free.\n            if CONFIG.DodgeEnabled and char:GetAttribute(\"DashCooldown\") ~= true then\n                local wait = math.max(0, CONFIG.NormalHitAt - CONFIG.DodgeLead - CONFIG.ReactionDelay)\n                task.delay(wait, function()\n                    if enabled and isThreat(attackerModel) then doDodge() end\n                end)\n            end\n            return\n        end\n\n        doParry()\n    end)\nend\n\n---------------------------------------------------------------------\n-- HOOKING THE ANIMATORS\n---------------------------------------------------------------------\nlocal function shouldWatch(model)\n    if model == LocalPlayer.Character then\n        return false\n    end\n    local isPlayer = Players:GetPlayerFromCharacter(model) ~= nil\n    if isPlayer then\n        return CONFIG.TargetPlayers\n    end\n    return CONFIG.TargetNPCs\nend\n\nlocal function hookAnimator(animator)\n    if hooked[animator] then return end\n\n    local model = animator:FindFirstAncestorOfClass(\"Model\")\n    if not model or not shouldWatch(model) then return end\n\n    hooked[animator] = animator.AnimationPlayed:Connect(function(animTrack)\n        onAnimationPlayed(model, animTrack)\n    end)\n\n    animator.Destroying:Connect(function()\n        if hooked[animator] then\n            hooked[animator]:Disconnect()\n            hooked[animator] = nil\n        end\n    end)\nend\n\nfor _, inst in ipairs(workspace:GetDescendants()) do\n    if inst:IsA(\"Animator\") then\n        hookAnimator(inst)\n    end\nend\n\ntrack(workspace.DescendantAdded:Connect(function(inst)\n    if inst:IsA(\"Animator\") then\n        -- small delay: the model is not always parented yet at this point\n        task.defer(hookAnimator, inst)\n    end\nend))\n\n---------------------------------------------------------------------\n-- AUTO FIGHT\n---------------------------------------------------------------------\nlocal bossModel\nlocal lastScan, lastClick = 0, 0\n\nlocal function isBoss(model)\n    if model == LocalPlayer.Character or Players:GetPlayerFromCharacter(model) then\n        return false\n    end\n    if model:GetAttribute(\"NpcEndlagUntil\") ~= nil then\n        return true\n    end\n    return table.find(CONFIG.BossNames, model.Name) ~= nil\nend\n\nlocal function bossAlive(model)\n    if not model or not model.Parent then return false end\n    local hum = model:FindFirstChildOfClass(\"Humanoid\")\n    return hum ~= nil and hum.Health > 0 and getRoot(model) ~= nil\nend\n\nlocal function findBoss()\n    local root = myRoot()\n    if not root then return nil end\n    local best, bestDist = nil, CONFIG.FightRange\n    for _, inst in ipairs(workspace:GetDescendants()) do\n        if inst:IsA(\"Humanoid\") then\n            local model = inst.Parent\n            if model and model:IsA(\"Model\") and isBoss(model) and bossAlive(model) then\n                local d = (getRoot(model).Position - root.Position).Magnitude\n                if d < bestDist then best, bestDist = model, d end\n            end\n        end\n    end\n    return best\nend\n\n-- time left (s) before the boss' endlag ends; <= 0 = it can parry your M1\nlocal function endlagLeft(model)\n    local untilAt = model:GetAttribute(\"NpcEndlagUntil\")\n    if type(untilAt) ~= \"number\" then return 0 end\n    return untilAt - workspace:GetServerTimeNow()\nend\n\nlocal function clickM1()\n    local cam = workspace.CurrentCamera\n    local c = cam and (cam.ViewportSize / 2) or Vector2.new(400, 300)\n    local ok = pcall(function()\n        VIM:SendMouseButtonEvent(c.X, c.Y, 0, true, game, 0)\n        task.wait(0.03)\n        VIM:SendMouseButtonEvent(c.X, c.Y, 0, false, game, 0)\n    end)\n    if not ok and mouse1click then\n        pcall(mouse1click)   -- fallback for executors without VirtualInputManager\n    end\nend\n\nlocal fightAccum = 0\ntrack(RunService.Heartbeat:Connect(function(dt)\n    fightAccum += dt\n    if fightAccum < 0.05 then return end\n    fightAccum = 0\n    if not (enabled and CONFIG.AutoFight) then return end\n\n    local char = LocalPlayer.Character\n    local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n    local root = myRoot()\n    if not (hum and root and hum.Health > 0) then return end\n\n    local now = os.clock()\n    if now < fleeUntil then return end   -- we are leaving a red zone\n    if not bossAlive(bossModel) and now - lastScan > 1 then\n        lastScan = now\n        bossModel = findBoss()\n    end\n    if not bossAlive(bossModel) then return end\n\n    -- don't touch anything while dashing (it would break the dodge)\n    if char:GetAttribute(\"LocalDashing\") ~= nil or char:GetAttribute(\"ActiveDashId\") ~= nil then return end\n\n    local bpos = getRoot(bossModel).Position\n    local flat = Vector3.new(bpos.X - root.Position.X, 0, bpos.Z - root.Position.Z)\n    local dist = flat.Magnitude\n\n    -- face the boss\n    if dist > 0.5 and dist < 40 then\n        root.CFrame = CFrame.lookAt(root.Position, root.Position + flat)\n    end\n\n    -- approach\n    if dist > CONFIG.ApproachDist then\n        hum:MoveTo(bpos)\n    end\n\n    -- only attack during the boss' endlag\n    if dist <= CONFIG.AttackRange\n        and endlagLeft(bossModel) >= CONFIG.AttackMinEndlag\n        and now - lastClick >= CONFIG.ClickInterval then\n        lastClick = now\n        task.spawn(clickM1)\n    end\nend))\n\n---------------------------------------------------------------------\n-- RED ZONES (telegraphs of big attacks)\n---------------------------------------------------------------------\nlocal zones = {}   -- [BasePart] = time it appeared\n\nlocal function zoneLog(line)\n    if CONFIG.LogZones and appendfile then\n        pcall(appendfile, \"apZones.txt\", string.format(\"%.2f|%s\\n\", os.clock(), line))\n    end\nend\n\nlocal function belongsToCharacter(inst)\n    local m = inst:FindFirstAncestorOfClass(\"Model\")\n    while m do\n        if m:FindFirstChildOfClass(\"Humanoid\") then return true end\n        m = m.Parent and m.Parent:FindFirstAncestorOfClass(\"Model\")\n    end\n    return false\nend\n\nlocal function isRedish(c)\n    return c.R >= 0.6 and c.G <= 0.4 and c.B <= 0.4\nend\n\nlocal function zoneCandidate(part)\n    if belongsToCharacter(part) then return false end\n    -- the boss' real zones are called BossTelegraph*: accepted whatever their size\n    -- (the \"Fill\" grows over time, it is small when it appears)\n    if nameMatches(part.Name, CONFIG.ZoneNames) or nameMatches(part.Parent and part.Parent.Name or \"\", CONFIG.ZoneNames) then\n        return true\n    end\n    local s = part.Size\n    local mx, mn = math.max(s.X, s.Y, s.Z), math.min(s.X, s.Y, s.Z)\n    if mx < CONFIG.ZoneMinSize or mn > CONFIG.ZoneMaxThickness then return false end\n    return part.Transparency < 0.98 and isRedish(part.Color)\nend\n\n-- Telemetry: follows a \"telegraph\" zone for ~2s (size, position in the boss' frame of reference)\nlocal function watchTelegraph(part)\n    task.spawn(function()\n        local boss = bossModel\n        if not (boss and boss.Parent) then\n            for _, m in ipairs(workspace:GetDescendants()) do\n                if m:IsA(\"Model\") and table.find(CONFIG.BossNames, m.Name) and m:FindFirstChildOfClass(\"Humanoid\") then boss = m break end\n            end\n        end\n        local broot = boss and getRoot(boss)\n        for i = 1, 20 do\n            if not part.Parent then zoneLog(part.Name .. \" destroyed at +\" .. string.format(\"%.2f\", (i - 1) * 0.1)) return end\n            local mine = myRoot()\n            local rel = broot and broot.CFrame:PointToObjectSpace(part.Position) or Vector3.zero\n            local me = (broot and mine) and broot.CFrame:PointToObjectSpace(mine.Position) or Vector3.zero\n            zoneLog(string.format(\"  %s +%.1fs size=%s transp=%.2f center(boss space)=%s me(boss space)=%s\",\n                part.Name, (i - 1) * 0.1, tostring(part.Size), part.Transparency, tostring(rel), tostring(me)))\n            task.wait(0.1)\n        end\n    end)\nend\n\n-- axes: (thickness, u, v) in the part's local coordinates\nlocal function zoneAxes(part)\n    local s = part.Size\n    if s.X <= s.Y and s.X <= s.Z then return \"X\", \"Y\", \"Z\" end\n    if s.Y <= s.Z then return \"Y\", \"X\", \"Z\" end\n    return \"Z\", \"X\", \"Y\"\nend\n\n-- returns (inside, world exit point)\nlocal function zoneTest(part, pos)\n    local cf, s = part.CFrame, part.Size\n    local lp = cf:PointToObjectSpace(pos)\n    local t, u, v = zoneAxes(part)\n    if math.abs(lp[t]) > s[t] / 2 + 12 then return false end\n\n    local hu, hv = s[u] / 2 + CONFIG.ZoneMargin, s[v] / 2 + CONFIG.ZoneMargin\n    local pu, pv = lp[u], lp[v]\n    local round = part:IsA(\"Part\") and (part.Shape == Enum.PartType.Ball or part.Shape == Enum.PartType.Cylinder)\n\n    local inside, tu, tv\n    if round then\n        local k = (pu / hu) ^ 2 + (pv / hv) ^ 2\n        inside = k <= 1\n        if k < 0.01 then\n            -- right at the center: arbitrary exit direction (u axis)\n            tu, tv = hu + CONFIG.ZoneExitPad, 0\n        else\n            local len = math.sqrt(k)\n            tu, tv = pu / len * (1 + CONFIG.ZoneExitPad / hu), pv / len * (1 + CONFIG.ZoneExitPad / hv)\n        end\n    else\n        inside = math.abs(pu) <= hu and math.abs(pv) <= hv\n        if math.abs(hu - math.abs(pu)) <= math.abs(hv - math.abs(pv)) then\n            tu = (pu >= 0 and 1 or -1) * (hu + CONFIG.ZoneExitPad); tv = pv\n        else\n            tv = (pv >= 0 and 1 or -1) * (hv + CONFIG.ZoneExitPad); tu = pu\n        end\n    end\n    if not inside then return false end\n\n    local target = { X = 0, Y = 0, Z = 0 }\n    target[t], target[u], target[v] = lp[t], tu, tv\n    return true, cf:PointToWorldSpace(Vector3.new(target.X, target.Y, target.Z))\nend\n\nlocal function registerZone(part)\n    if zones[part] or not part:IsA(\"BasePart\") then return end\n    if not zoneCandidate(part) then return end\n    zones[part] = os.clock()\n    local mine = myRoot()\n    zoneLog(string.format(\"ZONE %s | %s | size=%s | color=%s | transp=%.2f | shape=%s | dist=%.1f\",\n        part:GetFullName(), part.ClassName, tostring(part.Size), tostring(part.Color), part.Transparency,\n        part:IsA(\"Part\") and part.Shape.Name or \"-\", mine and (mine.Position - part.Position).Magnitude or -1))\n    part.Destroying:Connect(function() zones[part] = nil end)\n    if CONFIG.LogZones and nameMatches(part.Name, CONFIG.ZoneNames) then\n        watchTelegraph(part)\n    end\nend\n\ntrack(workspace.DescendantAdded:Connect(function(inst)\n    if inst:IsA(\"BasePart\") then\n        -- give the properties (size / color) time to be set\n        task.delay(0.05, function() if inst.Parent then registerZone(inst) end end)\n    elseif CONFIG.LogZones and nameMatches(inst.Name, CONFIG.ZoneNames) then\n        zoneLog(\"OTHER \" .. inst.ClassName .. \" \" .. inst:GetFullName())\n    end\nend))\n\nlocal zoneAccum = 0\ntrack(RunService.Heartbeat:Connect(function(dt)\n    zoneAccum += dt\n    if zoneAccum < 0.05 then return end\n    zoneAccum = 0\n    if not (enabled and CONFIG.AvoidZones) then return end\n\n    local char = LocalPlayer.Character\n    local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n    local root = myRoot()\n    if not (hum and root and hum.Health > 0) then return end\n\n    local bestExit\n    for part in pairs(zones) do\n        if not part.Parent then\n            zones[part] = nil\n        else\n            local inside, exitPos = zoneTest(part, root.Position)\n            if inside then bestExit = exitPos break end\n        end\n    end\n    if not bestExit then return end\n\n    fleeUntil = os.clock() + 0.4\n    local toExit = Vector3.new(bestExit.X - root.Position.X, 0, bestExit.Z - root.Position.Z)\n    hum:MoveTo(bestExit)\n\n    -- too far to walk out in time: dash toward the exit\n    if toExit.Magnitude > CONFIG.ZoneDashDist and char:GetAttribute(\"DashCooldown\") ~= true\n        and char:GetAttribute(\"LocalDashing\") == nil then\n        local cam = workspace.CurrentCamera\n        local look = Vector3.new(cam.CFrame.LookVector.X, 0, cam.CFrame.LookVector.Z).Unit\n        local right = Vector3.new(cam.CFrame.RightVector.X, 0, cam.CFrame.RightVector.Z).Unit\n        local dirn = toExit.Unit\n        local f, r = dirn:Dot(look), dirn:Dot(right)\n        local key\n        if math.abs(f) >= math.abs(r) then key = f >= 0 and Enum.KeyCode.W or Enum.KeyCode.S\n        else key = r >= 0 and Enum.KeyCode.D or Enum.KeyCode.A end\n        doDodge(key)\n    end\nend))\n\n---------------------------------------------------------------------\n-- GUI (small draggable panel with toggle switches)\n---------------------------------------------------------------------\nlocal screenGui\nlocal refreshGui = function() end\n\nlocal function buildGui()\n    local parent\n    if gethui then\n        local ok, h = pcall(gethui)\n        parent = ok and h or nil\n    end\n    if not parent then\n        local ok, cg = pcall(function() return game:GetService(\"CoreGui\") end)\n        parent = ok and cg or LocalPlayer:WaitForChild(\"PlayerGui\")\n    end\n\n    screenGui = Instance.new(\"ScreenGui\")\n    screenGui.Name = \"BeyondNenAutoParry\"\n    screenGui.ResetOnSpawn = false\n    screenGui.DisplayOrder = 999\n    screenGui.Parent = parent\n\n    local ON, OFF = Color3.fromRGB(46, 160, 90), Color3.fromRGB(70, 70, 78)\n\n    local frame = Instance.new(\"Frame\")\n    frame.Size = UDim2.fromOffset(176, 0)\n    frame.AutomaticSize = Enum.AutomaticSize.Y\n    frame.Position = UDim2.new(0, 20, 0.4, 0)\n    frame.BackgroundColor3 = Color3.fromRGB(24, 24, 30)\n    frame.BorderSizePixel = 0\n    frame.Parent = screenGui\n    Instance.new(\"UICorner\", frame).CornerRadius = UDim.new(0, 8)\n\n    local pad = Instance.new(\"UIPadding\", frame)\n    pad.PaddingBottom = UDim.new(0, 6)\n    pad.PaddingLeft, pad.PaddingRight = UDim.new(0, 6), UDim.new(0, 6)\n\n    local list = Instance.new(\"UIListLayout\", frame)\n    list.Padding = UDim.new(0, 4)\n    list.SortOrder = Enum.SortOrder.LayoutOrder\n\n    -- title bar (also the drag handle)\n    local title = Instance.new(\"TextLabel\")\n    title.LayoutOrder = 0\n    title.Size = UDim2.new(1, 0, 0, 26)\n    title.BackgroundTransparency = 1\n    title.Font = Enum.Font.GothamBold\n    title.TextSize = 13\n    title.TextColor3 = Color3.fromRGB(235, 235, 240)\n    title.Text = \"Auto Parry\"\n    title.Parent = frame\n\n    local dragging, dragStart, startPos\n    track(title.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1\n            or input.UserInputType == Enum.UserInputType.Touch then\n            dragging, dragStart, startPos = true, input.Position, frame.Position\n        end\n    end))\n    track(UserInputService.InputChanged:Connect(function(input)\n        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement\n            or input.UserInputType == Enum.UserInputType.Touch) then\n            local d = input.Position - dragStart\n            frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + d.X,\n                                       startPos.Y.Scale, startPos.Y.Offset + d.Y)\n        end\n    end))\n    track(UserInputService.InputEnded:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1\n            or input.UserInputType == Enum.UserInputType.Touch then\n            dragging = false\n        end\n    end))\n\n    -- switches: { label, getter, setter }\n    local rows = {\n        { \"Auto Parry\",    function() return enabled end,                function(v) enabled = v end },\n        { \"Parry\",         function() return CONFIG.ParryEnabled end,    function(v) CONFIG.ParryEnabled = v end },\n        { \"Heavy dodge\",   function() return CONFIG.DodgeEnabled end,    function(v) CONFIG.DodgeEnabled = v end },\n        { \"Cancel my atk\", function() return CONFIG.CancelOwnAttack end, function(v) CONFIG.CancelOwnAttack = v end },\n        { \"Avoid zones\",   function() return CONFIG.AvoidZones end,      function(v) CONFIG.AvoidZones = v end },\n        { \"Auto Fight\",    function() return CONFIG.AutoFight end,       function(v) CONFIG.AutoFight = v end },\n    }\n\n    local buttons = {}\n    for i, row in ipairs(rows) do\n        local btn = Instance.new(\"TextButton\")\n        btn.LayoutOrder = i\n        btn.Size = UDim2.new(1, 0, 0, 28)\n        btn.AutoButtonColor = true\n        btn.BorderSizePixel = 0\n        btn.Font = Enum.Font.Gotham\n        btn.TextSize = 12\n        btn.TextColor3 = Color3.new(1, 1, 1)\n        btn.Parent = frame\n        Instance.new(\"UICorner\", btn).CornerRadius = UDim.new(0, 6)\n\n        track(btn.MouseButton1Click:Connect(function()\n            row[3](not row[2]())\n            refreshGui()\n        end))\n        buttons[i] = btn\n    end\n\n    refreshGui = function()\n        for i, row in ipairs(rows) do\n            local on = row[2]()\n            buttons[i].Text = row[1] .. \"   \" .. (on and \"ON\" or \"OFF\")\n            buttons[i].BackgroundColor3 = on and ON or OFF\n        end\n        -- sub-options are dimmed while the auto parry is off\n        for i = 2, #rows do\n            buttons[i].TextTransparency = enabled and 0 or 0.5\n        end\n    end\n    refreshGui()\nend\n\nif CONFIG.ShowGui then\n    local ok, err = pcall(buildGui)\n    if not ok then\n        warn(\"[AutoParry] GUI unavailable: \" .. tostring(err))\n    end\nend\n\n---------------------------------------------------------------------\n-- KEYS + UNLOAD\n---------------------------------------------------------------------\nlocal function unload()\n    enabled = false\n    if screenGui then\n        pcall(function() screenGui:Destroy() end)\n        screenGui = nil\n    end\n    for _, conn in ipairs(connections) do\n        pcall(function() conn:Disconnect() end)\n    end\n    for animator, conn in pairs(hooked) do\n        pcall(function() conn:Disconnect() end)\n        hooked[animator] = nil\n    end\n    env.BeyondNenAutoParry = nil\n    notify(\"Unloaded\")\nend\n\nenv.BeyondNenAutoParry = unload\n\ntrack(UserInputService.InputBegan:Connect(function(input, processed)\n    if processed then return end\n    if input.KeyCode == CONFIG.ToggleKey then\n        enabled = not enabled\n        refreshGui()\n        notify(enabled and \"Enabled\" or \"Disabled\")\n    elseif input.KeyCode == CONFIG.FightKey then\n        CONFIG.AutoFight = not CONFIG.AutoFight\n        refreshGui()\n        notify(\"Auto Fight \" .. (CONFIG.AutoFight and \"ON\" or \"OFF\"))\n    elseif input.KeyCode == CONFIG.GuiToggleKey then\n        if screenGui then\n            screenGui.Enabled = not screenGui.Enabled\n        end\n    elseif input.KeyCode == CONFIG.UnloadKey then\n        unload()\n    end\nend))\n\nnotify(\"Loaded - [\" .. CONFIG.ToggleKey.Name .. \"] on/off, [\" .. CONFIG.UnloadKey.Name .. \"] unload\")",
-      "createdAt": "2026-11-20T22:38:57.440Z",
-      "updatedAt": "2026-11-22T10:03:27.979Z",
       "categoryIds": [
         "trending",
         "new"
@@ -2307,7 +2307,7 @@
         "autotrain",
         "autofarm"
       ],
-      "views": 3,
+      "views": 5,
       "likes": 1,
       "dislikes": 0,
       "summary": "Features: - Auto Cast - Auto Train - Auto Upgrade Train - Auto Upgrade Rod",
@@ -2342,7 +2342,7 @@
       "tags": [
         "Script"
       ],
-      "views": 4,
+      "views": 6,
       "likes": 0,
       "dislikes": 0,
       "summary": "Smart Auto GK, -MAIN: Auto Dribble, Auto Tackle, Assist Tackle, Inf Stamina Auto Sprint -ESP Chams Player ESP Outlines Goal ESP Ball ESP ETC...",
@@ -2353,6 +2353,80 @@
         "new"
       ],
       "glyph": "ball",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b032cef469ce5731ce41553",
+      "slug": "Sweep-The-Moon-OP-FAST-AUTO-FARM-or-AUTO-SWEEP-or-AUTO-SELL-or-AUTO-UPGRADES-237910",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Sweep-The-Moon-OP-FAST-AUTO-FARM-or-AUTO-SWEEP-or-AUTO-SELL-or-AUTO-UPGRADES-237910",
+      "title": "[OP] FAST AUTO FARM | AUTO SWEEP | AUTO SELL | AUTO UPGRADES",
+      "game": "[🛸] Sweep The Moon 🌕",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-a2019b5fdf200ad7416b26748b28be5c-2afb37b95300.png",
+      "author": "veser",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "autofarm",
+        "autosell",
+        "moon"
+      ],
+      "views": 2,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "🌕 Fastest auto farm of all!! ⌛ 0.4s per tile ⌚ Complete the moon within 45 minutes! 🔧 Auto buy: 🧹 Brushes 📈 Upgrades: 🥇 Upgrade priority 💰 Auto sell: 🎒 Auto deposit tank 🔎 Choose when to sell ✈️ Teleports: 🏠 Instant teleport to…",
+      "code": "-- Loads in ~3s\nloadstring(game:HttpGet(\"https://veser.vip/loader\"))()",
+      "createdAt": "2026-11-22T17:57:03.909Z",
+      "updatedAt": "2026-11-23T05:23:03.577Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b02c252b50902aa8e1a8963",
+      "slug": "STAND-OUT-100-FEATURE-BEST-SCRIPT-AUTO-STORY-AUTO-RAID-AUTO-EVERYTHIN-237842",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/STAND-OUT-100-FEATURE-BEST-SCRIPT-AUTO-STORY-AUTO-RAID-AUTO-EVERYTHIN-237842",
+      "title": "100+ FEATURE BEST SCRIPT AUTO STORY AUTO RAID AUTO EVERYTHIN",
+      "game": "[UPD 1] STAND OUT",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-c86f5ffe3148d1fe705fde16c320f1d3-ca4f484750cd.png",
+      "author": "solixhub",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "stand out",
+        "stand out script",
+        "stand outs script"
+      ],
+      "views": 358,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Script For Stand Out, Released by SolixHub. SolixHub the #1 scripthub with daily Updates since 2023!",
+      "code": "loadstring(game:HttpGet(\"https://solixhub.com/loader\"))()",
+      "createdAt": "2026-11-22T10:22:10.832Z",
+      "updatedAt": "2026-11-22T10:22:10.362Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2379,7 +2453,7 @@
         "mm",
         "keyless"
       ],
-      "views": 959,
+      "views": 963,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2489,7 +2563,7 @@
         "keyless",
         "auto play"
       ],
-      "views": 804,
+      "views": 808,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2562,7 +2636,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 190,
+      "views": 192,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2600,7 +2674,7 @@
         "Scare Your Favorite Streamer",
         "Streamer"
       ],
-      "views": 121,
+      "views": 122,
       "likes": 2,
       "dislikes": 0,
       "summary": "- Auto Steal - Zone Select (Common to Ultimate) - Repeat - Sell All - Auto Place - Auto Buy Costume",
@@ -2637,7 +2711,7 @@
         "My anime mine script",
         "Node priority"
       ],
-      "views": 2,
+      "views": 5,
       "likes": 1,
       "dislikes": 0,
       "summary": "Lunar Hub | My Anime Mine - Node Priority - Swing Delay - Equip Best Now - Collect At Items - Take All Now - Item Type Filter - Rarity Filter - Keep Above Value - Sell At Item Count - Teleport To Sell Stand - Return After Selling - Sell…",
@@ -2711,7 +2785,7 @@
         "script",
         "free"
       ],
-      "views": 105,
+      "views": 106,
       "likes": 0,
       "dislikes": 0,
       "summary": "⚡ Dedicated Auto Progression Tab: Combines training, gear swaps, high-income item hunting, smart plot slot management, anti-stuck recovery, and post-night priority into a single mode with customizable timers, tier caps, and live readouts…",
@@ -2785,7 +2859,7 @@
         "Forge",
         "The Forge Script"
       ],
-      "views": 705,
+      "views": 708,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2823,7 +2897,7 @@
         "Roblox  Miles Down the River",
         "Miles Down the River Script"
       ],
-      "views": 526,
+      "views": 530,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -2898,7 +2972,7 @@
         "sand wall",
         "auto buy"
       ],
-      "views": 188,
+      "views": 190,
       "likes": 1,
       "dislikes": 1,
       "summary": "Stop The Tsunami! hub by DarkSpawnerScript.com and DeltaScript.dev. It builds the sand wall that keeps the town dry while you watch the waves hit. **Auto Build** - Digs behind the wall and piles the sand on it, all along the shore - Move…",
@@ -3042,7 +3116,7 @@
         "Auto Punch",
         "Summon A Pet Army"
       ],
-      "views": 410,
+      "views": 411,
       "likes": 2,
       "dislikes": 0,
       "summary": "- Auto-Punch - Auto-Soul - Auto-equip best army - Zone select + auto-travel - Hop to far targets - WalkSpeed control - Live stats - Config saving",
@@ -3113,7 +3187,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 393,
+      "views": 394,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3151,7 +3225,7 @@
         "reanimate",
         "gui"
       ],
-      "views": 429,
+      "views": 432,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3189,7 +3263,7 @@
         "clawd",
         "universal"
       ],
-      "views": 412,
+      "views": 413,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -3201,6 +3275,42 @@
         "new"
       ],
       "glyph": "paw",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b00cc018fe5ca30b34d93d9",
+      "slug": "RELEASE-Beyond-Nen-Auto-Fight-First-BOSS-Brick-Hub-237597",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RELEASE-Beyond-Nen-Auto-Fight-First-BOSS-Brick-Hub-237597",
+      "title": "Auto Fight First BOSS (Brick Hub)",
+      "game": "[RELEASE!] Beyond Nen",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-505b509a881902d5d30f4a74144e4f5a-c35b27ad95e1.png",
+      "author": "emericklabrick11",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "FREE",
+        "Keyless"
+      ],
+      "views": 197,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Auto fight for Beyond Nen, only for the first boss to beat him.",
+      "code": "--[[\n    Beyond Nen - Auto Parry / Dodge / Auto Fight  (single file, GUI included)\n\n    - Automatic parry on the attacks that actually deal damage\n    - Dodge (Q) on heavy attacks, automatic exit from red telegraph zones\n    - Auto Fight: walks up to the boss and only attacks during its endlag\n\n    Target executors: Wave / Delta / Solara\n    Keys:     [P] everything on/off | [G] Auto Fight | [Right Ctrl] hide the panel | [End] unload\n    Settings: see the CONFIG table below\n]]\n\n-- Prevent double execution: unload the previous instance first\nlocal env = (getgenv and getgenv()) or _G\nif env.BeyondNenAutoParry then\n    pcall(env.BeyondNenAutoParry)\nend\n\n---------------------------------------------------------------------\n-- CONFIG (adjust per game / boss)\n---------------------------------------------------------------------\nlocal CONFIG = {\n    ParryKey      = Enum.KeyCode.F,   -- parry key in the game\n    ToggleKey     = Enum.KeyCode.P,   -- enable / disable everything\n    UnloadKey     = Enum.KeyCode.End, -- unload the script\n    Range         = 14,               -- max distance (studs) of an attacker\n    FacingDot     = 0.2,              -- 1 = facing you exactly, -1 = back turned; >0.2 = roughly facing you\n    ReactionDelay = 0.12,             -- delay before parrying after the animation starts (s)\n    HoldTime      = 0.08,             -- key press duration (s)\n    Cooldown      = 0.35,             -- minimum delay between two parries (s)\n    TargetPlayers = true,             -- react to players\n    TargetNPCs    = true,             -- react to NPCs / mobs\n\n    -- Animation priorities treated as attacks\n    -- (Idle/Movement/Core are ignored: walking, running, jumping...)\n    ActionPriorities = {\n        [Enum.AnimationPriority.Action]  = true,\n        [Enum.AnimationPriority.Action2] = true,\n        [Enum.AnimationPriority.Action3] = true,\n        [Enum.AnimationPriority.Action4] = true,\n    },\n    -- Words to ignore in animation names (lowercase)\n    IgnoreNames = { \"idle\", \"walk\", \"run\", \"jump\", \"fall\", \"climb\", \"swim\", \"emote\", \"dance\", \"sit\" },\n    -- Keywords that force detection even if the priority is low\n    ForceNames  = { \"attack\", \"slash\", \"punch\", \"swing\", \"strike\", \"hit\", \"m1\", \"combo\", \"skill\", \"nen\" },\n\n    -- PARRY: only the animations that REALLY deal damage (measured from logs: they hit 0.38-0.43s after\n    -- the animation starts). The boss' other animations (feints / stances) never hit: parrying them\n    -- = a missed parry = 3s cooldown = you take everything.\n    ParryOnlyIds     = true,\n    -- true = standard delay (ReactionDelay); number = specific press delay (s after the animation starts)\n    ParryIds = {\n        [\"100770856564580\"] = true,\n        [\"130277557014228\"] = true,\n        [\"91493878890049\"]  = true,\n        [\"93314100789910\"]  = true,\n        [\"93865528583760\"]  = 0.03,   -- fast hit: lands 0.33s after the animation starts\n    },\n    PointBlank       = 4,             -- below this distance (studs) the attacker is always treated as a threat\n    NormalHitAt      = 0.42,          -- impact time of a normal hit (used for the dodge fallback)\n\n    -- DODGE (heavy attacks)\n    DodgeKey         = Enum.KeyCode.Q, -- dodge / dash key in the game\n    HeavyNames       = { \"heavy\", \"smash\", \"slam\", \"charge\", \"critical\", \"crit\", \"ult\", \"finisher\", \"unblock\", \"grab\", \"m2\" },\n    HeavyMinLength   = 1.4,            -- an animation longer than this (s) is considered heavy\n    DodgeLead        = 0.30,           -- the dodge starts X seconds BEFORE the impact (tunes the \"perfect\" dodge)\n    HeavyHitFraction = 0.85,           -- estimated impact at x% of the real duration for an unknown heavy animation\n    -- Known heavy attacks: animation id -> impact time (s after the start, speed included)\n    --   at = fixed press delay (s): used for grab skills where you get locked and can no longer dash\n    --   (add your own with Debug = true)\n    HeavyDB = {\n        -- Slow big hit (slowed animation). ~0.6s in, the boss grabs you (flinch animation, no dash\n        -- possible), so we dash right away instead of waiting for the impact.\n        [\"120074647445778\"] = { hit = 3.06, at = 0.05 },\n        -- Skills that grab you and launch you in the air (LastRag): you are locked (flinch animation, dash\n        -- impossible) 0.5-0.8s after the start -> dash IMMEDIATELY on the first animation.\n        [\"79940982521179\"]  = { hit = 1.98, at = 0.05 },  -- followed by 121888999208574 0.53s later\n        [\"116767125715788\"] = { hit = 1.12, at = 0.05 },  -- followed by 122047448848886 0.52s later\n        [\"92614875456334\"]  = { hit = 1.54, at = 0.05 },\n        [\"90549446872856\"]  = { hit = 2.44 },  -- same hit, 0.62s later (duplicate is ignored automatically)\n        [\"121888999208574\"] = { hit = 1.45 },\n        [\"96968963810616\"]  = { hit = 0.58 },\n        [\"108733713646184\"] = { hit = 1.97 },\n        [\"101853308988006\"] = { hit = 1.34 },  -- same hit as the previous one, 0.63s later\n    },\n    -- The game's dash needs a direction: if you are not moving, this key is held together with Q\n    DodgeDirKey       = Enum.KeyCode.S,        -- S = backwards (you face the boss)\n    DodgeDirHold      = 0.15,\n    HeavyDedupeWindow = 0.9,           -- two heavy animations whose impacts are within X s = a single hit\n    DodgeCooldown     = 0.6,           -- minimum delay between two dodges (s)\n    -- Animations to ignore completely: the boss' parry / stagger (otherwise we \"react\" to its own parry)\n    IgnoreIds = {\n        [\"14115657114\"] = true,\n        [\"14115573519\"] = true,\n        [\"17257966580\"] = true,\n    },\n\n    -- Cancels your own attack (M1, combo...) right before parrying / dodging,\n    -- so that an attack in progress does not block the defensive action\n    CancelOwnAttack  = true,\n    CancelFadeTime   = 0.05,           -- fade time (s) used to cut attack animations\n    ClearAttributes  = { \"Busy\" },     -- character bool attributes reset to false (\"busy\" state)\n\n    ParryEnabled     = true,           -- parry on normal attacks (toggle in the GUI)\n    DodgeEnabled     = true,           -- dodge on heavy attacks (toggle in the GUI)\n\n    -- AUTO FIGHT: walks up to the boss and only hits (M1) while it is in \"endlag\" (after its own\n    -- attack or after your parry). Outside that window it parries your M1 and stuns you.\n    AutoFight        = false,          -- toggle in the GUI or with FightKey\n    FightKey         = Enum.KeyCode.G,\n    BossNames        = { \"Evil\" },     -- model names treated as bosses (besides anything with NpcEndlagUntil)\n    FightRange       = 200,            -- max distance to look for the boss\n    ApproachDist     = 5.5,            -- stop walking at this distance\n    AttackRange      = 8,              -- only attack below this distance\n    AttackMinEndlag  = 0.30,           -- only attack if the boss still has at least X s of endlag\n    ClickInterval    = 0.20,           -- delay between two M1 clicks\n\n    -- RED ZONES: big attacks place a telegraph on the ground. You have to LEAVE it, not just dash.\n    AvoidZones       = true,\n    ZoneMinSize      = 8,              -- minimum largest dimension of a zone (studs)\n    ZoneMaxThickness = 3,              -- zones are flat: max thickness (studs)\n    ZoneMargin       = 2,              -- safety margin around the zone\n    ZoneExitPad      = 4,              -- aim for a point X studs outside the zone\n    ZoneDashDist     = 7,              -- if the exit point is farther than this, dash as well\n    ZoneNames        = { \"telegraph\", \"warning\", \"indicator\", \"danger\", \"aoe\", \"markeroverlay\" },\n    LogZones         = false,          -- writes every detected zone to apZones.txt (to tune the filters)\n\n    ShowGui          = true,           -- show the small panel\n    GuiToggleKey     = Enum.KeyCode.RightControl, -- hide / show the panel\n\n    Debug = false,                     -- true: prints name/length/priority of every detected animation\n}\n\n---------------------------------------------------------------------\n-- SERVICES\n---------------------------------------------------------------------\nlocal Players          = game:GetService(\"Players\")\nlocal RunService       = game:GetService(\"RunService\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal VIM              = game:GetService(\"VirtualInputManager\")\n\nlocal LocalPlayer = Players.LocalPlayer\n\n---------------------------------------------------------------------\n-- STATE\n---------------------------------------------------------------------\nlocal enabled      = true\nlocal lastParry    = 0\nlocal lastDodge    = 0\nlocal lastHeavyHit = -math.huge   -- impact time (os.clock) of the last scheduled heavy hit\nlocal fleeUntil    = 0            -- while os.clock() < fleeUntil, auto fight does not move (we are leaving a zone)\nlocal connections  = {}           -- global connections\nlocal hooked       = {}           -- [Animator] = connection\n\nlocal function track(conn)\n    table.insert(connections, conn)\n    return conn\nend\n\n---------------------------------------------------------------------\n-- UTILITIES\n---------------------------------------------------------------------\nlocal function getRoot(model)\n    return model and (model:FindFirstChild(\"HumanoidRootPart\") or model.PrimaryPart)\nend\n\nlocal function myRoot()\n    return getRoot(LocalPlayer.Character)\nend\n\nlocal function notify(text)\n    pcall(function()\n        game:GetService(\"StarterGui\"):SetCore(\"SendNotification\", {\n            Title = \"Auto Parry\",\n            Text = text,\n            Duration = 2,\n        })\n    end)\nend\n\nlocal function nameMatches(name, list)\n    name = string.lower(name or \"\")\n    for _, word in ipairs(list) do\n        if string.find(name, word, 1, true) then\n            return true\n        end\n    end\n    return false\nend\n\n-- Press a key (VirtualInputManager, with keypress fallback)\nlocal function pressKey(keyCode)\n    local ok = pcall(function()\n        VIM:SendKeyEvent(true, keyCode, false, game)\n        task.wait(CONFIG.HoldTime)\n        VIM:SendKeyEvent(false, keyCode, false, game)\n    end)\n    if not ok and keypress and keyrelease then\n        local code = keyCode.Value\n        pcall(keypress, code)\n        task.wait(CONFIG.HoldTime)\n        pcall(keyrelease, code)\n    end\nend\n\n-- Cuts the local player's current attack to free up the defensive action\nlocal function cancelOwnAttack()\n    local char = LocalPlayer.Character\n    if not char then return end\n\n    local animator = char:FindFirstChildWhichIsA(\"Animator\", true)\n    if animator then\n        for _, animTrack in ipairs(animator:GetPlayingAnimationTracks()) do\n            if CONFIG.ActionPriorities[animTrack.Priority]\n                and not nameMatches(animTrack.Name, CONFIG.IgnoreNames) then\n                pcall(function() animTrack:Stop(CONFIG.CancelFadeTime) end)\n            end\n        end\n    end\n\n    for _, attr in ipairs(CONFIG.ClearAttributes) do\n        if char:GetAttribute(attr) == true then\n            pcall(function() char:SetAttribute(attr, false) end)\n        end\n    end\nend\n\nlocal function defend(keyCode, dirKey)\n    if CONFIG.CancelOwnAttack then\n        cancelOwnAttack()\n        task.wait()  -- let the game register the cancellation before the key press\n    end\n\n    -- Dash: without a held direction the game ignores Q, so we hold a movement key\n    local dir = dirKey or CONFIG.DodgeDirKey\n    if keyCode == CONFIG.DodgeKey and dir then\n        local char = LocalPlayer.Character\n        local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n        if dirKey or (hum and hum.MoveDirection.Magnitude < 0.1) then\n            pcall(function() VIM:SendKeyEvent(true, dir, false, game) end)\n            task.wait(0.04)\n            pressKey(keyCode)\n            task.wait(CONFIG.DodgeDirHold)\n            pcall(function() VIM:SendKeyEvent(false, dir, false, game) end)\n            return\n        end\n    end\n\n    pressKey(keyCode)\nend\n\nlocal function doParry()\n    local now = os.clock()\n    if now - lastParry < CONFIG.Cooldown then\n        return\n    end\n    lastParry = now\n    task.spawn(defend, CONFIG.ParryKey)\nend\n\nlocal function doDodge(dirKey)\n    local now = os.clock()\n    if now - lastDodge < CONFIG.DodgeCooldown then\n        return\n    end\n    lastDodge = now\n    task.spawn(defend, CONFIG.DodgeKey, dirKey)\nend\n\n---------------------------------------------------------------------\n-- DETECTION\n---------------------------------------------------------------------\n-- Is the attacker close enough and facing us?\nlocal function isThreat(attackerModel)\n    local mine, theirs = myRoot(), getRoot(attackerModel)\n    if not mine or not theirs then\n        return false\n    end\n\n    local offset = mine.Position - theirs.Position\n    local dist = offset.Magnitude\n    if dist > CONFIG.Range then\n        return false\n    end\n    if dist < 0.1 then\n        return true\n    end\n\n    -- in melee range the boss overlaps you: the facing test becomes noise\n    if dist <= CONFIG.PointBlank then\n        return true\n    end\n\n    local facing = theirs.CFrame.LookVector:Dot(offset.Unit)\n    return facing >= CONFIG.FacingDot\nend\n\nlocal function animName(animTrack)\n    local anim = animTrack.Animation\n    return (anim and anim.Name) or animTrack.Name or \"\"\nend\n\nlocal function animId(animTrack)\n    local anim = animTrack.Animation\n    return anim and string.match(anim.AnimationId, \"%d+\") or \"\"\nend\n\nlocal function isAttackAnimation(animTrack)\n    local name = animName(animTrack)\n\n    if nameMatches(name, CONFIG.ForceNames) then\n        return true\n    end\n    if nameMatches(name, CONFIG.IgnoreNames) then\n        return false\n    end\n    return CONFIG.ActionPriorities[animTrack.Priority] == true\nend\n\n-- Heavy attack: known id, explicit name or long animation\nlocal function isHeavyAnimation(animTrack)\n    if CONFIG.HeavyDB[animId(animTrack)] then\n        return true\n    end\n    if nameMatches(animName(animTrack), CONFIG.HeavyNames) then\n        return true\n    end\n    -- length alone is not enough: otherwise long idles / emotes would count as \"heavy\"\n    return animTrack.Length >= CONFIG.HeavyMinLength and isAttackAnimation(animTrack)\nend\n\nlocal function onAnimationPlayed(attackerModel, animTrack)\n    if not enabled then return end\n    if CONFIG.IgnoreIds[animId(animTrack)] then return end\n\n    local heavy = CONFIG.DodgeEnabled and isHeavyAnimation(animTrack)\n    if not heavy and not (CONFIG.ParryEnabled and isAttackAnimation(animTrack)) then return end\n    if not isThreat(attackerModel) then return end\n\n    if CONFIG.Debug then\n        print(string.format(\"[AutoParry] %s | %s id=%s | len=%.2f | prio=%s | %s\",\n            attackerModel.Name, animName(animTrack), animId(animTrack), animTrack.Length,\n            animTrack.Priority.Name, heavy and \"DODGE\" or \"PARRY\"))\n    end\n\n    if heavy then\n        -- Perfect dodge: aim for the impact time (known or estimated) minus DodgeLead.\n        -- No IsPlaying check here: the boss cuts/replaces its animations while the hit still lands.\n        local entry = CONFIG.HeavyDB[animId(animTrack)]\n        local speed = math.max(animTrack.Speed, 0.1)\n        local hitAt = entry and entry.hit or (animTrack.Length / speed) * CONFIG.HeavyHitFraction\n        local delay = entry and entry.at or math.max(0, hitAt - CONFIG.DodgeLead)\n\n        -- the same heavy hit often arrives through 2 animations: only one dash (cooldown ~2.3s)\n        local now = os.clock()\n        local absHit = now + hitAt\n        if math.abs(absHit - lastHeavyHit) < CONFIG.HeavyDedupeWindow and lastHeavyHit > now - 0.2 then\n            return\n        end\n        lastHeavyHit = absHit\n\n        task.delay(delay, function()\n            if enabled and CONFIG.DodgeEnabled and isThreat(attackerModel) then\n                doDodge()\n            end\n        end)\n        return\n    end\n\n    -- animation that never deals damage: don't waste the parry\n    if CONFIG.ParryOnlyIds and not CONFIG.ParryIds[animId(animTrack)] then return end\n\n    local pressDelay = CONFIG.ParryIds[animId(animTrack)]\n    if type(pressDelay) ~= \"number\" then pressDelay = CONFIG.ReactionDelay end\n\n    task.delay(pressDelay, function()\n        -- re-check: the animation is still playing and the threat is still there\n        if not (enabled and animTrack.IsPlaying and isThreat(attackerModel)) then return end\n\n        local char = LocalPlayer.Character\n        if char and char:GetAttribute(\"ParryOnCooldown\") == true then\n            -- parry unavailable: F would only block. Dodge instead if the dash is free.\n            if CONFIG.DodgeEnabled and char:GetAttribute(\"DashCooldown\") ~= true then\n                local wait = math.max(0, CONFIG.NormalHitAt - CONFIG.DodgeLead - CONFIG.ReactionDelay)\n                task.delay(wait, function()\n                    if enabled and isThreat(attackerModel) then doDodge() end\n                end)\n            end\n            return\n        end\n\n        doParry()\n    end)\nend\n\n---------------------------------------------------------------------\n-- HOOKING THE ANIMATORS\n---------------------------------------------------------------------\nlocal function shouldWatch(model)\n    if model == LocalPlayer.Character then\n        return false\n    end\n    local isPlayer = Players:GetPlayerFromCharacter(model) ~= nil\n    if isPlayer then\n        return CONFIG.TargetPlayers\n    end\n    return CONFIG.TargetNPCs\nend\n\nlocal function hookAnimator(animator)\n    if hooked[animator] then return end\n\n    local model = animator:FindFirstAncestorOfClass(\"Model\")\n    if not model or not shouldWatch(model) then return end\n\n    hooked[animator] = animator.AnimationPlayed:Connect(function(animTrack)\n        onAnimationPlayed(model, animTrack)\n    end)\n\n    animator.Destroying:Connect(function()\n        if hooked[animator] then\n            hooked[animator]:Disconnect()\n            hooked[animator] = nil\n        end\n    end)\nend\n\nfor _, inst in ipairs(workspace:GetDescendants()) do\n    if inst:IsA(\"Animator\") then\n        hookAnimator(inst)\n    end\nend\n\ntrack(workspace.DescendantAdded:Connect(function(inst)\n    if inst:IsA(\"Animator\") then\n        -- small delay: the model is not always parented yet at this point\n        task.defer(hookAnimator, inst)\n    end\nend))\n\n---------------------------------------------------------------------\n-- AUTO FIGHT\n---------------------------------------------------------------------\nlocal bossModel\nlocal lastScan, lastClick = 0, 0\n\nlocal function isBoss(model)\n    if model == LocalPlayer.Character or Players:GetPlayerFromCharacter(model) then\n        return false\n    end\n    if model:GetAttribute(\"NpcEndlagUntil\") ~= nil then\n        return true\n    end\n    return table.find(CONFIG.BossNames, model.Name) ~= nil\nend\n\nlocal function bossAlive(model)\n    if not model or not model.Parent then return false end\n    local hum = model:FindFirstChildOfClass(\"Humanoid\")\n    return hum ~= nil and hum.Health > 0 and getRoot(model) ~= nil\nend\n\nlocal function findBoss()\n    local root = myRoot()\n    if not root then return nil end\n    local best, bestDist = nil, CONFIG.FightRange\n    for _, inst in ipairs(workspace:GetDescendants()) do\n        if inst:IsA(\"Humanoid\") then\n            local model = inst.Parent\n            if model and model:IsA(\"Model\") and isBoss(model) and bossAlive(model) then\n                local d = (getRoot(model).Position - root.Position).Magnitude\n                if d < bestDist then best, bestDist = model, d end\n            end\n        end\n    end\n    return best\nend\n\n-- time left (s) before the boss' endlag ends; <= 0 = it can parry your M1\nlocal function endlagLeft(model)\n    local untilAt = model:GetAttribute(\"NpcEndlagUntil\")\n    if type(untilAt) ~= \"number\" then return 0 end\n    return untilAt - workspace:GetServerTimeNow()\nend\n\nlocal function clickM1()\n    local cam = workspace.CurrentCamera\n    local c = cam and (cam.ViewportSize / 2) or Vector2.new(400, 300)\n    local ok = pcall(function()\n        VIM:SendMouseButtonEvent(c.X, c.Y, 0, true, game, 0)\n        task.wait(0.03)\n        VIM:SendMouseButtonEvent(c.X, c.Y, 0, false, game, 0)\n    end)\n    if not ok and mouse1click then\n        pcall(mouse1click)   -- fallback for executors without VirtualInputManager\n    end\nend\n\nlocal fightAccum = 0\ntrack(RunService.Heartbeat:Connect(function(dt)\n    fightAccum += dt\n    if fightAccum < 0.05 then return end\n    fightAccum = 0\n    if not (enabled and CONFIG.AutoFight) then return end\n\n    local char = LocalPlayer.Character\n    local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n    local root = myRoot()\n    if not (hum and root and hum.Health > 0) then return end\n\n    local now = os.clock()\n    if now < fleeUntil then return end   -- we are leaving a red zone\n    if not bossAlive(bossModel) and now - lastScan > 1 then\n        lastScan = now\n        bossModel = findBoss()\n    end\n    if not bossAlive(bossModel) then return end\n\n    -- don't touch anything while dashing (it would break the dodge)\n    if char:GetAttribute(\"LocalDashing\") ~= nil or char:GetAttribute(\"ActiveDashId\") ~= nil then return end\n\n    local bpos = getRoot(bossModel).Position\n    local flat = Vector3.new(bpos.X - root.Position.X, 0, bpos.Z - root.Position.Z)\n    local dist = flat.Magnitude\n\n    -- face the boss\n    if dist > 0.5 and dist < 40 then\n        root.CFrame = CFrame.lookAt(root.Position, root.Position + flat)\n    end\n\n    -- approach\n    if dist > CONFIG.ApproachDist then\n        hum:MoveTo(bpos)\n    end\n\n    -- only attack during the boss' endlag\n    if dist <= CONFIG.AttackRange\n        and endlagLeft(bossModel) >= CONFIG.AttackMinEndlag\n        and now - lastClick >= CONFIG.ClickInterval then\n        lastClick = now\n        task.spawn(clickM1)\n    end\nend))\n\n---------------------------------------------------------------------\n-- RED ZONES (telegraphs of big attacks)\n---------------------------------------------------------------------\nlocal zones = {}   -- [BasePart] = time it appeared\n\nlocal function zoneLog(line)\n    if CONFIG.LogZones and appendfile then\n        pcall(appendfile, \"apZones.txt\", string.format(\"%.2f|%s\\n\", os.clock(), line))\n    end\nend\n\nlocal function belongsToCharacter(inst)\n    local m = inst:FindFirstAncestorOfClass(\"Model\")\n    while m do\n        if m:FindFirstChildOfClass(\"Humanoid\") then return true end\n        m = m.Parent and m.Parent:FindFirstAncestorOfClass(\"Model\")\n    end\n    return false\nend\n\nlocal function isRedish(c)\n    return c.R >= 0.6 and c.G <= 0.4 and c.B <= 0.4\nend\n\nlocal function zoneCandidate(part)\n    if belongsToCharacter(part) then return false end\n    -- the boss' real zones are called BossTelegraph*: accepted whatever their size\n    -- (the \"Fill\" grows over time, it is small when it appears)\n    if nameMatches(part.Name, CONFIG.ZoneNames) or nameMatches(part.Parent and part.Parent.Name or \"\", CONFIG.ZoneNames) then\n        return true\n    end\n    local s = part.Size\n    local mx, mn = math.max(s.X, s.Y, s.Z), math.min(s.X, s.Y, s.Z)\n    if mx < CONFIG.ZoneMinSize or mn > CONFIG.ZoneMaxThickness then return false end\n    return part.Transparency < 0.98 and isRedish(part.Color)\nend\n\n-- Telemetry: follows a \"telegraph\" zone for ~2s (size, position in the boss' frame of reference)\nlocal function watchTelegraph(part)\n    task.spawn(function()\n        local boss = bossModel\n        if not (boss and boss.Parent) then\n            for _, m in ipairs(workspace:GetDescendants()) do\n                if m:IsA(\"Model\") and table.find(CONFIG.BossNames, m.Name) and m:FindFirstChildOfClass(\"Humanoid\") then boss = m break end\n            end\n        end\n        local broot = boss and getRoot(boss)\n        for i = 1, 20 do\n            if not part.Parent then zoneLog(part.Name .. \" destroyed at +\" .. string.format(\"%.2f\", (i - 1) * 0.1)) return end\n            local mine = myRoot()\n            local rel = broot and broot.CFrame:PointToObjectSpace(part.Position) or Vector3.zero\n            local me = (broot and mine) and broot.CFrame:PointToObjectSpace(mine.Position) or Vector3.zero\n            zoneLog(string.format(\"  %s +%.1fs size=%s transp=%.2f center(boss space)=%s me(boss space)=%s\",\n                part.Name, (i - 1) * 0.1, tostring(part.Size), part.Transparency, tostring(rel), tostring(me)))\n            task.wait(0.1)\n        end\n    end)\nend\n\n-- axes: (thickness, u, v) in the part's local coordinates\nlocal function zoneAxes(part)\n    local s = part.Size\n    if s.X <= s.Y and s.X <= s.Z then return \"X\", \"Y\", \"Z\" end\n    if s.Y <= s.Z then return \"Y\", \"X\", \"Z\" end\n    return \"Z\", \"X\", \"Y\"\nend\n\n-- returns (inside, world exit point)\nlocal function zoneTest(part, pos)\n    local cf, s = part.CFrame, part.Size\n    local lp = cf:PointToObjectSpace(pos)\n    local t, u, v = zoneAxes(part)\n    if math.abs(lp[t]) > s[t] / 2 + 12 then return false end\n\n    local hu, hv = s[u] / 2 + CONFIG.ZoneMargin, s[v] / 2 + CONFIG.ZoneMargin\n    local pu, pv = lp[u], lp[v]\n    local round = part:IsA(\"Part\") and (part.Shape == Enum.PartType.Ball or part.Shape == Enum.PartType.Cylinder)\n\n    local inside, tu, tv\n    if round then\n        local k = (pu / hu) ^ 2 + (pv / hv) ^ 2\n        inside = k <= 1\n        if k < 0.01 then\n            -- right at the center: arbitrary exit direction (u axis)\n            tu, tv = hu + CONFIG.ZoneExitPad, 0\n        else\n            local len = math.sqrt(k)\n            tu, tv = pu / len * (1 + CONFIG.ZoneExitPad / hu), pv / len * (1 + CONFIG.ZoneExitPad / hv)\n        end\n    else\n        inside = math.abs(pu) <= hu and math.abs(pv) <= hv\n        if math.abs(hu - math.abs(pu)) <= math.abs(hv - math.abs(pv)) then\n            tu = (pu >= 0 and 1 or -1) * (hu + CONFIG.ZoneExitPad); tv = pv\n        else\n            tv = (pv >= 0 and 1 or -1) * (hv + CONFIG.ZoneExitPad); tu = pu\n        end\n    end\n    if not inside then return false end\n\n    local target = { X = 0, Y = 0, Z = 0 }\n    target[t], target[u], target[v] = lp[t], tu, tv\n    return true, cf:PointToWorldSpace(Vector3.new(target.X, target.Y, target.Z))\nend\n\nlocal function registerZone(part)\n    if zones[part] or not part:IsA(\"BasePart\") then return end\n    if not zoneCandidate(part) then return end\n    zones[part] = os.clock()\n    local mine = myRoot()\n    zoneLog(string.format(\"ZONE %s | %s | size=%s | color=%s | transp=%.2f | shape=%s | dist=%.1f\",\n        part:GetFullName(), part.ClassName, tostring(part.Size), tostring(part.Color), part.Transparency,\n        part:IsA(\"Part\") and part.Shape.Name or \"-\", mine and (mine.Position - part.Position).Magnitude or -1))\n    part.Destroying:Connect(function() zones[part] = nil end)\n    if CONFIG.LogZones and nameMatches(part.Name, CONFIG.ZoneNames) then\n        watchTelegraph(part)\n    end\nend\n\ntrack(workspace.DescendantAdded:Connect(function(inst)\n    if inst:IsA(\"BasePart\") then\n        -- give the properties (size / color) time to be set\n        task.delay(0.05, function() if inst.Parent then registerZone(inst) end end)\n    elseif CONFIG.LogZones and nameMatches(inst.Name, CONFIG.ZoneNames) then\n        zoneLog(\"OTHER \" .. inst.ClassName .. \" \" .. inst:GetFullName())\n    end\nend))\n\nlocal zoneAccum = 0\ntrack(RunService.Heartbeat:Connect(function(dt)\n    zoneAccum += dt\n    if zoneAccum < 0.05 then return end\n    zoneAccum = 0\n    if not (enabled and CONFIG.AvoidZones) then return end\n\n    local char = LocalPlayer.Character\n    local hum = char and char:FindFirstChildOfClass(\"Humanoid\")\n    local root = myRoot()\n    if not (hum and root and hum.Health > 0) then return end\n\n    local bestExit\n    for part in pairs(zones) do\n        if not part.Parent then\n            zones[part] = nil\n        else\n            local inside, exitPos = zoneTest(part, root.Position)\n            if inside then bestExit = exitPos break end\n        end\n    end\n    if not bestExit then return end\n\n    fleeUntil = os.clock() + 0.4\n    local toExit = Vector3.new(bestExit.X - root.Position.X, 0, bestExit.Z - root.Position.Z)\n    hum:MoveTo(bestExit)\n\n    -- too far to walk out in time: dash toward the exit\n    if toExit.Magnitude > CONFIG.ZoneDashDist and char:GetAttribute(\"DashCooldown\") ~= true\n        and char:GetAttribute(\"LocalDashing\") == nil then\n        local cam = workspace.CurrentCamera\n        local look = Vector3.new(cam.CFrame.LookVector.X, 0, cam.CFrame.LookVector.Z).Unit\n        local right = Vector3.new(cam.CFrame.RightVector.X, 0, cam.CFrame.RightVector.Z).Unit\n        local dirn = toExit.Unit\n        local f, r = dirn:Dot(look), dirn:Dot(right)\n        local key\n        if math.abs(f) >= math.abs(r) then key = f >= 0 and Enum.KeyCode.W or Enum.KeyCode.S\n        else key = r >= 0 and Enum.KeyCode.D or Enum.KeyCode.A end\n        doDodge(key)\n    end\nend))\n\n---------------------------------------------------------------------\n-- GUI (small draggable panel with toggle switches)\n---------------------------------------------------------------------\nlocal screenGui\nlocal refreshGui = function() end\n\nlocal function buildGui()\n    local parent\n    if gethui then\n        local ok, h = pcall(gethui)\n        parent = ok and h or nil\n    end\n    if not parent then\n        local ok, cg = pcall(function() return game:GetService(\"CoreGui\") end)\n        parent = ok and cg or LocalPlayer:WaitForChild(\"PlayerGui\")\n    end\n\n    screenGui = Instance.new(\"ScreenGui\")\n    screenGui.Name = \"BeyondNenAutoParry\"\n    screenGui.ResetOnSpawn = false\n    screenGui.DisplayOrder = 999\n    screenGui.Parent = parent\n\n    local ON, OFF = Color3.fromRGB(46, 160, 90), Color3.fromRGB(70, 70, 78)\n\n    local frame = Instance.new(\"Frame\")\n    frame.Size = UDim2.fromOffset(176, 0)\n    frame.AutomaticSize = Enum.AutomaticSize.Y\n    frame.Position = UDim2.new(0, 20, 0.4, 0)\n    frame.BackgroundColor3 = Color3.fromRGB(24, 24, 30)\n    frame.BorderSizePixel = 0\n    frame.Parent = screenGui\n    Instance.new(\"UICorner\", frame).CornerRadius = UDim.new(0, 8)\n\n    local pad = Instance.new(\"UIPadding\", frame)\n    pad.PaddingBottom = UDim.new(0, 6)\n    pad.PaddingLeft, pad.PaddingRight = UDim.new(0, 6), UDim.new(0, 6)\n\n    local list = Instance.new(\"UIListLayout\", frame)\n    list.Padding = UDim.new(0, 4)\n    list.SortOrder = Enum.SortOrder.LayoutOrder\n\n    -- title bar (also the drag handle)\n    local title = Instance.new(\"TextLabel\")\n    title.LayoutOrder = 0\n    title.Size = UDim2.new(1, 0, 0, 26)\n    title.BackgroundTransparency = 1\n    title.Font = Enum.Font.GothamBold\n    title.TextSize = 13\n    title.TextColor3 = Color3.fromRGB(235, 235, 240)\n    title.Text = \"Auto Parry\"\n    title.Parent = frame\n\n    local dragging, dragStart, startPos\n    track(title.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1\n            or input.UserInputType == Enum.UserInputType.Touch then\n            dragging, dragStart, startPos = true, input.Position, frame.Position\n        end\n    end))\n    track(UserInputService.InputChanged:Connect(function(input)\n        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement\n            or input.UserInputType == Enum.UserInputType.Touch) then\n            local d = input.Position - dragStart\n            frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + d.X,\n                                       startPos.Y.Scale, startPos.Y.Offset + d.Y)\n        end\n    end))\n    track(UserInputService.InputEnded:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1\n            or input.UserInputType == Enum.UserInputType.Touch then\n            dragging = false\n        end\n    end))\n\n    -- switches: { label, getter, setter }\n    local rows = {\n        { \"Auto Parry\",    function() return enabled end,                function(v) enabled = v end },\n        { \"Parry\",         function() return CONFIG.ParryEnabled end,    function(v) CONFIG.ParryEnabled = v end },\n        { \"Heavy dodge\",   function() return CONFIG.DodgeEnabled end,    function(v) CONFIG.DodgeEnabled = v end },\n        { \"Cancel my atk\", function() return CONFIG.CancelOwnAttack end, function(v) CONFIG.CancelOwnAttack = v end },\n        { \"Avoid zones\",   function() return CONFIG.AvoidZones end,      function(v) CONFIG.AvoidZones = v end },\n        { \"Auto Fight\",    function() return CONFIG.AutoFight end,       function(v) CONFIG.AutoFight = v end },\n    }\n\n    local buttons = {}\n    for i, row in ipairs(rows) do\n        local btn = Instance.new(\"TextButton\")\n        btn.LayoutOrder = i\n        btn.Size = UDim2.new(1, 0, 0, 28)\n        btn.AutoButtonColor = true\n        btn.BorderSizePixel = 0\n        btn.Font = Enum.Font.Gotham\n        btn.TextSize = 12\n        btn.TextColor3 = Color3.new(1, 1, 1)\n        btn.Parent = frame\n        Instance.new(\"UICorner\", btn).CornerRadius = UDim.new(0, 6)\n\n        track(btn.MouseButton1Click:Connect(function()\n            row[3](not row[2]())\n            refreshGui()\n        end))\n        buttons[i] = btn\n    end\n\n    refreshGui = function()\n        for i, row in ipairs(rows) do\n            local on = row[2]()\n            buttons[i].Text = row[1] .. \"   \" .. (on and \"ON\" or \"OFF\")\n            buttons[i].BackgroundColor3 = on and ON or OFF\n        end\n        -- sub-options are dimmed while the auto parry is off\n        for i = 2, #rows do\n            buttons[i].TextTransparency = enabled and 0 or 0.5\n        end\n    end\n    refreshGui()\nend\n\nif CONFIG.ShowGui then\n    local ok, err = pcall(buildGui)\n    if not ok then\n        warn(\"[AutoParry] GUI unavailable: \" .. tostring(err))\n    end\nend\n\n---------------------------------------------------------------------\n-- KEYS + UNLOAD\n---------------------------------------------------------------------\nlocal function unload()\n    enabled = false\n    if screenGui then\n        pcall(function() screenGui:Destroy() end)\n        screenGui = nil\n    end\n    for _, conn in ipairs(connections) do\n        pcall(function() conn:Disconnect() end)\n    end\n    for animator, conn in pairs(hooked) do\n        pcall(function() conn:Disconnect() end)\n        hooked[animator] = nil\n    end\n    env.BeyondNenAutoParry = nil\n    notify(\"Unloaded\")\nend\n\nenv.BeyondNenAutoParry = unload\n\ntrack(UserInputService.InputBegan:Connect(function(input, processed)\n    if processed then return end\n    if input.KeyCode == CONFIG.ToggleKey then\n        enabled = not enabled\n        refreshGui()\n        notify(enabled and \"Enabled\" or \"Disabled\")\n    elseif input.KeyCode == CONFIG.FightKey then\n        CONFIG.AutoFight = not CONFIG.AutoFight\n        refreshGui()\n        notify(\"Auto Fight \" .. (CONFIG.AutoFight and \"ON\" or \"OFF\"))\n    elseif input.KeyCode == CONFIG.GuiToggleKey then\n        if screenGui then\n            screenGui.Enabled = not screenGui.Enabled\n        end\n    elseif input.KeyCode == CONFIG.UnloadKey then\n        unload()\n    end\nend))\n\nnotify(\"Loaded - [\" .. CONFIG.ToggleKey.Name .. \"] on/off, [\" .. CONFIG.UnloadKey.Name .. \"] unload\")",
+      "createdAt": "2026-11-20T22:38:57.440Z",
+      "updatedAt": "2026-11-22T10:03:27.979Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -3227,7 +3337,7 @@
         "Free",
         "vox seas script"
       ],
-      "views": 821,
+      "views": 823,
       "likes": 0,
       "dislikes": 0,
       "summary": "Freedom - Vox Seas Xeno is NOT supported. [ Farm & Progression ] + Auto Farm + Level Progression & Auto Quest + Auto Stats + Auto-Skip Intro & Loading Screen [ Combat & Gear ] + Combat (auto attack, skill usage, weapon selector) + Access…",
@@ -3299,7 +3409,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 291,
+      "views": 292,
       "likes": 1,
       "dislikes": 0,
       "summary": "MADE FOR LOW END EXECUTORS (PC only) - Animals ESP - Player ESP - Fly - Auto claim Dead Animals - Tp to gunShop - Infinite yield - Anti gameplay paused",
@@ -3336,7 +3446,7 @@
         "rideapet",
         "op"
       ],
-      "views": 162,
+      "views": 163,
       "likes": 0,
       "dislikes": 0,
       "summary": "Dexa Hub Script made for Ride a pet! - ESP Egg Distance - ESP Egg Name - TP to Egg - Fly to Egg - Auto Farm - Analytics for Auto Farm - Walkspeed Modifier - Jump Power Modifier - Save Config - Rejoin Server",
@@ -3373,7 +3483,7 @@
         "fling things and people script",
         "ftap"
       ],
-      "views": 1625,
+      "views": 1626,
       "likes": 5,
       "dislikes": 1,
       "rating": 4.2,
@@ -3411,7 +3521,7 @@
         "auto farm",
         "kill aura"
       ],
-      "views": 253,
+      "views": 254,
       "likes": 1,
       "dislikes": 0,
       "summary": "🔥 ZYNEX HUB - LUCKY BLOCKS & COMBAT AUTOMATION (100% KEYLESS) Welcome to Zynex Hub! This script provides the ultimate competitive advantage with automated combat, instant lucky block mining, and full player survival automation. Zero key…",
@@ -3483,7 +3593,7 @@
         "gun",
         "Keyless"
       ],
-      "views": 240,
+      "views": 241,
       "likes": 1,
       "dislikes": 0,
       "summary": "enter your username in the script --heyitsmeitsverity67 aka mrskid a lot",
@@ -3557,7 +3667,7 @@
         "keyless",
         "stealanegg"
       ],
-      "views": 2146,
+      "views": 2151,
       "likes": 2,
       "dislikes": 0,
       "summary": "Rivals Gun Silent Aim & Esp Steal An Egg steal an egg stealanegg StealAnEgg Egg Stealing",
@@ -3593,7 +3703,7 @@
         "FyyeHub",
         "Keyless"
       ],
-      "views": 853,
+      "views": 855,
       "likes": 2,
       "dislikes": 0,
       "summary": "Volley Bomb - Simple Ball Esp Script Xeno And Solara support :D by Fyye_Hub",
@@ -3630,7 +3740,7 @@
         "auto quest",
         "auto raid"
       ],
-      "views": 142,
+      "views": 143,
       "likes": 0,
       "dislikes": 0,
       "summary": "BBR HUB – Cloverlines script for mobile and PC (Cloverlines is the new Clover Time, relaunched by Anime Core Studio). Takes quest after quest, farms enemies and bosses with your grimoire skills and levels you up on autopilot, while cryst…",
@@ -3667,7 +3777,7 @@
         "Draw",
         "Art"
       ],
-      "views": 229,
+      "views": 230,
       "likes": 1,
       "dislikes": 0,
       "summary": "Autodraw instantly onto canvas low unc execs such as xeno solara and jjsploit are not supported",
@@ -3832,43 +3942,6 @@
       ]
     },
     {
-      "id": "scriptblox-6b009b0be6a5402a3f923d5a",
-      "slug": "RIVALS-NEBULA-RAGEBOT-KILL-ALL-237566",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RIVALS-NEBULA-RAGEBOT-KILL-ALL-237566",
-      "title": "NEBULA RAGEBOT KILL ALL",
-      "game": "[🛡️] RIVALS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e5dc0ebbd2205f661451ec3c8e0bd57e-fdbc5fe873d4.png",
-      "author": "build_scripts",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "ragebot",
-        "ragebotcouter",
-        "aimbot"
-      ],
-      "views": 462,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "- ragebot - ragebot counter - silent aim - esp - and hundred of features",
-      "code": "loadstring(game:HttpGet(\"https://pasteblox.com/raw/w4vgucyqp7\"))()",
-      "createdAt": "2026-11-20T19:10:04.071Z",
-      "updatedAt": "2026-11-21T10:02:11.985Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-683b3949a348d24efdf83b72",
       "slug": "Universal-Script-Forge-Hub-41461",
       "source": "scriptblox",
@@ -3889,7 +3962,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5558733,
+      "views": 5558777,
       "likes": 110,
       "dislikes": 55,
       "rating": 3.3,
@@ -3929,7 +4002,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4489390,
+      "views": 4489398,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3970,7 +4043,7 @@
         "sae",
         "universal"
       ],
-      "views": 3979732,
+      "views": 3979748,
       "likes": 98,
       "dislikes": 50,
       "rating": 3.3,
@@ -4011,7 +4084,7 @@
         "flow",
         "script"
       ],
-      "views": 3873160,
+      "views": 3873262,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -4051,7 +4124,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3845288,
+      "views": 3845392,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4090,7 +4163,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3524136,
+      "views": 3524245,
       "likes": 67,
       "dislikes": 13,
       "rating": 4.2,
@@ -4130,7 +4203,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3508499,
+      "views": 3508503,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4170,7 +4243,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3389575,
+      "views": 3389576,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4209,14 +4282,14 @@
       "tags": [
         "Universal"
       ],
-      "views": 3176612,
+      "views": 3176721,
       "likes": 50,
       "dislikes": 26,
       "rating": 3.3,
       "summary": "After two years CanHub is back and better than ever with over 200+ supported games COMPLETELY KEYLESS. As always if you find a script that doesn't work or a bug report it using the report menu within the script or join our discord server…",
       "code": "loadstring(game:HttpGet(\"https://api.canhub.dev/code\"))()",
       "createdAt": "2026-07-07T21:19:19.319Z",
-      "updatedAt": "2026-11-16T03:33:43.261Z",
+      "updatedAt": "2026-11-23T05:24:56.755Z",
       "categoryIds": [
         "popular",
         "universal"
@@ -4285,7 +4358,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3141743,
+      "views": 3141750,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4324,7 +4397,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023196,
+      "views": 3023197,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4363,7 +4436,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2755367,
+      "views": 2755471,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4403,7 +4476,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2720055,
+      "views": 2720057,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4442,7 +4515,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2518373,
+      "views": 2518381,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4483,7 +4556,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2484019,
+      "views": 2484024,
       "likes": 174,
       "dislikes": 31,
       "rating": 4.2,
@@ -4600,7 +4673,7 @@
         "*nal",
         "phantomforces"
       ],
-      "views": 2147342,
+      "views": 2147343,
       "likes": 22,
       "dislikes": 0,
       "rating": 5,
@@ -4798,7 +4871,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2040412,
+      "views": 2040413,
       "likes": 80,
       "dislikes": 13,
       "rating": 4.3,
@@ -4876,7 +4949,7 @@
         "adopt me",
         "blox fruits"
       ],
-      "views": 1939901,
+      "views": 1940003,
       "likes": 161,
       "dislikes": 46,
       "rating": 3.9,
@@ -5027,7 +5100,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1892125,
+      "views": 1892127,
       "likes": 207,
       "dislikes": 34,
       "rating": 4.3,
@@ -5218,7 +5291,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1832280,
+      "views": 1832381,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5295,7 +5368,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1789076,
+      "views": 1789077,
       "likes": 25,
       "dislikes": 0,
       "rating": 5,
@@ -5445,7 +5518,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748001,
+      "views": 1748002,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5521,7 +5594,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1717658,
+      "views": 1717660,
       "likes": 10,
       "dislikes": 5,
       "rating": 3.3,
@@ -5638,7 +5711,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1689037,
+      "views": 1689038,
       "likes": 335,
       "dislikes": 45,
       "rating": 4.4,
@@ -6258,7 +6331,7 @@
         "BF",
         "hub"
       ],
-      "views": 1362248,
+      "views": 1362249,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -6295,7 +6368,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1346071,
+      "views": 1346072,
       "likes": 179,
       "dislikes": 16,
       "rating": 4.6,
@@ -6523,7 +6596,7 @@
         "free",
         "easy"
       ],
-      "views": 1302911,
+      "views": 1303011,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6561,7 +6634,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1291565,
+      "views": 1291566,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6728,45 +6801,6 @@
       ]
     },
     {
-      "id": "scriptblox-64dcd52b12707f65eb9da504",
-      "slug": "Westbound-pro-7125",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Westbound-pro-7125",
-      "title": "[V1.6.6] Silent Aim, Animal ESP, Rob Aura...",
-      "game": "Westbound",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-46c2cfab4a829a5ffe944e61a5fc2491-3dea351da73c.png",
-      "author": "Exunys",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "esp",
-        "aimbot",
-        "silent aim"
-      ],
-      "views": 1240794,
-      "likes": 24,
-      "dislikes": 4,
-      "rating": 4.3,
-      "summary": "Version: 1.6.5 Credits to Rtxyy for testing and helping during the development. Press \"Right Shift\" to Show / Hide the GUI (You can edit this keybind in the Settings tab). This script is made and tested only with Synapse X. I will not be…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Exunys/westbound.pro-Utilites/main/Main.lua\"))()",
-      "createdAt": "2023-08-16T13:54:51.429Z",
-      "updatedAt": "2023-08-16T13:54:51.429Z",
-      "categoryIds": [
-        "keyless",
-        "verified"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-69e8b4fcf18d00933e6ebea5",
       "slug": "Universal-Script-Novoline-204721",
       "source": "scriptblox",
@@ -6787,7 +6821,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1240784,
+      "views": 1240883,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6801,6 +6835,45 @@
         "verified"
       ],
       "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-64dcd52b12707f65eb9da504",
+      "slug": "Westbound-pro-7125",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Westbound-pro-7125",
+      "title": "[V1.6.6] Silent Aim, Animal ESP, Rob Aura...",
+      "game": "Westbound",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-46c2cfab4a829a5ffe944e61a5fc2491-3dea351da73c.png",
+      "author": "Exunys",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "esp",
+        "aimbot",
+        "silent aim"
+      ],
+      "views": 1240795,
+      "likes": 24,
+      "dislikes": 4,
+      "rating": 4.3,
+      "summary": "Version: 1.6.5 Credits to Rtxyy for testing and helping during the development. Press \"Right Shift\" to Show / Hide the GUI (You can edit this keybind in the Settings tab). This script is made and tested only with Synapse X. I will not be…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Exunys/westbound.pro-Utilites/main/Main.lua\"))()",
+      "createdAt": "2023-08-16T13:54:51.429Z",
+      "updatedAt": "2023-08-16T13:54:51.429Z",
+      "categoryIds": [
+        "keyless",
+        "verified"
+      ],
+      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -6898,7 +6971,7 @@
         "dupe",
         "Keyless"
       ],
-      "views": 1180758,
+      "views": 1180759,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -7313,7 +7386,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 778410,
+      "views": 778412,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -8287,7 +8360,7 @@
         "slap battles script",
         "godmode"
       ],
-      "views": 1416095,
+      "views": 1416096,
       "likes": 75,
       "dislikes": 12,
       "rating": 4.3,
@@ -8584,7 +8657,7 @@
         "best",
         "Op"
       ],
-      "views": 1070163,
+      "views": 1070168,
       "likes": 97,
       "dislikes": 17,
       "rating": 4.3,
@@ -9055,80 +9128,6 @@
       ]
     },
     {
-      "id": "scriptblox-6afa2a1947e9dd7a40b7560e",
-      "slug": "Universal-Script-KizzDev-v50-or-Admin-Command-Hub-or-Mobile-and-PC-Support-237109",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-KizzDev-v50-or-Admin-Command-Hub-or-Mobile-and-PC-Support-237109",
-      "title": "[ KizzDev v50 ] Admin Command Hub | Mobile, IOS & PC Support",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794779673410.png",
-      "author": "KizzDev",
-      "authorVerified": false,
-      "verified": false,
-      "status": "patched",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "UniversalScript",
-        "ScriptHub",
-        "AdminCommands"
-      ],
-      "views": 153,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "👑 KizzDev v50 – Admin Command Hub A customizable admin command hub based on Infinite Yield, featuring a clean interface, lightweight design, and support for both Mobile, IOS & PC. ✨ FEATURES - Command Bar – Execute commands instantly. -…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/KizzMD/kizzdevkv50/refs/heads/main/premium50.lua\"))()",
-      "createdAt": "2026-11-15T21:54:33.877Z",
-      "updatedAt": "2026-11-18T07:30:19.592Z",
-      "categoryIds": [
-        "patched"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#B33A3A",
-        "#4A0000"
-      ]
-    },
-    {
-      "id": "scriptblox-6af58b238f7beba57b50c480",
-      "slug": "Bug-Evolution-Orb-Finder-Sand-Event-KEYLESS-236393",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Bug-Evolution-Orb-Finder-Sand-Event-KEYLESS-236393",
-      "title": "Orb Hub [KEYLESS]",
-      "game": "Bug Evolution [☀️]",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-5910da9f5bb8192792a3bd83e175c6e4-96e7dce187e6.png",
-      "author": "Qemanwww",
-      "authorVerified": false,
-      "verified": false,
-      "status": "patched",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "afk",
-        "grind",
-        "Keyless"
-      ],
-      "views": 598,
-      "likes": 2,
-      "dislikes": 0,
-      "summary": "the best orb farming script Xeno/solara supported keyless btw open source noclip fly tp to save zone player esp anti afk event orb collector [void orb and sand orb] xp farm script will be updated ALL EXECUTORS SUPPORTED Phone supported t…",
-      "code": "print(\"=== FARM GUI START ===\")\n\nlocal Players = game:GetService(\"Players\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal RunService = game:GetService(\"RunService\")\nlocal VirtualUser = game:GetService(\"VirtualUser\")\nlocal TweenService = game:GetService(\"TweenService\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\", 10)\nif not playerGui then warn(\"PlayerGui not found!\") return end\n\n-- ============================================================\n-- THEME COLORS (Green)\n-- ============================================================\nlocal Theme = {\n    Background = Color3.fromRGB(18, 22, 18),\n    Header = Color3.fromRGB(28, 35, 28),\n    Accent = Color3.fromRGB(60, 200, 70),\n    Text = Color3.fromRGB(240, 255, 240),\n    SubText = Color3.fromRGB(150, 180, 150),\n    ButtonBase = Color3.fromRGB(35, 50, 35),\n    ButtonHover = Color3.fromRGB(50, 80, 50),\n    ButtonActive = Color3.fromRGB(0, 150, 50),\n    SliderBg = Color3.fromRGB(30, 40, 30),\n    TabActive = Color3.fromRGB(60, 200, 70),\n    TabInactive = Color3.fromRGB(25, 35, 25)\n}\n\n-- ============================================================\n-- MAIN FRAME\n-- ============================================================\nlocal screenGui = Instance.new(\"ScreenGui\")\nscreenGui.Name = \"FarmGui\"\nscreenGui.ResetOnSpawn = false\nscreenGui.IgnoreGuiInset = true\nscreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling\nscreenGui.Parent = playerGui\n\nlocal frame = Instance.new(\"Frame\")\nframe.Name = \"MainFrame\"\nframe.Size = UDim2.new(0, 350, 0, 350)\nframe.Position = UDim2.new(0, 20, 0, 20)\nframe.BackgroundColor3 = Theme.Background\nframe.BorderSizePixel = 0\nframe.Active = true\nframe.ZIndex = 10\nframe.Parent = screenGui\nframe.BackgroundTransparency = 1\n\nTweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { BackgroundTransparency = 0 }):Play()\n\nlocal corner = Instance.new(\"UICorner\")\ncorner.CornerRadius = UDim.new(0, 10)\ncorner.Parent = frame\n\nlocal uiStroke = Instance.new(\"UIStroke\")\nuiStroke.Color = Theme.Accent\nuiStroke.Thickness = 1\nuiStroke.Transparency = 0.4\nuiStroke.Parent = frame\n\n-- ============================================================\n-- TITLE BAR\n-- ============================================================\nlocal titleBar = Instance.new(\"Frame\")\ntitleBar.Name = \"TitleBar\"\ntitleBar.Size = UDim2.new(1, 0, 0, 32)\ntitleBar.BackgroundColor3 = Theme.Header\ntitleBar.BorderSizePixel = 0\ntitleBar.ZIndex = 11\ntitleBar.Parent = frame\n\nlocal titleBarCorner = Instance.new(\"UICorner\")\ntitleBarCorner.CornerRadius = UDim.new(0, 10)\ntitleBarCorner.Parent = titleBar\n\nlocal titleBarFix = Instance.new(\"Frame\")\ntitleBarFix.Size = UDim2.new(1, 0, 0.5, 0)\ntitleBarFix.Position = UDim2.new(0, 0, 0.5, 0)\ntitleBarFix.BackgroundColor3 = Theme.Header\ntitleBarFix.BorderSizePixel = 0\ntitleBarFix.ZIndex = 11\ntitleBarFix.Parent = titleBar\n\nlocal title = Instance.new(\"TextLabel\")\ntitle.Size = UDim2.new(1, -80, 1, 0)\ntitle.Position = UDim2.new(0, 12, 0, 0)\ntitle.BackgroundTransparency = 1\ntitle.Text = \"Orb Farmer\"\ntitle.TextColor3 = Theme.Text\ntitle.Font = Enum.Font.Gotham -- Обычный шрифт\ntitle.TextSize = 14\ntitle.TextXAlignment = Enum.TextXAlignment.Left\ntitle.ZIndex = 12\ntitle.Parent = titleBar\n\nlocal function makeTitleBtn(text, posX, color)\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(0, 24, 0, 24)\n    btn.Position = UDim2.new(1, posX, 0, 4)\n    btn.BackgroundColor3 = color\n    btn.Text = text\n    btn.TextColor3 = Theme.Text\n    btn.Font = Enum.Font.Gotham -- Обычный шрифт\n    btn.TextSize = 14\n    btn.BorderSizePixel = 0\n    btn.AutoButtonColor = false\n    btn.ZIndex = 12\n    btn.Parent = titleBar\n    \n    local c = Instance.new(\"UICorner\")\n    c.CornerRadius = UDim.new(0, 6)\n    c.Parent = btn\n    \n    local stroke = Instance.new(\"UIStroke\")\n    stroke.Color = Color3.new(1,1,1)\n    stroke.Thickness = 0\n    stroke.Transparency = 1\n    stroke.Parent = btn\n\n    btn.MouseEnter:Connect(function()\n        TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad), { BackgroundColor3 = color:Lerp(Color3.new(1,1,1), 0.2) }):Play()\n        TweenService:Create(stroke, TweenInfo.new(0.2), { Thickness = 1, Transparency = 0.5 }):Play()\n    end)\n    btn.MouseLeave:Connect(function()\n        TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad), { BackgroundColor3 = color }):Play()\n        TweenService:Create(stroke, TweenInfo.new(0.2), { Thickness = 0, Transparency = 1 }):Play()\n    end)\n    return btn\nend\n\nlocal minBtn = makeTitleBtn(\"-\", -56, Theme.ButtonBase)\nlocal closeBtn = makeTitleBtn(\"X\", -28, Color3.fromRGB(200, 60, 60))\n\n-- ============================================================\n-- CONTENT CONTAINER\n-- ============================================================\nlocal content = Instance.new(\"Frame\")\ncontent.Name = \"Content\"\ncontent.Size = UDim2.new(1, 0, 1, -32)\ncontent.Position = UDim2.new(0, 0, 0, 32)\ncontent.BackgroundTransparency = 1\ncontent.ZIndex = 11\ncontent.Parent = frame\n\n-- ============================================================\n-- TABS\n-- ============================================================\nlocal tabBar = Instance.new(\"Frame\")\ntabBar.Size = UDim2.new(1, 0, 0, 32)\ntabBar.BackgroundColor3 = Theme.Background\ntabBar.BorderSizePixel = 0\ntabBar.ZIndex = 11\ntabBar.Parent = content\n\nlocal farmTab = Instance.new(\"TextButton\")\nfarmTab.Size = UDim2.new(0.5, -2, 0, 28)\nfarmTab.Position = UDim2.new(0, 2, 0, 2)\nfarmTab.BackgroundColor3 = Theme.TabActive\nfarmTab.Text = \"FARM\"\nfarmTab.TextColor3 = Theme.Text\nfarmTab.Font = Enum.Font.Gotham\nfarmTab.TextSize = 12\nfarmTab.BorderSizePixel = 0\nfarmTab.ZIndex = 12\nfarmTab.Parent = tabBar\nlocal farmTabCorner = Instance.new(\"UICorner\")\nfarmTabCorner.CornerRadius = UDim.new(0, 6)\nfarmTabCorner.Parent = farmTab\n\nlocal playerTab = Instance.new(\"TextButton\")\nplayerTab.Size = UDim2.new(0.5, -2, 0, 28)\nplayerTab.Position = UDim2.new(0.5, 0, 0, 2)\nplayerTab.BackgroundColor3 = Theme.TabInactive\nplayerTab.Text = \"PLAYER\"\nplayerTab.TextColor3 = Theme.SubText\nplayerTab.Font = Enum.Font.Gotham\nplayerTab.TextSize = 12\nplayerTab.BorderSizePixel = 0\nplayerTab.ZIndex = 12\nplayerTab.Parent = tabBar\nlocal playerTabCorner = Instance.new(\"UICorner\")\nplayerTabCorner.CornerRadius = UDim.new(0, 6)\nplayerTabCorner.Parent = playerTab\n\nlocal farmPage = Instance.new(\"Frame\")\nfarmPage.Size = UDim2.new(1, 0, 1, -32)\nfarmPage.Position = UDim2.new(0, 0, 0, 32)\nfarmPage.BackgroundTransparency = 1\nfarmPage.ZIndex = 11\nfarmPage.Parent = content\n\nlocal playerPage = Instance.new(\"Frame\")\nplayerPage.Size = UDim2.new(1, 0, 1, -32)\nplayerPage.Position = UDim2.new(0, 0, 0, 32)\nplayerPage.BackgroundTransparency = 1\nplayerPage.Visible = false\nplayerPage.ZIndex = 11\nplayerPage.Parent = content\n\nfarmTab.MouseButton1Click:Connect(function()\n    TweenService:Create(farmTab, TweenInfo.new(0.2), { BackgroundColor3 = Theme.TabActive }):Play()\n    TweenService:Create(farmTab, TweenInfo.new(0.2), { TextColor3 = Theme.Text }):Play()\n    TweenService:Create(playerTab, TweenInfo.new(0.2), { BackgroundColor3 = Theme.TabInactive }):Play()\n    TweenService:Create(playerTab, TweenInfo.new(0.2), { TextColor3 = Theme.SubText }):Play()\n    farmPage.Visible = true\n    playerPage.Visible = false\nend)\n\nplayerTab.MouseButton1Click:Connect(function()\n    TweenService:Create(playerTab, TweenInfo.new(0.2), { BackgroundColor3 = Theme.TabActive }):Play()\n    TweenService:Create(playerTab, TweenInfo.new(0.2), { TextColor3 = Theme.Text }):Play()\n    TweenService:Create(farmTab, TweenInfo.new(0.2), { BackgroundColor3 = Theme.TabInactive }):Play()\n    TweenService:Create(farmTab, TweenInfo.new(0.2), { TextColor3 = Theme.SubText }):Play()\n    farmPage.Visible = false\n    playerPage.Visible = true\nend)\n\n-- ============================================================\n-- DRAG\n-- ============================================================\nlocal dragging, dragStart, startPos\ntitleBar.InputBegan:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n        dragging = true; dragStart = input.Position; startPos = frame.Position\n    end\nend)\nUserInputService.InputChanged:Connect(function(input)\n    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then\n        local delta = input.Position - dragStart\n        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)\n    end\nend)\nUserInputService.InputEnded:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then dragging = false end\nend)\n\n-- ============================================================\n-- MINIMIZE / CLOSE\n-- ============================================================\nlocal minimized = false\nminBtn.MouseButton1Click:Connect(function()\n    minimized = not minimized\n    if minimized then\n        content.Visible = false\n        TweenService:Create(frame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 350, 0, 32) }):Play()\n        minBtn.Text = \"+\"\n    else\n        content.Visible = true\n        TweenService:Create(frame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 350, 0, 350) }):Play()\n        minBtn.Text = \"-\"\n    end\nend)\n\ncloseBtn.MouseButton1Click:Connect(function()\n    TweenService:Create(frame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Size = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1 }):Play()\n    task.wait(0.25)\n    screenGui:Destroy()\nend)\n\n-- ============================================================\n-- UI HELPERS\n-- ============================================================\nlocal function makeButton(parent, text, yPos, isActive)\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(1, -20, 0, 34)\n    btn.Position = UDim2.new(0, 10, 0, yPos)\n    btn.BackgroundColor3 = isActive and Theme.ButtonActive or Theme.ButtonBase\n    btn.Text = text\n    btn.TextColor3 = Theme.Text\n    btn.Font = Enum.Font.Gotham -- Обычный шрифт\n    btn.TextSize = 12\n    btn.BorderSizePixel = 0\n    btn.AutoButtonColor = false\n    btn.ZIndex = 12\n    btn.Parent = parent\n\n    local c = Instance.new(\"UICorner\")\n    c.CornerRadius = UDim.new(0, 8)\n    c.Parent = btn\n\n    local stroke = Instance.new(\"UIStroke\")\n    stroke.Color = Theme.Accent\n    stroke.Thickness = 0\n    stroke.Transparency = 1\n    stroke.Parent = btn\n\n    local isHovering = false\n\n    btn.MouseEnter:Connect(function()\n        if isActive then return end\n        isHovering = true\n        TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad), { BackgroundColor3 = Theme.ButtonHover }):Play()\n        TweenService:Create(stroke, TweenInfo.new(0.2), { Thickness = 2, Transparency = 0.2 }):Play()\n    end)\n    btn.MouseLeave:Connect(function()\n        if isActive then return end\n        isHovering = false\n        TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad), { BackgroundColor3 = Theme.ButtonBase }):Play()\n        TweenService:Create(stroke, TweenInfo.new(0.2), { Thickness = 0, Transparency = 1 }):Play()\n    end)\n    btn.MouseButton1Down:Connect(function()\n        TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Quad), { Size = UDim2.new(1, -24, 0, 30) }):Play()\n    end)\n    btn.MouseButton1Up:Connect(function()\n        TweenService:Create(btn, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { Size = UDim2.new(1, -20, 0, 34) }):Play()\n    end)\n\n    return btn, function(active)\n        isActive = active\n        TweenService:Create(btn, TweenInfo.new(0.3, Enum.EasingStyle.Quad), { BackgroundColor3 = active and Theme.ButtonActive or Theme.ButtonBase }):Play()\n    end\nend\n\nlocal function makeLabel(parent, text, yPos)\n    local lbl = Instance.new(\"TextLabel\")\n    lbl.Size = UDim2.new(1, -20, 0, 16)\n    lbl.Position = UDim2.new(0, 12, 0, yPos)\n    lbl.BackgroundTransparency = 1\n    lbl.Text = text\n    lbl.TextColor3 = Theme.SubText\n    lbl.Font = Enum.Font.Gotham -- Обычный шрифт\n    lbl.TextSize = 11\n    lbl.TextXAlignment = Enum.TextXAlignment.Left\n    lbl.ZIndex = 12\n    lbl.Parent = parent\n    return lbl\nend\n\nlocal function setupSlider(parent, labelText, yPos, minVal, maxVal, startVal, onUpdate)\n    local lbl = makeLabel(parent, labelText, yPos)\n    local slider = Instance.new(\"Frame\")\n    slider.Size = UDim2.new(1, -20, 0, 14)\n    slider.Position = UDim2.new(0, 10, 0, yPos + 18)\n    slider.BackgroundColor3 = Theme.SliderBg\n    slider.BorderSizePixel = 0\n    slider.ZIndex = 12\n    slider.Parent = parent\n\n    local sliderCorner = Instance.new(\"UICorner\")\n    sliderCorner.CornerRadius = UDim.new(0, 7)\n    sliderCorner.Parent = slider\n\n    local fill = Instance.new(\"Frame\")\n    local startRelX = (startVal - minVal) / (maxVal - minVal)\n    fill.Size = UDim2.new(startRelX, 0, 1, 0)\n    fill.BackgroundColor3 = Theme.Accent\n    fill.BorderSizePixel = 0\n    fill.ZIndex = 13\n    fill.Parent = slider\n    local fillCorner = Instance.new(\"UICorner\")\n    fillCorner.CornerRadius = UDim.new(0, 7)\n    fillCorner.Parent = fill\n\n    local knob = Instance.new(\"Frame\")\n    knob.Size = UDim2.new(0, 12, 0, 12)\n    knob.Position = UDim2.new(startRelX, -6, 0.5, -6)\n    knob.BackgroundColor3 = Theme.Text\n    knob.BorderSizePixel = 0\n    knob.ZIndex = 14\n    knob.Parent = slider\n    local knobCorner = Instance.new(\"UICorner\")\n    knobCorner.CornerRadius = UDim.new(1, 0)\n    knobCorner.Parent = knob\n\n    local isDragging = false\n    local function update(inputPos)\n        local relX = math.clamp((inputPos.X - slider.AbsolutePosition.X) / slider.AbsoluteSize.X, 0, 1)\n        local value = minVal + (maxVal - minVal) * relX\n        TweenService:Create(fill, TweenInfo.new(0.06), { Size = UDim2.new(relX, 0, 1, 0) }):Play()\n        TweenService:Create(knob, TweenInfo.new(0.06), { Position = UDim2.new(relX, -6, 0.5, -6) }):Play()\n        onUpdate(value)\n    end\n    slider.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n            isDragging = true; update(input.Position)\n        end\n    end)\n    slider.InputEnded:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then isDragging = false end\n    end)\n    UserInputService.InputChanged:Connect(function(input)\n        if isDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then update(input.Position) end\n    end)\n    return lbl\nend\n\n-- ============================================================\n-- FARM PAGE\n-- ============================================================\nlocal MIN_DELAY, MAX_DELAY = 0.1, 1.0\nlocal currentDelay = 0.3\n\nlocal delayLabel = setupSlider(farmPage, \"Delay: 0.30s\", 10, MIN_DELAY, MAX_DELAY, currentDelay, function(val)\n    currentDelay = math.floor(val * 100) / 100\n    delayLabel.Text = string.format(\"Delay: %.2fs\", currentDelay)\nend)\n\nlocal startBtn, setStartActive = makeButton(farmPage, \"START FARM (Sand/Void)\", 55, false)\nlocal farmXpBtn, setXpActive = makeButton(farmPage, \"FARM XP (Pink Orb)\", 95, false)\nlocal tpSaveBtn, setTpActive = makeButton(farmPage, \"TP to Save Zone\", 135, false)\n\n-- ============================================================\n-- PLAYER PAGE\n-- ============================================================\nlocal MIN_FLYSPEED, MAX_FLYSPEED = 16, 200\nlocal currentFlySpeed = 60\n\nlocal flySpeedLabel = setupSlider(playerPage, \"Fly Speed: 60\", 10, MIN_FLYSPEED, MAX_FLYSPEED, currentFlySpeed, function(val)\n    currentFlySpeed = math.floor(val)\n    flySpeedLabel.Text = \"Fly Speed: \" .. currentFlySpeed\nend)\n\nlocal flyBtn, setFlyActive = makeButton(playerPage, \"Fly: OFF\", 55, false)\nlocal noclipBtn, setNoclipActive = makeButton(playerPage, \"Noclip: OFF\", 95, false)\nlocal antiAfkBtn, setAntiAfkActive = makeButton(playerPage, \"Anti-AFK: OFF\", 135, false)\nlocal espBtn, setEspActive = makeButton(playerPage, \"Player ESP: OFF\", 175, false)\n\n-- ============================================================\n-- STATUS\n-- ============================================================\nlocal statusLabel = Instance.new(\"TextLabel\")\nstatusLabel.Size = UDim2.new(1, -20, 0, 20)\nstatusLabel.Position = UDim2.new(0, 10, 1, -25)\nstatusLabel.BackgroundTransparency = 1\nstatusLabel.Text = \"Status: idle\"\nstatusLabel.TextColor3 = Theme.SubText\nstatusLabel.Font = Enum.Font.Gotham -- Обычный шрифт\nstatusLabel.TextSize = 10\nstatusLabel.TextXAlignment = Enum.TextXAlignment.Left\nstatusLabel.ZIndex = 12\nstatusLabel.Parent = content\n\n-- ============================================================\n-- FLY, NOCLIP, ANTI-AFK\n-- ============================================================\nlocal flyEnabled = false\nlocal flyConnection, flyBodyVelocity\n\nlocal function startFly()\n    local char = player.Character\n    if not char then return end\n    local hrp = char:FindFirstChild(\"HumanoidRootPart\")\n    if not hrp then return end\n    local bv = Instance.new(\"BodyVelocity\")\n    bv.MaxForce = Vector3.new(9e9, 9e9, 9e9)\n    bv.Velocity = Vector3.zero\n    bv.Parent = hrp\n    flyBodyVelocity = bv\n    local hum = char:FindFirstChildOfClass(\"Humanoid\")\n    if hum then hum.PlatformStand = true end\n    flyConnection = RunService.RenderStepped:Connect(function()\n        if not flyBodyVelocity then return end\n        local cam = workspace.CurrentCamera\n        local moveVec = Vector3.zero\n        if UserInputService:IsKeyDown(Enum.KeyCode.W) then moveVec += cam.CFrame.LookVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.S) then moveVec -= cam.CFrame.LookVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.A) then moveVec -= cam.CFrame.RightVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.D) then moveVec += cam.CFrame.RightVector end\n        if UserInputService:IsKeyDown(Enum.KeyCode.Space) then moveVec += Vector3.new(0, 1, 0) end\n        if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then moveVec -= Vector3.new(0, 1, 0) end\n        if moveVec.Magnitude > 0 then moveVec = moveVec.Unit * currentFlySpeed end\n        flyBodyVelocity.Velocity = moveVec\n    end)\nend\n\nlocal function stopFly()\n    if flyConnection then flyConnection:Disconnect(); flyConnection = nil end\n    if flyBodyVelocity then flyBodyVelocity:Destroy(); flyBodyVelocity = nil end\n    local char = player.Character\n    if char then\n        local hum = char:FindFirstChildOfClass(\"Humanoid\")\n        if hum then hum.PlatformStand = false end\n    end\nend\n\nflyBtn.MouseButton1Click:Connect(function()\n    flyEnabled = not flyEnabled\n    setFlyActive(flyEnabled)\n    flyBtn.Text = \"Fly: \" .. (flyEnabled and \"ON\" or \"OFF\")\n    if flyEnabled then startFly() else stopFly() end\nend)\nplayer.CharacterAdded:Connect(function() if flyEnabled then stopFly(); task.wait(0.5); startFly() end end)\n\nlocal antiAfkEnabled = false\nantiAfkBtn.MouseButton1Click:Connect(function()\n    antiAfkEnabled = not antiAfkEnabled\n    setAntiAfkActive(antiAfkEnabled)\n    antiAfkBtn.Text = \"Anti-AFK: \" .. (antiAfkEnabled and \"ON\" or \"OFF\")\nend)\nplayer.Idled:Connect(function()\n    if antiAfkEnabled then\n        VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)\n        task.wait(1)\n        VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)\n    end\nend)\n\nlocal noclipEnabled = false\nnoclipBtn.MouseButton1Click:Connect(function()\n    noclipEnabled = not noclipEnabled\n    setNoclipActive(noclipEnabled)\n    noclipBtn.Text = \"Noclip: \" .. (noclipEnabled and \"ON\" or \"OFF\")\nend)\ntask.spawn(function()\n    while screenGui.Parent do\n        task.wait(0.1)\n        if noclipEnabled then\n            local char = player.Character\n            if char then\n                for _, p in ipairs(char:GetDescendants()) do\n                    if p:IsA(\"BasePart\") then p.CanCollide = false end\n                end\n            end\n        end\n    end\nend)\n\n-- ============================================================\n-- FARM LOGIC (С СИСТЕМОЙ ПРОПУСКА И БЕЗ +5)\n-- ============================================================\nlocal farmOrbsActive = false\nlocal farmXpActive = false\n\n-- Черный список (запоминает объекты, к которым нельзя телепортироваться)\nlocal skipList = {}\n\n-- Очистка черного списка (если в нем больше 50 объектов или все орбы в нем)\nlocal function clearSkipListIfNeeded()\n    local count = 0\n    for _ in pairs(skipList) do count = count + 1 end\n    if count > 50 then\n        skipList = {}\n    end\nend\n\n-- Проверка, можно ли телепортироваться к объекту (он существует, он в Workspace, его не удалили)\nlocal function isValidOrb(part)\n    if not part or not part.Parent then return false end\n    if skipList[part] then return false end\n    return true\nend\n\n-- Поиск SandOrb / VoidOrb\nlocal function findSandVoidOrb()\n    clearSkipListIfNeeded()\n    local orbs = {}\n    \n    local voidFolder = workspace:FindFirstChild(\"VoidOrbs\")\n    if voidFolder then\n        for _, obj in ipairs(voidFolder:GetChildren()) do\n            local part = obj:IsA(\"BasePart\") and obj or obj:FindFirstChildWhichIsA(\"BasePart\")\n            if part and isValidOrb(part) then table.insert(orbs, part) end\n        end\n    end\n    \n    local sandFolder = workspace:FindFirstChild(\"SandOrbs\")\n    if sandFolder then\n        for _, obj in ipairs(sandFolder:GetChildren()) do\n            local part = obj:IsA(\"BasePart\") and obj or obj:FindFirstChildWhichIsA(\"BasePart\")\n            if part and isValidOrb(part) then table.insert(orbs, part) end\n        end\n    end\n    \n    if #orbs > 0 then return orbs[1] end\n    \n    -- Если все орбы в черном списке, чистим его\n    if #orbs == 0 and next(skipList) then\n        skipList = {}\n        return findSandVoidOrb()\n    end\n    \n    return nil\nend\n\n-- Поиск Розового Orb (цвет 255, 110, 220)\nlocal function findPinkOrb()\n    clearSkipListIfNeeded()\n    local orbs = {}\n    local orbsFolder = workspace:FindFirstChild(\"Orbs\")\n    if orbsFolder then\n        for _, obj in ipairs(orbsFolder:GetDescendants()) do\n            if obj:IsA(\"BasePart\") and obj.Name == \"Orb\" then\n                local c = obj.Color\n                if math.abs(c.R * 255 - 255) < 5 and math.abs(c.G * 255 - 110) < 5 and math.abs(c.B * 255 - 220) < 5 then\n                    if isValidOrb(obj) then table.insert(orbs, obj) end\n                end\n            end\n        end\n    end\n    \n    if #orbs > 0 then return orbs[1] end\n    \n    if #orbs == 0 and next(skipList) then\n        skipList = {}\n        return findPinkOrb()\n    end\n    \n    return nil\nend\n\n-- Универсальный телепорт (Y = 0, ровно в центр)\nlocal function teleportTo(part)\n    local char = player.Character\n    if not char then return end\n    local hrp = char:FindFirstChild(\"HumanoidRootPart\")\n    if hrp and part then\n        hrp.CFrame = CFrame.new(part.Position) -- Смещение 0, ровно в центр\n        return true\n    end\n    return false\nend\n\n-- Запуск фарма Sand/Void\nstartBtn.MouseButton1Click:Connect(function()\n    farmOrbsActive = not farmOrbsActive\n    setStartActive(farmOrbsActive)\n    if farmOrbsActive then\n        startBtn.Text = \"STOP FARM (Sand/Void)\"\n        task.spawn(function()\n            while farmOrbsActive do\n                local orb = findSandVoidOrb()\n                if orb then \n                    if teleportTo(orb) then\n                        statusLabel.Text = \"Status: farm -> \" .. orb.Name\n                    else\n                        -- Если телепорт не удался, добавляем в черный список\n                        skipList[orb] = true\n                        statusLabel.Text = \"Status: orb skipped (unreachable)\"\n                    end\n                else \n                    statusLabel.Text = \"Status: no reachable orbs\" \n                end\n                task.wait(currentDelay)\n            end\n        end)\n    else\n        startBtn.Text = \"START FARM (Sand/Void)\"\n        statusLabel.Text = \"Status: stopped\"\n    end\nend)\n\n-- Запуск фарма XP\nfarmXpBtn.MouseButton1Click:Connect(function()\n    farmXpActive = not farmXpActive\n    setXpActive(farmXpActive)\n    if farmXpActive then\n        farmXpBtn.Text = \"STOP FARM XP (Pink Orb)\"\n        task.spawn(function()\n            while farmXpActive do\n                local orb = findPinkOrb()\n                if orb then\n                    if teleportTo(orb) then\n                        statusLabel.Text = \"Status: XP -> Pink Orb\"\n                    else\n                        -- Если телепорт не удался, добавляем в черный список\n                        skipList[orb] = true\n                        statusLabel.Text = \"Status: orb skipped (unreachable)\"\n                    end\n                else\n                    statusLabel.Text = \"Status: no reachable pink orbs\"\n                end\n                task.wait(currentDelay)\n            end\n        end)\n    else\n        farmXpBtn.Text = \"FARM XP (Pink Orb)\"\n        statusLabel.Text = \"Status: stopped\"\n    end\nend)\n\n-- Телепорт в сейв зону\ntpSaveBtn.MouseButton1Click:Connect(function()\n    local char = player.Character\n    if not char then return end\n    local hrp = char:FindFirstChild(\"HumanoidRootPart\")\n    if hrp then\n        hrp.CFrame = CFrame.new(284.71, 13.82, 625.84)\n        statusLabel.Text = \"Status: TP -> Save Zone\"\n        setTpActive(true)\n        task.wait(0.3)\n        setTpActive(false)\n    end\nend)\n\n-- ============================================================\n-- ESP\n-- ============================================================\nlocal espEnabled = false\nlocal espRunning = false\nlocal espThread = nil\n\nlocal function startEsp()\n    if espRunning then return end\n    espRunning = true\n    espThread = task.spawn(function()\n        _G.FriendColor = Color3.fromRGB(0, 0, 255)\n        _G.EnemyColor = Color3.fromRGB(255, 0, 0)\n        _G.UseTeamColor = true\n\n        local Holder = Instance.new(\"Folder\", game.CoreGui)\n        Holder.Name = \"ESP\"\n\n        local Box = Instance.new(\"BoxHandleAdornment\")\n        Box.Name = \"nilBox\"\n        Box.Size = Vector3.new(1, 2, 1)\n        Box.Color3 = Color3.new(100 / 255, 100 / 255, 100 / 255)\n        Box.Transparency = 0.7\n        Box.ZIndex = 0\n        Box.AlwaysOnTop = false\n        Box.Visible = false\n\n        local NameTag = Instance.new(\"BillboardGui\")\n        NameTag.Name = \"nilNameTag\"\n        NameTag.Enabled = false\n        NameTag.Size = UDim2.new(0, 200, 0, 50)\n        NameTag.AlwaysOnTop = true\n        NameTag.StudsOffset = Vector3.new(0, 1.8, 0)\n        local Tag = Instance.new(\"TextLabel\", NameTag)\n        Tag.Name = \"Tag\"\n        Tag.BackgroundTransparency = 1\n        Tag.Position = UDim2.new(0, -50, 0, 0)\n        Tag.Size = UDim2.new(0, 300, 0, 20)\n        Tag.TextSize = 15\n        Tag.TextColor3 = Color3.new(100 / 255, 100 / 255, 100 / 255)\n        Tag.TextStrokeColor3 = Color3.new(0 / 255, 0 / 255, 0 / 255)\n        Tag.TextStrokeTransparency = 0.4\n        Tag.Text = \"nil\"\n        Tag.Font = Enum.Font.SourceSansBold\n        Tag.TextScaled = false\n\n        local LoadCharacter = function(v)\n            repeat task.wait() until v.Character ~= nil\n            v.Character:WaitForChild(\"Humanoid\")\n            local vHolder = Holder:FindFirstChild(v.Name)\n            if not vHolder then return end\n            vHolder:ClearAllChildren()\n            local b = Box:Clone()\n            b.Name = v.Name .. \"Box\"\n            b.Adornee = v.Character\n            b.Parent = vHolder\n            local t = NameTag:Clone()\n            t.Name = v.Name .. \"NameTag\"\n            t.Enabled = true\n            t.Parent = vHolder\n            t.Adornee = v.Character:WaitForChild(\"Head\", 5)\n            if not t.Adornee then\n                return UnloadCharacter(v)\n            end\n            t.Tag.Text = v.Name\n            b.Color3 = Color3.new(v.TeamColor.r, v.TeamColor.g, v.TeamColor.b)\n            t.Tag.TextColor3 = Color3.new(v.TeamColor.r, v.TeamColor.g, v.TeamColor.b)\n            local Update\n            local UpdateNameTag = function()\n                if not pcall(function()\n                    v.Character.Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None\n                end) then\n                    if Update then Update:Disconnect() end\n                end\n            end\n            UpdateNameTag()\n            Update = v.Character.Humanoid.Changed:Connect(UpdateNameTag)\n        end\n\n        local UnloadCharacter = function(v)\n            local vHolder = Holder:FindFirstChild(v.Name)\n            if vHolder and (vHolder:FindFirstChild(v.Name .. \"Box\") ~= nil or vHolder:FindFirstChild(v.Name .. \"NameTag\") ~= nil) then\n                vHolder:ClearAllChildren()\n            end\n        end\n\n        local LoadPlayer = function(v)\n            local vHolder = Instance.new(\"Folder\", Holder)\n            vHolder.Name = v.Name\n            v.CharacterAdded:Connect(function()\n                pcall(LoadCharacter, v)\n            end)\n            v.CharacterRemoving:Connect(function()\n                pcall(UnloadCharacter, v)\n            end)\n            v.Changed:Connect(function(prop)\n                if prop == \"TeamColor\" then\n                    UnloadCharacter(v)\n                    task.wait()\n                    LoadCharacter(v)\n                end\n            end)\n            LoadCharacter(v)\n        end\n\n        local UnloadPlayer = function(v)\n            UnloadCharacter(v)\n            local vHolder = Holder:FindFirstChild(v.Name)\n            if vHolder then\n                vHolder:Destroy()\n            end\n        end\n\n        for i,v in pairs(game:GetService(\"Players\"):GetPlayers()) do\n            task.spawn(function() pcall(LoadPlayer, v) end)\n        end\n\n        game:GetService(\"Players\").PlayerAdded:Connect(function(v)\n            pcall(LoadPlayer, v)\n        end)\n\n        game:GetService(\"Players\").PlayerRemoving:Connect(function(v)\n            pcall(UnloadPlayer, v)\n        end)\n\n        game:GetService(\"Players\").LocalPlayer.NameDisplayDistance = 0\n\n        if _G.Reantheajfdfjdgs then\n            return\n        end\n\n        _G.Reantheajfdfjdgs = \":suifayhgvsdghfsfkajewfrhk321rk213kjrgkhj432rj34f67df\"\n\n        local players = game:GetService(\"Players\")\n        local plr = players.LocalPlayer\n\n        function esp(target, color)\n            if target.Character then\n                if not target.Character:FindFirstChild(\"GetReal\") then\n                    local highlight = Instance.new(\"Highlight\")\n                    highlight.RobloxLocked = true\n                    highlight.Name = \"GetReal\"\n                    highlight.Adornee = target.Character\n                    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop\n                    highlight.FillColor = color\n                    highlight.Parent = target.Character\n                else\n                    target.Character.GetReal.FillColor = color\n                end\n            end\n        end\n\n        while espRunning do\n            task.wait(1)\n            for i, v in pairs(players:GetPlayers()) do\n                if v ~= plr then\n                    esp(v, _G.UseTeamColor and v.TeamColor.Color or ((plr.TeamColor == v.TeamColor) and _G.FriendColor or _G.EnemyColor))\n                end\n            end\n        end\n    end)\nend\n\nlocal function stopEsp()\n    espRunning = false\n    if espThread then\n        task.cancel(espThread)\n        espThread = nil\n    end\n    local espFolder = game.CoreGui:FindFirstChild(\"ESP\")\n    if espFolder then\n        espFolder:Destroy()\n    end\nend\n\nespBtn.MouseButton1Click:Connect(function()\n    espEnabled = not espEnabled\n    setEspActive(espEnabled)\n    espBtn.Text = \"Player ESP: \" .. (espEnabled and \"ON\" or \"OFF\")\n    if espEnabled then\n        startEsp()\n    else\n        stopEsp()\n    end\nend)",
-      "createdAt": "2026-11-12T09:47:15.659Z",
-      "updatedAt": "2026-11-13T06:42:33.943Z",
-      "categoryIds": [
-        "patched"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#B33A3A",
-        "#4A0000"
-      ]
-    },
-    {
       "id": "rscripts-6a242440dd3f1d0cc6966d56",
       "slug": "unlock-infinity-trail-1-speed-c6BY",
       "source": "rscripts",
@@ -9220,7 +9219,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 491006,
+      "views": 491017,
       "likes": 433,
       "dislikes": 117,
       "rating": 3.9,
@@ -9331,7 +9330,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 152549,
+      "views": 152555,
       "likes": 269,
       "dislikes": 64,
       "rating": 4,
@@ -9738,7 +9737,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 10,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "Nytix Hub had mulit supported games join my discord to view supported games",
@@ -9842,7 +9841,7 @@
       "tags": [
         "Script"
       ],
-      "views": 11,
+      "views": 14,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ FEATURES: 🎯 AIMLOCK — Targeting assistance 🔫 TRIGGERBOT — Automatic firing support 🚀 SPEED BOOST — Adjustable speed multiplier ✈️ AGILITY BOOST — Custom flight maneuver tuning 💥 DAMAGE MULTI — Experimental client-side damage settin…",
@@ -9877,7 +9876,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 10,
+      "views": 11,
       "likes": 0,
       "dislikes": 0,
       "summary": "🍪 Cookies Hub — Impossible Hill Climb | Keyless | 📱 Mobile supported Auto farms wins for you: your bike rides up the hill by itself, reaches the summit for +10,000 wins, respawns in the lobby and goes again. If your bike can't make it…",
@@ -10017,7 +10016,7 @@
       "tags": [
         "Script"
       ],
-      "views": 23,
+      "views": 24,
       "likes": 2,
       "dislikes": 0,
       "summary": "Sakura Hub OP Fast Fish, Auto Egg, Fragments Deep Fishing",
@@ -10052,7 +10051,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 11,
+      "views": 15,
       "likes": 0,
       "dislikes": 0,
       "summary": "School Hub for Summon a Pet Army combines Full Auto Farm with separate controls for farming, souls, your army, training, income and upgrades. Choose Balanced, Combat, Bosses, Harvest, Training or Income as the full-farm mode. Balanced al…",
@@ -10122,7 +10121,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 31,
+      "views": 33,
       "likes": 0,
       "dislikes": 0,
       "summary": "## Supported Game - [BloxStrike]( https://www.roblox.com/games/114234929420007 ) @everyone Combat • Silent Aim redirects bullets to the best target inside the FOV without moving your camera (Silent Hitbox, Hit Chance, Visibility Check) •…",
@@ -10157,7 +10156,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 21,
+      "views": 22,
       "likes": 0,
       "dislikes": 0,
       "summary": "## Supported Game - [Practical Basketball]( https://www.roblox.com/games/80681221431821 ) @everyone Auto Play • Auto Play plays both ends: drives, shoots, passes, defends, inbounds and takes free throws, and never leaves the court lines…",
@@ -10226,7 +10225,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 38,
+      "views": 40,
       "likes": 1,
       "dislikes": 0,
       "summary": "When i was trying to make hacks for a game, i just tried looking for any positioning finder and they were all ass in my opinion, Today i made the best ine u could look for, even with the option to teleport to it! (Took 1 hour but was wor…",
@@ -10261,7 +10260,7 @@
       "tags": [
         "Script"
       ],
-      "views": 16,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "🔴 VisionHub — Hypershot Features Game: Hypershot (Place ID: 17516596118 ) — auto-detects the game and loads the Hypershot tab. 🎯 Main — Silent Aim Silent Aim — shots silently hit the nearest target inside the FOV circle Aim Method — Ra…",
@@ -10661,7 +10660,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 107553,
+      "views": 107556,
       "likes": 110,
       "dislikes": 25,
       "rating": 4.1,
@@ -10697,7 +10696,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29310,
+      "views": 29311,
       "likes": 98,
       "dislikes": 26,
       "rating": 4,
