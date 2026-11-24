@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T12:41:34.709Z",
+  "generatedAt": "2026-11-24T12:51:25.148Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -80,7 +80,7 @@
         "FE",
         "PARTICLE GIVER"
       ],
-      "views": 1563,
+      "views": 1564,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -88,44 +88,6 @@
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-FE-PARTICLE-/main/V%C3%86LOR%20PARTICLE%20GIVER\"))()",
       "createdAt": "2026-11-10T17:49:00.049Z",
       "updatedAt": "2026-11-10T17:49:00.049Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af3946a738f28605c288095",
-      "slug": "LifeTogether-RP-Gen-X-Hub-236184",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/LifeTogether-RP-Gen-X-Hub-236184",
-      "title": "Gen-X Hub | BEST & FREE",
-      "game": "LifeTogether 🏠 RP [💃🏻 STEPS]",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-abf0cfd56a0c2520f2bb7397e2042ce4-792d3a768be6.png",
-      "author": "GenXscript",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "GenX",
-        "Custom Apps",
-        "Life together"
-      ],
-      "views": 1660,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "An all-in-one hub for Life Together RP, featuring admin-style tools, custom apps, chat features, and advanced utilities — all in one place.",
-      "code": "loadstring(game:HttpGet(\"https://genx-loader.dev/l/67bb60619797\"))()",
-      "createdAt": "2026-11-10T22:02:19.197Z",
-      "updatedAt": "2026-11-10T22:02:19.197Z",
       "categoryIds": [
         "trending"
       ],
@@ -156,7 +118,7 @@
         "AUTO FARM",
         "OP"
       ],
-      "views": 10739,
+      "views": 10746,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -192,7 +154,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 6068,
+      "views": 6070,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -248,6 +210,44 @@
       ]
     },
     {
+      "id": "scriptblox-6af5def0a8d29e4b20de677e",
+      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
+      "author": "vw6222",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "hypergamy",
+        "scary",
+        "open source"
+      ],
+      "views": 1106,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Scary HyperGamy Script Open Source",
+      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
+      "createdAt": "2026-11-12T15:44:48.276Z",
+      "updatedAt": "2026-11-12T15:44:48.276Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "car",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "scriptblox-6af5f0ccbf1e53a2645681d6",
       "slug": "UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
       "source": "scriptblox",
@@ -268,7 +268,7 @@
         "macro",
         "bot"
       ],
-      "views": 1644,
+      "views": 1645,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -306,7 +306,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 1863,
+      "views": 1865,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -344,7 +344,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 1526,
+      "views": 1528,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -420,7 +420,7 @@
         "NOTHING PANEL",
         "DARK HUB"
       ],
-      "views": 4133,
+      "views": 4135,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -438,15 +438,15 @@
       ]
     },
     {
-      "id": "scriptblox-6af8cef660e2570d7b63b30e",
-      "slug": "Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
+      "id": "scriptblox-6af8e896d8170eaa32732cf5",
+      "slug": "Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Ragdoll-Soccer-Silent-Aim-or-Auto-Shoot-or-Infinite-Stamina-or-Anti-Ragdoll-or-236895",
-      "title": "Silent Aim | Auto Shoot | Infinite Stamina | Anti-Ragdoll |",
-      "game": "Ragdoll Soccer",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-fd3eea7e3e98dadf633410cc815193bf-f511beb91a38.png",
-      "author": "czmx",
+      "sourceUrl": "https://scriptblox.com/script/Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
+      "title": "[KEYLESS] Auto Farm, Auto Punch and more",
+      "game": "Ability Arena 💥",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-e6e18dfb2a19fb0eafc684591ee2ad04-6bf7c775bbcf.png",
+      "author": "Moondiety",
       "authorVerified": true,
       "verified": true,
       "status": "working",
@@ -454,22 +454,22 @@
       "keyless": true,
       "universal": false,
       "tags": [
-        "Ragdoll Soccer",
-        "Ragdoll Soccer Script",
-        "Ragdoll Soccer Hack"
+        "ability arena",
+        "ability arena script",
+        "auto farm"
       ],
-      "views": 6065,
+      "views": 2465,
       "likes": 7,
-      "dislikes": 2,
-      "rating": 3.9,
-      "summary": "------------ MYSTRIX HUB ------------ Join our Discord Server for more amazing scripts like this! ✦ Features Included : ➤ Silent Aim : • Silent Aim • Auto Curve ➤ Power : • Auto Max ➤ Sprint : • Infinite Sprint • Auto Sprint ➤ Ragdoll :…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ummarxfarooq/mystrix-hub/refs/heads/main/loader\"))()",
-      "createdAt": "2026-11-14T21:13:26.087Z",
-      "updatedAt": "2026-11-14T21:13:26.087Z",
+      "dislikes": 1,
+      "rating": 4.4,
+      "summary": "Moondiety Hub | Ability Arena Script *NOTE: The features mentioned below are frequently updated as the game patches (new features are regularly added and outdated ones removed). Execute the script to experience the most current features,…",
+      "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
+      "createdAt": "2026-11-14T23:02:46.302Z",
+      "updatedAt": "2026-11-14T23:02:46.302Z",
       "categoryIds": [
         "trending"
       ],
-      "glyph": "crosshair",
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -496,7 +496,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 3006,
+      "views": 3010,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -533,7 +533,7 @@
         "UBG",
         "Untitled Boxing Game"
       ],
-      "views": 1146,
+      "views": 1149,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -609,7 +609,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 5355,
+      "views": 5356,
       "likes": 14,
       "dislikes": 3,
       "rating": 4.1,
@@ -685,7 +685,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 1886,
+      "views": 1888,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -723,7 +723,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 1836,
+      "views": 1838,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -741,34 +741,34 @@
       ]
     },
     {
-      "id": "scriptblox-6aff64ca56b47b13728e3bc0",
-      "slug": "RIVALS-zerohubcc-keyless-opensource-237545",
+      "id": "scriptblox-6b008e2bf3489ff63fd38882",
+      "slug": "Universal-Script-Lua-Protect-Blackair-obfuscate-237558",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RIVALS-zerohubcc-keyless-opensource-237545",
-      "title": "zerohub.cc keyless opensource",
-      "game": "[🛡️] RIVALS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e5dc0ebbd2205f661451ec3c8e0bd57e-fdbc5fe873d4.png",
-      "author": "dnezero",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Lua-Protect-Blackair-obfuscate-237558",
+      "title": "Lua Protect Blackair obfuscate",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795198507371.png",
+      "author": "MrNormal",
       "authorVerified": false,
       "verified": false,
       "status": "working",
       "premium": false,
       "keyless": true,
-      "universal": false,
+      "universal": true,
       "tags": [
-        "rivals",
-        "keyless",
-        "open source"
+        "Protect",
+        "Lua",
+        "obfuscate"
       ],
-      "views": 2169,
+      "views": 605,
       "likes": 7,
-      "dislikes": 1,
-      "rating": 4.4,
-      "summary": "DISCORD: https://join.zerohub.cc/ WEBSITE: https://zerohub.cc/ DONATE: https://revolut.me/vqj UI LIBRARY IS RAYFIELD GEN2 FEATURES [COMBAT & AIMBOT] - precision aimbot (smooth mouse tracking, target bone selection & fov circle) - velocit…",
-      "code": "loadstring(game:HttpGet(\"https://zerohub.cc/rivals.lua\"))()",
-      "createdAt": "2026-11-19T21:06:18.472Z",
-      "updatedAt": "2026-11-19T21:06:18.472Z",
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Best Way To Protect Your Lua Scripts https://discord.gg/zzHWqtDeFB",
+      "code": "-- https://discord.gg/zzHWqtDeFB\n\nloadstring(game:HttpGet(\"https://protect.blackair.dev/api/v1/load/bb8c8cf4-a7c0-4cbb-a0c3-395f915cbc1d\"))()",
+      "createdAt": "2026-11-20T18:15:07.413Z",
+      "updatedAt": "2026-11-20T18:15:07.413Z",
       "categoryIds": [
         "trending"
       ],
@@ -799,7 +799,7 @@
         "clawd",
         "universal"
       ],
-      "views": 792,
+      "views": 794,
       "likes": 11,
       "dislikes": 1,
       "rating": 4.6,
@@ -837,7 +837,7 @@
         "HUSH",
         "silentaim"
       ],
-      "views": 27,
+      "views": 28,
       "likes": 0,
       "dislikes": 0,
       "summary": "SilentAim MultiPoint Server Spread compenstator AutoHeal AutoArmor AutoDecrypt AutoLoot KillAura PvPMode NoRecoil FullAuto FastBolt ADS Spoof Instant Equip NoHeat Shoot Everywhere Speed HighJump NoFall InfStamina NoRagdoll AntiClimb Fast…",
@@ -875,7 +875,7 @@
         "auto train",
         "auto throw"
       ],
-      "views": 37,
+      "views": 39,
       "likes": 0,
       "dislikes": 0,
       "summary": "[FASTEST KEY] -Auto Throw -Auto Sell All -Auto Upgrade ( pull-up bar & plot ) -Auto Train -Auto Equip Best -Speed & inf jump",
@@ -911,7 +911,7 @@
       "tags": [
         "Script"
       ],
-      "views": 28,
+      "views": 29,
       "likes": 0,
       "dislikes": 0,
       "summary": "auto farm , auto mob , auto boss",
@@ -947,7 +947,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 149,
+      "views": 157,
       "likes": 0,
       "dislikes": 1,
       "summary": "all auto join discord for more features auto farm auto train auto perfect no clip auto train 2x keyless instant throw auto upgrade and lots of more features",
@@ -985,7 +985,7 @@
         "Aurix",
         "Volley Bomb"
       ],
-      "views": 50,
+      "views": 51,
       "likes": 1,
       "dislikes": 0,
       "summary": "Volley Bomb Hitbox Expander, Auto Farm, Auto Aim much more?! Best script for Volley Bomb!",
@@ -1022,7 +1022,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 93,
+      "views": 97,
       "likes": 0,
       "dislikes": 1,
       "summary": "Its only visual and no LEGIT script",
@@ -1059,7 +1059,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 114,
+      "views": 118,
       "likes": 0,
       "dislikes": 1,
       "summary": "Fun for when you want to troll, like when you are getting abused by an admin and get frozen in a game where you can't reset, well, reset!",
@@ -1096,9 +1096,9 @@
         "silent aim",
         "ragebot"
       ],
-      "views": 164,
+      "views": 171,
       "likes": 0,
-      "dislikes": 0,
+      "dislikes": 1,
       "summary": "Aim - Silent Aim with Only Shoot With Target - Aimbot and Aim Assist with prediction - Visible Check, Team Check, Ignore Dead, Ignore Katana Deflect, Target Bots - FOV circle (outline, filled, follows mouse), snap line and target info Ra…",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Emplic/nobulem-v3/refs/heads/main/loader.lua\"))()",
       "createdAt": "2026-11-21T07:40:11.116Z",
@@ -1133,7 +1133,7 @@
         "Flee the facility",
         "Keyless"
       ],
-      "views": 66,
+      "views": 67,
       "likes": 2,
       "dislikes": 0,
       "summary": "this script has made by molyn studios.. (Best script for FTF) Features : auto freeze everyone auto unfreeze everyone auto escape if downed unragdoll if downed (walk normally) anti pc error no doors cooldown goto random undone computer ot…",
@@ -1169,7 +1169,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 60,
+      "views": 61,
       "likes": 1,
       "dislikes": 0,
       "summary": "Exit freezer",
@@ -1207,7 +1207,7 @@
         "nights",
         "kaitun"
       ],
-      "views": 114,
+      "views": 117,
       "likes": 0,
       "dislikes": 1,
       "summary": "Lobby - Auto Join, Hardcore option, Auto Claim Rewards Kaitun (full AFK) - Level campfire to max, upgrade crafting bench, refuel campfire when low - Craft and place lightning rod, map and every bed - Rescue lost children, keep food stock…",
@@ -1244,7 +1244,7 @@
         "UGC",
         "FE Emote"
       ],
-      "views": 111,
+      "views": 113,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -1282,7 +1282,7 @@
         "universal",
         "keyless"
       ],
-      "views": 7206,
+      "views": 7207,
       "likes": 12,
       "dislikes": 1,
       "rating": 4.6,
@@ -1320,7 +1320,7 @@
         "TodoSwap",
         "ClapTodo"
       ],
-      "views": 130,
+      "views": 131,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fe Todo Clap",
@@ -1357,7 +1357,7 @@
         "esp",
         "instanttap"
       ],
-      "views": 99,
+      "views": 100,
       "likes": 2,
       "dislikes": 0,
       "summary": "**WatHUB** adalah script utilitas Roblox yang ringan dan rapi dengan UI gelap beraksen emas, dirancang agar gameplay berjalan lebih lancar dan praktis. ### Fitur Utama * **Win Only (1-Toggle):** Mengaktifkan ESP utama, Noclip, Speed, Bri…",
@@ -1392,7 +1392,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 71,
+      "views": 72,
       "likes": 2,
       "dislikes": 0,
       "summary": "[Monochrome] [+] Added ESP For Keys [+] Added ESP Tracers For Keys [+] Added ESP Colour Picker For Keys [+] Added ESP For Monster [+] Added ESP Tracer For Monster [+] Added ESP Coloue Picker For Monster",
@@ -1429,7 +1429,7 @@
         "Auto answer",
         "Auto play"
       ],
-      "views": 63,
+      "views": 64,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1466,7 +1466,7 @@
       "tags": [
         "Script"
       ],
-      "views": 88,
+      "views": 89,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ Sosiskomras HUB A high-quality, lightweight script without bloat or useless features. 🟢 Tested & working code 🛡️ Simple key system 🛠️ Fast bug fixes 🔄 Regular updates",
@@ -1502,7 +1502,7 @@
       "tags": [
         "Script"
       ],
-      "views": 72,
+      "views": 73,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fish For Sea Animals Script Auto Farm 2x Train Upgrade Barbell Buy Rod Sell All",
@@ -1539,7 +1539,7 @@
         "keyless",
         "aimbot"
       ],
-      "views": 94,
+      "views": 95,
       "likes": 1,
       "dislikes": 0,
       "summary": "This BedWars script has some basic features but it will help you win maybe 80% of your BedWas game if you know what your doing. This script has AImlock, Inf jump. And so much more!",
@@ -1652,7 +1652,7 @@
       "tags": [
         "Script"
       ],
-      "views": 75961,
+      "views": 75962,
       "likes": 57,
       "dislikes": 4,
       "rating": 4.7,
@@ -1729,7 +1729,7 @@
         "keyless",
         "prisonlife"
       ],
-      "views": 1163,
+      "views": 1166,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -1766,7 +1766,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 968,
+      "views": 973,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -1802,7 +1802,7 @@
       "tags": [
         "Script"
       ],
-      "views": 52043,
+      "views": 52050,
       "likes": 12,
       "dislikes": 4,
       "rating": 3.8,
@@ -1915,7 +1915,7 @@
         "Murder Mystery  auto farm",
         "Murder Mystery  coin farm"
       ],
-      "views": 185439,
+      "views": 185442,
       "likes": 139,
       "dislikes": 20,
       "rating": 4.4,
@@ -1953,7 +1953,7 @@
         "Premium Hub",
         "Universal"
       ],
-      "views": 119596,
+      "views": 119598,
       "likes": 46,
       "dislikes": 5,
       "rating": 4.5,
@@ -2065,7 +2065,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3659,
+      "views": 3660,
       "likes": 5,
       "dislikes": 1,
       "rating": 4.2,
@@ -2103,7 +2103,7 @@
         "yba",
         "ff"
       ],
-      "views": 60367,
+      "views": 60369,
       "likes": 86,
       "dislikes": 12,
       "rating": 4.4,
@@ -2141,7 +2141,7 @@
         "adoptme",
         "free"
       ],
-      "views": 10539,
+      "views": 10541,
       "likes": 14,
       "dislikes": 1,
       "rating": 4.7,
@@ -2177,7 +2177,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 418,
+      "views": 421,
       "likes": 1,
       "dislikes": 0,
       "summary": "Lumin Hub | Hyper Realistic Ragdoll Key (free): https://luminon.top/getkey Discord: https://discord.gg/luminhub Not supported: Xeno, Solara [KO Farm] KO Farm, KOs Per Batch, Batch Interval, Batches Per Tick, auto claim, record and save f…",
@@ -2215,7 +2215,7 @@
         "stand out script",
         "stand out scripts"
       ],
-      "views": 326,
+      "views": 330,
       "likes": 1,
       "dislikes": 0,
       "summary": "- auto story - auto farm - auto raids - auto bounty - auto boss - auto arrows - auto collect items - kill aura - silent aim - no stun - auto stats - auto garden - teleports - esp - fly - nmore",
@@ -2253,7 +2253,7 @@
         "illegal soccer",
         "chukunhax"
       ],
-      "views": 370,
+      "views": 372,
       "likes": 2,
       "dislikes": 0,
       "summary": "illegal soccer / Illegal Soccer : silent aim infinite stamina tackle aim perfect charge keyless open source chukunhax",
@@ -2327,7 +2327,7 @@
         "auto farm",
         "auto quest"
       ],
-      "views": 264,
+      "views": 265,
       "likes": 0,
       "dislikes": 0,
       "summary": "**Flow Hub // Bee Swarm Simulator** – free key, PC + mobile. Right Shift opens the menu (FLOW pill on mobile). **Farm** - Auto farm any field (smooth tween along the ground, no field teleports) - Auto convert at your bag %, Instant Conve…",
@@ -2364,7 +2364,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 1371,
+      "views": 1381,
       "likes": 4,
       "dislikes": 1,
       "rating": 4,
@@ -2474,7 +2474,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 642,
+      "views": 644,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -2512,7 +2512,7 @@
         "miles river",
         "mdr"
       ],
-      "views": 641,
+      "views": 642,
       "likes": 4,
       "dislikes": 1,
       "rating": 4,
@@ -2550,7 +2550,7 @@
         "autosell",
         "moon"
       ],
-      "views": 112,
+      "views": 113,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2662,7 +2662,7 @@
         "best script",
         "gui"
       ],
-      "views": 1433,
+      "views": 1438,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -2699,7 +2699,7 @@
         "king legacy script",
         "king legacy scripts"
       ],
-      "views": 882,
+      "views": 885,
       "likes": 2,
       "dislikes": 0,
       "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
@@ -2774,7 +2774,7 @@
         "delta",
         "kings"
       ],
-      "views": 417,
+      "views": 418,
       "likes": 2,
       "dislikes": 0,
       "summary": "Auto Farm Farm Mode (Best Quest/Selected Mob/Nearest Mob) Mob Select Weapon (Best/Melee/Sword/Fruit) Use Skills Bring Mobs Skip Boss Quests Position (Above/Below) Distance From Mob (3-25) Instant Teleport Fly Speed (100-600) Retreat When…",
@@ -2885,7 +2885,7 @@
         "Silent Aim",
         "Keyless"
       ],
-      "views": 1516,
+      "views": 1519,
       "likes": 2,
       "dislikes": 0,
       "summary": "voxel wars fps silent aim",
@@ -2922,7 +2922,7 @@
         "stand out script",
         "stand outs script"
       ],
-      "views": 574,
+      "views": 577,
       "likes": 1,
       "dislikes": 0,
       "summary": "Script For Stand Out, Released by SolixHub. SolixHub the #1 scripthub with daily Updates since 2023!",
@@ -2959,7 +2959,7 @@
         "mm",
         "keyless"
       ],
-      "views": 1645,
+      "views": 1649,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -2995,7 +2995,7 @@
       "tags": [
         "Script"
       ],
-      "views": 165,
+      "views": 166,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fishy Hub — Shoot Arrows For Animals The script is a feature-rich hub focused on gameplay automation, progression tracking, probability calculations, world utilities, and developer diagnostics. Shot * Auto Shoot * Automatic shot rating —…",
@@ -3032,7 +3032,7 @@
         "keyless",
         "auto play"
       ],
-      "views": 1472,
+      "views": 1473,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3105,7 +3105,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 651,
+      "views": 654,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -3180,7 +3180,7 @@
         "My anime mine script",
         "Node priority"
       ],
-      "views": 113,
+      "views": 114,
       "likes": 2,
       "dislikes": 0,
       "summary": "Lunar Hub | My Anime Mine - Node Priority - Swing Delay - Equip Best Now - Collect At Items - Take All Now - Item Type Filter - Rarity Filter - Keep Above Value - Sell At Item Count - Teleport To Sell Stand - Return After Selling - Sell…",
@@ -3291,7 +3291,7 @@
         "auto farm",
         "auto raid"
       ],
-      "views": 430,
+      "views": 431,
       "likes": 2,
       "dislikes": 0,
       "summary": "Description Project Slayers 2 all-in-one script by nobulem.wtf. Works across the Lobby, Ouwland, Final Selection, Ouwigahara, Boss Rush and Mt. Natagumo Raid with one script. Farming and Quests (Ouwland) Auto Level with automatic quest s…",
@@ -3328,7 +3328,7 @@
         "keyless",
         "autorebirth"
       ],
-      "views": 279,
+      "views": 280,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3513,7 +3513,7 @@
         "teleport",
         "Keyless"
       ],
-      "views": 46,
+      "views": 47,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is an Exyreno script panel for Troll Ragdoll Tower featuring an easy-to-use menu with buttons to instantly teleport to the end, enable auto-teleport, and stop teleportation at any time.",
@@ -3550,7 +3550,7 @@
         "sand wall",
         "auto buy"
       ],
-      "views": 295,
+      "views": 297,
       "likes": 1,
       "dislikes": 1,
       "summary": "Stop The Tsunami! hub by DarkSpawnerScript.com and DeltaScript.dev. It builds the sand wall that keeps the town dry while you watch the waves hit. **Auto Build** - Digs behind the wall and piles the sand on it, all along the shore - Move…",
@@ -3587,7 +3587,7 @@
         "Strike force",
         "NEXORA V"
       ],
-      "views": 61,
+      "views": 62,
       "likes": 0,
       "dislikes": 0,
       "summary": "**NEXORA V1** Enter the shadows. Dominate the game. NEXORA brings together a sleek interface and a powerful collection of gameplay features, including: - Silent Aim (Actually) - ESP - Bunny Hop - Advanced Movement - Customizable Settings…",
@@ -3659,7 +3659,7 @@
         "Autofarm",
         "Auto wood"
       ],
-      "views": 115,
+      "views": 116,
       "likes": 0,
       "dislikes": 1,
       "summary": "-] Auto Paddle - [-] Auto Wood - [-] Auto Pick Up - [-] Auto Deposit - [-] Auto Eat - [-] Auto Rescue - [-] Auto Revive - [-] Auto Respawn - [-] Auto Mash - [-] Auto Heal - [-] Auto Brew - [-] Auto Flare - [-] Auto Engine - [-] Auto Repa…",
@@ -3732,7 +3732,7 @@
         "Keyless",
         "Auto Farm"
       ],
-      "views": 63,
+      "views": 64,
       "likes": 1,
       "dislikes": 0,
       "summary": "Auto Farm — Features Overview 1. Auto Leveling * Auto Get Step Experience. * Auto Step Taken. * Continuous Level Progression. 2. Auto Rebirth * Automatically Request Rebirth. * Uses `\"free\"` rebirth option. * Automatic Rebirth Loop. 3. A…",
@@ -3769,7 +3769,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5566206,
+      "views": 5566247,
       "likes": 111,
       "dislikes": 55,
       "rating": 3.3,
@@ -3809,7 +3809,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4490888,
+      "views": 4490893,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -3850,7 +3850,7 @@
         "sae",
         "universal"
       ],
-      "views": 3983247,
+      "views": 3983269,
       "likes": 100,
       "dislikes": 50,
       "rating": 3.3,
@@ -3891,7 +3891,7 @@
         "flow",
         "script"
       ],
-      "views": 3895604,
+      "views": 3895762,
       "likes": 33,
       "dislikes": 10,
       "rating": 3.8,
@@ -3931,7 +3931,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3867098,
+      "views": 3867252,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -3970,7 +3970,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3546857,
+      "views": 3547019,
       "likes": 68,
       "dislikes": 13,
       "rating": 4.2,
@@ -4010,7 +4010,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3508864,
+      "views": 3508865,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4089,7 +4089,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3150909,
+      "views": 3150911,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -4128,7 +4128,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3142968,
+      "views": 3142977,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4167,7 +4167,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023390,
+      "views": 3023391,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4206,7 +4206,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2777642,
+      "views": 2777801,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4246,7 +4246,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2720786,
+      "views": 2720790,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4285,7 +4285,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2520015,
+      "views": 2520023,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4326,7 +4326,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2485129,
+      "views": 2485139,
       "likes": 175,
       "dislikes": 32,
       "rating": 4.2,
@@ -4403,7 +4403,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 2327845,
+      "views": 2327846,
       "likes": 38,
       "dislikes": 9,
       "rating": 4,
@@ -4481,7 +4481,7 @@
         "Free Keyless",
         "Universal"
       ],
-      "views": 2142760,
+      "views": 2142761,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -4641,7 +4641,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2040615,
+      "views": 2040618,
       "likes": 81,
       "dislikes": 13,
       "rating": 4.3,
@@ -4719,7 +4719,7 @@
         "blox fruits",
         "rivals"
       ],
-      "views": 1962792,
+      "views": 1962960,
       "likes": 162,
       "dislikes": 47,
       "rating": 3.9,
@@ -4831,7 +4831,7 @@
         "Forsaken",
         "Keyless"
       ],
-      "views": 1910894,
+      "views": 1910895,
       "likes": 2,
       "dislikes": 5,
       "rating": 1.4,
@@ -4870,7 +4870,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1892652,
+      "views": 1892656,
       "likes": 207,
       "dislikes": 35,
       "rating": 4.3,
@@ -4910,7 +4910,7 @@
         "Ink Games ESP Auto Win",
         "Roblox GUI Keyless"
       ],
-      "views": 1886278,
+      "views": 1886279,
       "likes": 15,
       "dislikes": 4,
       "rating": 3.9,
@@ -5025,7 +5025,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1854260,
+      "views": 1854421,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5138,7 +5138,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1789169,
+      "views": 1789171,
       "likes": 25,
       "dislikes": 0,
       "rating": 5,
@@ -5288,7 +5288,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748188,
+      "views": 1748190,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5442,7 +5442,7 @@
         "god mode",
         "infinite health"
       ],
-      "views": 1703198,
+      "views": 1703199,
       "likes": 15,
       "dislikes": 0,
       "rating": 5,
@@ -5481,7 +5481,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1689389,
+      "views": 1689390,
       "likes": 336,
       "dislikes": 45,
       "rating": 4.4,
@@ -5520,7 +5520,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682291,
+      "views": 1682294,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -5559,7 +5559,7 @@
         "tsb",
         "bf"
       ],
-      "views": 1674720,
+      "views": 1674721,
       "likes": 54,
       "dislikes": 9,
       "rating": 4.3,
@@ -5635,7 +5635,7 @@
         "Blox Fruits",
         "Op script"
       ],
-      "views": 1611585,
+      "views": 1611587,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -5749,7 +5749,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1567714,
+      "views": 1567715,
       "likes": 8,
       "dislikes": 4,
       "rating": 3.3,
@@ -5867,7 +5867,7 @@
         "nescoroco",
         "sapnish hub"
       ],
-      "views": 1482050,
+      "views": 1482052,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -6025,7 +6025,7 @@
         "egg",
         "collect"
       ],
-      "views": 1378347,
+      "views": 1378348,
       "likes": 51,
       "dislikes": 3,
       "rating": 4.7,
@@ -6064,7 +6064,7 @@
         "invisible",
         "keyless OP"
       ],
-      "views": 1369610,
+      "views": 1369611,
       "likes": 22,
       "dislikes": 8,
       "rating": 3.7,
@@ -6253,7 +6253,7 @@
         "Godmode",
         "Free"
       ],
-      "views": 1337759,
+      "views": 1337760,
       "likes": 16,
       "dislikes": 17,
       "rating": 2.4,
@@ -6291,7 +6291,7 @@
         "join in dc for more",
         "subscribe pls"
       ],
-      "views": 1325702,
+      "views": 1325703,
       "likes": 27,
       "dislikes": 1,
       "rating": 4.8,
@@ -6329,7 +6329,7 @@
         "free",
         "easy"
       ],
-      "views": 1324542,
+      "views": 1324697,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6367,7 +6367,7 @@
         "autoplayer",
         "free"
       ],
-      "views": 1314099,
+      "views": 1314101,
       "likes": 18,
       "dislikes": 7,
       "rating": 3.6,
@@ -6405,7 +6405,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1291873,
+      "views": 1291876,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6592,7 +6592,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1262672,
+      "views": 1262830,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6742,7 +6742,7 @@
         "dupe",
         "Keyless"
       ],
-      "views": 1180775,
+      "views": 1180776,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -7081,7 +7081,7 @@
         "Ugc emote",
         "Keyless"
       ],
-      "views": 853339,
+      "views": 853340,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -7157,7 +7157,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 778727,
+      "views": 778728,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7233,7 +7233,7 @@
         "FE Scripts",
         "Genesis"
       ],
-      "views": 773483,
+      "views": 773484,
       "likes": 1,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7270,7 +7270,7 @@
         "FE",
         "Genesis FE"
       ],
-      "views": 767104,
+      "views": 767105,
       "likes": 2,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7343,7 +7343,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 735187,
+      "views": 735193,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7456,7 +7456,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 727007,
+      "views": 727008,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -7494,7 +7494,7 @@
         "FE Scripts",
         "Genesis"
       ],
-      "views": 693219,
+      "views": 693220,
       "likes": 16,
       "dislikes": 9,
       "rating": 3.2,
@@ -7911,7 +7911,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 600331,
+      "views": 600332,
       "likes": 18,
       "dislikes": 10,
       "rating": 3.2,
@@ -8094,7 +8094,7 @@
         "FE",
         "Genesis"
       ],
-      "views": 548600,
+      "views": 548601,
       "likes": 1,
       "dislikes": 1,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -8169,7 +8169,7 @@
         "slap battles script",
         "godmode"
       ],
-      "views": 1416149,
+      "views": 1416150,
       "likes": 75,
       "dislikes": 12,
       "rating": 4.3,
@@ -8466,7 +8466,7 @@
         "best",
         "Op"
       ],
-      "views": 1071447,
+      "views": 1071454,
       "likes": 97,
       "dislikes": 17,
       "rating": 4.3,
@@ -8656,7 +8656,7 @@
         "auto parry",
         "clash"
       ],
-      "views": 955667,
+      "views": 955668,
       "likes": 25,
       "dislikes": 7,
       "rating": 3.9,
@@ -8882,7 +8882,7 @@
         "KizzDev Legends Battlegrounds Roblox Script Auto F",
         "Keyless"
       ],
-      "views": 41,
+      "views": 42,
       "likes": 0,
       "dislikes": 1,
       "summary": "⚡ KIZZDEV — LEGENDS BATTLEGROUNDS V5 Experience a new level of gameplay with KizzDev! 🔥 FEATURES: • Auto Fight • Combo Fight • Auto Farm • Aimlock • ESP • Skill Cooldown Display • Hitbox & Super Anti-Lag • Quick Presets • Custom Purple…",
@@ -9104,7 +9104,7 @@
         "VAELOR",
         "PROPS"
       ],
-      "views": 1547,
+      "views": 1548,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -9140,7 +9140,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 93893,
+      "views": 93894,
       "likes": 580,
       "dislikes": 178,
       "rating": 3.8,
@@ -9213,7 +9213,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 492702,
+      "views": 492710,
       "likes": 433,
       "dislikes": 117,
       "rating": 3.9,
@@ -9250,7 +9250,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 144209,
+      "views": 144210,
       "likes": 336,
       "dislikes": 106,
       "rating": 3.8,
@@ -9286,7 +9286,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 229542,
+      "views": 229543,
       "likes": 284,
       "dislikes": 42,
       "rating": 4.4,
@@ -9324,7 +9324,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 152931,
+      "views": 152933,
       "likes": 269,
       "dislikes": 64,
       "rating": 4,
@@ -9361,7 +9361,7 @@
       "tags": [
         "Script"
       ],
-      "views": 82179,
+      "views": 82180,
       "likes": 247,
       "dislikes": 4,
       "rating": 4.9,
@@ -9474,7 +9474,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 68048,
+      "views": 68049,
       "likes": 181,
       "dislikes": 58,
       "rating": 3.8,
@@ -9695,7 +9695,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 56626,
+      "views": 56627,
       "likes": 127,
       "dislikes": 18,
       "rating": 4.4,
@@ -9708,6 +9708,41 @@
         "keyless"
       ],
       "glyph": "car",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "rscripts-6b0435520d7192532acf12b8",
+      "slug": "realistic-home-defense-script-or-silent-aim-esp-no-recoil-8RRK",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/realistic-home-defense-script-or-silent-aim-esp-no-recoil-8RRK",
+      "title": "Realistic Home Defense Script | Silent Aim, ESP, No Recoil",
+      "game": "[UPDATE] REALISTIC HOME DEFENSE",
+      "gameImage": "https://rscripts.net/assets/games/105527962898452-thumb-c63e450061775522.webp",
+      "author": "riftsense",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Script"
+      ],
+      "views": 6,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "RIFT GENERIC | REALISTIC HOME DEFENSE Rift Generic now supports Realistic Home Defense (RHD) ! A customizable Roblox script hub featuring combat assistance, player visuals, weapon modifications, and useful movement features — all packed…",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nloadstring(game:HttpGet(\"https://loader.cartelware.com/loader.lua\"))()",
+      "createdAt": "2026-11-24T12:47:10.863Z",
+      "updatedAt": "2026-11-23T12:45:06.625Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -9732,7 +9767,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 5,
+      "views": 16,
       "likes": 0,
       "dislikes": 0,
       "summary": "An all-in-one combat, visual, and vehicle enhancement script for Apocalypse Rising 2 , featuring Silent Aim, Hitscan, No Recoil/Spread, Player &amp; Vehicle ESP, and Fuel-Free Vehicle Speed Hacks",
@@ -9767,7 +9802,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 2,
+      "views": 7,
       "likes": 0,
       "dislikes": 0,
       "summary": "Automate your fishing process in Titan Fishing with this powerful script designed to handle repetitive tasks efficiently. The script automatically farms fish, sells them when your inventory is full, and keeps your gameplay running smooth…",
@@ -9802,7 +9837,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 5,
+      "views": 8,
       "likes": 0,
       "dislikes": 0,
       "summary": "🔫 Build a Gun Army — Smart All-in-One Autofarm Advanced all-in-one autofarm for Roblox Build a Gun Army featuring intelligent weapon purchasing, automatic weapon placement, adaptive duplicate XP progression, automatic weapon variant upg…",
@@ -9837,7 +9872,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 12,
+      "views": 13,
       "likes": 0,
       "dislikes": 0,
       "summary": "Nice and cool feature The name specify what it do specifically Idk if it works on other game, try it out",
@@ -9872,7 +9907,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 17,
+      "views": 18,
       "likes": 1,
       "dislikes": 0,
       "summary": "Auto farm for Throw Food For Animals. Works on PC and mobile. Auto Throw Animated (Skip) and Raw (Fast) modes Auto Super Throw Event priority (luck / money / seasonal events) Auto Equip Best, Auto Sell Extras Training Smart (Sub-Area), S…",
@@ -9941,7 +9976,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 15,
+      "views": 18,
       "likes": 1,
       "dislikes": 0,
       "summary": "[FREE] OP Auto Destroy, Auto Shoot, Auto Grab and MANY MORE!",
@@ -9976,7 +10011,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 9,
+      "views": 10,
       "likes": 1,
       "dislikes": 0,
       "summary": "Kudus is a Roblox RoChess script featuring auto play, chess-engine move analysis, auto farming, puzzle automation, and local cosmetic customization—all through a configurable UI. Features Auto Play: Automatically play moves during your t…",
@@ -10011,7 +10046,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 17,
+      "views": 18,
       "likes": 0,
       "dislikes": 0,
       "summary": "### Key Features: - Instant Auto Catch (Grass Anchor) : Stand peacefully on the grass with 0 casting/camera animations or slot lag. - Auto Workout : Automatic pull-up bar training to scale your Power attribute continuously. - Auto Sell :…",
@@ -10046,7 +10081,7 @@
       "tags": [
         "Script"
       ],
-      "views": 24,
+      "views": 26,
       "likes": 1,
       "dislikes": 0,
       "summary": "ᴡᴇʙꜱɪᴛᴇ : https://nevalium.discxnnect.workers.dev/ ✨ ꜰᴇᴀᴛᴜʀᴇ ✨ + ᴀɪᴍʙᴏᴛ + ꜱɪʟᴇɴᴛ ᴀɪᴍ + ᴀᴜᴛᴏ ꜱʜᴏᴏᴛ + ᴇꜱᴘ + ᴡᴇᴀᴘᴏɴ ꜱᴋɪɴꜱ + ᴡᴇᴀᴘᴏɴ ᴍᴏᴅᴇʟꜱ + ᴍᴀʀᴋᴇᴛ ʀᴇᴄʏᴄʟᴇ ᴅᴇᴀʟ",
@@ -10081,7 +10116,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 28,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "• Auto Farm • 2X Train • Auto Equip Best • Sell All • Train delay • Equip delay • Sell delay",
@@ -10116,7 +10151,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 59,
+      "views": 62,
       "likes": 2,
       "dislikes": 0,
       "summary": "🔥 UNIQUE HUB | FEATURES A complete breakdown of everything UNIQUE HUB has to offer! Explore powerful automation, advanced farming options, customizable macros, intelligent unit management, and much more. 🏠 [HOME] 🔑 Key Status – Check…",
@@ -10151,7 +10186,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 37,
+      "views": 38,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -10187,7 +10222,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 67,
+      "views": 68,
       "likes": 3,
       "dislikes": 2,
       "rating": 3,
@@ -10234,42 +10269,6 @@
         "new"
       ],
       "glyph": "tower",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b040ee7a845a77d605af6d8",
-      "slug": "best-auto-build-auto-drive-auto-drive-again-auto-f-dISb",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/best-auto-build-auto-drive-auto-drive-again-auto-f-dISb",
-      "title": "[BEST] · Auto Build · Auto Drive · Auto Drive Again · Auto F",
-      "game": "[UPD⚙️📦] Build a Car to Go Far",
-      "gameImage": "https://rscripts.net/assets/games/94998162120172-thumb-0cf41e9f3a1153fc.webp",
-      "author": "AxelHub",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 42,
-      "likes": 3,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "[BEST] · Auto Build · Auto Drive · Auto Drive Again · Auto F",
-      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nloadstring(game:HttpGet(\"https://pasteblox.com/raw/ubs5qft4e6\"))()",
-      "createdAt": "2026-11-24T10:16:19.786Z",
-      "updatedAt": "2026-11-23T10:01:11.123Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -10366,7 +10365,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 249050,
+      "views": 249051,
       "likes": 90,
       "dislikes": 31,
       "rating": 3.7,
@@ -10402,7 +10401,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 242926,
+      "views": 242927,
       "likes": 93,
       "dislikes": 28,
       "rating": 3.8,
@@ -10511,7 +10510,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221687,
+      "views": 221688,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10659,7 +10658,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 108022,
+      "views": 108023,
       "likes": 111,
       "dislikes": 25,
       "rating": 4.1,
@@ -10840,7 +10839,7 @@
       "tags": [
         "Script"
       ],
-      "views": 44165,
+      "views": 44166,
       "likes": 84,
       "dislikes": 46,
       "rating": 3.2,
