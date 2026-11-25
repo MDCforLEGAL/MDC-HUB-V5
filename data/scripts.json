@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T23:31:30.872Z",
+  "generatedAt": "2026-11-25T23:41:29.602Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -78,7 +78,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 7236,
+      "views": 7241,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -116,7 +116,7 @@
         "Keyless",
         "Mobile"
       ],
-      "views": 2883,
+      "views": 2898,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -124,82 +124,6 @@
       "code": "loadstring(game:HttpGet(\"https://api.polsec.net/loader/ba8c7f69ac4f419a/77ead804f9e83ba8\", true))()",
       "createdAt": "2026-11-12T13:21:58.466Z",
       "updatedAt": "2026-11-12T13:21:58.466Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af5def0a8d29e4b20de677e",
-      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
-      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
-      "author": "vw6222",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "hypergamy",
-        "scary",
-        "open source"
-      ],
-      "views": 1392,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Scary HyperGamy Script Open Source",
-      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
-      "createdAt": "2026-11-12T15:44:48.276Z",
-      "updatedAt": "2026-11-12T15:44:48.276Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "car",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af5f0ccbf1e53a2645681d6",
-      "slug": "UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
-      "title": "Advanced bot that plays for you (works well)",
-      "game": "Forsaken",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-14d993b5a906bca017a07cd3b6fa4c8b-9319662ae886.png",
-      "author": "CakeMix",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "forsaken",
-        "macro",
-        "bot"
-      ],
-      "views": 1829,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Forsaken Macro — Survivor & Killer Bot A bot that moves around the map, does tasks, and uses your character’s abilities properly. Works for both survivors and killers! Features - Survivor: Finds generators, collects items, and runs from…",
-      "code": "loadstring(game:HttpGet(\"https://pastefy.app/Au1wV9nQ/raw\"))()",
-      "createdAt": "2026-11-12T17:01:00.591Z",
-      "updatedAt": "2026-11-12T17:01:00.591Z",
       "categoryIds": [
         "trending"
       ],
@@ -230,7 +154,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 2291,
+      "views": 2294,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -268,7 +192,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 1945,
+      "views": 1948,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -276,6 +200,81 @@
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-SCRIPTS-HUB-/refs/heads/main/V%C3%86LOR%20SCRIPTS%20HUB\"))()",
       "createdAt": "2026-11-13T18:07:07.951Z",
       "updatedAt": "2026-11-13T18:07:07.951Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af7631b0a68016b8fa47a2e",
+      "slug": "RoWorld-World-PvP-PEPSI-HUB-or-BEST-FREE-AND-KEYLESS-AUTO-EVERYTHINGmore-236631",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RoWorld-World-PvP-PEPSI-HUB-or-BEST-FREE-AND-KEYLESS-AUTO-EVERYTHINGmore-236631",
+      "title": "PEPSI HUB | BEST FREE AND KEYLESS (AUTO EVERYTHING...more)",
+      "game": "RoWorld [World PvP]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-d4965dc3211acbc4ee8979d1507a6219-9fc8154466f5.png",
+      "author": "kirito_w",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless",
+        "Mobile support",
+        "PC support"
+      ],
+      "views": 2761,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Pepsi Hub | FREE & Keyless enjoy! Features: 🤖 Auto Play - Auto Play - Turn On Everything - Smart Spawn - Expand Into Free Land - Attack Neighbours - Attack Players - Counter Attacks - Boat Invasions - Warship Escorts - Smart Retreat - A…",
+      "code": "loadstring(game:HttpGet(\"https://api.polsec.net/loader/ba8c7f69ac4f419a/77ead804f9e83ba8\", true))()",
+      "createdAt": "2026-11-13T19:21:00.172Z",
+      "updatedAt": "2026-11-13T19:21:00.172Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af89ddcc7654f9f12486a6f",
+      "slug": "Universal-Script-Universal-OP-script-236851",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Universal-OP-script-236851",
+      "title": "Universal OP script",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794678236183.jpg",
+      "author": "LightningHub_",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": true,
+      "tags": [
+        "LightningHub",
+        "universal script"
+      ],
+      "views": 3811,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Aimbot & Combat: Customizable FOV circle, bone targeting (Head, Neck, Chest, etc.), smoothing, prediction, wall/team checks, sticky aim, and 18 customizable crosshair styles (with rainbow, dynamic scaling, and outlines). ESP & Visuals: B…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/halilibrahimseviml1/op-script2/refs/heads/main/ee\"))()",
+      "createdAt": "2026-11-14T17:43:56.331Z",
+      "updatedAt": "2026-11-14T17:43:56.331Z",
       "categoryIds": [
         "trending"
       ],
@@ -344,7 +343,7 @@
         "Ragdoll Soccer Script",
         "Ragdoll Soccer Hack"
       ],
-      "views": 6851,
+      "views": 6855,
       "likes": 8,
       "dislikes": 2,
       "rating": 4,
@@ -356,44 +355,6 @@
         "trending"
       ],
       "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af8e896d8170eaa32732cf5",
-      "slug": "Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
-      "title": "[KEYLESS] Auto Farm, Auto Punch and more",
-      "game": "Ability Arena 💥",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e6e18dfb2a19fb0eafc684591ee2ad04-6bf7c775bbcf.png",
-      "author": "Moondiety",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "ability arena",
-        "ability arena script",
-        "auto farm"
-      ],
-      "views": 2668,
-      "likes": 7,
-      "dislikes": 1,
-      "rating": 4.4,
-      "summary": "Moondiety Hub | Ability Arena Script *NOTE: The features mentioned below are frequently updated as the game patches (new features are regularly added and outdated ones removed). Execute the script to experience the most current features,…",
-      "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
-      "createdAt": "2026-11-14T23:02:46.302Z",
-      "updatedAt": "2026-11-14T23:02:46.302Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -420,7 +381,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 3462,
+      "views": 3463,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -495,7 +456,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 4951,
+      "views": 4953,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -533,7 +494,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 5668,
+      "views": 5669,
       "likes": 14,
       "dislikes": 3,
       "rating": 4.1,
@@ -609,7 +570,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 2207,
+      "views": 2208,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -647,7 +608,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 2158,
+      "views": 2159,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -659,6 +620,44 @@
         "trending"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6aff64ca56b47b13728e3bc0",
+      "slug": "RIVALS-zerohubcc-keyless-opensource-237545",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/RIVALS-zerohubcc-keyless-opensource-237545",
+      "title": "zerohub.cc keyless opensource",
+      "game": "[🤑] RIVALS",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-d5afde5495056f523329ae96479de426-b7deea639768.png",
+      "author": "dnezero",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "rivals",
+        "keyless",
+        "open source"
+      ],
+      "views": 2714,
+      "likes": 7,
+      "dislikes": 1,
+      "rating": 4.4,
+      "summary": "DISCORD: https://join.zerohub.cc/ WEBSITE: https://zerohub.cc/ DONATE: https://revolut.me/vqj UI LIBRARY IS RAYFIELD GEN2 FEATURES [COMBAT & AIMBOT] - precision aimbot (smooth mouse tracking, target bone selection & fov circle) - velocit…",
+      "code": "loadstring(game:HttpGet(\"https://zerohub.cc/rivals.lua\"))()",
+      "createdAt": "2026-11-19T21:06:18.472Z",
+      "updatedAt": "2026-11-19T21:06:18.472Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -685,7 +684,7 @@
         "clawd",
         "universal"
       ],
-      "views": 1163,
+      "views": 1164,
       "likes": 11,
       "dislikes": 1,
       "rating": 4.6,
@@ -721,7 +720,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1137,
+      "views": 1139,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -759,7 +758,7 @@
         "BloxNG Scripts",
         "Free BloxNG Script"
       ],
-      "views": 497,
+      "views": 500,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -798,7 +797,7 @@
         "Build A Boat",
         "Auto Farm"
       ],
-      "views": 889003,
+      "views": 889004,
       "likes": 144,
       "dislikes": 14,
       "rating": 4.6,
@@ -837,7 +836,7 @@
         "UNIVERSAL",
         "KEYLESS"
       ],
-      "views": 41965,
+      "views": 41967,
       "likes": 66,
       "dislikes": 6,
       "rating": 4.6,
@@ -875,7 +874,7 @@
         "aimbot",
         "ragebot"
       ],
-      "views": 25821,
+      "views": 25828,
       "likes": 11,
       "dislikes": 2,
       "rating": 4.2,
@@ -987,7 +986,7 @@
         "Silent Aim",
         "Keyless"
       ],
-      "views": 2317,
+      "views": 2318,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -1026,7 +1025,7 @@
         "Autoquest",
         "Firehub"
       ],
-      "views": 530,
+      "views": 533,
       "likes": 2,
       "dislikes": 0,
       "summary": "# fire / .gg/firescript ### the forge **autofarm** - one toggle to get started, smart mining is selected by default - checks the pickaxe you actually have equipped before picking a rock - goes for stronger rocks when you can break them q…",
@@ -1063,7 +1062,7 @@
         "auto bounty",
         "auto drive"
       ],
-      "views": 102,
+      "views": 104,
       "likes": 0,
       "dislikes": 0,
       "summary": "Lumin Hub | BloxNG Key (free): https://luminon.top/getkey Discord: https://discord.gg/luminhub Not supported: Xeno, Solara [Auto Bounty] Auto bounty, police ram speed, chase speed, hold back police, police pace, cash out at bounty, cash…",
@@ -1135,7 +1134,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1046,
+      "views": 1048,
       "likes": 2,
       "dislikes": 2,
       "rating": 2.5,
@@ -1211,7 +1210,7 @@
         "keyless",
         "tap simulator"
       ],
-      "views": 5195,
+      "views": 5197,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -1249,7 +1248,7 @@
         "auto farm",
         "aimbot"
       ],
-      "views": 53869,
+      "views": 53872,
       "likes": 32,
       "dislikes": 6,
       "rating": 4.2,
@@ -1287,7 +1286,7 @@
         "Throw food for animals",
         "Throw food for animal"
       ],
-      "views": 1385,
+      "views": 1386,
       "likes": 1,
       "dislikes": 1,
       "summary": "[+] Auto Farm",
@@ -1324,7 +1323,7 @@
         "unlock all",
         "keyless"
       ],
-      "views": 100001,
+      "views": 100006,
       "likes": 75,
       "dislikes": 5,
       "rating": 4.7,
@@ -1362,7 +1361,7 @@
         "aimbot",
         "esp"
       ],
-      "views": 8562,
+      "views": 8563,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -1476,7 +1475,7 @@
         "musicID",
         "id"
       ],
-      "views": 1410,
+      "views": 1411,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1514,7 +1513,7 @@
         "Explorer",
         "Remote spy"
       ],
-      "views": 1133,
+      "views": 1135,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -1627,7 +1626,7 @@
         "bf",
         "keyless"
       ],
-      "views": 919,
+      "views": 927,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1666,7 +1665,7 @@
         "mm",
         "keyless"
       ],
-      "views": 2764,
+      "views": 2768,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1705,7 +1704,7 @@
         "Shoot Arrows For Animals Script",
         "Roblox Shoot Arrows For Animals Script"
       ],
-      "views": 186,
+      "views": 188,
       "likes": 1,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord 🎯 FARMING Section : Status ▸ Your Stats ▸ Session ▸ Reset Session Stats Section : Auto Shoot ▸ Instant Auto Shoot (Perfect Power) ▸ Target Area ▸ Shoo…",
@@ -1781,7 +1780,7 @@
         "acro hub",
         "op free"
       ],
-      "views": 164929,
+      "views": 164931,
       "likes": 227,
       "dislikes": 20,
       "rating": 4.6,
@@ -1857,7 +1856,7 @@
         "Custom Apps",
         "Life together"
       ],
-      "views": 2055,
+      "views": 2059,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -1968,7 +1967,7 @@
         "murder mystery",
         "throw food for animals"
       ],
-      "views": 396,
+      "views": 397,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -2196,7 +2195,7 @@
         "Realistic Ragdoll MMA Script",
         "Free Realistic Ragdoll MMA Script"
       ],
-      "views": 58,
+      "views": 59,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -2234,7 +2233,7 @@
         "auto farm",
         "tower defense"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 0,
       "dislikes": 0,
       "summary": "# FLOW HUB | Anime Crusaders X The full autofarm for Anime Crusaders X. Turn it on in the lobby and it joins, places, upgrades, skips waves and goes to the next act by itself, and keeps going after every teleport. ## ⚔️ Farm - Auto join…",
@@ -2271,7 +2270,7 @@
         "jujutsu",
         "jujutsu kaisen"
       ],
-      "views": 115,
+      "views": 117,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2487,7 +2486,7 @@
       "tags": [
         "Script"
       ],
-      "views": 215,
+      "views": 216,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2562,7 +2561,7 @@
         "free",
         "keyless"
       ],
-      "views": 64,
+      "views": 65,
       "likes": 1,
       "dislikes": 0,
       "summary": "Aroyn Hub for Greedy Growers - Official Website: https://aroyn.xyz - Live Dashboard: https://aroyn.xyz/dashboard/ - Hub Documentation: https://docs.aroyn.xyz/hub/ - UI Library: https://docs.aroyn.xyz/ui/ • No key required to run • Live W…",
@@ -2815,7 +2814,7 @@
         "Autofarm",
         "Auto cast"
       ],
-      "views": 93,
+      "views": 94,
       "likes": 1,
       "dislikes": 0,
       "summary": "• Auto Farm • 2X Train • Auto Equip Best • Sell All • Train delay • Equip delay • Sell delay",
@@ -3035,7 +3034,7 @@
         "stand out script",
         "stand out scripts"
       ],
-      "views": 650,
+      "views": 652,
       "likes": 1,
       "dislikes": 0,
       "summary": "- auto story - auto farm - auto raids - auto bounty - auto boss - auto arrows - auto collect items - kill aura - silent aim - no stun - auto stats - auto garden - teleports - esp - fly - nmore",
@@ -3142,7 +3141,7 @@
       "tags": [
         "Script"
       ],
-      "views": 182,
+      "views": 184,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fish For Sea Animals Script Auto Farm 2x Train Upgrade Barbell Buy Rod Sell All",
@@ -3178,7 +3177,7 @@
         "keyless",
         "aimbot"
       ],
-      "views": 307,
+      "views": 308,
       "likes": 2,
       "dislikes": 0,
       "summary": "This BedWars script has some basic features but it will help you win maybe 80% of your BedWas game if you know what your doing. This script has AImlock, Inf jump. And so much more!",
@@ -3252,7 +3251,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 2552,
+      "views": 2553,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -3328,7 +3327,7 @@
         "autotrain",
         "autofarm"
       ],
-      "views": 348,
+      "views": 349,
       "likes": 1,
       "dislikes": 0,
       "summary": "Features: - Auto Cast - Auto Train - Auto Upgrade Train - Auto Upgrade Rod",
@@ -3365,7 +3364,7 @@
         "Silent Aim",
         "ESP"
       ],
-      "views": 150,
+      "views": 151,
       "likes": 1,
       "dislikes": 0,
       "summary": "BlockSpin joins School Hub with Full Auto Farm and separate controls for gas station stocking, cleaning, steakhouse work and ATM farming. Select a full-farm route, choose how individual jobs run, configure ATM tools and vehicles, and dep…",
@@ -3437,7 +3436,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 1081,
+      "views": 1082,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -3662,7 +3661,7 @@
         "Roblox Ant Evolution",
         "Ant Evolution Script"
       ],
-      "views": 518,
+      "views": 519,
       "likes": 2,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord 🍎 FARMING Section : Status ▸ Your Ant ▸ Session ▸ Reset Session Stats Section : Food Farm ▸ Food ▸ Auto Farm Food ▸ Farm Zone ▸ Farm Teleport Delay (m…",
@@ -3699,7 +3698,7 @@
         "best script",
         "gui"
       ],
-      "views": 2305,
+      "views": 2307,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -3736,7 +3735,7 @@
         "king legacy script",
         "king legacy scripts"
       ],
-      "views": 1411,
+      "views": 1414,
       "likes": 2,
       "dislikes": 0,
       "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
@@ -3886,7 +3885,7 @@
         "dandys world",
         "dandy world"
       ],
-      "views": 911,
+      "views": 912,
       "likes": 1,
       "dislikes": 0,
       "summary": "lot of stuff",
@@ -3960,7 +3959,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5575597,
+      "views": 5575651,
       "likes": 112,
       "dislikes": 56,
       "rating": 3.3,
@@ -4000,7 +3999,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4492550,
+      "views": 4492559,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -4041,7 +4040,7 @@
         "sae",
         "universal"
       ],
-      "views": 3987432,
+      "views": 3987449,
       "likes": 101,
       "dislikes": 51,
       "rating": 3.3,
@@ -4082,7 +4081,7 @@
         "flow",
         "script"
       ],
-      "views": 3921956,
+      "views": 3921981,
       "likes": 34,
       "dislikes": 10,
       "rating": 3.9,
@@ -4122,7 +4121,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3892262,
+      "views": 3892282,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4161,7 +4160,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3573351,
+      "views": 3573373,
       "likes": 69,
       "dislikes": 13,
       "rating": 4.2,
@@ -4201,7 +4200,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3509292,
+      "views": 3509295,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4241,7 +4240,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3390163,
+      "views": 3390164,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4319,7 +4318,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3144397,
+      "views": 3144400,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4358,7 +4357,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023600,
+      "views": 3023602,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4397,7 +4396,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2803369,
+      "views": 2803390,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4437,7 +4436,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2721587,
+      "views": 2721593,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4477,7 +4476,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2486443,
+      "views": 2486452,
       "likes": 175,
       "dislikes": 32,
       "rating": 4.2,
@@ -4632,7 +4631,7 @@
         "Free Keyless",
         "Universal"
       ],
-      "views": 2142900,
+      "views": 2142901,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -4831,7 +4830,7 @@
         "Hood Rivals",
         "Build a Car to Go Far"
       ],
-      "views": 1990069,
+      "views": 1990097,
       "likes": 162,
       "dislikes": 47,
       "rating": 3.9,
@@ -5100,7 +5099,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1880059,
+      "views": 1880080,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5177,7 +5176,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875591,
+      "views": 1875592,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5632,7 +5631,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1689635,
+      "views": 1689636,
       "likes": 336,
       "dislikes": 45,
       "rating": 4.4,
@@ -5710,7 +5709,7 @@
         "tsb",
         "bf"
       ],
-      "views": 1674842,
+      "views": 1674843,
       "likes": 54,
       "dislikes": 9,
       "rating": 4.3,
@@ -6331,7 +6330,7 @@
         "free",
         "easy"
       ],
-      "views": 1349623,
+      "views": 1349642,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6519,7 +6518,7 @@
         "join in dc for more",
         "subscribe pls"
       ],
-      "views": 1325846,
+      "views": 1325847,
       "likes": 27,
       "dislikes": 1,
       "rating": 4.8,
@@ -6595,7 +6594,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1288074,
+      "views": 1288096,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6708,7 +6707,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1282290,
+      "views": 1282291,
       "likes": 13,
       "dislikes": 6,
       "rating": 3.4,
@@ -7385,7 +7384,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 779139,
+      "views": 779148,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7533,7 +7532,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 766175,
+      "views": 766176,
       "likes": 13,
       "dislikes": 2,
       "rating": 4.3,
@@ -7571,7 +7570,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 735833,
+      "views": 735834,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7874,7 +7873,7 @@
         "PSX",
         "PetSimX"
       ],
-      "views": 631765,
+      "views": 631766,
       "likes": 10,
       "dislikes": 8,
       "rating": 2.8,
@@ -8025,7 +8024,7 @@
         "OP",
         "Mobile"
       ],
-      "views": 603058,
+      "views": 603059,
       "likes": 27,
       "dislikes": 6,
       "rating": 4.1,
@@ -8139,7 +8138,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 600728,
+      "views": 600734,
       "likes": 20,
       "dislikes": 10,
       "rating": 3.3,
@@ -8175,7 +8174,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 591923,
+      "views": 591924,
       "likes": 89,
       "dislikes": 5,
       "rating": 4.7,
@@ -8322,7 +8321,7 @@
         "FE",
         "Genesis"
       ],
-      "views": 548620,
+      "views": 548621,
       "likes": 1,
       "dislikes": 1,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -8396,7 +8395,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 540642,
+      "views": 540643,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -8434,7 +8433,7 @@
         "Goner",
         "Genesis"
       ],
-      "views": 535183,
+      "views": 535184,
       "likes": 2,
       "dislikes": 3,
       "rating": 2,
@@ -8545,7 +8544,7 @@
         "Nights in the Forest",
         "Roblox  Nights in the Forest"
       ],
-      "views": 1254440,
+      "views": 1254441,
       "likes": 185,
       "dislikes": 32,
       "rating": 4.3,
@@ -8693,7 +8692,7 @@
         "best",
         "Op"
       ],
-      "views": 1072763,
+      "views": 1072766,
       "likes": 98,
       "dislikes": 17,
       "rating": 4.3,
@@ -9034,7 +9033,7 @@
         "Bladeball",
         "Keyless"
       ],
-      "views": 893932,
+      "views": 893933,
       "likes": 13,
       "dislikes": 8,
       "rating": 3.1,
@@ -9217,7 +9216,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 494426,
+      "views": 494431,
       "likes": 434,
       "dislikes": 117,
       "rating": 3.9,
@@ -9290,7 +9289,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 230042,
+      "views": 230044,
       "likes": 284,
       "dislikes": 42,
       "rating": 4.4,
@@ -9328,7 +9327,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 153188,
+      "views": 153190,
       "likes": 269,
       "dislikes": 64,
       "rating": 4,
@@ -9718,6 +9717,76 @@
       ]
     },
     {
+      "id": "rscripts-6b07616fb671a73d96d980d5",
+      "slug": "script-request-AmbK",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/script-request-AmbK",
+      "title": "Script Request",
+      "game": "Mechs vs Kaiju's Ragdoll | [MAJOR UPDATE]",
+      "gameImage": "https://rscripts.net/assets/games/137036044759831-thumb-959ad2376147545b.webp",
+      "author": "Venolxity",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 1,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "I've been trying to find a script for this game, can someone make it?",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nrequest script",
+      "createdAt": "2026-11-25T23:38:50.275Z",
+      "updatedAt": "2026-11-25T22:30:07.260Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "rscripts-6b0761dd40deb0ba9076c2d0",
+      "slug": "open-source-piggy-VqIA",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/open-source-piggy-VqIA",
+      "title": "Open Source Piggy",
+      "game": "Piggy [THE HUNT]",
+      "gameImage": "https://rscripts.net/assets/games/4623386862-thumb-b3a3fcd23585f806.webp",
+      "author": "MunkeHub",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 2,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Open source for the skids Multiple features 25+",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\n--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b0761dd40deb0ba9076c2d0\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nlocal AIRFLOW_URL = \"https://raw.githubusercontent.com/kni-fe/free-products/main/AirFlowLibrary.luau\"\r\n\r\nlocal success, Library = pcall(function()\r\n    local source = game:HttpGet(AIRFLOW_URL)\r\n    return loadstring(source)()\r\nend)\r\n\r\nif not success or type(Library) ~= \"table\" or type(Library.CreateWindow) ~= \"function\" then\r\n    error(\"[AirFlow Template] Failed to load library: \" .. tostring(Library))\r\nend\r\n\r\ngetgenv().AirFlow = Library\r\ngetgenv().Library = Library\r\n\r\nlocal Players           = game:GetService(\"Players\")\r\nlocal TweenService      = game:GetService(\"TweenService\")\r\nlocal RunService        = game:GetService(\"RunService\")\r\nlocal UserInputService  = game:GetService(\"UserInputService\")\r\nlocal Lighting          = game:GetService(\"Lighting\")\r\nlocal HttpService       = game:GetService(\"HttpService\")\r\nlocal TeleportService   = game:GetService(\"TeleportService\")\r\nlocal LocalPlayer       = Players.LocalPlayer\r\nlocal camera            = workspace.CurrentCamera\r\n\r\nlocal Window = Library:CreateWindow({\r\n    Title = \"Piggy Hub\",\r\n    Subtitle = \"AirFlow Edition\",\r\n    Size = UDim2.fromOffset(550, 450),\r\n    ToggleKey = Enum.KeyCode.RightShift,\r\n})\r\n\r\nlocal MainTab = Window:CreateTab(\"Main\", 4483362458)\r\nlocal VisualsTab = Window:CreateTab(\"Visuals\", 4483362458)\r\nlocal TeleportTab = Window:CreateTab(\"Teleport\", 4483362458)\r\nlocal UtilityTab = Window:CreateTab(\"Utility\", 4483362458)\r\n\r\nlocal State = {\r\n    WalkSpeed    = false, WSpeed = 30,\r\n    JumpPower    = false, JPower = 60,\r\n    InfiniteJump = false,\r\n    Noclip       = false,\r\n    Fly          = false, FlySpeed = 60,\r\n    Godmode      = false,\r\n    ItemESP      = true,\r\n    PiggyESP     = true,\r\n    PlayerESP    = true,\r\n    ExitESP      = true,\r\n    ESP_Boxes    = true,\r\n    ESP_Names    = true,\r\n    ESP_Distances= true,\r\n    ESP_Health   = true,\r\n    ESP_MaxDist  = 500,\r\n    Fullbright   = false,\r\n    NoFog        = false,\r\n    AntiJumpscare = false,\r\n    AntiAFK      = false,\r\n}\r\n\r\nlocal C = {\r\n    Player = Color3.fromRGB(60, 130, 255),\r\n    Bot    = Color3.fromRGB(255, 60, 60),\r\n    Item   = Color3.fromRGB(255, 215, 100),\r\n    Exit   = Color3.fromRGB(120, 255, 120),\r\n    HealthHigh = Color3.fromRGB(0, 255, 0),\r\n    HealthMid  = Color3.fromRGB(255, 255, 0),\r\n    HealthLow  = Color3.fromRGB(255, 0, 0),\r\n    Black  = Color3.fromRGB(0,0,0)\r\n}\r\n\r\nlocal function getHRP()\r\n    local c = LocalPlayer.Character\r\n    return c and c:FindFirstChild(\"HumanoidRootPart\")\r\nend\r\n\r\nlocal function getHum()\r\n    local c = LocalPlayer.Character\r\n    return c and c:FindFirstChildOfClass(\"Humanoid\")\r\nend\r\n\r\nlocal Targets = { list = {}, hums = {}, isBot = {} }\r\nlocal BOT_KEYWORDS = {\r\n    \"piggy\",\"bot\",\"npc\",\"zizzy\",\"pony\",\"mimi\",\"bunny\",\"doggy\",\r\n    \"mr.p\",\"mr p\",\"mrp\",\"sheepy\",\"george\",\"memory\",\"antagonist\"\r\n}\r\n\r\nlocal function looksLikeBot(char)\r\n    local n = char.Name:lower()\r\n    for _, kw in ipairs(BOT_KEYWORDS) do\r\n        if n:find(kw, 1, true) then return true end\r\n    end\r\n    return not Players:GetPlayerFromCharacter(char)\r\nend\r\n\r\nlocal function refreshTargets()\r\n    table.clear(Targets.list)\r\n    table.clear(Targets.hums)\r\n    table.clear(Targets.isBot)\r\n    \r\n    for _, plr in ipairs(Players:GetPlayers()) do\r\n        if plr ~= LocalPlayer and plr.Character then\r\n            local char = plr.Character\r\n            local root = char:FindFirstChild(\"HumanoidRootPart\")\r\n            local hum  = char:FindFirstChildOfClass(\"Humanoid\")\r\n            if root and hum and hum.Health > 0 then\r\n                Targets.list[root]  = char\r\n                Targets.hums[root]  = hum\r\n                Targets.isBot[root] = false\r\n            end\r\n        end\r\n    end\r\n\r\n    for _, obj in ipairs(workspace:GetDescendants()) do\r\n        if obj:IsA(\"Model\") and obj ~= LocalPlayer.Character then\r\n            local hum  = obj:FindFirstChildOfClass(\"Humanoid\")\r\n            local root = obj:FindFirstChild(\"HumanoidRootPart\")\r\n            if hum and root and hum.Health > 0 and looksLikeBot(obj) then\r\n                Targets.list[root]  = obj\r\n                Targets.hums[root]  = hum\r\n                Targets.isBot[root] = true\r\n            end\r\n        end\r\n    end\r\nend\r\n\r\ntask.spawn(function()\r\n    while task.wait(0.5) do\r\n        pcall(refreshTargets)\r\n    end\r\nend)\r\n\r\nlocal ESP = { pool = {}, active = {}, maxPool = 100 }\r\nlocal espGui = Instance.new(\"ScreenGui\")\r\nespGui.Name = \"PiggyESP_Overlay\"\r\nespGui.ResetOnSpawn = false\r\nespGui.IgnoreGuiInset = true\r\npcall(function() espGui.Parent = game:GetService(\"CoreGui\") end)\r\nif not espGui.Parent then espGui.Parent = LocalPlayer:WaitForChild(\"PlayerGui\") end\r\n\r\nlocal function acquireEntry()\r\n    local t = table.remove(ESP.pool)\r\n    if t then return t end\r\n    \r\n    local box = Instance.new(\"Frame\")\r\n    box.BackgroundTransparency = 1; box.BorderSizePixel = 0; box.Visible = false; box.Parent = espGui\r\n    local stroke = Instance.new(\"UIStroke\"); stroke.Thickness = 1; stroke.Parent = box\r\n    \r\n    local nameLbl = Instance.new(\"TextLabel\")\r\n    nameLbl.BackgroundTransparency = 1; nameLbl.Font = Enum.Font.RobotoMono; nameLbl.TextSize = 12\r\n    nameLbl.TextStrokeTransparency = 0; nameLbl.TextStrokeColor3 = C.Black\r\n    nameLbl.Size = UDim2.new(0, 240, 0, 14); nameLbl.TextXAlignment = Enum.TextXAlignment.Center\r\n    nameLbl.Visible = false; nameLbl.Parent = espGui\r\n    \r\n    local distLbl = Instance.new(\"TextLabel\")\r\n    distLbl.BackgroundTransparency = 1; distLbl.Font = Enum.Font.RobotoMono; distLbl.TextSize = 10\r\n    distLbl.TextStrokeTransparency = 0; distLbl.TextStrokeColor3 = C.Black\r\n    distLbl.Size = UDim2.new(0, 120, 0, 12); distLbl.TextXAlignment = Enum.TextXAlignment.Center\r\n    distLbl.Visible = false; distLbl.Parent = espGui\r\n    \r\n    local hpBg = Instance.new(\"Frame\")\r\n    hpBg.BackgroundColor3 = Color3.fromRGB(40,40,40); hpBg.BorderSizePixel = 0; hpBg.Visible = false; hpBg.Parent = espGui\r\n    \r\n    local hpBar = Instance.new(\"Frame\")\r\n    hpBar.BackgroundColor3 = C.HealthHigh; hpBar.BorderSizePixel = 0; hpBar.Visible = false; hpBar.Parent = espGui\r\n    \r\n    return { Box = box, Stroke = stroke, Name = nameLbl, Dist = distLbl, HpBg = hpBg, HpBar = hpBar }\r\nend\r\n\r\nlocal function releaseEntry(e)\r\n    if not e then return end\r\n    e.Box.Visible = false; e.Name.Visible = false; e.Dist.Visible = false\r\n    e.HpBg.Visible = false; e.HpBar.Visible = false\r\n    if #ESP.pool < ESP.maxPool then table.insert(ESP.pool, e) else\r\n        e.Box:Destroy(); e.Name:Destroy(); e.Dist:Destroy(); e.HpBg:Destroy(); e.HpBar:Destroy()\r\n    end\r\nend\r\n\r\nlocal ITEM_PATTERNS = {\"key\",\"lockpick\",\"hammer\",\"screwdriver\",\"wrench\",\"gas\",\"cank\",\"canister\",\"battery\",\"fuse\",\"gun\",\"weapon\",\"knife\",\"bat\",\"crowbar\",\"flashlight\",\"coin\",\"ticket\",\"trophy\",\"cure\",\"antidote\"}\r\nlocal EXIT_PATTERNS = {\"exit\",\"escape\",\"door\",\"goal\",\"objective\",\"checkpoint\",\"elevator\",\"gate\"}\r\n\r\nlocal function matchesAny(name, patterns)\r\n    if not name then return false end\r\n    local l = name:lower()\r\n    for _, p in ipairs(patterns) do if l:find(p, 1, true) then return true end end\r\n    return false\r\nend\r\n\r\nlocal WorldObjects = {}\r\nlocal function refreshWorldObjects()\r\n    table.clear(WorldObjects)\r\n    local hrp = getHRP()\r\n    if not hrp then return end\r\n    \r\n    for _, obj in ipairs(workspace:GetDescendants()) do\r\n        if obj:IsA(\"BasePart\") and obj.Name ~= \"\" then\r\n            local isItem = State.ItemESP and matchesAny(obj.Name, ITEM_PATTERNS)\r\n            local isExit = State.ExitESP and matchesAny(obj.Name, EXIT_PATTERNS)\r\n            if isItem or isExit then\r\n                local d = (obj.Position - hrp.Position).Magnitude\r\n                if d <= State.ESP_MaxDist then\r\n                    table.insert(WorldObjects, { part = obj, dist = d, cat = isExit and \"EXIT\" or \"ITEM\" })\r\n                end\r\n            end\r\n        end\r\n    end\r\nend\r\n\r\nRunService.RenderStepped:Connect(function()\r\n    if not (State.ItemESP or State.PiggyESP or State.PlayerESP or State.ExitESP) then\r\n        for _, e in pairs(ESP.active) do releaseEntry(e) end\r\n        table.clear(ESP.active)\r\n        return\r\n    end\r\n    \r\n    local hrp = getHRP()\r\n    if not hrp then return end\r\n    \r\n    local vp = camera.ViewportSize\r\n    local nowUsed = {}\r\n    \r\n    for root, char in pairs(Targets.list) do\r\n        if char and char.Parent and root and root.Parent then\r\n            local hum = Targets.hums[root]\r\n            if hum and hum.Health > 0 then\r\n                local isBot = Targets.isBot[root]\r\n                local wanted = (isBot and State.PiggyESP) or (not isBot and State.PlayerESP)\r\n                if wanted then\r\n                    local dist = (root.Position - hrp.Position).Magnitude\r\n                    if dist <= State.ESP_MaxDist then\r\n                        local e = ESP.active[root]\r\n                        if not e then e = acquireEntry(); ESP.active[root] = e end\r\n                        nowUsed[root] = true\r\n                        \r\n                        local pos, onScreen = camera:WorldToViewportPoint(root.Position)\r\n                        if onScreen and pos.Z > 0 and pos.X > -100 and pos.X < vp.X + 100 and pos.Y > -100 and pos.Y < vp.Y + 100 then\r\n                            local scale = 1000 / math.max(dist, 1)\r\n                            local boxW = math.clamp(3 * scale, 12, 220)\r\n                            local boxH = boxW * 1.5\r\n                            local col = isBot and C.Bot or C.Player\r\n                            \r\n                            if State.ESP_Boxes then\r\n                                e.Box.Size = UDim2.new(0, boxW, 0, boxH)\r\n                                e.Box.Position = UDim2.new(0, pos.X - boxW*0.5, 0, pos.Y - boxH*0.5)\r\n                                e.Box.Visible = true\r\n                                e.Stroke.Color = col\r\n                            else e.Box.Visible = false end\r\n                            \r\n                            if State.ESP_Names then\r\n                                e.Name.Text = (isBot and \"[BOT] \" or \"\") .. char.Name\r\n                                e.Name.TextColor3 = col\r\n                                e.Name.Position = UDim2.new(0, pos.X - 120, 0, pos.Y - boxH*0.5 - 16)\r\n                                e.Name.Visible = true\r\n                            else e.Name.Visible = false end\r\n                            \r\n                            if State.ESP_Distances then\r\n                                e.Dist.Text = string.format(\"%dm\", math.floor(dist))\r\n                                e.Dist.TextColor3 = col\r\n                                e.Dist.Position = UDim2.new(0, pos.X - 60, 0, pos.Y + boxH*0.5 + 2)\r\n                                e.Dist.Visible = true\r\n                            else e.Dist.Visible = false end\r\n                            \r\n                            if State.ESP_Health then\r\n                                local pct = math.clamp(hum.Health / math.max(hum.MaxHealth, 1), 0, 1)\r\n                                local barX = pos.X - boxW*0.5 - 6\r\n                                e.HpBg.Size = UDim2.new(0, 4, 0, boxH + 2)\r\n                                e.HpBg.Position = UDim2.new(0, barX - 1, 0, pos.Y - boxH*0.5 - 1)\r\n                                e.HpBg.Visible = true\r\n                                local hh = boxH * pct\r\n                                e.HpBar.Size = UDim2.new(0, 4, 0, hh)\r\n                                e.HpBar.Position = UDim2.new(0, barX, 0, pos.Y + boxH*0.5 - hh)\r\n                                e.HpBar.BackgroundColor3 = pct > 0.6 and C.HealthHigh or pct > 0.3 and C.HealthMid or C.HealthLow\r\n                                e.HpBar.Visible = true\r\n                            else\r\n                                e.HpBg.Visible = false; e.HpBar.Visible = false\r\n                            end\r\n                        else\r\n                            e.Box.Visible = false; e.Name.Visible = false; e.Dist.Visible = false\r\n                            e.HpBg.Visible = false; e.HpBar.Visible = false\r\n                        end\r\n                    end\r\n                end\r\n            end\r\n        end\r\n    end\r\n    \r\n    for _, info in ipairs(WorldObjects) do\r\n        local part = info.part\r\n        if part and part.Parent then\r\n            local e = ESP.active[part]\r\n            if not e then e = acquireEntry(); ESP.active[part] = e end\r\n            nowUsed[part] = true\r\n            \r\n            local pos, onScreen = camera:WorldToViewportPoint(part.Position)\r\n            if onScreen and pos.Z > 0 and pos.X > -80 and pos.X < vp.X + 80 and pos.Y > -80 and pos.Y < vp.Y + 80 then\r\n                local scale = 1000 / math.max(info.dist, 1)\r\n                local sz = math.clamp(2 * scale, 10, 80)\r\n                local col = info.cat == \"EXIT\" and C.Exit or C.Item\r\n                \r\n                if State.ESP_Boxes then\r\n                    e.Box.Size = UDim2.new(0, sz, 0, sz)\r\n                    e.Box.Position = UDim2.new(0, pos.X - sz*0.5, 0, pos.Y - sz*0.5)\r\n                    e.Box.Visible = true\r\n                    e.Stroke.Color = col\r\n                else e.Box.Visible = false end\r\n                \r\n                if State.ESP_Names then\r\n                    e.Name.Text = part.Name\r\n                    e.Name.TextColor3 = col\r\n                    e.Name.Position = UDim2.new(0, pos.X - 120, 0, pos.Y - sz*0.5 - 16)\r\n                    e.Name.Visible = true\r\n                else e.Name.Visible = false end\r\n                \r\n                if State.ESP_Distances then\r\n                    e.Dist.Text = string.format(\"%dm\", math.floor(info.dist))\r\n                    e.Dist.TextColor3 = col\r\n                    e.Dist.Position = UDim2.new(0, pos.X - 60, 0, pos.Y + sz*0.5 + 2)\r\n                    e.Dist.Visible = true\r\n                else e.Dist.Visible = false end\r\n                \r\n                e.HpBg.Visible = false; e.HpBar.Visible = false\r\n            else\r\n                e.Box.Visible = false; e.Name.Visible = false; e.Dist.Visible = false\r\n                e.HpBg.Visible = false; e.HpBar.Visible = false\r\n            end\r\n        end\r\n    end\r\n    \r\n    for inst, e in pairs(ESP.active) do\r\n        if not nowUsed[inst] or not inst.Parent then\r\n            releaseEntry(e)\r\n            ESP.active[inst] = nil\r\n        end\r\n    end\r\nend)\r\n\r\ntask.spawn(function()\r\n    while task.wait(1.5) do\r\n        if State.ItemESP or State.ExitESP then\r\n            pcall(refreshWorldObjects)\r\n        end\r\n    end\r\nend)\r\n\r\nMainTab:CreateSection(\"Movement\")\r\n\r\nMainTab:CreateSlider({\r\n    Name = \"WalkSpeed\",\r\n    Range = {16, 200},\r\n    Increment = 1,\r\n    Suffix = \" Speed\",\r\n    CurrentValue = 30,\r\n    Flag = \"WalkSpeedSlider\",\r\n    Callback = function(v)\r\n        State.WSpeed = v\r\n        if State.WalkSpeed then\r\n            local h = getHum()\r\n            if h then h.WalkSpeed = v end\r\n        end\r\n    end,\r\n})\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Enable WalkSpeed\",\r\n    CurrentValue = false,\r\n    Flag = \"WalkSpeedToggle\",\r\n    Callback = function(on)\r\n        State.WalkSpeed = on\r\n        local h = getHum()\r\n        if h then h.WalkSpeed = on and State.WSpeed or 16 end\r\n    end,\r\n})\r\n\r\nMainTab:CreateSlider({\r\n    Name = \"JumpPower\",\r\n    Range = {50, 300},\r\n    Increment = 1,\r\n    Suffix = \" Power\",\r\n    CurrentValue = 60,\r\n    Flag = \"JumpPowerSlider\",\r\n    Callback = function(v)\r\n        State.JPower = v\r\n        if State.JumpPower then\r\n            local h = getHum()\r\n            if h then h.UseJumpPower = true; h.JumpPower = v end\r\n        end\r\n    end,\r\n})\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Enable JumpPower\",\r\n    CurrentValue = false,\r\n    Flag = \"JumpPowerToggle\",\r\n    Callback = function(on)\r\n        State.JumpPower = on\r\n        local h = getHum()\r\n        if h then\r\n            h.UseJumpPower = true\r\n            h.JumpPower = on and State.JPower or 50\r\n        end\r\n    end,\r\n})\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Infinite Jump\",\r\n    CurrentValue = false,\r\n    Flag = \"InfiniteJump\",\r\n    Callback = function(on) State.InfiniteJump = on end,\r\n})\r\n\r\nMainTab:CreateSection(\"Physics\")\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Noclip\",\r\n    CurrentValue = false,\r\n    Flag = \"Noclip\",\r\n    Callback = function(on) State.Noclip = on end,\r\n})\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Godmode\",\r\n    CurrentValue = false,\r\n    Flag = \"Godmode\",\r\n    Callback = function(on)\r\n        State.Godmode = on\r\n        local h = getHum()\r\n        if h and not on then h.MaxHealth = 100; h.Health = 100 end\r\n    end,\r\n})\r\n\r\nMainTab:CreateSection(\"Flight\")\r\n\r\nMainTab:CreateToggle({\r\n    Name = \"Fly\",\r\n    CurrentValue = false,\r\n    Flag = \"Fly\",\r\n    Callback = function(on)\r\n        State.Fly = on\r\n        if not on then\r\n            local hrp = getHRP()\r\n            if hrp then hrp.Velocity = Vector3.zero; hrp.RotVelocity = Vector3.zero end\r\n        end\r\n    end,\r\n})\r\n\r\nMainTab:CreateSlider({\r\n    Name = \"Fly Speed\",\r\n    Range = {20, 200},\r\n    Increment = 1,\r\n    Suffix = \" Speed\",\r\n    CurrentValue = 60,\r\n    Flag = \"FlySpeedSlider\",\r\n    Callback = function(v) State.FlySpeed = v end,\r\n})\r\n\r\nVisualsTab:CreateSection(\"Target ESP\")\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Player ESP\",\r\n    CurrentValue = true,\r\n    Flag = \"PlayerESP\",\r\n    Callback = function(on) State.PlayerESP = on end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Piggy / Bot ESP\",\r\n    CurrentValue = true,\r\n    Flag = \"PiggyESP\",\r\n    Callback = function(on) State.PiggyESP = on end,\r\n})\r\n\r\nVisualsTab:CreateSection(\"World ESP\")\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Item ESP\",\r\n    CurrentValue = true,\r\n    Flag = \"ItemESP\",\r\n    Callback = function(on) State.ItemESP = on end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Exit / Objective ESP\",\r\n    CurrentValue = true,\r\n    Flag = \"ExitESP\",\r\n    Callback = function(on) State.ExitESP = on end,\r\n})\r\n\r\nVisualsTab:CreateSection(\"Display\")\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Boxes\",\r\n    CurrentValue = true,\r\n    Flag = \"ESP_Boxes\",\r\n    Callback = function(on) State.ESP_Boxes = on end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Names\",\r\n    CurrentValue = true,\r\n    Flag = \"ESP_Names\",\r\n    Callback = function(on) State.ESP_Names = on end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Distances\",\r\n    CurrentValue = true,\r\n    Flag = \"ESP_Distances\",\r\n    Callback = function(on) State.ESP_Distances = on end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Health Bars\",\r\n    CurrentValue = true,\r\n    Flag = \"ESP_Health\",\r\n    Callback = function(on) State.ESP_Health = on end,\r\n})\r\n\r\nVisualsTab:CreateSection(\"Range\")\r\n\r\nVisualsTab:CreateSlider({\r\n    Name = \"Max Distance (studs)\",\r\n    Range = {50, 2000},\r\n    Increment = 10,\r\n    Suffix = \" studs\",\r\n    CurrentValue = 500,\r\n    Flag = \"ESP_MaxDist\",\r\n    Callback = function(v) State.ESP_MaxDist = v end,\r\n})\r\n\r\nVisualsTab:CreateSection(\"Environment\")\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"Fullbright\",\r\n    CurrentValue = false,\r\n    Flag = \"Fullbright\",\r\n    Callback = function(on)\r\n        State.Fullbright = on\r\n        if on then\r\n            Lighting.Ambient = Color3.fromRGB(200,200,200)\r\n            Lighting.OutdoorAmbient = Color3.fromRGB(200,200,200)\r\n            Lighting.Brightness = 2\r\n        else\r\n            Lighting.Ambient = Color3.fromRGB(70,70,70)\r\n            Lighting.OutdoorAmbient = Color3.fromRGB(70,70,70)\r\n            Lighting.Brightness = 1\r\n        end\r\n    end,\r\n})\r\n\r\nVisualsTab:CreateToggle({\r\n    Name = \"No Fog\",\r\n    CurrentValue = false,\r\n    Flag = \"NoFog\",\r\n    Callback = function(on)\r\n        State.NoFog = on\r\n        if on then\r\n            Lighting.FogEnd = 1e6; Lighting.FogStart = 0\r\n        else\r\n            Lighting.FogEnd = 100000; Lighting.FogStart = 0\r\n        end\r\n    end,\r\n})\r\n\r\nTeleportTab:CreateSection(\"Teleport\")\r\n\r\nlocal function safeTeleport(cf)\r\n    local hrp = getHRP()\r\n    if not hrp then return end\r\n    hrp.CFrame = cf\r\n    hrp.Velocity = Vector3.zero\r\n    hrp.RotVelocity = Vector3.zero\r\nend\r\n\r\nTeleportTab:CreateButton({\r\n    Name = \"Teleport to Exit\",\r\n    Callback = function()\r\n        for _, obj in ipairs(workspace:GetDescendants()) do\r\n            if obj:IsA(\"BasePart\") and obj.Name:lower():find(\"exit\", 1, true) then\r\n                safeTeleport(CFrame.new(obj.Position + Vector3.new(0,4,0)))\r\n                return\r\n            end\r\n        end\r\n    end,\r\n})\r\n\r\nTeleportTab:CreateButton({\r\n    Name = \"Teleport to Nearest Item\",\r\n    Callback = function()\r\n        local hrp = getHRP()\r\n        if not hrp then return end\r\n        local nearest, dist = nil, math.huge\r\n        for _, obj in ipairs(workspace:GetDescendants()) do\r\n            if obj:IsA(\"BasePart\") and matchesAny(obj.Name, ITEM_PATTERNS) then\r\n                local d = (obj.Position - hrp.Position).Magnitude\r\n                if d < dist then nearest, dist = obj, d end\r\n            end\r\n        end\r\n        if nearest then safeTeleport(CFrame.new(nearest.Position + Vector3.new(0,4,0))) end\r\n    end,\r\n})\r\n\r\nlocal playerIndex = 0\r\nlocal playerNames = {}\r\nlocal function refreshPlayerList()\r\n    playerNames = {}\r\n    for _, p in ipairs(Players:GetPlayers()) do\r\n        if p ~= LocalPlayer then table.insert(playerNames, p.Name) end\r\n    end\r\nend\r\nrefreshPlayerList()\r\n\r\nlocal plrBtn = TeleportTab:CreateButton({\r\n    Name = \"Target Player: (none) — tap to cycle\",\r\n    Callback = function()\r\n        refreshPlayerList()\r\n        if #playerNames == 0 then return end\r\n        playerIndex = (playerIndex % #playerNames) + 1\r\n        plrBtn:SetText(\"Target: \" .. playerNames[playerIndex] .. \" — tap to cycle\")\r\n    end,\r\n})\r\n\r\nTeleportTab:CreateButton({\r\n    Name = \"Teleport to Selected Player\",\r\n    Callback = function()\r\n        if #playerNames == 0 or playerIndex == 0 then return end\r\n        local target = Players:FindFirstChild(playerNames[playerIndex])\r\n        if target and target.Character then\r\n            local hrp = target.Character:FindFirstChild(\"HumanoidRootPart\")\r\n            if hrp then safeTeleport(CFrame.new(hrp.Position + Vector3.new(0,4,0))) end\r\n        end\r\n    end,\r\n})\r\n\r\nUtilityTab:CreateSection(\"Protection\")\r\n\r\nUtilityTab:CreateToggle({\r\n    Name = \"Anti-Jumpscare\",\r\n    CurrentValue = false,\r\n    Flag = \"AntiJumpscare\",\r\n    Callback = function(on) State.AntiJumpscare = on end,\r\n})\r\n\r\nUtilityTab:CreateToggle({\r\n    Name = \"Anti-AFK\",\r\n    CurrentValue = false,\r\n    Flag = \"AntiAFK\",\r\n    Callback = function(on) State.AntiAFK = on end,\r\n})\r\n\r\nUtilityTab:CreateSection(\"Discord\")\r\n\r\nUtilityTab:CreateButton({\r\n    Name = \"Copy Discord Invite\",\r\n    Callback = function()\r\n        local invite = \"https://discord.gg/bNEk4D2d4F\"\r\n        if setclipboard then\r\n            pcall(setclipboard, invite)\r\n        elseif toclipboard then\r\n            pcall(toclipboard, invite)\r\n        end\r\n    end,\r\n})\r\n\r\nUtilityTab:CreateSection(\"Server\")\r\n\r\nUtilityTab:CreateButton({\r\n    Name = \"Rejoin Server\",\r\n    Callback = function()\r\n        TeleportService:Teleport(game.PlaceId, LocalPlayer)\r\n    end,\r\n})\r\n\r\nUtilityTab:CreateButton({\r\n    Name = \"Server Hop (smallest server)\",\r\n    Callback = function()\r\n        local ok, result = pcall(function()\r\n            local url = \"https://games.roblox.com/v1/games/\" .. game.PlaceId .. \"/servers/Public?sortOrder=Asc&limit=100\"\r\n            return HttpService:JSONDecode(game:HttpGet(url))\r\n        end)\r\n        if not ok or not result or not result.data then return end\r\n        for _, srv in ipairs(result.data) do\r\n            if srv.playing < srv.maxPlayers and srv.id ~= game.JobId then\r\n                TeleportService:TeleportToPlaceInstance(game.PlaceId, srv.id, LocalPlayer)\r\n                return\r\n            end\r\n        end\r\n    end,\r\n})\r\n\r\nUtilityTab:CreateButton({\r\n    Name = \"Copy JobId\",\r\n    Callback = function()\r\n        if setclipboard then pcall(setclipboard, game.JobId) end\r\n    end,\r\n})\r\n\r\nUtilityTab:CreateButton({\r\n    Name = \"Unload Script\",\r\n    Callback = function()\r\n        for part in pairs(ESP.active) do releaseEntry(ESP.active[part]) end\r\n        table.clear(ESP.active)\r\n        espGui:Destroy()\r\n        Window:Destroy()\r\n    end,\r\n})\r\n\r\nRunService.Stepped:Connect(function()\r\n    if not State.Noclip then return end\r\n    local char = LocalPlayer.Character\r\n    if not char then return end\r\n    for _, p in ipairs(char:GetDescendants()) do\r\n        if p:IsA(\"BasePart\") and p.CanCollide then\r\n            p.CanCollide = false\r\n        end\r\n    end\r\nend)\r\n\r\nRunService.Heartbeat:Connect(function()\r\n    local h = getHum()\r\n    if not h then return end\r\n    if State.WalkSpeed and h.WalkSpeed ~= State.WSpeed then h.WalkSpeed = State.WSpeed end\r\n    if State.JumpPower then\r\n        h.UseJumpPower = true\r\n        if h.JumpPower ~= State.JPower then h.JumpPower = State.JPower end\r\n    end\r\n    if State.Godmode then\r\n        h.MaxHealth = math.huge\r\n        h.Health = math.huge\r\n    end\r\nend)\r\n\r\nUserInputService.JumpRequest:Connect(function()\r\n    if not State.InfiniteJump then return end\r\n    local h = getHum()\r\n    if h then h:ChangeState(Enum.HumanoidStateType.Jumping) end\r\nend)\r\n\r\ndo\r\n    local bodyVel, bodyGyro\r\n    local function startFly()\r\n        local hrp = getHRP()\r\n        if not hrp then return end\r\n        bodyVel = Instance.new(\"BodyVelocity\")\r\n        bodyVel.MaxForce = Vector3.new(math.huge, math.huge, math.huge)\r\n        bodyVel.Velocity = Vector3.zero\r\n        bodyVel.Parent = hrp\r\n        bodyGyro = Instance.new(\"BodyGyro\")\r\n        bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)\r\n        bodyGyro.P = 10000\r\n        bodyGyro.CFrame = hrp.CFrame\r\n        bodyGyro.Parent = hrp\r\n    end\r\n    local function stopFly()\r\n        if bodyVel then bodyVel:Destroy(); bodyVel = nil end\r\n        if bodyGyro then bodyGyro:Destroy(); bodyGyro = nil end\r\n    end\r\n    RunService.Heartbeat:Connect(function()\r\n        if not State.Fly then\r\n            if bodyVel then stopFly() end\r\n            return\r\n        end\r\n        local hrp = getHRP()\r\n        if not hrp then return end\r\n        if not bodyVel then startFly() return end\r\n        local dir = Vector3.zero\r\n        local cam = camera.CFrame\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.W) then dir += cam.LookVector end\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir -= cam.LookVector end\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir -= cam.RightVector end\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir += cam.RightVector end\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.Space) then dir += Vector3.new(0,1,0) end\r\n        if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then dir -= Vector3.new(0,1,0) end\r\n        if dir.Magnitude > 0 then dir = dir.Unit end\r\n        bodyVel.Velocity = dir * State.FlySpeed\r\n        bodyGyro.CFrame = cam\r\n    end)\r\nend\r\n\r\ntask.spawn(function()\r\n    while task.wait(0.5) do\r\n        if State.AntiJumpscare then\r\n            local playerGui = LocalPlayer:FindFirstChild(\"PlayerGui\")\r\n            if playerGui then\r\n                for _, g in ipairs(playerGui:GetChildren()) do\r\n                    if g:IsA(\"ScreenGui\") and g.Name:lower():find(\"jumpscare\", 1, true) then\r\n                        g.Enabled = false\r\n                    end\r\n                end\r\n            end\r\n        end\r\n    end\r\nend)\r\n\r\ndo\r\n    local vu = Instance.new(\"VirtualUser\")\r\n    vu.Parent = Players\r\n    task.spawn(function()\r\n        while task.wait(60) do\r\n            if State.AntiAFK then\r\n                pcall(function() vu:CaptureController() end)\r\n                pcall(function() vu:ClickButton2(Vector2.new()) end)\r\n            end\r\n        end\r\n    end)\r\nend",
+      "createdAt": "2026-11-25T23:38:50.275Z",
+      "updatedAt": "2026-11-25T22:31:57.047Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "rscripts-6b075d35b671a73d96d97c24",
       "slug": "silent-aim-triggerbot-kill-aura-esp-Gwf1",
       "source": "rscripts",
@@ -9736,7 +9805,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 1,
+      "views": 4,
       "likes": 1,
       "dislikes": 0,
       "summary": "Kuurax Hub is a high-performance multi-game automation and combat suite. Includes full feature support across 50+ popular games. Supported Games : +1 Money Per Click +1 Upgrade Per Kill +1 Venom Evolutionloadstring(game:HttpGet(\" https:/…",
@@ -9771,7 +9840,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 4,
+      "views": 5,
       "likes": 1,
       "dislikes": 0,
       "summary": "Kuurax Hub is a high-performance multi-game automation and combat suite. Includes full feature support across 50+ popular games. Supported Games : +1 Money Per Click +1 Upgrade Per Kill +1 Venom Evolution 8 Ball Duels 99 Nights in the Fo…",
@@ -9911,7 +9980,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 26,
+      "views": 27,
       "likes": 0,
       "dislikes": 0,
       "summary": "[+] Silent Aim | Auto Shoot, Team Check, Wall Check, Hit Chance, Aim Part, FOV [+] Aimbot | Smooth Aim, Team Check, Wall Check, Aim Part [+] Triggerbot | Team Check, Wall Check, Delay, Cooldown, Aim Part [+] Priority / Whitelist [+] Gun…",
@@ -9981,7 +10050,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 13,
+      "views": 16,
       "likes": 0,
       "dislikes": 0,
       "summary": "Butter Hub - BloxNG Features: Auto Bounty Auto Crash Auto Skills Auto Cut-Up Vehicle Tuning Disable Crashing Key System This script is completely free to use via a standard 24-hour key system. If you prefer to skip the key process, a lif…",
@@ -10050,7 +10119,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 39,
+      "views": 40,
       "likes": 1,
       "dislikes": 0,
       "summary": "Halo is an aim assist and ESP script with a clean, flat built-in menu. Everything starts switched off, so you turn on only what you want. Aim assist: FOV circle, smoothing, prediction, wall check, team check, sticky target, and toggle or…",
@@ -10201,76 +10270,6 @@
         "new"
       ],
       "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b073a7e2d3c0fbe2be9010e",
-      "slug": "flow-or-auto-escape-nextbots-auto-revive-turkey-hunt-esp-PeiE",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/flow-or-auto-escape-nextbots-auto-revive-turkey-hunt-esp-PeiE",
-      "title": "Flow | Auto Escape Nextbots, Auto Revive, Turkey Hunt, ESP",
-      "game": "[VAL] Evade",
-      "gameImage": "https://rscripts.net/assets/games/9872472334-thumb-8aa85b0ca08ac012.webp",
-      "author": "gensis",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Mobile"
-      ],
-      "views": 25,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "FLOW HUB | Evade OP: auto escape. It teleports you away from every nextbot, 0 downs in testing. Plus the Thanksgiving Turkey hunt for event Points. SURVIVAL OP Auto escape nextbots Auto collect tokens / XP / USB, Turkey hunt (event Point…",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/29f4f4b924aff467652814456286bb05.lua\"))()",
-      "createdAt": "2026-11-25T19:43:58.675Z",
-      "updatedAt": "2026-11-25T19:43:58.675Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b073a526f08a9411793e4c3",
-      "slug": "flow-or-auto-dress-to-theme-auto-vote-cash-farm-codes-tdKS",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/flow-or-auto-dress-to-theme-auto-vote-cash-farm-codes-tdKS",
-      "title": "Flow | Auto Dress To Theme, Auto Vote, Cash Farm, Codes",
-      "game": "Dress To Impress [SUMMER] 🏝️",
-      "gameImage": "https://rscripts.net/assets/games/15101393044-thumb-f6a028443fa3e430.webp",
-      "author": "gensis",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Mobile"
-      ],
-      "views": 33,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "FLOW HUB | Dress To Impress OP: dresses you for the theme from anywhere on the map in about 3 seconds, no walking to racks. DRESS UP OP Auto dress to theme (rack items, owned items, hair) Hybrid mode copies what the lobby is wearing at 4…",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/29f4f4b924aff467652814456286bb05.lua\"))()",
-      "createdAt": "2026-11-25T19:43:14.996Z",
-      "updatedAt": "2026-11-25T19:43:14.996Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crown",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -10512,7 +10511,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221759,
+      "views": 221760,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10696,7 +10695,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29711,
+      "views": 29712,
       "likes": 99,
       "dislikes": 26,
       "rating": 4,
@@ -10769,7 +10768,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 84992,
+      "views": 84993,
       "likes": 113,
       "dislikes": 27,
       "rating": 4,
