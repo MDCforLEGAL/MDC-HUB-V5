@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T23:51:28.261Z",
+  "generatedAt": "2026-11-25T00:01:30.929Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -80,7 +80,7 @@
         "AUTO FARM",
         "OP"
       ],
-      "views": 11188,
+      "views": 11192,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -92,43 +92,6 @@
         "trending"
       ],
       "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af4d938891ef014d5b0887d",
-      "slug": "RIVALS-Silent-aim-Aimbot-ESP-KEYLESS-236337",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/RIVALS-Silent-aim-Aimbot-ESP-KEYLESS-236337",
-      "title": "Silent aim - Aimbot - ESP [KEYLESS]",
-      "game": "[🛡️] RIVALS",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-e5dc0ebbd2205f661451ec3c8e0bd57e-fdbc5fe873d4.png",
-      "author": "noic",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "rivals",
-        "rivals keyless"
-      ],
-      "views": 7995,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "features: silent aim fov target part fov color filled fov aimbot (with smoothness and target part) Disable parts (None / Arms / Gun / Both) Item Chams (+ 2 color pickers) Viewmodel offset Viewmodel appearance Gun wireframe (+ 2 colors) A…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/noicyreal/bracehub/refs/heads/main/rivals.luau\"))()",
-      "createdAt": "2026-11-11T21:08:08.649Z",
-      "updatedAt": "2026-11-11T21:08:08.649Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -153,7 +116,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 6344,
+      "views": 6346,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -203,6 +166,44 @@
         "trending"
       ],
       "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af5def0a8d29e4b20de677e",
+      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
+      "author": "vw6222",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "hypergamy",
+        "scary",
+        "open source"
+      ],
+      "views": 1193,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Scary HyperGamy Script Open Source",
+      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
+      "createdAt": "2026-11-12T15:44:48.276Z",
+      "updatedAt": "2026-11-12T15:44:48.276Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -267,7 +268,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 1993,
+      "views": 1995,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -305,7 +306,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 1658,
+      "views": 1660,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -381,7 +382,7 @@
         "NOTHING PANEL",
         "DARK HUB"
       ],
-      "views": 4249,
+      "views": 4252,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -419,7 +420,7 @@
         "ability arena script",
         "auto farm"
       ],
-      "views": 2530,
+      "views": 2531,
       "likes": 7,
       "dislikes": 1,
       "rating": 4.4,
@@ -457,7 +458,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 3158,
+      "views": 3162,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -532,7 +533,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 4698,
+      "views": 4701,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -588,6 +589,44 @@
       ]
     },
     {
+      "id": "scriptblox-6afcc4be467775df126a9311",
+      "slug": "Volley-Bomb-Snowy-Hub-or-Auto-Play-Auto-Bump-Auto-Perfect-Spikes-and-More-237329",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Volley-Bomb-Snowy-Hub-or-Auto-Play-Auto-Bump-Auto-Perfect-Spikes-and-More-237329",
+      "title": "Snowy Hub | Auto Play, Auto Bump, Auto Perfect Spikes & More",
+      "game": "Volley Bomb",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-450acceb795a23889042169580d9d738-c1e9d0b897b1.png",
+      "author": "snowy",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Volley Bomb",
+        "Volley Bomb Script",
+        "Volley Bomb Scripts"
+      ],
+      "views": 1311,
+      "likes": 7,
+      "dislikes": 0,
+      "rating": 5,
+      "summary": "Snowy Hub: Volley Bomb - Auto Play - Auto Bump - Auto Spike - Auto Jump - Auto Serve - Perfect Spike - Auto Dive - Auto Aim - Smart Aim - Extended Hit Reach - Auto Use Abilities & TONS MORE OP FEATURES Thank you for using Snowy Hub! We p…",
+      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/a87f00d9adf63658655fcd02ab86a4ef.lua\"))()",
+      "createdAt": "2026-11-17T21:18:54.942Z",
+      "updatedAt": "2026-11-17T21:18:54.942Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "scriptblox-6afd897d5488642bf82d3ba8",
       "slug": "Arsenal-Project-Abyss-or-Aimbot-Rapid-Fire-And-More-237381",
       "source": "scriptblox",
@@ -608,7 +647,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 1988,
+      "views": 1991,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -646,7 +685,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 1938,
+      "views": 1939,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -658,44 +697,6 @@
         "trending"
       ],
       "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b008e2bf3489ff63fd38882",
-      "slug": "Universal-Script-Lua-Protect-Blackair-obfuscate-237558",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Lua-Protect-Blackair-obfuscate-237558",
-      "title": "Lua Protect Blackair obfuscate",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1795198507371.png",
-      "author": "MrNormal",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "Protect",
-        "Lua",
-        "obfuscate"
-      ],
-      "views": 665,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Best Way To Protect Your Lua Scripts https://discord.gg/zzHWqtDeFB",
-      "code": "-- https://discord.gg/zzHWqtDeFB\n\nloadstring(game:HttpGet(\"https://protect.blackair.dev/api/v1/load/bb8c8cf4-a7c0-4cbb-a0c3-395f915cbc1d\"))()",
-      "createdAt": "2026-11-20T18:15:07.413Z",
-      "updatedAt": "2026-11-20T18:15:07.413Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -722,7 +723,7 @@
         "clawd",
         "universal"
       ],
-      "views": 914,
+      "views": 915,
       "likes": 11,
       "dislikes": 1,
       "rating": 4.6,
@@ -758,7 +759,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 862,
+      "views": 863,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -836,7 +837,7 @@
         "clean",
         "ballpit"
       ],
-      "views": 62,
+      "views": 64,
       "likes": 1,
       "dislikes": 0,
       "summary": "👑 BEST script for this game! ⭐ FEATURES: 🫳 Collecting: 🎁 Auto collect ground rewards 🫴 Auto hold 🧲 Auto collect balls: ⭕ Adjustable radius 📊 Choose the order 💰 Auto sell: 🎒 Auto sell bag 🔎 Choose when to sell 🔧 Auto buy: ⛏️ Too…",
@@ -873,7 +874,7 @@
         "crash",
         "Keyless"
       ],
-      "views": 43,
+      "views": 44,
       "likes": 1,
       "dislikes": 0,
       "summary": "it crashes tbbrp",
@@ -1020,7 +1021,7 @@
         "rivals",
         "Brookhaven RP"
       ],
-      "views": 1972353,
+      "views": 1972458,
       "likes": 162,
       "dislikes": 47,
       "rating": 3.9,
@@ -1061,7 +1062,7 @@
         "internal executor",
         "script hub"
       ],
-      "views": 140,
+      "views": 142,
       "likes": 2,
       "dislikes": 0,
       "summary": "Bases Menu is basically an all-in-one internal executor + utility menu. it's got a proper multi-tab code editor with syntax highlighting, error checking, find/replace, and auto-save to your workspace folder (BasesMenu/), so you don't los…",
@@ -1132,7 +1133,7 @@
       "tags": [
         "Script"
       ],
-      "views": 5220,
+      "views": 5222,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1207,7 +1208,7 @@
         "silent",
         "visual"
       ],
-      "views": 76,
+      "views": 77,
       "likes": 0,
       "dislikes": 0,
       "summary": "VOXEL WARS Combat · Aimbot — ring, aim point, smoothness · Silent aim — miss chance, auto fire · No recoil, no spread Visuals · Boxes, names, health, distance, tracers · Chams and custom colours · Enemies, allies or bots Movement · Speed…",
@@ -1281,7 +1282,7 @@
         "Auto Farm",
         "Auto Dodge"
       ],
-      "views": 69,
+      "views": 71,
       "likes": 1,
       "dislikes": 0,
       "summary": "GLADIATOR Gladiator Farm AUTO FARM - Status - Queue - Round (progress bar) - Farm Preset (dropdown: Combo Behind, Custom, Ranged Front, Spear Reach, Weakest First) - Enable Auto Farm (toggle + keybind) - Target Priority (dropdown: Bosses…",
@@ -1466,7 +1467,7 @@
         "Roll back",
         "Keyless"
       ],
-      "views": 6847,
+      "views": 6849,
       "likes": 26,
       "dislikes": 0,
       "rating": 5,
@@ -1540,7 +1541,7 @@
         "free script",
         "auto farm"
       ],
-      "views": 47,
+      "views": 48,
       "likes": 0,
       "dislikes": 0,
       "summary": "[+] Kill Aura [+] Direct Hit [+] Auto Skills [+] Auto Lineage Mode [+] Auto Equip Weapon [+] Auto Parry [+] Auto Farm [+] Auto Quest (PREMIUM) [+] Boss Farm [+] Fast Travel (Campfires) [+] Auto Open Chests [+] Retreat On Low HP [+] Auto…",
@@ -1577,7 +1578,7 @@
         "auto farm",
         "auto roll"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 0,
       "dislikes": 0,
       "summary": "Instant Fast Roll Stop on Rarity / Mutation Auto Buy & Equip Best Dice Auto Roll Pumpkin Dice (x5) Auto Trick-or-Treat (7 Pintu) Auto Buy Candy Upgrades Auto Rush Tower (Normal & Haunted House) Auto Equip Tower Team Auto Collect Plot Inc…",
@@ -1614,7 +1615,7 @@
         "keyless",
         "auto farm"
       ],
-      "views": 109,
+      "views": 112,
       "likes": 1,
       "dislikes": 0,
       "summary": "Throw a Seed Main + Auto Throw (Instant, No Animation) + Auto Perfect + Throw Power Control + Auto Train + Auto 2x Tap + Auto Place Best + Delay Auto Farm + Farm Plants (Full Train & Throw Cycle) + Include Training (On/Off) + Auto 2x Tap…",
@@ -1651,7 +1652,7 @@
         "server",
         "craft"
       ],
-      "views": 59,
+      "views": 60,
       "likes": 1,
       "dislikes": 0,
       "summary": "If you have a better way to crash a server, write it in the comments! game:GetService('ReplicatedStorage').VisualRemotes.GetChunk accepts fractional coordinates, which we can use to fill up the server's RAM. How it works: 1. Spam 10,000,…",
@@ -1688,7 +1689,7 @@
         "Examination",
         "silent"
       ],
-      "views": 42,
+      "views": 43,
       "likes": 1,
       "dislikes": 0,
       "summary": "- ESP | charms -Teleport to allies - Adjustable Silent aim - Noclip - Experimental infinite ammo",
@@ -1725,7 +1726,7 @@
         "Huss Valley Script",
         "Huss Valley Showc"
       ],
-      "views": 34,
+      "views": 35,
       "likes": 0,
       "dislikes": 0,
       "summary": "huss valley Script — AUTO FARM | AUTO COLLECT | AUTO UPGRADE & MORE!",
@@ -1762,7 +1763,7 @@
         "Arsenal",
         "Flick"
       ],
-      "views": 46,
+      "views": 47,
       "likes": 0,
       "dislikes": 0,
       "summary": "A best scripts u can find Muscle legends Legends of speed And more +9 supported games",
@@ -1799,7 +1800,7 @@
         "admin",
         "mute"
       ],
-      "views": 69,
+      "views": 70,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is Yahya's chat. The features of the script are that you can talk to people. There is no harm in it. Everything is fine. I want my script to be the best thing you have ever seen. You can accept me because I love my script very much.",
@@ -1836,7 +1837,7 @@
         "keyless",
         "open sourced"
       ],
-      "views": 14682,
+      "views": 14686,
       "likes": 16,
       "dislikes": 3,
       "rating": 4.2,
@@ -1874,7 +1875,7 @@
         "boombox",
         "fe"
       ],
-      "views": 13131,
+      "views": 13132,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1912,7 +1913,7 @@
         "product",
         "free"
       ],
-      "views": 337098,
+      "views": 337101,
       "likes": 24,
       "dislikes": 3,
       "rating": 4.4,
@@ -1949,7 +1950,7 @@
         "ONEANDONLYSKYLER",
         "Keyless"
       ],
-      "views": 77,
+      "views": 80,
       "likes": 0,
       "dislikes": 1,
       "summary": "MIGHT BE THE BEST SPAMMER XD",
@@ -1986,7 +1987,7 @@
         "Open source",
         "Inf jump"
       ],
-      "views": 55,
+      "views": 58,
       "likes": 0,
       "dislikes": 0,
       "summary": "Just inf jump",
@@ -2021,7 +2022,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 77,
+      "views": 79,
       "likes": 0,
       "dislikes": 0,
       "summary": "For symphony orchestra",
@@ -2059,7 +2060,7 @@
         "silend aim",
         "auto farm"
       ],
-      "views": 3500,
+      "views": 3503,
       "likes": 0,
       "dislikes": 0,
       "summary": "aimbot, silend aim, esp/wall hacks, speed hacks, vehicle fly and noclip, no fall, freecam tp, click tp auto upgrade base, auto get research parts, auto get oil/airdrops rpg base nuker, rpg player spam nuker",
@@ -2096,7 +2097,7 @@
         "knife ability test",
         "auto farm"
       ],
-      "views": 570641,
+      "views": 570643,
       "likes": 29,
       "dislikes": 4,
       "rating": 4.4,
@@ -2134,7 +2135,7 @@
         "auto farm",
         "evade script"
       ],
-      "views": 671463,
+      "views": 671465,
       "likes": 92,
       "dislikes": 6,
       "rating": 4.7,
@@ -2172,7 +2173,7 @@
         "Script Hub",
         "Game Support"
       ],
-      "views": 6658,
+      "views": 6660,
       "likes": 22,
       "dislikes": 0,
       "rating": 5,
@@ -2210,7 +2211,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1863382,
+      "views": 1863484,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -2251,7 +2252,7 @@
         "Axonic",
         "Open Source"
       ],
-      "views": 10601,
+      "views": 10607,
       "likes": 6,
       "dislikes": 0,
       "rating": 5,
@@ -2287,7 +2288,7 @@
       "tags": [
         "Script"
       ],
-      "views": 108,
+      "views": 117,
       "likes": 2,
       "dislikes": 0,
       "summary": "By purchasing, accessing, downloading, executing, or using any product, key, software, script, service, loader, website, API, or system provided by Rift Corporation , you agree to its TOS. One Click Full Auto Fish, Auto Equip Rod, Auto C…",
@@ -2324,8 +2325,8 @@
         "Hyper Realistic Ragdoll Script",
         "Free Hyper Realistic Ragdoll Script"
       ],
-      "views": 73,
-      "likes": 1,
+      "views": 78,
+      "likes": 2,
       "dislikes": 0,
       "summary": "Snowy Hub: Hyper Realistic Ragdoll KO Farming & Stats - Auto KO Farm - Set 1-6 Dummies per Wave and Adjust Wave Delay - Auto Switch to Explosion if Direct Hit Repeated - Track KOs, Saves & Next Tool Unlock Sandbox & Dummy Controls - Slow…",
       "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/a87f00d9adf63658655fcd02ab86a4ef.lua\"))()",
@@ -2470,8 +2471,8 @@
       "tags": [
         "Keyless"
       ],
-      "views": 557,
-      "likes": 1,
+      "views": 560,
+      "likes": 2,
       "dislikes": 0,
       "summary": "Lumin Hub | Hyper Realistic Ragdoll Key (free): https://luminon.top/getkey Discord: https://discord.gg/luminhub Not supported: Xeno, Solara [KO Farm] KO Farm, KOs Per Batch, Batch Interval, Batches Per Tick, auto claim, record and save f…",
       "code": "loadstring(game:HttpGet(\"http://luminon.top/loader.lua\"))()",
@@ -2507,7 +2508,7 @@
         "stand out script",
         "stand out scripts"
       ],
-      "views": 470,
+      "views": 474,
       "likes": 1,
       "dislikes": 0,
       "summary": "- auto story - auto farm - auto raids - auto bounty - auto boss - auto arrows - auto collect items - kill aura - silent aim - no stun - auto stats - auto garden - teleports - esp - fly - nmore",
@@ -2579,7 +2580,7 @@
       "tags": [
         "Script"
       ],
-      "views": 177,
+      "views": 178,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ Sosiskomras HUB A high-quality, lightweight script without bloat or useless features. 🟢 Tested & working code 🛡️ Simple key system 🛠️ Fast bug fixes 🔄 Regular updates",
@@ -2761,7 +2762,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 1867,
+      "views": 1868,
       "likes": 4,
       "dislikes": 1,
       "rating": 4,
@@ -2872,7 +2873,7 @@
       "tags": [
         "Script"
       ],
-      "views": 168,
+      "views": 169,
       "likes": 0,
       "dislikes": 0,
       "summary": "Smart Auto GK, -MAIN: Auto Dribble, Auto Tackle, Assist Tackle, Inf Stamina Auto Sprint -ESP Chams Player ESP Outlines Goal ESP Ball ESP ETC...",
@@ -2909,7 +2910,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 774,
+      "views": 776,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3023,7 +3024,7 @@
         "aimbot",
         "auto play"
       ],
-      "views": 363,
+      "views": 364,
       "likes": 0,
       "dislikes": 0,
       "summary": "This script made by me: Game name : Grapple Sniper arena. https://www.roblox.com/games/75407502025821/Grapple-Sniper-Arena",
@@ -3060,7 +3061,7 @@
         "Flee the facility",
         "Keyless"
       ],
-      "views": 159,
+      "views": 161,
       "likes": 2,
       "dislikes": 0,
       "summary": "this script has made by molyn studios.. (Best script for FTF) Features : auto freeze everyone auto unfreeze everyone auto escape if downed unragdoll if downed (walk normally) anti pc error no doors cooldown goto random undone computer ot…",
@@ -3134,7 +3135,7 @@
         "best script",
         "gui"
       ],
-      "views": 1750,
+      "views": 1757,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -3171,7 +3172,7 @@
         "king legacy script",
         "king legacy scripts"
       ],
-      "views": 1066,
+      "views": 1067,
       "likes": 2,
       "dislikes": 0,
       "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
@@ -3246,7 +3247,7 @@
         "delta",
         "kings"
       ],
-      "views": 496,
+      "views": 497,
       "likes": 2,
       "dislikes": 0,
       "summary": "Auto Farm Farm Mode (Best Quest/Selected Mob/Nearest Mob) Mob Select Weapon (Best/Melee/Sword/Fruit) Use Skills Bring Mobs Skip Boss Quests Position (Above/Below) Distance From Mob (3-25) Instant Teleport Fly Speed (100-600) Retreat When…",
@@ -3357,7 +3358,7 @@
         "Silent Aim",
         "Keyless"
       ],
-      "views": 1751,
+      "views": 1753,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -3395,7 +3396,7 @@
         "stand out script",
         "stand outs script"
       ],
-      "views": 650,
+      "views": 652,
       "likes": 1,
       "dislikes": 0,
       "summary": "Script For Stand Out, Released by SolixHub. SolixHub the #1 scripthub with daily Updates since 2023!",
@@ -3432,7 +3433,7 @@
         "mm",
         "keyless"
       ],
-      "views": 1983,
+      "views": 1989,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3505,7 +3506,7 @@
         "keyless",
         "auto play"
       ],
-      "views": 1692,
+      "views": 1697,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3578,7 +3579,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89,
+      "views": 96,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3690,7 +3691,7 @@
         "Rapid meele",
         "Prediction"
       ],
-      "views": 57,
+      "views": 63,
       "likes": 1,
       "dislikes": 0,
       "summary": "Decay rust script, silent aim doesn't inclue bow, works well with better guns. FEATURES: Silent Aim, Prediction (kinda), No Spread (also kinda), No Recoil, ESP - AethX v1 discord.gg/U9gF3azKaj <- Get key here, no steps, only copy and pas…",
@@ -3727,7 +3728,7 @@
         "happy city rp",
         "nestletown rp"
       ],
-      "views": 92,
+      "views": 97,
       "likes": 0,
       "dislikes": 0,
       "summary": "SUPORTED GAMES : Happy Land 🏡RP Happy City RP NestleTown RP Vibrant City RP Vibrant Town RP Cozy City RP Dreamy Town RP MENU ADD MONEY UNLOCK ALL GAMEPASS",
@@ -3764,7 +3765,7 @@
         "idk",
         "opensource"
       ],
-      "views": 67,
+      "views": 72,
       "likes": 0,
       "dislikes": 0,
       "summary": "This is a simple log detection bypass that gets all the LogService.MessageOut and ScriptContext.Error connections and disables them not disconnect because the developers can have a while loop that checks if the connection is still disabl…",
@@ -3874,7 +3875,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 86,
+      "views": 91,
       "likes": 0,
       "dislikes": 0,
       "summary": "🦅 Universal Homelander Flight Script Take to the skies in almost any Roblox game with smooth, physics-based Homelander flight. Built to be lightweight, responsive, and completely keyless. ✨ Features: • Smooth Camera-Based Flight (steers…",
@@ -3911,7 +3912,7 @@
         "keyless",
         "aim"
       ],
-      "views": 115,
+      "views": 122,
       "likes": 0,
       "dislikes": 0,
       "summary": "Hypershot | SOLO scripts The best Hypershot script (keyless) Aimbot Legit Aim (hold RMB / LMB) Smoothness FOV Radius + FOV Circle Hitbox: Torso / Head Line of Sight Auto Team Detection Skip Bots Max Distance Visuals Glass Chams (through…",
@@ -3948,7 +3949,7 @@
         "Esp",
         "Charm Visual"
       ],
-      "views": 173,
+      "views": 183,
       "likes": 1,
       "dislikes": 0,
       "summary": "loadstring(game:HttpGet(\"https://cdn.luaprotect.dev/u/fc0ab7/huga6SVAOsWRDK8O\"))() Tested Android Idk Pc No Key 🔑 Pixel Arena Premium Build Rayfield UI Safe to use it. No Bannable. Good For Greedy No Limits Killing. Tested Main Account…",
@@ -3985,7 +3986,7 @@
         "Auto Farm",
         "Hitbox"
       ],
-      "views": 81,
+      "views": 84,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -4023,7 +4024,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5569168,
+      "views": 5569203,
       "likes": 111,
       "dislikes": 55,
       "rating": 3.3,
@@ -4063,7 +4064,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4491441,
+      "views": 4491454,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -4104,7 +4105,7 @@
         "sae",
         "universal"
       ],
-      "views": 3984768,
+      "views": 3984788,
       "likes": 100,
       "dislikes": 50,
       "rating": 3.3,
@@ -4145,7 +4146,7 @@
         "flow",
         "script"
       ],
-      "views": 3904860,
+      "views": 3904966,
       "likes": 34,
       "dislikes": 10,
       "rating": 3.9,
@@ -4185,7 +4186,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3875993,
+      "views": 3876091,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4224,7 +4225,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3556346,
+      "views": 3556450,
       "likes": 69,
       "dislikes": 13,
       "rating": 4.2,
@@ -4264,7 +4265,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3509004,
+      "views": 3509007,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4382,7 +4383,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3143461,
+      "views": 3143464,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4421,7 +4422,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023447,
+      "views": 3023450,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4460,7 +4461,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2786769,
+      "views": 2786872,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4500,7 +4501,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2721067,
+      "views": 2721072,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4539,7 +4540,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2520494,
+      "views": 2520496,
       "likes": 133,
       "dislikes": 8,
       "rating": 4.7,
@@ -4580,7 +4581,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2485503,
+      "views": 2485510,
       "likes": 175,
       "dislikes": 32,
       "rating": 4.2,
@@ -4657,7 +4658,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 2327896,
+      "views": 2327898,
       "likes": 38,
       "dislikes": 9,
       "rating": 4,
@@ -4697,7 +4698,7 @@
         "*nal",
         "phantomforces"
       ],
-      "views": 2147367,
+      "views": 2147368,
       "likes": 22,
       "dislikes": 0,
       "rating": 5,
@@ -4735,7 +4736,7 @@
         "Free Keyless",
         "Universal"
       ],
-      "views": 2142806,
+      "views": 2142807,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -4815,7 +4816,7 @@
         "script",
         "Keyless"
       ],
-      "views": 2098951,
+      "views": 2098952,
       "likes": 7,
       "dislikes": 4,
       "rating": 3.2,
@@ -4895,7 +4896,7 @@
         "Nights in the Forest",
         "Forest"
       ],
-      "views": 2040689,
+      "views": 2040690,
       "likes": 81,
       "dislikes": 13,
       "rating": 4.3,
@@ -4934,7 +4935,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1982762,
+      "views": 1982764,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -5084,7 +5085,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1892847,
+      "views": 1892850,
       "likes": 207,
       "dislikes": 35,
       "rating": 4.3,
@@ -5200,7 +5201,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875514,
+      "views": 1875515,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5462,7 +5463,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748267,
+      "views": 1748268,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5655,7 +5656,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1689457,
+      "views": 1689458,
       "likes": 336,
       "dislikes": 45,
       "rating": 4.4,
@@ -5694,7 +5695,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682318,
+      "views": 1682319,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -6118,7 +6119,7 @@
         "chatbot",
         "chatgpt"
       ],
-      "views": 1442158,
+      "views": 1442160,
       "likes": 16,
       "dislikes": 26,
       "rating": 1.9,
@@ -6465,7 +6466,7 @@
         "free",
         "easy"
       ],
-      "views": 1333419,
+      "views": 1333515,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6579,7 +6580,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 1292001,
+      "views": 1292002,
       "likes": 69,
       "dislikes": 7,
       "rating": 4.5,
@@ -6730,7 +6731,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1271645,
+      "views": 1271743,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -6916,7 +6917,7 @@
         "dupe",
         "Keyless"
       ],
-      "views": 1180778,
+      "views": 1180779,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -7217,7 +7218,7 @@
         "afem",
         "emote"
       ],
-      "views": 864136,
+      "views": 864138,
       "likes": 51,
       "dislikes": 6,
       "rating": 4.5,
@@ -7331,7 +7332,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 778855,
+      "views": 778856,
       "likes": 33,
       "dislikes": 13,
       "rating": 3.6,
@@ -7517,7 +7518,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 735408,
+      "views": 735409,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7933,7 +7934,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 609896,
+      "views": 609897,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -8085,7 +8086,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 600441,
+      "views": 600442,
       "likes": 18,
       "dislikes": 10,
       "rating": 3.2,
@@ -8416,7 +8417,7 @@
         "gag",
         "grow a garden"
       ],
-      "views": 1307599,
+      "views": 1307600,
       "likes": 18,
       "dislikes": 6,
       "rating": 3.8,
@@ -8454,7 +8455,7 @@
         "Nights in the Forest",
         "Roblox  Nights in the Forest"
       ],
-      "views": 1254250,
+      "views": 1254254,
       "likes": 185,
       "dislikes": 32,
       "rating": 4.3,
@@ -8602,7 +8603,7 @@
         "bf",
         "blox fruits"
       ],
-      "views": 1124570,
+      "views": 1124571,
       "likes": 15,
       "dislikes": 8,
       "rating": 3.3,
@@ -8640,7 +8641,7 @@
         "best",
         "Op"
       ],
-      "views": 1071896,
+      "views": 1071903,
       "likes": 97,
       "dislikes": 17,
       "rating": 4.3,
@@ -8678,7 +8679,7 @@
         "ftf",
         "Keyless"
       ],
-      "views": 1062153,
+      "views": 1062155,
       "likes": 23,
       "dislikes": 8,
       "rating": 3.7,
@@ -8981,7 +8982,7 @@
         "Bladeball",
         "Keyless"
       ],
-      "views": 893905,
+      "views": 893906,
       "likes": 13,
       "dislikes": 8,
       "rating": 3.1,
@@ -9201,7 +9202,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 493321,
+      "views": 493330,
       "likes": 434,
       "dislikes": 117,
       "rating": 3.9,
@@ -9238,7 +9239,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 144262,
+      "views": 144263,
       "likes": 336,
       "dislikes": 106,
       "rating": 3.8,
@@ -9274,7 +9275,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 229740,
+      "views": 229741,
       "likes": 284,
       "dislikes": 42,
       "rating": 4.4,
@@ -9462,7 +9463,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 68075,
+      "views": 68076,
       "likes": 182,
       "dislikes": 58,
       "rating": 3.8,
@@ -9702,6 +9703,41 @@
       ]
     },
     {
+      "id": "rscripts-6b04d1135f75b3423dc119a2",
+      "slug": "faceless-scripts-uqWZ",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/faceless-scripts-uqWZ",
+      "title": "Faceless scripts",
+      "game": "Practical Basketball 🏀",
+      "gameImage": "https://rscripts.net/assets/games/124235162470177-thumb-9cdf57e49e9b6ccb.webp",
+      "author": "Isuportfaceless",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Script"
+      ],
+      "views": 12,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "https://discord.gg/PypAPGPgY …………………………..::::.::::::………:.:.:.::.:.:.:.:.:.:.::.:.::::::.:.:..",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\nhttps://discord.gg/PypAPGPgY",
+      "createdAt": "2026-11-24T23:59:16.088Z",
+      "updatedAt": "2026-11-23T23:49:39.758Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "ball",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "rscripts-6b0620475f75b3423dc28294",
       "slug": "reefhub-or-farm-all-games-anti-injury-aimbot-esp-and-more-bT5W",
       "source": "rscripts",
@@ -9720,8 +9756,8 @@
       "tags": [
         "Mobile"
       ],
-      "views": 5,
-      "likes": 0,
+      "views": 9,
+      "likes": 1,
       "dislikes": 0,
       "summary": "ReefHub | Ink Game Freeze on Red (auto-stop on red light) Anti Crawl / Auto Get Up Remove Injury (clears ragdoll &amp; injury tags) Free Lighter (Dalgona) Auto Pull Tug of War + Pull Accuracy slider Hide Jump Rope Safety Platform (floati…",
       "code": "--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b0620475f75b3423dc28294\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nloadstring(game:HttpGet(\"https://gist.githubusercontent.com/ReefHubOfficial/81cd2f9fca0866148cbe8245266d7791/raw/15d012001ddf171f27f35658776fd73fc0376c0d/BuyReefHub\"))()",
@@ -9754,7 +9790,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 49,
+      "views": 52,
       "likes": 0,
       "dislikes": 0,
       "summary": "https://ydx-script-vault.pages.dev/ my website, there u can access individual games scripts, call me on discord for any help: 8kpr (they all was vibecoded, dont trash talk on me)",
@@ -9789,7 +9825,7 @@
       "tags": [
         "Script"
       ],
-      "views": 17,
+      "views": 21,
       "likes": 0,
       "dislikes": 0,
       "summary": "Aimbot — hold key, prediction, sticky targeting, FOV, range and strength controls. ESP — aircraft, ground units, soldiers and structures; boxes, names, health, distance, tracers and team filters. Auto Guns and Auto Missiles. Auto Flares…",
@@ -9859,7 +9895,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 25,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚔️ Block Tower Hub — by Zynex Dominate every single round in ⚔️ Block Tower with the official Zynex Hub script! Engineered from the ground up for both PC &amp; Mobile with lag-free performance, smart team-safe Kill Aura, predictive Auto…",
@@ -9999,7 +10035,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 35,
+      "views": 36,
       "likes": 0,
       "dislikes": 0,
       "summary": "Cookies Hub for AMPED [ULTRA BEE]. No key, no ads. Open it, pick a tab and switch things on. It works on PC and phones. Wheelie farm (AFK money) Spawns and mounts your bike, rides circles on a wheelie and drops the nose between sessions,…",
@@ -10069,7 +10105,7 @@
       "tags": [
         "Script"
       ],
-      "views": 14,
+      "views": 15,
       "likes": 0,
       "dislikes": 0,
       "summary": "Kill ALL Visuals Auto Farm Movement",
@@ -10104,7 +10140,7 @@
       "tags": [
         "Script"
       ],
-      "views": 18,
+      "views": 19,
       "likes": 0,
       "dislikes": 0,
       "summary": "Script i made for the game, pretty sure its the best free one, ill add a discord server soon for bugs if it gets a lot of people to use it",
@@ -10138,7 +10174,7 @@
       "tags": [
         "Script"
       ],
-      "views": 37,
+      "views": 39,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fish for Secret Animals Cast For Fish Fish For Sea Animals NameThemAll ScareYourFavouriteStreamer ShootArrowsForAnimals StealADumpling AntEvolution ThrowKeyForCars AuraX StealAScooter ThrowASeed StealAnNightmareEgg StealAPc StealABlindBa…",
@@ -10180,41 +10216,6 @@
       "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\n--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b05e0d61eec5642f33b54a4\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nlocal Players = game:GetService(\"Players\")\r\nlocal RunService = game:GetService(\"RunService\")\r\nlocal UserInputService = game:GetService(\"UserInputService\")\r\nlocal ReplicatedStorage = game:GetService(\"ReplicatedStorage\")\r\nlocal CoreGui = game:GetService(\"CoreGui\")\r\n\r\nlocal LocalPlayer = Players.LocalPlayer\r\nlocal EatFood = ReplicatedStorage:WaitForChild(\"Remotes\"):WaitForChild(\"EatFood\")\r\nlocal FishFood = workspace:WaitForChild(\"FishFood\")\r\n\r\nif _G.StopFishAuraGui then\r\n\tpcall(_G.StopFishAuraGui)\r\nend\r\n\r\nlocal TargetParent\r\nif gethui then\r\n\tTargetParent = gethui()\r\nelse\r\n\tlocal ok = pcall(function() local _ = CoreGui.Name end)\r\n\tTargetParent = ok and CoreGui or LocalPlayer:WaitForChild(\"PlayerGui\")\r\nend\r\n\r\nif TargetParent:FindFirstChild(\"FishAuraSpeedGui\") then\r\n\tTargetParent.FishAuraSpeedGui:Destroy()\r\nend\r\n\r\n---------------------------------------------------------\r\n-- [ الإعدادات ]\r\n---------------------------------------------------------\r\nlocal AuraEnabled = true\r\nlocal SpeedEnabled = true\r\nlocal Active = true\r\n\r\nlocal AURA_RADIUS = 35\r\nlocal AURA_RADIUS_SQ = AURA_RADIUS * AURA_RADIUS\r\nlocal MAX_PER_FRAME = 15\r\n\r\nlocal BASE_FISH_SPEED = 75\r\nlocal VERTICAL_BOOST_MULT = 1.0\r\n\r\nlocal defaultWalkSpeed = nil\r\nlocal eatenCache = setmetatable({}, { __mode = \"k\" })\r\n\r\n---------------------------------------------------------\r\n-- [ واجهة GUI ]\r\n---------------------------------------------------------\r\nlocal ScreenGui = Instance.new(\"ScreenGui\")\r\nScreenGui.Name = \"FishAuraSpeedGui\"\r\nScreenGui.ResetOnSpawn = false\r\nScreenGui.Parent = TargetParent\r\n\r\nlocal Frame = Instance.new(\"Frame\")\r\nFrame.Size = UDim2.new(0, 255, 0, 215)\r\nFrame.Position = UDim2.new(0.5, -127, 0.25, 0)\r\nFrame.BackgroundColor3 = Color3.fromRGB(18, 20, 28)\r\nFrame.BorderSizePixel = 0\r\nFrame.Active = true\r\nFrame.Draggable = true\r\nFrame.Parent = ScreenGui\r\nInstance.new(\"UICorner\", Frame).CornerRadius = UDim.new(0, 12)\r\n\r\nlocal AuraBtn = Instance.new(\"TextButton\")\r\nAuraBtn.Size = UDim2.new(0.88, 0, 0, 36)\r\nAuraBtn.Position = UDim2.new(0.06, 0, 0.07, 0)\r\nAuraBtn.BackgroundColor3 = Color3.fromRGB(40, 170, 85)\r\nAuraBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\r\nAuraBtn.Text = \"Food Aura : ON [F]\"\r\nAuraBtn.Font = Enum.Font.GothamBold\r\nAuraBtn.TextSize = 12\r\nAuraBtn.Parent = Frame\r\nInstance.new(\"UICorner\", AuraBtn).CornerRadius = UDim.new(0, 8)\r\n\r\nlocal SpeedBtn = Instance.new(\"TextButton\")\r\nSpeedBtn.Size = UDim2.new(0.88, 0, 0, 36)\r\nSpeedBtn.Position = UDim2.new(0.06, 0, 0.27, 0)\r\nSpeedBtn.BackgroundColor3 = Color3.fromRGB(40, 170, 85)\r\nSpeedBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\r\nSpeedBtn.Text = \"Fish Speed : ON [G]\"\r\nSpeedBtn.Font = Enum.Font.GothamBold\r\nSpeedBtn.TextSize = 12\r\nSpeedBtn.Parent = Frame\r\nInstance.new(\"UICorner\", SpeedBtn).CornerRadius = UDim.new(0, 8)\r\n\r\nlocal SpeedBox = Instance.new(\"TextBox\")\r\nSpeedBox.Size = UDim2.new(0.88, 0, 0, 32)\r\nSpeedBox.Position = UDim2.new(0.06, 0, 0.47, 0)\r\nSpeedBox.BackgroundColor3 = Color3.fromRGB(28, 32, 44)\r\nSpeedBox.TextColor3 = Color3.fromRGB(235, 240, 255)\r\nSpeedBox.PlaceholderText = \"Fixed Speed (e.g. 75)\"\r\nSpeedBox.Text = tostring(BASE_FISH_SPEED)\r\nSpeedBox.Font = Enum.Font.GothamBold\r\nSpeedBox.TextSize = 12\r\nSpeedBox.ClearTextOnFocus = false\r\nSpeedBox.Parent = Frame\r\nInstance.new(\"UICorner\", SpeedBox).CornerRadius = UDim.new(0, 8)\r\n\r\nlocal StatusLbl = Instance.new(\"TextLabel\")\r\nStatusLbl.Size = UDim2.new(0.92, 0, 0, 24)\r\nStatusLbl.Position = UDim2.new(0.04, 0, 0.65, 0)\r\nStatusLbl.BackgroundTransparency = 1\r\nStatusLbl.TextColor3 = Color3.fromRGB(165, 195, 235)\r\nStatusLbl.Text = \"Fixed Speed Ready\"\r\nStatusLbl.Font = Enum.Font.GothamMedium\r\nStatusLbl.TextSize = 11\r\nStatusLbl.Parent = Frame\r\n\r\nlocal CreditLbl = Instance.new(\"TextLabel\")\r\nCreditLbl.Size = UDim2.new(0.92, 0, 0, 20)\r\nCreditLbl.Position = UDim2.new(0.04, 0, 0.83, 0)\r\nCreditLbl.BackgroundTransparency = 1\r\nCreditLbl.TextColor3 = Color3.fromRGB(120, 135, 165)\r\nCreditLbl.Text = \"made by 7s31 and gemini\"\r\nCreditLbl.Font = Enum.Font.GothamMedium\r\nCreditLbl.TextSize = 10\r\nCreditLbl.Parent = Frame\r\n\r\n---------------------------------------------------------\r\n-- [ دوال الهالة والسرعة ]\r\n---------------------------------------------------------\r\nlocal function getPartPosition(obj)\r\n\tif not obj or not obj.Parent then return nil end\r\n\tif obj:IsA(\"BasePart\") then\r\n\t\treturn obj.Position\r\n\telseif obj:IsA(\"Model\") then\r\n\t\tlocal primary = obj.PrimaryPart or obj:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\t\treturn primary and primary.Position or nil\r\n\tend\r\n\treturn nil\r\nend\r\n\r\nlocal function getGeneration(food)\r\n\tlocal attr = food:GetAttribute(\"FoodSpawnGeneration\")\r\n\tif type(attr) == \"number\" then\r\n\t\treturn attr\r\n\tend\r\n\tlocal valObj = food:FindFirstChild(\"FoodSpawnGeneration\")\r\n\tif valObj and (valObj:IsA(\"NumberValue\") or valObj:IsA(\"IntValue\")) then\r\n\t\treturn valObj.Value\r\n\tend\r\n\treturn nil\r\nend\r\n\r\nlocal function isWithinRadiusSq(a, b, maxSq)\r\n\tlocal dx = a.X - b.X\r\n\tlocal dy = a.Y - b.Y\r\n\tlocal dz = a.Z - b.Z\r\n\treturn (dx * dx + dy * dy + dz * dz) <= maxSq\r\nend\r\n\r\nlocal function getVerticalInput()\r\n\tlocal vert = 0\r\n\tif UserInputService:IsKeyDown(Enum.KeyCode.Space) or UserInputService:IsKeyDown(Enum.KeyCode.E) then\r\n\t\tvert += 1\r\n\tend\r\n\tif UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) or UserInputService:IsKeyDown(Enum.KeyCode.Q) then\r\n\t\tvert -= 1\r\n\tend\r\n\treturn vert\r\nend\r\n\r\nlocal function applyFishMovement(hrp, hum)\r\n\tif not hum or not hrp then return end\r\n\r\n\tif defaultWalkSpeed == nil then\r\n\t\tdefaultWalkSpeed = hum.WalkSpeed\r\n\tend\r\n\r\n\tif SpeedEnabled and Active then\r\n\t\tlocal fixedSpeed = BASE_FISH_SPEED\r\n\t\tif hum.WalkSpeed ~= fixedSpeed then\r\n\t\t\thum.WalkSpeed = fixedSpeed\r\n\t\tend\r\n\r\n\t\tlocal moveDir = hum.MoveDirection\r\n\t\tlocal vertInput = getVerticalInput()\r\n\t\tlocal curVel = hrp.AssemblyLinearVelocity\r\n\r\n\t\tlocal nextVx = curVel.X\r\n\t\tlocal nextVy = curVel.Y\r\n\t\tlocal nextVz = curVel.Z\r\n\r\n\t\tif moveDir.Magnitude > 0.05 then\r\n\t\t\tlocal vx = moveDir.X * fixedSpeed\r\n\t\t\tlocal vz = moveDir.Z * fixedSpeed\r\n\t\t\tnextVx = curVel.X + (vx - curVel.X) * 0.65\r\n\t\t\tnextVz = curVel.Z + (vz - curVel.Z) * 0.65\r\n\t\tend\r\n\r\n\t\tif vertInput ~= 0 then\r\n\t\t\tlocal targetVy = vertInput * fixedSpeed * VERTICAL_BOOST_MULT\r\n\t\t\tnextVy = curVel.Y + (targetVy - curVel.Y) * 0.8\r\n\t\tend\r\n\r\n\t\tif moveDir.Magnitude > 0.05 or vertInput ~= 0 then\r\n\t\t\thrp.AssemblyLinearVelocity = Vector3.new(nextVx, nextVy, nextVz)\r\n\t\tend\r\n\r\n\t\tStatusLbl.Text = string.format(\"Speed: %.0f | Aura: %s\", fixedSpeed, AuraEnabled and \"ON\" or \"OFF\")\r\n\telse\r\n\t\tif defaultWalkSpeed and hum.WalkSpeed ~= defaultWalkSpeed then\r\n\t\t\thum.WalkSpeed = defaultWalkSpeed\r\n\t\tend\r\n\t\tStatusLbl.Text = \"Speed: OFF | Aura: \" .. (AuraEnabled and \"ON\" or \"OFF\")\r\n\tend\r\nend\r\n\r\n---------------------------------------------------------\r\n-- [ التحكم والاختصارات ]\r\n---------------------------------------------------------\r\nlocal function setAura(state)\r\n\tAuraEnabled = state\r\n\tAuraBtn.Text = AuraEnabled and \"Food Aura : ON [F]\" or \"Food Aura : OFF [F]\"\r\n\tAuraBtn.BackgroundColor3 = AuraEnabled and Color3.fromRGB(40, 170, 85) or Color3.fromRGB(200, 50, 58)\r\nend\r\n\r\nlocal function setSpeed(state)\r\n\tSpeedEnabled = state\r\n\tSpeedBtn.Text = SpeedEnabled and \"Fish Speed : ON [G]\" or \"Fish Speed : OFF [G]\"\r\n\tSpeedBtn.BackgroundColor3 = SpeedEnabled and Color3.fromRGB(40, 170, 85) or Color3.fromRGB(200, 50, 58)\r\n\tif not SpeedEnabled then\r\n\t\tlocal char = LocalPlayer.Character\r\n\t\tlocal hum = char and char:FindFirstChildOfClass(\"Humanoid\")\r\n\t\tif hum and defaultWalkSpeed then\r\n\t\t\thum.WalkSpeed = defaultWalkSpeed\r\n\t\tend\r\n\tend\r\nend\r\n\r\nAuraBtn.Activated:Connect(function()\r\n\tsetAura(not AuraEnabled)\r\nend)\r\n\r\nSpeedBtn.Activated:Connect(function()\r\n\tsetSpeed(not SpeedEnabled)\r\nend)\r\n\r\nSpeedBox.FocusLost:Connect(function()\r\n\tlocal num = tonumber(SpeedBox.Text)\r\n\tif num and num > 0 then\r\n\t\tBASE_FISH_SPEED = math.clamp(num, 10, 350)\r\n\t\tSpeedBox.Text = tostring(BASE_FISH_SPEED)\r\n\telse\r\n\t\tSpeedBox.Text = tostring(BASE_FISH_SPEED)\r\n\tend\r\nend)\r\n\r\nUserInputService.InputBegan:Connect(function(input, gameProcessed)\r\n\tif gameProcessed then return end\r\n\tif input.KeyCode == Enum.KeyCode.F then\r\n\t\tsetAura(not AuraEnabled)\r\n\telseif input.KeyCode == Enum.KeyCode.G then\r\n\t\tsetSpeed(not SpeedEnabled)\r\n\tend\r\nend)\r\n\r\nLocalPlayer.CharacterAdded:Connect(function()\r\n\tdefaultWalkSpeed = nil\r\nend)\r\n\r\n---------------------------------------------------------\r\n-- [ الحلقة الرئيسية على Heartbeat ]\r\n---------------------------------------------------------\r\nlocal conn\r\nconn = RunService.Heartbeat:Connect(function()\r\n\tif not Active then\r\n\t\tif conn then conn:Disconnect() end\r\n\t\treturn\r\n\tend\r\n\r\n\tlocal char = LocalPlayer.Character\r\n\tlocal hrp = char and char:FindFirstChild(\"HumanoidRootPart\")\r\n\tlocal hum = char and char:FindFirstChildOfClass(\"Humanoid\")\r\n\tif not hrp or not hum or hum.Health <= 0 then return end\r\n\r\n\tapplyFishMovement(hrp, hum)\r\n\r\n\tif AuraEnabled then\r\n\t\tlocal myPos = hrp.Position\r\n\t\tlocal pieces = FishFood:GetChildren()\r\n\t\tlocal sentThisFrame = 0\r\n\r\n\t\tfor i = 1, #pieces do\r\n\t\t\tif sentThisFrame >= MAX_PER_FRAME then break end\r\n\r\n\t\t\tlocal p = pieces[i]\r\n\t\t\tif p and p.Parent and not eatenCache[p] then\r\n\t\t\t\tlocal pos = getPartPosition(p)\r\n\t\t\t\tif pos and isWithinRadiusSq(pos, myPos, AURA_RADIUS_SQ) then\r\n\t\t\t\t\tlocal gen = getGeneration(p)\r\n\t\t\t\t\tif gen then\r\n\t\t\t\t\t\teatenCache[p] = true\r\n\t\t\t\t\t\tif p:GetAttribute(\"FoodSpawnGeneration\") == nil then\r\n\t\t\t\t\t\t\tp:SetAttribute(\"FoodSpawnGeneration\", gen)\r\n\t\t\t\t\t\tend\r\n\t\t\t\t\t\tEatFood:FireServer(p, gen)\r\n\t\t\t\t\t\tsentThisFrame += 1\r\n\t\t\t\t\tend\r\n\t\t\t\tend\r\n\t\t\tend\r\n\t\tend\r\n\tend\r\nend)\r\n\r\n_G.StopFishAuraGui = function()\r\n\tActive = false\r\n\tlocal char = LocalPlayer.Character\r\n\tlocal hum = char and char:FindFirstChildOfClass(\"Humanoid\")\r\n\tif hum and defaultWalkSpeed then\r\n\t\thum.WalkSpeed = defaultWalkSpeed\r\n\tend\r\n\tif conn then conn:Disconnect() end\r\n\tif ScreenGui then ScreenGui:Destroy() end\r\nend",
       "createdAt": "2026-11-24T20:17:50.305Z",
       "updatedAt": "2026-11-24T19:09:10.038Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b05db9daeb5c3fca3ac54c4",
-      "slug": "ss-willie-hub-or-mickey-esp-key-finder-auto-hide-ect-7dts",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/ss-willie-hub-or-mickey-esp-key-finder-auto-hide-ect-7dts",
-      "title": "S.S. WILLIE Hub | Mickey ESP, Key Finder, Auto Hide, ect..",
-      "game": "MOUSE 🎃",
-      "gameImage": "https://rscripts.net/assets/games/81688312343760-thumb-f7e7ea055acef907.webp",
-      "author": "Stizzyyy",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 53,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Survive the S.S. WILLIE and escape on the lifeboat. You can see Mickey through walls, with his state and distance, and get a warning with his direction when he gets close or spots you. Every unsearched spot and every free locker is marke…",
-      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\n--[[ Made by Stizzyyy · https://rscripts.net/@Stizzyyy\r\n     My scripts are ALWAYS free and keyless.\r\n     If you find my features or code behind a key system, it's a stolen re-upload, not mine. ]]\r\n--[[ S.S. WILLIE Hub · PC + mobile\r\n     RightShift = show/hide menu · F6 = pause every assist\r\n     Mickey ESP + danger warning, key finder, hiding spot ESP, objective panel, clear vision,\r\n     auto hide / search / keys / padlocks / engines, instant interact, infinite stamina, teammate + door ESP, anti-AFK. ]]\r\n\r\nif game.GameId ~= 10769420234 then return end -- S.S. WILLIE only\r\nif not game:IsLoaded() then game.Loaded:Wait() end\r\nlocal G = getgenv()\r\nif G.SSWH and G.SSWH.Unload then pcall(G.SSWH.Unload) end\r\nlocal H = {conns = {}, insts = {}, alive = true}\r\nG.SSWH = H\r\nfunction H.Unload() H.alive = false for _, c in ipairs(H.conns) do pcall(c.Disconnect, c) end for _, i in ipairs(H.insts) do pcall(i.Destroy, i) end end -- replaced once fully loaded\r\n\r\nlocal Players = game:GetService(\"Players\")\r\nlocal UIS = game:GetService(\"UserInputService\")\r\nlocal TS = game:GetService(\"TweenService\")\r\nlocal Http = game:GetService(\"HttpService\")\r\nlocal RS = game:GetService(\"ReplicatedStorage\")\r\nlocal RunS = game:GetService(\"RunService\")\r\nlocal CS = game:GetService(\"CollectionService\")\r\nlocal Lighting = game:GetService(\"Lighting\")\r\nwhile not Players.LocalPlayer do task.wait() end\r\nlocal LP = Players.LocalPlayer\r\nlocal HUI = (gethui and gethui()) or game:GetService(\"CoreGui\")\r\n\r\nlocal function conn(sig, f) local c = sig:Connect(function(...) pcall(f, ...) end) H.conns[#H.conns + 1] = c return c end\r\nlocal function inst(cls, p, parent) local i = Instance.new(cls) for k, v in pairs(p or {}) do i[k] = v end if parent then i.Parent = parent end return i end\r\nlocal function loop(dt, f) task.spawn(function() while H.alive do pcall(f) task.wait(dt) end end) end\r\n\r\n----------------------------------------------------------------- settings (auto-saved)\r\nlocal S = {\r\n\tMickeyESP = true, Danger = true, DangerDist = 45, KeyFinder = true, KeyLine = true, HideESP = true,\r\n\tHUD = true, ClearVision = true, Fullbright = false,\r\n\tAutoHide = false, HideDist = 22, AutoSearch = false, AutoKeys = true, AutoPadlocks = true, AutoEngines = true,\r\n\tInstant = false, InfStamina = false, TeamESP = true, DoorESP = false,\r\n\tAntiAFK = true, Notify = true,\r\n}\r\nlocal CFG = \"SSWHub.json\"\r\npcall(function() local t = Http:JSONDecode(readfile(CFG)) for k, v in pairs(t) do if S[k] ~= nil and type(v) == type(S[k]) then S[k] = v end end end)\r\nH.S = S\r\nlocal function save() pcall(function() writefile(CFG, Http:JSONEncode(S)) end) end\r\n\r\n----------------------------------------------------------------- UI library (glass) · themes are shared by every Stizzyyy hub\r\n-- dark glassmorphism window + soft glass cards + liquid glass pills\r\n-- C keeps the same keys the hubs already use (clay = primary accent); C.accent2 = secondary accent\r\nlocal C = {}\r\nlocal PRESETS = {\r\n\t{name = \"Claude Glass\",   bg = \"141311\", side = \"1E1C1A\", card = \"2A2724\", stroke = \"4A453F\", text = \"F2EEE6\", muted = \"9A948A\", primary = \"D97757\", secondary = \"F2B880\"},\r\n\t{name = \"ChatGPT / Codex\", bg = \"0D0D0D\", side = \"171717\", card = \"212121\", stroke = \"3A3A3A\", text = \"ECECEC\", muted = \"8E8EA0\", primary = \"10A37F\", secondary = \"74AA9C\"},\r\n\t{name = \"Solara\",         bg = \"0E0B16\", side = \"161224\", card = \"201A33\", stroke = \"3B3157\", text = \"F1EEFA\", muted = \"A39BBF\", primary = \"9D5CFF\", secondary = \"5B8CFF\"},\r\n\t{name = \"Discord\",        bg = \"1E1F22\", side = \"2B2D31\", card = \"313338\", stroke = \"45474E\", text = \"F2F3F5\", muted = \"B5BAC1\", primary = \"5865F2\", secondary = \"EB459E\"},\r\n\t{name = \"Netflix\",        bg = \"0B0B0B\", side = \"141414\", card = \"1F1F1F\", stroke = \"363636\", text = \"FFFFFF\", muted = \"B3B3B3\", primary = \"E50914\", secondary = \"B81D24\"},\r\n\t{name = \"Grok\",           bg = \"000000\", side = \"0A0A0A\", card = \"151515\", stroke = \"2F2F2F\", text = \"FFFFFF\", muted = \"8B8B8B\", primary = \"E7E9EA\", secondary = \"6E6E6E\"},\r\n}\r\nlocal THEME_FILE = \"StizzyyyUI.json\"\r\nlocal TH = {preset = \"Claude Glass\", glass = 20}\r\npcall(function() local t = Http:JSONDecode(readfile(THEME_FILE)) for k, v in pairs(t) do TH[k] = v end end)\r\nTH.glass = math.clamp(tonumber(TH.glass) or 20, 20, 45) -- below 20% the glass loses its depth\r\nlocal function presetOf(n) for _, p in ipairs(PRESETS) do if p.name == n then return p end end return PRESETS[1] end\r\nlocal function hex(h) local ok, c = pcall(Color3.fromHex, tostring(h or \"\")) return ok and c or nil end\r\nlocal function loadTheme()\r\n\tlocal p = presetOf(TH.preset)\r\n\tfor _, k in ipairs({\"bg\", \"side\", \"card\", \"stroke\", \"text\", \"muted\"}) do C[k] = hex(p[k]) end\r\n\tC.clay = hex(TH.primary) or hex(p.primary)\r\n\tC.accent2 = hex(TH.secondary) or hex(p.secondary)\r\n\tC.primary, C.secondary = C.clay, C.accent2\r\nend\r\nloadTheme()\r\nlocal WHITE = Color3.new(1, 1, 1)\r\nlocal function face(w) return Font.new(\"rbxasset://fonts/families/Montserrat.json\", w or Enum.FontWeight.Regular) end\r\nlocal MED, SEMI, BOLD = Enum.FontWeight.Medium, Enum.FontWeight.SemiBold, Enum.FontWeight.Bold\r\n\r\n-- every themed property is registered, so switching theme recolours the whole menu live\r\nlocal themed, painters = {}, {}\r\nlocal function th(i, prop, role) themed[#themed + 1] = {i, prop, role} i[prop] = C[role] return i end\r\nlocal function painter(f) painters[#painters + 1] = f f() return f end\r\nlocal grads = {}\r\nlocal function accentGrad(parent, rot)\r\n\tlocal g = inst(\"UIGradient\", {Rotation = rot or 0, Color = ColorSequence.new(C.clay, C.accent2)}, parent)\r\n\tgrads[#grads + 1] = g\r\n\treturn g\r\nend\r\nlocal glassParts = {} -- {instance, extra transparency}\r\nlocal function glassy(i, extra) glassParts[#glassParts + 1] = {i, extra or 0} i.BackgroundTransparency = math.clamp(TH.glass / 100 + (extra or 0), 0, 0.95) return i end\r\n\r\nlocal Gui = inst(\"ScreenGui\", {Name = \"SSWH\" .. math.random(1e5, 1e6), ResetOnSpawn = false, ZIndexBehavior = Enum.ZIndexBehavior.Sibling, DisplayOrder = 50}, HUI)\r\nH.insts[#H.insts + 1] = Gui\r\nlocal function corner(p, r) inst(\"UICorner\", {CornerRadius = r == \"pill\" and UDim.new(1, 0) or UDim.new(0, r or 8)}, p) end\r\nlocal function stroke(p, c)\r\n\tlocal s = inst(\"UIStroke\", {Color = c or C.stroke, Thickness = 1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Transparency = 0.25}, p)\r\n\tif not c then themed[#themed + 1] = {s, \"Color\", \"stroke\"} end\r\n\treturn s\r\nend\r\n-- dark glass edge: one thin, even, light outline\r\nlocal function rim(p, t)\r\n\treturn inst(\"UIStroke\", {Color = WHITE, Thickness = 1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Transparency = t or 0.8}, p)\r\nend\r\n-- liquid glass: clear pill, light gathering at both rounded ends, and a crisp highlight line along the inside top edge\r\nlocal function liquid(p, strong)\r\n\tp.BackgroundColor3 = WHITE\r\n\tglassy(p, strong and 0.74 or 0.82)\r\n\tlocal s = inst(\"UIStroke\", {Color = WHITE, Thickness = 1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Transparency = 0}, p)\r\n\tinst(\"UIGradient\", {Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0.3), NumberSequenceKeypoint.new(0.2, 0.72), NumberSequenceKeypoint.new(0.5, 0.86),\r\n\t\tNumberSequenceKeypoint.new(0.8, 0.72), NumberSequenceKeypoint.new(1, 0.3)})}, s)\r\n\t-- a soft vertical sheen: the top of the glass catches more light than the bottom\r\n\tlocal sheen = inst(\"UIGradient\", {Rotation = 90, Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(1, 0.45)})}, p)\r\n\tlocal shine = inst(\"Frame\", {BackgroundColor3 = WHITE, BorderSizePixel = 0, AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.new(0.5, 0, 0, 1), Size = UDim2.new(1, -18, 0, 1), BackgroundTransparency = 0.45, ZIndex = p.ZIndex}, p)\r\n\tinst(\"UIGradient\", {Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.3, 0.3), NumberSequenceKeypoint.new(0.7, 0.3), NumberSequenceKeypoint.new(1, 1)})}, shine)\r\n\treturn s, shine, sheen\r\nend\r\n-- motion helpers\r\nlocal function tween(i, t, props, style, dir) local tw = TS:Create(i, TweenInfo.new(t, style or Enum.EasingStyle.Quint, dir or Enum.EasingDirection.Out), props) tw:Play() return tw end\r\nlocal function pressable(b)\r\n\tlocal sc = inst(\"UIScale\", {}, b)\r\n\tb.MouseButton1Down:Connect(function() tween(sc, 0.08, {Scale = 0.96}) end)\r\n\tb.MouseButton1Up:Connect(function() tween(sc, 0.25, {Scale = 1}, Enum.EasingStyle.Back) end)\r\n\tb.MouseLeave:Connect(function() tween(sc, 0.2, {Scale = 1}) end)\r\nend\r\n-- thin line that fades out at both ends (the dividers in the dark glass panel)\r\nlocal function divider(parent, pos, size, vertical)\r\n\tlocal d = inst(\"Frame\", {BackgroundColor3 = WHITE, BorderSizePixel = 0, Position = pos, Size = size, BackgroundTransparency = 0.55}, parent)\r\n\tinst(\"UIGradient\", {Rotation = vertical and 90 or 0, Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5, 0.35), NumberSequenceKeypoint.new(1, 1)})}, d)\r\n\treturn d\r\nend\r\nlocal function dragify(handle, frame)\r\n\tlocal drag, start, pos\r\n\thandle.InputBegan:Connect(function(i)\r\n\t\tif i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then drag, start, pos = true, i.Position, frame.Position end\r\n\tend)\r\n\tconn(UIS.InputChanged, function(i)\r\n\t\tif drag and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then\r\n\t\t\tlocal d = i.Position - start\r\n\t\t\tframe.Position = UDim2.new(pos.X.Scale, pos.X.Offset + d.X, pos.Y.Scale, pos.Y.Offset + d.Y)\r\n\t\tend\r\n\tend)\r\n\tconn(UIS.InputEnded, function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then drag = false end end)\r\nend\r\n\r\n----------------------------------------------------------------- window (dark glassmorphism)\r\nlocal Win = inst(\"Frame\", {Size = UDim2.fromOffset(620, 430), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5), BorderSizePixel = 0, Active = true, BackgroundColor3 = WHITE}, Gui)\r\nglassy(Win)\r\ncorner(Win, 12) rim(Win, 0.72)\r\n-- smoked glass: a lighter grey at the top fading to near black at the bottom\r\nlocal winGrad = inst(\"UIGradient\", {Rotation = 90}, Win)\r\npainter(function() winGrad.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, C.bg:Lerp(WHITE, 0.2)), ColorSequenceKeypoint.new(0.45, C.bg:Lerp(WHITE, 0.07)), ColorSequenceKeypoint.new(1, C.bg)}) end)\r\n-- soft drop shadow so the panel floats (a sibling behind the window that follows it)\r\nlocal Shadow = inst(\"ImageLabel\", {Image = \"rbxassetid://6015897843\", ImageColor3 = Color3.new(0, 0, 0), ImageTransparency = 0.78, BackgroundTransparency = 1, ScaleType = Enum.ScaleType.Slice,\r\n\tSliceCenter = Rect.new(49, 49, 450, 450), ZIndex = 0}, Gui)\r\ndo\r\nlocal function syncShadow()\r\n\tShadow.Visible = Win.Visible\r\n\tShadow.Position = UDim2.fromOffset(Win.AbsolutePosition.X - 22, Win.AbsolutePosition.Y - 14)\r\n\tShadow.Size = UDim2.fromOffset(Win.AbsoluteSize.X + 44, Win.AbsoluteSize.Y + 44)\r\nend\r\nfor _, p in ipairs({\"AbsolutePosition\", \"AbsoluteSize\", \"Visible\"}) do conn(Win:GetPropertyChangedSignal(p), syncShadow) end\r\ntask.defer(syncShadow)\r\nend\r\n\r\nlocal Top = inst(\"Frame\", {Size = UDim2.new(1, 0, 0, 70), BackgroundTransparency = 1}, Win)\r\nth(inst(\"TextLabel\", {Text = \"S.S. WILLIE Hub\", FontFace = face(BOLD), TextSize = 19, BackgroundTransparency = 1,\r\n\tPosition = UDim2.fromOffset(20, 30), Size = UDim2.new(0, 360, 0, 26), TextXAlignment = Enum.TextXAlignment.Left}, Top), \"TextColor3\", \"text\")\r\nth(inst(\"TextLabel\", {Text = UIS.KeyboardEnabled and \"RightShift to hide · F6 pauses\" or \"\", FontFace = face(MED), TextSize = 11, BackgroundTransparency = 1,\r\n\tAnchorPoint = Vector2.new(1, 0), Position = UDim2.new(1, -20, 0, 30), Size = UDim2.new(0, 240, 0, 26), TextXAlignment = Enum.TextXAlignment.Right}, Top), \"TextColor3\", \"muted\")\r\n-- window state: body parts (hidden while minimised), sizes, mode, scale target\r\nlocal WS = {parts = {}, sizes = {normal = Vector2.new(620, 430), big = Vector2.new(780, 540)}, mode = \"normal\", min = false, fit = 1, anim = false}\r\nWS.parts[1] = divider(Win, UDim2.fromOffset(20, 66), UDim2.new(1, -40, 0, 1))\r\n-- shrink to fit small windows\r\nlocal fit = inst(\"UIScale\", {}, Win)\r\nlocal function refit()\r\n\tlocal v = workspace.CurrentCamera.ViewportSize\r\n\tlocal sz = WS.sizes[WS.mode]\r\n\tWS.fit = math.clamp(math.min((v.Y - 80) / sz.Y, (v.X - 20) / sz.X), 0.45, 1)\r\n\tif not WS.anim then fit.Scale = WS.fit end\r\nend\r\nrefit() conn(workspace.CurrentCamera:GetPropertyChangedSignal(\"ViewportSize\"), refit)\r\ndragify(Top, Win)\r\n-- window buttons, like a Mac window: red hides the menu, yellow folds it down to the title bar, green makes it bigger\r\ndo\r\n\t-- short legend for the three buttons, on the same row as them\r\n\tth(inst(\"TextLabel\", {RichText = true, FontFace = face(MED), TextSize = 11, BackgroundTransparency = 1, AnchorPoint = Vector2.new(1, 0),\r\n\t\tText = '<font color=\"#FF5F57\">●</font> hide   <font color=\"#FEBC2E\">●</font> fold   <font color=\"#28C840\">●</font> bigger',\r\n\t\tPosition = UDim2.new(1, -20, 0, 8), Size = UDim2.new(0, 240, 0, 22), TextXAlignment = Enum.TextXAlignment.Right}, Top), \"TextColor3\", \"muted\")\r\n\tlocal dots, marks = {}, {}\r\n\tfor i, col in ipairs({Color3.fromRGB(255, 95, 87), Color3.fromRGB(254, 188, 46), Color3.fromRGB(40, 200, 64)}) do\r\n\t\tlocal d = inst(\"TextButton\", {Text = \"\", AutoButtonColor = false, BackgroundColor3 = col, BorderSizePixel = 0, Position = UDim2.fromOffset(16 + (i - 1) * 18, 14), Size = UDim2.fromOffset(12, 12)}, Top)\r\n\t\tcorner(d, \"pill\")\r\n\t\tmarks[i] = inst(\"TextLabel\", {Text = ({\"×\", \"–\", \"+\"})[i], FontFace = face(BOLD), TextSize = 11, TextColor3 = Color3.new(0, 0, 0), TextTransparency = 1,\r\n\t\t\tBackgroundTransparency = 1, Size = UDim2.fromScale(1, 1), Position = UDim2.fromOffset(0, -1)}, d)\r\n\t\tpressable(d)\r\n\t\tdots[i] = d\r\n\tend\r\n\t-- the symbols show while the mouse is over the buttons\r\n\tlocal over = 0\r\n\tlocal function showMarks(on) for _, m in ipairs(marks) do tween(m, 0.15, {TextTransparency = on and 0.45 or 1}) end end\r\n\tfor _, d in ipairs(dots) do\r\n\t\td.MouseEnter:Connect(function() over += 1 showMarks(true) end)\r\n\t\td.MouseLeave:Connect(function() over = math.max(0, over - 1) task.delay(0.05, function() if over == 0 then showMarks(false) end end) end)\r\n\tend\r\n\tlocal function setParts(on) for _, o in ipairs(WS.parts) do o.Visible = on end end\r\n\t-- resize around the top edge, so the title bar stays where it is\r\n\tlocal function resizeTo(size, keepTop)\r\n\t\tlocal old = Win.AbsoluteSize / math.max(fit.Scale, 0.01)\r\n\t\tlocal shift = keepTop and (size.Y - old.Y) / 2 * fit.Scale or 0\r\n\t\ttween(Win, 0.35, {Size = UDim2.fromOffset(size.X, size.Y), Position = Win.Position + UDim2.fromOffset(0, shift)})\r\n\tend\r\n\tdots[1].Activated:Connect(function() Win.Visible = false end)\r\n\tdots[2].Activated:Connect(function()\r\n\t\tWS.min = not WS.min\r\n\t\tlocal full = WS.sizes[WS.mode]\r\n\t\tif WS.min then\r\n\t\t\tsetParts(false)\r\n\t\t\tresizeTo(Vector2.new(full.X, 64), true)\r\n\t\telse\r\n\t\t\tresizeTo(full, true)\r\n\t\t\ttask.delay(0.22, function() if not WS.min then setParts(true) end end)\r\n\t\tend\r\n\tend)\r\n\tdots[3].Activated:Connect(function()\r\n\t\tWS.mode = WS.mode == \"normal\" and \"big\" or \"normal\"\r\n\t\trefit()\r\n\t\tif WS.min then WS.min = false task.delay(0.22, function() if not WS.min then setParts(true) end end) end\r\n\t\tresizeTo(WS.sizes[WS.mode], false)\r\n\t\ttween(fit, 0.35, {Scale = WS.fit})\r\n\tend)\r\nend\r\n-- open / close motion: the panel eases in from slightly smaller and lower, and eases out the same way\r\n-- (hubs just set Win.Visible, so this watches that property)\r\ndo\r\nlocal function openAnim()\r\n\tlocal pos = Win.Position\r\n\tWS.anim = true\r\n\tfit.Scale = WS.fit * 0.92\r\n\tWin.Position = pos + UDim2.fromOffset(0, 14)\r\n\ttween(fit, 0.32, {Scale = WS.fit}, Enum.EasingStyle.Back)\r\n\ttween(Win, 0.32, {Position = pos}).Completed:Connect(function() WS.anim = false end)\r\nend\r\n-- our own Visible changes are skipped (signals can arrive late, so count them instead of using a flag)\r\nlocal ignoreVis = 0\r\nlocal function setVis(v) if Win.Visible ~= v then ignoreVis += 1 Win.Visible = v end end\r\nconn(Win:GetPropertyChangedSignal(\"Visible\"), function()\r\n\tif ignoreVis > 0 then ignoreVis -= 1 return end\r\n\tif WS.anim then return end\r\n\tif Win.Visible then openAnim() return end\r\n\tWS.anim = true\r\n\tsetVis(true)\r\n\tlocal pos = Win.Position\r\n\ttween(fit, 0.16, {Scale = WS.fit * 0.92}, Enum.EasingStyle.Quad, Enum.EasingDirection.In)\r\n\ttween(Win, 0.16, {Position = pos + UDim2.fromOffset(0, 14)}, Enum.EasingStyle.Quad, Enum.EasingDirection.In).Completed:Connect(function()\r\n\t\tsetVis(false)\r\n\t\tWin.Position, fit.Scale = pos, WS.fit\r\n\t\tWS.anim = false\r\n\tend)\r\nend)\r\ntask.defer(openAnim)end\r\n\r\n\r\n-- floating liquid glass button to bring the menu back on phones (no RightShift there)\r\n-- phones/tablets only: a round glass button with a menu icon; tap = show/hide, drag = move it\r\nlocal Tog = th(inst(\"TextButton\", {Text = \"≡\", FontFace = face(SEMI), TextSize = 28, AutoButtonColor = false,\r\n\tPosition = UDim2.new(0, 14, 0.5, -26), Size = UDim2.fromOffset(52, 52), Visible = UIS.TouchEnabled and not UIS.KeyboardEnabled}, Gui), \"TextColor3\", \"text\")\r\ncorner(Tog, \"pill\") liquid(Tog, true) pressable(Tog)\r\n-- it glows in the theme colour while the menu is hidden, so it's easy to spot\r\nlocal togGlow = inst(\"UIStroke\", {Color = C.clay, Thickness = 2, Transparency = 1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border}, Tog)\r\nthemed[#themed + 1] = {togGlow, \"Color\", \"clay\"}\r\nconn(Win:GetPropertyChangedSignal(\"Visible\"), function() tween(togGlow, 0.3, {Transparency = Win.Visible and 1 or 0.3}) end)\r\ndragify(Tog, Tog)\r\nlocal togAt\r\nTog.InputBegan:Connect(function() togAt = Tog.AbsolutePosition end)\r\nTog.Activated:Connect(function() if togAt and (Tog.AbsolutePosition - togAt).Magnitude > 6 then return end Win.Visible = not Win.Visible end)\r\nH.Tog = Tog\r\n\r\n-- sidebar: \"MENU\" list straight on the glass, active item marked by an accent bar on the window edge\r\n-- it scrolls (clipped above the account card) once a hub has more tabs than fit\r\nlocal Side = inst(\"ScrollingFrame\", {Position = UDim2.fromOffset(0, 76), Size = UDim2.new(0, 164, 1, -150), BackgroundTransparency = 1, BorderSizePixel = 0,\r\n\tScrollBarThickness = 2, CanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y, ScrollingDirection = Enum.ScrollingDirection.Y}, Win)\r\nth(Side, \"ScrollBarImageColor3\", \"stroke\")\r\ninst(\"UIListLayout\", {Padding = UDim.new(0, 2), SortOrder = Enum.SortOrder.LayoutOrder}, Side)\r\ninst(\"UIPadding\", {PaddingLeft = UDim.new(0, 16), PaddingRight = UDim.new(0, 6), PaddingBottom = UDim.new(0, 6)}, Side)\r\nth(inst(\"TextLabel\", {Text = \"MENU\", FontFace = face(MED), TextSize = 11, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 26), LayoutOrder = -1,\r\n\tTextXAlignment = Enum.TextXAlignment.Left}, Side), \"TextColor3\", \"muted\").TextTransparency = 0.1\r\nWS.parts[#WS.parts + 1] = Side\r\nWS.parts[#WS.parts + 1] = divider(Win, UDim2.fromOffset(170, 80), UDim2.new(0, 1, 1, -96), true)\r\nWS.parts[#WS.parts + 1] = divider(Win, UDim2.new(0, 20, 1, -70), UDim2.fromOffset(130, 1))\r\n-- account card at the bottom, like the profile row in the glass sidebar\r\ndo\r\nlocal Acc = inst(\"Frame\", {Position = UDim2.new(0, 16, 1, -62), Size = UDim2.fromOffset(150, 48), BackgroundTransparency = 1}, Win)\r\nWS.parts[#WS.parts + 1] = Acc\r\nlocal av = inst(\"ImageLabel\", {BackgroundColor3 = WHITE, BackgroundTransparency = 0.92, Size = UDim2.fromOffset(38, 38), Position = UDim2.fromOffset(0, 5),\r\n\tImage = \"rbxthumb://type=AvatarHeadShot&id=\" .. tostring(game:GetService(\"Players\").LocalPlayer.UserId) .. \"&w=48&h=48\"}, Acc)\r\ncorner(av, \"pill\") rim(av, 0.35)\r\nth(inst(\"TextLabel\", {Text = game:GetService(\"Players\").LocalPlayer.DisplayName, FontFace = face(SEMI), TextSize = 13, BackgroundTransparency = 1, TextTruncate = Enum.TextTruncate.AtEnd,\r\n\tPosition = UDim2.fromOffset(48, 7), Size = UDim2.new(1, -50, 0, 18), TextXAlignment = Enum.TextXAlignment.Left}, Acc), \"TextColor3\", \"text\")\r\nth(inst(\"TextLabel\", {Text = \"@\" .. game:GetService(\"Players\").LocalPlayer.Name, FontFace = face(), TextSize = 10, BackgroundTransparency = 1, TextTruncate = Enum.TextTruncate.AtEnd,\r\n\tPosition = UDim2.fromOffset(48, 25), Size = UDim2.new(1, -50, 0, 14), TextXAlignment = Enum.TextXAlignment.Left}, Acc), \"TextColor3\", \"muted\")\r\nend\r\nlocal Pages = inst(\"Frame\", {Position = UDim2.fromOffset(184, 80), Size = UDim2.new(1, -198, 1, -94), BackgroundTransparency = 1}, Win)\r\nWS.parts[#WS.parts + 1] = Pages\r\n\r\nlocal UI = {refresh = {}, el = {}, repaint = {}}\r\nlocal tabs = {}\r\nlocal function paintTabs()\r\n\tfor _, o in ipairs(tabs) do\r\n\t\tlocal on = o.page.Visible\r\n\t\to.btn.TextColor3 = on and C.text or C.muted\r\n\t\to.btn.FontFace = face(on and SEMI or MED)\r\n\t\to.bar.Visible = on\r\n\t\to.chev.Visible = on\r\n\tend\r\nend\r\nfunction UI.tab(name, order)\r\n\tlocal btn = inst(\"TextButton\", {Text = name, FontFace = face(MED), TextSize = 13, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 34),\r\n\t\tAutoButtonColor = false, TextXAlignment = Enum.TextXAlignment.Left, LayoutOrder = order or #tabs + 1}, Side)\r\n\tinst(\"UIPadding\", {PaddingLeft = UDim.new(0, 8)}, btn)\r\n\t-- the accent bar sits on the window's left edge (inside the scroll area so it isn't clipped)\r\n\tlocal bar = inst(\"Frame\", {BackgroundColor3 = WHITE, BorderSizePixel = 0, AnchorPoint = Vector2.new(0, 0.5), Position = UDim2.new(0, -14, 0.5, 0), Size = UDim2.fromOffset(3, 22), Visible = false}, btn)\r\n\taccentGrad(bar, 90)\r\n\tlocal chev = th(inst(\"TextLabel\", {Text = \"›\", FontFace = face(SEMI), TextSize = 18, BackgroundTransparency = 1, AnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, 0, 0.5, -1),\r\n\t\tSize = UDim2.fromOffset(16, 20), Visible = false}, btn), \"TextColor3\", \"text\")\r\n\tlocal page = inst(\"ScrollingFrame\", {Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1, BorderSizePixel = 0, ScrollBarThickness = 2,\r\n\t\tCanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y, Visible = false}, Pages)\r\n\tth(page, \"ScrollBarImageColor3\", \"stroke\")\r\n\tinst(\"UIListLayout\", {Padding = UDim.new(0, 8), SortOrder = Enum.SortOrder.LayoutOrder}, page)\r\n\t-- a little room on every side so the cards' outlines are never clipped by the scroll area\r\n\tinst(\"UIPadding\", {PaddingLeft = UDim.new(0, 2), PaddingRight = UDim.new(0, 9), PaddingBottom = UDim.new(0, 8), PaddingTop = UDim.new(0, 3)}, page)\r\n\tlocal t = setmetatable({page = page, btn = btn, bar = bar, chev = chev, n = 0}, {__index = UI.el})\r\n\tlocal function select()\r\n\t\tif page.Visible then return end\r\n\t\tfor _, o in ipairs(tabs) do o.page.Visible = false end\r\n\t\tpage.Visible = true\r\n\t\tpaintTabs()\r\n\t\t-- the new page glides up into place and the accent bar grows in\r\n\t\tpage.Position = UDim2.fromOffset(0, 12)\r\n\t\ttween(page, 0.35, {Position = UDim2.new()})\r\n\t\tbar.Size = UDim2.fromOffset(3, 0)\r\n\t\ttween(bar, 0.3, {Size = UDim2.fromOffset(3, 22)}, Enum.EasingStyle.Back)\r\n\t\tchev.Position = UDim2.new(1, -8, 0.5, -1)\r\n\t\ttween(chev, 0.3, {Position = UDim2.new(1, 0, 0.5, -1)})\r\n\tend\r\n\tbtn.MouseButton1Click:Connect(select)\r\n\tbtn.MouseEnter:Connect(function() if not page.Visible then tween(btn, 0.15, {TextColor3 = C.text}) end end)\r\n\tbtn.MouseLeave:Connect(function() if not page.Visible then tween(btn, 0.2, {TextColor3 = C.muted}) end end)\r\n\ttabs[#tabs + 1] = t\r\n\tif #tabs == 1 then select() else paintTabs() end\r\n\treturn t\r\nend\r\n\r\n----------------------------------------------------------------- content (soft glassmorphism cards)\r\n-- rounded translucent card with a soft tonal gradient, tinted by the ambient theme colour on the left\r\nlocal function card(f)\r\n\tf.BackgroundColor3 = WHITE\r\n\tglassy(f, 0.22)\r\n\tcorner(f, 14)\r\n\trim(f, 0.9)\r\n\tlocal g = inst(\"UIGradient\", {Rotation = 0}, f)\r\n\tpainter(function() g.Color = ColorSequence.new(C.card:Lerp(C.clay, 0.16), C.card) end)\r\n\t-- the card brightens a touch under the mouse\r\n\tf.MouseEnter:Connect(function() tween(f, 0.18, {BackgroundTransparency = math.clamp(TH.glass / 100 + 0.14, 0, 0.95)}) end)\r\n\tf.MouseLeave:Connect(function() tween(f, 0.25, {BackgroundTransparency = math.clamp(TH.glass / 100 + 0.22, 0, 0.95)}) end)\r\n\treturn f\r\nend\r\nlocal function row(t, h)\r\n\tt.n += 1\r\n\treturn card(inst(\"Frame\", {Size = UDim2.new(1, 0, 0, h or 40), BorderSizePixel = 0, LayoutOrder = t.n}, t.page))\r\nend\r\nlocal function lbl(parent, text)\r\n\treturn th(inst(\"TextLabel\", {Text = text, FontFace = face(MED), TextSize = 13, BackgroundTransparency = 1,\r\n\t\tPosition = UDim2.fromOffset(16, 0), Size = UDim2.new(1, -32, 1, 0), TextXAlignment = Enum.TextXAlignment.Left}, parent), \"TextColor3\", \"text\")\r\nend\r\nfunction UI.el:section(text)\r\n\tself.n += 1\r\n\tlocal l = th(inst(\"TextLabel\", {Text = string.upper(text), FontFace = face(MED), TextSize = 11, BackgroundTransparency = 1,\r\n\t\tSize = UDim2.new(1, 0, 0, 24), TextXAlignment = Enum.TextXAlignment.Left, LayoutOrder = self.n}, self.page), \"TextColor3\", \"muted\")\r\n\tinst(\"UIPadding\", {PaddingLeft = UDim.new(0, 4), PaddingTop = UDim.new(0, 8)}, l)\r\nend\r\n-- grey second line under a control's name; the card grows with the text\r\nlocal function desc(f, l, text, rightPad)\r\n\tif not text then return end\r\n\tl.Position, l.Size = UDim2.fromOffset(16, 7), UDim2.new(1, -rightPad, 0, 18)\r\n\tth(inst(\"TextLabel\", {Text = text, FontFace = face(), TextSize = 11, BackgroundTransparency = 1, TextWrapped = true,\r\n\t\tPosition = UDim2.fromOffset(16, 26), Size = UDim2.new(1, -rightPad, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top}, f), \"TextColor3\", \"muted\")\r\n\tf.AutomaticSize = Enum.AutomaticSize.Y\r\n\tinst(\"UIPadding\", {PaddingBottom = UDim.new(0, 10)}, f)\r\nend\r\n-- liquid glass switch; when on it fills with the accent and glows\r\nfunction UI.el:toggle(text, key, cb, d)\r\n\tlocal f = row(self, d and 58) desc(f, lbl(f, text), d, 78)\r\n\tlocal sw = inst(\"Frame\", {AnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, -16, 0.5, 0), Size = UDim2.fromOffset(42, 24), BorderSizePixel = 0}, f)\r\n\tif d then sw.AnchorPoint, sw.Position = Vector2.new(1, 0), UDim2.new(1, -16, 0, 9) end\r\n\tcorner(sw, \"pill\")\r\n\tlocal edge, shine, sheen = liquid(sw)\r\n\tlocal g = accentGrad(sw, 0)\r\n\tlocal glow = inst(\"UIStroke\", {Color = C.clay, Thickness = 3, Transparency = 1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border}, sw)\r\n\tthemed[#themed + 1] = {glow, \"Color\", \"clay\"}\r\n\tlocal knob = inst(\"Frame\", {AnchorPoint = Vector2.new(0, 0.5), Size = UDim2.fromOffset(18, 18), Position = UDim2.new(0, 3, 0.5, 0), BackgroundColor3 = WHITE, BorderSizePixel = 0, ZIndex = 2}, sw)\r\n\tcorner(knob, \"pill\")\r\n\tlocal first = true\r\n\tlocal function paint()\r\n\t\tlocal on = S[key]\r\n\t\tsheen.Enabled, g.Enabled, edge.Enabled, shine.Visible = not on, on, not on, not on\r\n\t\tlocal t = first and 0 or 0.22\r\n\t\ttween(sw, t, {BackgroundTransparency = on and 0 or math.clamp(TH.glass / 100 + 0.82, 0, 0.95)})\r\n\t\ttween(glow, t + 0.1, {Transparency = on and 0.6 or 1})\r\n\t\t-- the knob stretches a little while it slides, like a drop of liquid\r\n\t\tif not first then\r\n\t\t\ttween(knob, 0.1, {Size = UDim2.fromOffset(24, 18)}).Completed:Connect(function() tween(knob, 0.18, {Size = UDim2.fromOffset(18, 18)}) end)\r\n\t\tend\r\n\t\ttween(knob, t + 0.06, {Position = on and UDim2.new(0, 21, 0.5, 0) or UDim2.new(0, 3, 0.5, 0)})\r\n\t\tfirst = false\r\n\tend\r\n\tinst(\"TextButton\", {Text = \"\", BackgroundTransparency = 1, Size = UDim2.fromScale(1, 1)}, f).MouseButton1Click:Connect(function()\r\n\t\tS[key] = not S[key] paint() if cb then cb(S[key]) end\r\n\tend)\r\n\tpaint()\r\n\tUI.refresh[#UI.refresh + 1] = function() paint() if cb then cb(S[key]) end end\r\n\tUI.repaint[#UI.repaint + 1] = paint\r\nend\r\n-- slim track with a glowing accent fill (like the progress ring in the soft glass widget)\r\nfunction UI.el:slider(text, key, min, max, step, cb, d, store)\r\n\tstore = store or S\r\n\tlocal dy = d and 26 or 0\r\n\tlocal f = row(self, 56 + dy)\r\n\tlocal l = lbl(f, text) l.Size = UDim2.new(1, -32, 0, 32)\r\n\tdesc(f, l, d, 100)\r\n\tlocal val = th(inst(\"TextLabel\", {FontFace = face(SEMI), TextSize = 13, BackgroundTransparency = 1, AnchorPoint = Vector2.new(1, 0),\r\n\t\tPosition = UDim2.new(1, -16, 0, 0), Size = UDim2.fromOffset(80, 32), TextXAlignment = Enum.TextXAlignment.Right}, f), \"TextColor3\", \"text\")\r\n\tlocal bar = inst(\"Frame\", {Position = UDim2.new(0, 16, 0, 38 + dy), Size = UDim2.new(1, -32, 0, 4), BackgroundColor3 = WHITE, BackgroundTransparency = 0.86, BorderSizePixel = 0}, f)\r\n\tcorner(bar, \"pill\")\r\n\tlocal fill = inst(\"Frame\", {Size = UDim2.fromScale(0, 1), BackgroundColor3 = WHITE, BorderSizePixel = 0}, bar)\r\n\tcorner(fill, \"pill\") accentGrad(fill, 0)\r\n\tlocal knob = inst(\"Frame\", {AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(1, 0.5), Size = UDim2.fromOffset(14, 14), BackgroundColor3 = WHITE, BorderSizePixel = 0}, fill)\r\n\tcorner(knob, \"pill\")\r\n\tthemed[#themed + 1] = {inst(\"UIStroke\", {Color = C.clay, Thickness = 3, Transparency = 0.55}, knob), \"Color\", \"clay\"}\r\n\tlocal hit = inst(\"TextButton\", {Text = \"\", BackgroundTransparency = 1, Position = UDim2.new(0, 8, 0, 28 + dy), Size = UDim2.new(1, -16, 0, 22)}, f)\r\n\tlocal function paint() fill.Size = UDim2.fromScale(math.clamp((store[key] - min) / (max - min), 0, 1), 1) val.Text = tostring(store[key]) end\r\n\tlocal dragging = false\r\n\tlocal function set(x)\r\n\t\tlocal a = math.clamp((x - bar.AbsolutePosition.X) / bar.AbsoluteSize.X, 0, 1)\r\n\t\tlocal v = math.floor((min + (max - min) * a) / step + 0.5) * step\r\n\t\tif step < 1 then v = tonumber(string.format(\"%.2f\", v)) end\r\n\t\tstore[key] = v paint() if cb then cb(v) end\r\n\tend\r\n\thit.MouseButton1Down:Connect(function(x) dragging = true set(x) end)\r\n\tconn(UIS.InputChanged, function(i) if dragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then set(i.Position.X) end end)\r\n\tconn(UIS.InputEnded, function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then dragging = false end end)\r\n\tpaint()\r\n\tUI.refresh[#UI.refresh + 1] = paint\r\n\treturn paint\r\nend\r\n-- liquid glass pill that cycles through the options\r\nfunction UI.el:choice(text, key, opts, cb, d, store)\r\n\tstore = store or S\r\n\tlocal f = row(self, d and 58) desc(f, lbl(f, text), d, 156)\r\n\tlocal b = th(inst(\"TextButton\", {FontFace = face(MED), TextSize = 12, AnchorPoint = Vector2.new(1, 0.5),\r\n\t\tPosition = UDim2.new(1, -14, 0.5, 0), Size = UDim2.fromOffset(132, 26), AutoButtonColor = false}, f), \"TextColor3\", \"text\")\r\n\tif d then b.AnchorPoint, b.Position = Vector2.new(1, 0), UDim2.new(1, -14, 0, 8) end\r\n\tcorner(b, \"pill\") liquid(b) pressable(b)\r\n\tlocal function paint() b.Text = tostring(store[key]) .. \"  ›\" end\r\n\tb.MouseButton1Click:Connect(function()\r\n\t\tlocal i = table.find(opts, store[key]) or 0\r\n\t\tstore[key] = opts[i % #opts + 1] paint() if cb then cb(store[key]) end\r\n\tend)\r\n\tpaint()\r\n\tUI.refresh[#UI.refresh + 1] = paint\r\n\treturn paint\r\nend\r\n-- full-width liquid glass pill button\r\nfunction UI.el:button(text, fn, d)\r\n\tself.n += 1\r\n\tlocal b = th(inst(\"TextButton\", {Text = d and (text .. \"\\n<font size=\\\"11\\\" transparency=\\\"0.4\\\">\" .. d .. \"</font>\") or text, RichText = true, FontFace = face(SEMI),\r\n\t\tTextSize = 13, Size = UDim2.new(1, 0, 0, d and 50 or 38), AutoButtonColor = false, LayoutOrder = self.n}, self.page), \"TextColor3\", \"text\")\r\n\tcorner(b, \"pill\")\r\n\tliquid(b, true) pressable(b)\r\n\tb.MouseEnter:Connect(function() tween(b, 0.18, {BackgroundTransparency = math.clamp(TH.glass / 100 + 0.62, 0, 0.95)}) end)\r\n\tb.MouseLeave:Connect(function() tween(b, 0.25, {BackgroundTransparency = math.clamp(TH.glass / 100 + 0.74, 0, 0.95)}) end)\r\n\tb.MouseButton1Click:Connect(function() task.spawn(fn) end)\r\n\treturn b\r\nend\r\nfunction UI.el:input(text, placeholder, cb)\r\n\tlocal f = row(self) lbl(f, text)\r\n\tlocal box = th(th(inst(\"TextBox\", {PlaceholderText = placeholder, Text = \"\", FontFace = face(MED), TextSize = 12,\r\n\t\tAnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, -14, 0.5, 0), Size = UDim2.fromOffset(170, 26), ClearTextOnFocus = false}, f), \"TextColor3\", \"text\"), \"PlaceholderColor3\", \"muted\")\r\n\tcorner(box, \"pill\") liquid(box)\r\n\tbox.FocusLost:Connect(function(enter) if cb then cb(box.Text, enter) end end)\r\n\treturn box\r\nend\r\nfunction UI.el:label(text)\r\n\tself.n += 1\r\n\tlocal f = card(inst(\"Frame\", {Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, BorderSizePixel = 0, LayoutOrder = self.n}, self.page))\r\n\tinst(\"UIPadding\", {PaddingTop = UDim.new(0, 11), PaddingBottom = UDim.new(0, 11), PaddingLeft = UDim.new(0, 16), PaddingRight = UDim.new(0, 16)}, f)\r\n\tlocal l = th(inst(\"TextLabel\", {Text = text, RichText = true, FontFace = face(), TextSize = 13, BackgroundTransparency = 1,\r\n\t\tSize = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, LineHeight = 1.2}, f), \"TextColor3\", \"text\")\r\n\treturn function(s) l.Text = s end\r\nend\r\nfunction UI.el:list(h)\r\n\tlocal f = row(self, h)\r\n\tlocal sc = th(inst(\"ScrollingFrame\", {Size = UDim2.new(1, -10, 1, -10), Position = UDim2.fromOffset(5, 5), BackgroundTransparency = 1, BorderSizePixel = 0,\r\n\t\tScrollBarThickness = 2, CanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y}, f), \"ScrollBarImageColor3\", \"stroke\")\r\n\tinst(\"UIListLayout\", {Padding = UDim.new(0, 5), SortOrder = Enum.SortOrder.LayoutOrder}, sc)\r\n\treturn sc\r\nend\r\nlocal function listItem(sc, text, btnText, fn, order)\r\n\tlocal f = inst(\"Frame\", {Size = UDim2.new(1, -6, 0, 32), BorderSizePixel = 0, LayoutOrder = order or 0, BackgroundColor3 = WHITE, BackgroundTransparency = 0.94}, sc)\r\n\tcorner(f, 12)\r\n\tth(inst(\"TextLabel\", {Text = text, FontFace = face(), TextSize = 12, BackgroundTransparency = 1, Position = UDim2.fromOffset(12, 0),\r\n\t\tSize = UDim2.new(1, -100, 1, 0), TextXAlignment = Enum.TextXAlignment.Left, TextTruncate = Enum.TextTruncate.AtEnd}, f), \"TextColor3\", \"text\")\r\n\tif btnText then\r\n\t\tlocal b = th(inst(\"TextButton\", {Text = btnText, FontFace = face(SEMI), TextSize = 12, BackgroundColor3 = WHITE, AnchorPoint = Vector2.new(1, 0.5),\r\n\t\t\tPosition = UDim2.new(1, -5, 0.5, 0), Size = UDim2.fromOffset(80, 24), AutoButtonColor = true}, f), \"TextColor3\", \"bg\")\r\n\t\tcorner(b, \"pill\") accentGrad(b, 0)\r\n\t\tb.MouseButton1Click:Connect(function() task.spawn(fn) end)\r\n\tend\r\n\treturn f\r\nend\r\n\r\n----------------------------------------------------------------- notifications (soft glass cards)\r\nlocal Toasts = inst(\"Frame\", {AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.new(0.5, 0, 0, 70), Size = UDim2.fromOffset(420, 500), BackgroundTransparency = 1}, Gui)\r\ninst(\"UIListLayout\", {Padding = UDim.new(0, 10), HorizontalAlignment = Enum.HorizontalAlignment.Center, SortOrder = Enum.SortOrder.LayoutOrder}, Toasts)\r\nlocal toastN = 0\r\n-- one card for every notification: top centre, newest on top, colours + glass from the chosen preset\r\nlocal function toastCard(title, text, col)\r\n\ttoastN += 1\r\n\tlocal holder = inst(\"Frame\", {Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 1, LayoutOrder = -toastN}, Toasts)\r\n\tlocal f = inst(\"Frame\", {Size = UDim2.new(1, 0, 0, 0), Position = UDim2.fromOffset(0, -20), AutomaticSize = Enum.AutomaticSize.Y, BackgroundColor3 = WHITE, BackgroundTransparency = 1, BorderSizePixel = 0}, holder)\r\n\tcorner(f, 18) local st = rim(f, 0.82)\r\n\tinst(\"UIGradient\", {Rotation = 90, Color = ColorSequence.new(C.bg:Lerp(WHITE, 0.14), C.bg)}, f)\r\n\tinst(\"UIPadding\", {PaddingTop = UDim.new(0, 13), PaddingBottom = UDim.new(0, 14), PaddingLeft = UDim.new(0, 44), PaddingRight = UDim.new(0, 18)}, f)\r\n\t-- the padding moves children too, so the dot sits at a negative x to land in the left margin, level with the title\r\n\tlocal dot = inst(\"Frame\", {Size = UDim2.fromOffset(10, 10), Position = UDim2.fromOffset(-26, 5), BackgroundColor3 = col or C.clay, BorderSizePixel = 0}, f)\r\n\tcorner(dot, \"pill\")\r\n\tinst(\"UIStroke\", {Color = col or C.clay, Thickness = 3, Transparency = 0.6}, dot)\r\n\tlocal lbl = inst(\"TextLabel\", {Text = \"<b>\" .. title .. \"</b>\\n\" .. text, RichText = true, FontFace = face(), TextSize = 17, LineHeight = 1.1, TextColor3 = C.text, BackgroundTransparency = 1,\r\n\t\tSize = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left}, f)\r\n\ttween(f, 0.4, {Position = UDim2.new(), BackgroundTransparency = math.clamp(TH.glass / 100, 0, 0.6)}, Enum.EasingStyle.Back)\r\n\tlocal closed = false\r\n\tlocal function close()\r\n\t\tif closed then return end closed = true\r\n\t\ttween(f, 0.3, {Position = UDim2.fromOffset(0, -20), BackgroundTransparency = 1}, Enum.EasingStyle.Quad, Enum.EasingDirection.In)\r\n\t\tfor _, x in ipairs(f:GetDescendants()) do\r\n\t\t\tif x:IsA(\"TextLabel\") then tween(x, 0.25, {TextTransparency = 1}) elseif x:IsA(\"UIStroke\") then tween(x, 0.25, {Transparency = 1}) elseif x:IsA(\"Frame\") then tween(x, 0.25, {BackgroundTransparency = 1}) end\r\n\t\tend\r\n\t\ttask.delay(0.35, function() if holder.Parent then holder:Destroy() end end)\r\n\tend\r\n\treturn lbl, close, st\r\nend\r\nlocal function notify(title, text, col)\r\n\tif not S.Notify then return end\r\n\tlocal _, close = toastCard(title, text, col)\r\n\ttask.delay(5, close)\r\nend\r\n\r\n----------------------------------------------------------------- trackers / panels the hub adds itself\r\n-- anything a hub puts in the GUI (stat panels, timers, warnings) gets the same glass, outline, corners and font\r\ndo\r\nlocal libOwn = {[Win] = true, [Shadow] = true, [Tog] = true, [Toasts] = true}\r\nlocal MONT = \"rbxasset://fonts/families/Montserrat.json\"\r\nlocal function glassify(o)\r\n\tif libOwn[o] or not o:IsA(\"GuiObject\") or o:GetAttribute(\"NoGlass\") or o:GetAttribute(\"Glassed\") then return end\r\n\to:SetAttribute(\"Glassed\", true)\r\n\tlocal function refont(d)\r\n\t\tif d:IsA(\"TextLabel\") or d:IsA(\"TextButton\") or d:IsA(\"TextBox\") then pcall(function() d.FontFace = Font.new(MONT, d.FontFace.Weight, d.FontFace.Style) end) end\r\n\tend\r\n\trefont(o)\r\n\tfor _, d in ipairs(o:GetDescendants()) do refont(d) end\r\n\to.DescendantAdded:Connect(function(d) task.defer(refont, d) end)\r\n\tif o.BackgroundTransparency >= 0.95 then return end\r\n\to.BackgroundColor3 = WHITE\r\n\tglassy(o, 0.04)\r\n\tif o:IsA(\"Frame\") then\r\n\t\t-- smoked glass, lighter at the top\r\n\t\tlocal g = inst(\"UIGradient\", {Rotation = 90}, o)\r\n\t\tpainter(function() g.Color = ColorSequence.new(C.bg:Lerp(WHITE, 0.16), C.bg) end)\r\n\telse\r\n\t\t-- text panels: a gradient would also tint the text, so these get the flat glass tone\r\n\t\tpainter(function() o.BackgroundColor3 = C.bg:Lerp(WHITE, 0.1) end)\r\n\tend\r\n\tlocal c = o:FindFirstChildOfClass(\"UICorner\")\r\n\tif c then c.CornerRadius = UDim.new(0, 14) else corner(o, 14) end\r\n\tfor _, s in ipairs(o:GetChildren()) do if s:IsA(\"UIStroke\") then s:Destroy() end end\r\n\trim(o, 0.8)\r\nend\r\nconn(Gui.ChildAdded, function(c) task.defer(glassify, c) end)\r\ntask.defer(function() for _, c in ipairs(Gui:GetChildren()) do glassify(c) end end)\r\nend\r\n\r\n----------------------------------------------------------------- theme tab (always the last tab)\r\nlocal function applyTheme()\r\n\tloadTheme()\r\n\tfor _, t in ipairs(themed) do pcall(function() t[1][t[2]] = C[t[3]] end) end\r\n\tfor _, g in ipairs(grads) do g.Color = ColorSequence.new(C.clay, C.accent2) end\r\n\tfor _, gp in ipairs(glassParts) do gp[1].BackgroundTransparency = math.clamp(TH.glass / 100 + gp[2], 0, 0.95) end\r\n\tfor _, f in ipairs(painters) do pcall(f) end\r\n\tpaintTabs()\r\n\tfor _, f in ipairs(UI.repaint) do pcall(f) end\r\n\tpcall(function() writefile(THEME_FILE, Http:JSONEncode(TH)) end)\r\nend\r\nH.applyTheme = applyTheme\r\ntask.defer(function()\r\n\tlocal T = UI.tab(\"Theme\", 999)\r\n\tT:section(\"Preset\")\r\n\tlocal names = {} for _, p in ipairs(PRESETS) do names[#names + 1] = p.name end\r\n\tlocal repaintPickers = {}\r\n\tT:choice(\"Theme\", \"preset\", names, function()\r\n\t\tTH.primary, TH.secondary = nil, nil -- a new preset brings its own accents\r\n\t\tapplyTheme()\r\n\t\tfor _, f in ipairs(repaintPickers) do f() end\r\n\tend, \"Shared by all my hubs: pick it once and every hub uses it.\", TH)\r\n\tT:slider(\"Glass (transparency %)\", \"glass\", 20, 45, 1, function() applyTheme() end, nil, TH)\r\n\t-- colour pickers: hue / saturation / brightness sliders plus a hex box\r\n\tlocal function picker(label, key)\r\n\t\tT:section(label)\r\n\t\tlocal hsv = {}\r\n\t\tlocal function cur() return key == \"primary\" and C.clay or C.accent2 end\r\n\t\tlocal function readHSV() local h, s, v = cur():ToHSV() hsv.h, hsv.s, hsv.v = math.floor(h * 360 + 0.5), math.floor(s * 100 + 0.5), math.floor(v * 100 + 0.5) end\r\n\t\treadHSV()\r\n\t\tlocal f = row(T, 40)\r\n\t\tlbl(f, \"Colour\")\r\n\t\tlocal sw = inst(\"Frame\", {AnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, -14, 0.5, 0), Size = UDim2.fromOffset(48, 24), BorderSizePixel = 0, BackgroundColor3 = cur()}, f)\r\n\t\tcorner(sw, \"pill\") rim(sw, 0.55)\r\n\t\tlocal box = th(inst(\"TextBox\", {Text = \"\", FontFace = face(MED), TextSize = 12, AnchorPoint = Vector2.new(1, 0.5), Position = UDim2.new(1, -70, 0.5, 0),\r\n\t\t\tSize = UDim2.fromOffset(88, 24), ClearTextOnFocus = false}, f), \"TextColor3\", \"text\")\r\n\t\tcorner(box, \"pill\") liquid(box)\r\n\t\tlocal paints = {}\r\n\t\tlocal function push(c)\r\n\t\t\tTH[key] = c:ToHex()\r\n\t\t\tapplyTheme()\r\n\t\t\tsw.BackgroundColor3 = c\r\n\t\t\tbox.Text = \"#\" .. c:ToHex():upper()\r\n\t\tend\r\n\t\tlocal function fromHSV() push(Color3.fromHSV(hsv.h / 360, hsv.s / 100, hsv.v / 100)) end\r\n\t\tpaints[#paints + 1] = T:slider(\"Hue\", \"h\", 0, 360, 1, fromHSV, nil, hsv)\r\n\t\tpaints[#paints + 1] = T:slider(\"Saturation\", \"s\", 0, 100, 1, fromHSV, nil, hsv)\r\n\t\tpaints[#paints + 1] = T:slider(\"Brightness\", \"v\", 0, 100, 1, fromHSV, nil, hsv)\r\n\t\tbox.FocusLost:Connect(function() local c = hex((box.Text:gsub(\"#\", \"\"))) if c then push(c) readHSV() for _, p in ipairs(paints) do p() end end end)\r\n\t\tlocal function repaint() readHSV() for _, p in ipairs(paints) do p() end sw.BackgroundColor3 = cur() box.Text = \"#\" .. cur():ToHex():upper() end\r\n\t\trepaint()\r\n\t\trepaintPickers[#repaintPickers + 1] = repaint\r\n\tend\r\n\tpicker(\"Primary colour\", \"primary\")\r\n\tpicker(\"Secondary colour\", \"secondary\")\r\n\tT:button(\"Reset to preset colours\", function() TH.primary, TH.secondary = nil, nil applyTheme() for _, f in ipairs(repaintPickers) do f() end end)\r\n\tpaintTabs()\r\nend)\r\n-- end of UI library\r\n----------------------------------------------------------------- game data\r\nlocal Boat = workspace:WaitForChild(\"Boat\", 30)\r\nlocal function la(k) return LP:GetAttribute(k) end\r\nlocal function ba(k) return Boat and Boat:GetAttribute(k) end\r\nlocal function myRoot() local c = LP.Character return c and c:FindFirstChild(\"HumanoidRootPart\") end\r\nlocal function now() return workspace:GetServerTimeNow() end\r\nlocal paused = false\r\nlocal canFire = fireproximityprompt ~= nil\r\nH.why = \"watching\"\r\nlocal RED, GREEN, GOLD, WHITE, ORANGE, GREY, BLUE = Color3.fromRGB(255, 80, 80), Color3.fromRGB(110, 235, 140), Color3.fromRGB(245, 200, 70), Color3.fromRGB(235, 235, 235), Color3.fromRGB(255, 150, 50), Color3.fromRGB(150, 150, 150), Color3.fromRGB(110, 170, 255)\r\n\r\nlocal ESPF = inst(\"Folder\", {Name = \"SSWH_ESP\"}, HUI)\r\nH.insts[#H.insts + 1] = ESPF\r\nlocal esp = {}\r\nlocal function tag(key, adornee, model, col, text, fill)\r\n\tlocal o = esp[key]\r\n\tif not o then\r\n\t\to = {}\r\n\t\tif model then o.hl = inst(\"Highlight\", {FillTransparency = fill or 0.8, OutlineTransparency = 0, DepthMode = Enum.HighlightDepthMode.AlwaysOnTop}, ESPF) end\r\n\t\to.bb = inst(\"BillboardGui\", {Size = UDim2.fromOffset(200, 36), StudsOffset = Vector3.new(0, 3, 0), AlwaysOnTop = true, LightInfluence = 0}, ESPF)\r\n\t\to.tx = inst(\"TextLabel\", {Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1, FontFace = Font.new(\"rbxasset://fonts/families/Montserrat.json\", Enum.FontWeight.Bold), TextSize = 13, TextStrokeTransparency = 0.4, RichText = true}, o.bb)\r\n\t\tesp[key] = o\r\n\tend\r\n\to.seen = true\r\n\tif o.hl then o.hl.Adornee, o.hl.FillColor, o.hl.OutlineColor = model, col, col end\r\n\to.bb.Adornee, o.tx.TextColor3, o.tx.Text = adornee, col, text\r\nend\r\n-- one guide line from you to a spot\r\nlocal GA0 = inst(\"Attachment\", {}, workspace.Terrain)\r\nlocal GA1 = inst(\"Attachment\", {}, workspace.Terrain)\r\nlocal Guide = inst(\"Beam\", {Attachment0 = GA0, Attachment1 = GA1, Width0 = 0.5, Width1 = 0.5, FaceCamera = true, LightEmission = 1, Enabled = false, Segments = 1}, workspace.Terrain)\r\nH.insts[#H.insts + 1] = GA0 H.insts[#H.insts + 1] = GA1 H.insts[#H.insts + 1] = Guide\r\nlocal guideTo, guideCol\r\nconn(RunS.RenderStepped, function()\r\n\tlocal r = myRoot()\r\n\tGuide.Enabled = guideTo ~= nil and r ~= nil and not paused\r\n\tif Guide.Enabled then GA0.WorldPosition, GA1.WorldPosition, Guide.Color = r.Position - Vector3.new(0, 2, 0), guideTo, ColorSequence.new(guideCol or GREEN) end\r\nend)\r\nlocal Warn = inst(\"TextLabel\", {AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.new(0.5, 0, 0, 120), Size = UDim2.fromOffset(560, 34), BackgroundTransparency = 1,\r\n\tFontFace = Font.new(\"rbxasset://fonts/families/Montserrat.json\", Enum.FontWeight.Bold), TextSize = 24, TextColor3 = RED, TextStrokeTransparency = 0.3, Text = \"\", Visible = false}, Gui)\r\nlocal Hud = inst(\"TextLabel\", {Position = UDim2.new(1, -16, 0.5, -70), AnchorPoint = Vector2.new(1, 0), Size = UDim2.fromOffset(0, 0), AutomaticSize = Enum.AutomaticSize.XY,\r\n\tBackgroundColor3 = C.bg, BackgroundTransparency = 0.2, Font = Enum.Font.Gotham, TextSize = 13, TextColor3 = C.text, RichText = true,\r\n\tTextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top, Active = true}, Gui)\r\ncorner(Hud, 8)\r\ninst(\"UIPadding\", {PaddingTop = UDim.new(0, 9), PaddingBottom = UDim.new(0, 9), PaddingLeft = UDim.new(0, 12), PaddingRight = UDim.new(0, 14)}, Hud)\r\ndragify(Hud, Hud)\r\n\r\n-- press a prompt the way the game does (stronger executors)\r\nlocal fired = {}\r\nlocal function press(p, gap)\r\n\tif not (canFire and p and p.Enabled) then return false end\r\n\tif os.clock() - (fired[p] or 0) < (gap or 1) then return false end\r\n\tfired[p] = os.clock()\r\n\tpcall(fireproximityprompt, p)\r\n\treturn true\r\nend\r\nlocal function promptIn(obj) return obj and obj:FindFirstChildWhichIsA(\"ProximityPrompt\", true) end\r\nlocal function inReach(p, r) local part = p.Parent if part and part:IsA(\"Attachment\") then part = part.Parent end\r\n\tlocal pos = part and (part:IsA(\"BasePart\") and part.Position or (part:IsA(\"Model\") and part:GetPivot().Position))\r\n\treturn pos and (pos - r.Position).Magnitude <= (p.MaxActivationDistance + 1), pos end\r\n\r\n----------------------------------------------------------------- Mickey\r\nlocal Mickey = workspace:FindFirstChild(\"Mickey\")\r\nlocal spottedAt = 0\r\nlocal Alert = RS:FindFirstChild(\"MonsterAlert\")\r\nif Alert then conn(Alert.OnClientEvent, function() spottedAt = os.clock() end) end\r\nlocal function mickey()\r\n\tMickey = Mickey and Mickey.Parent and Mickey or workspace:FindFirstChild(\"Mickey\")\r\n\tlocal root = Mickey and Mickey:FindFirstChild(\"Root\")\r\n\tif not root then return nil end\r\n\tlocal r = myRoot()\r\n\tlocal d = r and (root.Position - r.Position).Magnitude or math.huge\r\n\tlocal looking = Mickey:GetAttribute(\"LookAtPlayer\") == true\r\n\tlocal st = tostring(Mickey:GetAttribute(\"State\") or \"?\")\r\n\treturn root, d, looking, st\r\nend\r\nlocal function direction(pos)\r\n\tlocal cam = workspace.CurrentCamera\r\n\tlocal rel = cam.CFrame:PointToObjectSpace(pos)\r\n\tlocal ang = math.deg(math.atan2(rel.X, -rel.Z))\r\n\treturn math.abs(ang) < 45 and \"AHEAD\" or math.abs(ang) > 135 and \"BEHIND YOU\" or ang > 0 and \"TO YOUR RIGHT\" or \"TO YOUR LEFT\"\r\nend\r\n\r\n----------------------------------------------------------------- main pass: ESP, warnings, autos\r\nlocal function nearestLocker(r, freeOnly)\r\n\tlocal best, bd\r\n\tfor _, l in ipairs(CS:GetTagged(\"CW_Hide\")) do\r\n\t\tif l:IsDescendantOf(workspace) and not l:GetAttribute(\"Broken\") and not (freeOnly and l:GetAttribute(\"Occupant\")) then\r\n\t\t\tlocal d = (l:GetPivot().Position - r.Position).Magnitude\r\n\t\t\tif not bd or d < bd then best, bd = l, d end\r\n\t\tend\r\n\tend\r\n\treturn best, bd\r\nend\r\nlocal origHold = {}\r\nloop(0.12, function()\r\n\tfor _, o in pairs(esp) do o.seen = false end\r\n\tguideTo = nil\r\n\tlocal warnText, warnCol\r\n\tlocal r = myRoot()\r\n\tlocal alive = not la(\"Dead\") and not la(\"Escaped\")\r\n\tlocal root, d, looking, st = mickey()\r\n\t-- Mickey\r\n\tif root and S.MickeyESP then\r\n\t\tlocal col = (looking or os.clock() - spottedAt < 5) and RED or (d < S.DangerDist and ORANGE or GOLD)\r\n\t\tlocal vis = workspace:FindFirstChild(\"MickeyVisual\")\r\n\t\ttag(root, root, vis or Mickey, col, string.format(\"MICKEY · %s\\n<font size=\\\"11\\\">%s%d</font>\", st:upper(), looking and \"LOOKING AT YOU · \" or \"\", math.floor(d)), 0.7)\r\n\tend\r\n\tif root and S.Danger and alive and not paused and r then\r\n\t\tlocal spotted = os.clock() - spottedAt < 5\r\n\t\tif spotted or looking then warnText, warnCol = \"MICKEY SPOTTED YOU · \" .. direction(root.Position) .. \" · HIDE\", RED\r\n\t\telseif d < S.DangerDist then warnText, warnCol = string.format(\"MICKEY %d STUDS %s\", math.floor(d), direction(root.Position)), ORANGE end\r\n\tend\r\n\t-- lockers\r\n\tif S.HideESP then\r\n\t\tfor _, l in ipairs(CS:GetTagged(\"CW_Hide\")) do\r\n\t\t\tif l:IsDescendantOf(workspace) then\r\n\t\t\t\tlocal broken, occ = l:GetAttribute(\"Broken\"), l:GetAttribute(\"Occupant\")\r\n\t\t\t\tlocal part = l:IsA(\"BasePart\") and l or l:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\t\t\t\tif part then tag(l, part, nil, broken and GREY or occ and BLUE or GREEN, broken and \"locker (broken)\" or occ and \"locker (taken)\" or \"LOCKER\") end\r\n\t\t\tend\r\n\t\tend\r\n\tend\r\n\t-- danger: line to the nearest free locker, and auto hide when Mickey is about to reach you\r\n\tlocal hidden = la(\"Hiding\") or la(\"Hidden\")\r\n\tif root and r and alive and not paused and (looking or os.clock() - spottedAt < 5 or d < S.DangerDist) then\r\n\t\tlocal l, ld = nearestLocker(r, true)\r\n\t\tif l then guideTo, guideCol = l:GetPivot().Position, GREEN end\r\n\t\tif S.AutoHide and not hidden and d < S.HideDist and l then\r\n\t\t\tlocal p = promptIn(l)\r\n\t\t\tif p and inReach(p, r) and press(p, 2) then H.why = \"hid in a locker\" end\r\n\t\tend\r\n\tend\r\n\t-- key finder: every spot not searched yet, plus dropped keys\r\n\tif S.KeyFinder and r then\r\n\t\tlocal best, bd\r\n\t\tfor _, sp in ipairs(CS:GetTagged(\"CW_Search\")) do\r\n\t\t\tif sp:IsDescendantOf(workspace) and not sp:GetAttribute(\"Searched\") then\r\n\t\t\t\tlocal pos = sp:GetPivot().Position\r\n\t\t\t\tlocal dd = (pos - r.Position).Magnitude\r\n\t\t\t\tlocal part = sp:IsA(\"BasePart\") and sp or sp:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\t\t\t\tif part and dd < 140 then tag(sp, part, nil, GOLD, string.format(\"search · %d\", math.floor(dd))) end\r\n\t\t\t\tif not bd or dd < bd then best, bd = pos, dd end\r\n\t\t\t\tif S.AutoSearch and alive and not paused then\r\n\t\t\t\t\tlocal p = promptIn(sp)\r\n\t\t\t\t\tif p and inReach(p, r) and press(p, 2) then H.why = \"searched a spot\" end\r\n\t\t\t\tend\r\n\t\t\tend\r\n\t\tend\r\n\t\tif best and S.KeyLine and not guideTo then guideTo, guideCol = best, GOLD end\r\n\tend\r\n\tlocal dropped = workspace:FindFirstChild(\"DroppedKeys\")\r\n\tfor _, k in ipairs(dropped and dropped:GetChildren() or {}) do\r\n\t\tlocal part = k:IsA(\"BasePart\") and k or k:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\t\tif part and S.KeyFinder then tag(k, part, k:IsA(\"Model\") and k or nil, GREEN, string.format(\"🔑 DROPPED KEY · %d\", r and math.floor((part.Position - r.Position).Magnitude) or 0)) end\r\n\t\tif S.AutoKeys and r and alive and not paused then\r\n\t\t\tlocal p = promptIn(k)\r\n\t\t\tif p and inReach(p, r) then if press(p, 1) then H.why = \"picked up a key\" end\r\n\t\t\telseif part and firetouchinterest and (part.Position - r.Position).Magnitude < 10 then pcall(firetouchinterest, r, part, 0) pcall(firetouchinterest, r, part, 1) end\r\n\t\tend\r\n\tend\r\n\t-- padlocks + engines once you can use them\r\n\tif r and alive and not paused and Boat then\r\n\t\tif S.AutoPadlocks then\r\n\t\t\tlocal p = promptIn(Boat:FindFirstChild(\"Padlocks\"))\r\n\t\t\tif p and not p.ActionText:find(\"need a key\") and inReach(p, r) and press(p, 1.5) then H.why = \"opened a padlock\" end\r\n\t\tend\r\n\t\tif S.AutoEngines then\r\n\t\t\tlocal p = promptIn(Boat:FindFirstChild(\"EngineStop\"))\r\n\t\t\tif p and inReach(p, r) and press(p, 2) then H.why = \"stopping the engines\" end\r\n\t\tend\r\n\tend\r\n\t-- teammates\r\n\tfor _, p in ipairs(Players:GetPlayers()) do\r\n\t\tlocal c = p ~= LP and p.Character\r\n\t\tlocal pr = c and c:FindFirstChild(\"HumanoidRootPart\")\r\n\t\tif pr and S.TeamESP then\r\n\t\t\tlocal dead, esc = p:GetAttribute(\"Dead\"), p:GetAttribute(\"Escaped\")\r\n\t\t\ttag(p, pr, c, dead and RED or esc and GREEN or BLUE, string.format(\"%s · ♥%s\\n<font size=\\\"11\\\">%s%s%d</font>\", p.DisplayName, tostring(p:GetAttribute(\"Lives\") or \"?\"),\r\n\t\t\t\tdead and \"DOWN · \" or esc and \"escaped · \" or \"\", (p:GetAttribute(\"Keys\") or 0) > 0 and (\"🔑\" .. p:GetAttribute(\"Keys\") .. \" · \") or \"\", r and math.floor((pr.Position - r.Position).Magnitude) or 0))\r\n\t\tend\r\n\tend\r\n\t-- doors\r\n\tif S.DoorESP and r then\r\n\t\tfor _, dm in ipairs(CS:GetTagged(\"CW_Door\")) do\r\n\t\t\tlocal p = promptIn(dm)\r\n\t\t\tlocal part = dm:IsA(\"BasePart\") and dm or dm:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\t\t\tif p and part and (part.Position - r.Position).Magnitude < 70 then\r\n\t\t\t\tlocal open = p.ActionText == \"Close\"\r\n\t\t\t\ttag(dm, part, nil, open and GREEN or GREY, open and \"door · open\" or \"door · closed\")\r\n\t\t\tend\r\n\t\tend\r\n\tend\r\n\tfor key, o in pairs(esp) do\r\n\t\tif not o.seen or (typeof(key) == \"Instance\" and not key.Parent) then if o.hl then o.hl:Destroy() end o.bb:Destroy() esp[key] = nil end\r\n\tend\r\n\tWarn.Visible = warnText ~= nil\r\n\tif warnText then Warn.Text, Warn.TextColor3 = warnText, warnCol end\r\nend)\r\n\r\n----------------------------------------------------------------- instant interact, infinite stamina, clear vision\r\nloop(0.5, function()\r\n\tfor _, p in ipairs(workspace:GetDescendants()) do\r\n\t\tif p:IsA(\"ProximityPrompt\") then\r\n\t\t\tif S.Instant and not paused then\r\n\t\t\t\tif origHold[p] == nil then origHold[p] = p.HoldDuration end\r\n\t\t\t\tp.HoldDuration = 0\r\n\t\t\telseif origHold[p] ~= nil then p.HoldDuration = origHold[p] origHold[p] = nil end\r\n\t\tend\r\n\tend\r\nend)\r\n-- the game drains stamina on your side and divides the drain by StaminaBoost\r\nloop(0.25, function()\r\n\tif S.InfStamina and not paused then\r\n\t\tif la(\"StaminaBoost\") ~= 1e9 then H.oldBoost = H.oldBoost or la(\"StaminaBoost\") or false LP:SetAttribute(\"StaminaBoost\", 1e9) end\r\n\telseif la(\"StaminaBoost\") == 1e9 then LP:SetAttribute(\"StaminaBoost\", H.oldBoost or nil) H.oldBoost = nil end\r\nend)\r\nlocal PG = LP:WaitForChild(\"PlayerGui\")\r\nlocal overlays = {\"OldFilm\", \"TorchDirt\"}\r\nlocal oldLight\r\nloop(0.5, function()\r\n\tfor _, n in ipairs(overlays) do\r\n\t\tlocal g = PG:FindFirstChild(n)\r\n\t\tif g and g:IsA(\"ScreenGui\") then g.Enabled = not S.ClearVision end\r\n\tend\r\n\tif S.Fullbright then\r\n\t\tif not oldLight then oldLight = {Lighting.Brightness, Lighting.Ambient, Lighting.OutdoorAmbient, Lighting.ClockTime} end\r\n\t\tLighting.Brightness, Lighting.Ambient, Lighting.OutdoorAmbient = 2.5, Color3.fromRGB(170, 170, 170), Color3.fromRGB(170, 170, 170)\r\n\telseif oldLight then\r\n\t\tLighting.Brightness, Lighting.Ambient, Lighting.OutdoorAmbient = oldLight[1], oldLight[2], oldLight[3]\r\n\t\toldLight = nil\r\n\tend\r\nend)\r\n\r\nlocal VU = game:GetService(\"VirtualUser\")\r\nconn(LP.Idled, function() if S.AntiAFK then VU:CaptureController() VU:ClickButton2(Vector2.new()) end end)\r\n\r\n----------------------------------------------------------------- objective panel\r\nloop(0.5, function()\r\n\tHud.Visible = S.HUD\r\n\tif not S.HUD then return end\r\n\tlocal root, d, looking, st = mickey()\r\n\tlocal lines = {\"<b>S.S. WILLIE</b>\" .. (paused and \"  <font color=\\\"#d97757\\\">paused</font>\" or \"\")}\r\n\tlines[#lines + 1] = string.format(\"🔑 keys %s/%s (you %s) · padlocks %s/%s\", tostring(ba(\"Keys\") or 0), tostring(ba(\"KeysTotal\") or 5), tostring(la(\"Keys\") or 0), tostring(ba(\"PadlocksOpen\") or 0), tostring(ba(\"KeysTotal\") or 5))\r\n\tlines[#lines + 1] = string.format(\"engines %s · lifeboat %s\", ba(\"EnginesStopped\") and \"<font color=\\\"#6eeb8c\\\">stopped</font>\" or \"running\", ba(\"LifeboatDown\") and \"<font color=\\\"#6eeb8c\\\">down</font>\" or \"up\")\r\n\tlocal unsearched = 0 for _, sp in ipairs(CS:GetTagged(\"CW_Search\")) do if not sp:GetAttribute(\"Searched\") then unsearched += 1 end end\r\n\tlines[#lines + 1] = string.format(\"%d spots left to search\", unsearched)\r\n\tlines[#lines + 1] = string.format(\"♥ %s · stamina %s%s\", la(\"InfiniteLives\") and \"∞\" or tostring(la(\"Lives\") or \"?\"), tostring(la(\"Stamina\") or \"?\"), S.InfStamina and \" (∞)\" or \"\")\r\n\tif root then lines[#lines + 1] = string.format(\"Mickey: %s · %d studs%s\", st:lower(), math.floor(d), looking and \" · <font color=\\\"#ff5050\\\">looking at you</font>\" or \"\") end\r\n\tlocal started = workspace:GetAttribute(\"RunStartedAt\")\r\n\tif started then local t = math.max(0, now() - started) lines[#lines + 1] = string.format(\"run %d:%02d\", t // 60, t % 60) end\r\n\tHud.Text = table.concat(lines, \"\\n\")\r\nend)\r\nloop(1, function() if H.why ~= \"watching\" then task.wait(3) H.why = \"watching\" end end)\r\n\r\n----------------------------------------------------------------- menu\r\nlocal T = UI.tab(\"Survive\")\r\nT:toggle(\"Mickey ESP​​\", \"MickeyESP\", save, \"Outlines Mickey through walls with his state (patrol, peek...), distance and whether he's looking at you.\")\r\nT:toggle(\"Danger warning​​\", \"Danger\", save, \"Big alert when Mickey is close or spots you, with the direction he's in, plus a line to the nearest free locker.\")\r\nT:slider(\"Warn when Mickey is within\", \"DangerDist\", 15, 90, 1, save)\r\nT:toggle(\"Hiding spot ESP​​\", \"HideESP\", save, \"Every locker: free (green), taken (blue) or broken (grey).\")\r\nT:toggle(\"Auto hide​​\", \"AutoHide\", save, \"Hides you in the nearest free locker (the game's own Hide prompt) when Mickey gets this close and a locker is in reach.\")\r\nT:slider(\"Auto hide when within\", \"HideDist\", 8, 40, 1, save)\r\n\r\nT = UI.tab(\"Keys\")\r\nT:toggle(\"Key finder​​\", \"KeyFinder\", save, \"Marks every spot you haven't searched yet, and dropped keys. The server picks which spot has a key, so it shows them all.\")\r\nT:toggle(\"Line to nearest spot​​\", \"KeyLine\", save)\r\nT:toggle(\"Auto search​​\", \"AutoSearch\", save, \"Searches every unsearched spot you walk past.\")\r\nT:toggle(\"Auto grab keys​​\", \"AutoKeys\", save, \"Picks up dropped keys in reach.\")\r\nT:toggle(\"Auto padlocks​​\", \"AutoPadlocks\", save, \"Opens a padlock as soon as you have a key and you're next to them.\")\r\nT:toggle(\"Auto stop engines​​\", \"AutoEngines\", save, \"Stops the engines when you're next to the switch.\")\r\nT:toggle(\"Instant interact​​\", \"Instant\", save, \"No hold time on Search, Open, Hide and the rest.\")\r\n\r\nT = UI.tab(\"Visuals\")\r\nT:toggle(\"Objective panel​​\", \"HUD\", save, \"Keys, padlocks, engines, lifeboat, spots left, lives, stamina, Mickey and the run timer. Drag it anywhere.\")\r\nT:toggle(\"Clear vision​​\", \"ClearVision\", save, \"Removes the old-film grain and torch dirt overlays.\")\r\nT:toggle(\"Fullbright​​\", \"Fullbright\", save)\r\nT:toggle(\"Teammate ESP​​\", \"TeamESP\", save, \"Crewmates with lives, keys and who's down.\")\r\nT:toggle(\"Door ESP​​\", \"DoorESP\", save, \"Doors within 70 studs: open or closed.\")\r\n\r\nT = UI.tab(\"Extras\")\r\nT:toggle(\"Infinite stamina​​\", \"InfStamina\", save, \"Sprint forever.\")\r\nT:toggle(\"Anti-AFK​​\", \"AntiAFK\", save)\r\nT:toggle(\"Notifications​​\", \"Notify\", save)\r\n\r\nT = UI.tab(\"Main\")\r\nlocal status = T:label(\"…\")\r\nT:label(\"Made by Stizzyyy · always free & keyless.\\nFound this behind a key system? It's a stolen copy.\")\r\nT:button(\"Unload\", function() H.Unload() end, \"Stops everything and removes the menu\")\r\nif not canFire then T:label(\"Auto hide / search / keys / padlocks / engines need a stronger executor.\") end\r\n\r\nconn(UIS.InputBegan, function(i, gp)\r\n\tif i.KeyCode == Enum.KeyCode.RightShift then Win.Visible = not Win.Visible\r\n\telseif i.KeyCode == Enum.KeyCode.F6 and not gp then paused = not paused notify(\"S.S. WILLIE Hub\", paused and \"Paused (F6 to resume)\" or \"Back on\") end\r\nend)\r\nloop(0.5, function() status(string.format(\"%s%s\", H.why, paused and \"\\n<font color=\\\"#d97757\\\">Paused (F6)</font>\" or \"\")) end)\r\n\r\nfunction H.Unload()\r\n\tH.alive = false\r\n\tS.InfStamina, S.Instant, S.ClearVision, S.Fullbright = false, false, false, false\r\n\tpcall(function() if la(\"StaminaBoost\") == 1e9 then LP:SetAttribute(\"StaminaBoost\", H.oldBoost or nil) end end)\r\n\tfor p, h in pairs(origHold) do pcall(function() p.HoldDuration = h end) end\r\n\tfor _, n in ipairs(overlays) do local g = PG:FindFirstChild(n) if g then g.Enabled = true end end\r\n\tif oldLight then Lighting.Brightness, Lighting.Ambient, Lighting.OutdoorAmbient = oldLight[1], oldLight[2], oldLight[3] end\r\n\tfor _, c in ipairs(H.conns) do pcall(c.Disconnect, c) end\r\n\tfor _, i in ipairs(H.insts) do pcall(i.Destroy, i) end\r\n\tif G.SSWH == H then G.SSWH = nil end\r\nend\r\nnotify(\"S.S. WILLIE Hub\", \"Ready · RightShift menu · F6 pause\")\r\nprint(\"[S.S. WILLIE Hub] by Stizzyyy · always free & keyless · rscripts.net/@Stizzyyy\")",
-      "createdAt": "2026-11-24T19:58:24.805Z",
-      "updatedAt": "2026-11-24T20:39:08.931Z",
       "categoryIds": [
         "new"
       ],
@@ -10315,7 +10316,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 249087,
+      "views": 249088,
       "likes": 90,
       "dislikes": 31,
       "rating": 3.7,
@@ -10460,7 +10461,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221708,
+      "views": 221710,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10498,7 +10499,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 214032,
+      "views": 214033,
       "likes": 49,
       "dislikes": 23,
       "rating": 3.4,
@@ -10608,7 +10609,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 108181,
+      "views": 108183,
       "likes": 111,
       "dislikes": 25,
       "rating": 4.1,
@@ -10644,7 +10645,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29583,
+      "views": 29584,
       "likes": 99,
       "dislikes": 26,
       "rating": 4,
@@ -10681,7 +10682,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 35708,
+      "views": 35709,
       "likes": 96,
       "dislikes": 41,
       "rating": 3.5,
