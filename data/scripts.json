@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T06:41:27.781Z",
+  "generatedAt": "2026-11-26T06:51:31.722Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -55,7 +55,7 @@
       "id": "patched",
       "label": "Patched",
       "description": "Kaynakta patched olarak işaretlenen scriptler",
-      "count": 3
+      "count": 2
     }
   ],
   "scripts": [
@@ -78,7 +78,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 7395,
+      "views": 7399,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -116,7 +116,7 @@
         "Keyless",
         "Mobile"
       ],
-      "views": 3199,
+      "views": 3206,
       "likes": 10,
       "dislikes": 1,
       "rating": 4.5,
@@ -134,38 +134,38 @@
       ]
     },
     {
-      "id": "scriptblox-6af5f0ccbf1e53a2645681d6",
-      "slug": "UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
+      "id": "scriptblox-6af5def0a8d29e4b20de677e",
+      "slug": "Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-Forsaken-Advanced-bot-that-plays-for-you-works-well-236443",
-      "title": "Advanced bot that plays for you (works well)",
-      "game": "Forsaken",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-14d993b5a906bca017a07cd3b6fa4c8b-9319662ae886.png",
-      "author": "CakeMix",
-      "authorVerified": false,
-      "verified": false,
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-HyperGamy-Scary-OPEN-SOURCE-236434",
+      "title": "HyperGamy with The Song (Scary) OPEN SOURCE",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1794498288223.png",
+      "author": "vw6222",
+      "authorVerified": true,
+      "verified": true,
       "status": "working",
       "premium": false,
       "keyless": true,
-      "universal": false,
+      "universal": true,
       "tags": [
-        "forsaken",
-        "macro",
-        "bot"
+        "hypergamy",
+        "scary",
+        "open source"
       ],
-      "views": 1865,
+      "views": 1440,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
-      "summary": "Forsaken Macro — Survivor & Killer Bot A bot that moves around the map, does tasks, and uses your character’s abilities properly. Works for both survivors and killers! Features - Survivor: Finds generators, collects items, and runs from…",
-      "code": "loadstring(game:HttpGet(\"https://pastefy.app/Au1wV9nQ/raw\"))()",
-      "createdAt": "2026-11-12T17:01:00.591Z",
-      "updatedAt": "2026-11-12T17:01:00.591Z",
+      "summary": "Scary HyperGamy Script Open Source",
+      "code": "local v = game.Players.LocalPlayer\nlocal sg = game:GetService(\"StarterGui\")\n\nif v.Name == \"Chad\" then\n    sg:SetCore(\"SendNotification\", {Title = \"HyperGamy Girl\", Text = \"You are the one!\"})\n    return\nend\n\nlocal folderName = \"Scary_Folders\"\nlocal fileName = \"HyperGamy.mp3\"\nlocal fullPath = folderName .. \"/\" .. fileName\nlocal rawUrl = \"https://raw.githubusercontent.com/eliassixseven09-web/slap-battless/main/Joji_-_Worldstar_Money_TRASH_remix_%28mp3.pm%29.mp3\"\n\nif makefolder and isfolder and not isfolder(folderName) then\n    pcall(makefolder, folderName)\nend\n\nif writefile and isfile and not isfile(fullPath) then\n    local success, data = pcall(game.HttpGet, game, rawUrl)\n    if success and data then\n        pcall(writefile, fullPath, data)\n    end\nend\n\nlocal s = Instance.new(\"Sound\", game.SoundService)\ns.Volume = 2\n\nif getcustomasset and isfile and isfile(fullPath) then\n    s.SoundId = getcustomasset(fullPath)\nelse\n    s.SoundId = rawUrl\nend\n\npcall(function()\n    s:Play()\nend)\n\nlocal callback = Instance.new(\"BindableFunction\")\ncallback.OnInvoke = function(buttonClicked)\n    if buttonClicked == \"Become a Chad\" or buttonClicked == 1 then\n        v:Kick(\"Error: HyperGamy\\nYou Will Never Become a Chad, Stop Trying\")\n    elseif buttonClicked == \"i Wont\" or buttonClicked == 2 then\n        v:Kick(\"Error: HyperGamy\\nWe Know You Will Never Become one.\")\n    end\nend\n\nsg:SetCore(\"SendNotification\", {\n    Title = \"HyperGamy\",\n    Text = \"Hello, \" .. v.Name .. \" we are sorry but you are not chad..\",\n    Icon = \"rbxassetid://107483639922862\",\n    Button1 = \"Become a Chad\",\n    Button2 = \"i Wont\",\n    Duration = 10,\n    Callback = callback\n})",
+      "createdAt": "2026-11-12T15:44:48.276Z",
+      "updatedAt": "2026-11-12T15:44:48.276Z",
       "categoryIds": [
         "trending"
       ],
-      "glyph": "dice",
+      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -192,7 +192,7 @@
         "ZORO",
         "UNIVERSAL"
       ],
-      "views": 2380,
+      "views": 2382,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -230,7 +230,7 @@
         "UNIVERSAL",
         "ZORO"
       ],
-      "views": 2038,
+      "views": 2040,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -238,43 +238,6 @@
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/lol-nashedi/VAELOR-SCRIPTS-HUB-/refs/heads/main/V%C3%86LOR%20SCRIPTS%20HUB\"))()",
       "createdAt": "2026-11-13T18:07:07.951Z",
       "updatedAt": "2026-11-13T18:07:07.951Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6af89ddcc7654f9f12486a6f",
-      "slug": "Universal-Script-Universal-OP-script-236851",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Universal-OP-script-236851",
-      "title": "Universal OP script",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794678236183.jpg",
-      "author": "LightningHub_",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": true,
-      "tags": [
-        "LightningHub",
-        "universal script"
-      ],
-      "views": 3866,
-      "likes": 7,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "Aimbot & Combat: Customizable FOV circle, bone targeting (Head, Neck, Chest, etc.), smoothing, prediction, wall/team checks, sticky aim, and 18 customizable crosshair styles (with rainbow, dynamic scaling, and outlines). ESP & Visuals: B…",
-      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/halilibrahimseviml1/op-script2/refs/heads/main/ee\"))()",
-      "createdAt": "2026-11-14T17:43:56.331Z",
-      "updatedAt": "2026-11-14T17:43:56.331Z",
       "categoryIds": [
         "trending"
       ],
@@ -305,7 +268,7 @@
         "NOTHING PANEL",
         "DARK HUB"
       ],
-      "views": 4569,
+      "views": 4571,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -343,7 +306,7 @@
         "Ragdoll Soccer Script",
         "Ragdoll Soccer Hack"
       ],
-      "views": 7008,
+      "views": 7012,
       "likes": 8,
       "dislikes": 2,
       "rating": 4,
@@ -355,6 +318,44 @@
         "trending"
       ],
       "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6af8e896d8170eaa32732cf5",
+      "slug": "Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Ability-Arena-KEYLESS-Auto-Farm-Auto-Punch-and-more-236919",
+      "title": "[KEYLESS] Auto Farm, Auto Punch and more",
+      "game": "Ability Arena 💥",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-e6e18dfb2a19fb0eafc684591ee2ad04-6bf7c775bbcf.png",
+      "author": "Moondiety",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "ability arena",
+        "ability arena script",
+        "auto farm"
+      ],
+      "views": 2706,
+      "likes": 7,
+      "dislikes": 1,
+      "rating": 4.4,
+      "summary": "Moondiety Hub | Ability Arena Script *NOTE: The features mentioned below are frequently updated as the game patches (new features are regularly added and outdated ones removed). Execute the script to experience the most current features,…",
+      "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
+      "createdAt": "2026-11-14T23:02:46.302Z",
+      "updatedAt": "2026-11-14T23:02:46.302Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -381,7 +382,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 3554,
+      "views": 3555,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -456,7 +457,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 5006,
+      "views": 5007,
       "likes": 12,
       "dislikes": 0,
       "rating": 5,
@@ -494,7 +495,7 @@
         "Parry",
         "Curve"
       ],
-      "views": 5719,
+      "views": 5720,
       "likes": 14,
       "dislikes": 3,
       "rating": 4.1,
@@ -570,7 +571,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 2265,
+      "views": 2267,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -608,7 +609,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 2224,
+      "views": 2226,
       "likes": 10,
       "dislikes": 0,
       "rating": 5,
@@ -646,7 +647,7 @@
         "Lua",
         "obfuscate"
       ],
-      "views": 861,
+      "views": 862,
       "likes": 7,
       "dislikes": 0,
       "rating": 5,
@@ -684,7 +685,7 @@
         "clawd",
         "universal"
       ],
-      "views": 1236,
+      "views": 1238,
       "likes": 11,
       "dislikes": 1,
       "rating": 4.6,
@@ -720,7 +721,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1228,
+      "views": 1229,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -777,6 +778,80 @@
       ]
     },
     {
+      "id": "scriptblox-6b02a58e8e1754cad931f3d2",
+      "slug": "Universal-Script-FLY-NO-CLIP-AIMBOT-and-MORE-or-KEYLESS-237828",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-FLY-NO-CLIP-AIMBOT-and-MORE-or-KEYLESS-237828",
+      "title": "FLY, NO CLIP, AIMBOT & MORE | KEYLESS",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795335566097.png",
+      "author": "D33RZN",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Fly",
+        "No Clip",
+        "WalkSpeed"
+      ],
+      "views": 49,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "UNIVERSAL SCRIPT BY D33RZN A powerful all-in-one Roblox utility script designed to enhance your gameplay experience with a clean and user-friendly interface. Features: Fly - Fly - Adjustable Fly Speed - Noclip - Infinite Jump - WalkSpeed…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Dr6seven/universal-script/refs/heads/main/script.lua\"))()",
+      "createdAt": "2026-11-22T08:19:26.382Z",
+      "updatedAt": "2026-11-26T05:14:30.187Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "crosshair",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b02aa0d86cb35bfbb7d53ea",
+      "slug": "Universal-Script-Multi-Limb-Hitbox-Extender-R6-and-R15-237830",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Multi-Limb-Hitbox-Extender-R6-and-R15-237830",
+      "title": "Multi Limb Hitbox Extender (R6 & R15)",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795336717327.png",
+      "author": "skroopz",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Free",
+        "Keyless",
+        "Universal"
+      ],
+      "views": 24,
+      "likes": 2,
+      "dislikes": 0,
+      "summary": "Open source Vibe Coded UI (WORKS FOR SOME GAMES) not the best but it works",
+      "code": "local Players = game:GetService(\"Players\")\nlocal RunService = game:GetService(\"RunService\")\nlocal UIS = game:GetService(\"UserInputService\")\nlocal CAS = game:GetService(\"ContextActionService\")\nlocal CoreGui = game:GetService(\"CoreGui\")\n\nlocal LocalPlayer = Players.LocalPlayer\n\nlocal Settings = {\n    TOGGLE_KEY = Enum.KeyCode.L,\n    TARGET_LIMBS = {\"Head\", \"Right Arm\"},\n    LIMB_SIZE = 8,\n    LIMB_TRANSPARENCY = 0.8,\n    LIMB_CAN_COLLIDE = false,\n    TEAM_CHECK = false,\n    FORCEFIELD_CHECK = false,\n    RESET_LIMB_ON_DEATH = false,\n    USE_HIGHLIGHT = true,\n    DEPTH_MODE = Enum.HighlightDepthMode.AlwaysOnTop,\n    HIGHLIGHT_FILL_COLOR = Color3.fromRGB(200, 20, 35),\n    HIGHLIGHT_FILL_TRANSPARENCY = 0.85,\n    HIGHLIGHT_OUTLINE_COLOR = Color3.fromRGB(255, 45, 65),\n    HIGHLIGHT_OUTLINE_TRANSPARENCY = 0,\n}\n\n-- All R6 & R15 Limbs\nlocal ALL_LIMBS = {\n    -- Common / R6\n    \"Head\",\n    \"Torso\",\n    \"Left Arm\",\n    \"Right Arm\",\n    \"Left Leg\",\n    \"Right Leg\",\n    \"HumanoidRootPart\",\n    -- R15 Torso\n    \"UpperTorso\",\n    \"LowerTorso\",\n    -- R15 Left Arm\n    \"LeftUpperArm\",\n    \"LeftLowerArm\",\n    \"LeftHand\",\n    -- R15 Right Arm\n    \"RightUpperArm\",\n    \"RightLowerArm\",\n    \"RightHand\",\n    -- R15 Left Leg\n    \"LeftUpperLeg\",\n    \"LeftLowerLeg\",\n    \"LeftFoot\",\n    -- R15 Right Leg\n    \"RightUpperLeg\",\n    \"RightLowerLeg\",\n    \"RightFoot\"\n}\n\n-- Global State Cleanup if re-executed\nif getgenv and getgenv().LimbExtender and getgenv().LimbExtender.DestroyAll then\n    getgenv().LimbExtender.DestroyAll()\nend\n\nlocal State = {\n    Running = false,\n    Destroyed = false,\n    PlayerData = {},\n    TouchConns = {},\n    OriginalData = {}, -- Stores original Size, Transparency, CanCollide, CanTouch, Massless, MeshScale\n    Connections = {},\n    LimbButtons = {}\n}\n\nif getgenv then\n    getgenv().LimbExtender = State\nend\n\n-- // Helper Functions \\\\ --\n\nlocal function isTeammate(player)\n    return Settings.TEAM_CHECK and LocalPlayer.Team ~= nil and player.Team == LocalPlayer.Team\nend\n\nlocal function isLimbSelected(limbName)\n    return table.find(Settings.TARGET_LIMBS, limbName) ~= nil\nend\n\nlocal function createHighlight(parent)\n    if parent:FindFirstChild(\"LimbExtenderHighlight\") then return end\n    local h = Instance.new(\"Highlight\")\n    h.Name = \"LimbExtenderHighlight\"\n    h.DepthMode = Settings.DEPTH_MODE\n    h.FillColor = Settings.HIGHLIGHT_FILL_COLOR\n    h.FillTransparency = Settings.HIGHLIGHT_FILL_TRANSPARENCY\n    h.OutlineColor = Settings.HIGHLIGHT_OUTLINE_COLOR\n    h.OutlineTransparency = Settings.HIGHLIGHT_OUTLINE_TRANSPARENCY\n    h.Adornee = parent\n    h.Parent = parent\n    return h\nend\n\nlocal function removeHighlight(parent)\n    if not parent then return end\n    local h = parent:FindFirstChild(\"LimbExtenderHighlight\")\n    if h then h:Destroy() end\n    -- Catch any stray highlights created\n    for _, child in ipairs(parent:GetChildren()) do\n        if child:IsA(\"Highlight\") then\n            child:Destroy()\n        end\n    end\nend\n\nlocal function setNoTouch(limb)\n    limb.CanTouch = false\n    limb.CanCollide = Settings.LIMB_CAN_COLLIDE\n    \n    if State.TouchConns[limb] then\n        State.TouchConns[limb]:Disconnect()\n    end\n    \n    State.TouchConns[limb] = limb:GetPropertyChangedSignal(\"CanTouch\"):Connect(function()\n        if State.Running and not State.Destroyed and limb.CanTouch then\n            limb.CanTouch = false\n        end\n    end)\nend\n\nlocal function saveOriginalProperties(limb)\n    if State.OriginalData[limb] then return end\n    local mesh = limb:FindFirstChildOfClass(\"SpecialMesh\")\n    State.OriginalData[limb] = {\n        Size = limb.Size,\n        Transparency = limb.Transparency,\n        CanCollide = limb.CanCollide,\n        CanTouch = limb.CanTouch,\n        Massless = limb.Massless,\n        MeshScale = mesh and mesh.Scale or nil\n    }\nend\n\nlocal function extendLimb(limb)\n    if not limb or not limb:IsA(\"BasePart\") then return end\n\n    pcall(function()\n        saveOriginalProperties(limb)\n\n        limb.Size = Vector3.new(Settings.LIMB_SIZE, Settings.LIMB_SIZE, Settings.LIMB_SIZE)\n        limb.Transparency = Settings.LIMB_TRANSPARENCY\n        limb.CanCollide = Settings.LIMB_CAN_COLLIDE\n        limb.CanTouch = false\n        limb.Massless = true\n\n        setNoTouch(limb)\n\n        local mesh = limb:FindFirstChildOfClass(\"SpecialMesh\")\n        if mesh then\n            mesh.Scale = Vector3.new(1.25, 1.25, 1.25)\n        end\n    end)\n\n    if Settings.USE_HIGHLIGHT then\n        createHighlight(limb)\n    else\n        removeHighlight(limb)\n    end\nend\n\nlocal function resetLimb(limb)\n    if not limb then return end\n    if State.TouchConns[limb] then\n        State.TouchConns[limb]:Disconnect()\n        State.TouchConns[limb] = nil\n    end\n\n    pcall(function()\n        local orig = State.OriginalData[limb]\n        if orig then\n            limb.Size = orig.Size\n            limb.Transparency = orig.Transparency\n            limb.CanCollide = orig.CanCollide\n            limb.CanTouch = orig.CanTouch\n            limb.Massless = orig.Massless\n            local mesh = limb:FindFirstChildOfClass(\"SpecialMesh\")\n            if mesh and orig.MeshScale then\n                mesh.Scale = orig.MeshScale\n            end\n            State.OriginalData[limb] = nil\n        else\n            -- Fallback default sizes if original wasn't cached\n            if limb.Name == \"Head\" then\n                limb.Size = Vector3.new(2, 1, 1)\n            elseif limb.Name == \"HumanoidRootPart\" or limb.Name == \"Torso\" or limb.Name == \"UpperTorso\" or limb.Name == \"LowerTorso\" then\n                limb.Size = Vector3.new(2, 2, 1)\n            else\n                limb.Size = Vector3.new(1, 2, 1)\n            end\n            limb.Transparency = (limb.Name == \"HumanoidRootPart\") and 1 or 0\n            limb.CanCollide = (limb.Name ~= \"HumanoidRootPart\")\n            limb.CanTouch = true\n            limb.Massless = false\n        end\n    end)\n\n    removeHighlight(limb)\nend\n\nlocal function resetAllPlayers()\n    -- Reset any limb stored in OriginalData\n    for limb, _ in pairs(State.OriginalData) do\n        if limb and limb.Parent then\n            resetLimb(limb)\n        end\n    end\n    State.OriginalData = {}\n\n    -- Double-check all current player characters\n    for _, p in ipairs(Players:GetPlayers()) do\n        if p.Character then\n            for _, part in ipairs(p.Character:GetChildren()) do\n                if part:IsA(\"BasePart\") then\n                    removeHighlight(part)\n                    if isLimbSelected(part.Name) then\n                        resetLimb(part)\n                    end\n                end\n            end\n        end\n    end\nend\n\nlocal function applyToCharacter(player, char)\n    if not char or not State.Running or State.Destroyed then return end\n    if isTeammate(player) then return end\n\n    if Settings.FORCEFIELD_CHECK and char:FindFirstChildOfClass(\"ForceField\") then\n        local conn\n        conn = char.ChildRemoved:Connect(function(c)\n            if c:IsA(\"ForceField\") then\n                conn:Disconnect()\n                applyToCharacter(player, char)\n            end\n        end)\n        return\n    end\n\n    local humanoid = char:FindFirstChildOfClass(\"Humanoid\")\n    if humanoid then\n        for _, part in ipairs(char:GetChildren()) do\n            if part:IsA(\"BasePart\") then\n                if isLimbSelected(part.Name) then\n                    extendLimb(part)\n                    if Settings.RESET_LIMB_ON_DEATH then\n                        humanoid.Died:Once(function()\n                            resetLimb(part)\n                        end)\n                    end\n                else\n                    -- Reset if deselected while running\n                    if State.OriginalData[part] then\n                        resetLimb(part)\n                    end\n                end\n            end\n        end\n    end\nend\n\nlocal function refreshAllCharacters()\n    if not State.Running then return end\n    for _, p in ipairs(Players:GetPlayers()) do\n        if p ~= LocalPlayer and p.Character then\n            applyToCharacter(p, p.Character)\n        end\n    end\nend\n\nlocal function onPlayerAdded(player)\n    if player == LocalPlayer then return end\n    if State.PlayerData[player] then\n        State.PlayerData[player]:Disconnect()\n    end\n    State.PlayerData[player] = player.CharacterAdded:Connect(function(char)\n        task.wait(0.25)\n        if State.Running and not State.Destroyed then\n            applyToCharacter(player, char)\n        end\n    end)\n    if player.Character then\n        task.defer(applyToCharacter, player, player.Character)\n    end\nend\n\nlocal function onPlayerRemoving(player)\n    if State.PlayerData[player] then\n        State.PlayerData[player]:Disconnect()\n        State.PlayerData[player] = nil\n    end\nend\n\nlocal UpdateToggleVisuals -- Forward declaration\n\nlocal function start()\n    if State.Destroyed or State.Running then return end\n    State.Running = true\n\n    State.SteppedConn = RunService.Stepped:Connect(function()\n        if not State.Running or State.Destroyed then return end\n        for _, p in ipairs(Players:GetPlayers()) do\n            if p ~= LocalPlayer and p.Character and not isTeammate(p) then\n                for _, limbName in ipairs(Settings.TARGET_LIMBS) do\n                    local limb = p.Character:FindFirstChild(limbName)\n                    if limb and limb:IsA(\"BasePart\") then\n                        limb.CanTouch = false\n                        limb.CanCollide = Settings.LIMB_CAN_COLLIDE\n                    end\n                end\n            end\n        end\n    end)\n\n    for _, p in ipairs(Players:GetPlayers()) do\n        if p ~= LocalPlayer then\n            onPlayerAdded(p)\n        end\n    end\n\n    State.AddConn = Players.PlayerAdded:Connect(onPlayerAdded)\n    State.RemConn = Players.PlayerRemoving:Connect(onPlayerRemoving)\n\n    if UpdateToggleVisuals then UpdateToggleVisuals() end\nend\n\nlocal function stop()\n    if not State.Running then return end\n    State.Running = false\n\n    if State.SteppedConn then\n        State.SteppedConn:Disconnect()\n        State.SteppedConn = nil\n    end\n    for _, conn in pairs(State.PlayerData) do\n        if typeof(conn) == \"RBXScriptConnection\" then conn:Disconnect() end\n    end\n    State.PlayerData = {}\n\n    if State.AddConn then State.AddConn:Disconnect() State.AddConn = nil end\n    if State.RemConn then State.RemConn:Disconnect() State.RemConn = nil end\n\n    resetAllPlayers()\n    if UpdateToggleVisuals then UpdateToggleVisuals() end\nend\n\nlocal function toggle()\n    if State.Destroyed then return end\n    if State.Running then\n        stop()\n    else\n        start()\n    end\nend\n\n-- // Black & Red UI Construction \\\\ --\n\nlocal ScreenGui = Instance.new(\"ScreenGui\")\nScreenGui.Name = \"LimbExtenderUI_Crimson\"\nScreenGui.ResetOnSpawn = false\nScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling\n\n-- Parent safely (CoreGui for executors, PlayerGui for Studio/LocalScripts)\nlocal parentSuccess = pcall(function()\n    ScreenGui.Parent = CoreGui\nend)\nif not parentSuccess or not ScreenGui.Parent then\n    ScreenGui.Parent = LocalPlayer:WaitForChild(\"PlayerGui\")\nend\n\n-- Color Palette\nlocal COLORS = {\n    BgDark = Color3.fromRGB(14, 14, 16),\n    HeaderBg = Color3.fromRGB(22, 16, 18),\n    CardBg = Color3.fromRGB(24, 24, 28),\n    CardHover = Color3.fromRGB(34, 26, 28),\n    Crimson = Color3.fromRGB(215, 25, 45),\n    CrimsonDark = Color3.fromRGB(130, 15, 28),\n    Border = Color3.fromRGB(180, 25, 40),\n    BorderDim = Color3.fromRGB(55, 30, 35),\n    TextMain = Color3.fromRGB(245, 245, 245),\n    TextDim = Color3.fromRGB(165, 165, 170)\n}\n\n-- Main Frame\nlocal MainFrame = Instance.new(\"Frame\")\nMainFrame.Name = \"MainFrame\"\nMainFrame.Size = UDim2.new(0, 310, 0, 360)\nMainFrame.Position = UDim2.new(0.5, -155, 0.5, -180)\nMainFrame.BackgroundColor3 = COLORS.BgDark\nMainFrame.BorderSizePixel = 0\nMainFrame.ClipsDescendants = true\nMainFrame.Parent = ScreenGui\n\nlocal MainCorner = Instance.new(\"UICorner\")\nMainCorner.CornerRadius = UDim.new(0, 8)\nMainCorner.Parent = MainFrame\n\nlocal MainStroke = Instance.new(\"UIStroke\")\nMainStroke.Color = COLORS.Border\nMainStroke.Thickness = 1.5\nMainStroke.Parent = MainFrame\n\n-- Top Header Bar (Draggable)\nlocal TopBar = Instance.new(\"Frame\")\nTopBar.Name = \"TopBar\"\nTopBar.Size = UDim2.new(1, 0, 0, 38)\nTopBar.BackgroundColor3 = COLORS.HeaderBg\nTopBar.BorderSizePixel = 0\nTopBar.Parent = MainFrame\n\nlocal TopLine = Instance.new(\"Frame\")\nTopLine.Size = UDim2.new(1, 0, 0, 1)\nTopLine.Position = UDim2.new(0, 0, 1, -1)\nTopLine.BackgroundColor3 = COLORS.CrimsonDark\nTopLine.BorderSizePixel = 0\nTopLine.Parent = TopBar\n\nlocal TitleLabel = Instance.new(\"TextLabel\")\nTitleLabel.Size = UDim2.new(1, -85, 1, 0)\nTitleLabel.Position = UDim2.new(0, 12, 0, 0)\nTitleLabel.BackgroundTransparency = 1\nTitleLabel.Text = \"LIMB EXTENDER // R6 & R15\"\nTitleLabel.Font = Enum.Font.GothamBold\nTitleLabel.TextSize = 13\nTitleLabel.TextColor3 = COLORS.TextMain\nTitleLabel.TextXAlignment = Enum.TextXAlignment.Left\nTitleLabel.Parent = TopBar\n\n-- Minimize Button\nlocal MinBtn = Instance.new(\"TextButton\")\nMinBtn.Name = \"MinimizeBtn\"\nMinBtn.Size = UDim2.new(0, 26, 0, 24)\nMinBtn.Position = UDim2.new(1, -62, 0.5, -12)\nMinBtn.BackgroundColor3 = COLORS.CardBg\nMinBtn.Text = \"-\"\nMinBtn.Font = Enum.Font.GothamBold\nMinBtn.TextSize = 16\nMinBtn.TextColor3 = COLORS.TextMain\nMinBtn.AutoButtonColor = false\nMinBtn.Parent = TopBar\n\nlocal MinCorner = Instance.new(\"UICorner\")\nMinCorner.CornerRadius = UDim.new(0, 5)\nMinCorner.Parent = MinBtn\n\nlocal MinStroke = Instance.new(\"UIStroke\")\nMinStroke.Color = COLORS.BorderDim\nMinStroke.Thickness = 1\nMinStroke.Parent = MinBtn\n\n-- Close Button (Destroys Everything)\nlocal CloseBtn = Instance.new(\"TextButton\")\nCloseBtn.Name = \"CloseBtn\"\nCloseBtn.Size = UDim2.new(0, 26, 0, 24)\nCloseBtn.Position = UDim2.new(1, -32, 0.5, -12)\nCloseBtn.BackgroundColor3 = COLORS.CrimsonDark\nCloseBtn.Text = \"X\"\nCloseBtn.Font = Enum.Font.GothamBold\nCloseBtn.TextSize = 12\nCloseBtn.TextColor3 = COLORS.TextMain\nCloseBtn.AutoButtonColor = false\nCloseBtn.Parent = TopBar\n\nlocal CloseCorner = Instance.new(\"UICorner\")\nCloseCorner.CornerRadius = UDim.new(0, 5)\nCloseCorner.Parent = CloseBtn\n\nlocal CloseStroke = Instance.new(\"UIStroke\")\nCloseStroke.Color = COLORS.Crimson\nCloseStroke.Thickness = 1\nCloseStroke.Parent = CloseBtn\n\n-- Content Container\nlocal Content = Instance.new(\"Frame\")\nContent.Name = \"Content\"\nContent.Size = UDim2.new(1, -20, 1, -48)\nContent.Position = UDim2.new(0, 10, 0, 44)\nContent.BackgroundTransparency = 1\nContent.Parent = MainFrame\n\n-- Master Toggle Button\nlocal ToggleBtn = Instance.new(\"TextButton\")\nToggleBtn.Name = \"MasterToggle\"\nToggleBtn.Size = UDim2.new(1, 0, 0, 36)\nToggleBtn.Position = UDim2.new(0, 0, 0, 0)\nToggleBtn.BackgroundColor3 = COLORS.CardBg\nToggleBtn.Text = \"STATUS: OFF  [Key: L]\"\nToggleBtn.Font = Enum.Font.GothamBold\nToggleBtn.TextSize = 13\nToggleBtn.TextColor3 = COLORS.TextDim\nToggleBtn.AutoButtonColor = false\nToggleBtn.Parent = Content\n\nlocal ToggleCorner = Instance.new(\"UICorner\")\nToggleCorner.CornerRadius = UDim.new(0, 6)\nToggleCorner.Parent = ToggleBtn\n\nlocal ToggleStroke = Instance.new(\"UIStroke\")\nToggleStroke.Color = COLORS.BorderDim\nToggleStroke.Thickness = 1.2\nToggleStroke.Parent = ToggleBtn\n\nUpdateToggleVisuals = function()\n    if State.Running then\n        ToggleBtn.BackgroundColor3 = COLORS.CrimsonDark\n        ToggleBtn.Text = \"STATUS: ON  [Key: L]\"\n        ToggleBtn.TextColor3 = COLORS.TextMain\n        ToggleStroke.Color = COLORS.Crimson\n    else\n        ToggleBtn.BackgroundColor3 = COLORS.CardBg\n        ToggleBtn.Text = \"STATUS: OFF  [Key: L]\"\n        ToggleBtn.TextColor3 = COLORS.TextDim\n        ToggleStroke.Color = COLORS.BorderDim\n    end\nend\n\n-- Size Control Row\nlocal SizeFrame = Instance.new(\"Frame\")\nSizeFrame.Size = UDim2.new(1, 0, 0, 34)\nSizeFrame.Position = UDim2.new(0, 0, 0, 44)\nSizeFrame.BackgroundColor3 = COLORS.CardBg\nSizeFrame.BorderSizePixel = 0\nSizeFrame.Parent = Content\n\nlocal SizeCorner = Instance.new(\"UICorner\")\nSizeCorner.CornerRadius = UDim.new(0, 6)\nSizeCorner.Parent = SizeFrame\n\nlocal SizeStroke = Instance.new(\"UIStroke\")\nSizeStroke.Color = COLORS.BorderDim\nSizeStroke.Thickness = 1\nSizeStroke.Parent = SizeFrame\n\nlocal SizeLabel = Instance.new(\"TextLabel\")\nSizeLabel.Size = UDim2.new(0.55, 0, 1, 0)\nSizeLabel.Position = UDim2.new(0, 10, 0, 0)\nSizeLabel.BackgroundTransparency = 1\nSizeLabel.Text = \"Hitbox Size (Studs):\"\nSizeLabel.Font = Enum.Font.GothamSemibold\nSizeLabel.TextSize = 12\nSizeLabel.TextColor3 = COLORS.TextMain\nSizeLabel.TextXAlignment = Enum.TextXAlignment.Left\nSizeLabel.Parent = SizeFrame\n\nlocal SizeBox = Instance.new(\"TextBox\")\nSizeBox.Size = UDim2.new(0, 65, 0, 22)\nSizeBox.Position = UDim2.new(1, -73, 0.5, -11)\nSizeBox.BackgroundColor3 = COLORS.BgDark\nSizeBox.Text = tostring(Settings.LIMB_SIZE)\nSizeBox.Font = Enum.Font.GothamBold\nSizeBox.TextSize = 12\nSizeBox.TextColor3 = COLORS.Crimson\nSizeBox.ClearTextOnFocus = false\nSizeBox.Parent = SizeFrame\n\nlocal SizeBoxCorner = Instance.new(\"UICorner\")\nSizeBoxCorner.CornerRadius = UDim.new(0, 4)\nSizeBoxCorner.Parent = SizeBox\n\nlocal SizeBoxStroke = Instance.new(\"UIStroke\")\nSizeBoxStroke.Color = COLORS.CrimsonDark\nSizeBoxStroke.Thickness = 1\nSizeBoxStroke.Parent = SizeBox\n\n-- Quick R6 / R15 Preset Row\nlocal PresetFrame = Instance.new(\"Frame\")\nPresetFrame.Size = UDim2.new(1, 0, 0, 28)\nPresetFrame.Position = UDim2.new(0, 0, 0, 86)\nPresetFrame.BackgroundTransparency = 1\nPresetFrame.Parent = Content\n\nlocal function makePresetBtn(text, posX, widthScale, callback)\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(widthScale, -3, 1, 0)\n    btn.Position = UDim2.new(posX, 0, 0, 0)\n    btn.BackgroundColor3 = COLORS.CardBg\n    btn.Text = text\n    btn.Font = Enum.Font.GothamSemibold\n    btn.TextSize = 11\n    btn.TextColor3 = COLORS.TextMain\n    btn.AutoButtonColor = false\n    btn.Parent = PresetFrame\n\n    local c = Instance.new(\"UICorner\")\n    c.CornerRadius = UDim.new(0, 5)\n    c.Parent = btn\n\n    local s = Instance.new(\"UIStroke\")\n    s.Color = COLORS.BorderDim\n    s.Thickness = 1\n    s.Parent = btn\n\n    btn.MouseButton1Click:Connect(callback)\n    return btn\nend\n\n-- Dropdown Header Button\nlocal DropdownBtn = Instance.new(\"TextButton\")\nDropdownBtn.Name = \"DropdownBtn\"\nDropdownBtn.Size = UDim2.new(1, 0, 0, 34)\nDropdownBtn.Position = UDim2.new(0, 0, 0, 122)\nDropdownBtn.BackgroundColor3 = COLORS.CardBg\nDropdownBtn.Text = \"  Select Limbs (2 Selected)   ▼\"\nDropdownBtn.Font = Enum.Font.GothamBold\nDropdownBtn.TextSize = 12\nDropdownBtn.TextColor3 = COLORS.TextMain\nDropdownBtn.TextXAlignment = Enum.TextXAlignment.Left\nDropdownBtn.AutoButtonColor = false\nDropdownBtn.Parent = Content\n\nlocal DropCorner = Instance.new(\"UICorner\")\nDropCorner.CornerRadius = UDim.new(0, 6)\nDropCorner.Parent = DropdownBtn\n\nlocal DropStroke = Instance.new(\"UIStroke\")\nDropStroke.Color = COLORS.Crimson\nDropStroke.Thickness = 1.2\nDropStroke.Parent = DropdownBtn\n\n-- Dropdown Scrolling List\nlocal DropdownList = Instance.new(\"ScrollingFrame\")\nDropdownList.Name = \"DropdownList\"\nDropdownList.Size = UDim2.new(1, 0, 0, 142)\nDropdownList.Position = UDim2.new(0, 0, 0, 160)\nDropdownList.BackgroundColor3 = Color3.fromRGB(18, 18, 21)\nDropdownList.BorderSizePixel = 0\nDropdownList.ScrollBarThickness = 4\nDropdownList.ScrollBarImageColor3 = COLORS.Crimson\nDropdownList.Visible = true\nDropdownList.CanvasSize = UDim2.new(0, 0, 0, 0)\nDropdownList.Parent = Content\n\nlocal ListCorner = Instance.new(\"UICorner\")\nListCorner.CornerRadius = UDim.new(0, 6)\nListCorner.Parent = DropdownList\n\nlocal ListStroke = Instance.new(\"UIStroke\")\nListStroke.Color = COLORS.BorderDim\nListStroke.Thickness = 1\nListStroke.Parent = DropdownList\n\nlocal UIList = Instance.new(\"UIListLayout\")\nUIList.Padding = UDim.new(0, 3)\nUIList.SortOrder = Enum.SortOrder.LayoutOrder\nUIList.Parent = DropdownList\n\nlocal ListPadding = Instance.new(\"UIPadding\")\nListPadding.PaddingTop = UDim.new(0, 4)\nListPadding.PaddingBottom = UDim.new(0, 4)\nListPadding.PaddingLeft = UDim.new(0, 4)\nListPadding.PaddingRight = UDim.new(0, 6)\nListPadding.Parent = DropdownList\n\nlocal dropdownOpen = true\n\nlocal function updateDropdownHeader()\n    local count = #Settings.TARGET_LIMBS\n    local arrow = dropdownOpen and \"▲\" or \"▼\"\n    DropdownBtn.Text = string.format(\"  Select Limbs (%d Selected)   %s\", count, arrow)\nend\n\nlocal function syncLimbButtons()\n    for limbName, data in pairs(State.LimbButtons) do\n        local selected = isLimbSelected(limbName)\n        data.Button.BackgroundColor3 = selected and COLORS.CrimsonDark or COLORS.CardBg\n        data.Stroke.Color = selected and COLORS.Crimson or COLORS.BorderDim\n        data.Check.Text = selected and \"✓\" or \"\"\n        data.Label.TextColor3 = selected and COLORS.TextMain or COLORS.TextDim\n    end\n    updateDropdownHeader()\nend\n\n-- Populate Dropdown Items\nfor i, limbName in ipairs(ALL_LIMBS) do\n    local itemBtn = Instance.new(\"TextButton\")\n    itemBtn.Name = limbName\n    itemBtn.Size = UDim2.new(1, 0, 0, 26)\n    itemBtn.LayoutOrder = i\n    itemBtn.BackgroundColor3 = COLORS.CardBg\n    itemBtn.Text = \"\"\n    itemBtn.AutoButtonColor = false\n    itemBtn.Parent = DropdownList\n\n    local itemCorner = Instance.new(\"UICorner\")\n    itemCorner.CornerRadius = UDim.new(0, 4)\n    itemCorner.Parent = itemBtn\n\n    local itemStroke = Instance.new(\"UIStroke\")\n    itemStroke.Color = COLORS.BorderDim\n    itemStroke.Thickness = 1\n    itemStroke.Parent = itemBtn\n\n    local checkLabel = Instance.new(\"TextLabel\")\n    checkLabel.Size = UDim2.new(0, 24, 1, 0)\n    checkLabel.BackgroundTransparency = 1\n    checkLabel.Text = \"\"\n    checkLabel.Font = Enum.Font.GothamBold\n    checkLabel.TextSize = 13\n    checkLabel.TextColor3 = COLORS.TextMain\n    checkLabel.Parent = itemBtn\n\n    local nameLabel = Instance.new(\"TextLabel\")\n    nameLabel.Size = UDim2.new(1, -28, 1, 0)\n    nameLabel.Position = UDim2.new(0, 26, 0, 0)\n    nameLabel.BackgroundTransparency = 1\n    nameLabel.Text = limbName\n    nameLabel.Font = Enum.Font.GothamSemibold\n    nameLabel.TextSize = 12\n    nameLabel.TextColor3 = COLORS.TextDim\n    nameLabel.TextXAlignment = Enum.TextXAlignment.Left\n    nameLabel.Parent = itemBtn\n\n    State.LimbButtons[limbName] = {\n        Button = itemBtn,\n        Stroke = itemStroke,\n        Check = checkLabel,\n        Label = nameLabel\n    }\n\n    itemBtn.MouseButton1Click:Connect(function()\n        local idx = table.find(Settings.TARGET_LIMBS, limbName)\n        if idx then\n            table.remove(Settings.TARGET_LIMBS, idx)\n        else\n            table.insert(Settings.TARGET_LIMBS, limbName)\n        end\n        syncLimbButtons()\n        refreshAllCharacters()\n    end)\nend\n\nDropdownList.CanvasSize = UDim2.new(0, 0, 0, (#ALL_LIMBS * 29) + 8)\nsyncLimbButtons()\n\n-- Preset Button Callbacks\nmakePresetBtn(\"R6 Limbs\", 0, 0.33, function()\n    Settings.TARGET_LIMBS = {\"Head\", \"Torso\", \"Left Arm\", \"Right Arm\", \"Left Leg\", \"Right Leg\"}\n    syncLimbButtons()\n    refreshAllCharacters()\nend)\n\nmakePresetBtn(\"R15 Limbs\", 0.335, 0.33, function()\n    Settings.TARGET_LIMBS = {\n        \"Head\", \"UpperTorso\", \"LowerTorso\",\n        \"LeftUpperArm\", \"LeftLowerArm\", \"LeftHand\",\n        \"RightUpperArm\", \"RightLowerArm\", \"RightHand\",\n        \"LeftUpperLeg\", \"LeftLowerLeg\", \"LeftFoot\",\n        \"RightUpperLeg\", \"RightLowerLeg\", \"RightFoot\"\n    }\n    syncLimbButtons()\n    refreshAllCharacters()\nend)\n\nmakePresetBtn(\"Clear All\", 0.67, 0.33, function()\n    Settings.TARGET_LIMBS = {}\n    syncLimbButtons()\n    refreshAllCharacters()\nend)\n\n-- // UI Interactivity (Drag, Dropdown, Minimize, Size, Close) \\\\ --\n\n-- Smooth Dragging\nlocal dragging = false\nlocal dragInput, dragStart, startPos\n\nTopBar.InputBegan:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then\n        dragging = true\n        dragStart = input.Position\n        startPos = MainFrame.Position\n\n        input.Changed:Connect(function()\n            if input.UserInputState == Enum.UserInputState.End then\n                dragging = false\n            end\n        end)\n    end\nend)\n\nTopBar.InputChanged:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then\n        dragInput = input\n    end\nend)\n\ntable.insert(State.Connections, UIS.InputChanged:Connect(function(input)\n    if input == dragInput and dragging then\n        local delta = input.Position - dragStart\n        MainFrame.Position = UDim2.new(\n            startPos.X.Scale,\n            startPos.X.Offset + delta.X,\n            startPos.Y.Scale,\n            startPos.Y.Offset + delta.Y\n        )\n    end\nend))\n\n-- Dropdown Toggle\nDropdownBtn.MouseButton1Click:Connect(function()\n    dropdownOpen = not dropdownOpen\n    DropdownList.Visible = dropdownOpen\n    if dropdownOpen then\n        MainFrame.Size = UDim2.new(0, 310, 0, 360)\n    else\n        MainFrame.Size = UDim2.new(0, 310, 0, 212)\n    end\n    updateDropdownHeader()\nend)\n\n-- Minimize Toggle\nlocal minimized = false\nMinBtn.MouseButton1Click:Connect(function()\n    minimized = not minimized\n    if minimized then\n        Content.Visible = false\n        MainFrame.Size = UDim2.new(0, 310, 0, 38)\n        MinBtn.Text = \"+\"\n    else\n        Content.Visible = true\n        MainFrame.Size = dropdownOpen and UDim2.new(0, 310, 0, 360) or UDim2.new(0, 310, 0, 212)\n        MinBtn.Text = \"-\"\n    end\nend)\n\n-- Master Toggle Button\nToggleBtn.MouseButton1Click:Connect(toggle)\n\n-- Size Input Box\nSizeBox.FocusLost:Connect(function()\n    local num = tonumber(SizeBox.Text)\n    if num and num >= 1 and num <= 100 then\n        Settings.LIMB_SIZE = num\n        SizeBox.Text = tostring(num)\n        refreshAllCharacters()\n    else\n        SizeBox.Text = tostring(Settings.LIMB_SIZE)\n    end\nend)\n\n-- Full Cleanup / Destroy Everything Function\nlocal function destroyAll()\n    if State.Destroyed then return end\n    stop()\n    State.Destroyed = true\n\n    -- Disconnect all Touch connections\n    for limb, conn in pairs(State.TouchConns) do\n        if typeof(conn) == \"RBXScriptConnection\" then\n            conn:Disconnect()\n        end\n    end\n    State.TouchConns = {}\n\n    -- Disconnect all UI / Input connections\n    for _, conn in ipairs(State.Connections) do\n        if typeof(conn) == \"RBXScriptConnection\" then\n            conn:Disconnect()\n        end\n    end\n    State.Connections = {}\n\n    -- Unbind mobile action\n    pcall(function()\n        CAS:UnbindAction(\"LimbExtenderToggle\")\n    end)\n\n    -- Reset all limbs & destroy highlights one final time\n    resetAllPlayers()\n\n    -- Destroy UI\n    if ScreenGui then\n        ScreenGui:Destroy()\n    end\n\n    if getgenv then\n        getgenv().LimbExtender = nil\n    end\nend\n\nState.DestroyAll = destroyAll\nCloseBtn.MouseButton1Click:Connect(destroyAll)\n\n-- Keybind Listener (`L` toggles script; `RightControl` hides/shows UI)\ntable.insert(State.Connections, UIS.InputBegan:Connect(function(input, gp)\n    if gp or State.Destroyed then return end\n    if input.KeyCode == Settings.TOGGLE_KEY then\n        toggle()\n    elseif input.KeyCode == Enum.KeyCode.RightControl then\n        ScreenGui.Enabled = not ScreenGui.Enabled\n    end\nend))\n\n-- Mobile Action Button\nCAS:BindAction(\"LimbExtenderToggle\", function(_, inputState)\n    if inputState == Enum.UserInputState.Begin then\n        toggle()\n    end\nend, true, Settings.TOGGLE_KEY)",
+      "createdAt": "2026-11-22T08:38:37.414Z",
+      "updatedAt": "2026-11-26T05:10:44.801Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "scriptblox-6b02aa6424b51cb3880157e0",
       "slug": "Rhythm-System-V3-Public-Testing-Place-LARPrhythm-or-Rhythm-System-V3-237831",
       "source": "scriptblox",
@@ -797,7 +872,7 @@
         "auto",
         "note"
       ],
-      "views": 34,
+      "views": 36,
       "likes": 1,
       "dislikes": 0,
       "summary": "Rhythm? No, we LARPrhythm Listen closely. The second you execute this script, you are no longer a Normal-mode tourist—you are officially LARPing as a top 0.1% rhythm god with 10,000 hours, terminal carpal tunnel, and 0ms millisecond-perf…",
@@ -834,7 +909,7 @@
         "keyless",
         "universal"
       ],
-      "views": 6038,
+      "views": 6039,
       "likes": 15,
       "dislikes": 3,
       "rating": 4.2,
@@ -870,7 +945,7 @@
       "tags": [
         "Script"
       ],
-      "views": 26,
+      "views": 29,
       "likes": 1,
       "dislikes": 0,
       "summary": "Combat Silent Aim (FOV circle, wall check, target part Head/HRP, priority Crosshair/Distance, max distance) Auto Fire (delay) No Recoil Jump Shoot (module patch) Air / Jump Shoot (buggy variant — use Jump Shoot instead) ESP / Visual Play…",
@@ -907,7 +982,7 @@
         "Script hub",
         "First person shooter"
       ],
-      "views": 43,
+      "views": 45,
       "likes": 2,
       "dislikes": 0,
       "summary": "SkidWare Is One Of The BEST Open Source Roblox FPS Exploits. games i’ve tested so far: Arsenal - Undetected RIVALS - DETECTED (use at your own risk) Weird Gun Game - Undetected Blood Debt Gun System - Undetected Zombie Uprising - Undetec…",
@@ -944,7 +1019,7 @@
         "Aimbot",
         "Hitbox expander"
       ],
-      "views": 68,
+      "views": 70,
       "likes": 2,
       "dislikes": 0,
       "summary": "Features: AIMBOT •aimbot •wall check •team check •aim part(head or torso) •smoothness ESP •esp •esp team check •esp color picker HITBOX •hitbox expander •hitbox size FOV •FOV circle •FOV circle radius •FOV circle color picker",
@@ -979,7 +1054,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 23,
+      "views": 25,
       "likes": 1,
       "dislikes": 0,
       "summary": "Uses Rochess own game engine to predict and show the best move also has built in trade analyzer for legit players (very complex) join discord to make more feature and script suggestions https://discord.gg/SQb5eUAwp MADE FOR CLOSET CHEATI…",
@@ -1015,7 +1090,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 30,
+      "views": 31,
       "likes": 0,
       "dislikes": 0,
       "summary": "Reza Pishro Famous Meme Decal Spam Serverside Requirements:F3x",
@@ -1050,7 +1125,7 @@
       "tags": [
         "Script"
       ],
-      "views": 30,
+      "views": 31,
       "likes": 2,
       "dislikes": 0,
       "summary": "This Fishy Hub script for Realistic Ragdoll MMA uses FishyUI and opens with RightControl, with tabs for Combat, Self, Opponent, Autos, Unlocks, Ranked, Visuals, and Misc, all built as in-place patches on the live ROFC tables plus the gam…",
@@ -1088,7 +1163,7 @@
         "squid game x",
         "roblox"
       ],
-      "views": 33,
+      "views": 34,
       "likes": 1,
       "dislikes": 0,
       "summary": "SquidGame X | Obsidian UI | PC + Mobile All-in-one script for Roblox Squid Game. Clean Obsidian menu, press G on PC or use the on-screen button on phone. Key-protected login, with a Discord link to get the password. Games Red Light Green…",
@@ -1124,7 +1199,7 @@
       "tags": [
         "Script"
       ],
-      "views": 23,
+      "views": 26,
       "likes": 0,
       "dislikes": 0,
       "summary": "AUTO FISH Auto Cast Auto Perfect Cast Auto Collect Catch Repeat Fishing Auto Skip Cutscene Auto Go to Fishing Lane Cast Power Slider Stall Recovery Auto Fish + Auto Train with Separate Duration Sliders ANIMALS Auto Equip Best Animals Aut…",
@@ -1160,7 +1235,7 @@
       "tags": [
         "Script"
       ],
-      "views": 19,
+      "views": 22,
       "likes": 1,
       "dislikes": 0,
       "summary": "Auto Farm Auto Post Video Target Highest Money Auto Upgrade Upgrade Order (Tools → Skills → Staff) Auto Equip Best Gear Auto Clean Station Auto Collect Tips Auto Restock Auto Claim Playtime Auto Claim Index Auto Redeem Codes",
@@ -1198,7 +1273,7 @@
         "Knife Redirect",
         "TriggerBot"
       ],
-      "views": 20,
+      "views": 22,
       "likes": 1,
       "dislikes": 0,
       "summary": "🔥 ZYNEX HUB - OFFICIAL RELEASE The ultimate, undetected, and overpowered combat script for 1v1 duels! Dominate every round as both Murderer and Sheriff with Raycast Silent Aim, Knife Prediction Redirect, Auto TriggerBot, and full Player…",
@@ -1236,7 +1311,7 @@
         "UNIVERSAL",
         "UTILITY"
       ],
-      "views": 3530,
+      "views": 3531,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -1274,7 +1349,7 @@
         "murder mystery",
         "throw food for animals"
       ],
-      "views": 553,
+      "views": 558,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1313,7 +1388,7 @@
         "delta",
         "hypers"
       ],
-      "views": 68,
+      "views": 69,
       "likes": 1,
       "dislikes": 1,
       "summary": "unlock all weapons free gamepasses infinite KOs auto claim rewards infinite events gold weapons one hit kill godmode super weapons kill aura blast at mouse bomb rain event changer weather changer map changer",
@@ -1349,7 +1424,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 67805,
+      "views": 67815,
       "likes": 44,
       "dislikes": 5,
       "rating": 4.5,
@@ -1385,7 +1460,7 @@
       "tags": [
         "Script"
       ],
-      "views": 4996,
+      "views": 5004,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1423,7 +1498,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 2087,
+      "views": 2088,
       "likes": 3,
       "dislikes": 1,
       "rating": 3.8,
@@ -1497,7 +1572,7 @@
         "ESP",
         "Wall Hack"
       ],
-      "views": 779451,
+      "views": 779456,
       "likes": 34,
       "dislikes": 13,
       "rating": 3.6,
@@ -1574,7 +1649,7 @@
         "features",
         "Troll"
       ],
-      "views": 763,
+      "views": 765,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1612,7 +1687,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 600958,
+      "views": 600961,
       "likes": 20,
       "dislikes": 10,
       "rating": 3.3,
@@ -1651,7 +1726,7 @@
         "Script Hub",
         "Project Stark"
       ],
-      "views": 136766,
+      "views": 136767,
       "likes": 59,
       "dislikes": 11,
       "rating": 4.2,
@@ -1760,7 +1835,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 748,
+      "views": 754,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1837,7 +1912,7 @@
         "sae",
         "blox fruits"
       ],
-      "views": 5703,
+      "views": 5704,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -1873,7 +1948,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 18717,
+      "views": 18729,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1911,7 +1986,7 @@
         "Pastebin Free Gui Script",
         "Fish It"
       ],
-      "views": 311958,
+      "views": 311964,
       "likes": 39,
       "dislikes": 20,
       "rating": 3.3,
@@ -1987,7 +2062,7 @@
         "steal an egg script",
         "steal egg"
       ],
-      "views": 84921,
+      "views": 84922,
       "likes": 39,
       "dislikes": 8,
       "rating": 4.1,
@@ -2025,7 +2100,7 @@
         "fly script",
         "anticheat bypass"
       ],
-      "views": 632119,
+      "views": 632120,
       "likes": 10,
       "dislikes": 9,
       "rating": 2.6,
@@ -2063,7 +2138,7 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2486828,
+      "views": 2486838,
       "likes": 175,
       "dislikes": 32,
       "rating": 4.2,
@@ -2180,7 +2255,7 @@
         "jujutsu",
         "jujutsu kaisen"
       ],
-      "views": 262,
+      "views": 263,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2189,48 +2264,9 @@
       "createdAt": "2026-11-25T20:13:38.228Z",
       "updatedAt": "2026-11-25T20:13:38.074Z",
       "categoryIds": [
-        "trending",
         "new"
       ],
       "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6a396b6c880df468c28bfc88",
-      "slug": "Blox-Fruits-Snowy-Hub-Auto-Farm-Kill-Aura-Bring-Mob-More-238694",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Blox-Fruits-Snowy-Hub-Auto-Farm-Kill-Aura-Bring-Mob-More-238694",
-      "title": "350+ FEATURES | FULL AUTO FARM, FAST ATTACK, LVL FARM & MORE",
-      "game": "Blox Fruits",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-77b3430ced16006f6da18d6a77b95ea0-7e2d38d61c23.png",
-      "author": "snowy",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Blox Fruits",
-        "Blox Fruits Scripts",
-        "bloxfruits"
-      ],
-      "views": 66792,
-      "likes": 37,
-      "dislikes": 3,
-      "rating": 4.6,
-      "summary": "Snowy Hub: Blox Fruits - Auto Farm Levels - Auto Farm Bosses - Auto Farm Mastery - Auto Secret Quests - Fast Attack - Bring Mobs - Auto Stats - Auto Raid Farm - Auto Awaken - Auto Simulation Dungeon - Auto Bounty Farm - Silent Aim - Auto…",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/ui/a87f00d9adf63658655fcd02ab86a4ef.lua\"))()",
-      "createdAt": "2026-06-22T17:05:48.603Z",
-      "updatedAt": "2026-11-25T19:49:30.026Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "fruit",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2294,7 +2330,7 @@
         "keyless",
         "chukunhax"
       ],
-      "views": 334,
+      "views": 337,
       "likes": 1,
       "dislikes": 0,
       "summary": "chukunhax, keyless , open source auto throw throw perfect fast throw throw foods at animals / throw foods for animals auto farm easy xeno solara",
@@ -2331,7 +2367,7 @@
         "bf",
         "keyless"
       ],
-      "views": 1452,
+      "views": 1464,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2369,7 +2405,7 @@
         "Shoot Arrows For Animals Script",
         "Roblox Shoot Arrows For Animals Script"
       ],
-      "views": 226,
+      "views": 227,
       "likes": 1,
       "dislikes": 0,
       "summary": "📌 Discord Server For Bugs/Suggestions And Updates : https://neoxsoftworks.eu/discord 🎯 FARMING Section : Status ▸ Your Stats ▸ Session ▸ Reset Session Stats Section : Auto Shoot ▸ Instant Auto Shoot (Perfect Power) ▸ Target Area ▸ Shoo…",
@@ -2406,7 +2442,7 @@
         "OP GUI",
         "KEYLESS"
       ],
-      "views": 325,
+      "views": 326,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -2951,7 +2987,7 @@
         "auto progression",
         "auto farm"
       ],
-      "views": 191,
+      "views": 193,
       "likes": 0,
       "dislikes": 0,
       "summary": "AUTO FARM + Auto Steal Packs + Auto Place Packs + Auto Retry Missed Pickups + Improved Retry Pickup After Guard Catch + Recover the Same Card Before Resuming Auto Place + Faster Pickup Retries After Reaching the Card + Card Priority — Cl…",
@@ -3061,7 +3097,7 @@
         "aether studios",
         "block tales"
       ],
-      "views": 231,
+      "views": 232,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -3134,7 +3170,7 @@
         "stand out script",
         "stand out scripts"
       ],
-      "views": 702,
+      "views": 704,
       "likes": 1,
       "dislikes": 0,
       "summary": "- auto story - auto farm - auto raids - auto bounty - auto boss - auto arrows - auto collect items - kill aura - silent aim - no stun - auto stats - auto garden - teleports - esp - fly - nmore",
@@ -3171,7 +3207,7 @@
         "illegal soccer",
         "chukunhax"
       ],
-      "views": 825,
+      "views": 826,
       "likes": 2,
       "dislikes": 0,
       "summary": "illegal soccer / Illegal Soccer : silent aim infinite stamina tackle aim perfect charge keyless open source chukunhax",
@@ -3206,7 +3242,7 @@
       "tags": [
         "Script"
       ],
-      "views": 308,
+      "views": 310,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ Sosiskomras HUB A high-quality, lightweight script without bloat or useless features. 🟢 Tested & working code 🛡️ Simple key system 🛠️ Fast bug fixes 🔄 Regular updates",
@@ -3278,7 +3314,7 @@
       "tags": [
         "Script"
       ],
-      "views": 199,
+      "views": 200,
       "likes": 2,
       "dislikes": 0,
       "summary": "Fish For Sea Animals Script Auto Farm 2x Train Upgrade Barbell Buy Rod Sell All",
@@ -3314,7 +3350,7 @@
         "keyless",
         "aimbot"
       ],
-      "views": 351,
+      "views": 352,
       "likes": 2,
       "dislikes": 0,
       "summary": "This BedWars script has some basic features but it will help you win maybe 80% of your BedWas game if you know what your doing. This script has AImlock, Inf jump. And so much more!",
@@ -3388,7 +3424,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 2650,
+      "views": 2654,
       "likes": 6,
       "dislikes": 1,
       "rating": 4.3,
@@ -3573,7 +3609,7 @@
         "Half Punch Script",
         "Half Punch Scripts"
       ],
-      "views": 1184,
+      "views": 1186,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -3611,7 +3647,7 @@
         "miles river",
         "mdr"
       ],
-      "views": 864,
+      "views": 865,
       "likes": 5,
       "dislikes": 1,
       "rating": 4.2,
@@ -3649,7 +3685,7 @@
         "autosell",
         "moon"
       ],
-      "views": 177,
+      "views": 178,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3687,7 +3723,7 @@
         "aimbot",
         "esp"
       ],
-      "views": 194,
+      "views": 195,
       "likes": 1,
       "dislikes": 0,
       "summary": "Autofarm, Player, ESP, Teleport, Aimbot, and other things you can also get performance boost in the built in option in the scripts. and autofarm works for mop job and gas station",
@@ -3724,7 +3760,7 @@
         "aimbot",
         "auto play"
       ],
-      "views": 464,
+      "views": 466,
       "likes": 2,
       "dislikes": 0,
       "summary": "This script made by me: Game name : Grapple Sniper arena. https://www.roblox.com/games/75407502025821/Grapple-Sniper-Arena",
@@ -3761,7 +3797,7 @@
         "Flee the facility",
         "Keyless"
       ],
-      "views": 208,
+      "views": 209,
       "likes": 2,
       "dislikes": 0,
       "summary": "this script has made by molyn studios.. (Best script for FTF) Features : auto freeze everyone auto unfreeze everyone auto escape if downed unragdoll if downed (walk normally) anti pc error no doors cooldown goto random undone computer ot…",
@@ -3835,7 +3871,7 @@
         "best script",
         "gui"
       ],
-      "views": 2414,
+      "views": 2419,
       "likes": 1,
       "dislikes": 0,
       "summary": "#Vox Seas (Free) * Auto Farm Mobs * Mob selector * Stand position: Behind / Front / Above / Below * Distance slider (default 14 studs behind) * Fly speed slider * Weapon selector + Auto Equip * Bigger Hitbox (reach slider) * Auto Skills…",
@@ -3852,75 +3888,74 @@
       ]
     },
     {
-      "id": "scriptblox-6b02e531869cdf2d16f7bab5",
-      "slug": "UPD-11-PART-1-King-Legacy-Auto-Farm-All-Seas-Fruit-Sniper-Auto-Boss-Sea-Events-237864",
+      "id": "scriptblox-6b02ebbed60256841f05ba5f",
+      "slug": "1-Speed-Evolve-Keyless-or-Auto-Wins-Auto-Rebirth-Auto-Train-More-237872",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPD-11-PART-1-King-Legacy-Auto-Farm-All-Seas-Fruit-Sniper-Auto-Boss-Sea-Events-237864",
-      "title": "Auto Farm All Seas, Fruit Sniper, Auto Boss, Sea Events",
-      "game": "[🐉UPD 11 PART 1🎃] King Legacy",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-967e24842bbdeee4dc6f12d418e02826-46a56c329df5.png",
-      "author": "NotZNX",
-      "authorVerified": true,
-      "verified": true,
+      "sourceUrl": "https://scriptblox.com/script/1-Speed-Evolve-Keyless-or-Auto-Wins-Auto-Rebirth-Auto-Train-More-237872",
+      "title": "Keyless | Auto Wins, Auto Rebirth, Auto Train, More",
+      "game": "+1 Speed Evolve 🦊",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-f7a1d65899097a96b2041b8d3dac4e0f-37f5f1e9b18e.png",
+      "author": "Majapahit",
+      "authorVerified": false,
+      "verified": false,
       "status": "working",
       "premium": false,
-      "keyless": false,
+      "keyless": true,
       "universal": false,
       "tags": [
-        "king legacy",
-        "king legacy script",
-        "king legacy scripts"
+        "Keyless",
+        "Auto Farm",
+        "Free"
       ],
-      "views": 1509,
-      "likes": 2,
+      "views": 11,
+      "likes": 0,
       "dislikes": 0,
-      "summary": "- auto farm level - all seas - auto boss - auto dungeon - auto quests - auto stats - fruit sniper - auto store fruits - sea events - auto fish - auto chests - fruit esp - fly - teleports - redeem codes - nmore",
-      "code": "loadstring(game:HttpGet(\"https://airflowscript.com/loader\"))()",
-      "createdAt": "2026-11-22T12:50:57.045Z",
-      "updatedAt": "2026-11-22T12:50:57.034Z",
+      "summary": "### 1. Auto Farm * Auto Step: Automatically increases speed. * Auto Rebirth: Automatically performs rebirth. * Auto Win: Automatically teleports to the Win location. * Auto Train: Selects the best treadmill based on rebirth count. * Auto…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/BIANTCA/Script/refs/heads/main/%2B1SpeedEvolve.lua\"))()",
+      "createdAt": "2026-11-22T13:18:54.955Z",
+      "updatedAt": "2026-11-26T06:41:47.942Z",
       "categoryIds": [
         "new"
       ],
-      "glyph": "fruit",
+      "glyph": "car",
       "colors": [
         "#00F0FF",
         "#0066FF"
       ]
     },
     {
-      "id": "scriptblox-6b02e4d871ee00d36735e242",
-      "slug": "BloxNG-CRASH-PHYSICS-Auto-Farm-or-Auto-Chaseor-Auto-Crash-Player-or-Webhooks-237863",
+      "id": "scriptblox-6b02eabfa82bbec7b2a816ee",
+      "slug": "Universal-Script-Behind-player-script-loopgoto-237871",
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/BloxNG-CRASH-PHYSICS-Auto-Farm-or-Auto-Chaseor-Auto-Crash-Player-or-Webhooks-237863",
-      "title": "Auto Farm | Auto Chase| Auto Crash Player | Webhooks +++",
-      "game": "BloxNG [CRASH PHYSICS] 💥",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-4bb7d77fed58db812816caff66198cb0-cf97e3408ba9.png",
-      "author": "RBXScriptz",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Behind-player-script-loopgoto-237871",
+      "title": "Behind player script, loopgoto?",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795353279838.jpg",
+      "author": "Uncommon",
       "authorVerified": false,
       "verified": false,
       "status": "working",
       "premium": false,
-      "keyless": false,
-      "universal": false,
+      "keyless": true,
+      "universal": true,
       "tags": [
-        "BloxNG",
-        "RBXZ",
-        "RBXScriptz"
+        "Universal",
+        "Loopgoto",
+        "Behind"
       ],
-      "views": 533,
-      "likes": 3,
+      "views": 12,
+      "likes": 1,
       "dislikes": 0,
-      "rating": 5,
-      "summary": "Does not work with Xeno, Solara and etc... Please use a good executor ☆ Auto Chase -> Cash Out At, Escape Before Bust, Noclip Through Cars, Smash Traffic For Cash, Drift For Skill Cash, Lite Graphics ☆ Auto Crash ☆ Car Modifications -> P…",
-      "code": "if game.PlaceId == 83784149502814 then\n    scriptblox = \"verifypls\" -- This hides verified only scripts\n    loadstring(game:HttpGet(\"https://rbxscriptz.fun/rbxz-hub\"))()\nend",
-      "createdAt": "2026-11-22T12:49:29.404Z",
-      "updatedAt": "2026-11-22T13:12:52.197Z",
+      "summary": "Скрипт на Я не знаю как это объяснить, но это loopgoto скрипт Loopgoto script or I idk (=",
+      "code": "--[[\n\tWARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!\n]]\nlocal Players = game:GetService(\"Players\")\nlocal RunService = game:GetService(\"RunService\")\nlocal CoreGui = game:GetService(\"CoreGui\")\n\nlocal LocalPlayer = Players.LocalPlayer\n\n-- Очистка старого GUI при повторном запуске\nlocal oldGui = CoreGui:FindFirstChild(\"BehindTargetGui\")\nif oldGui then\n\toldGui:Destroy()\nend\n\nlocal ScreenGui = Instance.new(\"ScreenGui\")\nScreenGui.Name = \"BehindTargetGui\"\nScreenGui.ResetOnSpawn = false\nScreenGui.Parent = CoreGui\n\nlocal EXPANDED_SIZE = UDim2.new(0, 290, 0, 472)\nlocal COLLAPSED_SIZE = UDim2.new(0, 290, 0, 38)\n\nlocal MainFrame = Instance.new(\"Frame\")\nMainFrame.Size = EXPANDED_SIZE\nMainFrame.Position = UDim2.new(0, 12, 0.14, 0)\nMainFrame.BackgroundColor3 = Color3.fromRGB(28, 28, 34)\nMainFrame.BorderSizePixel = 0\nMainFrame.Active = true\nMainFrame.Draggable = true\nMainFrame.ClipsDescendants = true\nMainFrame.Parent = ScreenGui\n\n-- Шапка окна\nlocal Header = Instance.new(\"Frame\")\nHeader.Size = UDim2.new(1, 0, 0, 38)\nHeader.BackgroundColor3 = Color3.fromRGB(22, 22, 28)\nHeader.BorderSizePixel = 0\nHeader.Parent = MainFrame\n\nlocal Title = Instance.new(\"TextLabel\")\nTitle.Size = UDim2.new(1, -104, 1, 0)\nTitle.Position = UDim2.new(0, 10, 0, 0)\nTitle.BackgroundTransparency = 1\nTitle.Text = \"Цели: 0 | ВЫКЛ\"\nTitle.TextColor3 = Color3.fromRGB(240, 240, 245)\nTitle.TextSize = 13\nTitle.Font = Enum.Font.GothamBold\nTitle.TextXAlignment = Enum.TextXAlignment.Left\nTitle.Parent = Header\n\nlocal function createHeaderBtn(text, offsetFromRight, bgColor)\n\tlocal btn = Instance.new(\"TextButton\")\n\tbtn.Size = UDim2.new(0, 26, 0, 26)\n\tbtn.Position = UDim2.new(1, offsetFromRight, 0.5, -13)\n\tbtn.BackgroundColor3 = bgColor\n\tbtn.BorderSizePixel = 0\n\tbtn.Text = text\n\tbtn.TextColor3 = Color3.fromRGB(255, 255, 255)\n\tbtn.TextSize = 13\n\tbtn.Font = Enum.Font.GothamBold\n\tbtn.Parent = Header\n\treturn btn\nend\n\nlocal PinBtn = createHeaderBtn(\"📌\", -90, Color3.fromRGB(52, 52, 64))\nlocal MinBtn = createHeaderBtn(\"-\", -60, Color3.fromRGB(52, 52, 64))\nlocal CloseBtn = createHeaderBtn(\"❌\", -30, Color3.fromRGB(165, 45, 45))\n\nlocal DEFAULT_DISTANCE = 3.5\n\n-- Верхняя панель управления: кнопки \"Вкл\" и \"Выкл\"\nlocal PowerFrame = Instance.new(\"Frame\")\nPowerFrame.Size = UDim2.new(1, -16, 0, 32)\nPowerFrame.Position = UDim2.new(0, 8, 0, 44)\nPowerFrame.BackgroundTransparency = 1\nPowerFrame.Parent = MainFrame\n\nlocal OnBtn = Instance.new(\"TextButton\")\nOnBtn.Size = UDim2.new(0.5, -4, 1, 0)\nOnBtn.Position = UDim2.new(0, 0, 0, 0)\nOnBtn.BackgroundColor3 = Color3.fromRGB(45, 145, 75)\nOnBtn.BorderSizePixel = 0\nOnBtn.Text = \"Вкл\"\nOnBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\nOnBtn.TextSize = 14\nOnBtn.Font = Enum.Font.GothamBold\nOnBtn.Parent = PowerFrame\n\nlocal OffBtn = Instance.new(\"TextButton\")\nOffBtn.Size = UDim2.new(0.5, -4, 1, 0)\nOffBtn.Position = UDim2.new(0.5, 4, 0, 0)\nOffBtn.BackgroundColor3 = Color3.fromRGB(165, 45, 45)\nOffBtn.BorderSizePixel = 0\nOffBtn.Text = \"Выкл\"\nOffBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\nOffBtn.TextSize = 14\nOffBtn.Font = Enum.Font.GothamBold\nOffBtn.Parent = PowerFrame\n\n-- Поле ввода расстояния (TextBox) сверху под \"Вкл/Выкл\"\nlocal DistFrame = Instance.new(\"Frame\")\nDistFrame.Size = UDim2.new(1, -16, 0, 32)\nDistFrame.Position = UDim2.new(0, 8, 0, 82)\nDistFrame.BackgroundColor3 = Color3.fromRGB(38, 38, 46)\nDistFrame.BorderSizePixel = 0\nDistFrame.Parent = MainFrame\n\nlocal DistLabel = Instance.new(\"TextLabel\")\nDistLabel.Size = UDim2.new(0.56, -6, 1, 0)\nDistLabel.Position = UDim2.new(0, 8, 0, 0)\nDistLabel.BackgroundTransparency = 1\nDistLabel.Text = \"Дистанция (st):\"\nDistLabel.TextColor3 = Color3.fromRGB(225, 225, 235)\nDistLabel.TextSize = 12\nDistLabel.Font = Enum.Font.GothamBold\nDistLabel.TextXAlignment = Enum.TextXAlignment.Left\nDistLabel.Parent = DistFrame\n\nlocal DistBox = Instance.new(\"TextBox\")\nDistBox.Size = UDim2.new(0.44, -8, 1, -6)\nDistBox.Position = UDim2.new(0.56, 0, 0, 3)\nDistBox.BackgroundColor3 = Color3.fromRGB(24, 24, 30)\nDistBox.BorderSizePixel = 0\nDistBox.Text = tostring(DEFAULT_DISTANCE)\nDistBox.PlaceholderText = \"3.5\"\nDistBox.ClearTextOnFocus = false\nDistBox.TextColor3 = Color3.fromRGB(255, 255, 255)\nDistBox.TextSize = 13\nDistBox.Font = Enum.Font.GothamBold\nDistBox.Parent = DistFrame\n\n-- Панель выбора позиции (до 3 сторон одновременно)\nlocal PosGrid = Instance.new(\"Frame\")\nPosGrid.Size = UDim2.new(1, -16, 0, 68)\nPosGrid.Position = UDim2.new(0, 8, 0, 120)\nPosGrid.BackgroundTransparency = 1\nPosGrid.Parent = MainFrame\n\nlocal UIGridLayout = Instance.new(\"UIGridLayout\")\nUIGridLayout.CellSize = UDim2.new(0.3333, -4, 0, 30)\nUIGridLayout.CellPadding = UDim2.new(0, 6, 0, 6)\nUIGridLayout.FillDirectionMaxCells = 3\nUIGridLayout.Parent = PosGrid\n\nlocal POSITION_MODES = {\n\t{ name = \"Сзади\", dir = Vector3.new(0, 0, 1), opposite = \"Впереди\" },\n\t{ name = \"Впереди\", dir = Vector3.new(0, 0, -1), opposite = \"Сзади\" },\n\t{ name = \"Слева\", dir = Vector3.new(-1, 0, 0), opposite = \"Справа\" },\n\t{ name = \"Справа\", dir = Vector3.new(1, 0, 0), opposite = \"Слева\" },\n\t{ name = \"Сверху\", dir = Vector3.new(0, 1, 0), opposite = \"Снизу\" },\n\t{ name = \"Снизу\", dir = Vector3.new(0, -1, 0), opposite = \"Сверху\" },\n}\n\nlocal modeLookup = {}\nfor _, mode in ipairs(POSITION_MODES) do\n\tmodeLookup[mode.name] = mode\nend\n\nlocal currentDistance = DEFAULT_DISTANCE\nlocal selectedModes = { \"Сзади\" } -- максимум 3 стороны\nlocal modeButtons = {}\n\n-- Список игроков (внизу, после всех панелей)\nlocal ListFrame = Instance.new(\"ScrollingFrame\")\nListFrame.Size = UDim2.new(1, -16, 1, -202)\nListFrame.Position = UDim2.new(0, 8, 0, 194)\nListFrame.BackgroundColor3 = Color3.fromRGB(38, 38, 46)\nListFrame.BorderSizePixel = 0\nListFrame.ScrollBarThickness = 5\nListFrame.CanvasSize = UDim2.new(0, 0, 0, 0)\nListFrame.Parent = MainFrame\n\nlocal UIListLayout = Instance.new(\"UIListLayout\")\nUIListLayout.Padding = UDim.new(0, 4)\nUIListLayout.Parent = ListFrame\n\n-- Состояние\nlocal alive = true\nlocal enabled = false\nlocal isPinned = false\nlocal isMinimized = false\nlocal selectedPlayers = {} -- без ограничения по количеству\nlocal activeTarget = nil\nlocal playerButtons = {}\nlocal connections = {}\n\nlocal function getCombinedOffset()\n\tlocal totalDir = Vector3.zero\n\tfor _, modeName in ipairs(selectedModes) do\n\t\tlocal mode = modeLookup[modeName]\n\t\tif mode then\n\t\t\ttotalDir += mode.dir\n\t\tend\n\tend\n\tif totalDir.Magnitude > 0 then\n\t\ttotalDir = totalDir.Unit\n\tend\n\treturn totalDir * currentDistance\nend\n\nlocal function getModesLabel()\n\tif #selectedModes == 0 then\n\t\treturn \"Без смещения\"\n\tend\n\treturn table.concat(selectedModes, \" + \")\nend\n\nlocal function applyDistanceInput(syncText)\n\tlocal cleaned = DistBox.Text:gsub(\",\", \".\")\n\tlocal num = tonumber(cleaned)\n\tif num and num >= 0 and num <= 500 then\n\t\tcurrentDistance = num\n\t\tif syncText then\n\t\t\tDistBox.Text = tostring(num)\n\t\tend\n\telseif syncText then\n\t\tDistBox.Text = tostring(currentDistance)\n\tend\nend\n\nDistBox.FocusLost:Connect(function()\n\tapplyDistanceInput(true)\nend)\n\nDistBox:GetPropertyChangedSignal(\"Text\"):Connect(function()\n\tapplyDistanceInput(false)\nend)\n\nlocal function getHRP(player)\n\tif not player or not player.Parent then\n\t\treturn nil\n\tend\n\tlocal char = player.Character\n\treturn char and char:FindFirstChild(\"HumanoidRootPart\")\nend\n\nlocal function recoverCharacterFromGround()\n\tlocal char = LocalPlayer.Character\n\tlocal myHRP = getHRP(LocalPlayer)\n\tif not char or not myHRP then\n\t\treturn\n\tend\n\n\tmyHRP.AssemblyLinearVelocity = Vector3.zero\n\tmyHRP.AssemblyAngularVelocity = Vector3.zero\n\n\tlocal rayParams = RaycastParams.new()\n\trayParams.FilterType = Enum.RaycastFilterType.Exclude\n\trayParams.FilterDescendantsInstances = { char }\n\n\tlocal origin = myHRP.Position\n\tlocal upResult = workspace:Raycast(origin, Vector3.new(0, 18, 0), rayParams)\n\tif upResult then\n\t\tmyHRP.CFrame = CFrame.new(origin.X, upResult.Position.Y + 3.5, origin.Z) * myHRP.CFrame.Rotation\n\t\torigin = myHRP.Position\n\tend\n\n\tlocal downResult = workspace:Raycast(origin + Vector3.new(0, 5, 0), Vector3.new(0, -15, 0), rayParams)\n\tif downResult then\n\t\tlocal safeY = math.max(origin.Y, downResult.Position.Y + 3.3)\n\t\tmyHRP.CFrame = CFrame.new(origin.X, safeY, origin.Z) * myHRP.CFrame.Rotation\n\telse\n\t\tmyHRP.CFrame = myHRP.CFrame + Vector3.new(0, 4, 0)\n\tend\n\n\tlocal hum = char:FindFirstChildOfClass(\"Humanoid\")\n\tif hum then\n\t\thum:ChangeState(Enum.HumanoidStateType.GettingUp)\n\tend\nend\n\nlocal function getDistanceText(targetPlayer)\n\tlocal myHRP = getHRP(LocalPlayer)\n\tlocal targetHRP = getHRP(targetPlayer)\n\tif not myHRP or not targetHRP then\n\t\treturn \"—\"\n\tend\n\tlocal dist = math.floor((myHRP.Position - targetHRP.Position).Magnitude + 0.5)\n\treturn tostring(dist) .. \" st\"\nend\n\nlocal function formatPlayerButtonText(plr)\n\tlocal idx = table.find(selectedPlayers, plr)\n\tlocal distText = getDistanceText(plr)\n\tif idx then\n\t\treturn plr.DisplayName .. \" (@\" .. plr.Name .. \") [\" .. idx .. \"] | \" .. distText\n\tend\n\treturn plr.DisplayName .. \" (@\" .. plr.Name .. \") | \" .. distText\nend\n\nlocal function updateStatusUI()\n\tlocal stateLabel = enabled and (\"ВКЛ (\" .. getModesLabel() .. \", \" .. tostring(currentDistance) .. \"st)\") or \"ВЫКЛ\"\n\tTitle.Text = \"Цели: \" .. tostring(#selectedPlayers) .. \" | \" .. stateLabel\n\n\tif enabled then\n\t\tOnBtn.BackgroundColor3 = Color3.fromRGB(65, 200, 105)\n\t\tOffBtn.BackgroundColor3 = Color3.fromRGB(130, 40, 40)\n\telse\n\t\tOnBtn.BackgroundColor3 = Color3.fromRGB(40, 120, 65)\n\t\tOffBtn.BackgroundColor3 = Color3.fromRGB(205, 55, 55)\n\tend\nend\n\nlocal function refreshModeButtons()\n\tfor modeName, btn in pairs(modeButtons) do\n\t\tlocal idx = table.find(selectedModes, modeName)\n\t\tlocal modeData = modeLookup[modeName]\n\t\tif idx then\n\t\t\tbtn.BackgroundColor3 = Color3.fromRGB(65, 115, 210)\n\t\t\tbtn.Text = modeName .. \" [\" .. idx .. \"]\"\n\t\telse\n\t\t\tbtn.BackgroundColor3 = Color3.fromRGB(50, 50, 62)\n\t\t\tbtn.Text = modeName\n\t\tend\n\t\tif modeData then\n\t\t\tbtn.TextColor3 = Color3.fromRGB(240, 240, 245)\n\t\tend\n\tend\n\tupdateStatusUI()\nend\n\nlocal function togglePositionMode(mode)\n\tlocal existingIdx = table.find(selectedModes, mode.name)\n\tif existingIdx then\n\t\ttable.remove(selectedModes, existingIdx)\n\t\trefreshModeButtons()\n\t\treturn\n\tend\n\n\t-- Убираем противоположную сторону, если она была выбрана\n\tlocal oppIdx = table.find(selectedModes, mode.opposite)\n\tif oppIdx then\n\t\ttable.remove(selectedModes, oppIdx)\n\tend\n\n\t-- Ограничение: не более 3 сторон одновременно\n\tif #selectedModes >= 3 then\n\t\ttable.remove(selectedModes, 1)\n\tend\n\n\ttable.insert(selectedModes, mode.name)\n\trefreshModeButtons()\nend\n\nfor _, mode in ipairs(POSITION_MODES) do\n\tlocal btn = Instance.new(\"TextButton\")\n\tbtn.BackgroundColor3 = Color3.fromRGB(50, 50, 62)\n\tbtn.BorderSizePixel = 0\n\tbtn.Text = mode.name\n\tbtn.TextColor3 = Color3.fromRGB(240, 240, 245)\n\tbtn.TextSize = 12\n\tbtn.Font = Enum.Font.GothamBold\n\tbtn.Parent = PosGrid\n\n\tbtn.MouseButton1Click:Connect(function()\n\t\ttogglePositionMode(mode)\n\tend)\n\n\tmodeButtons[mode.name] = btn\nend\nrefreshModeButtons()\n\nlocal function teleportToTarget(targetPlayer)\n\tlocal char = LocalPlayer.Character\n\tlocal myHRP = getHRP(LocalPlayer)\n\tlocal targetHRP = getHRP(targetPlayer)\n\tif myHRP and targetHRP then\n\t\tlocal desiredPos = targetHRP.CFrame:PointToWorldSpace(getCombinedOffset())\n\n\t\tif char then\n\t\t\tlocal rayParams = RaycastParams.new()\n\t\t\trayParams.FilterType = Enum.RaycastFilterType.Exclude\n\t\t\trayParams.FilterDescendantsInstances = { char, targetPlayer.Character }\n\t\t\tlocal floorHit = workspace:Raycast(desiredPos + Vector3.new(0, 2, 0), Vector3.new(0, -10, 0), rayParams)\n\t\t\tif floorHit and desiredPos.Y < floorHit.Position.Y + 2.8 then\n\t\t\t\tdesiredPos = Vector3.new(desiredPos.X, floorHit.Position.Y + 2.8, desiredPos.Z)\n\t\t\tend\n\t\tend\n\n\t\tlocal lookTarget = Vector3.new(targetHRP.Position.X, desiredPos.Y, targetHRP.Position.Z)\n\t\tif (lookTarget - desiredPos).Magnitude < 0.01 then\n\t\t\tlookTarget = targetHRP.Position\n\t\tend\n\t\tmyHRP.AssemblyLinearVelocity = Vector3.zero\n\t\tmyHRP.AssemblyAngularVelocity = Vector3.zero\n\t\tmyHRP.CFrame = CFrame.lookAt(desiredPos, lookTarget)\n\tend\nend\n\nlocal function refreshButtonHighlights()\n\tfor plr, btn in pairs(playerButtons) do\n\t\tif plr and plr.Parent then\n\t\t\tlocal idx = table.find(selectedPlayers, plr)\n\t\t\tif idx then\n\t\t\t\tbtn.BackgroundColor3 = Color3.fromRGB(65, 115, 210)\n\t\t\telse\n\t\t\t\tbtn.BackgroundColor3 = Color3.fromRGB(52, 52, 62)\n\t\t\tend\n\t\t\tbtn.Text = formatPlayerButtonText(plr)\n\t\tend\n\tend\n\tupdateStatusUI()\nend\n\nlocal function cleanupInvalidPlayers()\n\tfor i = #selectedPlayers, 1, -1 do\n\t\tif not selectedPlayers[i] or not selectedPlayers[i].Parent then\n\t\t\ttable.remove(selectedPlayers, i)\n\t\tend\n\tend\nend\n\nlocal function togglePlayerSelection(plr)\n\tlocal existingIndex = table.find(selectedPlayers, plr)\n\tif existingIndex then\n\t\ttable.remove(selectedPlayers, existingIndex)\n\telse\n\t\ttable.insert(selectedPlayers, plr)\n\tend\n\n\tcleanupInvalidPlayers()\n\n\tif #selectedPlayers > 0 then\n\t\tif not activeTarget or not table.find(selectedPlayers, activeTarget) then\n\t\t\tactiveTarget = selectedPlayers[1]\n\t\tend\n\telse\n\t\tactiveTarget = nil\n\tend\n\n\trefreshButtonHighlights()\nend\n\nlocal function rebuildPlayerList()\n\tcleanupInvalidPlayers()\n\tlocal savedScroll = ListFrame.CanvasPosition\n\n\tfor _, child in ipairs(ListFrame:GetChildren()) do\n\t\tif child:IsA(\"TextButton\") then\n\t\t\tchild:Destroy()\n\t\tend\n\tend\n\ttable.clear(playerButtons)\n\n\tfor _, plr in ipairs(Players:GetPlayers()) do\n\t\tif plr ~= LocalPlayer then\n\t\t\tlocal btn = Instance.new(\"TextButton\")\n\t\t\tbtn.Size = UDim2.new(1, -6, 0, 30)\n\t\t\tbtn.BackgroundColor3 = Color3.fromRGB(52, 52, 62)\n\t\t\tbtn.BorderSizePixel = 0\n\t\t\tbtn.TextColor3 = Color3.fromRGB(240, 240, 245)\n\t\t\tbtn.TextSize = 12\n\t\t\tbtn.Font = Enum.Font.Gotham\n\t\t\tbtn.Parent = ListFrame\n\n\t\t\tbtn.MouseButton1Click:Connect(function()\n\t\t\t\ttogglePlayerSelection(plr)\n\t\t\tend)\n\n\t\t\tplayerButtons[plr] = btn\n\t\tend\n\tend\n\n\trefreshButtonHighlights()\n\tListFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 6)\n\tListFrame.CanvasPosition = savedScroll\nend\n\n-- Кнопка Пин\nPinBtn.MouseButton1Click:Connect(function()\n\tisPinned = not isPinned\n\tMainFrame.Draggable = not isPinned\n\tif isPinned then\n\t\tPinBtn.BackgroundColor3 = Color3.fromRGB(65, 115, 210)\n\telse\n\t\tPinBtn.BackgroundColor3 = Color3.fromRGB(52, 52, 64)\n\tend\nend)\n\n-- Кнопка Свернуть (-)\nMinBtn.MouseButton1Click:Connect(function()\n\tisMinimized = not isMinimized\n\tif isMinimized then\n\t\tMainFrame.Size = COLLAPSED_SIZE\n\t\tPowerFrame.Visible = false\n\t\tDistFrame.Visible = false\n\t\tPosGrid.Visible = false\n\t\tListFrame.Visible = false\n\t\tMinBtn.Text = \"+\"\n\telse\n\t\tMainFrame.Size = EXPANDED_SIZE\n\t\tPowerFrame.Visible = true\n\t\tDistFrame.Visible = true\n\t\tPosGrid.Visible = true\n\t\tListFrame.Visible = true\n\t\tMinBtn.Text = \"-\"\n\tend\nend)\n\n-- Кнопка Закрыть (❌)\nCloseBtn.MouseButton1Click:Connect(function()\n\tlocal wasEnabled = enabled\n\talive = false\n\tenabled = false\n\ttable.clear(selectedPlayers)\n\tif wasEnabled then\n\t\trecoverCharacterFromGround()\n\tend\n\tfor _, conn in ipairs(connections) do\n\t\tif conn.Connected then\n\t\t\tconn:Disconnect()\n\t\tend\n\tend\n\tif ScreenGui and ScreenGui.Parent then\n\t\tScreenGui:Destroy()\n\tend\nend)\n\n-- Кнопка \"Вкл\" (работает даже если целей 0)\nOnBtn.MouseButton1Click:Connect(function()\n\tcleanupInvalidPlayers()\n\tif #selectedPlayers > 0 and (not activeTarget or not table.find(selectedPlayers, activeTarget)) then\n\t\tactiveTarget = selectedPlayers[1]\n\tend\n\tenabled = true\n\tupdateStatusUI()\nend)\n\n-- Кнопка \"Выкл\"\nOffBtn.MouseButton1Click:Connect(function()\n\tenabled = false\n\tupdateStatusUI()\n\trecoverCharacterFromGround()\nend)\n\ntable.insert(connections, Players.PlayerAdded:Connect(function()\n\ttask.wait(0.1)\n\tif alive then\n\t\trebuildPlayerList()\n\tend\nend))\n\ntable.insert(connections, Players.PlayerRemoving:Connect(function(plr)\n\tlocal idx = table.find(selectedPlayers, plr)\n\tif idx then\n\t\ttable.remove(selectedPlayers, idx)\n\tend\n\tif activeTarget == plr then\n\t\tactiveTarget = selectedPlayers[1]\n\tend\n\tif alive then\n\t\trebuildPlayerList()\n\tend\nend))\n\n-- Автообновление списка игроков каждые 1 секунду\ntask.spawn(function()\n\twhile alive do\n\t\ttask.wait(1)\n\t\tif alive then\n\t\t\trebuildPlayerList()\n\t\tend\n\tend\nend)\n\n-- Цикл переключения между выбранными игроками (по 2 сек на каждого)\ntask.spawn(function()\n\twhile alive do\n\t\tif enabled and #selectedPlayers >= 2 then\n\t\t\tlocal index = 1\n\t\t\twhile alive and enabled and #selectedPlayers >= 2 do\n\t\t\t\tcleanupInvalidPlayers()\n\t\t\t\tif #selectedPlayers < 2 then\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\t\tif index > #selectedPlayers then\n\t\t\t\t\tindex = 1\n\t\t\t\tend\n\t\t\t\tlocal candidate = selectedPlayers[index]\n\t\t\t\tif candidate and candidate.Parent then\n\t\t\t\t\tactiveTarget = candidate\n\t\t\t\t\ttask.wait(2)\n\t\t\t\tend\n\t\t\t\tindex += 1\n\t\t\tend\n\t\telse\n\t\t\ttask.wait(0.1)\n\t\tend\n\tend\nend)\n\n-- Постоянное удержание в выбранной позиции и обновление дистанции в кнопках\ntable.insert(connections, RunService.Heartbeat:Connect(function()\n\tif not alive then\n\t\treturn\n\tend\n\n\tif not isMinimized and ListFrame.Visible then\n\t\tfor plr, btn in pairs(playerButtons) do\n\t\t\tif plr and plr.Parent and btn and btn.Parent then\n\t\t\t\tbtn.Text = formatPlayerButtonText(plr)\n\t\t\tend\n\t\tend\n\tend\n\n\tif not enabled then\n\t\treturn\n\tend\n\n\tcleanupInvalidPlayers()\n\n\tif #selectedPlayers == 0 then\n\t\tactiveTarget = nil\n\t\treturn\n\tend\n\n\tif #selectedPlayers == 1 then\n\t\tactiveTarget = selectedPlayers[1]\n\telseif not activeTarget or not activeTarget.Parent or not table.find(selectedPlayers, activeTarget) then\n\t\tactiveTarget = selectedPlayers[1]\n\tend\n\n\tteleportToTarget(activeTarget)\nend))\n\nrebuildPlayerList()",
+      "createdAt": "2026-11-22T13:14:39.888Z",
+      "updatedAt": "2026-11-26T06:43:54.515Z",
       "categoryIds": [
         "new"
       ],
-      "glyph": "fruit",
+      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -3947,7 +3982,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5577744,
+      "views": 5577775,
       "likes": 112,
       "dislikes": 56,
       "rating": 3.3,
@@ -3987,7 +4022,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4492871,
+      "views": 4492878,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -4028,7 +4063,7 @@
         "sae",
         "universal"
       ],
-      "views": 3988069,
+      "views": 3988077,
       "likes": 101,
       "dislikes": 51,
       "rating": 3.3,
@@ -4069,7 +4104,7 @@
         "flow",
         "script"
       ],
-      "views": 3925662,
+      "views": 3925757,
       "likes": 34,
       "dislikes": 10,
       "rating": 3.9,
@@ -4109,7 +4144,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3895798,
+      "views": 3895889,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4148,7 +4183,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3577089,
+      "views": 3577185,
       "likes": 69,
       "dislikes": 13,
       "rating": 4.2,
@@ -4188,7 +4223,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3509349,
+      "views": 3509350,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4228,7 +4263,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3390216,
+      "views": 3390217,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4306,7 +4341,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3144604,
+      "views": 3144607,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4345,7 +4380,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3023660,
+      "views": 3023663,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4384,7 +4419,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2806980,
+      "views": 2807068,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4424,7 +4459,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2721715,
+      "views": 2721716,
       "likes": 46,
       "dislikes": 30,
       "rating": 3,
@@ -4778,7 +4813,7 @@
         "Hood Rivals",
         "Build a Car to Go Far"
       ],
-      "views": 1993950,
+      "views": 1994047,
       "likes": 162,
       "dislikes": 48,
       "rating": 3.9,
@@ -4968,7 +5003,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1893341,
+      "views": 1893345,
       "likes": 207,
       "dislikes": 35,
       "rating": 4.3,
@@ -5047,7 +5082,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1883685,
+      "views": 1883775,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5124,7 +5159,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875611,
+      "views": 1875612,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5386,7 +5421,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748437,
+      "views": 1748438,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5540,7 +5575,7 @@
         "god mode",
         "infinite health"
       ],
-      "views": 1703247,
+      "views": 1703248,
       "likes": 15,
       "dislikes": 0,
       "rating": 5,
@@ -5618,7 +5653,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682413,
+      "views": 1682414,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -5694,7 +5729,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1656564,
+      "views": 1656565,
       "likes": 91,
       "dislikes": 12,
       "rating": 4.4,
@@ -5733,7 +5768,7 @@
         "Blox Fruits",
         "Op script"
       ],
-      "views": 1611829,
+      "views": 1611830,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -5925,7 +5960,7 @@
         "screen stretch",
         "open"
       ],
-      "views": 1484826,
+      "views": 1484827,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -6162,7 +6197,7 @@
         "egg",
         "collect"
       ],
-      "views": 1378423,
+      "views": 1378424,
       "likes": 51,
       "dislikes": 3,
       "rating": 4.7,
@@ -6278,7 +6313,7 @@
         "free",
         "easy"
       ],
-      "views": 1353145,
+      "views": 1353234,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6542,7 +6577,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1291676,
+      "views": 1291764,
       "likes": 37,
       "dislikes": 3,
       "rating": 4.6,
@@ -7029,7 +7064,7 @@
         "Recoil",
         "Keyless"
       ],
-      "views": 1054725,
+      "views": 1054726,
       "likes": 16,
       "dislikes": 8,
       "rating": 3.3,
@@ -7066,7 +7101,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 1053489,
+      "views": 1053490,
       "likes": 1,
       "dislikes": 2,
       "rating": 1.7,
@@ -7332,7 +7367,7 @@
         "Executor",
         "VS Code"
       ],
-      "views": 777399,
+      "views": 777400,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -7370,7 +7405,7 @@
         "FE Scripts",
         "Genesis"
       ],
-      "views": 773524,
+      "views": 773525,
       "likes": 1,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7407,7 +7442,7 @@
         "FE",
         "Genesis FE"
       ],
-      "views": 767147,
+      "views": 767148,
       "likes": 2,
       "dislikes": 0,
       "summary": "MY SCRIPTS REQUIRE HATS TO RUN, THERE ARE **FREE** HATS, FIND ALL HATS IN THE GAME BELOW: https://www.roblox.com/games/14133411956/Foundation JOIN MY DISCORD TO STAY UPDATED ON NEW SCRIPTS, PARTAKE IN SCRIPT VOTES, GIVEAWAYS, ETC: https:…",
@@ -7480,7 +7515,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 735912,
+      "views": 735913,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7896,7 +7931,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 609958,
+      "views": 609959,
       "likes": 0,
       "dislikes": 3,
       "rating": 1,
@@ -8230,7 +8265,7 @@
         "Sonic exe",
         "Button"
       ],
-      "views": 547065,
+      "views": 547066,
       "likes": 16,
       "dislikes": 5,
       "rating": 3.8,
@@ -8564,7 +8599,7 @@
         "best",
         "Op"
       ],
-      "views": 1073109,
+      "views": 1073114,
       "likes": 98,
       "dislikes": 17,
       "rating": 4.3,
@@ -8905,7 +8940,7 @@
         "Bladeball",
         "Keyless"
       ],
-      "views": 893948,
+      "views": 893949,
       "likes": 13,
       "dislikes": 8,
       "rating": 3.1,
@@ -8981,7 +9016,7 @@
         "Build A Boat",
         "Auto Farm"
       ],
-      "views": 889110,
+      "views": 889111,
       "likes": 144,
       "dislikes": 14,
       "rating": 4.6,
@@ -9062,43 +9097,6 @@
       "code": "loadstring(game:HttpGet(\"https://artheirs.xyz/api/free\"))()",
       "createdAt": "2026-11-16T10:10:31.674Z",
       "updatedAt": "2026-11-18T09:29:01.972Z",
-      "categoryIds": [
-        "patched"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#B33A3A",
-        "#4A0000"
-      ]
-    },
-    {
-      "id": "scriptblox-6afaac39c7ecd269304f7925",
-      "slug": "Universal-Script-Void-Hub-Universal-Script-Script-Center-or-24-Scripts-or-237113",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Void-Hub-Universal-Script-Script-Center-or-24-Scripts-or-237113",
-      "title": "Void Hub  Universal Script + Script Center | 24+ Scripts |",
-      "game": "Universal Script 📌",
-      "gameImage": "https://scriptblox.com/images/sb/0-1794812985966.png",
-      "author": "zaxar",
-      "authorVerified": false,
-      "verified": false,
-      "status": "patched",
-      "premium": false,
-      "keyless": true,
-      "universal": true,
-      "tags": [
-        "universal script",
-        "script center",
-        "script hub"
-      ],
-      "views": 358,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Void Hub — a universal Roblox script with a built-in script center, for PC and mobile. ━━━━━━━━━━━━━━━━━━━━━━━━━ ⚡ BUILT-IN FEATURES (own code): • Player — Speed, Gravity, Invisible • Visuals — Highlight on all players / selected player…",
-      "code": "local Players = game:GetService(\"Players\")\nlocal TweenService = game:GetService(\"TweenService\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal RunService = game:GetService(\"RunService\")\nlocal CoreGui = game:GetService(\"CoreGui\")\nlocal Lighting = game:GetService(\"Lighting\")\nlocal HttpService = game:GetService(\"HttpService\")\nlocal Workspace = game:GetService(\"Workspace\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\nlocal isMobile = UserInputService.TouchEnabled\nlocal deviceName = isMobile and \"Mobile\" or \"PC\"\n\nlocal FileName = \"VoidHubSavedScripts.json\"\nlocal SavedScripts = {}\n\nif isfile and isfile(FileName) then\n    local success, result = pcall(function() return readfile(FileName) end)\n    if success and result then\n        local decodeSuccess, decoded = pcall(function() return HttpService:JSONDecode(result) end)\n        if decodeSuccess and type(decoded) == \"table\" then SavedScripts = decoded end\n    end\nend\n\nlocal function saveScriptsToFile()\n    if writefile then pcall(function() writefile(FileName, HttpService:JSONEncode(SavedScripts)) end) end\nend\n\nlocal SettingsFileName = \"VoidHubSettings.json\"\nlocal SavedBackgroundIndex = 1\n\nif isfile and isfile(SettingsFileName) then\n    local success, result = pcall(function() return readfile(SettingsFileName) end)\n    if success and result then\n        local decodeSuccess, decoded = pcall(function() return HttpService:JSONDecode(result) end)\n        if decodeSuccess and type(decoded) == \"table\" and type(decoded.BackgroundIndex) == \"number\" then\n            SavedBackgroundIndex = decoded.BackgroundIndex\n        end\n    end\nend\n\nlocal function saveBackgroundIndex(idx)\n    if writefile then pcall(function() writefile(SettingsFileName, HttpService:JSONEncode({BackgroundIndex = idx})) end) end\nend\n\nfor _, name in pairs({\"VoidLoadingGui\", \"VoidHubGui\"}) do\n    local old = CoreGui:FindFirstChild(name) or playerGui:FindFirstChild(name)\n    if old then old:Destroy() end\nend\nlocal oldBlur = Lighting:FindFirstChild(\"VoidBlur\")\nif oldBlur then oldBlur:Destroy() end\nfor _, v in pairs(Lighting:GetChildren()) do\n    if v:IsA(\"ColorCorrectionEffect\") and v.Name:match(\"VoidShader\") then v:Destroy() end\nend\n\ntask.wait(3)\nlocal loadGui = Instance.new(\"ScreenGui\")\nloadGui.Name = \"VoidLoadingGui\"\nloadGui.ResetOnSpawn = false\nloadGui.IgnoreGuiInset = true\nloadGui.DisplayOrder = 999\npcall(function() loadGui.Parent = CoreGui end)\nif not loadGui.Parent then loadGui.Parent = playerGui end\n\nlocal bg = Instance.new(\"Frame\")\nbg.Size = UDim2.new(1, 0, 1, 0)\nbg.BackgroundColor3 = Color3.fromRGB(10, 10, 15)\nbg.Parent = loadGui\n\nlocal spinnerContainer = Instance.new(\"Frame\")\nspinnerContainer.AnchorPoint = Vector2.new(0.5, 0.5)\nspinnerContainer.Size = UDim2.new(0, 150, 0, 150)\nspinnerContainer.Position = UDim2.new(0.5, 0, 0.45, 0)\nspinnerContainer.BackgroundTransparency = 1\nspinnerContainer.Parent = loadGui\n\nlocal ringBg = Instance.new(\"Frame\")\nringBg.Size = UDim2.new(1, 0, 1, 0)\nringBg.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\nringBg.Parent = spinnerContainer\nlocal rbgC = Instance.new(\"UICorner\"); rbgC.CornerRadius = UDim.new(1,0); rbgC.Parent = ringBg\n\nlocal shadow = Instance.new(\"Frame\")\nshadow.AnchorPoint = Vector2.new(0.5, 0.5)\nshadow.Size = UDim2.new(1, 0, 1, 0)\nshadow.Position = UDim2.new(0.5, 0, 0.5, 0)\nshadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\nshadow.Parent = spinnerContainer\nlocal shC = Instance.new(\"UICorner\"); shC.CornerRadius = UDim.new(1,0); shC.Parent = shadow\n\nlocal shadowGradient = Instance.new(\"UIGradient\")\nshadowGradient.Color = ColorSequence.new({\n    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 100)),\n    ColorSequenceKeypoint.new(1, Color3.fromRGB(30, 30, 40))\n})\nshadowGradient.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(1, 1)})\nshadowGradient.Parent = shadow\n\nlocal hole = Instance.new(\"Frame\")\nhole.AnchorPoint = Vector2.new(0.5, 0.5)\nhole.Size = UDim2.new(0, 110, 0, 110)\nhole.Position = UDim2.new(0.5, 0, 0.5, 0)\nhole.BackgroundColor3 = Color3.fromRGB(10, 10, 15)\nhole.Parent = spinnerContainer\nlocal hC = Instance.new(\"UICorner\"); hC.CornerRadius = UDim.new(1,0); hC.Parent = hole\n\nlocal rotation = 0\ntask.spawn(function()\n    while loadGui.Parent do\n        rotation = rotation + 5\n        if rotation >= 360 then rotation = 0 end\n        shadowGradient.Rotation = rotation\n        task.wait(0.03)\n    end\nend)\n\nlocal loadingText = Instance.new(\"TextLabel\")\nloadingText.AnchorPoint = Vector2.new(0.5, 0.5)\nloadingText.Size = UDim2.new(0, 300, 0, 40)\nloadingText.Position = UDim2.new(0.5, 0, 0.6, 0)\nloadingText.BackgroundTransparency = 1\nloadingText.Font = Enum.Font.Code\nloadingText.Text = \"> Loading Void <\"\nloadingText.TextColor3 = Color3.fromRGB(0, 255, 100)\nloadingText.TextSize = 22\nloadingText.Parent = loadGui\n\nlocal textStroke = Instance.new(\"UIStroke\")\ntextStroke.Color = Color3.fromRGB(0, 255, 100)\ntextStroke.Thickness = 2\ntextStroke.Transparency = 0.5\ntextStroke.Parent = loadingText\n\nlocal loadingTexts = {\"> Loading Void Hub <\", \"> Loading Tabs <\", \"> Loading Scripts <\", \"> Loading Modules <\", \"> Ready! <\"}\ntask.spawn(function()\n    for i, txt in ipairs(loadingTexts) do\n        loadingText.Text = txt\n        if txt == \"> Ready! <\" then\n            loadingText.TextColor3 = Color3.fromRGB(255, 255, 255)\n            textStroke.Color = Color3.fromRGB(255, 255, 255)\n        end\n        task.wait(2)\n    end\nend)\n\ntask.wait(10)\n\nTweenService:Create(bg, TweenInfo.new(1), {BackgroundTransparency = 1}):Play()\nTweenService:Create(spinnerContainer, TweenInfo.new(1), {Size = UDim2.new(0, 0, 0, 0)}):Play()\nTweenService:Create(loadingText, TweenInfo.new(1), {TextTransparency = 1}):Play()\nTweenService:Create(textStroke, TweenInfo.new(1), {Transparency = 1}):Play()\ntask.wait(1.5)\nloadGui:Destroy()\n\nlocal ScreenGui = Instance.new(\"ScreenGui\")\nScreenGui.Name = \"VoidHubGui\"\nScreenGui.ResetOnSpawn = false\nScreenGui.DisplayOrder = 998\nScreenGui.IgnoreGuiInset = true\npcall(function() ScreenGui.Parent = CoreGui end)\nif not ScreenGui.Parent then ScreenGui.Parent = playerGui end\n\nlocal TopInfoBar = Instance.new(\"Frame\")\nTopInfoBar.Size = UDim2.new(0, 200, 0, 30)\nTopInfoBar.Position = UDim2.new(0.5, -100, 0, 10)\nTopInfoBar.BackgroundColor3 = Color3.fromRGB(15, 15, 20)\nTopInfoBar.BackgroundTransparency = 1\nTopInfoBar.Visible = false\nTopInfoBar.Parent = ScreenGui\nInstance.new(\"UICorner\", TopInfoBar).CornerRadius = UDim.new(0, 6)\nlocal TopInfoStroke = Instance.new(\"UIStroke\", TopInfoBar); TopInfoStroke.Color = Color3.fromRGB(0, 255, 100); TopInfoStroke.Thickness = 1; TopInfoStroke.Transparency = 1\n\nlocal DeviceText = Instance.new(\"TextLabel\")\nDeviceText.Size = UDim2.new(0.5, 0, 1, 0)\nDeviceText.BackgroundTransparency = 1\nDeviceText.Font = Enum.Font.Code\nDeviceText.Text = \"Device: \" .. deviceName\nDeviceText.TextColor3 = Color3.fromRGB(0, 255, 100)\nDeviceText.TextSize = 14\nDeviceText.Parent = TopInfoBar\n\nlocal FPSText = Instance.new(\"TextLabel\")\nFPSText.Size = UDim2.new(0.5, 0, 1, 0)\nFPSText.Position = UDim2.new(0.5, 0, 0, 0)\nFPSText.BackgroundTransparency = 1\nFPSText.Font = Enum.Font.Code\nFPSText.Text = \"FPS: 60\"\nFPSText.TextColor3 = Color3.fromRGB(255, 255, 255)\nFPSText.TextSize = 14\nFPSText.Parent = TopInfoBar\n\nlocal frames = 0\nlocal timeElapsed = 0\nRunService.RenderStepped:Connect(function(dt)\n    frames = frames + 1\n    timeElapsed = timeElapsed + dt\n    if timeElapsed >= 1 then\n        FPSText.Text = \"FPS: \" .. tostring(frames)\n        frames = 0\n        timeElapsed = 0\n    end\nend)\n\nlocal blur = Instance.new(\"BlurEffect\")\nblur.Name = \"VoidBlur\"\nblur.Size = 0\nblur.Parent = Lighting\nTweenService:Create(blur, TweenInfo.new(1), {Size = 15}):Play()\n\nlocal darkOverlay = Instance.new(\"Frame\")\ndarkOverlay.Size = UDim2.new(1, 0, 1, 0)\ndarkOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)\ndarkOverlay.BackgroundTransparency = 1\ndarkOverlay.Parent = ScreenGui\nTweenService:Create(darkOverlay, TweenInfo.new(1), {BackgroundTransparency = 0.5}):Play()\n\nlocal emojiContainer = Instance.new(\"Frame\")\nemojiContainer.Size = UDim2.new(1, 0, 1, 0)\nemojiContainer.BackgroundTransparency = 1\nemojiContainer.Parent = ScreenGui\n\nlocal emojis = {\"✨\", \"🔥\", \"👾\", \"🚀\", \"💎\", \"🌟\", \"🎈\", \"🎵\", \"💫\", \"🪐\"}\nlocal emojiObjects = {}\nlocal isFleeing = false\n\nfor i = 1, 20 do\n    local emoji = Instance.new(\"TextLabel\")\n    emoji.Size = UDim2.new(0, math.random(30, 60), 0, math.random(30, 60))\n    emoji.Position = UDim2.new(math.random(), 0, math.random(), 0)\n    emoji.BackgroundTransparency = 1\n    emoji.Text = emojis[math.random(1, #emojis)]\n    emoji.TextColor3 = Color3.fromRGB(255, 255, 255)\n    emoji.TextScaled = true\n    emoji.TextTransparency = math.random(40, 80) / 100\n    emoji.Rotation = math.random(0, 360)\n    emoji.Parent = emojiContainer\n    \n    local data = {\n        Object = emoji,\n        BasePos = emoji.Position,\n        SpeedX = math.random(-10, 10) / 1000,\n        SpeedY = math.random(-10, 10) / 1000,\n        RotSpeed = math.random(-20, 20) / 10\n    }\n    table.insert(emojiObjects, data)\nend\n\nRunService.RenderStepped:Connect(function(dt)\n    if isFleeing then return end\n    for _, data in pairs(emojiObjects) do\n        local e = data.Object\n        local x = e.Position.X.Scale + (data.SpeedX * dt)\n        local y = e.Position.Y.Scale + (data.SpeedY * dt)\n        \n        if x < 0 then x = 1 elseif x > 1 then x = 0 end\n        if y < 0 then y = 1 elseif y > 1 then y = 0 end\n        \n        e.Position = UDim2.new(x, 0, y, 0)\n        e.Rotation = e.Rotation + (data.RotSpeed * dt * 10)\n    end\nend)\n\nlocal Panel = Instance.new(\"Frame\")\nPanel.AnchorPoint = Vector2.new(0, 0.5)\nPanel.Size = UDim2.new(0, 80, 0, 520)\nPanel.Position = UDim2.new(-0.1, 0, 0.5, 0)\nPanel.BackgroundColor3 = Color3.fromRGB(15, 15, 20)\nPanel.Parent = ScreenGui\nInstance.new(\"UICorner\", Panel).CornerRadius = UDim.new(0, 12)\nlocal PanelStroke = Instance.new(\"UIStroke\", Panel); PanelStroke.Color = Color3.fromRGB(0, 255, 100); PanelStroke.Thickness = 2\n\nlocal ContentFrame = Instance.new(\"Frame\")\nContentFrame.AnchorPoint = Vector2.new(0, 0.5)\nContentFrame.Size = UDim2.new(0, 420, 0, 400) \nContentFrame.Position = UDim2.new(-0.5, 0, 0.5, 0)\nContentFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 25)\nContentFrame.Parent = ScreenGui\nInstance.new(\"UICorner\", ContentFrame).CornerRadius = UDim.new(0, 12)\nlocal ContentStroke = Instance.new(\"UIStroke\", ContentFrame); ContentStroke.Color = Color3.fromRGB(0, 255, 100); ContentStroke.Thickness = 2\n\nlocal function createIcon(emoji, yPos)\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(0, 50, 0, 50)\n    btn.Position = UDim2.new(0, 15, 0, yPos)\n    btn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\n    btn.Text = emoji\n    btn.TextSize = 28\n    btn.Parent = Panel\n    Instance.new(\"UICorner\", btn).CornerRadius = UDim.new(0, 8)\n    return btn\nend\n\nlocal iconPlayer = createIcon(\"👤\", 20)\nlocal iconVisuals = createIcon(\"👁️\", 75)\nlocal iconFly = createIcon(\"✈️\", 130)\nlocal iconShaders = createIcon(\"✨\", 185)\nlocal iconScripts = createIcon(\"📜\", 240)\nlocal iconSettings = createIcon(\"⚙️\", 295)\nlocal iconExit = createIcon(\"🚪\", 440)\n\nlocal PlayerPage = Instance.new(\"Frame\"); PlayerPage.Size = UDim2.new(1, 0, 1, 0); PlayerPage.BackgroundTransparency = 1; PlayerPage.Parent = ContentFrame\nlocal VisualsPage = Instance.new(\"Frame\"); VisualsPage.Size = UDim2.new(1, 0, 1, 0); VisualsPage.BackgroundTransparency = 1; VisualsPage.Visible = false; VisualsPage.Parent = ContentFrame\nlocal FlyPage = Instance.new(\"Frame\"); FlyPage.Size = UDim2.new(1, 0, 1, 0); FlyPage.BackgroundTransparency = 1; FlyPage.Visible = false; FlyPage.Parent = ContentFrame\nlocal ShadersPage = Instance.new(\"Frame\"); ShadersPage.Size = UDim2.new(1, 0, 1, 0); ShadersPage.BackgroundTransparency = 1; ShadersPage.Visible = false; ShadersPage.Parent = ContentFrame\nlocal ScriptsPage = Instance.new(\"Frame\"); ScriptsPage.Size = UDim2.new(1, 0, 1, 0); ScriptsPage.BackgroundTransparency = 1; ScriptsPage.Visible = false; ScriptsPage.Parent = ContentFrame\nlocal SettingsPage = Instance.new(\"Frame\"); SettingsPage.Size = UDim2.new(1, 0, 1, 0); SettingsPage.BackgroundTransparency = 1; SettingsPage.Visible = false; SettingsPage.Parent = ContentFrame\n\nlocal function createToggle(parent, text, default, yPos, callback)\n    local container = Instance.new(\"Frame\")\n    container.Size = UDim2.new(0.8, 0, 0, 40)\n    container.Position = UDim2.new(0.1, 0, 0, yPos)\n    container.BackgroundTransparency = 1\n    container.Parent = parent\n    \n    local label = Instance.new(\"TextLabel\")\n    label.Text = text\n    label.Size = UDim2.new(0.7, 0, 1, 0)\n    label.BackgroundTransparency = 1\n    label.Font = Enum.Font.Code\n    label.TextColor3 = Color3.fromRGB(255, 255, 255)\n    label.TextSize = 16\n    label.TextXAlignment = Enum.TextXAlignment.Left\n    label.Parent = container\n    \n    local switchBg = Instance.new(\"Frame\")\n    switchBg.Size = UDim2.new(0, 44, 0, 24)\n    switchBg.Position = UDim2.new(1, -44, 0.5, -12)\n    switchBg.BackgroundColor3 = default and Color3.fromRGB(0, 255, 100) or Color3.fromRGB(50, 50, 50)\n    switchBg.Parent = container\n    Instance.new(\"UICorner\", switchBg).CornerRadius = UDim.new(1, 0)\n    \n    local knob = Instance.new(\"Frame\")\n    knob.Size = UDim2.new(0, 20, 0, 20)\n    knob.Position = default and UDim2.new(1, -22, 0.5, -10) or UDim2.new(0, 2, 0.5, -10)\n    knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\n    knob.Parent = switchBg\n    Instance.new(\"UICorner\", knob).CornerRadius = UDim.new(1, 0)\n    \n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(1, 0, 1, 0)\n    btn.BackgroundTransparency = 1\n    btn.Text = \"\"\n    btn.Parent = container\n    \n    local isOn = default\n    btn.MouseButton1Click:Connect(function()\n        isOn = not isOn\n        if isOn then\n            TweenService:Create(switchBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 255, 100)}):Play()\n            TweenService:Create(knob, TweenInfo.new(0.2), {Position = UDim2.new(1, -22, 0.5, -10)}):Play()\n        else\n            TweenService:Create(switchBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()\n            TweenService:Create(knob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -10)}):Play()\n        end\n        if callback then callback(isOn) end\n    end)\nend\n\nlocal function createSlider(parent, text, min, max, default, yPos, callback)\n    local container = Instance.new(\"Frame\")\n    container.Size = UDim2.new(0.8, 0, 0, 50)\n    container.Position = UDim2.new(0.1, 0, 0, yPos)\n    container.BackgroundTransparency = 1\n    container.Parent = parent\n    \n    local label = Instance.new(\"TextLabel\")\n    label.Text = text .. \": \" .. default\n    label.Size = UDim2.new(1, 0, 0, 20)\n    label.BackgroundTransparency = 1\n    label.Font = Enum.Font.Code\n    label.TextColor3 = Color3.fromRGB(0, 255, 100)\n    label.TextSize = 16\n    label.TextXAlignment = Enum.TextXAlignment.Left\n    label.Parent = container\n    \n    local sliderBg = Instance.new(\"Frame\")\n    sliderBg.Size = UDim2.new(1, 0, 0, 8)\n    sliderBg.Position = UDim2.new(0, 0, 0, 30)\n    sliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 50)\n    sliderBg.Parent = container\n    Instance.new(\"UICorner\", sliderBg).CornerRadius = UDim.new(1,0)\n    \n    local fill = Instance.new(\"Frame\")\n    fill.Size = UDim2.new((default-min)/(max-min), 0, 1, 0)\n    fill.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\n    fill.Parent = sliderBg\n    Instance.new(\"UICorner\", fill).CornerRadius = UDim.new(1,0)\n    \n    local knob = Instance.new(\"Frame\")\n    knob.AnchorPoint = Vector2.new(0.5, 0.5)\n    knob.Size = UDim2.new(0, 18, 0, 18)\n    knob.Position = UDim2.new(1, 0, 0.5, 0)\n    knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\n    knob.Parent = fill\n    Instance.new(\"UICorner\", knob).CornerRadius = UDim.new(1,0)\n    \n    local dragging = false\n    knob.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then dragging = true end\n    end)\n    UserInputService.InputEnded:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then dragging = false end\n    end)\n    UserInputService.InputChanged:Connect(function(input)\n        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then\n            local percent = math.clamp((input.Position.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)\n            fill.Size = UDim2.new(percent, 0, 1, 0)\n            local val = math.floor(min + (percent * (max - min)))\n            label.Text = text .. \": \" .. val\n            if callback then callback(val) end\n        end\n    end)\nend\n\nlocal function createSearchBar(parent, yPos, callback)\n    local searchBox = Instance.new(\"TextBox\")\n    searchBox.Size = UDim2.new(1, -20, 0, 35)\n    searchBox.Position = UDim2.new(0, 10, 0, yPos)\n    searchBox.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\n    searchBox.PlaceholderText = \"Search...\"\n    searchBox.Font = Enum.Font.Code\n    searchBox.TextColor3 = Color3.fromRGB(0, 255, 100)\n    searchBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)\n    searchBox.TextSize = 16\n    searchBox.Text = \"\"\n    searchBox.Parent = parent\n    Instance.new(\"UICorner\", searchBox).CornerRadius = UDim.new(0, 6)\n    searchBox:GetPropertyChangedSignal(\"Text\"):Connect(function() if callback then callback(searchBox.Text:lower()) end end)\n    return searchBox\nend\n\ncreateSlider(PlayerPage, \"Speed\", 16, 200, 16, 20, function(val)\n    if player.Character and player.Character:FindFirstChild(\"Humanoid\") then player.Character.Humanoid.WalkSpeed = val end\nend)\n\ncreateSlider(PlayerPage, \"Gravity\", -196, 196, 0, 80, function(val)\n    Workspace.Gravity = 196.2 - val\nend)\n\ncreateToggle(PlayerPage, \"Invisible\", false, 150, function(state)\n    if player.Character then\n        for _, v in pairs(player.Character:GetDescendants()) do\n            if v:IsA(\"BasePart\") and v.Name ~= \"HumanoidRootPart\" then v.Transparency = state and 1 or 0 end\n        end\n    end\nend)\n\nlocal TargetLabel = Instance.new(\"TextLabel\")\nTargetLabel.Size = UDim2.new(0.8, 0, 0, 30)\nTargetLabel.Position = UDim2.new(0.1, 0, 0, 20)\nTargetLabel.BackgroundTransparency = 1\nTargetLabel.Font = Enum.Font.Code\nTargetLabel.Text = \"Target: Whole Server\"\nTargetLabel.TextColor3 = Color3.fromRGB(255, 255, 255)\nTargetLabel.TextSize = 16\nTargetLabel.TextXAlignment = Enum.TextXAlignment.Left\nTargetLabel.Parent = VisualsPage\n\nlocal SelectTargetBtn = Instance.new(\"TextButton\")\nSelectTargetBtn.Size = UDim2.new(0.8, 0, 0, 35)\nSelectTargetBtn.Position = UDim2.new(0.1, 0, 0, 55)\nSelectTargetBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\nSelectTargetBtn.Text = \"Select Target\"\nSelectTargetBtn.Font = Enum.Font.Code\nSelectTargetBtn.TextColor3 = Color3.fromRGB(0, 255, 100)\nSelectTargetBtn.TextSize = 16\nSelectTargetBtn.Parent = VisualsPage\nInstance.new(\"UICorner\", SelectTargetBtn).CornerRadius = UDim.new(0, 6)\n\ncreateToggle(VisualsPage, \"Highlight\", false, 110, function(state)\n    if state then\n        for _, p in pairs(Players:GetPlayers()) do\n            if p.Character then\n                local hl = Instance.new(\"Highlight\")\n                hl.Adornee = p.Character\n                hl.FillColor = Color3.fromRGB(0, 255, 100)\n                hl.Parent = p.Character\n            end\n        end\n    else\n        for _, p in pairs(Players:GetPlayers()) do\n            if p.Character then\n                local hl = p.Character:FindFirstChildOfClass(\"Highlight\")\n                if hl then hl:Destroy() end\n            end\n        end\n    end\nend)\n\nlocal flying = false\nlocal flySpeed = 50\nlocal bv, bgGyro\n\nlocal mobileFlyInputs = {W = false, A = false, S = false, D = false, Up = false, Down = false}\nlocal MobileFlyUI = Instance.new(\"Frame\")\nMobileFlyUI.Size = UDim2.new(0, 200, 0, 200)\nMobileFlyUI.Position = UDim2.new(0.5, -100, 1, -220)\nMobileFlyUI.BackgroundTransparency = 1\nMobileFlyUI.Visible = false\nMobileFlyUI.Parent = ScreenGui\n\nlocal function createFlyBtn(text, pos)\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(0, 50, 0, 50)\n    btn.Position = pos\n    btn.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\n    btn.BackgroundTransparency = 0.5\n    btn.Text = text\n    btn.Font = Enum.Font.GothamBold\n    btn.TextColor3 = Color3.fromRGB(15, 15, 20)\n    btn.TextSize = 18\n    btn.Parent = MobileFlyUI\n    Instance.new(\"UICorner\", btn).CornerRadius = UDim.new(1, 0)\n    \n    btn.InputBegan:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then\n            mobileFlyInputs[text] = true\n        end\n    end)\n    btn.InputEnded:Connect(function(input)\n        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then\n            mobileFlyInputs[text] = false\n        end\n    end)\nend\n\ncreateFlyBtn(\"Up\", UDim2.new(0.5, -25, 0, 0))\ncreateFlyBtn(\"Down\", UDim2.new(0.5, -25, 1, -50))\ncreateFlyBtn(\"W\", UDim2.new(0.5, -25, 0.5, -25))\ncreateFlyBtn(\"S\", UDim2.new(0.5, -25, 1, -110))\ncreateFlyBtn(\"A\", UDim2.new(0, 0, 0.5, -25))\ncreateFlyBtn(\"D\", UDim2.new(1, -50, 0.5, -25))\n\nlocal function stopFly()\n    flying = false\n    if bv then bv:Destroy() bv = nil end\n    if bgGyro then bgGyro:Destroy() bgGyro = nil end\n    MobileFlyUI.Visible = false\nend\n\ncreateToggle(FlyPage, \"Fly (Enable/Disable)\", false, 20, function(state)\n    flying = state\n    if flying then\n        if player.Character and player.Character:FindFirstChild(\"HumanoidRootPart\") then\n            local hrp = player.Character.HumanoidRootPart\n            bv = Instance.new(\"BodyVelocity\")\n            bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)\n            bv.Velocity = Vector3.new(0, 0, 0)\n            bv.Parent = hrp\n            \n            bgGyro = Instance.new(\"BodyGyro\")\n            bgGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)\n            bgGyro.P = 1000\n            bgGyro.Parent = hrp\n        end\n        if isMobile then MobileFlyUI.Visible = true end\n    else\n        stopFly()\n    end\nend)\n\ncreateSlider(FlyPage, \"Fly Speed\", 10, 200, 50, 80, function(val)\n    flySpeed = val\nend)\n\ntask.spawn(function()\n    while task.wait(0.05) do\n        if flying and player.Character and player.Character:FindFirstChild(\"HumanoidRootPart\") and bv and bgGyro then\n            local hrp = player.Character.HumanoidRootPart\n            local camera = Workspace.CurrentCamera\n            local moveDir = Vector3.new()\n            \n            if UserInputService:IsKeyDown(Enum.KeyCode.W) or mobileFlyInputs.W then moveDir = moveDir + camera.CFrame.LookVector end\n            if UserInputService:IsKeyDown(Enum.KeyCode.S) or mobileFlyInputs.S then moveDir = moveDir - camera.CFrame.LookVector end\n            if UserInputService:IsKeyDown(Enum.KeyCode.A) or mobileFlyInputs.A then moveDir = moveDir - camera.CFrame.RightVector end\n            if UserInputService:IsKeyDown(Enum.KeyCode.D) or mobileFlyInputs.D then moveDir = moveDir + camera.CFrame.RightVector end\n            if UserInputService:IsKeyDown(Enum.KeyCode.Space) or mobileFlyInputs.Up then moveDir = moveDir + Vector3.new(0,1,0) end\n            if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) or mobileFlyInputs.Down then moveDir = moveDir - Vector3.new(0,1,0) end\n            \n            if moveDir.Magnitude > 0 then\n                bv.Velocity = moveDir.Unit * flySpeed\n            else\n                bv.Velocity = Vector3.new(0,0,0)\n            end\n            bgGyro.CFrame = camera.CFrame\n        end\n    end\nend)\n\nlocal shaderSearch = createSearchBar(ShadersPage, 5, function(text)\n    for _, v in pairs(ShaderScroll:GetChildren()) do\n        if v:IsA(\"Frame\") then\n            if text == \"\" or string.find(string.lower(v.Name), text) then\n                v.Visible = true\n            else\n                v.Visible = false\n            end\n        end\n    end\nend)\n\nlocal ShaderTopBar = Instance.new(\"Frame\")\nShaderTopBar.Size = UDim2.new(1, -20, 0, 35)\nShaderTopBar.Position = UDim2.new(0, 10, 0, 45)\nShaderTopBar.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\nShaderTopBar.Parent = ShadersPage\nInstance.new(\"UICorner\", ShaderTopBar).CornerRadius = UDim.new(0, 6)\n\nlocal ResetShadersBtn = Instance.new(\"TextButton\")\nResetShadersBtn.Size = UDim2.new(1, 0, 1, 0)\nResetShadersBtn.BackgroundTransparency = 1\nResetShadersBtn.Text = \"Reset All Shaders\"\nResetShadersBtn.Font = Enum.Font.GothamBold\nResetShadersBtn.TextColor3 = Color3.fromRGB(255, 80, 80)\nResetShadersBtn.TextSize = 16\nResetShadersBtn.Parent = ShaderTopBar\n\nlocal ShaderScroll = Instance.new(\"ScrollingFrame\")\nShaderScroll.Size = UDim2.new(1, -20, 1, -125)\nShaderScroll.Position = UDim2.new(0, 10, 0, 85)\nShaderScroll.BackgroundTransparency = 1\nShaderScroll.ScrollBarThickness = 4\nShaderScroll.CanvasSize = UDim2.new(0, 0, 0, 0)\nShaderScroll.Parent = ShadersPage\n\nlocal ShaderLayout = Instance.new(\"UIListLayout\")\nShaderLayout.Parent = ShaderScroll\nShaderLayout.SortOrder = Enum.SortOrder.LayoutOrder\nShaderLayout.Padding = UDim.new(0, 5)\n\nlocal ShaderBottomBar = Instance.new(\"Frame\")\nShaderBottomBar.Size = UDim2.new(1, -20, 0, 35)\nShaderBottomBar.Position = UDim2.new(0, 10, 1, -40)\nShaderBottomBar.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\nShaderBottomBar.Parent = ShadersPage\nInstance.new(\"UICorner\", ShaderBottomBar).CornerRadius = UDim.new(0, 6)\n\nlocal masterEnabled = true\nlocal activeEffects = {}\nlocal shaderUIs = {}\n\nlocal ShaderPresets = {\n    {Name = \"Neon\", Brightness = 0.1, Contrast = 0.5, Saturation = 1.5, TintColor = Color3.fromRGB(200, 255, 200)},\n    {Name = \"Night Vision\", Brightness = -0.1, Contrast = 0.2, Saturation = 0.5, TintColor = Color3.fromRGB(0, 255, 0)},\n    {Name = \"Horror\", Brightness = -0.2, Contrast = 0.8, Saturation = 0.1, TintColor = Color3.fromRGB(255, 0, 0)},\n    {Name = \"Retro\", Brightness = 0.05, Contrast = 0.2, Saturation = 0.3, TintColor = Color3.fromRGB(255, 200, 100)},\n    {Name = \"Cyberpunk\", Brightness = 0.1, Contrast = 0.6, Saturation = 2.0, TintColor = Color3.fromRGB(0, 255, 255)},\n    {Name = \"Vintage\", Brightness = -0.1, Contrast = 0.3, Saturation = 0.6, TintColor = Color3.fromRGB(200, 180, 140)},\n    {Name = \"Infrared\", Brightness = 0.0, Contrast = 0.5, Saturation = 1.0, TintColor = Color3.fromRGB(255, 100, 0)},\n    {Name = \"Cold\", Brightness = -0.05, Contrast = 0.4, Saturation = 1.2, TintColor = Color3.fromRGB(100, 150, 255)},\n    {Name = \"Warm\", Brightness = 0.05, Contrast = 0.3, Saturation = 1.1, TintColor = Color3.fromRGB(255, 150, 100)},\n    {Name = \"X-Ray\", Brightness = 0.2, Contrast = 0.7, Saturation = 0.0, TintColor = Color3.fromRGB(255, 255, 255)},\n    {Name = \"Dream\", Brightness = 0.15, Contrast = 0.2, Saturation = 1.8, TintColor = Color3.fromRGB(255, 150, 255)},\n    {Name = \"Midnight\", Brightness = -0.3, Contrast = 0.1, Saturation = 0.2, TintColor = Color3.fromRGB(50, 50, 150)},\n    {Name = \"Golden\", Brightness = 0.1, Contrast = 0.4, Saturation = 1.4, TintColor = Color3.fromRGB(255, 215, 0)},\n    {Name = \"Toxic\", Brightness = 0.1, Contrast = 0.6, Saturation = 1.6, TintColor = Color3.fromRGB(100, 255, 0)}\n}\n\nlocal function updateShaderToggleVisual(switchBg, knob, state)\n    if state then\n        TweenService:Create(switchBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 255, 100)}):Play()\n        TweenService:Create(knob, TweenInfo.new(0.2), {Position = UDim2.new(1, -22, 0.5, -10)}):Play()\n    else\n        TweenService:Create(switchBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()\n        TweenService:Create(knob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -10)}):Play()\n    end\nend\n\nlocal function applySingleShader(preset)\n    if activeEffects[preset.Name] then return end\n    local cc = Instance.new(\"ColorCorrectionEffect\")\n    cc.Name = \"VoidShader_\" .. preset.Name\n    cc.Brightness = preset.Brightness\n    cc.Contrast = preset.Contrast\n    cc.Saturation = preset.Saturation\n    cc.TintColor = preset.TintColor\n    cc.Parent = Lighting\n    activeEffects[preset.Name] = cc\nend\n\nlocal function removeSingleShader(name)\n    if activeEffects[name] then\n        activeEffects[name]:Destroy()\n        activeEffects[name] = nil\n    end\nend\n\nlocal function removeAllEffects()\n    for name, effect in pairs(activeEffects) do\n        effect:Destroy()\n    end\n    activeEffects = {}\nend\n\nfor i, preset in ipairs(ShaderPresets) do\n    local toggleContainer = Instance.new(\"Frame\")\n    toggleContainer.Name = string.lower(preset.Name)\n    toggleContainer.Size = UDim2.new(1, -10, 0, 45)\n    toggleContainer.BackgroundColor3 = Color3.fromRGB(25, 25, 30)\n    toggleContainer.Parent = ShaderScroll\n    Instance.new(\"UICorner\", toggleContainer).CornerRadius = UDim.new(0, 6)\n\n    local preview = Instance.new(\"Frame\")\n    preview.Size = UDim2.new(0, 25, 0, 25)\n    preview.Position = UDim2.new(0, 10, 0.5, -12.5)\n    preview.BackgroundColor3 = preset.TintColor\n    preview.BorderSizePixel = 0\n    preview.Parent = toggleContainer\n    Instance.new(\"UICorner\", preview).CornerRadius = UDim.new(0, 4)\n\n    local nameLbl = Instance.new(\"TextLabel\")\n    nameLbl.Size = UDim2.new(0.5, 0, 1, 0)\n    nameLbl.Position = UDim2.new(0, 45, 0, 0)\n    nameLbl.BackgroundTransparency = 1\n    nameLbl.Font = Enum.Font.Code\n    nameLbl.Text = preset.Name\n    nameLbl.TextColor3 = Color3.fromRGB(255, 255, 255)\n    nameLbl.TextSize = 15\n    nameLbl.TextXAlignment = Enum.TextXAlignment.Left\n    nameLbl.Parent = toggleContainer\n\n    local switchBg = Instance.new(\"Frame\")\n    switchBg.Size = UDim2.new(0, 40, 0, 22)\n    switchBg.Position = UDim2.new(1, -50, 0.5, -11)\n    switchBg.BackgroundColor3 = Color3.fromRGB(50, 50, 50)\n    switchBg.Parent = toggleContainer\n    Instance.new(\"UICorner\", switchBg).CornerRadius = UDim.new(1, 0)\n\n    local knob = Instance.new(\"Frame\")\n    knob.Size = UDim2.new(0, 18, 0, 18)\n    knob.Position = UDim2.new(0, 2, 0.5, -9)\n    knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\n    knob.Parent = switchBg\n    Instance.new(\"UICorner\", knob).CornerRadius = UDim.new(1, 0)\n\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(1, 0, 1, 0)\n    btn.BackgroundTransparency = 1\n    btn.Text = \"\"\n    btn.Parent = toggleContainer\n\n    local data = { Preset = preset, Switch = switchBg, Knob = knob, IsOn = false }\n    table.insert(shaderUIs, data)\n\n    btn.MouseButton1Click:Connect(function()\n        data.IsOn = not data.IsOn\n        updateShaderToggleVisual(switchBg, knob, data.IsOn)\n        if data.IsOn then\n            if masterEnabled then applySingleShader(preset) end\n        else\n            removeSingleShader(preset.Name)\n        end\n    end)\nend\n\nShaderLayout:GetPropertyChangedSignal(\"AbsoluteContentSize\"):Connect(function()\n    ShaderScroll.CanvasSize = UDim2.new(0, 0, 0, ShaderLayout.AbsoluteContentSize.Y + 10)\nend)\n\nResetShadersBtn.MouseButton1Click:Connect(function()\n    for _, shader in pairs(shaderUIs) do\n        shader.IsOn = false\n        updateShaderToggleVisual(shader.Switch, shader.Knob, false)\n    end\n    removeAllEffects()\nend)\n\nlocal masterSwitchBg = Instance.new(\"Frame\")\nmasterSwitchBg.Size = UDim2.new(0, 40, 0, 22)\nmasterSwitchBg.Position = UDim2.new(1, -50, 0.5, -11)\nmasterSwitchBg.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\nmasterSwitchBg.Parent = ShaderBottomBar\nInstance.new(\"UICorner\", masterSwitchBg).CornerRadius = UDim.new(1, 0)\n\nlocal masterKnob = Instance.new(\"Frame\")\nmasterKnob.Size = UDim2.new(0, 18, 0, 18)\nmasterKnob.Position = UDim2.new(1, -20, 0.5, -9)\nmasterKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)\nmasterKnob.Parent = masterSwitchBg\nInstance.new(\"UICorner\", masterKnob).CornerRadius = UDim.new(1, 0)\n\nlocal masterLabel = Instance.new(\"TextLabel\")\nmasterLabel.Size = UDim2.new(0.7, 0, 1, 0)\nmasterLabel.Position = UDim2.new(0, 10, 0, 0)\nmasterLabel.BackgroundTransparency = 1\nmasterLabel.Font = Enum.Font.GothamBold\nmasterLabel.Text = \"Shaders Master Switch\"\nmasterLabel.TextColor3 = Color3.fromRGB(255, 255, 255)\nmasterLabel.TextSize = 14\nmasterLabel.TextXAlignment = Enum.TextXAlignment.Left\nmasterLabel.Parent = ShaderBottomBar\n\nlocal masterBtn = Instance.new(\"TextButton\")\nmasterBtn.Size = UDim2.new(1, 0, 1, 0)\nmasterBtn.BackgroundTransparency = 1\nmasterBtn.Text = \"\"\nmasterBtn.Parent = ShaderBottomBar\n\nmasterBtn.MouseButton1Click:Connect(function()\n    masterEnabled = not masterEnabled\n    updateShaderToggleVisual(masterSwitchBg, masterKnob, masterEnabled)\n    if masterEnabled then\n        for _, shader in pairs(shaderUIs) do\n            if shader.IsOn then applySingleShader(shader.Preset) end\n        end\n    else\n        removeAllEffects()\n    end\nend)\n\nlocal scriptSearch = createSearchBar(ScriptsPage, 0, function(text)\n    for _, v in pairs(ScriptList:GetChildren()) do\n        if v:IsA(\"Frame\") then\n            local nameLbl = v:FindFirstChild(\"NameLbl\")\n            if nameLbl then\n                if text == \"\" or string.find(string.lower(nameLbl.Text), text) then v.Visible = true\n                else v.Visible = false end\n            end\n        end\n    end\nend)\n\nlocal ScriptsSubBar = Instance.new(\"Frame\")\nScriptsSubBar.Size = UDim2.new(1, 0, 0, 40)\nScriptsSubBar.Position = UDim2.new(0, 0, 0, 45)\nScriptsSubBar.BackgroundColor3 = Color3.fromRGB(20, 20, 25)\nScriptsSubBar.Parent = ScriptsPage\nInstance.new(\"UICorner\", ScriptsSubBar).CornerRadius = UDim.new(0, 6)\n\nlocal btnHome = Instance.new(\"TextButton\")\nbtnHome.Size = UDim2.new(0, 100, 1, 0)\nbtnHome.Position = UDim2.new(0, 10, 0, 0)\nbtnHome.BackgroundTransparency = 1\nbtnHome.Text = \"Home\"\nbtnHome.Font = Enum.Font.GothamBold\nbtnHome.TextColor3 = Color3.fromRGB(150, 150, 150)\nbtnHome.TextSize = 16\nbtnHome.Parent = ScriptsSubBar\n\nlocal btnCenter = Instance.new(\"TextButton\")\nbtnCenter.Size = UDim2.new(0, 100, 1, 0)\nbtnCenter.Position = UDim2.new(0, 120, 0, 0)\nbtnCenter.BackgroundTransparency = 1\nbtnCenter.Text = \"Center\"\nbtnCenter.Font = Enum.Font.GothamBold\nbtnCenter.TextColor3 = Color3.fromRGB(0, 255, 100)\nbtnCenter.TextSize = 16\nbtnCenter.Parent = ScriptsSubBar\n\nlocal ScriptList = Instance.new(\"ScrollingFrame\")\nScriptList.Size = UDim2.new(1, -20, 1, -95)\nScriptList.Position = UDim2.new(0, 10, 0, 90)\nScriptList.BackgroundTransparency = 1\nScriptList.ScrollBarThickness = 4\nScriptList.CanvasSize = UDim2.new(0, 0, 0, 0)\nScriptList.Parent = ScriptsPage\n\nlocal ListLayout2 = Instance.new(\"UIListLayout\")\nListLayout2.Parent = ScriptList\nListLayout2.SortOrder = Enum.SortOrder.LayoutOrder\nListLayout2.Padding = UDim.new(0, 5)\n\nlocal CenterScripts = {\n    {Name = \"Infinite Yield (Admin)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()\"},\n    {Name = \"CMD-X (Admin)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/lxte/cmd/main/main.lua'))()\"},\n    {Name = \"Dex++ (Explorer)\", Code = \"loadstring(game:HttpGet('https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua'))()\"},\n    {Name = \"Vidas Hub (Keyless)\", Code = \"loadstring(game:HttpGet('https://pastebin.com/raw/1K0n4K7q'))()\"},\n    {Name = \"Orca Hub (Universal)\", Code = \"loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua'))()\"},\n    {Name = \"Universal ESP (ayzz7)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/ayzz7/Universal-ESP/refs/heads/main/UNIVERSAL%20ESP.lua'))()\"},\n    {Name = \"SYNCON Admin V6\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/luisguinchon/SYNCON/refs/heads/main/Syncon.txt'))()\"},\n    {Name = \"Fly GUI V3\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt'))()\"},\n    {Name = \"FE Ragdoll (Universal)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/shakk-code/fe-ragdoll-script/refs/heads/main/script.lua', true))()\"},\n    {Name = \"Owl Hub (30+ Games)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt'))()\"},\n    {Name = \"XenoHub (200+ Games)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/sskintbgs/xeno-script/refs/heads/main/main.lua'))()\"},\n    {Name = \"Beanz Hub (Universal)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/pid4k/scripts/main/BeanzHub.lua', true))()\"},\n    {Name = \"Hoho Hub V2\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HohoV2/main/ScriptLoad.lua'))()\"},\n    {Name = \"VG Hub (60+ Games)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()\"},\n    {Name = \"Ez Hub (130+ Games)\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua', true))()\"},\n    {Name = \"Monke Hub\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/KuriWasTaken/MonkeHub/main/Loader.lua'))()\"},\n    {Name = \"Rokuu Exploit Script\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/Rokuu010/Roblox-Exploit-Script/main/script.lua'))()\"},\n    {Name = \"Aether Hub\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/nguyenthetri2k1/aether-hub/main/aether.lua'))()\"},\n    {Name = \"Toasty Hub\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/nouralddin-abdullah/ToastyHub-XD/refs/heads/main/hub-main.lua'))()\"},\n    {Name = \"Roblox Egor Script\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/loldo-g/RobloxEgorScript/refs/heads/main/script.lua'))()\"},\n    {Name = \"Proton Free Admin\", Code = \"loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Proton%20Free'))()\"},\n    {Name = \"Admin Pack v2.1 (Universal)\", Code = \"loadstring(game:HttpGet('https://pastebin.com/raw/tk2rAeAH', true))()\"},\n    {Name = \"Macw1u's Admin Panel V6\", Code = \"loadstring(game:HttpGet('https://pastebin.com/raw/b2QM7CsH'))()\"},\n    {Name = \"Pilots Universal Hub v3\", Code = \"loadstring(game:HttpGet('https://pastebin.com/raw/iQeEgdHU'))()\"}\n}\n\nlocal CurrentListType = \"Center\"\n\nlocal function RenderList()\n    for _, child in pairs(ScriptList:GetChildren()) do\n        if child:IsA(\"Frame\") or child:IsA(\"TextLabel\") then child:Destroy() end\n    end\n\n    local listToRender = CurrentListType == \"Center\" and CenterScripts or SavedScripts\n\n    if #listToRender == 0 then\n        local emptyText = Instance.new(\"TextLabel\")\n        emptyText.Size = UDim2.new(1, 0, 0, 50)\n        emptyText.BackgroundTransparency = 1\n        emptyText.Text = \"No scripts here yet...\"\n        emptyText.Font = Enum.Font.Code\n        emptyText.TextColor3 = Color3.fromRGB(100, 100, 100)\n        emptyText.TextSize = 16\n        emptyText.Parent = ScriptList\n        return\n    end\n\n    for i, scriptData in ipairs(listToRender) do\n        local itemFrame = Instance.new(\"Frame\")\n        itemFrame.Size = UDim2.new(1, -10, 0, 50)\n        itemFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)\n        itemFrame.Parent = ScriptList\n        Instance.new(\"UICorner\", itemFrame).CornerRadius = UDim.new(0, 6)\n\n        local nameLbl = Instance.new(\"TextLabel\")\n        nameLbl.Name = \"NameLbl\"\n        nameLbl.Size = UDim2.new(0.6, 0, 1, 0)\n        nameLbl.Position = UDim2.new(0, 10, 0, 0)\n        nameLbl.BackgroundTransparency = 1\n        nameLbl.Text = scriptData.Name\n        nameLbl.Font = Enum.Font.Code\n        nameLbl.TextColor3 = Color3.fromRGB(255, 255, 255)\n        nameLbl.TextSize = 16\n        nameLbl.TextXAlignment = Enum.TextXAlignment.Left\n        nameLbl.Parent = itemFrame\n\n        local runBtn = Instance.new(\"TextButton\")\n        runBtn.Size = UDim2.new(0, 60, 0, 30)\n        runBtn.Position = UDim2.new(1, -140, 0.5, -15)\n        runBtn.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\n        runBtn.Text = \"Run\"\n        runBtn.Font = Enum.Font.GothamBold\n        runBtn.TextColor3 = Color3.fromRGB(15, 15, 20)\n        runBtn.Parent = itemFrame\n        Instance.new(\"UICorner\", runBtn).CornerRadius = UDim.new(0, 4)\n        \n        runBtn.MouseButton1Click:Connect(function()\n            local success, err = pcall(function() loadstring(scriptData.Code)() end)\n            if not success then print(\"Error:\", err) end\n        end)\n\n        local actionBtn = Instance.new(\"TextButton\")\n        actionBtn.Size = UDim2.new(0, 60, 0, 30)\n        actionBtn.Position = UDim2.new(1, -70, 0.5, -15)\n        actionBtn.BackgroundColor3 = CurrentListType == \"Center\" and Color3.fromRGB(80, 130, 255) or Color3.fromRGB(255, 80, 80)\n        actionBtn.Text = CurrentListType == \"Center\" and \"Save\" or \"Delete\"\n        actionBtn.Font = Enum.Font.GothamBold\n        actionBtn.TextColor3 = Color3.fromRGB(255, 255, 255)\n        actionBtn.Parent = itemFrame\n        Instance.new(\"UICorner\", actionBtn).CornerRadius = UDim.new(0, 4)\n\n        actionBtn.MouseButton1Click:Connect(function()\n            if CurrentListType == \"Center\" then\n                local alreadySaved = false\n                for _, s in ipairs(SavedScripts) do if s.Name == scriptData.Name then alreadySaved = true break end end\n                if not alreadySaved then\n                    table.insert(SavedScripts, {Name = scriptData.Name, Code = scriptData.Code})\n                    saveScriptsToFile()\n                    actionBtn.Text = \"Saved!\"\n                    task.wait(1) actionBtn.Text = \"Save\"\n                else\n                    actionBtn.Text = \"Exists!\"\n                    task.wait(1) actionBtn.Text = \"Save\"\n                end\n            else\n                table.remove(SavedScripts, i)\n                saveScriptsToFile()\n                RenderList()\n            end\n        end)\n    end\n    ScriptList.CanvasSize = UDim2.new(0, 0, 0, ListLayout2.AbsoluteContentSize.Y + 10)\nend\n\nbtnHome.MouseButton1Click:Connect(function()\n    CurrentListType = \"Home\"\n    btnHome.TextColor3 = Color3.fromRGB(0, 255, 100)\n    btnCenter.TextColor3 = Color3.fromRGB(150, 150, 150)\n    RenderList()\nend)\n\nbtnCenter.MouseButton1Click:Connect(function()\n    CurrentListType = \"Center\"\n    btnCenter.TextColor3 = Color3.fromRGB(0, 255, 100)\n    btnHome.TextColor3 = Color3.fromRGB(150, 150, 150)\n    RenderList()\nend)\n\nRenderList()\n\ncreateToggle(SettingsPage, \"Auto Save Scripts\", true, 20, function(state) end)\n\nlocal bgLabel = Instance.new(\"TextLabel\")\nbgLabel.Size = UDim2.new(0.8, 0, 0, 25)\nbgLabel.Position = UDim2.new(0.1, 0, 0, 70)\nbgLabel.BackgroundTransparency = 1\nbgLabel.Font = Enum.Font.Code\nbgLabel.Text = \"Background Color\"\nbgLabel.TextColor3 = Color3.fromRGB(255, 255, 255)\nbgLabel.TextSize = 16\nbgLabel.TextXAlignment = Enum.TextXAlignment.Left\nbgLabel.Parent = SettingsPage\n\nlocal bgOptions = {\n    {PanelColor = Color3.fromRGB(15, 15, 20), ContentColor = Color3.fromRGB(20, 20, 25)},\n    {PanelColor = Color3.fromRGB(15, 30, 70), ContentColor = Color3.fromRGB(20, 45, 110)},\n    {PanelColor = Color3.fromRGB(70, 15, 20), ContentColor = Color3.fromRGB(110, 20, 30)}\n}\n\nlocal bgCircles = {}\nlocal currentBgIndex = SavedBackgroundIndex\nif currentBgIndex < 1 or currentBgIndex > #bgOptions then currentBgIndex = 1 end\n\nlocal function updateBgCircles()\n    for i, data in ipairs(bgCircles) do\n        if i == currentBgIndex then\n            data.Stroke.Color = Color3.fromRGB(0, 150, 255)\n            data.Stroke.Thickness = 3\n            data.Stroke.Transparency = 0\n        else\n            data.Stroke.Color = Color3.fromRGB(0, 150, 255)\n            data.Stroke.Thickness = 0\n            data.Stroke.Transparency = 1\n        end\n    end\nend\n\nfor i, opt in ipairs(bgOptions) do\n    local circle = Instance.new(\"Frame\")\n    circle.Size = UDim2.new(0, 50, 0, 50)\n    circle.Position = UDim2.new(0.1, (i-1)*65, 0, 105)\n    circle.BackgroundColor3 = opt.PanelColor\n    circle.Parent = SettingsPage\n    Instance.new(\"UICorner\", circle).CornerRadius = UDim.new(1, 0)\n\n    local stroke = Instance.new(\"UIStroke\")\n    stroke.Color = Color3.fromRGB(0, 150, 255)\n    stroke.Thickness = 0\n    stroke.Transparency = 1\n    stroke.Parent = circle\n\n    local btn = Instance.new(\"TextButton\")\n    btn.Size = UDim2.new(1, 0, 1, 0)\n    btn.BackgroundTransparency = 1\n    btn.Text = \"\"\n    btn.Parent = circle\n\n    local data = { Circle = circle, Stroke = stroke, Opt = opt }\n    table.insert(bgCircles, data)\n\n    btn.MouseButton1Click:Connect(function()\n        currentBgIndex = i\n        Panel.BackgroundColor3 = opt.PanelColor\n        ContentFrame.BackgroundColor3 = opt.ContentColor\n        updateBgCircles()\n        saveBackgroundIndex(i)\n    end)\nend\n\nPanel.BackgroundColor3 = bgOptions[currentBgIndex].PanelColor\nContentFrame.BackgroundColor3 = bgOptions[currentBgIndex].ContentColor\nupdateBgCircles()\n\nlocal isSwitching = false\n\nlocal function SwitchTab(page, targetSize)\n    if isSwitching then return end\n    isSwitching = true\n    \n    local tweenOut = TweenService:Create(ContentFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position = UDim2.new(-0.6, 0, 0.5, 0)})\n    tweenOut:Play()\n    tweenOut.Completed:Wait()\n    \n    PlayerPage.Visible = false\n    VisualsPage.Visible = false\n    FlyPage.Visible = false\n    ShadersPage.Visible = false\n    ScriptsPage.Visible = false\n    SettingsPage.Visible = false\n    \n    page.Visible = true\n    ContentFrame.Size = targetSize\n    ContentFrame.Position = UDim2.new(-0.6, 0, 0.5, 0)\n    \n    local tweenIn = TweenService:Create(ContentFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0, 110, 0.5, 0)})\n    tweenIn:Play()\n    tweenIn.Completed:Wait()\n    \n    isSwitching = false\nend\n\nlocal function setActiveIcon(tab)\n    for _, t in pairs({iconPlayer, iconVisuals, iconFly, iconShaders, iconScripts, iconSettings}) do\n        t.BackgroundColor3 = Color3.fromRGB(30, 30, 40)\n    end\n    tab.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\n    tab.TextColor3 = Color3.fromRGB(15, 15, 20)\nend\n\nsetActiveIcon(iconPlayer)\n\niconPlayer.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconPlayer)\n    SwitchTab(PlayerPage, UDim2.new(0, 420, 0, 400))\nend)\n\niconVisuals.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconVisuals)\n    SwitchTab(VisualsPage, UDim2.new(0, 420, 0, 400))\nend)\n\niconFly.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconFly)\n    SwitchTab(FlyPage, UDim2.new(0, 420, 0, 400))\nend)\n\niconShaders.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconShaders)\n    SwitchTab(ShadersPage, UDim2.new(0, 550, 0, 480))\nend)\n\niconScripts.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconScripts)\n    SwitchTab(ScriptsPage, UDim2.new(0, 520, 0, 480))\nend)\n\niconSettings.MouseButton1Click:Connect(function() \n    if isSwitching then return end\n    setActiveIcon(iconSettings)\n    SwitchTab(SettingsPage, UDim2.new(0, 420, 0, 400))\nend)\n\nlocal OpenBtn = Instance.new(\"TextButton\")\nOpenBtn.Size = UDim2.new(0, 50, 0, 50)\nOpenBtn.Position = UDim2.new(0, 20, 0.5, -25)\nOpenBtn.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\nOpenBtn.Text = \"V\"\nOpenBtn.Font = Enum.Font.GothamBold\nOpenBtn.TextColor3 = Color3.fromRGB(15, 15, 20)\nOpenBtn.TextSize = 24\nOpenBtn.Visible = false\nOpenBtn.Parent = ScreenGui\nInstance.new(\"UICorner\", OpenBtn).CornerRadius = UDim.new(1,0)\nlocal OpenStroke = Instance.new(\"UIStroke\", OpenBtn); OpenStroke.Color = Color3.fromRGB(255, 255, 255); OpenStroke.Thickness = 1\n\nlocal draggingOpen, openStart, openStartPos\nOpenBtn.InputBegan:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then draggingOpen = true; openStart = input.Position; openStartPos = OpenBtn.Position end\nend)\nUserInputService.InputChanged:Connect(function(input)\n    if draggingOpen and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then\n        local delta = input.Position - openStart\n        OpenBtn.Position = UDim2.new(openStartPos.X.Scale, openStartPos.X.Offset + delta.X, openStartPos.Y.Scale, openStartPos.Y.Offset + delta.Y)\n    end\nend)\nUserInputService.InputEnded:Connect(function(input)\n    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then draggingOpen = false end\nend)\n\niconExit.MouseButton1Click:Connect(function()\n    isFleeing = true\n    TweenService:Create(blur, TweenInfo.new(0.8), {Size = 0}):Play()\n    TweenService:Create(darkOverlay, TweenInfo.new(0.8), {BackgroundTransparency = 1}):Play()\n    TweenService:Create(Panel, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut), {Position = UDim2.new(-0.1, 0, 0.5, 0)}):Play()\n    TweenService:Create(ContentFrame, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut), {Position = UDim2.new(-0.6, 0, 0.5, 0)}):Play()\n    \n    for _, data in pairs(emojiObjects) do\n        local targetX = math.random(-20, 20) / 10\n        local targetY = math.random(-20, 20) / 10\n        TweenService:Create(data.Object, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {Position = UDim2.new(targetX, 0, targetY, 0), TextTransparency = 1}):Play()\n    end\n    \n    TopInfoBar.Visible = true\n    TweenService:Create(TopInfoBar, TweenInfo.new(0.8), {BackgroundTransparency = 0.5}):Play()\n    TweenService:Create(TopInfoStroke, TweenInfo.new(0.8), {Transparency = 0}):Play()\n    \n    task.wait(0.8)\n    OpenBtn.Visible = true\nend)\n\nOpenBtn.MouseButton1Click:Connect(function()\n    OpenBtn.Visible = false\n    \n    TweenService:Create(TopInfoBar, TweenInfo.new(0.8), {BackgroundTransparency = 1}):Play()\n    TweenService:Create(TopInfoStroke, TweenInfo.new(0.8), {Transparency = 1}):Play()\n    task.delay(0.8, function() TopInfoBar.Visible = false end)\n\n    TweenService:Create(blur, TweenInfo.new(0.8), {Size = 15}):Play()\n    TweenService:Create(darkOverlay, TweenInfo.new(0.8), {BackgroundTransparency = 0.5}):Play()\n    TweenService:Create(Panel, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 20, 0.5, 0)}):Play()\n    \n    for _, data in pairs(emojiObjects) do\n        TweenService:Create(data.Object, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = data.BasePos, TextTransparency = math.random(40, 80) / 100}):Play()\n    end\n    \n    task.wait(0.8)\n    isFleeing = false\n    \n    if ScriptsPage.Visible then\n        TweenService:Create(ContentFrame, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 110, 0.5, 0), Size = UDim2.new(0, 520, 0, 480)}):Play()\n    elseif ShadersPage.Visible then\n        TweenService:Create(ContentFrame, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 110, 0.5, 0), Size = UDim2.new(0, 550, 0, 480)}):Play()\n    else\n        TweenService:Create(ContentFrame, TweenInfo.new(0.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 110, 0.5, 0), Size = UDim2.new(0, 420, 0, 400)}):Play()\n    end\nend)\n\nTweenService:Create(Panel, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 20, 0.5, 0)}):Play()\nTweenService:Create(ContentFrame, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(0, 110, 0.5, 0), Size = UDim2.new(0, 420, 0, 400)}):Play()",
-      "createdAt": "2026-11-16T07:09:46.272Z",
-      "updatedAt": "2026-11-18T09:01:21.018Z",
       "categoryIds": [
         "patched"
       ],
@@ -9200,7 +9198,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 494718,
+      "views": 494725,
       "likes": 434,
       "dislikes": 117,
       "rating": 3.9,
@@ -9273,7 +9271,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 230126,
+      "views": 230129,
       "likes": 284,
       "dislikes": 42,
       "rating": 4.4,
@@ -9311,7 +9309,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 153223,
+      "views": 153224,
       "likes": 269,
       "dislikes": 64,
       "rating": 4,
@@ -9422,7 +9420,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 410483,
+      "views": 410485,
       "likes": 187,
       "dislikes": 33,
       "rating": 4.3,
@@ -9461,7 +9459,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 68139,
+      "views": 68142,
       "likes": 182,
       "dislikes": 58,
       "rating": 3.8,
@@ -9498,7 +9496,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 89427,
+      "views": 89428,
       "likes": 167,
       "dislikes": 102,
       "rating": 3.1,
@@ -9535,7 +9533,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 52424,
+      "views": 52425,
       "likes": 153,
       "dislikes": 75,
       "rating": 3.4,
@@ -9701,6 +9699,41 @@
       ]
     },
     {
+      "id": "rscripts-6b07c826398b70850344818e",
+      "slug": "homlesssimulator-autoscrap-opensource-wiST",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/homlesssimulator-autoscrap-opensource-wiST",
+      "title": "HomlessSimulator-AutoScrap-Opensource",
+      "game": "Homeless Simulator",
+      "gameImage": "https://rscripts.net/assets/games/118697556586883-thumb-c983fd399ac037d0.webp",
+      "author": "50Mefss",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 8,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "auto collect scrap for level 1 open source it will be teleport to npc at level 1 then auto sell",
+      "code": "-- [[ Rscripts Risk Notice ]]\n-- This script is not verified by rscripts.net. Deal with caution.\n--\n-- Stay safe:\n--   • Never log in on unofficial Roblox sites or lookalike domains.\n--   • Real Roblox links use roblox.com (check the .com ending).\n--   • Treat fake Roblox login / \"claim reward\" pages as phishing.\n-- [[ End Rscripts Risk Notice ]]\n\n--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b07c826398b70850344818e\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nlocal Players = game:GetService(\"Players\")\r\nlocal VirtualInputManager = nil\r\npcall(function()\r\n\tVirtualInputManager = game:GetService(\"VirtualInputManager\")\r\nend)\r\n\r\nlocal player = Players.LocalPlayer\r\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\r\n\r\nlocal folderRongsok = workspace:WaitForChild(\"Rongsok\")\r\nlocal penjualPul = workspace:WaitForChild(\"Markas_Daerah1\")\r\n\t:WaitForChild(\"Isi\")\r\n\t:WaitForChild(\"LapakPul\")\r\n\t:WaitForChild(\"Penjual_Pul\")\r\n\r\nlocal labelKarung = playerGui:WaitForChild(\"UangHud\")\r\n\t:WaitForChild(\"Frame\")\r\n\t:WaitForChild(\"ChipKarung\")\r\n\t:WaitForChild(\"TextLabel\")\r\n\r\ngetgenv().AutoFarmRongsok = true\r\n\r\nlocal function resetToastKarungPenuh()\r\n\tlocal toast = playerGui:FindFirstChild(\"RongsokToast\")\r\n\tif not toast then return end\r\n\tfor _, d in ipairs(toast:GetDescendants()) do\r\n\t\tif d:IsA(\"TextLabel\") and string.find(string.upper(d.Text), \"KARUNG PENUH\") then\r\n\t\t\td.Visible = false\r\n\t\t\td.Text = \"\"\r\n\t\tend\r\n\tend\r\nend\r\n\r\nlocal function cekStatusKarung()\r\n\tif not labelKarung or not labelKarung.Parent then\r\n\t\treturn nil, nil\r\n\tend\r\n\tlocal curStr, maxStr = string.match(tostring(labelKarung.Text), \"(%d+)%s*/%s*(%d+)\")\r\n\tlocal cur = tonumber(curStr)\r\n\tlocal maxCap = tonumber(maxStr)\r\n\treturn cur, maxCap\r\nend\r\n\r\nlocal function isKarungPenuh()\r\n\tlocal cur, maxCap = cekStatusKarung()\r\n\tif cur and maxCap and maxCap > 0 then\r\n\t\treturn cur >= maxCap\r\n\tend\r\n\treturn false\r\nend\r\n\r\nlocal function isTokoUIOpen()\r\n\tlocal tokoUI = playerGui:FindFirstChild(\"TokoUI\")\r\n\tif not tokoUI then return false end\r\n\tif tokoUI:IsA(\"ScreenGui\") and not tokoUI.Enabled then\r\n\t\treturn false\r\n\tend\r\n\tlocal img = tokoUI:FindFirstChild(\"ImageLabel\")\r\n\treturn img and img:IsA(\"GuiObject\") and img.Visible or false\r\nend\r\n\r\nlocal function tutupTokoUI()\r\n\tlocal tokoUI = playerGui:FindFirstChild(\"TokoUI\")\r\n\tif not tokoUI then return end\r\n\tlocal img = tokoUI:FindFirstChild(\"ImageLabel\")\r\n\tlocal closeBtn = img and img:FindFirstChild(\"ImageButton\")\r\n\tif closeBtn and closeBtn:IsA(\"GuiButton\") and closeBtn.Visible and closeBtn.Active then\r\n\t\tpcall(function()\r\n\t\t\tif firesignal then\r\n\t\t\t\tfiresignal(closeBtn.MouseButton1Click)\r\n\t\t\t\tfiresignal(closeBtn.Activated)\r\n\t\t\tend\r\n\t\t\tif closeBtn.Activate then\r\n\t\t\t\tcloseBtn:Activate()\r\n\t\t\tend\r\n\t\tend)\r\n\tend\r\nend\r\n\r\nlocal function getTargetPart(obj)\r\n\tif not obj then return nil end\r\n\tif obj:IsA(\"BasePart\") then\r\n\t\treturn obj\r\n\telseif obj:IsA(\"Attachment\") then\r\n\t\treturn obj.Parent and obj.Parent:IsA(\"BasePart\") and obj.Parent or nil\r\n\telseif obj:IsA(\"Model\") then\r\n\t\treturn obj.PrimaryPart or obj:FindFirstChildWhichIsA(\"BasePart\", true)\r\n\tend\r\n\treturn obj:FindFirstChildWhichIsA(\"BasePart\", true)\r\nend\r\n\r\nlocal function triggerPrompt(prompt)\r\n\tif not prompt or not prompt:IsA(\"ProximityPrompt\") or not prompt.Enabled then return false end\r\n\tprompt.HoldDuration = 0\r\n\tprompt.RequiresLineOfSight = false\r\n\tlocal ok = pcall(function()\r\n\t\tif fireproximityprompt then\r\n\t\t\tfireproximityprompt(prompt)\r\n\t\telse\r\n\t\t\tprompt:InputHoldBegin()\r\n\t\t\ttask.wait(0.08)\r\n\t\t\tprompt:InputHoldEnd()\r\n\t\tend\r\n\tend)\r\n\treturn ok\r\nend\r\n\r\nlocal function klikTombol(btn)\r\n\tif not btn or not btn:IsA(\"GuiButton\") then return false end\r\n\tif not btn.Visible or not btn.Active then return false end\r\n\tif btn.AbsoluteSize.X <= 0 or btn.AbsoluteSize.Y <= 0 then return false end\r\n\r\n\tlocal fired = false\r\n\tpcall(function()\r\n\t\tif firesignal then\r\n\t\t\tfiresignal(btn.MouseButton1Down)\r\n\t\t\tfiresignal(btn.MouseButton1Click)\r\n\t\t\tfiresignal(btn.Activated)\r\n\t\t\tfired = true\r\n\t\tend\r\n\tend)\r\n\r\n\tpcall(function()\r\n\t\tif btn.Activate then\r\n\t\t\tbtn:Activate()\r\n\t\t\tfired = true\r\n\t\tend\r\n\tend)\r\n\r\n\tif not fired and VirtualInputManager then\r\n\t\tpcall(function()\r\n\t\t\tlocal cx = btn.AbsolutePosition.X + (btn.AbsoluteSize.X * 0.5)\r\n\t\t\tlocal cy = btn.AbsolutePosition.Y + (btn.AbsoluteSize.Y * 0.5)\r\n\t\t\tVirtualInputManager:SendMouseButtonEvent(cx, cy, 0, true, game, 1)\r\n\t\t\ttask.wait(0.08)\r\n\t\t\tVirtualInputManager:SendMouseButtonEvent(cx, cy, 0, false, game, 1)\r\n\t\t\tfired = true\r\n\t\tend)\r\n\tend\r\n\r\n\treturn fired\r\nend\r\n\r\nlocal function temukanTombolSetor()\r\n\tlocal tokoUI = playerGui:FindFirstChild(\"TokoUI\")\r\n\tif not tokoUI then return nil end\r\n\r\n\tlocal labelSetor = tokoUI:FindFirstChild(\"ImageLabel\")\r\n\t\tand tokoUI.ImageLabel:FindFirstChild(\"Frame\")\r\n\t\tand tokoUI.ImageLabel.Frame:FindFirstChild(\"ImageLabel\")\r\n\t\tand tokoUI.ImageLabel.Frame.ImageLabel:FindFirstChild(\"TextLabel\")\r\n\r\n\tif labelSetor and labelSetor:IsA(\"TextLabel\") and labelSetor.Visible then\r\n\t\tlocal curr = labelSetor.Parent\r\n\t\tfor _ = 1, 4 do\r\n\t\t\tif not curr then break end\r\n\t\t\tif curr:IsA(\"GuiButton\") then\r\n\t\t\t\treturn curr\r\n\t\t\tend\r\n\t\t\tlocal btnInside = curr:FindFirstChildWhichIsA(\"GuiButton\", true)\r\n\t\t\tif btnInside then\r\n\t\t\t\treturn btnInside\r\n\t\t\tend\r\n\t\t\tcurr = curr.Parent\r\n\t\tend\r\n\tend\r\n\r\n\tfor _, d in ipairs(tokoUI:GetDescendants()) do\r\n\t\tif d:IsA(\"GuiButton\") and d.Visible then\r\n\t\t\tlocal lbl = d:FindFirstChildWhichIsA(\"TextLabel\", true)\r\n\t\t\tif lbl and string.find(string.lower(lbl.Text), \"setor\") then\r\n\t\t\t\treturn d\r\n\t\t\tend\r\n\t\tend\r\n\tend\r\n\r\n\treturn nil\r\nend\r\n\r\nlocal function klikSetorRongsok()\r\n\tlocal btn = temukanTombolSetor()\r\n\tif not btn then\r\n\t\treturn false\r\n\tend\r\n\treturn klikTombol(btn)\r\nend\r\n\r\nlocal function teleportJualKePul(hrp)\r\n\tlocal hrpPul = penjualPul:FindFirstChild(\"HumanoidRootPart\") or getTargetPart(penjualPul)\r\n\tif not hrpPul or not hrp or not hrp.Parent then\r\n\t\twarn(\"HumanoidRootPart Penjual_Pul atau karakter tidak valid!\")\r\n\t\treturn\r\n\tend\r\n\r\n\tfor _ = 1, 3 do\r\n\t\tlocal curBefore = cekStatusKarung()\r\n\t\tif curBefore ~= nil and curBefore <= 0 then\r\n\t\t\tbreak\r\n\t\tend\r\n\r\n\t\thrp.CFrame = hrpPul.CFrame + (hrpPul.CFrame.LookVector * 3) + Vector3.new(0, 1.5, 0)\r\n\t\ttask.wait(0.45)\r\n\r\n\t\tlocal promptPul = hrpPul:FindFirstChildWhichIsA(\"ProximityPrompt\") or penjualPul:FindFirstChildWhichIsA(\"ProximityPrompt\", true)\r\n\t\tif promptPul then\r\n\t\t\ttriggerPrompt(promptPul)\r\n\t\tend\r\n\r\n\t\tlocal terbuka = false\r\n\t\tfor _ = 1, 10 do\r\n\t\t\tif isTokoUIOpen() then\r\n\t\t\t\tterbuka = true\r\n\t\t\t\tbreak\r\n\t\t\tend\r\n\t\t\ttask.wait(0.25)\r\n\t\tend\r\n\r\n\t\tif terbuka then\r\n\t\t\ttask.wait(0.45)\r\n\t\t\tfor _ = 1, 5 do\r\n\t\t\t\tlocal curCheck = cekStatusKarung()\r\n\t\t\t\tif curCheck ~= nil and curCheck <= 0 then\r\n\t\t\t\t\tbreak\r\n\t\t\t\tend\r\n\r\n\t\t\t\tklikSetorRongsok()\r\n\t\t\t\ttask.wait(0.55)\r\n\r\n\t\t\t\tlocal curAfter = cekStatusKarung()\r\n\t\t\t\tif curAfter ~= nil and curAfter <= 0 then\r\n\t\t\t\t\tbreak\r\n\t\t\t\tend\r\n\t\t\tend\r\n\t\t\ttask.wait(0.4)\r\n\t\t\ttutupTokoUI()\r\n\t\t\ttask.wait(0.4)\r\n\t\tend\r\n\r\n\t\tlocal curFinal = cekStatusKarung()\r\n\t\tif curFinal ~= nil and curFinal <= 0 then\r\n\t\t\tbreak\r\n\t\tend\r\n\t\ttask.wait(0.35)\r\n\tend\r\n\r\n\tresetToastKarungPenuh()\r\nend\r\n\r\nresetToastKarungPenuh()\r\n\r\ntask.spawn(function()\r\n\twhile getgenv().AutoFarmRongsok do\r\n\t\tlocal char = player.Character\r\n\t\tlocal hrp = char and char:FindFirstChild(\"HumanoidRootPart\")\r\n\t\tlocal hum = char and char:FindFirstChildOfClass(\"Humanoid\")\r\n\r\n\t\tif hrp and hum and hum.Health > 0 then\r\n\t\t\tif isKarungPenuh() then\r\n\t\t\t\tteleportJualKePul(hrp)\r\n\t\t\tend\r\n\r\n\t\t\tfor _, desc in ipairs(folderRongsok:GetDescendants()) do\r\n\t\t\t\tif not getgenv().AutoFarmRongsok then break end\r\n\t\t\t\tif not hrp.Parent or hum.Health <= 0 then break end\r\n\t\t\t\tif isKarungPenuh() then break end\r\n\r\n\t\t\t\tif desc:IsA(\"ProximityPrompt\") and desc.Enabled then\r\n\t\t\t\t\tlocal partRongsok = getTargetPart(desc.Parent)\r\n\t\t\t\t\tif partRongsok and partRongsok:IsA(\"BasePart\") then\r\n\t\t\t\t\t\thrp.CFrame = partRongsok.CFrame + Vector3.new(0, 3, 0)\r\n\t\t\t\t\t\ttask.wait(0.12)\r\n\t\t\t\t\t\ttriggerPrompt(desc)\r\n\t\t\t\t\t\ttask.wait(0.12)\r\n\r\n\t\t\t\t\t\tif isKarungPenuh() then\r\n\t\t\t\t\t\t\tteleportJualKePul(hrp)\r\n\t\t\t\t\t\t\tbreak\r\n\t\t\t\t\t\tend\r\n\t\t\t\t\tend\r\n\t\t\t\tend\r\n\t\t\tend\r\n\t\tend\r\n\r\n\t\ttask.wait(0.25)\r\n\tend\r\nend)",
+      "createdAt": "2026-11-26T06:50:44.724Z",
+      "updatedAt": "2026-11-26T05:48:22.612Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "tower",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
       "id": "rscripts-6b07c254494cef5d53dd12ae",
       "slug": "xlunahubsupport-50-games-new-updated-2026-oJGr",
       "source": "rscripts",
@@ -9718,7 +9751,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 6,
+      "views": 7,
       "likes": 0,
       "dislikes": 0,
       "summary": "XLuna HUB | Support 50+ Games NEW UPDATE 2026",
@@ -9753,7 +9786,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 15,
+      "views": 23,
       "likes": 1,
       "dislikes": 0,
       "summary": "Homeless Simulator -Auto rythm Maybe didnt work on xeno or solara. not sure if it works on mobile or not, since i haven't tried it yet.",
@@ -9788,7 +9821,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 6,
+      "views": 10,
       "likes": 0,
       "dislikes": 0,
       "summary": "XLunaHUB - Sol's RNG [ Part 2 ] [Dashboard] - Live Account &amp; World Telemetry - Session Roll Telemetry - Rare Biome Sniper Alerts - Traveling Merchant Alerts [Rolling &amp; Auras] - Auto Roll (No Group Required) - Instant Roll - Roll…",
@@ -9823,7 +9856,7 @@
       "tags": [
         "Script"
       ],
-      "views": 8,
+      "views": 9,
       "likes": 0,
       "dislikes": 0,
       "summary": "Rhythm? No, we LARPrhythm Running this puts you under the LARP banner, Tired of paywalls and endless Linkvertise loops just to use a script? LARP puts out stacked scripts that actually deliver, totally free, and 100% adless !! report any…",
@@ -9858,7 +9891,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 21,
+      "views": 27,
       "likes": 1,
       "dislikes": 0,
       "summary": "ReefHub | Catalog Avatar Creator Support Popup (pre-script) Optional support screen shown once before the script opens Buy Lifetime button (copies Discord, opens info popup) Preview Games button (browsable list of every ReefHub lifetime…",
@@ -9893,7 +9926,7 @@
       "tags": [
         "Script"
       ],
-      "views": 19,
+      "views": 22,
       "likes": 1,
       "dislikes": 0,
       "summary": "best script op extender triggerbot premiıum features",
@@ -9928,7 +9961,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 13,
+      "views": 16,
       "likes": 1,
       "dislikes": 0,
       "summary": "ReefHub | Sol's RNG (The best Sols RNG script by far. hints why its paid.) Live Detection &amp; Status Biome tracker with timer Session summary (biomes, merchants, auras, fish) Recent activity log Automation status (current task) Turn Ev…",
@@ -9963,7 +9996,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 18,
+      "views": 20,
       "likes": 1,
       "dislikes": 0,
       "summary": "do NOT spam or make the value higher. the games anticheat will detect you and ban you like it did to my 2 alt accounts oh and btw you need termenater's legendary scythe which you can get from termenator in the admin island.",
@@ -9998,7 +10031,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 32,
+      "views": 33,
       "likes": 1,
       "dislikes": 1,
       "summary": "Chill Hub for BloxStrike • Aimbot and aim assist with FOV, smoothing, wall and smoke checks • Triggerbot with headshot mode and delay • Player and bot ESP with boxes, skeletons, chams, health, weapons, armour, tracers, off-screen arrows…",
@@ -10103,7 +10136,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 18,
+      "views": 19,
       "likes": 1,
       "dislikes": 0,
       "summary": "Chill Hub for Throw Food For Animals • One-click full auto • Auto perfect throw with smart mode, missing index hunter and lucky throws • Auto train and collect tap bonuses • Equip best animals and sell extras with rarity and mutation kee…",
@@ -10173,7 +10206,7 @@
       "tags": [
         "Script"
       ],
-      "views": 55,
+      "views": 56,
       "likes": 1,
       "dislikes": 0,
       "summary": "Supports Sea 1, Sea 2 and Sea 3. Auto Farm &amp; Leveling: Auto Level (1 to Max), Auto Quest, skip boss quests, one-click autopilot, nearest/specific mobs, bring mobs, fast multi-hit swing, fruit/gun/sword mastery and auto Z/X/C/V/F skil…",
@@ -10219,42 +10252,6 @@
         "new"
       ],
       "glyph": "ball",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b079b33376d69bd9d642ab2",
-      "slug": "best-free-script-silent-aim-esp-gun-mods-bjxs",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/best-free-script-silent-aim-esp-gun-mods-bjxs",
-      "title": "BEST FREE SCRIPT (Silent Aim, ESP, Gun Mods) 🎯",
-      "game": "Voxel Wars",
-      "gameImage": "https://rscripts.net/assets/games/78884249003161-thumb-834db87e44e089b3.webp",
-      "author": "_Dan",
-      "authorVerified": true,
-      "verified": true,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 88,
-      "likes": 2,
-      "dislikes": 1,
-      "rating": 3.3,
-      "summary": "Express Hub is free and keyless, with mobile support and a full set of combat, ESP, and gun controls. Combat Silent Aim with target selection, hit chance, movement prediction, FOV circle, and snapline. Ragebot, Aimbot with adjustable smo…",
-      "code": "loadstring(game:HttpGet(\"https://expresshub.dev/loader\"))()",
-      "createdAt": "2026-11-26T02:36:35.057Z",
-      "updatedAt": "2026-11-26T02:36:35.057Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -10387,7 +10384,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 242948,
+      "views": 242949,
       "likes": 93,
       "dislikes": 28,
       "rating": 3.8,
@@ -10496,7 +10493,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221770,
+      "views": 221771,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10644,7 +10641,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 108477,
+      "views": 108478,
       "likes": 111,
       "dislikes": 25,
       "rating": 4.1,
@@ -10680,7 +10677,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 29752,
+      "views": 29755,
       "likes": 99,
       "dislikes": 26,
       "rating": 4,
