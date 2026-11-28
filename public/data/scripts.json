@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T19:01:30.473Z",
+  "generatedAt": "2026-11-28T19:11:29.086Z",
   "sources": [
     {
       "id": "scriptblox",
@@ -74,7 +74,7 @@
         "Ragdoll Soccer Script",
         "Ragdoll Soccer Hack"
       ],
-      "views": 10022,
+      "views": 10029,
       "likes": 8,
       "dislikes": 2,
       "rating": 4,
@@ -112,7 +112,7 @@
         "script hub",
         "game supported"
       ],
-      "views": 4767,
+      "views": 4782,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -149,7 +149,7 @@
         "UBG",
         "Untitled Boxing Game"
       ],
-      "views": 2001,
+      "views": 2003,
       "likes": 13,
       "dislikes": 0,
       "rating": 5,
@@ -187,7 +187,7 @@
         "Aimbot",
         "Autoshoot"
       ],
-      "views": 5636,
+      "views": 5638,
       "likes": 13,
       "dislikes": 0,
       "rating": 5,
@@ -301,7 +301,7 @@
         "Aimbot",
         "Silent Aim"
       ],
-      "views": 2857,
+      "views": 2858,
       "likes": 9,
       "dislikes": 0,
       "rating": 5,
@@ -339,7 +339,7 @@
         "Silent Aim",
         "Universal"
       ],
-      "views": 2861,
+      "views": 2862,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -377,7 +377,7 @@
         "keyless",
         "open source"
       ],
-      "views": 4888,
+      "views": 4898,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -415,7 +415,7 @@
         "best practical basketball script",
         "practical basketball"
       ],
-      "views": 5715,
+      "views": 5722,
       "likes": 13,
       "dislikes": 0,
       "rating": 5,
@@ -451,7 +451,7 @@
       "tags": [
         "Script"
       ],
-      "views": 7265,
+      "views": 7269,
       "likes": 39,
       "dislikes": 0,
       "rating": 5,
@@ -489,7 +489,7 @@
         "Lua",
         "obfuscate"
       ],
-      "views": 1367,
+      "views": 1368,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -527,7 +527,7 @@
         "fling things and people script",
         "ftap"
       ],
-      "views": 4593,
+      "views": 4600,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -565,7 +565,7 @@
         "clawd",
         "universal"
       ],
-      "views": 1856,
+      "views": 1858,
       "likes": 11,
       "dislikes": 1,
       "rating": 4.6,
@@ -601,7 +601,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1873,
+      "views": 1875,
       "likes": 8,
       "dislikes": 1,
       "rating": 4.4,
@@ -639,7 +639,7 @@
         "Keyless",
         "Free"
       ],
-      "views": 6015,
+      "views": 6032,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -715,7 +715,7 @@
         "Realistic Ragdoll MMA",
         "Auto AI"
       ],
-      "views": 422,
+      "views": 424,
       "likes": 16,
       "dislikes": 0,
       "rating": 5,
@@ -754,7 +754,7 @@
         "throw a seed script",
         "throw a seed hack"
       ],
-      "views": 761,
+      "views": 763,
       "likes": 8,
       "dislikes": 0,
       "rating": 5,
@@ -765,6 +765,116 @@
       "categoryIds": [
         "trending",
         "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b06db3d0b9976cd16d58d5f",
+      "slug": "Universal-Script-Tpwalk-and-jump-script-Fixed-238228",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Tpwalk-and-jump-script-Fixed-238228",
+      "title": "Tpwalk and jump script [Fixed]",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795611453778.jpg",
+      "author": "Kenockle",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Keyless",
+        "Universal"
+      ],
+      "views": 22,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "Use my script",
+      "code": "-- LocalScript: Codex Theme TpWalk & JumpPower GUI Controller\nlocal Players = game:GetService(\"Players\")\nlocal RunService = game:GetService(\"RunService\")\n\nlocal player = Players.LocalPlayer\nlocal playerGui = player:WaitForChild(\"PlayerGui\")\n\n-- Hapus GUI jika sudah ada sebelumnya agar tidak menumpuk saat testing ulang\nif playerGui:FindFirstChild(\"CodexGui\") then\n\tplayerGui.CodexGui:Destroy()\nend\n\n-- ScreenGui Utama\nlocal screenGui = Instance.new(\"ScreenGui\")\nscreenGui.Name = \"CodexGui\"\nscreenGui.ResetOnSpawn = false\nscreenGui.Parent = playerGui\n\n-- Main Frame (Codex Dark Theme & LED Glow)\nlocal mainFrame = Instance.new(\"Frame\")\nmainFrame.Name = \"MainFrame\"\nmainFrame.Size = UDim2.new(0, 420, 0, 240)\nmainFrame.Position = UDim2.new(0.5, -210, 0.5, -120)\nmainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)\nmainFrame.BorderSizePixel = 0\nmainFrame.Active = true\nmainFrame.Draggable = true\nmainFrame.Parent = screenGui\n\nlocal frameCorner = Instance.new(\"UICorner\")\nframeCorner.CornerRadius = UDim.new(0, 10)\nframeCorner.Parent = mainFrame\n\nlocal frameStroke = Instance.new(\"UIStroke\")\nframeStroke.Color = Color3.fromRGB(0, 255, 128) -- LED Cyber Green Accent\nframeStroke.Thickness = 2\nframeStroke.Parent = mainFrame\n\n-- LED Glow Effect (UIBlur / UIStroke shadow simulation)\nlocal glowEffect = Instance.new(\"UIStroke\")\nglowEffect.Color = Color3.fromRGB(0, 255, 128)\nglowEffect.Transparency = 0.5\nglowEffect.Thickness = 4\nglowEffect.Parent = mainFrame\n\n-- Top Bar (Codex Header)\nlocal topBar = Instance.new(\"Frame\")\ntopBar.Size = UDim2.new(1, 0, 0, 35)\ntopBar.BackgroundColor3 = Color3.fromRGB(22, 22, 30)\ntopBar.BorderSizePixel = 0\ntopBar.Parent = mainFrame\n\nlocal topBarCorner = Instance.new(\"UICorner\")\ntopBarCorner.CornerRadius = UDim.new(0, 10)\ntopBarCorner.Parent = topBar\n\n-- Fix bottom corners of topbar to flat\nlocal topBarFix = Instance.new(\"Frame\")\ntopBarFix.Size = UDim2.new(1, 0, 0, 5)\ntopBarFix.Position = UDim2.new(0, 0, 1, -5)\ntopBarFix.BackgroundColor3 = Color3.fromRGB(22, 22, 30)\ntopBarFix.BorderSizePixel = 0\ntopBarFix.Parent = topBar\n\n-- Title Label (\"CODEX // CONTROLLER\")\nlocal titleLabel = Instance.new(\"TextLabel\")\ntitleLabel.Size = UDim2.new(0, 200, 1, 0)\ntitleLabel.Position = UDim2.new(0, 12, 0, 0)\ntitleLabel.BackgroundTransparency = 1\ntitleLabel.Font = Enum.Font.Code\ntitleLabel.Text = \"Roblox Script\"\ntitleLabel.TextColor3 = Color3.fromRGB(0, 255, 128)\ntitleLabel.TextSize = 13\ntitleLabel.TextXAlignment = Enum.TextXAlignment.Left\ntitleLabel.Parent = topBar\n\n-- Close Button (\"X\")\nlocal closeButton = Instance.new(\"TextButton\")\ncloseButton.Size = UDim2.new(0, 30, 0, 30)\ncloseButton.Position = UDim2.new(1, -35, 0, 2.5)\ncloseButton.BackgroundTransparency = 1\ncloseButton.Font = Enum.Font.Code\ncloseButton.Text = \"X\"\ncloseButton.TextColor3 = Color3.fromRGB(255, 80, 80)\ncloseButton.TextSize = 14\ncloseButton.Parent = topBar\n\ncloseButton.MouseButton1Click:Connect(function()\n\tscreenGui:Destroy()\nend)\n\n-- Minimize Button (\"-\")\nlocal minimizeButton = Instance.new(\"TextButton\")\nminimizeButton.Size = UDim2.new(0, 30, 0, 30)\nminimizeButton.Position = UDim2.new(1, -68, 0, 2.5)\nminimizeButton.BackgroundTransparency = 1\nminimizeButton.Font = Enum.Font.Code\nminimizeButton.Text = \"-\"\nminimizeButton.TextColor3 = Color3.fromRGB(200, 200, 200)\nminimizeButton.TextSize = 16\nminimizeButton.Parent = topBar\n\nlocal isMinimized = false\nminimizeButton.MouseButton1Click:Connect(function()\n\tisMinimized = not isMinimized\n\tfor _, child in ipairs(mainFrame:GetChildren()) do\n\t\tif child ~= topBar and child ~= frameCorner and child ~= frameStroke and child ~= glowEffect then\n\t\t\tchild.Visible = not isMinimized\n\t\tend\n\tend\n\tmainFileTweenSize = isMinimized and UDim2.new(0, 420, 0, 35) or UDim2.new(0, 420, 0, 240)\n\tmainFrame.Size = mainFileTweenSize\nend)\n\n-- Sidebar Menu Container\nlocal sidebar = Instance.new(\"Frame\")\nsidebar.Size = UDim2.new(0, 130, 1, -45)\nsidebar.Position = UDim2.new(0, 8, 0, 42)\nsidebar.BackgroundColor3 = Color3.fromRGB(20, 20, 28)\nsidebar.BorderSizePixel = 0\nsidebar.Parent = mainFrame\n\nlocal sidebarCorner = Instance.new(\"UICorner\")\nsidebarCorner.CornerRadius = UDim.new(0, 8)\nsidebarCorner.Parent = sidebar\n\n-- Menu Button 1: Tp Speed\nlocal tpSpeedMenuBtn = Instance.new(\"TextButton\")\ntpSpeedMenuBtn.Size = UDim2.new(1, -12, 0, 35)\ntpSpeedMenuBtn.Position = UDim2.new(0, 6, 0, 8)\ntpSpeedMenuBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 42)\ntpSpeedMenuBtn.BorderSizePixel = 0\ntpSpeedMenuBtn.Font = Enum.Font.GothamBold\ntpSpeedMenuBtn.Text = \"Tp speed\"\ntpSpeedMenuBtn.TextColor3 = Color3.fromRGB(0, 255, 128) -- Bright default\ntpSpeedMenuBtn.TextSize = 12\ntpSpeedMenuBtn.Parent = sidebar\n\nlocal mBtn1Corner = Instance.new(\"UICorner\")\nmBtn1Corner.CornerRadius = UDim.new(0, 6)\nmBtn1Corner.Parent = tpSpeedMenuBtn\n\n-- Menu Button 2: Jump Power\nlocal jumpMenuBtn = Instance.new(\"TextButton\")\njumpMenuBtn.Size = UDim2.new(1, -12, 0, 35)\njumpMenuBtn.Position = UDim2.new(0, 6, 0, 48)\njumpMenuBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 28)\njumpMenuBtn.BorderSizePixel = 0\njumpMenuBtn.Font = Enum.Font.GothamMedium\njumpMenuBtn.Text = \"Jump power\"\njumpMenuBtn.TextColor3 = Color3.fromRGB(120, 120, 140) -- Dim default\njumpMenuBtn.TextSize = 12\njumpMenuBtn.Parent = sidebar\n\nlocal mBtn2Corner = Instance.new(\"UICorner\")\nmBtn2Corner.CornerRadius = UDim.new(0, 6)\nmBtn2Corner.Parent = jumpMenuBtn\n\n-- Content Area Containers\nlocal contentArea = Instance.new(\"Frame\")\ncontentArea.Size = UDim2.new(1, -150, 1, -45)\ncontentArea.Position = UDim2.new(0, 145, 0, 42)\ncontentArea.BackgroundTransparency = 1\ncontentArea.Parent = mainFrame\n\n-- === PAGE 1: TP SPEED ===\nlocal tpSpeedPage = Instance.new(\"Frame\")\ntpSpeedPage.Size = UDim2.new(1, 0, 1, 0)\ntpSpeedPage.BackgroundTransparency = 1\ntpSpeedPage.Visible = true\ntpSpeedPage.Parent = contentArea\n\nlocal speedBox = Instance.new(\"TextBox\")\nspeedBox.Size = UDim2.new(1, -10, 0, 36)\nspeedBox.Position = UDim2.new(0, 0, 0, 15)\nspeedBox.BackgroundColor3 = Color3.fromRGB(22, 22, 30)\nspeedBox.BorderSizePixel = 0\nspeedBox.Font = Enum.Font.GothamSemibold\nspeedBox.PlaceholderText = \"Masukkan jumlah speed...\"\nspeedBox.Text = \"1\"\nspeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)\nspeedBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 120)\nspeedBox.TextSize = 12\nspeedBox.Parent = tpSpeedPage\n\nlocal boxCorner = Instance.new(\"UICorner\")\nboxCorner.CornerRadius = UDim.new(0, 6)\nboxCorner.Parent = speedBox\n\nlocal setButton = Instance.new(\"TextButton\")\nsetButton.Size = UDim2.new(1, -10, 0, 38)\nsetButton.Position = UDim2.new(0, 0, 0, 60)\nsetButton.BackgroundColor3 = Color3.fromRGB(0, 255, 128)\nsetButton.BorderSizePixel = 0\nsetButton.Font = Enum.Font.GothamBold\nsetButton.Text = \"SET TPWALK SPEED\"\nsetButton.TextColor3 = Color3.fromRGB(15, 15, 20)\nsetButton.TextSize = 12\nsetButton.Parent = tpSpeedPage\n\nlocal btnCorner = Instance.new(\"UICorner\")\nbtnCorner.CornerRadius = UDim.new(0, 6)\nbtnCorner.Parent = setButton\n\n-- === PAGE 2: JUMP POWER ===\nlocal jumpPowerPage = Instance.new(\"Frame\")\njumpPowerPage.Size = UDim2.new(1, 0, 1, 0)\njumpPowerPage.BackgroundTransparency = 1\njumpPowerPage.Visible = false\njumpPowerPage.Parent = contentArea\n\nlocal jumpBox = Instance.new(\"TextBox\")\njumpBox.Size = UDim2.new(1, -10, 0, 36)\njumpBox.Position = UDim2.new(0, 0, 0, 15)\njumpBox.BackgroundColor3 = Color3.fromRGB(22, 22, 30)\njumpBox.BorderSizePixel = 0\njumpBox.Font = Enum.Font.GothamSemibold\njumpBox.PlaceholderText = \"Set your Jump power\"\njumpBox.Text = \"50\"\njumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)\njumpBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 120)\njumpBox.TextSize = 12\njumpBox.Parent = jumpPowerPage\n\nlocal jumpBoxCorner = Instance.new(\"UICorner\")\njumpBoxCorner.CornerRadius = UDim.new(0, 6)\njumpBoxCorner.Parent = jumpBox\n\nlocal setJumpButton = Instance.new(\"TextButton\")\nsetJumpButton.Size = UDim2.new(1, -10, 0, 38)\nsetJumpButton.Position = UDim2.new(0, 0, 0, 60)\nsetJumpButton.BackgroundColor3 = Color3.fromRGB(0, 255, 128)\nsetJumpButton.BorderSizePixel = 0\nsetJumpButton.Font = Enum.Font.GothamBold\nsetJumpButton.Text = \"Set Jump Power\"\nsetJumpButton.TextColor3 = Color3.fromRGB(15, 15, 20)\nsetJumpButton.TextSize = 12\nsetJumpButton.Parent = jumpPowerPage\n\nlocal jumpBtnCorner = Instance.new(\"UICorner\")\njumpBtnCorner.CornerRadius = UDim.new(0, 6)\njumpBtnCorner.Parent = setJumpButton\n\n-- Menu Navigation Logic (Bright Text Writing for Active Menu)\ntpSpeedMenuBtn.MouseButton1Click:Connect(function()\n\ttpSpeedPage.Visible = true\n\tjumpPowerPage.Visible = false\n\t\n\ttpSpeedMenuBtn.TextColor3 = Color3.fromRGB(0, 255, 128)\n\ttpSpeedMenuBtn.Font = Enum.Font.GothamBold\n\ttpSpeedMenuBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 42)\n\t\n\tjumpMenuBtn.TextColor3 = Color3.fromRGB(120, 120, 140)\n\tjumpMenuBtn.Font = Enum.Font.GothamMedium\n\tjumpMenuBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 28)\nend)\n\njumpMenuBtn.MouseButton1Click:Connect(function()\n\tjumpPowerPage.Visible = true\n\ttpSpeedPage.Visible = false\n\t\n\tjumpMenuBtn.TextColor3 = Color3.fromRGB(0, 255, 128)\n\tjumpMenuBtn.Font = Enum.Font.GothamBold\n\tjumpMenuBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 42)\n\t\n\ttpSpeedMenuBtn.TextColor3 = Color3.fromRGB(120, 120, 140)\n\ttpSpeedMenuBtn.Font = Enum.Font.GothamMedium\n\ttpSpeedMenuBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 28)\nend)\n\n-- TpWalk Variables & Logic\nlocal tpWalkEnabled = false\nlocal tpWalkSpeed = 1.0\n\nsetButton.MouseButton1Click:Connect(function()\n\tlocal inputVal = tonumber(speedBox.Text)\n\tif inputVal then\n\t\ttpWalkSpeed = inputVal\n\t\ttpWalkEnabled = not tpWalkEnabled\n\t\t\n\t\tif tpWalkEnabled then\n\t\t\tsetButton.BackgroundColor3 = Color3.fromRGB(50, 255, 120)\n\t\t\tsetButton.Text = \"ACTIVE: \" .. tostring(tpWalkSpeed)\n\t\telse\n\t\t\tsetButton.BackgroundColor3 = Color3.fromRGB(0, 255, 128)\n\t\t\tsetButton.Text = \"SET TPWALK SPEED\"\n\t\tend\n\telse\n\t\tspeedBox.Text = \"Invalid Number!\"\n\t\ttask.delay(1, function()\n\t\t\tspeedBox.Text = tostring(tpWalkSpeed)\n\t\tend)\n\tend\nend)\n\nRunService.Heartbeat:Connect(function(dt)\n\tif not tpWalkEnabled then return end\n\tlocal character = player.Character\n\tif not character then return end\n\t\n\tlocal rootPart = character:FindFirstChild(\"HumanoidRootPart\")\n\tlocal humanoid = character:FindFirstChild(\"Humanoid\")\n\t\n\tif not rootPart or not humanoid then return end\n\t\n\tif humanoid.MoveDirection.Magnitude > 0 then\n\t\trootPart.CFrame = rootPart.CFrame + (humanoid.MoveDirection * tpWalkSpeed * dt * 50)\n\tend\nend)\n\n-- Jump Power Logic\nsetJumpButton.MouseButton1Click:Connect(function()\n\tlocal inputVal = tonumber(jumpBox.Text)\n\tif inputVal then\n\t\tlocal character = player.Character\n\t\tif character then\n\t\t\tlocal humanoid = character:FindFirstChildOfClass(\"Humanoid\")\n\t\t\tif humanoid then\n\t\t\t\thumanoid.UseJumpPower = true\n\t\t\t\thumanoid.JumpPower = inputVal\n\t\t\t\tsetJumpButton.Text = \"APPLIED!\"\n\t\t\t\ttask.delay(1, function()\n\t\t\t\t\tsetJumpButton.Text = \"Set Jump Power\"\n\t\t\t\tend)\n\t\t\tend\n\t\tend\n\telse\n\t\tjumpBox.Text = \"Invalid Number!\"\n\t\ttask.delay(1, function()\n\t\t\tjumpBox.Text = \"50\"\n\t\tend)\n\tend\nend)",
+      "createdAt": "2026-11-25T12:57:33.948Z",
+      "updatedAt": "2026-11-28T17:56:32.130Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b06d782bf47c30121c39d5d",
+      "slug": "Universal-Script-Simple-spy-v4-remote-spy-238227",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Simple-spy-v4-remote-spy-238227",
+      "title": "Simple spy v4 remote spy",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795610498919.jpg",
+      "author": "Quantum_labs",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Simple",
+        "spy",
+        "remote spy"
+      ],
+      "views": 33,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Roblox remote spy to help you make your scripts and you can execute the outgoing remotes to see what the remotes dose and the incoming ones are sent by the server.",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/robloxscripter6245366542/roblox-lua-obscator/claude/remote-spy-game-debug-j5w0mi/SimpleSpy_Obfuscated.lua\"))()",
+      "createdAt": "2026-11-25T12:41:39.046Z",
+      "updatedAt": "2026-11-28T17:55:40.596Z",
+      "categoryIds": [
+        "trending"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b06d12f6016320b0c69bba9",
+      "slug": "Universal-Script-Universal-Npc-head-hitbox-script-238225",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Universal-Script-Universal-Npc-head-hitbox-script-238225",
+      "title": "Npc head hitbox inf6 script | Remake by McTeaMick",
+      "game": "Universal Script 📌",
+      "gameImage": "https://scriptblox.com/images/sb/0-1795608879606.jpg",
+      "author": "McTeaMick",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": true,
+      "tags": [
+        "Keyless",
+        "Npc",
+        "Npc hitbox"
+      ],
+      "views": 50,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "This is script is a \"improve\" version of \"npc head hitbox the best script\" by inf6 (which \"they\" made with Gemini the ai) this \"improve\" version is made with also AI.. (Gemini*..) This \"improve\" version only difference are had: npc healt…",
+      "code": "-- Script Name: Remake NPC hitbox by McTeaMick\nlocal Players = game:GetService(\"Players\")\nlocal RunService = game:GetService(\"RunService\")\nlocal HttpService = game:GetService(\"HttpService\")\nlocal CoreGui = game:GetService(\"CoreGui\")\n\nlocal function getUiParent()\n\tif type(gethui) == \"function\" then\n\t\tlocal ok, hui = pcall(gethui)\n\t\tif ok and typeof(hui) == \"Instance\" then\n\t\t\treturn hui\n\t\tend\n\tend\n\tif pcall(function() return CoreGui.Name end) then\n\t\treturn CoreGui\n\tend\n\tlocal lp = Players.LocalPlayer\n\treturn lp and lp:FindFirstChild(\"PlayerGui\")\nend\n\nlocal parent = getUiParent()\nif not parent then\n\twarn(\"No valid GUI parent found\")\n\treturn\nend\n\nlocal GUI_NAME = \"NPC_HeadBox_Pro\"\nif parent:FindFirstChild(GUI_NAME) then\n\tparent[GUI_NAME]:Destroy()\nend\n\nlocal ScreenGui = Instance.new(\"ScreenGui\")\nScreenGui.Name = GUI_NAME\nScreenGui.ResetOnSpawn = false\nScreenGui.Parent = parent\n\nlocal POPUP_SAVE_FILE = \"Remake_NPC_hitbox_by_McTeaMick_NoPopup.txt\"\nlocal SETTINGS_SAVE_FILE = \"Remake_NPC_hitbox_by_McTeaMick_Settings.json\"\nlocal popupHidden = false\n\nlocal function loadPopupPref()\n\tif type(isfile) == \"function\" and type(readfile) == \"function\" then\n\t\tlocal ok, exists = pcall(isfile, POPUP_SAVE_FILE)\n\t\tif ok and exists then\n\t\t\tlocal rOk, content = pcall(readfile, POPUP_SAVE_FILE)\n\t\t\tif rOk and tostring(content):match(\"^%s*1%s*$\") then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend\n\tif type(getgenv) == \"function\" then\n\t\tlocal ok, env = pcall(getgenv)\n\t\tif ok and type(env) == \"table\" and env._McTeaMickNpcPopupHidden == true then\n\t\t\treturn true\n\t\tend\n\tend\n\treturn false\nend\n\nlocal function savePopupPref(hidden)\n\tpopupHidden = hidden\n\tif type(getgenv) == \"function\" then\n\t\tpcall(function()\n\t\t\tgetgenv()._McTeaMickNpcPopupHidden = hidden\n\t\tend)\n\tend\n\tif type(writefile) == \"function\" then\n\t\tpcall(function()\n\t\t\twritefile(POPUP_SAVE_FILE, hidden and \"1\" or \"0\")\n\t\tend)\n\tend\nend\n\npopupHidden = loadPopupPref()\n\nlocal BASE_W, BASE_H = 220, 412\nlocal BASE_LIST_W, BASE_LIST_H = 180, 200\nlocal BASE_PANEL_W, BASE_PANEL_H = 180, 185\n\nlocal accentPresets = {\n\t{ name = \"Crimson\", color = Color3.fromRGB(255, 0, 50) },\n\t{ name = \"Cyan\", color = Color3.fromRGB(0, 200, 255) },\n\t{ name = \"Violet\", color = Color3.fromRGB(145, 70, 255) },\n\t{ name = \"Amber\", color = Color3.fromRGB(255, 165, 0) },\n}\n\nlocal bgPresets = {\n\t{ name = \"Dark\", bg = Color3.fromRGB(20, 20, 25), btn = Color3.fromRGB(40, 40, 45) },\n\t{ name = \"Midnight\", bg = Color3.fromRGB(10, 16, 28), btn = Color3.fromRGB(24, 34, 54) },\n\t{ name = \"Graphite\", bg = Color3.fromRGB(32, 32, 36), btn = Color3.fromRGB(54, 54, 60) },\n}\n\nlocal transparencySteps = { 0, 0.15, 0.3, 0.45 }\nlocal cornerSteps = { 4, 8, 12, 16 }\nlocal guiSizeSteps = { 0.70, 0.85, 1.00, 1.15 }\n\nlocal accentIdx = 1\nlocal bgIdx = 1\nlocal transIdx = 1\nlocal cornerIdx = 2\nlocal guiSizeIdx = 2\n\nlocal headSize = 12\nlocal hitboxEnabled = false\nlocal autoHitboxEnabled = true\nlocal hitboxPartMode = \"Head\"\nlocal hitboxApplyMode = \"ALL\"\nlocal selectedNpcLabel = nil\nlocal npcList = {}\nlocal espEnabled = false\nlocal healthEspEnabled = false\nlocal nameEspEnabled = false\nlocal distEspEnabled = false\nlocal espColorMode = \"PART\" -- \"PART\" or \"HP\"\nlocal originalParts = {}\n\nlocal uiTheme = {\n\tAccent = accentPresets[accentIdx].color,\n\tBackground = bgPresets[bgIdx].bg,\n\tButtonOff = bgPresets[bgIdx].btn,\n\tText = Color3.new(1, 1, 1),\n\tTransparency = transparencySteps[transIdx],\n\tCornerPx = cornerSteps[cornerIdx],\n\tGuiScale = guiSizeSteps[guiSizeIdx],\n}\n\nlocal function loadSavedSettings()\n\tlocal raw = nil\n\tif type(isfile) == \"function\" and type(readfile) == \"function\" then\n\t\tlocal ok, exists = pcall(isfile, SETTINGS_SAVE_FILE)\n\t\tif ok and exists then\n\t\t\tlocal rOk, content = pcall(readfile, SETTINGS_SAVE_FILE)\n\t\t\tif rOk and type(content) == \"string\" and content ~= \"\" then\n\t\t\t\traw = content\n\t\t\tend\n\t\tend\n\tend\n\tif not raw and type(getgenv) == \"function\" then\n\t\tlocal ok, env = pcall(getgenv)\n\t\tif ok and type(env) == \"table\" and type(env._McTeaMickNpcSettingsJson) == \"string\" then\n\t\t\traw = env._McTeaMickNpcSettingsJson\n\t\tend\n\tend\n\tif not raw then\n\t\treturn\n\tend\n\n\tlocal dOk, data = pcall(function()\n\t\treturn HttpService:JSONDecode(raw)\n\tend)\n\tif not dOk or type(data) ~= \"table\" then\n\t\treturn\n\tend\n\n\tif type(data.headSize) == \"number\" then\n\t\theadSize = math.clamp(math.round(data.headSize), 1, 100)\n\tend\n\tif type(data.hitboxEnabled) == \"boolean\" then\n\t\thitboxEnabled = data.hitboxEnabled\n\tend\n\tif type(data.autoHitboxEnabled) == \"boolean\" then\n\t\tautoHitboxEnabled = data.autoHitboxEnabled\n\tend\n\tif data.hitboxPartMode == \"Head\" or data.hitboxPartMode == \"Torso\" then\n\t\thitboxPartMode = data.hitboxPartMode\n\tend\n\tif data.hitboxApplyMode == \"ALL\" or data.hitboxApplyMode == \"ONE\" then\n\t\thitboxApplyMode = data.hitboxApplyMode\n\tend\n\tif type(data.selectedNpcLabel) == \"string\" and data.selectedNpcLabel ~= \"\" then\n\t\tselectedNpcLabel = data.selectedNpcLabel\n\tend\n\tif type(data.espEnabled) == \"boolean\" then\n\t\tespEnabled = data.espEnabled\n\tend\n\tif type(data.healthEspEnabled) == \"boolean\" then\n\t\thealthEspEnabled = data.healthEspEnabled\n\tend\n\tif type(data.nameEspEnabled) == \"boolean\" then\n\t\tnameEspEnabled = data.nameEspEnabled\n\tend\n\tif type(data.distEspEnabled) == \"boolean\" then\n\t\tdistEspEnabled = data.distEspEnabled\n\tend\n\tif data.espColorMode == \"PART\" or data.espColorMode == \"HP\" then\n\t\tespColorMode = data.espColorMode\n\tend\n\tif type(data.accentIdx) == \"number\" and accentPresets[data.accentIdx] then\n\t\taccentIdx = data.accentIdx\n\tend\n\tif type(data.bgIdx) == \"number\" and bgPresets[data.bgIdx] then\n\t\tbgIdx = data.bgIdx\n\tend\n\tif type(data.transIdx) == \"number\" and transparencySteps[data.transIdx] ~= nil then\n\t\ttransIdx = data.transIdx\n\tend\n\tif type(data.cornerIdx) == \"number\" and cornerSteps[data.cornerIdx] ~= nil then\n\t\tcornerIdx = data.cornerIdx\n\tend\n\tif type(data.guiSizeIdx) == \"number\" and guiSizeSteps[data.guiSizeIdx] ~= nil then\n\t\tguiSizeIdx = data.guiSizeIdx\n\tend\n\n\tuiTheme.Accent = accentPresets[accentIdx].color\n\tuiTheme.Background = bgPresets[bgIdx].bg\n\tuiTheme.ButtonOff = bgPresets[bgIdx].btn\n\tuiTheme.Transparency = transparencySteps[transIdx]\n\tuiTheme.CornerPx = cornerSteps[cornerIdx]\n\tuiTheme.GuiScale = guiSizeSteps[guiSizeIdx]\nend\n\nlocal function autoSaveSettings()\n\tlocal payload = {\n\t\theadSize = headSize,\n\t\thitboxEnabled = hitboxEnabled,\n\t\tautoHitboxEnabled = autoHitboxEnabled,\n\t\thitboxPartMode = hitboxPartMode,\n\t\thitboxApplyMode = hitboxApplyMode,\n\t\tselectedNpcLabel = selectedNpcLabel or \"\",\n\t\tespEnabled = espEnabled,\n\t\thealthEspEnabled = healthEspEnabled,\n\t\tnameEspEnabled = nameEspEnabled,\n\t\tdistEspEnabled = distEspEnabled,\n\t\tespColorMode = espColorMode,\n\t\taccentIdx = accentIdx,\n\t\tbgIdx = bgIdx,\n\t\ttransIdx = transIdx,\n\t\tcornerIdx = cornerIdx,\n\t\tguiSizeIdx = guiSizeIdx,\n\t}\n\n\tlocal eOk, encoded = pcall(function()\n\t\treturn HttpService:JSONEncode(payload)\n\tend)\n\tif not eOk or type(encoded) ~= \"string\" then\n\t\treturn\n\tend\n\n\tif type(getgenv) == \"function\" then\n\t\tpcall(function()\n\t\t\tgetgenv()._McTeaMickNpcSettingsJson = encoded\n\t\tend)\n\tend\n\tif type(writefile) == \"function\" then\n\t\tpcall(function()\n\t\t\twritefile(SETTINGS_SAVE_FILE, encoded)\n\t\tend)\n\tend\nend\n\nloadSavedSettings()\n\nlocal MainFrame = Instance.new(\"Frame\")\nMainFrame.Name = \"MainFrame\"\nMainFrame.Size = UDim2.fromOffset(BASE_W, BASE_H)\nMainFrame.Position = UDim2.fromScale(0.32, 0.08)\nMainFrame.BackgroundColor3 = uiTheme.Background\nMainFrame.Active = true\nMainFrame.Draggable = true\nMainFrame.Parent = ScreenGui\n\nlocal mainCorner = Instance.new(\"UICorner\")\nmainCorner.CornerRadius = UDim.new(0, 10)\nmainCorner.Parent = MainFrame\n\nlocal frameStroke = Instance.new(\"UIStroke\")\nframeStroke.Color = uiTheme.Accent\nframeStroke.Thickness = 1.5\nframeStroke.Parent = MainFrame\n\nlocal Title = Instance.new(\"TextLabel\")\nTitle.Name = \"Title\"\nTitle.Size = UDim2.new(1, 0, 0, 28)\nTitle.BackgroundColor3 = uiTheme.Accent\nTitle.TextColor3 = uiTheme.Text\nTitle.Font = Enum.Font.GothamBold\nTitle.TextSize = 11\nTitle.TextTruncate = Enum.TextTruncate.AtEnd\nTitle.Text = \"Remake NPC hitbox by McTeaMick\"\nTitle.Parent = MainFrame\n\nlocal titleCorner = Instance.new(\"UICorner\")\ntitleCorner.CornerRadius = UDim.new(0, 10)\ntitleCorner.Parent = Title\n\nlocal function styleBtn(btn, text, pos, size, bg, isAccent)\n\tbtn.Text = text\n\tbtn.Position = pos\n\tbtn.Size = size or UDim2.new(0.86, 0, 0, 21)\n\tbtn.BackgroundColor3 = bg or uiTheme.ButtonOff\n\tbtn.TextColor3 = uiTheme.Text\n\tbtn.Font = Enum.Font.GothamSemibold\n\tbtn.TextSize = 10\n\tbtn.AutoButtonColor = true\n\tbtn.Parent = MainFrame\n\tbtn:SetAttribute(\"IsAccent\", isAccent == true)\n\tlocal c = Instance.new(\"UICorner\")\n\tc.CornerRadius = UDim.new(0, 6)\n\tc.Parent = btn\n\treturn c\nend\n\nlocal HitboxBtn = Instance.new(\"TextButton\")\nlocal AutoHitboxBtn = Instance.new(\"TextButton\")\nlocal PartModeBtn = Instance.new(\"TextButton\")\nlocal ApplyModeBtn = Instance.new(\"TextButton\")\nlocal OpenListBtn = Instance.new(\"TextButton\")\nlocal EspBtn = Instance.new(\"TextButton\")\nlocal HealthBtn = Instance.new(\"TextButton\")\nlocal NameEspBtn = Instance.new(\"TextButton\")\nlocal DistEspBtn = Instance.new(\"TextButton\")\nlocal EspColorModeBtn = Instance.new(\"TextButton\")\nlocal ThemeMenuBtn = Instance.new(\"TextButton\")\nlocal DecreaseBtn = Instance.new(\"TextButton\")\nlocal IncreaseBtn = Instance.new(\"TextButton\")\nlocal SizeLabel = Instance.new(\"TextLabel\")\n\nstyleBtn(HitboxBtn, hitboxEnabled and \"HITBOX: ACTIVE\" or \"HITBOX: DEACTIVATED\", UDim2.new(0.07, 0, 0.085, 0))\nstyleBtn(AutoHitboxBtn, autoHitboxEnabled and \"AUTO HITBOX: ON\" or \"AUTO HITBOX: OFF\", UDim2.new(0.07, 0, 0.142, 0), nil, Color3.fromRGB(0, 180, 100), false)\nstyleBtn(PartModeBtn, \"HITBOX PART: \" .. string.upper(hitboxPartMode), UDim2.new(0.07, 0, 0.199, 0), nil, Color3.fromRGB(50, 45, 65), false)\nstyleBtn(ApplyModeBtn, hitboxApplyMode == \"ALL\" and \"APPLY TO: ALL NPC\" or \"APPLY TO: ONE NPC\", UDim2.new(0.07, 0, 0.256, 0), nil, Color3.fromRGB(50, 45, 65), false)\nstyleBtn(OpenListBtn, \"NPC: ALL NPCs\", UDim2.new(0.07, 0, 0.313, 0), nil, Color3.fromRGB(45, 50, 65), false)\nstyleBtn(EspBtn, espEnabled and \"NPC ESP: ON\" or \"NPC ESP: OFF\", UDim2.new(0.07, 0, 0.370, 0))\nstyleBtn(HealthBtn, healthEspEnabled and \"HEALTH ESP: ON\" or \"HEALTH ESP: OFF\", UDim2.new(0.07, 0, 0.427, 0))\nstyleBtn(NameEspBtn, nameEspEnabled and \"NAME ESP: ON\" or \"NAME ESP: OFF\", UDim2.new(0.07, 0, 0.484, 0))\nstyleBtn(DistEspBtn, distEspEnabled and \"DIST ESP: ON\" or \"DIST ESP: OFF\", UDim2.new(0.07, 0, 0.541, 0))\nstyleBtn(EspColorModeBtn, \"ESP COLOR: \" .. espColorMode, UDim2.new(0.07, 0, 0.598, 0), nil, Color3.fromRGB(55, 50, 75), false)\nstyleBtn(ThemeMenuBtn, \"UI THEME: MENU\", UDim2.new(0.07, 0, 0.655, 0), nil, Color3.fromRGB(55, 55, 70), false)\nstyleBtn(DecreaseBtn, \"-\", UDim2.new(0.14, 0, 0.882, 0), UDim2.fromOffset(40, 28), uiTheme.Accent, true)\nstyleBtn(IncreaseBtn, \"+\", UDim2.new(0.68, 0, 0.882, 0), UDim2.fromOffset(40, 28), Color3.fromRGB(0, 180, 100), false)\n\nSizeLabel.Name = \"SizeLabel\"\nSizeLabel.Text = \"SIZE: \" .. headSize\nSizeLabel.Position = UDim2.new(0, 0, 0.815, 0)\nSizeLabel.Size = UDim2.new(1, 0, 0, 18)\nSizeLabel.TextColor3 = uiTheme.Text\nSizeLabel.Font = Enum.Font.GothamBold\nSizeLabel.TextSize = 11\nSizeLabel.BackgroundTransparency = 1\nSizeLabel.Parent = MainFrame\n\n-- Scrollable NPC Name Picker List\nlocal NpcListFrame = Instance.new(\"Frame\")\nNpcListFrame.Name = \"NpcListFrame\"\nNpcListFrame.Size = UDim2.fromOffset(BASE_LIST_W, BASE_LIST_H)\nNpcListFrame.Position = UDim2.new(1, 6, 0, 0)\nNpcListFrame.BackgroundColor3 = uiTheme.Background\nNpcListFrame.Visible = false\nNpcListFrame.Parent = MainFrame\nlocal npcListCorner = Instance.new(\"UICorner\")\nnpcListCorner.CornerRadius = UDim.new(0, 10)\nnpcListCorner.Parent = NpcListFrame\nlocal listStroke = Instance.new(\"UIStroke\")\nlistStroke.Color = uiTheme.Accent\nlistStroke.Thickness = 1.5\nlistStroke.Parent = NpcListFrame\n\nlocal ListTitle = Instance.new(\"TextLabel\")\nListTitle.Size = UDim2.new(1, 0, 0, 26)\nListTitle.BackgroundColor3 = Color3.fromRGB(35, 35, 45)\nListTitle.TextColor3 = uiTheme.Text\nListTitle.Font = Enum.Font.GothamBold\nListTitle.TextSize = 10\nListTitle.Text = \"SELECT NPC\"\nListTitle.Parent = NpcListFrame\nlocal listTitleCorner = Instance.new(\"UICorner\")\nlistTitleCorner.CornerRadius = UDim.new(0, 10)\nlistTitleCorner.Parent = ListTitle\n\nlocal ScrollList = Instance.new(\"ScrollingFrame\")\nScrollList.Name = \"ScrollList\"\nScrollList.Size = UDim2.new(1, -8, 1, -32)\nScrollList.Position = UDim2.new(0, 4, 0, 28)\nScrollList.BackgroundTransparency = 1\nScrollList.ScrollBarThickness = 4\nScrollList.CanvasSize = UDim2.new(0, 0, 0, 0)\nScrollList.Parent = NpcListFrame\n\nlocal layout = Instance.new(\"UIListLayout\")\nlayout.Padding = UDim.new(0, 4)\nlayout.SortOrder = Enum.SortOrder.LayoutOrder\nlayout.Parent = ScrollList\n\n-- Custom UI Changer + GUI Size Drawer\nlocal ThemePanel = Instance.new(\"Frame\")\nThemePanel.Name = \"ThemePanel\"\nThemePanel.Size = UDim2.fromOffset(BASE_PANEL_W, BASE_PANEL_H)\nThemePanel.Position = UDim2.new(1, 6, 0, 206)\nThemePanel.BackgroundColor3 = uiTheme.Background\nThemePanel.BackgroundTransparency = uiTheme.Transparency\nThemePanel.Visible = false\nThemePanel.Parent = MainFrame\n\nlocal panelCorner = Instance.new(\"UICorner\")\npanelCorner.CornerRadius = UDim.new(0, 10)\npanelCorner.Parent = ThemePanel\n\nlocal panelStroke = Instance.new(\"UIStroke\")\npanelStroke.Color = uiTheme.Accent\npanelStroke.Thickness = 1.5\npanelStroke.Parent = ThemePanel\n\nlocal function makePanelBtn(text, yPos)\n\tlocal b = Instance.new(\"TextButton\")\n\tb.Size = UDim2.new(0.88, 0, 0, 26)\n\tb.Position = UDim2.new(0.06, 0, 0, yPos)\n\tb.BackgroundColor3 = uiTheme.ButtonOff\n\tb.TextColor3 = uiTheme.Text\n\tb.Font = Enum.Font.GothamSemibold\n\tb.TextSize = 10\n\tb.Text = text\n\tb.Parent = ThemePanel\n\tlocal c = Instance.new(\"UICorner\")\n\tc.CornerRadius = UDim.new(0, 6)\n\tc.Parent = b\n\treturn b\nend\n\nlocal AccentCycleBtn = makePanelBtn(\"ACCENT: \" .. accentPresets[accentIdx].name, 10)\nlocal BgCycleBtn = makePanelBtn(\"BG: \" .. bgPresets[bgIdx].name, 43)\nlocal TransCycleBtn = makePanelBtn(string.format(\"ALPHA: %d%%\", math.round(uiTheme.Transparency * 100)), 76)\nlocal CornerCycleBtn = makePanelBtn(string.format(\"RADIUS: %dpx\", uiTheme.CornerPx), 109)\nlocal GuiSizeCycleBtn = makePanelBtn(string.format(\"GUI SIZE: %.2fx\", uiTheme.GuiScale), 142)\n\n-- Small First-Time Info Popup\nlocal PopupFrame = Instance.new(\"Frame\")\nPopupFrame.Name = \"IntroPopup\"\nPopupFrame.Size = UDim2.fromOffset(252, 186)\nPopupFrame.Position = UDim2.fromScale(0.5, 0.5)\nPopupFrame.AnchorPoint = Vector2.new(0.5, 0.5)\nPopupFrame.BackgroundColor3 = Color3.fromRGB(22, 22, 28)\nPopupFrame.Active = true\nPopupFrame.Draggable = true\nPopupFrame.Visible = not popupHidden\nPopupFrame.ZIndex = 20\nPopupFrame.Parent = ScreenGui\nInstance.new(\"UICorner\", PopupFrame).CornerRadius = UDim.new(0, 10)\nlocal popupStroke = Instance.new(\"UIStroke\")\npopupStroke.Color = uiTheme.Accent\npopupStroke.Thickness = 1.5\npopupStroke.Parent = PopupFrame\n\nlocal PopupTitle = Instance.new(\"TextLabel\")\nPopupTitle.Size = UDim2.new(1, 0, 0, 26)\nPopupTitle.BackgroundColor3 = uiTheme.Accent\nPopupTitle.TextColor3 = Color3.new(1, 1, 1)\nPopupTitle.Font = Enum.Font.GothamBold\nPopupTitle.TextSize = 11\nPopupTitle.Text = \"INFO\"\nPopupTitle.ZIndex = 21\nPopupTitle.Parent = PopupFrame\nInstance.new(\"UICorner\", PopupTitle).CornerRadius = UDim.new(0, 10)\n\nlocal PopupMsg = Instance.new(\"TextLabel\")\nPopupMsg.Size = UDim2.new(1, -16, 0, 102)\nPopupMsg.Position = UDim2.new(0, 8, 0, 30)\nPopupMsg.BackgroundTransparency = 1\nPopupMsg.TextColor3 = Color3.new(1, 1, 1)\nPopupMsg.Font = Enum.Font.GothamSemibold\nPopupMsg.TextSize = 10\nPopupMsg.TextWrapped = true\nPopupMsg.Text = \"the original script name is NPC hitbox the best script if you truly wan to try the original.. though it really did not got patch, try find in Scriptblox.\\n\\nThis script is made with ai, and remake* by McTeaMick on Scriptblox\\nOriginal / inspired script by inf6 on Scriptblox\"\nPopupMsg.ZIndex = 21\nPopupMsg.Parent = PopupFrame\n\nlocal DontShowBtn = Instance.new(\"TextButton\")\nDontShowBtn.Size = UDim2.new(0.62, 0, 0, 26)\nDontShowBtn.Position = UDim2.new(0.05, 0, 1, -34)\nDontShowBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 55)\nDontShowBtn.TextColor3 = Color3.new(1, 1, 1)\nDontShowBtn.Font = Enum.Font.GothamSemibold\nDontShowBtn.TextSize = 9\nDontShowBtn.Text = \"DON'T SHOW ME THIS POP UP\"\nDontShowBtn.ZIndex = 21\nDontShowBtn.Parent = PopupFrame\nInstance.new(\"UICorner\", DontShowBtn).CornerRadius = UDim.new(0, 6)\n\nlocal ClosePopupBtn = Instance.new(\"TextButton\")\nClosePopupBtn.Size = UDim2.new(0.24, 0, 0, 26)\nClosePopupBtn.Position = UDim2.new(0.71, 0, 1, -34)\nClosePopupBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 100)\nClosePopupBtn.TextColor3 = Color3.new(1, 1, 1)\nClosePopupBtn.Font = Enum.Font.GothamBold\nClosePopupBtn.TextSize = 10\nClosePopupBtn.Text = \"OK\"\nClosePopupBtn.ZIndex = 21\nClosePopupBtn.Parent = PopupFrame\nInstance.new(\"UICorner\", ClosePopupBtn).CornerRadius = UDim.new(0, 6)\n\nDontShowBtn.MouseButton1Click:Connect(function()\n\tsavePopupPref(true)\n\tPopupFrame.Visible = false\nend)\n\nClosePopupBtn.MouseButton1Click:Connect(function()\n\tPopupFrame.Visible = false\nend)\n\nlocal HideBtn = Instance.new(\"TextButton\")\nHideBtn.Name = \"ToggleButton\"\nHideBtn.Text = \"6\"\nHideBtn.Size = UDim2.fromOffset(40, 40)\nHideBtn.Position = UDim2.new(0.03, 0, 0.35, 0)\nHideBtn.BackgroundColor3 = uiTheme.Accent\nHideBtn.TextColor3 = uiTheme.Text\nHideBtn.Font = Enum.Font.GothamBold\nHideBtn.TextSize = 15\nHideBtn.Active = true\nHideBtn.Draggable = true\nHideBtn.Parent = ScreenGui\nInstance.new(\"UICorner\", HideBtn).CornerRadius = UDim.new(1, 0)\nlocal hideStroke = Instance.new(\"UIStroke\")\nhideStroke.Thickness = 2\nhideStroke.Parent = HideBtn\n\nlocal function applyThemeToAll()\n\tlocal s = uiTheme.GuiScale\n\n\tMainFrame.Size = UDim2.fromOffset(math.round(BASE_W * s), math.round(BASE_H * s))\n\tNpcListFrame.Size = UDim2.fromOffset(math.round(BASE_LIST_W * s), math.round(BASE_LIST_H * s))\n\tThemePanel.Size = UDim2.fromOffset(math.round(BASE_PANEL_W * s), math.round(BASE_PANEL_H * s))\n\tThemePanel.Position = UDim2.new(1, math.round(6 * s), 0, math.round(206 * s))\n\n\tTitle.Size = UDim2.new(1, 0, 0, math.round(28 * s))\n\tTitle.TextSize = math.clamp(math.round(11 * s), 8, 17)\n\n\tDecreaseBtn.Size = UDim2.fromOffset(math.round(40 * s), math.round(28 * s))\n\tIncreaseBtn.Size = UDim2.fromOffset(math.round(40 * s), math.round(28 * s))\n\tSizeLabel.TextSize = math.clamp(math.round(11 * s), 8, 17)\n\n\tHideBtn.Size = UDim2.fromOffset(math.round(40 * s), math.round(40 * s))\n\tHideBtn.TextSize = math.clamp(math.round(15 * s), 11, 22)\n\n\tMainFrame.BackgroundColor3 = uiTheme.Background\n\tMainFrame.BackgroundTransparency = uiTheme.Transparency\n\tThemePanel.BackgroundColor3 = uiTheme.Background\n\tThemePanel.BackgroundTransparency = uiTheme.Transparency\n\tNpcListFrame.BackgroundColor3 = uiTheme.Background\n\tNpcListFrame.BackgroundTransparency = uiTheme.Transparency\n\n\tmainCorner.CornerRadius = UDim.new(0, uiTheme.CornerPx)\n\ttitleCorner.CornerRadius = UDim.new(0, uiTheme.CornerPx)\n\tpanelCorner.CornerRadius = UDim.new(0, uiTheme.CornerPx)\n\tnpcListCorner.CornerRadius = UDim.new(0, uiTheme.CornerPx)\n\n\tTitle.BackgroundColor3 = uiTheme.Accent\n\tTitle.TextColor3 = uiTheme.Text\n\tframeStroke.Color = uiTheme.Accent\n\tpanelStroke.Color = uiTheme.Accent\n\tlistStroke.Color = uiTheme.Accent\n\tpopupStroke.Color = uiTheme.Accent\n\tPopupTitle.BackgroundColor3 = uiTheme.Accent\n\tHideBtn.BackgroundColor3 = uiTheme.Accent\n\tHideBtn.TextColor3 = uiTheme.Text\n\tSizeLabel.TextColor3 = uiTheme.Text\n\n\tfor _, desc in ipairs(MainFrame:GetDescendants()) do\n\t\tif desc:IsA(\"TextButton\") then\n\t\t\tdesc.TextSize = math.clamp(math.round(10 * s), 8, 16)\n\t\t\tif desc ~= IncreaseBtn then\n\t\t\t\tlocal isActive =\n\t\t\t\t\t(desc == HitboxBtn and hitboxEnabled)\n\t\t\t\t\tor (desc == AutoHitboxBtn and autoHitboxEnabled)\n\t\t\t\t\tor (desc == EspBtn and espEnabled)\n\t\t\t\t\tor (desc == HealthBtn and healthEspEnabled)\n\t\t\t\t\tor (desc == NameEspBtn and nameEspEnabled)\n\t\t\t\t\tor (desc == DistEspBtn and distEspEnabled)\n\n\t\t\t\tif isActive then\n\t\t\t\t\tdesc.BackgroundColor3 = Color3.fromRGB(0, 180, 100)\n\t\t\t\telseif desc:GetAttribute(\"IsAccent\") then\n\t\t\t\t\tdesc.BackgroundColor3 = uiTheme.Accent\n\t\t\t\telse\n\t\t\t\t\tdesc.BackgroundColor3 = uiTheme.ButtonOff\n\t\t\t\tend\n\t\t\tend\n\t\t\tdesc.TextColor3 = uiTheme.Text\n\t\telseif desc:IsA(\"UICorner\") and desc ~= mainCorner and desc ~= titleCorner and desc ~= panelCorner and desc ~= npcListCorner then\n\t\t\tdesc.CornerRadius = UDim.new(0, math.min(uiTheme.CornerPx, 8))\n\t\tend\n\tend\nend\n\nlocal function getNpcDisplayName(model, hum)\n\tlocal attr = model and model:GetAttribute(\"DisplayName\")\n\tif type(attr) == \"string\" and attr ~= \"\" then\n\t\treturn attr\n\tend\n\tif hum and type(hum.DisplayName) == \"string\" and hum.DisplayName ~= \"\" then\n\t\treturn hum.DisplayName\n\tend\n\treturn model and model.Name or \"NPC\"\nend\n\nlocal function getNpcBodyPartColor(model, head, root)\n\tlocal candidate = nil\n\tif model then\n\t\tcandidate = model:FindFirstChild(\"Torso\") or model:FindFirstChild(\"UpperTorso\")\n\tend\n\tif not (candidate and candidate:IsA(\"BasePart\")) then\n\t\tcandidate = head\n\tend\n\tif not (candidate and candidate:IsA(\"BasePart\")) and root and root:IsA(\"BasePart\") then\n\t\tcandidate = root\n\tend\n\n\tif candidate and candidate:IsA(\"BasePart\") then\n\t\tlocal col = candidate.Color\n\t\tlocal maxC = math.max(col.R, col.G, col.B)\n\t\tlocal minC = math.min(col.R, col.G, col.B)\n\t\tif maxC > 0.14 and not (minC > 0.88 and (maxC - minC) < 0.08) then\n\t\t\treturn col\n\t\tend\n\tend\n\treturn nil\nend\n\nlocal function getNpcEspColor(model, head, root, ratio)\n\tlocal hpColor = Color3.fromRGB(255, 0, 50):Lerp(Color3.fromRGB(0, 255, 100), ratio)\n\tif espColorMode == \"PART\" then\n\t\tlocal partColor = getNpcBodyPartColor(model, head, root)\n\t\tif partColor then\n\t\t\treturn partColor\n\t\tend\n\tend\n\treturn hpColor\nend\n\nlocal function getNpcMinMaxHealth(model, hum)\n\tlocal minHp = 0\n\tlocal maxHp = hum and tonumber(hum.MaxHealth) or 100\n\n\tlocal aMin = model and tonumber(model:GetAttribute(\"MinHealth\"))\n\tlocal aMax = model and tonumber(model:GetAttribute(\"MaxHealth\"))\n\tlocal vMin = model and (model:FindFirstChild(\"MinHealth\") or (hum and hum:FindFirstChild(\"MinHealth\")))\n\tlocal vMax = model and (model:FindFirstChild(\"MaxHealth\") or (hum and hum:FindFirstChild(\"MaxHealth\")))\n\n\tif aMin ~= nil then\n\t\tminHp = aMin\n\telseif vMin and (vMin:IsA(\"NumberValue\") or vMin:IsA(\"IntValue\")) then\n\t\tminHp = vMin.Value\n\tend\n\n\tif aMax ~= nil then\n\t\tmaxHp = aMax\n\telseif vMax and (vMax:IsA(\"NumberValue\") or vMax:IsA(\"IntValue\")) then\n\t\tmaxHp = vMax.Value\n\tend\n\n\tif not maxHp or maxHp <= minHp then\n\t\tmaxHp = minHp + 1\n\tend\n\n\tlocal attrHp = model and tonumber(model:GetAttribute(\"Health\"))\n\tlocal curHp = attrHp ~= nil and attrHp or (hum and tonumber(hum.Health) or minHp)\n\tcurHp = math.clamp(curHp, minHp, maxHp)\n\n\treturn curHp, minHp, maxHp\nend\n\nlocal function getReferencePosition()\n\tlocal lp = Players.LocalPlayer\n\tlocal char = lp and lp.Character\n\tlocal root = char and (char:FindFirstChild(\"HumanoidRootPart\") or char:FindFirstChild(\"Head\"))\n\tif root and root:IsA(\"BasePart\") then\n\t\treturn root.Position\n\tend\n\tlocal cam = workspace.CurrentCamera\n\treturn cam and cam.CFrame.Position or Vector3.zero\nend\n\nlocal function getHitboxPart(model, head)\n\tif hitboxPartMode == \"Torso\" then\n\t\tlocal torso = model:FindFirstChild(\"Torso\") or model:FindFirstChild(\"UpperTorso\")\n\t\tif torso and torso:IsA(\"BasePart\") then\n\t\t\treturn torso\n\t\tend\n\tend\n\treturn head\nend\n\nlocal function restorePart(part)\n\tlocal saved = originalParts[part]\n\tif saved and part and part.Parent then\n\t\tpcall(function()\n\t\t\tpart.Size = saved.Size\n\t\t\tpart.Transparency = saved.Transparency\n\t\t\tpart.CanCollide = saved.CanCollide\n\t\t\tpart.Massless = saved.Massless\n\t\tend)\n\tend\n\toriginalParts[part] = nil\nend\n\nlocal function restoreAllParts()\n\tfor part in pairs(originalParts) do\n\t\trestorePart(part)\n\tend\nend\n\nlocal function clearAllHighlights()\n\tfor _, desc in ipairs(workspace:GetDescendants()) do\n\t\tif desc:IsA(\"Highlight\") and desc.Name == \"ESP_Highlight\" then\n\t\t\tdesc:Destroy()\n\t\tend\n\tend\nend\n\nlocal function clearAllHealthEsp()\n\tfor _, desc in ipairs(workspace:GetDescendants()) do\n\t\tif desc:IsA(\"BillboardGui\") and desc.Name == \"NPC_Health_ESP\" then\n\t\t\tdesc:Destroy()\n\t\tend\n\tend\nend\n\nlocal function clearAllInfoEsp()\n\tfor _, desc in ipairs(workspace:GetDescendants()) do\n\t\tif desc:IsA(\"BillboardGui\") and desc.Name == \"NPC_Info_ESP\" then\n\t\t\tdesc:Destroy()\n\t\tend\n\tend\nend\n\nlocal function getStableDistScale(studs)\n\treturn math.clamp(1.30 - (studs / 240), 0.85, 1.30)\nend\n\nlocal function updateHealthBillboard(model, hum, head, root, refPos)\n\tlocal gui = model:FindFirstChild(\"NPC_Health_ESP\")\n\tif not gui then\n\t\tgui = Instance.new(\"BillboardGui\")\n\t\tgui.Name = \"NPC_Health_ESP\"\n\t\tgui.Adornee = head\n\t\tgui.Size = UDim2.fromOffset(104, 24)\n\t\tgui.StudsOffset = Vector3.new(0, 2.4, 0)\n\t\tgui.AlwaysOnTop = true\n\t\tgui.Parent = model\n\n\t\tlocal label = Instance.new(\"TextLabel\")\n\t\tlabel.Name = \"HpLabel\"\n\t\tlabel.Size = UDim2.new(1, 0, 0, 15)\n\t\tlabel.Position = UDim2.new(0, 0, 0, 0)\n\t\tlabel.BackgroundTransparency = 1\n\t\tlabel.TextColor3 = uiTheme.Text\n\t\tlabel.TextStrokeTransparency = 1\n\t\tlabel.Font = Enum.Font.GothamBold\n\t\tlabel.TextSize = 12\n\t\tlabel.Parent = gui\n\n\t\tlocal bg = Instance.new(\"Frame\")\n\t\tbg.Name = \"BarBg\"\n\t\tbg.Size = UDim2.new(0.76, 0, 0, 5)\n\t\tbg.Position = UDim2.new(0.12, 0, 0.72, 0)\n\t\tbg.BackgroundColor3 = Color3.fromRGB(25, 25, 25)\n\t\tbg.BorderSizePixel = 0\n\t\tbg.Parent = gui\n\t\tInstance.new(\"UICorner\", bg).CornerRadius = UDim.new(0, 3)\n\n\t\tlocal fill = Instance.new(\"Frame\")\n\t\tfill.Name = \"BarFill\"\n\t\tfill.Size = UDim2.new(1, 0, 1, 0)\n\t\tfill.BackgroundColor3 = Color3.fromRGB(0, 255, 100)\n\t\tfill.BorderSizePixel = 0\n\t\tfill.Parent = bg\n\t\tInstance.new(\"UICorner\", fill).CornerRadius = UDim.new(0, 3)\n\tend\n\n\tlocal npcPos = root and root.Position or head.Position\n\tlocal studs = (npcPos - refPos).Magnitude\n\tlocal distScale = getStableDistScale(studs)\n\tgui.Size = UDim2.fromOffset(math.round(104 * distScale), math.round(24 * distScale))\n\tgui.StudsOffset = Vector3.new(0, 2.4 * distScale, 0)\n\n\tlocal curHp, minHp, maxHp = getNpcMinMaxHealth(model, hum)\n\tlocal ratio = math.clamp((curHp - minHp) / (maxHp - minHp), 0, 1)\n\tlocal barColor = getNpcEspColor(model, head, root, ratio)\n\n\tlocal label = gui:FindFirstChild(\"HpLabel\")\n\tlocal bg = gui:FindFirstChild(\"BarBg\")\n\tlocal fill = bg and bg:FindFirstChild(\"BarFill\")\n\n\tif label then\n\t\tlabel.TextColor3 = uiTheme.Text\n\t\tlabel.TextStrokeTransparency = 1\n\t\tlabel.Size = UDim2.new(1, 0, 0, math.clamp(math.round(15 * distScale), 13, 20))\n\t\tlabel.TextSize = math.clamp(math.round(12 * distScale), 12, 16)\n\t\tlabel.Text = string.format(\"HP: %d / %d\", math.ceil(curHp), math.ceil(maxHp))\n\tend\n\tif bg then\n\t\tbg.Size = UDim2.new(0.76, 0, 0, math.clamp(math.round(5 * distScale), 4, 8))\n\tend\n\tif fill then\n\t\tfill.Size = UDim2.new(ratio, 0, 1, 0)\n\t\tfill.BackgroundColor3 = barColor\n\tend\nend\n\nlocal function updateNameAndDist(model, hum, head, root, refPos)\n\tlocal gui = model:FindFirstChild(\"NPC_Info_ESP\")\n\tif not gui then\n\t\tgui = Instance.new(\"BillboardGui\")\n\t\tgui.Name = \"NPC_Info_ESP\"\n\t\tgui.Adornee = head\n\t\tgui.Size = UDim2.fromOffset(160, 22)\n\t\tgui.StudsOffset = Vector3.new(0, 4.2, 0)\n\t\tgui.AlwaysOnTop = true\n\t\tgui.Parent = model\n\n\t\tlocal lbl = Instance.new(\"TextLabel\")\n\t\tlbl.Name = \"InfoLabel\"\n\t\tlbl.Size = UDim2.new(1, 0, 1, 0)\n\t\tlbl.BackgroundTransparency = 1\n\t\tlbl.TextColor3 = uiTheme.Text\n\t\tlbl.TextStrokeTransparency = 1\n\t\tlbl.Font = Enum.Font.GothamBold\n\t\tlbl.TextSize = 12\n\t\tlbl.Parent = gui\n\tend\n\n\tlocal npcPos = root and root.Position or head.Position\n\tlocal studs = (npcPos - refPos).Magnitude\n\tlocal distScale = getStableDistScale(studs)\n\tgui.Size = UDim2.fromOffset(math.round(160 * distScale), math.round(22 * distScale))\n\tgui.StudsOffset = Vector3.new(0, 4.2 * distScale, 0)\n\n\tlocal lbl = gui:FindFirstChild(\"InfoLabel\")\n\tif not lbl then\n\t\treturn\n\tend\n\n\tlocal curHp, minHp, maxHp = getNpcMinMaxHealth(model, hum)\n\tlocal ratio = math.clamp((curHp - minHp) / (maxHp - minHp), 0, 1)\n\tlocal textColor = (espColorMode == \"PART\") and (getNpcBodyPartColor(model, head, root) or uiTheme.Text) or getNpcEspColor(model, head, root, ratio)\n\n\tlbl.TextColor3 = textColor\n\tlbl.TextStrokeTransparency = 1\n\tlbl.Size = UDim2.new(1, 0, 0, math.clamp(math.round(15 * distScale), 13, 20))\n\tlbl.TextSize = math.clamp(math.round(12 * distScale), 12, 16)\n\n\tlocal npcName = getNpcDisplayName(model, hum)\n\tlocal roundedStuds = math.floor(studs + 0.5)\n\n\tif nameEspEnabled and distEspEnabled then\n\t\tlbl.Text = npcName .. \" [\" .. tostring(roundedStuds) .. \" studs]\"\n\telseif nameEspEnabled then\n\t\tlbl.Text = npcName\n\telseif distEspEnabled then\n\t\tlbl.Text = tostring(roundedStuds) .. \" studs\"\n\telse\n\t\tlbl.Text = \"\"\n\tend\nend\n\nlocal function syncTargetButtonLabel()\n\tif hitboxApplyMode == \"ALL\" then\n\t\tApplyModeBtn.Text = \"APPLY TO: ALL NPC\"\n\t\tOpenListBtn.Text = \"NPC: ALL NPCs\"\n\t\treturn\n\tend\n\tApplyModeBtn.Text = \"APPLY TO: ONE NPC\"\n\tif selectedNpcLabel then\n\t\tOpenListBtn.Text = \"NPC: \" .. selectedNpcLabel\n\telseif #npcList > 0 then\n\t\tselectedNpcLabel = npcList[1].label\n\t\tOpenListBtn.Text = \"NPC: \" .. selectedNpcLabel\n\telse\n\t\tOpenListBtn.Text = \"NPC: NONE FOUND\"\n\tend\nend\n\nlocal function rebuildNpcListButtons()\n\tfor _, child in ipairs(ScrollList:GetChildren()) do\n\t\tif child:IsA(\"TextButton\") then\n\t\t\tchild:Destroy()\n\t\tend\n\tend\n\n\tlocal allRow = Instance.new(\"TextButton\")\n\tallRow.Size = UDim2.new(1, -4, 0, 24)\n\tallRow.LayoutOrder = 0\n\tallRow.Font = Enum.Font.GothamBold\n\tallRow.TextSize = 10\n\tallRow.Text = \"[ALL NPCs]\"\n\tallRow.BackgroundColor3 = (hitboxApplyMode == \"ALL\") and Color3.fromRGB(0, 180, 100) or Color3.fromRGB(55, 45, 75)\n\tallRow.TextColor3 = uiTheme.Text\n\tallRow.Parent = ScrollList\n\tInstance.new(\"UICorner\", allRow).CornerRadius = UDim.new(0, 6)\n\n\tallRow.MouseButton1Click:Connect(function()\n\t\thitboxApplyMode = \"ALL\"\n\t\tselectedNpcLabel = nil\n\t\tsyncTargetButtonLabel()\n\t\trestoreAllParts()\n\t\trebuildNpcListButtons()\n\t\tautoSaveSettings()\n\t\tNpcListFrame.Visible = false\n\tend)\n\n\tfor i, item in ipairs(npcList) do\n\t\tlocal row = Instance.new(\"TextButton\")\n\t\trow.Size = UDim2.new(1, -4, 0, 24)\n\t\trow.LayoutOrder = i\n\t\trow.Font = Enum.Font.GothamSemibold\n\t\trow.TextSize = 10\n\t\trow.TextTruncate = Enum.TextTruncate.AtEnd\n\t\trow.Text = item.label\n\t\tlocal isSelected = (hitboxApplyMode == \"ONE\" and item.label == selectedNpcLabel)\n\t\trow.BackgroundColor3 = isSelected and Color3.fromRGB(0, 180, 100) or Color3.fromRGB(40, 40, 48)\n\t\trow.TextColor3 = uiTheme.Text\n\t\trow.Parent = ScrollList\n\t\tInstance.new(\"UICorner\", row).CornerRadius = UDim.new(0, 6)\n\n\t\trow.MouseButton1Click:Connect(function()\n\t\t\tselectedNpcLabel = item.label\n\t\t\thitboxApplyMode = \"ONE\"\n\t\t\tsyncTargetButtonLabel()\n\t\t\trestoreAllParts()\n\t\t\trebuildNpcListButtons()\n\t\t\tautoSaveSettings()\n\t\tend)\n\tend\n\n\tScrollList.CanvasSize = UDim2.new(0, 0, 0, (#npcList + 1) * 28)\nend\n\nHideBtn.MouseButton1Click:Connect(function()\n\tMainFrame.Visible = not MainFrame.Visible\nend)\n\nOpenListBtn.MouseButton1Click:Connect(function()\n\tNpcListFrame.Visible = not NpcListFrame.Visible\n\tif NpcListFrame.Visible then\n\t\trebuildNpcListButtons()\n\tend\nend)\n\nThemeMenuBtn.MouseButton1Click:Connect(function()\n\tThemePanel.Visible = not ThemePanel.Visible\nend)\n\nHitboxBtn.MouseButton1Click:Connect(function()\n\thitboxEnabled = not hitboxEnabled\n\tHitboxBtn.Text = hitboxEnabled and \"HITBOX: ACTIVE\" or \"HITBOX: DEACTIVATED\"\n\tHitboxBtn.BackgroundColor3 = hitboxEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tif not hitboxEnabled then\n\t\trestoreAllParts()\n\tend\n\tautoSaveSettings()\nend)\n\nAutoHitboxBtn.MouseButton1Click:Connect(function()\n\tautoHitboxEnabled = not autoHitboxEnabled\n\tAutoHitboxBtn.Text = autoHitboxEnabled and \"AUTO HITBOX: ON\" or \"AUTO HITBOX: OFF\"\n\tAutoHitboxBtn.BackgroundColor3 = autoHitboxEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tautoSaveSettings()\nend)\n\nPartModeBtn.MouseButton1Click:Connect(function()\n\thitboxPartMode = (hitboxPartMode == \"Head\") and \"Torso\" or \"Head\"\n\tPartModeBtn.Text = \"HITBOX PART: \" .. string.upper(hitboxPartMode)\n\trestoreAllParts()\n\tautoSaveSettings()\nend)\n\nApplyModeBtn.MouseButton1Click:Connect(function()\n\thitboxApplyMode = (hitboxApplyMode == \"ALL\") and \"ONE\" or \"ALL\"\n\tif hitboxApplyMode == \"ONE\" and not selectedNpcLabel and #npcList > 0 then\n\t\tselectedNpcLabel = npcList[1].label\n\tend\n\tsyncTargetButtonLabel()\n\trestoreAllParts()\n\tautoSaveSettings()\nend)\n\nEspBtn.MouseButton1Click:Connect(function()\n\tespEnabled = not espEnabled\n\tEspBtn.Text = espEnabled and \"NPC ESP: ON\" or \"NPC ESP: OFF\"\n\tEspBtn.BackgroundColor3 = espEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tif not espEnabled then\n\t\tclearAllHighlights()\n\tend\n\tautoSaveSettings()\nend)\n\nHealthBtn.MouseButton1Click:Connect(function()\n\thealthEspEnabled = not healthEspEnabled\n\tHealthBtn.Text = healthEspEnabled and \"HEALTH ESP: ON\" or \"HEALTH ESP: OFF\"\n\tHealthBtn.BackgroundColor3 = healthEspEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tif not healthEspEnabled then\n\t\tclearAllHealthEsp()\n\tend\n\tautoSaveSettings()\nend)\n\nNameEspBtn.MouseButton1Click:Connect(function()\n\tnameEspEnabled = not nameEspEnabled\n\tNameEspBtn.Text = nameEspEnabled and \"NAME ESP: ON\" or \"NAME ESP: OFF\"\n\tNameEspBtn.BackgroundColor3 = nameEspEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tif not nameEspEnabled and not distEspEnabled then\n\t\tclearAllInfoEsp()\n\tend\n\tautoSaveSettings()\nend)\n\nDistEspBtn.MouseButton1Click:Connect(function()\n\tdistEspEnabled = not distEspEnabled\n\tDistEspBtn.Text = distEspEnabled and \"DIST ESP: ON\" or \"DIST ESP: OFF\"\n\tDistEspBtn.BackgroundColor3 = distEspEnabled and Color3.fromRGB(0, 180, 100) or uiTheme.ButtonOff\n\tif not nameEspEnabled and not distEspEnabled then\n\t\tclearAllInfoEsp()\n\tend\n\tautoSaveSettings()\nend)\n\nEspColorModeBtn.MouseButton1Click:Connect(function()\n\tespColorMode = (espColorMode == \"PART\") and \"HP\" or \"PART\"\n\tEspColorModeBtn.Text = \"ESP COLOR: \" .. espColorMode\n\tautoSaveSettings()\nend)\n\nAccentCycleBtn.MouseButton1Click:Connect(function()\n\taccentIdx = (accentIdx % #accentPresets) + 1\n\tlocal preset = accentPresets[accentIdx]\n\tuiTheme.Accent = preset.color\n\tAccentCycleBtn.Text = \"ACCENT: \" .. preset.name\n\tapplyThemeToAll()\n\tautoSaveSettings()\nend)\n\nBgCycleBtn.MouseButton1Click:Connect(function()\n\tbgIdx = (bgIdx % #bgPresets) + 1\n\tlocal preset = bgPresets[bgIdx]\n\tuiTheme.Background = preset.bg\n\tuiTheme.ButtonOff = preset.btn\n\tBgCycleBtn.Text = \"BG: \" .. preset.name\n\tapplyThemeToAll()\n\tautoSaveSettings()\nend)\n\nTransCycleBtn.MouseButton1Click:Connect(function()\n\ttransIdx = (transIdx % #transparencySteps) + 1\n\tuiTheme.Transparency = transparencySteps[transIdx]\n\tTransCycleBtn.Text = string.format(\"ALPHA: %d%%\", math.round(uiTheme.Transparency * 100))\n\tapplyThemeToAll()\n\tautoSaveSettings()\nend)\n\nCornerCycleBtn.MouseButton1Click:Connect(function()\n\tcornerIdx = (cornerIdx % #cornerSteps) + 1\n\tuiTheme.CornerPx = cornerSteps[cornerIdx]\n\tCornerCycleBtn.Text = string.format(\"RADIUS: %dpx\", uiTheme.CornerPx)\n\tapplyThemeToAll()\n\tautoSaveSettings()\nend)\n\nGuiSizeCycleBtn.MouseButton1Click:Connect(function()\n\tguiSizeIdx = (guiSizeIdx % #guiSizeSteps) + 1\n\tuiTheme.GuiScale = guiSizeSteps[guiSizeIdx]\n\tGuiSizeCycleBtn.Text = string.format(\"GUI SIZE: %.2fx\", uiTheme.GuiScale)\n\tapplyThemeToAll()\n\tautoSaveSettings()\nend)\n\nlocal function updateSize(delta)\n\theadSize = math.clamp(headSize + delta, 1, 100)\n\tSizeLabel.Text = \"SIZE: \" .. headSize\n\tautoSaveSettings()\nend\n\nIncreaseBtn.MouseButton1Click:Connect(function()\n\tupdateSize(1)\nend)\n\nDecreaseBtn.MouseButton1Click:Connect(function()\n\tupdateSize(-1)\nend)\n\nlocal function getNPCs()\n\tlocal npcs = {}\n\tlocal counts = {}\n\tfor _, obj in ipairs(workspace:GetDescendants()) do\n\t\tif obj:IsA(\"Model\") and not Players:GetPlayerFromCharacter(obj) then\n\t\t\tlocal hum = obj:FindFirstChildOfClass(\"Humanoid\")\n\t\t\tlocal head = obj:FindFirstChild(\"Head\")\n\t\t\tlocal root = obj:FindFirstChild(\"HumanoidRootPart\")\n\t\t\tif hum and head and head:IsA(\"BasePart\") and root and root:IsA(\"BasePart\") and not root.Anchored then\n\t\t\t\tlocal baseName = getNpcDisplayName(obj, hum)\n\t\t\t\tcounts[baseName] = (counts[baseName] or 0) + 1\n\t\t\t\tlocal label = counts[baseName] > 1 and (baseName .. \" #\" .. tostring(counts[baseName])) or baseName\n\t\t\t\ttable.insert(npcs, { model = obj, hum = hum, head = head, root = root, label = label })\n\t\t\tend\n\t\tend\n\tend\n\treturn npcs\nend\n\nlocal elapsed = 0\nRunService.Heartbeat:Connect(function(dt)\n\telapsed += dt\n\tif elapsed < 0.25 then\n\t\treturn\n\tend\n\telapsed = 0\n\n\tlocal targetSize = Vector3.new(headSize, headSize, headSize)\n\tlocal refPos = getReferencePosition()\n\tlocal npcs = getNPCs()\n\tnpcList = npcs\n\n\tif hitboxApplyMode == \"ONE\" and #npcList > 0 then\n\t\tlocal found = false\n\t\tfor _, item in ipairs(npcList) do\n\t\t\tif item.label == selectedNpcLabel then\n\t\t\t\tfound = true\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\t\tif not found then\n\t\t\tselectedNpcLabel = npcList[1].label\n\t\tend\n\tend\n\tsyncTargetButtonLabel()\n\n\tif NpcListFrame.Visible then\n\t\trebuildNpcListButtons()\n\tend\n\n\tlocal canApply = hitboxEnabled and autoHitboxEnabled\n\tlocal activeParts = {}\n\n\tfor _, npc in ipairs(npcs) do\n\t\tlocal model, hum, head, root = npc.model, npc.hum, npc.head, npc.root\n\t\tlocal targetPart = getHitboxPart(model, head)\n\t\tlocal matchesTarget = (hitboxApplyMode == \"ALL\") or (npc.label == selectedNpcLabel)\n\n\t\tif canApply and matchesTarget and hum.Health > 0 and targetPart then\n\t\t\tactiveParts[targetPart] = true\n\t\t\tif not originalParts[targetPart] then\n\t\t\t\toriginalParts[targetPart] = {\n\t\t\t\t\tSize = targetPart.Size,\n\t\t\t\t\tTransparency = targetPart.Transparency,\n\t\t\t\t\tCanCollide = targetPart.CanCollide,\n\t\t\t\t\tMassless = targetPart.Massless,\n\t\t\t\t}\n\t\t\tend\n\t\t\tif targetPart.Size ~= targetSize then\n\t\t\t\tpcall(function()\n\t\t\t\t\ttargetPart.Size = targetSize\n\t\t\t\t\ttargetPart.Transparency = 0.6\n\t\t\t\t\ttargetPart.CanCollide = false\n\t\t\t\t\ttargetPart.Massless = true\n\t\t\t\tend)\n\t\t\tend\n\t\tend\n\n\t\tlocal hl = model:FindFirstChild(\"ESP_Highlight\")\n\t\tif espEnabled then\n\t\t\tpcall(function()\n\t\t\t\tif not hl then\n\t\t\t\t\thl = Instance.new(\"Highlight\")\n\t\t\t\t\thl.Name = \"ESP_Highlight\"\n\t\t\t\t\thl.OutlineColor = Color3.new(1, 1, 1)\n\t\t\t\t\thl.Parent = model\n\t\t\t\tend\n\t\t\t\thl.FillColor = hum.Health <= 0 and Color3.fromRGB(255, 0, 0) or Color3.fromRGB(0, 255, 0)\n\t\t\tend)\n\t\telseif hl then\n\t\t\thl:Destroy()\n\t\tend\n\n\t\tlocal hpGui = model:FindFirstChild(\"NPC_Health_ESP\")\n\t\tif healthEspEnabled then\n\t\t\tpcall(function()\n\t\t\t\tupdateHealthBillboard(model, hum, head, root, refPos)\n\t\t\tend)\n\t\telseif hpGui then\n\t\t\thpGui:Destroy()\n\t\tend\n\n\t\tlocal infoGui = model:FindFirstChild(\"NPC_Info_ESP\")\n\t\tif nameEspEnabled or distEspEnabled then\n\t\t\tpcall(function()\n\t\t\t\tupdateNameAndDist(model, hum, head, root, refPos)\n\t\t\tend)\n\t\telseif infoGui then\n\t\t\tinfoGui:Destroy()\n\t\tend\n\tend\n\n\tfor part in pairs(originalParts) do\n\t\tif not activeParts[part] then\n\t\t\trestorePart(part)\n\t\tend\n\tend\nend)\n\nsyncTargetButtonLabel()\napplyThemeToAll()",
+      "createdAt": "2026-11-25T12:14:39.699Z",
+      "updatedAt": "2026-11-28T17:52:12.775Z",
+      "categoryIds": [
+        "trending"
       ],
       "glyph": "dice",
       "colors": [
@@ -793,7 +903,7 @@
         "Throw Food For Animals script",
         "Throw Food For Animals keyless"
       ],
-      "views": 37939,
+      "views": 37946,
       "likes": 20,
       "dislikes": 1,
       "rating": 4.8,
@@ -829,7 +939,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 37,
+      "views": 38,
       "likes": 0,
       "dislikes": 0,
       "summary": "I made this only for those who doesn't have breacher and doesn't know how to glitch on the map. Tested only on PC and Xeno. Still fixing the UI. It's my own UI FUCK DELTA!!! DELTA IS FOR KIDS!!! Features: Map Teleports (Only Pro Server M…",
@@ -865,7 +975,7 @@
         "examination",
         "Keyless"
       ],
-      "views": 45,
+      "views": 48,
       "likes": 0,
       "dislikes": 0,
       "summary": "Features of v1.1.0 (more coming with future updates!) # **COMBAT** • Silent Aim (FOV, Wall Check, Aim Part) • Auto Shoot • Hitbox Extender + Show Hitbox • No Spread / No Recoil / Accurate Aim • All Fire Modes / Run & Shoot / Block Empty…",
@@ -902,7 +1012,7 @@
         "Avatar",
         "Keyless"
       ],
-      "views": 31,
+      "views": 32,
       "likes": 1,
       "dislikes": 0,
       "summary": "This script only work on your client (locally). Don't forget to replace the user id. Remember to check if the target's avatar is R6 or R15. This script made by Arceny@alpaca & TTJYStudio@TTJY.",
@@ -940,7 +1050,7 @@
         "brookhaven",
         "Keyless"
       ],
-      "views": 3874,
+      "views": 3875,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -976,7 +1086,7 @@
       "tags": [
         "Script"
       ],
-      "views": 17,
+      "views": 18,
       "likes": 0,
       "dislikes": 0,
       "summary": "Aurix Hub Auto Farm, Auto Evolve, Auto Collect Orbs and more?! -- get key at https://aurix-hub.aurixhub.workers.dev/get-key/aurixhub -- discord server: https://discord.gg/HgpBqPEdjz getgenv().SCRIPT_KEY = \"yourkey\" loadstring(game:HttpGe…",
@@ -1011,7 +1121,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 17,
+      "views": 18,
       "likes": 0,
       "dislikes": 0,
       "summary": "i am just a noob Firstly you need to execute the script After that Click \"F\" Key on your keyboard to turn on and off",
@@ -1046,7 +1156,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 36,
+      "views": 37,
       "likes": 1,
       "dislikes": 0,
       "summary": "fly speed studio lite by langz adalah sebuah script untuk mengubah speed dalam mode edit di studio menjadi seperti yang kita inginkan.",
@@ -1081,7 +1191,7 @@
       "tags": [
         "Script"
       ],
-      "views": 4918,
+      "views": 4919,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -1119,7 +1229,7 @@
         "rivals",
         "silet aim"
       ],
-      "views": 23153,
+      "views": 23155,
       "likes": 15,
       "dislikes": 2,
       "rating": 4.4,
@@ -1155,7 +1265,7 @@
       "tags": [
         "Script"
       ],
-      "views": 35,
+      "views": 36,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Shoot Auto Steal Auto Turkey (Remove If Event End) Auto Upgrade Auto Claim And More",
@@ -1192,7 +1302,7 @@
         "gui",
         "script"
       ],
-      "views": 38,
+      "views": 39,
       "likes": 0,
       "dislikes": 0,
       "summary": "simple Noclip script works in most games and Works with most Executors",
@@ -1229,7 +1339,7 @@
         "Auto Draw",
         "Free"
       ],
-      "views": 41,
+      "views": 43,
       "likes": 1,
       "dislikes": 0,
       "summary": "NOT EVERY GAME LISTED IS GARRENTEED TO WORK OR BE UPDATED!!! --- Autodraw instantly onto canvas low unc execs such as Xeno Solara and JJsploit are not supported",
@@ -1265,7 +1375,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 26,
+      "views": 28,
       "likes": 1,
       "dislikes": 0,
       "summary": "This GUI enables decal spam, skybox, char all, and much more.",
@@ -1300,7 +1410,7 @@
       "tags": [
         "Script"
       ],
-      "views": 475188,
+      "views": 475193,
       "likes": 73,
       "dislikes": 9,
       "rating": 4.5,
@@ -1337,7 +1447,7 @@
         "driving empire",
         "Keyless"
       ],
-      "views": 52,
+      "views": 54,
       "likes": 1,
       "dislikes": 0,
       "summary": "feature: auto delivery with trailer to get more money Credits to: turkishpainter25 for the script i just added ui and toggle on/off since his/her script doesn't have any",
@@ -1372,7 +1482,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 39,
+      "views": 40,
       "likes": 0,
       "dislikes": 0,
       "summary": "Features: reach leg and ball,moss head reach,react,autofarmgolas,misc,etc",
@@ -1409,7 +1519,7 @@
         "robloxscript",
         "throwfoodforanimalsscript"
       ],
-      "views": 56,
+      "views": 57,
       "likes": 0,
       "dislikes": 0,
       "summary": "# Pearl Hub | Throw Food For Animals Auto Farm - Auto Throw from anywhere on the map, no walking to the line - Perfect Meter, so every throw lands PERFECT for the max distance bonus - Uses your saved Super Throws automatically - Throw Po…",
@@ -1482,7 +1592,7 @@
         "VAELOR",
         "NOTHING PANEL"
       ],
-      "views": 48,
+      "views": 49,
       "likes": 1,
       "dislikes": 0,
       "summary": "VÆLOR ULTRA V4 SPAMMER A refined and powerful spammer interface built for speed, simplicity, and a smooth user experience. Features - Clean and modern UI - Fast message handling - Easy-to-use controls - Optimized interface - ULTRA V4 Edi…",
@@ -1518,7 +1628,7 @@
         "Best",
         "AutoFarm"
       ],
-      "views": 46,
+      "views": 47,
       "likes": 1,
       "dislikes": 0,
       "summary": "# ByteHub_ — Complete Automation & FPS Boost Suite Clean, lightweight, and actively maintained script with a dark macOS-style UI (**RightControl** to toggle). ### Automation - **Auto Train** — Auto Tap Bonus (2x) + Auto Teleport to Stand…",
@@ -1590,7 +1700,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 61,
+      "views": 66,
       "likes": 0,
       "dislikes": 0,
       "summary": "By purchasing, accessing, downloading, executing, or using any product, key, software, script, service, loader, website, API, or system provided by Rift Corporation , you agree to its TOS. Auto Cut Auto Finish Auto Next Customer Perfect…",
@@ -1627,7 +1737,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 71,
+      "views": 72,
       "likes": 0,
       "dislikes": 0,
       "summary": "admin commands. (23 commands right now according to /amountofcommands) INCOMPLETE AND MAY BUG also im a noob at coding, this took several MONTHS just to add like 5 commands sorry :C btw, i need to learn more, so updates aren't frequent n…",
@@ -1810,7 +1920,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 46,
+      "views": 47,
       "likes": 1,
       "dislikes": 0,
       "summary": "Claim All Codes Kill Aura Auto Quest Farm Y-Axis Slider Weapon Selector",
@@ -1919,7 +2029,7 @@
         "Aotr",
         "Op"
       ],
-      "views": 2258,
+      "views": 2261,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -1957,7 +2067,7 @@
         "auto bridge",
         "auto armor"
       ],
-      "views": 52,
+      "views": 53,
       "likes": 1,
       "dislikes": 0,
       "summary": "Zynex Hub - Combat, Auto Bridge, Auto Armor & Body ESP (PC & Mobile) Dominate every single match with Zynex Hub! Engineered for both PC and Mobile with smooth performance, team-safe Kill Aura, predictive Auto Place Below bridging, instan…",
@@ -1992,7 +2102,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 40,
+      "views": 42,
       "likes": 0,
       "dislikes": 0,
       "summary": "How to use: First, use the gui while your not blind yet, if you load the gui when your blind it will make you blind still Second [shotgun flick], turn on player predict and turn on shotgun flick, I can't care enough to explain everything…",
@@ -2028,7 +2138,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 64,
+      "views": 66,
       "likes": 0,
       "dislikes": 0,
       "summary": "Feature What it does Super Speed Sets speed to 150 Infinite Jump Lets you repeatedly jump WalkSpeed Sets speed to 50 JumpPower Sets jump power to 100 Noclip Turns off character collisions Fly Lets you fly with WASD and Space 📍 Teleport…",
@@ -2065,7 +2175,7 @@
         "Nevliz Hub",
         "Universal"
       ],
-      "views": 104,
+      "views": 106,
       "likes": 0,
       "dislikes": 0,
       "summary": "NEVLIZ Universal is a lightweight, fast, and 100% keyless universal script packed with essential utilities, movement, visuals, combat, player, and teleport tools. Features Utilities: Anti-AFK, FPS Booster, Rejoin Server, Server Hop, Copy…",
@@ -2101,7 +2211,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 29,
+      "views": 30,
       "likes": 1,
       "dislikes": 0,
       "summary": "its where u can load images as voxels and if u wanna know how to convert images to into hexrows u need to find a site or me to convert the image to f3x you could ask me i dms for the site to convert the image into hex grids",
@@ -2112,113 +2222,6 @@
         "trending"
       ],
       "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b0601671c550c86dc6af79e",
-      "slug": "UPDATE-Jailbird-AIMBOTESP-238153",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/UPDATE-Jailbird-AIMBOTESP-238153",
-      "title": "AIMBOT+ESP",
-      "game": "[UPDATE] Jailbird",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-7ab2603c0cbcd17e11fc669097e8ca8f-876150369cee.png",
-      "author": "scriptmakerlolxddddd",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 54,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "YO YO JOIN THE DC",
-      "code": "local Players = game:GetService(\"Players\")\nlocal UserInputService = game:GetService(\"UserInputService\")\nlocal RunService = game:GetService(\"RunService\")\n\nlocal LocalPlayer = Players.LocalPlayer\nlocal Camera = workspace.CurrentCamera\n\nlocal HoldingRMB = false\n\n--------------------------------------------------\n-- ESP\n--------------------------------------------------\n\nlocal function CreateESP(Character)\n\n\tif Character:FindFirstChild(\"ESPHighlight\") then\n\t\treturn\n\tend\n\n\tlocal Highlight = Instance.new(\"Highlight\")\n\tHighlight.Name = \"ESPHighlight\"\n\tHighlight.FillColor = Color3.fromRGB(0,255,65)\n\tHighlight.OutlineColor = Color3.fromRGB(255,255,255)\n\tHighlight.FillTransparency = 0.6\n\tHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop\n\tHighlight.Parent = Character\nend\n\nlocal function SetupPlayer(Player)\n\n\tif Player == LocalPlayer then\n\t\treturn\n\tend\n\n\tlocal function CharacterAdded(Character)\n\t\ttask.wait(0.2)\n\t\tCreateESP(Character)\n\tend\n\n\tif Player.Character then\n\t\tCharacterAdded(Player.Character)\n\tend\n\n\tPlayer.CharacterAdded:Connect(CharacterAdded)\nend\n\nfor _, Player in ipairs(Players:GetPlayers()) do\n\tSetupPlayer(Player)\nend\n\nPlayers.PlayerAdded:Connect(SetupPlayer)\n\n--------------------------------------------------\n-- CLOSEST PLAYER TO MOUSE\n--------------------------------------------------\n\nlocal function GetClosestPlayer()\n\n\tlocal ClosestPlayer = nil\n\tlocal ClosestDistance = math.huge\n\n\tlocal MousePos = UserInputService:GetMouseLocation()\n\n\tfor _, Player in ipairs(Players:GetPlayers()) do\n\n\t\tif Player ~= LocalPlayer\n\t\t\tand Player.Character\n\t\t\tand Player.Character:FindFirstChild(\"Head\")\n\t\t\tand Player.Character:FindFirstChild(\"Humanoid\")\n\t\t\tand Player.Character.Humanoid.Health > 0 then\n\n\t\t\tlocal ScreenPos, Visible =\n\t\t\t\tCamera:WorldToViewportPoint(\n\t\t\t\t\tPlayer.Character.Head.Position\n\t\t\t\t)\n\n\t\t\tif Visible then\n\n\t\t\t\tlocal Distance =\n\t\t\t\t\t(Vector2.new(ScreenPos.X, ScreenPos.Y)\n\t\t\t\t\t- MousePos).Magnitude\n\n\t\t\t\tif Distance < ClosestDistance then\n\t\t\t\t\tClosestDistance = Distance\n\t\t\t\t\tClosestPlayer = Player\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\n\n\treturn ClosestPlayer\nend\n\n--------------------------------------------------\n-- RMB\n--------------------------------------------------\n\nUserInputService.InputBegan:Connect(function(Input, GP)\n\n\tif GP then\n\t\treturn\n\tend\n\n\tif Input.UserInputType == Enum.UserInputType.MouseButton2 then\n\t\tHoldingRMB = true\n\tend\nend)\n\nUserInputService.InputEnded:Connect(function(Input)\n\n\tif Input.UserInputType == Enum.UserInputType.MouseButton2 then\n\t\tHoldingRMB = false\n\tend\nend)\n\n--------------------------------------------------\n-- CAMLOCK\n--------------------------------------------------\n\nRunService.RenderStepped:Connect(function()\n\n\tif not HoldingRMB then\n\t\treturn\n\tend\n\n\tlocal Target = GetClosestPlayer()\n\n\tif not Target then\n\t\treturn\n\tend\n\n\tlocal Character = Target.Character\n\tlocal Head = Character and Character:FindFirstChild(\"Head\")\n\n\tif not Head then\n\t\treturn\n\tend\n\n\tlocal Desired = CFrame.lookAt(\n\t\tCamera.CFrame.Position,\n\t\tHead.Position\n\t)\n\n\tCamera.CFrame = Camera.CFrame:Lerp(\n\t\tDesired,\n\t\t0.15\n\t)\nend)",
-      "createdAt": "2026-11-24T21:28:07.876Z",
-      "updatedAt": "2026-11-28T16:26:49.258Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b05c140cd78074edb64f7d0",
-      "slug": "teleport-Kohls-Admin-House-X-TEST-VERSION-OF-LOLZHUB-better-version-of-KN-238130",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/teleport-Kohls-Admin-House-X-TEST-VERSION-OF-LOLZHUB-better-version-of-KN-238130",
-      "title": "LOLZHUB (better version of KN )",
-      "game": "(teleport) Kohls Admin House X",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-654bc1a7426de72eb55a4585ebb3a49f-d7ec763e1d46.png",
-      "author": "Exellerty_LOLZ",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 34,
-      "likes": 1,
-      "dislikes": 0,
-      "summary": "yo hi to reviwer PLZ READ THIS : this is only test version execute it in Kohls Admin House X 0.no kick / ban CD 1.have servercrash(bugged !!!) 2.have antikick 3CMDline 4.silent-mode 5.config-system 6.corrupt-server(scary ahh feature) 7.d…",
-      "code": "loadstring(game:HttpGet(\"https://keysystem.pro/someonerandom3/1211241241241241241\"))()",
-      "createdAt": "2026-11-24T16:54:25.026Z",
-      "updatedAt": "2026-11-28T16:24:54.396Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "dice",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-6b05dbda70fa86f51c5f2c31",
-      "slug": "DEC-1-Drill-City-Chicago-BEST-SCRIPT-XENO-DELTA-FULL-SILENT-AIM-AUTOFARM-GUN-DUPE-238143",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/DEC-1-Drill-City-Chicago-BEST-SCRIPT-XENO-DELTA-FULL-SILENT-AIM-AUTOFARM-GUN-DUPE-238143",
-      "title": "BEST SCRIPT XENO DELTA FULL SILENT AIM AUTOFARM GUN DUPE",
-      "game": "[DEC 1👀] Drill City: Chicago",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-6fdff63bd407eb3070c8458a54d23024-bebb22d8fc45.png",
-      "author": "sportsclub",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "free",
-        "keyless",
-        "Drill City Chicago"
-      ],
-      "views": 48,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "[+] Silent Aim | Wallbang, Team / ForceField / Shield / Alive / Wall / Distance Check, Hit Chance, Aim Part, FOV [+] Aimbot | Smoothness, Team / ForceField / Shield / Alive / Wall Check, Aim Part [+] Triggerbot | Delay, Cooldown, Team /…",
-      "code": "loadstring(game:HttpGet(\"https://loader.sportsclub.fun/loader.luau\"))()",
-      "createdAt": "2026-11-24T18:47:55.265Z",
-      "updatedAt": "2026-11-28T16:21:18.306Z",
-      "categoryIds": [
-        "trending"
-      ],
-      "glyph": "crosshair",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -2245,7 +2248,7 @@
         "Auto Throw",
         "Auto Train"
       ],
-      "views": 26,
+      "views": 28,
       "likes": 1,
       "dislikes": 0,
       "summary": "- PROJECT ABYSS THROW FOOD FOR ANİMALS - join dc for any kind of issue event tab gonna get reworked since new event came it still stuck on thanksgiving - FEATURES - Auto Throw - İnstant Throw - Always Perfect - Auto Train - Auto Claim -…",
@@ -2319,7 +2322,7 @@
         "script",
         "op goat"
       ],
-      "views": 68,
+      "views": 70,
       "likes": 0,
       "dislikes": 0,
       "summary": "working on new update. Features: [-] Auto Raid [-] Auto Quest [-] Auto Farm [-] Auto Roll [-] Auto Upgrade [-] Auto Machines [-] And More features!",
@@ -2389,7 +2392,7 @@
       "tags": [
         "Exlumiaa Hub"
       ],
-      "views": 46,
+      "views": 48,
       "likes": 0,
       "dislikes": 0,
       "summary": "• Auto Cut • Auto Call Customer • Auto Collect Tips • Auto Claim Rewards • Auto Upgrade • Auto Post • ESP • TP",
@@ -2411,7 +2414,7 @@
       "source": "scriptblox",
       "sourceLabel": "ScriptBlox",
       "sourceUrl": "https://scriptblox.com/script/RELEASE-Hammer-Bound-Axonic-or-Esp-238627",
-      "title": "Axonic | Esp",
+      "title": "Axonic | Esp | NEW GAME",
       "game": "(RELEASE) Hammer Bound",
       "gameImage": "https://scriptblox.com/images/sb/rbx-d19b3e91c90f82996466e3832cb55897-91f70feacdf2.png",
       "author": "AxonicHub",
@@ -2424,13 +2427,13 @@
       "tags": [
         "Keyless"
       ],
-      "views": 154,
+      "views": 161,
       "likes": 2,
       "dislikes": 0,
       "summary": "Player Esp ROBLOX HAMMER BOUND",
       "code": "local Players = game:GetService(\"Players\")\nlocal LP = Players.LocalPlayer\n\nlocal function ESP(character)\n    if character:FindFirstChild(\"ESP\") then return end\n\n    local highlight = Instance.new(\"Highlight\")\n    highlight.Name = \"ESP\"\n    highlight.Adornee = character\n    highlight.FillColor = Color3.fromRGB(185, 130, 255)\n    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)\n    highlight.FillTransparency = 0.8\n    highlight.OutlineTransparency = 0.15\n    highlight.DepthMode = Enum.HighlightDepthMode.Occluded\n    highlight.Parent = character\nend\n\nlocal function setup(player)\n    if player == LP then return end\n    if player.Character then ESP(player.Character) end\n    player.CharacterAdded:Connect(ESP)\nend\n\nfor _, player in ipairs(Players:GetPlayers()) do\n    setup(player)\nend\n\nPlayers.PlayerAdded:Connect(setup)",
       "createdAt": "2026-11-28T06:18:33.157Z",
-      "updatedAt": "2026-11-28T06:18:33.025Z",
+      "updatedAt": "2026-11-28T19:03:18.265Z",
       "categoryIds": [
         "new"
       ],
@@ -2468,6 +2471,41 @@
       "code": "loadstring(game:HttpGet('https://bankroll.wtf/scripts/wakeupanimals.lua'))()",
       "createdAt": "2026-11-28T05:28:22.328Z",
       "updatedAt": "2026-11-28T14:32:14.725Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-6b0a5af182e7b9a5d92f4221",
+      "slug": "MOUSE-KRLL-X-238614",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/MOUSE-KRLL-X-238614",
+      "title": "KRLL X",
+      "game": "MOUSE 🎄",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-fb897d133c2dbad643f2df8eab6aabe3-83097de7ef4d.png",
+      "author": "KRLLX",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 9,
+      "likes": 1,
+      "dislikes": 0,
+      "summary": "Esse Script é pro mapa RATO (esse mapa é de terror do Roblox) Opções Esp players e o rato Noclip FULLBRINGHT Velocidade Pulo Teleporte ajustável (uma interface fora que você pode colocar uma posição pra depois teleporta pra ela, tipo a z…",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/marianoygo0or-cyber/SCRIPT-KRLL-RATO-V10/refs/heads/main/README.md\"))()",
+      "createdAt": "2026-11-28T04:39:13.798Z",
+      "updatedAt": "2026-11-28T19:08:01.870Z",
       "categoryIds": [
         "new"
       ],
@@ -2533,7 +2571,7 @@
         "silent",
         "esp"
       ],
-      "views": 97,
+      "views": 99,
       "likes": 1,
       "dislikes": 0,
       "summary": "- **Combat:** Silent Aim (Passive / Hold Key) - **Visuals:** Target ESP, Labels, Distance, Custom Colors, Detection Meter - **Stealth:** Undetectable, Smart Cover, Auto-Peek, Server Position Ghost, Fake Crouch, Instant Hide - **Player:**…",
@@ -2639,7 +2677,7 @@
       "tags": [
         "Script"
       ],
-      "views": 92,
+      "views": 94,
       "likes": 0,
       "dislikes": 0,
       "summary": "⚡ Sosiskomras HUB A high-quality, lightweight script without bloat or useless features. 🟢 Tested & working code 🛡️ Simple key system 🛠️ Fast bug fixes 🔄 Regular updates",
@@ -2674,7 +2712,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 99,
+      "views": 100,
       "likes": 0,
       "dislikes": 0,
       "summary": "The great build",
@@ -2709,7 +2747,7 @@
       "tags": [
         "Script"
       ],
-      "views": 367,
+      "views": 369,
       "likes": 2,
       "dislikes": 0,
       "summary": "🔹 Silent Aim 🔹 Auto Curve 🔹 Auto Max Power 🔹 Auto Shoot Near Goal 🔹 Shoot Distance 🔹 Auto Shoot on Touch 🔹 Instant Shoot 🔹 Auto Pickup 🔹 Pickup Range 🔹 Auto Dribble to Goal 🔹 Auto Face Ball 🔹 Auto Goal 🔹 TP Steal & Goal 🔹 A…",
@@ -2784,7 +2822,7 @@
         "barber empire",
         "auto cut"
       ],
-      "views": 78,
+      "views": 82,
       "likes": 0,
       "dislikes": 0,
       "summary": "Main Tab: [+] Auto Farm All [+] Auto Cut (5 Stars) [+] Cut Delay Slider [+] Auto Call Customers [+] Auto Post ClipTok [+] Finish Current Cut Button Shop & Upgrades: [+] Auto Buy & Equip Best Tools [+] Auto Build Shop [+] Auto Unlock Skil…",
@@ -2893,7 +2931,7 @@
       "tags": [
         "Script"
       ],
-      "views": 71,
+      "views": 72,
       "likes": 0,
       "dislikes": 0,
       "summary": "Barber Empire script by ComboWick (Combo_WICK). Works on mobile and PC. Features: - Auto Build Shop - Auto Hire + Upgrade barbers - Perfect 5-Star Cuts - Auto Skill Tree - Auto Post Videos - Auto Video Wheel - Auto Buy Best Tools - Auto…",
@@ -3040,7 +3078,7 @@
       "tags": [
         "Script"
       ],
-      "views": 462,
+      "views": 466,
       "likes": 0,
       "dislikes": 0,
       "summary": "Auto Farm Auto Quest Auto Boss More ...",
@@ -3112,7 +3150,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 426,
+      "views": 427,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -3150,7 +3188,7 @@
         "Auto Boss",
         "Instant Perfect"
       ],
-      "views": 142,
+      "views": 143,
       "likes": 1,
       "dislikes": 0,
       "summary": "**Progression** + Auto Progression (new account: train, cast, equip best, sell, buy rods, barbells, bait and pen, join boss, claim rewards) + Live status **Farm** + Auto Perfect Cast (always Perfect, instant catch) + Catch Notifications…",
@@ -3258,7 +3296,7 @@
         "esp",
         "monster"
       ],
-      "views": 311,
+      "views": 312,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3331,7 +3369,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 263,
+      "views": 264,
       "likes": 2,
       "dislikes": 0,
       "summary": "fling all fling selected players exclude friends spectate while flinging all gamepasses free get all cars spawn any car auto get jetpack auto get lamborghini rainbow skin anti fling anti car fling anti sit anti void god mode safe spot fl…",
@@ -3405,7 +3443,7 @@
         "op",
         "keyless"
       ],
-      "views": 388,
+      "views": 389,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -3519,7 +3557,7 @@
         "Chess Duels script",
         "Chess Duels scripts"
       ],
-      "views": 354,
+      "views": 355,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -3557,7 +3595,7 @@
         "Unstable SMP FFA script",
         "Unstable"
       ],
-      "views": 1078,
+      "views": 1081,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -3595,7 +3633,7 @@
         "Throw a Seed Script",
         "Throw a Seed Scripts"
       ],
-      "views": 242,
+      "views": 244,
       "likes": 2,
       "dislikes": 0,
       "summary": "Snowy Hub: Throw a Seed Throwing & Training - Auto Throw Seeds & Collect Plants - Set 1-10 Throws per Trip - Auto Train Strength at the Bar Between Trips Garden & Selling - Auto Place Your Best Plants - Auto Sell Unplaced Plants Seeds &…",
@@ -3777,7 +3815,7 @@
         "MM",
         "Auto Farm"
       ],
-      "views": 656,
+      "views": 658,
       "likes": 4,
       "dislikes": 0,
       "rating": 5,
@@ -4195,42 +4233,6 @@
       ]
     },
     {
-      "id": "scriptblox-6b0773f58d9d3d38236f5959",
-      "slug": "Realistic-Ragdoll-MMA-Fishy-Hub-or-Auto-Combat-Inf-Stamina-Auto-Play-Auto-Parry-238290",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Realistic-Ragdoll-MMA-Fishy-Hub-or-Auto-Combat-Inf-Stamina-Auto-Play-Auto-Parry-238290",
-      "title": "Fishy Hub | Auto Combat, Inf Stamina, Auto Play, Auto Parry+",
-      "game": "Realistic Ragdoll MMA 🥊",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-1bf1ff501ffd5085ef1f556ae6a25dcf-e41d2a2124d9.png",
-      "author": "fishyzzz",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": false,
-      "universal": false,
-      "tags": [
-        "Script"
-      ],
-      "views": 337,
-      "likes": 3,
-      "dislikes": 0,
-      "rating": 5,
-      "summary": "This Fishy Hub script for Realistic Ragdoll MMA uses FishyUI and opens with RightControl, with tabs for Combat, Self, Opponent, Autos, Unlocks, Ranked, Visuals, and Misc, all built as in-place patches on the live ROFC tables plus the gam…",
-      "code": "loadstring(game:HttpGet(\"https://jnkie.com/loaders/fishyhub\"))()",
-      "createdAt": "2026-11-25T23:49:09.010Z",
-      "updatedAt": "2026-11-26T04:44:19.884Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
       "id": "scriptblox-683b3949a348d24efdf83b72",
       "slug": "Universal-Script-Forge-Hub-41461",
       "source": "scriptblox",
@@ -4251,7 +4253,7 @@
         "godmode",
         "autofarm"
       ],
-      "views": 5602617,
+      "views": 5602688,
       "likes": 113,
       "dislikes": 56,
       "rating": 3.3,
@@ -4291,7 +4293,7 @@
         "scripthub",
         "Keyless"
       ],
-      "views": 4497440,
+      "views": 4497450,
       "likes": 128,
       "dislikes": 20,
       "rating": 4.3,
@@ -4332,7 +4334,7 @@
         "sae",
         "universal"
       ],
-      "views": 3996592,
+      "views": 3996632,
       "likes": 105,
       "dislikes": 54,
       "rating": 3.3,
@@ -4373,7 +4375,7 @@
         "flow",
         "script"
       ],
-      "views": 3977605,
+      "views": 3977819,
       "likes": 34,
       "dislikes": 10,
       "rating": 3.9,
@@ -4413,7 +4415,7 @@
         "Aimbot",
         "Universal"
       ],
-      "views": 3945672,
+      "views": 3945878,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -4452,7 +4454,7 @@
         "bloxfruit",
         "steal an egg"
       ],
-      "views": 3629436,
+      "views": 3629650,
       "likes": 70,
       "dislikes": 13,
       "rating": 4.2,
@@ -4492,7 +4494,7 @@
         "nights in the forest",
         "blox fruits fruit bf"
       ],
-      "views": 3510328,
+      "views": 3510331,
       "likes": 91,
       "dislikes": 51,
       "rating": 3.2,
@@ -4532,7 +4534,7 @@
         "brookhaven",
         "bloxfruits"
       ],
-      "views": 3391248,
+      "views": 3391251,
       "likes": 209,
       "dislikes": 19,
       "rating": 4.6,
@@ -4571,7 +4573,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3151541,
+      "views": 3151543,
       "likes": 9,
       "dislikes": 1,
       "rating": 4.5,
@@ -4610,7 +4612,7 @@
         "bloxfruit",
         "blox fruit"
       ],
-      "views": 3149066,
+      "views": 3149079,
       "likes": 201,
       "dislikes": 30,
       "rating": 4.4,
@@ -4649,7 +4651,7 @@
         "op grow a garden",
         "auto farm"
       ],
-      "views": 3024163,
+      "views": 3024166,
       "likes": 49,
       "dislikes": 10,
       "rating": 4.2,
@@ -4688,7 +4690,7 @@
         "steal a brainrot",
         "Universal"
       ],
-      "views": 2858198,
+      "views": 2858409,
       "likes": 77,
       "dislikes": 24,
       "rating": 3.8,
@@ -4728,7 +4730,7 @@
         "Molyn hub",
         "Molyn development"
       ],
-      "views": 2723963,
+      "views": 2723967,
       "likes": 48,
       "dislikes": 29,
       "rating": 3.1,
@@ -4768,9 +4770,9 @@
         "Nights in the forest",
         "Nights in the forest script"
       ],
-      "views": 2490420,
+      "views": 2490427,
       "likes": 178,
-      "dislikes": 32,
+      "dislikes": 33,
       "rating": 4.2,
       "summary": "# 99 nights in the forest Features # > Farm Tab - AFK Win/Days Farm - Diamond Farm # > Main Tab - Kill Aura - Kill Aura Radius - Auto Chop - Chop Aura Radius - Auto Sapling - Auto Fuel - Auto Craft - Auto Cook - Auto Biofuel - Auto Eat (…",
       "code": "loadstring(game:HttpGet(\"https://moondiety.com/loader\"))()",
@@ -4845,7 +4847,7 @@
         "ZapHub",
         "Op"
       ],
-      "views": 2328258,
+      "views": 2328259,
       "likes": 38,
       "dislikes": 9,
       "rating": 4,
@@ -4923,7 +4925,7 @@
         "Free Keyless",
         "Universal"
       ],
-      "views": 2143322,
+      "views": 2143324,
       "likes": 19,
       "dislikes": 3,
       "rating": 4.3,
@@ -5083,7 +5085,7 @@
         "Hood Rivals",
         "Build a Car to Go Far"
       ],
-      "views": 2047822,
+      "views": 2048046,
       "likes": 164,
       "dislikes": 49,
       "rating": 3.8,
@@ -5162,7 +5164,7 @@
         "AutoFarmLevel",
         "Farm Devil Fruit Mastery"
       ],
-      "views": 1983695,
+      "views": 1983697,
       "likes": 142,
       "dislikes": 22,
       "rating": 4.3,
@@ -5201,7 +5203,7 @@
         "bloxfruits",
         "adoptme"
       ],
-      "views": 1934345,
+      "views": 1934560,
       "likes": 34,
       "dislikes": 6,
       "rating": 4.3,
@@ -5352,7 +5354,7 @@
         "SanderXY",
         "Brookhaven"
       ],
-      "views": 1895194,
+      "views": 1895200,
       "likes": 210,
       "dislikes": 35,
       "rating": 4.3,
@@ -5468,7 +5470,7 @@
         "Roblox Steal a Brainrot",
         "Steal a Brainrot Script"
       ],
-      "views": 1875841,
+      "views": 1875843,
       "likes": 51,
       "dislikes": 15,
       "rating": 3.9,
@@ -5505,7 +5507,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1847672,
+      "views": 1847673,
       "likes": 3,
       "dislikes": 0,
       "rating": 5,
@@ -5580,7 +5582,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1789650,
+      "views": 1789652,
       "likes": 25,
       "dislikes": 0,
       "rating": 5,
@@ -5656,7 +5658,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1786356,
+      "views": 1786358,
       "likes": 2,
       "dislikes": 1,
       "rating": 3.3,
@@ -5730,7 +5732,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1748919,
+      "views": 1748923,
       "likes": 22,
       "dislikes": 11,
       "rating": 3.3,
@@ -5923,7 +5925,7 @@
         "survival",
         "Nights in the Forest"
       ],
-      "views": 1690215,
+      "views": 1690216,
       "likes": 336,
       "dislikes": 45,
       "rating": 4.4,
@@ -5962,7 +5964,7 @@
         "Keyless",
         "keyless"
       ],
-      "views": 1682604,
+      "views": 1682605,
       "likes": 11,
       "dislikes": 0,
       "rating": 5,
@@ -6077,7 +6079,7 @@
         "Blox Fruits",
         "Op script"
       ],
-      "views": 1612369,
+      "views": 1612373,
       "likes": 19,
       "dislikes": 7,
       "rating": 3.7,
@@ -6427,7 +6429,7 @@
         "peely",
         "bf"
       ],
-      "views": 1426565,
+      "views": 1426567,
       "likes": 5,
       "dislikes": 4,
       "rating": 2.8,
@@ -6506,7 +6508,7 @@
         "free",
         "easy"
       ],
-      "views": 1402760,
+      "views": 1402966,
       "likes": 1,
       "dislikes": 0,
       "summary": "⚡ EasyScript - All-in-One Roblox Script EasyScript is an all-in-one Roblox script with 22+ modules covering combat, visuals, movement, trolling, avatars, players and utilities. Everything you need in one clean client. ✨ Features 🎯 Aimbo…",
@@ -6658,7 +6660,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1346735,
+      "views": 1346736,
       "likes": 179,
       "dislikes": 16,
       "rating": 4.6,
@@ -6670,44 +6672,6 @@
         "keyless"
       ],
       "glyph": "fruit",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "scriptblox-68c5035a53fb20c263b7ad40",
-      "slug": "Jump-In-The-Hole-UPD-4-Free-gamepass-ROCK-52906",
-      "source": "scriptblox",
-      "sourceLabel": "ScriptBlox",
-      "sourceUrl": "https://scriptblox.com/script/Jump-In-The-Hole-UPD-4-Free-gamepass-ROCK-52906",
-      "title": "Free gamepass ROCK",
-      "game": "Jump In The Hole [ UPD 4 ]",
-      "gameImage": "https://scriptblox.com/images/sb/rbx-34a2f6d623b525466d6e6b8cf1b675b1-e0676ccf8ab4.png",
-      "author": "KMAN",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "open sourcer",
-        "give me credits",
-        "join in dc"
-      ],
-      "views": 1342723,
-      "likes": 7,
-      "dislikes": 6,
-      "rating": 2.7,
-      "summary": "Features > > Free best rock ( robux for free )",
-      "code": "-- anvil rock + tgmankaske credit lol\n\nlocal args = {\n\t\"Anvil\"\n}\ngame:GetService(\"ReplicatedStorage\"):WaitForChild(\"Packages\"):WaitForChild(\"_Index\"):WaitForChild(\"sleitnick_knit@1.5.1\"):WaitForChild(\"knit\"):WaitForChild(\"Services\"):WaitForChild(\"ShoppingService\"):WaitForChild(\"RF\"):WaitForChild(\"BuyRock\"):InvokeServer(unpack(args))",
-      "createdAt": "2025-09-13T05:38:34.591Z",
-      "updatedAt": "2025-09-13T05:38:34.589Z",
-      "categoryIds": [
-        "keyless"
-      ],
-      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -6734,7 +6698,7 @@
         "reanimation",
         "vc bypass"
       ],
-      "views": 1342680,
+      "views": 1342891,
       "likes": 39,
       "dislikes": 3,
       "rating": 4.6,
@@ -6746,6 +6710,44 @@
         "keyless",
         "universal",
         "verified"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "scriptblox-68c5035a53fb20c263b7ad40",
+      "slug": "Jump-In-The-Hole-UPD-4-Free-gamepass-ROCK-52906",
+      "source": "scriptblox",
+      "sourceLabel": "ScriptBlox",
+      "sourceUrl": "https://scriptblox.com/script/Jump-In-The-Hole-UPD-4-Free-gamepass-ROCK-52906",
+      "title": "Free gamepass ROCK",
+      "game": "Jump In The Hole [ UPD 4 ]",
+      "gameImage": "https://scriptblox.com/images/sb/rbx-34a2f6d623b525466d6e6b8cf1b675b1-e0676ccf8ab4.png",
+      "author": "KMAN",
+      "authorVerified": false,
+      "verified": false,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "open sourcer",
+        "give me credits",
+        "join in dc"
+      ],
+      "views": 1342724,
+      "likes": 7,
+      "dislikes": 6,
+      "rating": 2.7,
+      "summary": "Features > > Free best rock ( robux for free )",
+      "code": "-- anvil rock + tgmankaske credit lol\n\nlocal args = {\n\t\"Anvil\"\n}\ngame:GetService(\"ReplicatedStorage\"):WaitForChild(\"Packages\"):WaitForChild(\"_Index\"):WaitForChild(\"sleitnick_knit@1.5.1\"):WaitForChild(\"knit\"):WaitForChild(\"Services\"):WaitForChild(\"ShoppingService\"):WaitForChild(\"RF\"):WaitForChild(\"BuyRock\"):InvokeServer(unpack(args))",
+      "createdAt": "2025-09-13T05:38:34.591Z",
+      "updatedAt": "2025-09-13T05:38:34.589Z",
+      "categoryIds": [
+        "keyless"
       ],
       "glyph": "dice",
       "colors": [
@@ -6812,7 +6814,7 @@
         "Godmode",
         "Free"
       ],
-      "views": 1337961,
+      "views": 1337962,
       "likes": 16,
       "dislikes": 17,
       "rating": 2.4,
@@ -6850,7 +6852,7 @@
         "join in dc for more",
         "subscribe pls"
       ],
-      "views": 1326215,
+      "views": 1326217,
       "likes": 27,
       "dislikes": 1,
       "rating": 4.8,
@@ -6999,7 +7001,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 1282380,
+      "views": 1282381,
       "likes": 13,
       "dislikes": 6,
       "rating": 3.4,
@@ -7073,7 +7075,7 @@
         "aimbot",
         "silent aim"
       ],
-      "views": 1240978,
+      "views": 1240979,
       "likes": 24,
       "dislikes": 4,
       "rating": 4.3,
@@ -7295,7 +7297,7 @@
         "bf",
         "blox fruits"
       ],
-      "views": 1124799,
+      "views": 1124801,
       "likes": 15,
       "dislikes": 8,
       "rating": 3.3,
@@ -7334,7 +7336,7 @@
         "Script Hub",
         "Roblox Script Hub"
       ],
-      "views": 1336228,
+      "views": 1336229,
       "likes": 13,
       "dislikes": 3,
       "rating": 4.1,
@@ -7373,7 +7375,7 @@
         "Recoil",
         "Keyless"
       ],
-      "views": 1054806,
+      "views": 1054807,
       "likes": 16,
       "dislikes": 8,
       "rating": 3.3,
@@ -7445,7 +7447,7 @@
       "tags": [
         "Universal"
       ],
-      "views": 915885,
+      "views": 915886,
       "likes": 9,
       "dislikes": 2,
       "rating": 4.1,
@@ -7559,7 +7561,7 @@
         "afem",
         "emote"
       ],
-      "views": 864649,
+      "views": 864650,
       "likes": 51,
       "dislikes": 6,
       "rating": 4.5,
@@ -7635,7 +7637,7 @@
         "Doors",
         "Evade"
       ],
-      "views": 825093,
+      "views": 825094,
       "likes": 13,
       "dislikes": 1,
       "rating": 4.6,
@@ -7859,7 +7861,7 @@
         "fly gui",
         "fly mobile"
       ],
-      "views": 737332,
+      "views": 737342,
       "likes": 59,
       "dislikes": 4,
       "rating": 4.7,
@@ -7897,7 +7899,7 @@
         "Incognito",
         "Celery"
       ],
-      "views": 734553,
+      "views": 734554,
       "likes": 34,
       "dislikes": 3,
       "rating": 4.6,
@@ -8238,7 +8240,7 @@
         "roblox",
         "universal"
       ],
-      "views": 622825,
+      "views": 622826,
       "likes": 3,
       "dislikes": 8,
       "rating": 1.4,
@@ -8351,7 +8353,7 @@
         "Admin",
         "Fly"
       ],
-      "views": 602056,
+      "views": 602060,
       "likes": 21,
       "dislikes": 10,
       "rating": 3.4,
@@ -8647,7 +8649,7 @@
         "Sonic exe",
         "Button"
       ],
-      "views": 547181,
+      "views": 547183,
       "likes": 16,
       "dislikes": 5,
       "rating": 3.8,
@@ -8684,7 +8686,7 @@
         "Keyless",
         "Universal"
       ],
-      "views": 541174,
+      "views": 541176,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -8758,7 +8760,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1370279,
+      "views": 1370280,
       "likes": 126,
       "dislikes": 32,
       "rating": 4,
@@ -8833,7 +8835,7 @@
         "Nights in the Forest",
         "Roblox  Nights in the Forest"
       ],
-      "views": 1255337,
+      "views": 1255339,
       "likes": 185,
       "dislikes": 32,
       "rating": 4.3,
@@ -8943,7 +8945,7 @@
       "tags": [
         "Script"
       ],
-      "views": 1165881,
+      "views": 1165882,
       "likes": 5,
       "dislikes": 0,
       "rating": 5,
@@ -8981,7 +8983,7 @@
         "best",
         "Op"
       ],
-      "views": 1078128,
+      "views": 1078149,
       "likes": 102,
       "dislikes": 18,
       "rating": 4.3,
@@ -9019,7 +9021,7 @@
         "ftf",
         "Keyless"
       ],
-      "views": 1062398,
+      "views": 1062399,
       "likes": 23,
       "dislikes": 8,
       "rating": 3.7,
@@ -9055,7 +9057,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 93990,
+      "views": 93991,
       "likes": 580,
       "dislikes": 178,
       "rating": 3.8,
@@ -9128,7 +9130,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 497403,
+      "views": 497411,
       "likes": 436,
       "dislikes": 117,
       "rating": 3.9,
@@ -9201,7 +9203,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 231033,
+      "views": 231036,
       "likes": 285,
       "dislikes": 42,
       "rating": 4.4,
@@ -9350,7 +9352,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 410737,
+      "views": 410738,
       "likes": 188,
       "dislikes": 33,
       "rating": 4.3,
@@ -9647,7 +9649,7 @@
       "tags": [
         "Script"
       ],
-      "views": 9,
+      "views": 16,
       "likes": 1,
       "dislikes": 0,
       "summary": "Execute in North Earth, wait 10 seconds and you'll see 9B XP with your levels going up until 1050, you get also 6M Zenni.",
@@ -9681,7 +9683,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3,
+      "views": 12,
       "likes": 1,
       "dislikes": 0,
       "summary": "FLY WITH EVERY GAME BUT BE CERFUL DONT USE THIS SCRIPT ON GAMES THAT HAVE ANTI CHEAT ON OK",
@@ -9716,7 +9718,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 7,
+      "views": 8,
       "likes": 0,
       "dislikes": 0,
       "summary": "- [-] Auto Jutsu - [-] Auto Taijutsu - [-] Auto Chakra - [-] Auto Boss - [-] Auto Wins - [-] Auto Rebirth - [-] Auto Boss Shop - [-] Smart Travel - [-] Auto Roll - [-] Auto Equip Roll - [-] Auto Best Aura - [-] Auto Buy Aura - [-] Auto H…",
@@ -9727,76 +9729,6 @@
         "new"
       ],
       "glyph": "paw",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b0b2152c85c20b2672d7648",
-      "slug": "op-best-keyless-arbix-hub-script-fling-aimbot-100-more-S2wB",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/op-best-keyless-arbix-hub-script-fling-aimbot-100-more-S2wB",
-      "title": "OP BEST KEYLESS ARBIX HUB SCRIPT FLING AIMBOT 100+ MORE",
-      "game": "Murder Mystery 2",
-      "gameImage": "https://rscripts.net/assets/games/142823291-thumb-0020e65514e754e9.webp",
-      "author": "vw6222",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 18,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "its op. very op. works well for mobile users (Floating buttons) and for pc (Floating buttons &amp; Keybind) its keyless and has 130+ Buttons",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/Arbix-Hub.lua\"))()",
-      "createdAt": "2026-11-28T18:54:06.579Z",
-      "updatedAt": "2026-11-28T18:51:49.456Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "crosshair",
-      "colors": [
-        "#00F0FF",
-        "#0066FF"
-      ]
-    },
-    {
-      "id": "rscripts-6b0b229db4c16f0ea811123a",
-      "slug": "op-arbix-hub-keyless-15-buttons-autofarm-golds-and-more-TGrI",
-      "source": "rscripts",
-      "sourceLabel": "Rscripts",
-      "sourceUrl": "https://rscripts.net/script/op-arbix-hub-keyless-15-buttons-autofarm-golds-and-more-TGrI",
-      "title": "OP ARBIX HUB KEYLESS 15+ BUTTONS AUTOFARM GOLDS AND MORE",
-      "game": "Build A Boat For Treasure",
-      "gameImage": "https://rscripts.net/assets/games/537413528-thumb-05a6711aac7a9834.webp",
-      "author": "vw6222",
-      "authorVerified": false,
-      "verified": false,
-      "status": "working",
-      "premium": false,
-      "keyless": true,
-      "universal": false,
-      "tags": [
-        "Keyless"
-      ],
-      "views": 4,
-      "likes": 0,
-      "dislikes": 0,
-      "summary": "Auto Farm Golds and a few more",
-      "code": "loadstring(game:HttpGet(\"https://flowauth.net/v1/loaders/Arbix-Hub.lua\"))()",
-      "createdAt": "2026-11-28T18:51:09.060Z",
-      "updatedAt": "2026-11-28T18:51:09.060Z",
-      "categoryIds": [
-        "new"
-      ],
-      "glyph": "dice",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -9821,7 +9753,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 3,
+      "views": 4,
       "likes": 0,
       "dislikes": 0,
       "summary": "Free Barry S Prison Run Obby script with every main function included The build is optimized to run smooth on any executor and device, with a clean menu that keeps every feature one click away. - Get All Tools (Free Gamepasses) - Instant…",
@@ -9856,7 +9788,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 8,
+      "views": 12,
       "likes": 0,
       "dislikes": 0,
       "summary": "One loadstring covers everything this My Little Pony Card Opening helper offers UPDATE: [+] Full Auto Loop [+] Auto Open Packs [+] Auto Buy Packs [+] Golden Pack Sniper [+] Auto Sell Duplicates [+] Pony Pairs Solver [+] Perfect Postcards…",
@@ -9961,7 +9893,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 15,
+      "views": 17,
       "likes": 0,
       "dislikes": 0,
       "summary": "One loadstring covers everything this Animal Hospital Anomaly helper offers How to use: 1. Copy the script code below. 2. Paste it into your executor while in the game. 3. Run it and toggle features from the menu. Includes: Auto Work Shi…",
@@ -9996,7 +9928,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 6,
+      "views": 8,
       "likes": 0,
       "dislikes": 0,
       "summary": "Kalye | Cinder HUB A Rayfield hub for Kalye with combat automation, turf and delivery farming, and player ESP. Combat - Auto parry / block: blocks attacks aimed at you, timed to each move's startup so the first hit gets parried. You can…",
@@ -10031,7 +9963,7 @@
       "tags": [
         "Mobile"
       ],
-      "views": 8,
+      "views": 9,
       "likes": 0,
       "dislikes": 0,
       "summary": "- [-] Auto Farm Level - [-] Boss Quests - [-] Repeat Quest - [-] Closest Mobs Fallback - [-] Auto Farm - [-] Use Skills - [-] Auto Boss - [-] Refresh Boss List - [-] Auto Prestige - [-] Auto Trial - [-] Auto Clan Spin - [-] Auto Equip Be…",
@@ -10066,7 +9998,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 17,
+      "views": 18,
       "likes": 1,
       "dislikes": 0,
       "summary": "# uwukai Anime Crusaders X released! ⚔️🌸 ```diff + Main + Auto Place ; unit select, max per slot, place order + Auto Upgrade ; upgrade order, max level + Auto Start + Auto Skip ; stop at wave + Auto Ability + On Finish ; next, replay or…",
@@ -10101,7 +10033,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 24,
+      "views": 27,
       "likes": 1,
       "dislikes": 0,
       "summary": "Eze Hub — Illegal Soccer. Everything starts off and your settings are saved. Shooting Silent Aim: your shots go into a corner of the goal you're facing, wherever you actually aim. You choose the corner (away from the keeper, far, or near…",
@@ -10135,7 +10067,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 8,
+      "views": 9,
       "likes": 0,
       "dislikes": 0,
       "summary": "This script play animation that everyone in your server could see. Contact Script Developer on Discord to add more Animations. [⚠️IMPORTANT⚠️] Core Movement: If you applied an Animation and want to change, please remove and reset your ch…",
@@ -10181,6 +10113,75 @@
         "new"
       ],
       "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "rscripts-6b0b145c6e969d6f38df0120",
+      "slug": "auto-farmauto-throw-perfect-throw-super-throw-FQC6",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/auto-farmauto-throw-perfect-throw-super-throw-FQC6",
+      "title": "Auto FarmAuto Throw, Perfect Throw, Super Throw",
+      "game": "[🍖] Throw Food For Animals",
+      "gameImage": "https://rscripts.net/assets/games/120219252362013-thumb-b53c51d9dde502d1.webp",
+      "author": "realp",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": false,
+      "universal": false,
+      "tags": [
+        "Mobile"
+      ],
+      "views": 22,
+      "likes": 0,
+      "dislikes": 0,
+      "summary": "[ Throw Food For Animals ] [+] Farm ; Auto Farm, Throw On Level Up, Throws Per Level, Train Time, Target Zone [+] Throw ; Auto Throw, Perfect Throw, Super Throw, Throw Mode [+] Train ; Auto Train, Auto Tap Bonus, Equip Best Animal [+] Up…",
+      "code": "--[[rscripts:analytics:start]]\n-- Script analytics (enabled by the creator on rscripts.net).\n-- Runs in its own thread and cannot affect the script below.\ntask.spawn(function()\n\tpcall(function()\n\t\tloadstring(game:HttpGet(\"https://rscripts.net/api/telemetry/v2/client.lua?s=6b0b145c6e969d6f38df0120\"))()\n\tend)\nend)\n--[[rscripts:analytics:end]]\n\nloadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/030c18901831a9df3ddf3b8bce0bf9cb.lua\"))()",
+      "createdAt": "2026-11-28T17:50:20.521Z",
+      "updatedAt": "2026-11-28T17:50:20.521Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "dice",
+      "colors": [
+        "#00F0FF",
+        "#0066FF"
+      ]
+    },
+    {
+      "id": "rscripts-6b0b142f0ef1faebc127bad5",
+      "slug": "avatar-stealer-use-anyone-avatar-L9vI",
+      "source": "rscripts",
+      "sourceLabel": "Rscripts",
+      "sourceUrl": "https://rscripts.net/script/avatar-stealer-use-anyone-avatar-L9vI",
+      "title": "Avatar Stealer + Use Anyone Avatar",
+      "game": "Roblox",
+      "author": "ExpectTheUnexpected",
+      "authorVerified": true,
+      "verified": true,
+      "status": "working",
+      "premium": false,
+      "keyless": true,
+      "universal": false,
+      "tags": [
+        "Keyless"
+      ],
+      "views": 36,
+      "likes": 1,
+      "dislikes": 1,
+      "summary": "This script only work on your client (locally). Don't forget to replace the user id. Remember to check if the target's avatar is R6 or R15. This script made by alpaca &amp; TTJY.",
+      "code": "--[[\r\n    Remember to check if the target's avatar is r6 or 15;\r\n    This script made by Arceny@alpaca & TTJYStudio@TTJY\r\n]]\r\n\r\nlocal UserId = 2207291; -- Replace this with Target's user id;\r\n\r\nlocal IsA = game.IsA;\r\nlocal twait = task.wait;\r\nlocal Destroy = game.Destroy;\r\nlocal GetService = game.GetService;\r\nlocal GetChildren = game.GetChildren;\r\nlocal FindFirstChild = game.FindFirstChild;\r\n\r\nlocal ServerStorage = GetService(game, \"ServerStorage\");\r\nlocal Players = GetService(game, \"Players\");\r\nlocal selff = Players.LocalPlayer;\r\n\r\nlocal Desc = Players:GetHumanoidDescriptionFromUserIdAsync(UserId);\r\nlocal onChar = function(char)\r\n    local selc = char or selff.Character;\r\n    if not selc then return; end;\r\n\r\n    local HumSelf = FindFirstChild(selc, \"Humanoid\");\r\n    if not HumSelf then return; end;\r\n\r\n    local Data = Players:CreateHumanoidModelFromDescriptionAsync(\r\n        Desc, HumSelf.RigType, Enum.AssetTypeVerification.ClientOnly\r\n    ); Data.Parent = ServerStorage; twait(1);\r\n\r\n    local CHs=GetChildren(selc); for i=1, #CHs do\r\n        local v= CHs[i]; if v.Parent then\r\n            if\r\n                IsA(v, \"Shirt\")\r\n                or IsA(v, \"Pants\")   \r\n                or IsA(v, \"BodyColors\")\r\n                or IsA(v, \"Accessory\")\r\n                or IsA(v, \"CharacterMesh\")\r\n                or IsA(v, \"CharacterAppearance\")\r\n            then\r\n                Destroy(v);\r\n            end;\r\n        end;\r\n    end; twait(1);\r\n\r\n    Data=GetChildren(Data); for i=1, #Data do\r\n        local v= Data[i]; if \r\n            IsA(v, \"Shirt\")\r\n            or IsA(v, \"Pants\")   \r\n            or IsA(v, \"BodyColors\")\r\n            or IsA(v, \"Accessory\")\r\n            or IsA(v, \"CharacterMesh\")\r\n            or IsA(v, \"CharacterAppearance\")\r\n        then\r\n            local Clone = v:Clone(); if IsA(v, \"Accessory\") then\r\n                local AccessoryWeld = FindFirstChild(Clone, \"AccessoryWeld\", true);\r\n                if AccessoryWeld and selc[tostring(AccessoryWeld.Part1)] then\r\n                    AccessoryWeld.Part1 = selc[tostring(AccessoryWeld.Part1)];\r\n                end; Clone.Parent = selc;\r\n            else\r\n                Clone.Parent = selc;\r\n            end;\r\n        end;\r\n    end;\r\nend; onChar(); selff.CharacterAdded:Connect(onChar);",
+      "createdAt": "2026-11-28T17:49:35.122Z",
+      "updatedAt": "2026-11-28T17:53:49.124Z",
+      "categoryIds": [
+        "new"
+      ],
+      "glyph": "fruit",
       "colors": [
         "#00F0FF",
         "#0066FF"
@@ -10422,7 +10423,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 221929,
+      "views": 221931,
       "likes": 120,
       "dislikes": 44,
       "rating": 3.7,
@@ -10496,7 +10497,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 199364,
+      "views": 199365,
       "likes": 115,
       "dislikes": 19,
       "rating": 4.3,
@@ -10534,7 +10535,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 144130,
+      "views": 144131,
       "likes": 121,
       "dislikes": 13,
       "rating": 4.5,
@@ -10570,7 +10571,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 109225,
+      "views": 109229,
       "likes": 111,
       "dislikes": 26,
       "rating": 4.1,
@@ -10643,7 +10644,7 @@
       "tags": [
         "Keyless"
       ],
-      "views": 35967,
+      "views": 35969,
       "likes": 96,
       "dislikes": 41,
       "rating": 3.5,
